@@ -25,7 +25,8 @@ export type RemoveListenerCertificatesCommandInput = RemoveListenerCertificatesI
 export type RemoveListenerCertificatesCommandOutput = RemoveListenerCertificatesOutput & __MetadataBearer;
 
 /**
- * <p>Removes the specified certificate from the certificate list for the specified HTTPS or TLS listener.</p>
+ * <p>Removes the specified certificate from the certificate list for the specified HTTPS or TLS
+ *       listener.</p>
  */
 export class RemoveListenerCertificatesCommand extends $Command<
   RemoveListenerCertificatesCommandInput,

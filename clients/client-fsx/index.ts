@@ -2,6 +2,7 @@ export * from "./FSxClient";
 export * from "./FSx";
 export * from "./commands/AssociateFileSystemAliasesCommand";
 export * from "./commands/CancelDataRepositoryTaskCommand";
+export * from "./commands/CopyBackupCommand";
 export * from "./commands/CreateBackupCommand";
 export * from "./commands/CreateDataRepositoryTaskCommand";
 export * from "./commands/CreateFileSystemCommand";

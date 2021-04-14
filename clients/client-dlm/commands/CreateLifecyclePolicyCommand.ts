@@ -21,7 +21,8 @@ export type CreateLifecyclePolicyCommandInput = CreateLifecyclePolicyRequest;
 export type CreateLifecyclePolicyCommandOutput = CreateLifecyclePolicyResponse & __MetadataBearer;
 
 /**
- * <p>Creates a policy to manage the lifecycle of the specified AWS resources. You can create up to 100 lifecycle policies.</p>
+ * <p>Creates a policy to manage the lifecycle of the specified AWS resources. You can
+ * 			create up to 100 lifecycle policies.</p>
  */
 export class CreateLifecyclePolicyCommand extends $Command<
   CreateLifecyclePolicyCommandInput,

@@ -34,8 +34,8 @@ export type DeleteDatasetCommandOutput = DeleteDatasetResponse & __MetadataBeare
  *                <p>If you delete the training dataset, you must create a training dataset before you can create a model.</p>
  *             </li>
  *          </ul>
- *          <p>It might take a while to delete the dataset. To check the current status, check the <code>Status</code> field
- *       in the response from a call to <a>DescribeDataset</a>. </p>
+ *          <p>This operation requires permissions to perform the
+ *          <code>lookoutvision:DeleteDataset</code> operation.</p>
  */
 export class DeleteDatasetCommand extends $Command<
   DeleteDatasetCommandInput,

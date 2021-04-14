@@ -437,11 +437,13 @@ export enum DependentServiceName {
 }
 
 export enum ViolationReason {
+  FMSCreatedSecurityGroupEdited = "FMS_CREATED_SECURITY_GROUP_EDITED",
   MissingExpectedRouteTable = "MISSING_EXPECTED_ROUTE_TABLE",
   MissingFirewall = "MISSING_FIREWALL",
   MissingFirewallSubnetInAZ = "MISSING_FIREWALL_SUBNET_IN_AZ",
   NetworkFirewallPolicyModified = "NETWORK_FIREWALL_POLICY_MODIFIED",
   ResourceIncorrectWebAcl = "RESOURCE_INCORRECT_WEB_ACL",
+  ResourceMissingDnsFirewall = "RESOURCE_MISSING_DNS_FIREWALL",
   ResourceMissingSecurityGroup = "RESOURCE_MISSING_SECURITY_GROUP",
   ResourceMissingShieldProtection = "RESOURCE_MISSING_SHIELD_PROTECTION",
   ResourceMissingWebAcl = "RESOURCE_MISSING_WEB_ACL",
@@ -621,6 +623,7 @@ export namespace ResourceTag {
 }
 
 export enum SecurityServiceType {
+  DNS_FIREWALL = "DNS_FIREWALL",
   NETWORK_FIREWALL = "NETWORK_FIREWALL",
   SECURITY_GROUPS_COMMON = "SECURITY_GROUPS_COMMON",
   SECURITY_GROUPS_CONTENT_AUDIT = "SECURITY_GROUPS_CONTENT_AUDIT",
@@ -1235,6 +1238,93 @@ export namespace AwsVPCSecurityGroupViolation {
 }
 
 /**
+ * <p>A DNS Firewall rule group that Firewall Manager
+ *        tried to associate with a VPC is already associated with the VPC and can't be associated again. </p>
+ */
+export interface DnsDuplicateRuleGroupViolation {
+  /**
+   * <p>The ID of the VPC. </p>
+   */
+  ViolationTarget?: string;
+
+  /**
+   * <p>A description of the violation that specifies the rule group and VPC.</p>
+   */
+  ViolationTargetDescription?: string;
+}
+
+export namespace DnsDuplicateRuleGroupViolation {
+  export const filterSensitiveLog = (obj: DnsDuplicateRuleGroupViolation): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The VPC that Firewall Manager was applying a DNS Fireall policy to reached the limit for associated DNS Firewall rule groups. Firewall Manager tried to associate another rule group with the VPC and failed due to the limit. </p>
+ */
+export interface DnsRuleGroupLimitExceededViolation {
+  /**
+   * <p>The ID of the VPC. </p>
+   */
+  ViolationTarget?: string;
+
+  /**
+   * <p>A description of the violation that specifies the rule group and VPC.</p>
+   */
+  ViolationTargetDescription?: string;
+
+  /**
+   * <p>The number of rule groups currently associated with the VPC.  </p>
+   */
+  NumberOfRuleGroupsAlreadyAssociated?: number;
+}
+
+export namespace DnsRuleGroupLimitExceededViolation {
+  export const filterSensitiveLog = (obj: DnsRuleGroupLimitExceededViolation): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A rule group that Firewall Manager
+ *        tried to associate with a VPC has the same priority as a rule group that's already associated. </p>
+ */
+export interface DnsRuleGroupPriorityConflictViolation {
+  /**
+   * <p>The ID of the VPC. </p>
+   */
+  ViolationTarget?: string;
+
+  /**
+   * <p>A description of the violation that specifies the VPC and the rule group that's already associated with it.</p>
+   */
+  ViolationTargetDescription?: string;
+
+  /**
+   * <p>The priority setting of the two conflicting rule groups.</p>
+   */
+  ConflictingPriority?: number;
+
+  /**
+   * <p>The ID of the Firewall Manager DNS Firewall policy that was already applied to the VPC.
+   *        This policy contains the rule group that's already associated with the VPC. </p>
+   */
+  ConflictingPolicyId?: string;
+
+  /**
+   * <p>The priorities of rule groups that are already associated with the VPC. To retry your operation,
+   *        choose priority settings that aren't in this list for the rule groups in your new DNS Firewall policy. </p>
+   */
+  UnavailablePriorities?: number[];
+}
+
+export namespace DnsRuleGroupPriorityConflictViolation {
+  export const filterSensitiveLog = (obj: DnsRuleGroupPriorityConflictViolation): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Violation details for AWS Network Firewall for a subnet that's not associated to the expected
  *        Firewall Manager managed route table.</p>
  */
@@ -1489,6 +1579,23 @@ export interface ResourceViolation {
    *        changed the priority of a stateless rule group, or changed a policy default action.</p>
    */
   NetworkFirewallPolicyModifiedViolation?: NetworkFirewallPolicyModifiedViolation;
+
+  /**
+   * <p>Violation detail for a DNS Firewall policy that indicates that a rule group that Firewall Manager
+   *        tried to associate with a VPC has the same priority as a rule group that's already associated. </p>
+   */
+  DnsRuleGroupPriorityConflictViolation?: DnsRuleGroupPriorityConflictViolation;
+
+  /**
+   * <p>Violation detail for a DNS Firewall policy that indicates that a rule group that Firewall Manager
+   *        tried to associate with a VPC is already associated with the VPC and can't be associated again. </p>
+   */
+  DnsDuplicateRuleGroupViolation?: DnsDuplicateRuleGroupViolation;
+
+  /**
+   * <p>Violation details for a DNS Firewall policy that indicates that the VPC reached the limit for associated DNS Firewall rule groups. Firewall Manager tried to associate another rule group with the VPC and failed. </p>
+   */
+  DnsRuleGroupLimitExceededViolation?: DnsRuleGroupLimitExceededViolation;
 }
 
 export namespace ResourceViolation {

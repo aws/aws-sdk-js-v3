@@ -6,8 +6,11 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  */
 export interface AdvancedBackupSetting {
   /**
-   * <p>The type of AWS resource to be backed up. For VSS Windows backups, the only supported
-   *          resource type is Amazon EC2.</p>
+   * <p>Specifies an object containing resource type and backup options. The only supported
+   *          resource type is Amazon EC2 instances with Windows VSS. For an CloudFormation example, see
+   *          the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/integrate-cloudformation-with-aws-backup.html">sample
+   *             CloudFormation template to enable Windows VSS</a> in the <i>AWS Backup User
+   *             Guide</i>.</p>
    *          <p>Valid values: <code>EC2</code>.</p>
    */
   ResourceType?: string;
@@ -191,8 +194,11 @@ export interface BackupJob {
   BackupSizeInBytes?: number;
 
   /**
-   * <p>Specifies the IAM role ARN used to create the target recovery point; for example,
-   *             <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
+   * <p>Specifies the IAM role ARN used to create the target recovery point. IAM roles other
+   *          than the default role must include either <code>AWSBackup</code> or <code>AwsBackup</code>
+   *          in the role name. For example,
+   *             <code>arn:aws:iam::123456789012:role/AWSBackupRDSAccess</code>. Role names without those
+   *          strings lack permissions to perform backup jobs.</p>
    */
   IamRoleArn?: string;
 
@@ -223,7 +229,8 @@ export interface BackupJob {
 
   /**
    * <p>The type of AWS resource to be backed up; for example, an Amazon Elastic Block Store
-   *          (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database. For VSS Windows backups, the only supported resource type is Amazon EC2.</p>
+   *          (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database. For VSS
+   *          Windows backups, the only supported resource type is Amazon EC2.</p>
    */
   ResourceType?: string;
 
@@ -236,8 +243,9 @@ export interface BackupJob {
   /**
    * <p>Specifies the backup option for a selected resource. This option is only available for
    *          Windows VSS backup jobs.</p>
-   *          <p>Valid values: Set to <code>"WindowsVSS”:“enabled"</code> to enable WindowsVSS backup option and create a VSS Windows backup.
-   *          Set to “WindowsVSS”:”disabled” to create a regular backup. If you specify an invalid option, you get an
+   *          <p>Valid values: Set to <code>"WindowsVSS”:“enabled"</code> to enable WindowsVSS backup
+   *          option and create a VSS Windows backup. Set to “WindowsVSS”:”disabled” to create a regular
+   *          backup. If you specify an invalid option, you get an
    *             <code>InvalidParameterValueException</code> exception.</p>
    */
   BackupOptions?: { [key: string]: string };
@@ -261,6 +269,7 @@ export namespace BackupJob {
  *          days. Therefore, on the console, the “expire after days” setting must be 90 days greater
  *          than the “transition to cold after days” setting. The “transition to cold after days”
  *          setting cannot be changed after a backup has been transitioned to cold.</p>
+ *          <p>Only Amazon EFS file system backups can be transitioned to cold storage.</p>
  */
 export interface Lifecycle {
   /**
@@ -293,6 +302,7 @@ export interface CopyAction {
    *          days. Therefore, on the console, the “expire after days” setting must be 90 days greater
    *          than the “transition to cold after days” setting. The “transition to cold after days”
    *          setting cannot be changed after a backup has been transitioned to cold.</p>
+   *          <p>Only Amazon EFS file system backups can be transitioned to cold storage.</p>
    */
   Lifecycle?: Lifecycle;
 
@@ -327,18 +337,23 @@ export interface BackupRule {
   TargetBackupVaultName: string | undefined;
 
   /**
-   * <p>A CRON expression specifying when AWS Backup initiates a backup job. For more information about cron expressions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html">Schedule Expressions for Rules</a> in
-   *               the <i>Amazon CloudWatch Events User Guide.</i>. Prior to specifying a value for this parameter, we recommend testing your cron expression using one of the many available cron generator and testing tools.</p>
+   * <p>A CRON expression specifying when AWS Backup initiates a backup job. For more
+   *          information about cron expressions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html">Schedule Expressions for Rules</a> in the <i>Amazon CloudWatch Events User
+   *             Guide.</i>. Prior to specifying a value for this parameter, we recommend testing
+   *          your cron expression using one of the many available cron generator and testing
+   *          tools.</p>
    */
   ScheduleExpression?: string;
 
   /**
-   * <p>A value in minutes after a backup is scheduled before a job will be canceled if it doesn't start successfully. This value is optional.</p>
+   * <p>A value in minutes after a backup is scheduled before a job will be canceled if it
+   *          doesn't start successfully. This value is optional.</p>
    */
   StartWindowMinutes?: number;
 
   /**
-   * <p>A value in minutes after a backup job is successfully started before it must be completed or it will be canceled by AWS Backup. This value is optional.</p>
+   * <p>A value in minutes after a backup job is successfully started before it must be
+   *          completed or it will be canceled by AWS Backup. This value is optional.</p>
    */
   CompletionWindowMinutes?: number;
 
@@ -350,6 +365,7 @@ export interface BackupRule {
    *          days. Therefore, the “expire after days” setting must be 90 days greater than the
    *          “transition to cold after days” setting. The “transition to cold after days” setting cannot
    *          be changed after a backup has been transitioned to cold. </p>
+   *          <p>Only Amazon EFS file system backups can be transitioned to cold storage.</p>
    */
   Lifecycle?: Lifecycle;
 
@@ -366,9 +382,17 @@ export interface BackupRule {
   RuleId?: string;
 
   /**
-   * <p>An array of <code>CopyAction</code> objects, which contains the details of the copy operation.</p>
+   * <p>An array of <code>CopyAction</code> objects, which contains the details of the copy
+   *          operation.</p>
    */
   CopyActions?: CopyAction[];
+
+  /**
+   * <p>Specifies whether AWS Backup creates continuous backups. True causes AWS Backup to
+   *          create continuous backups capable of point-in-time restore (PITR). False (or not specified)
+   *          causes AWS Backup to create snapshot backups.</p>
+   */
+  EnableContinuousBackup?: boolean;
 }
 
 export namespace BackupRule {
@@ -430,12 +454,14 @@ export interface BackupRuleInput {
   ScheduleExpression?: string;
 
   /**
-   * <p>A value in minutes after a backup is scheduled before a job will be canceled if it doesn't start successfully. This value is optional.</p>
+   * <p>A value in minutes after a backup is scheduled before a job will be canceled if it
+   *          doesn't start successfully. This value is optional.</p>
    */
   StartWindowMinutes?: number;
 
   /**
-   * <p>A value in minutes after a backup job is successfully started before it must be completed or it will be canceled by AWS Backup. This value is optional.</p>
+   * <p>A value in minutes after a backup job is successfully started before it must be
+   *          completed or it will be canceled by AWS Backup. This value is optional.</p>
    */
   CompletionWindowMinutes?: number;
 
@@ -447,6 +473,7 @@ export interface BackupRuleInput {
    *          days. Therefore, the “expire after days” setting must be 90 days greater than the
    *          “transition to cold after days” setting. The “transition to cold after days” setting cannot
    *          be changed after a backup has been transitioned to cold. </p>
+   *          <p>Only Amazon EFS file system backups can be transitioned to cold storage.</p>
    */
   Lifecycle?: Lifecycle;
 
@@ -457,9 +484,17 @@ export interface BackupRuleInput {
   RecoveryPointTags?: { [key: string]: string };
 
   /**
-   * <p>An array of <code>CopyAction</code> objects, which contains the details of the copy operation.</p>
+   * <p>An array of <code>CopyAction</code> objects, which contains the details of the copy
+   *          operation.</p>
    */
   CopyActions?: CopyAction[];
+
+  /**
+   * <p>Specifies whether AWS Backup creates continuous backups. True causes AWS Backup to
+   *          create continuous backups capable of point-in-time restore (PITR). False (or not specified)
+   *          causes AWS Backup to create snapshot backups.</p>
+   */
+  EnableContinuousBackup?: boolean;
 }
 
 export namespace BackupRuleInput {
@@ -487,7 +522,8 @@ export interface BackupPlanInput {
   Rules: BackupRuleInput[] | undefined;
 
   /**
-   * <p>Specifies a list of <code>BackupOptions</code> for each resource type. These settings are only available for Windows VSS backup jobs.</p>
+   * <p>Specifies a list of <code>BackupOptions</code> for each resource type. These settings
+   *          are only available for Windows VSS backup jobs.</p>
    */
   AdvancedBackupSettings?: AdvancedBackupSetting[];
 }
@@ -639,15 +675,16 @@ export interface BackupSelection {
   IamRoleArn: string | undefined;
 
   /**
-   * <p>An array of strings that contain Amazon Resource Names (ARNs)  of resources to assign
-   *          to a backup plan.</p>
+   * <p>An array of strings that contain Amazon Resource Names (ARNs)
+   *
+   *          of resources to assign to a backup plan.</p>
    */
   Resources?: string[];
 
   /**
    * <p>An array of conditions used to specify a set of resources to assign to a backup plan;
-   *          for example, <code>"StringEquals": {"ec2:ResourceTag/Department":
-   *          "accounting"</code>.</p>
+   *          for example, <code>"StringEquals": {"ec2:ResourceTag/Department": "accounting"</code>.
+   *          Assigns the backup plan to every resource with at least one matching tag.</p>
    */
   ListOfTags?: Condition[];
 }
@@ -735,7 +772,7 @@ export interface BackupVaultListMember {
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example,
-   *          <code>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</code>.</p>
+   *             <code>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</code>.</p>
    */
   BackupVaultArn?: string;
 
@@ -749,7 +786,7 @@ export interface BackupVaultListMember {
 
   /**
    * <p>The server-side encryption key that is used to protect your backups; for example,
-   *          <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
+   *             <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
    */
   EncryptionKeyArn?: string;
 
@@ -781,6 +818,7 @@ export namespace BackupVaultListMember {
  *          days. Therefore, the “expire after days” setting must be 90 days greater than the
  *          “transition to cold after days” setting. The “transition to cold after days” setting cannot
  *          be changed after a backup has been transitioned to cold.</p>
+ *          <p>Only Amazon EFS file system backups can be transitioned to cold storage.</p>
  */
 export interface CalculatedLifecycle {
   /**
@@ -846,22 +884,22 @@ export interface CopyJob {
   DestinationRecoveryPointArn?: string;
 
   /**
-   * <p>The AWS resource to be copied; for example, an Amazon Elastic Block Store (Amazon EBS) volume or an
-   *          Amazon Relational Database Service (Amazon RDS) database.</p>
+   * <p>The AWS resource to be copied; for example, an Amazon Elastic Block Store (Amazon EBS)
+   *          volume or an Amazon Relational Database Service (Amazon RDS) database.</p>
    */
   ResourceArn?: string;
 
   /**
-   * <p>The date and time a copy job is created, in Unix format and Coordinated Universal Time (UTC). The
-   *          value of <code>CreationDate</code> is accurate to milliseconds. For example, the value 1516925490.087
-   *          represents Friday, January 26, 2018 12:11:30.087 AM.</p>
+   * <p>The date and time a copy job is created, in Unix format and Coordinated Universal Time
+   *          (UTC). The value of <code>CreationDate</code> is accurate to milliseconds. For example, the
+   *          value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.</p>
    */
   CreationDate?: Date;
 
   /**
-   * <p>The date and time a copy job is completed, in Unix format and Coordinated Universal Time (UTC). The
-   *          value of <code>CompletionDate</code> is accurate to milliseconds. For example, the value 1516925490.087
-   *          represents Friday, January 26, 2018 12:11:30.087 AM.</p>
+   * <p>The date and time a copy job is completed, in Unix format and Coordinated Universal Time
+   *          (UTC). The value of <code>CompletionDate</code> is accurate to milliseconds. For example,
+   *          the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.</p>
    */
   CompletionDate?: Date;
 
@@ -893,9 +931,8 @@ export interface CopyJob {
   CreatedBy?: RecoveryPointCreator;
 
   /**
-   * <p>The type of AWS resource to be copied;
-   *          for example, an Amazon Elastic Block Store (Amazon EBS) volume or an Amazon
-   *          Relational Database Service (Amazon RDS) database. </p>
+   * <p>The type of AWS resource to be copied; for example, an Amazon Elastic Block Store
+   *          (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database.</p>
    */
   ResourceType?: string;
 }
@@ -922,9 +959,8 @@ export interface CreateBackupPlanInput {
 
   /**
    * <p>Identifies the request and allows failed requests to be retried without the risk of
-   *          running
-   *          the operation twice. If the request includes a <code>CreatorRequestId</code> that matches
-   *          an existing backup plan, that plan is returned. This parameter is optional.</p>
+   *          running the operation twice. If the request includes a <code>CreatorRequestId</code> that
+   *          matches an existing backup plan, that plan is returned. This parameter is optional.</p>
    */
   CreatorRequestId?: string;
 }
@@ -964,7 +1000,8 @@ export interface CreateBackupPlanOutput {
   VersionId?: string;
 
   /**
-   * <p>A list of <code>BackupOptions</code> settings for a resource type. This option is only available for Windows VSS backup jobs.</p>
+   * <p>A list of <code>BackupOptions</code> settings for a resource type. This option is only
+   *          available for Windows VSS backup jobs.</p>
    */
   AdvancedBackupSettings?: AdvancedBackupSetting[];
 }
@@ -1133,7 +1170,7 @@ export interface CreateBackupVaultInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
    *          by names that are unique to the account used to create them and the AWS Region where they
-   *          are created. They consist of lowercase letters, numbers, and hyphens.</p>
+   *          are created. They consist of letters, numbers, and hyphens.</p>
    */
   BackupVaultName: string | undefined;
 
@@ -1370,6 +1407,32 @@ export interface DeleteRecoveryPointInput {
 
 export namespace DeleteRecoveryPointInput {
   export const filterSensitiveLog = (obj: DeleteRecoveryPointInput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>AWS Backup is already performing an action on this recovery point. It can't perform the
+ *          action you requested until the first action finishes. Try again later.</p>
+ */
+export interface InvalidResourceStateException extends __SmithyException, $MetadataBearer {
+  name: "InvalidResourceStateException";
+  $fault: "client";
+  Code?: string;
+  Message?: string;
+  /**
+   * <p></p>
+   */
+  Type?: string;
+
+  /**
+   * <p></p>
+   */
+  Context?: string;
+}
+
+export namespace InvalidResourceStateException {
+  export const filterSensitiveLog = (obj: InvalidResourceStateException): any => ({
     ...obj,
   });
 }
@@ -1651,10 +1714,10 @@ export interface DescribeGlobalSettingsOutput {
   GlobalSettings?: { [key: string]: string };
 
   /**
-   * <p>The date and time that the global settings was last updated. This update is in Unix format and
-   *          Coordinated Universal Time (UTC). The value of <code>LastUpdateTime</code> is accurate to
-   *          milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018
-   *          12:11:30.087 AM.</p>
+   * <p>The date and time that the global settings were last updated. This update is in Unix
+   *          format and Coordinated Universal Time (UTC). The value of <code>LastUpdateTime</code> is
+   *          accurate to milliseconds. For example, the value 1516925490.087 represents Friday, January
+   *          26, 2018 12:11:30.087 AM.</p>
    */
   LastUpdateTime?: Date;
 }
@@ -1762,8 +1825,10 @@ export interface DescribeRecoveryPointOutput {
   BackupVaultArn?: string;
 
   /**
-   * <p>An Amazon Resource Name (ARN) that uniquely identifies the source vault where the resource was originally backed up in; for example,
-   *          <code>arn:aws:backup:us-east-1:123456789012:vault:BackupVault</code>. If the recovery is restored to the same AWS account or Region, this value will be <code>null</code>.</p>
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies the source vault where the
+   *          resource was originally backed up in; for example,
+   *             <code>arn:aws:backup:us-east-1:123456789012:vault:BackupVault</code>. If the recovery is
+   *          restored to the same AWS account or Region, this value will be <code>null</code>.</p>
    */
   SourceBackupVaultArn?: string;
 
@@ -1837,6 +1902,7 @@ export interface DescribeRecoveryPointOutput {
    *          minimum of 90 days. Therefore, the “expire after days” setting must be 90 days greater than
    *          the “transition to cold after days” setting. The “transition to cold after days” setting
    *          cannot be changed after a backup has been transitioned to cold. </p>
+   *          <p>Only Amazon EFS file system backups can be transitioned to cold storage.</p>
    */
   Lifecycle?: Lifecycle;
 
@@ -1997,6 +2063,25 @@ export interface DescribeRestoreJobOutput {
 
 export namespace DescribeRestoreJobOutput {
   export const filterSensitiveLog = (obj: DescribeRestoreJobOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateRecoveryPointInput {
+  /**
+   * <p>The unique name of an AWS Backup vault. Required.</p>
+   */
+  BackupVaultName: string | undefined;
+
+  /**
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies an AWS Backup recovery point.
+   *          Required.</p>
+   */
+  RecoveryPointArn: string | undefined;
+}
+
+export namespace DisassociateRecoveryPointInput {
+  export const filterSensitiveLog = (obj: DisassociateRecoveryPointInput): any => ({
     ...obj,
   });
 }
@@ -2396,6 +2481,10 @@ export interface GetSupportedResourceTypesOutput {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>Aurora</code> for Amazon Aurora</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>Storage Gateway</code> for AWS Storage Gateway</p>
    *             </li>
    *          </ul>
@@ -2477,6 +2566,10 @@ export interface ListBackupJobsInput {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>Aurora</code> for Amazon Aurora</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>Storage Gateway</code> for AWS Storage Gateway</p>
    *             </li>
    *          </ul>
@@ -2484,7 +2577,10 @@ export interface ListBackupJobsInput {
   ByResourceType?: string;
 
   /**
-   * <p>The account ID to list the jobs from. Returns only backup jobs associated with the specified account ID.</p>
+   * <p>The account ID to list the jobs from. Returns only backup jobs associated with the
+   *          specified account ID.</p>
+   *          <p>If used from an AWS Organizations management account, passing <code>*</code> returns all
+   *          jobs across the organization.</p>
    */
   ByAccountId?: string;
 }
@@ -2749,9 +2845,9 @@ export namespace ListBackupVaultsOutput {
 
 export interface ListCopyJobsInput {
   /**
-   * <p>The next item following a partial list of returned items.
-   *          For example, if a request is made to return maxResults number of items,
-   *          NextToken allows you to return more items in your list starting at the location pointed to by the next token. </p>
+   * <p>The next item following a partial list of returned items. For example, if a request is
+   *          made to return maxResults number of items, NextToken allows you to return more items in
+   *          your list starting at the location pointed to by the next token. </p>
    */
   NextToken?: string;
 
@@ -2761,7 +2857,8 @@ export interface ListCopyJobsInput {
   MaxResults?: number;
 
   /**
-   * <p>Returns only copy jobs that match the specified resource Amazon Resource Name (ARN). </p>
+   * <p>Returns only copy jobs that match the specified resource Amazon Resource Name (ARN).
+   *       </p>
    */
   ByResourceArn?: string;
 
@@ -2805,6 +2902,10 @@ export interface ListCopyJobsInput {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>Aurora</code> for Amazon Aurora</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>Storage Gateway</code> for AWS Storage Gateway</p>
    *             </li>
    *          </ul>
@@ -2813,12 +2914,14 @@ export interface ListCopyJobsInput {
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a source backup vault to copy
-   *          from; for example, <code>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</code>. </p>
+   *          from; for example, <code>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</code>.
+   *       </p>
    */
   ByDestinationVaultArn?: string;
 
   /**
-   * <p>The account ID to list the jobs from. Returns only copy jobs associated with the specified account ID.</p>
+   * <p>The account ID to list the jobs from. Returns only copy jobs associated with the
+   *          specified account ID.</p>
    */
   ByAccountId?: string;
 }
@@ -2831,13 +2934,15 @@ export namespace ListCopyJobsInput {
 
 export interface ListCopyJobsOutput {
   /**
-   * <p>An array of structures containing metadata about your copy jobs returned in JSON format. </p>
+   * <p>An array of structures containing metadata about your copy jobs returned in JSON format.
+   *       </p>
    */
   CopyJobs?: CopyJob[];
 
   /**
-   * <p>The next item following a partial list of returned items. For example, if a request is made to return maxResults number of items,
-   *          NextToken allows you to return more items in your list starting at the location pointed to by the next token. </p>
+   * <p>The next item following a partial list of returned items. For example, if a request is
+   *          made to return maxResults number of items, NextToken allows you to return more items in
+   *          your list starting at the location pointed to by the next token. </p>
    */
   NextToken?: string;
 }
@@ -2881,7 +2986,8 @@ export interface ProtectedResource {
 
   /**
    * <p>The type of AWS resource; for example, an Amazon Elastic Block Store (Amazon EBS) volume
-   *          or an Amazon Relational Database Service (Amazon RDS) database. For VSS Windows backups, the only supported resource type is Amazon EC2.</p>
+   *          or an Amazon Relational Database Service (Amazon RDS) database. For VSS Windows backups,
+   *          the only supported resource type is Amazon EC2.</p>
    */
   ResourceType?: string;
 
@@ -3001,8 +3107,8 @@ export interface RecoveryPointByBackupVault {
   BackupVaultArn?: string;
 
   /**
-   * <p>The backup vault where the recovery point was originally copied from.
-   *          If the recovery point is restored to the same account this value will be <code>null</code>.</p>
+   * <p>The backup vault where the recovery point was originally copied from. If the recovery
+   *          point is restored to the same account this value will be <code>null</code>.</p>
    */
   SourceBackupVaultArn?: string;
 
@@ -3014,8 +3120,8 @@ export interface RecoveryPointByBackupVault {
 
   /**
    * <p>The type of AWS resource saved as a recovery point; for example, an Amazon Elastic Block
-   *          Store (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS)
-   *          database. For VSS Windows backups, the only supported resource type is Amazon EC2.</p>
+   *          Store (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database.
+   *          For VSS Windows backups, the only supported resource type is Amazon EC2.</p>
    */
   ResourceType?: string;
 
@@ -3072,6 +3178,7 @@ export interface RecoveryPointByBackupVault {
    *          days. Therefore, the “expire after days” setting must be 90 days greater than the
    *          “transition to cold after days” setting. The “transition to cold after days” setting cannot
    *          be changed after a backup has been transitioned to cold. </p>
+   *          <p>Only Amazon EFS file system backups can be transitioned to cold storage.</p>
    */
   Lifecycle?: Lifecycle;
 
@@ -3236,7 +3343,8 @@ export interface ListRestoreJobsInput {
   MaxResults?: number;
 
   /**
-   * <p>The account ID to list the jobs from. Returns only restore jobs associated with the specified account ID.</p>
+   * <p>The account ID to list the jobs from. Returns only restore jobs associated with the
+   *          specified account ID.</p>
    */
   ByAccountId?: string;
 
@@ -3340,7 +3448,8 @@ export interface RestoreJobsListMember {
 
   /**
    * <p>The resource type of the listed restore jobs; for example, an Amazon Elastic Block Store
-   *          (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database. For VSS Windows backups, the only supported resource type is Amazon EC2.</p>
+   *          (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database. For VSS
+   *          Windows backups, the only supported resource type is Amazon EC2.</p>
    */
   ResourceType?: string;
 }
@@ -3498,12 +3607,16 @@ export interface StartBackupJobInput {
   IdempotencyToken?: string;
 
   /**
-   * <p>A value in minutes after a backup is scheduled before a job will be canceled if it doesn't start successfully. This value is optional.</p>
+   * <p>A value in minutes after a backup is scheduled before a job will be canceled if it
+   *          doesn't start successfully. This value is optional, and the default is 8 hours.</p>
    */
   StartWindowMinutes?: number;
 
   /**
-   * <p>A value in minutes after a backup job is successfully started before it must be completed or it will be canceled by AWS Backup. This value is optional.</p>
+   * <p>A value in minutes during which a successfully started backup must complete, or else AWS
+   *          Backup will cancel the job. This value is optional. This value begins counting down from
+   *          when the backup was scheduled. It does not add additional time for
+   *             <code>StartWindowMinutes</code>, or if the backup started later than scheduled.</p>
    */
   CompleteWindowMinutes?: number;
 
@@ -3515,6 +3628,7 @@ export interface StartBackupJobInput {
    *          days. Therefore, the “expire after days” setting must be 90 days greater than the
    *          “transition to cold after days” setting. The “transition to cold after days” setting cannot
    *          be changed after a backup has been transitioned to cold. </p>
+   *          <p>Only Amazon EFS file system backups can be transitioned to cold storage.</p>
    */
   Lifecycle?: Lifecycle;
 
@@ -3527,8 +3641,9 @@ export interface StartBackupJobInput {
   /**
    * <p>Specifies the backup option for a selected resource. This option is only available for
    *          Windows VSS backup jobs.</p>
-   *          <p>Valid values: Set to <code>"WindowsVSS”:“enabled"</code> to enable WindowsVSS backup option and create a VSS Windows backup.
-   *          Set to “WindowsVSS”:”disabled” to create a regular backup. The WindowsVSS option is not enabled by default.</p>
+   *          <p>Valid values: Set to <code>"WindowsVSS”:“enabled"</code> to enable WindowsVSS backup
+   *          option and create a VSS Windows backup. Set to “WindowsVSS”:”disabled” to create a regular
+   *          backup. The WindowsVSS option is not enabled by default.</p>
    */
   BackupOptions?: { [key: string]: string };
 }
@@ -3553,7 +3668,7 @@ export interface StartBackupJobOutput {
   RecoveryPointArn?: string;
 
   /**
-   * <p>The date and time that a backup job is started, in Unix format and Coordinated Universal
+   * <p>The date and time that a backup job is created, in Unix format and Coordinated Universal
    *          Time (UTC). The value of <code>CreationDate</code> is accurate to milliseconds. For
    *          example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087
    *          AM.</p>
@@ -3569,19 +3684,22 @@ export namespace StartBackupJobOutput {
 
 export interface StartCopyJobInput {
   /**
-   * <p>An ARN that uniquely identifies a recovery point to use for the copy job; for example, arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45. </p>
+   * <p>An ARN that uniquely identifies a recovery point to use for the copy job; for example,
+   *          arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45.
+   *       </p>
    */
   RecoveryPointArn: string | undefined;
 
   /**
-   * <p>The name of a logical source container where backups are stored.
-   *          Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created.
-   *          They consist of lowercase letters, numbers, and hyphens.</p>
+   * <p>The name of a logical source container where backups are stored. Backup vaults are
+   *          identified by names that are unique to the account used to create them and the AWS Region
+   *          where they are created. They consist of lowercase letters, numbers, and hyphens.</p>
    */
   SourceBackupVaultName: string | undefined;
 
   /**
-   * <p>An Amazon Resource Name (ARN) that uniquely identifies a destination backup vault to copy to; for example,
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies a destination backup vault to
+   *          copy to; for example,
    *          <code>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</code>.</p>
    */
   DestinationBackupVaultArn: string | undefined;
@@ -3594,7 +3712,7 @@ export interface StartCopyJobInput {
 
   /**
    * <p>A customer chosen string that can be used to distinguish between calls to
-   *          <code>StartCopyJob</code>.</p>
+   *             <code>StartCopyJob</code>.</p>
    */
   IdempotencyToken?: string;
 
@@ -3605,6 +3723,7 @@ export interface StartCopyJobInput {
    *          days. Therefore, on the console, the “expire after days” setting must be 90 days greater
    *          than the “transition to cold after days” setting. The “transition to cold after days”
    *          setting cannot be changed after a backup has been transitioned to cold.</p>
+   *          <p>Only Amazon EFS file system backups can be transitioned to cold storage.</p>
    */
   Lifecycle?: Lifecycle;
 }
@@ -3622,9 +3741,10 @@ export interface StartCopyJobOutput {
   CopyJobId?: string;
 
   /**
-   * <p>The date and time that a copy job is started, in Unix format and Coordinated Universal Time (UTC).
-   *          The value of <code>CreationDate</code> is accurate to milliseconds.
-   *          For example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.</p>
+   * <p>The date and time that a copy job is created, in Unix format and Coordinated Universal
+   *          Time (UTC). The value of <code>CreationDate</code> is accurate to milliseconds. For
+   *          example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087
+   *          AM.</p>
    */
   CreationDate?: Date;
 }
@@ -3650,7 +3770,8 @@ export interface StartRestoreJobInput {
    *          provided by <code>GetRecoveryPointRestoreMetadata</code> might be required to restore a
    *          resource. For example, you might need to provide a new resource name if the original
    *          already exists.</p>
-   *          <p>You need to specify specific metadata to restore an Amazon Elastic File System (Amazon EFS) instance:</p>
+   *          <p>You need to specify specific metadata to restore an Amazon Elastic File System (Amazon
+   *          EFS) instance:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -3659,14 +3780,15 @@ export interface StartRestoreJobInput {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Encrypted</code>:  A Boolean value that, if true, specifies that the
-   *                file system is encrypted. If <code>KmsKeyId</code> is specified,
-   *                <code>Encrypted</code> must be set to <code>true</code>.</p>
+   *                   <code>Encrypted</code>: A Boolean value that, if true, specifies that the file
+   *                system is encrypted. If <code>KmsKeyId</code> is specified, <code>Encrypted</code>
+   *                must be set to <code>true</code>.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>KmsKeyId</code>: Specifies the AWS KMS key that is used to encrypt the
-   *                restored file system. You can specify a key from another AWS account provided that key it is properly shared with your account via AWS KMS.</p>
+   *                restored file system. You can specify a key from another AWS account provided that
+   *                key it is properly shared with your account via AWS KMS.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3675,20 +3797,20 @@ export interface StartRestoreJobInput {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CreationToken</code>: A user-supplied value that ensures the
-   *                uniqueness (idempotency) of the request.</p>
+   *                   <code>CreationToken</code>: A user-supplied value that ensures the uniqueness
+   *                (idempotency) of the request.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>newFileSystem</code>:  A Boolean value that, if true, specifies that
-   *                the recovery point is restored to a new Amazon EFS file system.</p>
+   *                   <code>newFileSystem</code>: A Boolean value that, if true, specifies that the
+   *                recovery point is restored to a new Amazon EFS file system.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ItemsToRestore </code>: A serialized list of up to five strings
-   *             where each string is a file path. Use <code>ItemsToRestore</code> to restore
-   *             specific files or directories rather than the entire file system. This parameter is
-   *             optional.</p>
+   *                   <code>ItemsToRestore </code>: An array of one to five strings where each string is
+   *                a file path. Use <code>ItemsToRestore</code> to restore specific files or directories
+   *                rather than the entire file system. This parameter is optional. For example,
+   *                   <code>"itemsToRestore":"[\"/my.test\"]"</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -3728,6 +3850,10 @@ export interface StartRestoreJobInput {
    *             <li>
    *                <p>
    *                   <code>RDS</code> for Amazon Relational Database Service</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Aurora</code> for Amazon Aurora</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3780,7 +3906,7 @@ export interface TagResourceInput {
 
   /**
    * <p>Key-value pairs that are used to help organize your resources. You can assign your own
-   *          metadata to the resources you create. </p>
+   *          metadata to the resources you create.</p>
    */
   Tags: { [key: string]: string } | undefined;
 }
@@ -3936,6 +4062,7 @@ export interface UpdateRecoveryPointLifecycleOutput {
    *          days. Therefore, the “expire after days” setting must be 90 days greater than the
    *          “transition to cold after days” setting. The “transition to cold after days” setting cannot
    *          be changed after a backup has been transitioned to cold. </p>
+   *          <p>Only Amazon EFS file system backups can be transitioned to cold storage.</p>
    */
   Lifecycle?: Lifecycle;
 

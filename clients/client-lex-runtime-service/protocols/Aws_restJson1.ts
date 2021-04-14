@@ -539,6 +539,8 @@ export const deserializeAws_restJson1PostContentCommand = async (
     botVersion: undefined,
     contentType: undefined,
     dialogState: undefined,
+    encodedInputTranscript: undefined,
+    encodedMessage: undefined,
     inputTranscript: undefined,
     intentName: undefined,
     message: undefined,
@@ -580,6 +582,9 @@ export const deserializeAws_restJson1PostContentCommand = async (
   if (output.headers["x-amz-lex-message"] !== undefined) {
     contents.message = output.headers["x-amz-lex-message"];
   }
+  if (output.headers["x-amz-lex-encoded-message"] !== undefined) {
+    contents.encodedMessage = output.headers["x-amz-lex-encoded-message"];
+  }
   if (output.headers["x-amz-lex-message-format"] !== undefined) {
     contents.messageFormat = output.headers["x-amz-lex-message-format"];
   }
@@ -591,6 +596,9 @@ export const deserializeAws_restJson1PostContentCommand = async (
   }
   if (output.headers["x-amz-lex-input-transcript"] !== undefined) {
     contents.inputTranscript = output.headers["x-amz-lex-input-transcript"];
+  }
+  if (output.headers["x-amz-lex-encoded-input-transcript"] !== undefined) {
+    contents.encodedInputTranscript = output.headers["x-amz-lex-encoded-input-transcript"];
   }
   if (output.headers["x-amz-lex-bot-version"] !== undefined) {
     contents.botVersion = output.headers["x-amz-lex-bot-version"];
@@ -901,6 +909,7 @@ export const deserializeAws_restJson1PutSessionCommand = async (
     audioStream: undefined,
     contentType: undefined,
     dialogState: undefined,
+    encodedMessage: undefined,
     intentName: undefined,
     message: undefined,
     messageFormat: undefined,
@@ -925,6 +934,9 @@ export const deserializeAws_restJson1PutSessionCommand = async (
   }
   if (output.headers["x-amz-lex-message"] !== undefined) {
     contents.message = output.headers["x-amz-lex-message"];
+  }
+  if (output.headers["x-amz-lex-encoded-message"] !== undefined) {
+    contents.encodedMessage = output.headers["x-amz-lex-encoded-message"];
   }
   if (output.headers["x-amz-lex-message-format"] !== undefined) {
     contents.messageFormat = output.headers["x-amz-lex-message-format"];

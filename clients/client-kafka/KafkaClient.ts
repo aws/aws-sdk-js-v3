@@ -62,6 +62,7 @@ import {
   UpdateBrokerStorageCommandInput,
   UpdateBrokerStorageCommandOutput,
 } from "./commands/UpdateBrokerStorageCommand";
+import { UpdateBrokerTypeCommandInput, UpdateBrokerTypeCommandOutput } from "./commands/UpdateBrokerTypeCommand";
 import {
   UpdateClusterConfigurationCommandInput,
   UpdateClusterConfigurationCommandOutput,
@@ -152,6 +153,7 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateBrokerCountCommandInput
   | UpdateBrokerStorageCommandInput
+  | UpdateBrokerTypeCommandInput
   | UpdateClusterConfigurationCommandInput
   | UpdateClusterKafkaVersionCommandInput
   | UpdateConfigurationCommandInput
@@ -183,6 +185,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateBrokerCountCommandOutput
   | UpdateBrokerStorageCommandOutput
+  | UpdateBrokerTypeCommandOutput
   | UpdateClusterConfigurationCommandOutput
   | UpdateClusterKafkaVersionCommandOutput
   | UpdateConfigurationCommandOutput

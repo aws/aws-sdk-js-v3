@@ -6,6 +6,7 @@ export * from "./commands/BatchDetectKeyPhrasesCommand";
 export * from "./commands/BatchDetectSentimentCommand";
 export * from "./commands/BatchDetectSyntaxCommand";
 export * from "./commands/ClassifyDocumentCommand";
+export * from "./commands/ContainsPiiEntitiesCommand";
 export * from "./commands/CreateDocumentClassifierCommand";
 export * from "./commands/CreateEndpointCommand";
 export * from "./commands/CreateEntityRecognizerCommand";

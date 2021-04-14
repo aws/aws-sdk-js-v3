@@ -21,8 +21,13 @@ export type PutMetadataCommandInput = PutMetadataRequest;
 export type PutMetadataCommandOutput = __MetadataBearer;
 
 /**
- * <p>Inserts metadata into an RTMPS stream for the specified channel. A maximum of 5 requests
- *       per second per channel is allowed, each with a maximum 1KB payload.</p>
+ * <p>Inserts metadata into the active stream of the specified channel. A maximum of 5 requests
+ *       per second per channel is allowed, each with a maximum 1 KB payload. (If 5 TPS is not
+ *       sufficient for your needs, we recommend batching your data into a single PutMetadata call.)
+ *
+ *       Also see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/metadata.html">Embedding Metadata
+ *
+ *         within a Video Stream</a> in the <i>Amazon IVS User Guide</i>.</p>
  */
 export class PutMetadataCommand extends $Command<
   PutMetadataCommandInput,

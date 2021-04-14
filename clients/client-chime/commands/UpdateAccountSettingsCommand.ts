@@ -21,11 +21,11 @@ export type UpdateAccountSettingsCommandInput = UpdateAccountSettingsRequest;
 export type UpdateAccountSettingsCommandOutput = UpdateAccountSettingsResponse & __MetadataBearer;
 
 /**
- * <p>Updates the settings for the specified Amazon Chime account. You can update settings
- *       for remote control of shared screens, or for the dial-out option. For more information about
- *       these settings, see <a href="https://docs.aws.amazon.com/chime/latest/ag/policies.html">Use the
- *         Policies Page</a> in the <i>Amazon Chime Administration
- *       Guide</i>.</p>
+ * <p>Updates the settings for the specified Amazon Chime account. You can update settings for
+ *             remote control of shared screens, or for the dial-out option. For more information about
+ *             these settings, see <a href="https://docs.aws.amazon.com/chime/latest/ag/policies.html">Use
+ *                 the Policies Page</a> in the <i>Amazon Chime Administration
+ *                 Guide</i>.</p>
  */
 export class UpdateAccountSettingsCommand extends $Command<
   UpdateAccountSettingsCommandInput,

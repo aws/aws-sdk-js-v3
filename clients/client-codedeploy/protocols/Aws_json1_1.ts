@@ -360,6 +360,7 @@ import {
   RawString,
   RegisterApplicationRevisionInput,
   RegisterOnPremisesInstanceInput,
+  RelatedDeployments,
   RemoveTagsFromOnPremisesInstancesInput,
   ResourceArnRequiredException,
   ResourceValidationException,
@@ -7764,6 +7765,8 @@ const serializeAws_json1_1CreateDeploymentGroupInput = (
       input.onPremisesTagSet !== null && {
         onPremisesTagSet: serializeAws_json1_1OnPremisesTagSet(input.onPremisesTagSet, context),
       }),
+    ...(input.outdatedInstancesStrategy !== undefined &&
+      input.outdatedInstancesStrategy !== null && { outdatedInstancesStrategy: input.outdatedInstancesStrategy }),
     ...(input.serviceRoleArn !== undefined &&
       input.serviceRoleArn !== null && { serviceRoleArn: input.serviceRoleArn }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
@@ -8727,6 +8730,8 @@ const serializeAws_json1_1UpdateDeploymentGroupInput = (
       input.onPremisesTagSet !== null && {
         onPremisesTagSet: serializeAws_json1_1OnPremisesTagSet(input.onPremisesTagSet, context),
       }),
+    ...(input.outdatedInstancesStrategy !== undefined &&
+      input.outdatedInstancesStrategy !== null && { outdatedInstancesStrategy: input.outdatedInstancesStrategy }),
     ...(input.serviceRoleArn !== undefined &&
       input.serviceRoleArn !== null && { serviceRoleArn: input.serviceRoleArn }),
     ...(input.triggerConfigurations !== undefined &&
@@ -9346,6 +9351,10 @@ const deserializeAws_json1_1DeploymentGroupInfo = (output: any, context: __Serde
       output.onPremisesTagSet !== undefined && output.onPremisesTagSet !== null
         ? deserializeAws_json1_1OnPremisesTagSet(output.onPremisesTagSet, context)
         : undefined,
+    outdatedInstancesStrategy:
+      output.outdatedInstancesStrategy !== undefined && output.outdatedInstancesStrategy !== null
+        ? output.outdatedInstancesStrategy
+        : undefined,
     serviceRoleArn:
       output.serviceRoleArn !== undefined && output.serviceRoleArn !== null ? output.serviceRoleArn : undefined,
     targetRevision:
@@ -9481,6 +9490,10 @@ const deserializeAws_json1_1DeploymentInfo = (output: any, context: __SerdeConte
     previousRevision:
       output.previousRevision !== undefined && output.previousRevision !== null
         ? deserializeAws_json1_1RevisionLocation(output.previousRevision, context)
+        : undefined,
+    relatedDeployments:
+      output.relatedDeployments !== undefined && output.relatedDeployments !== null
+        ? deserializeAws_json1_1RelatedDeployments(output.relatedDeployments, context)
         : undefined,
     revision:
       output.revision !== undefined && output.revision !== null
@@ -10954,6 +10967,21 @@ const deserializeAws_json1_1RawString = (output: any, context: __SerdeContext): 
   return {
     content: output.content !== undefined && output.content !== null ? output.content : undefined,
     sha256: output.sha256 !== undefined && output.sha256 !== null ? output.sha256 : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1RelatedDeployments = (output: any, context: __SerdeContext): RelatedDeployments => {
+  return {
+    autoUpdateOutdatedInstancesDeploymentIds:
+      output.autoUpdateOutdatedInstancesDeploymentIds !== undefined &&
+      output.autoUpdateOutdatedInstancesDeploymentIds !== null
+        ? deserializeAws_json1_1DeploymentsList(output.autoUpdateOutdatedInstancesDeploymentIds, context)
+        : undefined,
+    autoUpdateOutdatedInstancesRootDeploymentId:
+      output.autoUpdateOutdatedInstancesRootDeploymentId !== undefined &&
+      output.autoUpdateOutdatedInstancesRootDeploymentId !== null
+        ? output.autoUpdateOutdatedInstancesRootDeploymentId
+        : undefined,
   } as any;
 };
 

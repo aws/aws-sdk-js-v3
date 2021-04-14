@@ -26,6 +26,7 @@ export type UpdateNodeCommandOutput = UpdateNodeOutput & __MetadataBearer;
 
 /**
  * <p>Updates a node configuration with new parameters.</p>
+ *          <p>Applies only to Hyperledger Fabric.</p>
  */
 export class UpdateNodeCommand extends $Command<
   UpdateNodeCommandInput,

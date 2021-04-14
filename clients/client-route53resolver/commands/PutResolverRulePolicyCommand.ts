@@ -21,8 +21,8 @@ export type PutResolverRulePolicyCommandInput = PutResolverRulePolicyRequest;
 export type PutResolverRulePolicyCommandOutput = PutResolverRulePolicyResponse & __MetadataBearer;
 
 /**
- * <p>Specifies an AWS account that you want to share rules with, the Resolver rules that you want to share, and the operations that you want
- * 			the account to be able to perform on those rules.</p>
+ * <p>Specifies an AWS rule that you want to share with another account, the account that you want to share the rule with,
+ * 			and the operations that you want the account to be able to perform on the rule.</p>
  */
 export class PutResolverRulePolicyCommand extends $Command<
   PutResolverRulePolicyCommandInput,

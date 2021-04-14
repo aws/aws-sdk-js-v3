@@ -4,14 +4,12 @@ import {
   AllocationStrategy,
   AllowedPrincipal,
   AlternatePathHint,
-  AssociationStatus,
   AttributeValue,
   BatchState,
   BlockDeviceMapping,
   CurrencyCodeValues,
   FleetLaunchTemplateSpecification,
   FleetType,
-  IamInstanceProfileAssociation,
   IamInstanceProfileSpecification,
   InstanceInterruptionBehavior,
   InternetGateway,
@@ -20,14 +18,12 @@ import {
   ResourceType,
   SpotInstanceType,
   Subnet,
-  SubnetIpv6CidrBlockAssociation,
   Tag,
   TagSpecification,
   Tenancy,
   TransitGatewayAssociationState,
   TransitGatewayAttachmentResourceType,
   TransitGatewayAttachmentState,
-  TransitGatewayMulticastDomainAssociations,
   TransitGatewayPeeringAttachment,
   TransitGatewayVpcAttachment,
   UserIdGroupPair,
@@ -55,6 +51,7 @@ import {
   PlacementGroup,
   PortRange,
   PrivateIpAddressSpecification,
+  ReplaceRootVolumeTask,
   RouteTable,
   ServiceConfiguration,
   ServiceTypeDetail,
@@ -77,18 +74,534 @@ import {
 } from "./models_1";
 import {
   AttributeBooleanValue,
-  EbsInfo,
   EventInformation,
   FastSnapshotRestoreStateCode,
   Filter,
-  FpgaInfo,
-  GpuInfo,
   IdFormat,
-  InstanceTypeHypervisor,
+  LocationType,
   PermissionGroup,
   ProductCode,
   VirtualizationType,
 } from "./models_2";
+
+/**
+ * <p>The instance types offered.</p>
+ */
+export interface InstanceTypeOffering {
+  /**
+   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   */
+  InstanceType?: _InstanceType | string;
+
+  /**
+   * <p>The location type.</p>
+   */
+  LocationType?: LocationType | string;
+
+  /**
+   * <p>The identifier for the location. This depends on the location type. For example, if the location type is
+   *     <code>region</code>, the location is the Region code (for example, <code>us-east-2</code>.)</p>
+   */
+  Location?: string;
+}
+
+export namespace InstanceTypeOffering {
+  export const filterSensitiveLog = (obj: InstanceTypeOffering): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeInstanceTypeOfferingsResult {
+  /**
+   * <p>The instance types offered.</p>
+   */
+  InstanceTypeOfferings?: InstanceTypeOffering[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there
+   *          are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeInstanceTypeOfferingsResult {
+  export const filterSensitiveLog = (obj: DescribeInstanceTypeOfferingsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeInstanceTypesRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *          and provides an error response. If you have the required permissions, the error response is
+   *          <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The instance types. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   */
+  InstanceTypes?: (_InstanceType | string)[];
+
+  /**
+   * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>auto-recovery-supported</code> - Indicates whether auto recovery is supported
+   *       (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>bare-metal</code> - Indicates whether it is a bare metal instance type
+   *       (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>burstable-performance-supported</code> - Indicates whether it is a burstable
+   *      performance instance type  (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>current-generation</code> - Indicates whether this instance type is the latest
+   *      generation instance type of an instance family  (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ebs-info.ebs-optimized-info.baseline-bandwidth-in-mbps</code> - The baseline
+   *                     bandwidth performance for an EBS-optimized instance type, in Mbps.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ebs-info.ebs-optimized-info.baseline-iops</code> - The baseline input/output storage
+   *      operations per second for an EBS-optimized instance type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ebs-info.ebs-optimized-info.baseline-throughput-in-mbps</code> - The baseline
+   *      throughput performance for an EBS-optimized instance type, in MB/s.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ebs-info.ebs-optimized-info.maximum-bandwidth-in-mbps</code> - The maximum bandwidth
+   *                     performance for an EBS-optimized instance type, in Mbps.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ebs-info.ebs-optimized-info.maximum-iops</code> - The maximum input/output storage
+   *                     operations per second for an EBS-optimized instance type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ebs-info.ebs-optimized-info.maximum-throughput-in-mbps</code> - The maximum
+   *      throughput performance for an EBS-optimized instance type, in MB/s.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ebs-info.ebs-optimized-support</code> - Indicates whether the instance type is
+   *      EBS-optimized (<code>supported</code> | <code>unsupported</code> |
+   *      <code>default</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ebs-info.encryption-support</code> - Indicates whether EBS encryption is supported
+   *       (<code>supported</code> | <code>unsupported</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ebs-info.nvme-support</code> - Indicates whether non-volatile memory express (NVMe)
+   *      is supported for EBS volumes (<code>required</code> | <code>supported</code> |
+   *       <code>unsupported</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>free-tier-eligible</code> - Indicates whether the instance type is eligible to use
+   *      in the free tier  (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>hibernation-supported</code> - Indicates whether On-Demand hibernation is supported
+   *       (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>hypervisor</code> - The hypervisor (<code>nitro</code> | <code>xen</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-storage-info.disk.count</code> - The number of local disks.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-storage-info.disk.size-in-gb</code> - The storage size of each instance storage disk, in
+   *      GB.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-storage-info.disk.type</code> - The storage technology for the local
+   *      instance storage disks (<code>hdd</code> | <code>ssd</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-storage-info.nvme-support</code> - Indicates whether non-volatile memory
+   *      express (NVMe) is supported for instance store (<code>required</code> | <code>supported</code>)
+   *      | <code>unsupported</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-storage-info.total-size-in-gb</code> - The total amount of storage available from all local
+   *      instance storage, in GB.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-storage-supported</code> - Indicates whether the instance type has local
+   *      instance storage  (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-type</code> - The instance type (for example <code>c5.2xlarge</code> or
+   *      c5*).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>memory-info.size-in-mib</code> - The memory size.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.efa-info.maximum-efa-interfaces</code> - The maximum number of Elastic
+   *      Fabric Adapters (EFAs) per instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.efa-supported</code> - Indicates whether the instance type supports
+   *      Elastic Fabric Adapter (EFA)  (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.ena-support</code> - Indicates whether Elastic Network Adapter (ENA) is
+   *      supported or required (<code>required</code> | <code>supported</code> |
+   *       <code>unsupported</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.ipv4-addresses-per-interface</code> - The maximum number of private IPv4 addresses per
+   *      network interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.ipv6-addresses-per-interface</code> - The maximum number of private IPv6 addresses per
+   *      network interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.ipv6-supported</code> - Indicates whether the instance type supports
+   *      IPv6  (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.maximum-network-interfaces</code> - The maximum number of network interfaces per instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.network-performance</code> - The network performance (for example, "25
+   *      Gigabit").</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>processor-info.supported-architecture</code> - The CPU architecture
+   *       (<code>arm64</code> | <code>i386</code> | <code>x86_64</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>processor-info.sustained-clock-speed-in-ghz</code> - The CPU clock speed, in GHz.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>supported-boot-mode</code> - The boot mode (<code>legacy-bios</code> |
+   *       <code>uefi</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>supported-root-device-type</code> - The root device type (<code>ebs</code> |
+   *       <code>instance-store</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>supported-usage-class</code> - The usage class (<code>on-demand</code> |
+   *       <code>spot</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>supported-virtualization-type</code> - The virtualization type (<code>hvm</code> |
+   *       <code>paravirtual</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vcpu-info.default-cores</code> - The default number of cores for the instance type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vcpu-info.default-threads-per-core</code> - The default number of threads per core for the instance
+   *      type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vcpu-info.default-vcpus</code> - The default number of vCPUs for the instance type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vcpu-info.valid-cores</code> - The number of cores that can be configured for the instance type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vcpu-info.valid-threads-per-core</code> - The number of threads per core that can be configured for the instance type.
+   *         For example, "1" or "1,2".</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return for the request in a single page. The remaining results
+   *          can be seen by sending another request with the next token value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeInstanceTypesRequest {
+  export const filterSensitiveLog = (obj: DescribeInstanceTypesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the optimized EBS performance for supported instance types.</p>
+ */
+export interface EbsOptimizedInfo {
+  /**
+   * <p>The baseline bandwidth performance for an EBS-optimized instance type, in Mbps.</p>
+   */
+  BaselineBandwidthInMbps?: number;
+
+  /**
+   * <p>The baseline throughput performance for an EBS-optimized instance type, in MB/s.</p>
+   */
+  BaselineThroughputInMBps?: number;
+
+  /**
+   * <p>The baseline input/output storage operations per seconds for an EBS-optimized instance type.</p>
+   */
+  BaselineIops?: number;
+
+  /**
+   * <p>The maximum bandwidth performance for an EBS-optimized instance type, in Mbps.</p>
+   */
+  MaximumBandwidthInMbps?: number;
+
+  /**
+   * <p>The maximum throughput performance for an EBS-optimized instance type, in MB/s.</p>
+   */
+  MaximumThroughputInMBps?: number;
+
+  /**
+   * <p>The maximum input/output storage operations per second for an EBS-optimized instance type.</p>
+   */
+  MaximumIops?: number;
+}
+
+export namespace EbsOptimizedInfo {
+  export const filterSensitiveLog = (obj: EbsOptimizedInfo): any => ({
+    ...obj,
+  });
+}
+
+export type EbsOptimizedSupport = "default" | "supported" | "unsupported";
+
+export type EbsEncryptionSupport = "supported" | "unsupported";
+
+export enum EbsNvmeSupport {
+  REQUIRED = "required",
+  SUPPORTED = "supported",
+  UNSUPPORTED = "unsupported",
+}
+
+/**
+ * <p>Describes the Amazon EBS features supported by the instance type.</p>
+ */
+export interface EbsInfo {
+  /**
+   * <p>Indicates whether the instance type is Amazon EBS-optimized. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html">Amazon EBS-optimized
+   *     instances</a> in <i>Amazon EC2 User Guide</i>.</p>
+   */
+  EbsOptimizedSupport?: EbsOptimizedSupport | string;
+
+  /**
+   * <p>Indicates whether Amazon EBS encryption is supported.</p>
+   */
+  EncryptionSupport?: EbsEncryptionSupport | string;
+
+  /**
+   * <p>Describes the optimized EBS performance for the instance type.</p>
+   */
+  EbsOptimizedInfo?: EbsOptimizedInfo;
+
+  /**
+   * <p>Indicates whether non-volatile memory express (NVMe) is supported.</p>
+   */
+  NvmeSupport?: EbsNvmeSupport | string;
+}
+
+export namespace EbsInfo {
+  export const filterSensitiveLog = (obj: EbsInfo): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the memory for the FPGA accelerator for the instance type.</p>
+ */
+export interface FpgaDeviceMemoryInfo {
+  /**
+   * <p>The size of the memory available to the FPGA accelerator, in MiB.</p>
+   */
+  SizeInMiB?: number;
+}
+
+export namespace FpgaDeviceMemoryInfo {
+  export const filterSensitiveLog = (obj: FpgaDeviceMemoryInfo): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the FPGA accelerator for the instance type.</p>
+ */
+export interface FpgaDeviceInfo {
+  /**
+   * <p>The name of the FPGA accelerator.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The manufacturer of the FPGA accelerator.</p>
+   */
+  Manufacturer?: string;
+
+  /**
+   * <p>The count of FPGA accelerators for the instance type.</p>
+   */
+  Count?: number;
+
+  /**
+   * <p>Describes the memory for the FPGA accelerator for the instance type.</p>
+   */
+  MemoryInfo?: FpgaDeviceMemoryInfo;
+}
+
+export namespace FpgaDeviceInfo {
+  export const filterSensitiveLog = (obj: FpgaDeviceInfo): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the FPGAs for the instance type.</p>
+ */
+export interface FpgaInfo {
+  /**
+   * <p>Describes the FPGAs for the instance type.</p>
+   */
+  Fpgas?: FpgaDeviceInfo[];
+
+  /**
+   * <p>The total memory of all FPGA accelerators for the instance type.</p>
+   */
+  TotalFpgaMemoryInMiB?: number;
+}
+
+export namespace FpgaInfo {
+  export const filterSensitiveLog = (obj: FpgaInfo): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the memory available to the GPU accelerator.</p>
+ */
+export interface GpuDeviceMemoryInfo {
+  /**
+   * <p>The size of the memory available to the GPU accelerator, in MiB.</p>
+   */
+  SizeInMiB?: number;
+}
+
+export namespace GpuDeviceMemoryInfo {
+  export const filterSensitiveLog = (obj: GpuDeviceMemoryInfo): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the GPU accelerators for the instance type.</p>
+ */
+export interface GpuDeviceInfo {
+  /**
+   * <p>The name of the GPU accelerator.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The manufacturer of the GPU accelerator.</p>
+   */
+  Manufacturer?: string;
+
+  /**
+   * <p>The number of GPUs for the instance type.</p>
+   */
+  Count?: number;
+
+  /**
+   * <p>Describes the memory available to the GPU accelerator.</p>
+   */
+  MemoryInfo?: GpuDeviceMemoryInfo;
+}
+
+export namespace GpuDeviceInfo {
+  export const filterSensitiveLog = (obj: GpuDeviceInfo): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the GPU accelerators for the instance type.</p>
+ */
+export interface GpuInfo {
+  /**
+   * <p>Describes the GPU accelerators for the instance type.</p>
+   */
+  Gpus?: GpuDeviceInfo[];
+
+  /**
+   * <p>The total size of the memory for the GPU accelerators for the instance type, in MiB.</p>
+   */
+  TotalGpuMemoryInMiB?: number;
+}
+
+export namespace GpuInfo {
+  export const filterSensitiveLog = (obj: GpuInfo): any => ({
+    ...obj,
+  });
+}
+
+export enum InstanceTypeHypervisor {
+  NITRO = "nitro",
+  XEN = "xen",
+}
 
 /**
  * <p>Describes the Inference accelerators for the instance type.</p>
@@ -208,6 +721,22 @@ export namespace MemoryInfo {
   });
 }
 
+/**
+ * <p>Describes the Elastic Fabric Adapters for the instance type.</p>
+ */
+export interface EfaInfo {
+  /**
+   * <p>The maximum number of Elastic Fabric Adapters for the instance type.</p>
+   */
+  MaximumEfaInterfaces?: number;
+}
+
+export namespace EfaInfo {
+  export const filterSensitiveLog = (obj: EfaInfo): any => ({
+    ...obj,
+  });
+}
+
 export type EnaSupport = "required" | "supported" | "unsupported";
 
 /**
@@ -289,6 +818,11 @@ export interface NetworkInfo {
    * <p>Indicates whether Elastic Fabric Adapter (EFA) is supported.</p>
    */
   EfaSupported?: boolean;
+
+  /**
+   * <p>Describes the Elastic Fabric Adapters for the instance type.</p>
+   */
+  EfaInfo?: EfaInfo;
 }
 
 export namespace NetworkInfo {
@@ -337,6 +871,8 @@ export namespace ProcessorInfo {
     ...obj,
   });
 }
+
+export type BootModeType = "legacy-bios" | "uefi";
 
 export type RootDeviceType = "ebs" | "instance-store";
 
@@ -496,6 +1032,12 @@ export interface InstanceTypeInfo {
    * <p>Indicates whether auto recovery is supported.</p>
    */
   AutoRecoverySupported?: boolean;
+
+  /**
+   * <p>The supported boot modes. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
+   *    <i>Amazon EC2 User Guide</i>.</p>
+   */
+  SupportedBootModes?: (BootModeType | string)[];
 }
 
 export namespace InstanceTypeInfo {
@@ -3129,7 +3671,7 @@ export interface DescribeNetworkInterfacesRequest {
    * 		          </li>
    *             <li>
    * 		             <p>
-   *                   <code>requester-id</code> - The ID of the entity that launched the instance on your behalf (for example, AWS Management Console, Auto Scaling, and so on).</p>
+   *                   <code>requester-id</code> - The alias or AWS account ID of the principal or service that created the network interface.</p>
    * 		          </li>
    *             <li>
    * 		             <p>
@@ -3681,6 +4223,67 @@ export interface DescribeRegionsResult {
 
 export namespace DescribeRegionsResult {
   export const filterSensitiveLog = (obj: DescribeRegionsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeReplaceRootVolumeTasksRequest {
+  /**
+   * <p>The ID of the root volume replacement task to view.</p>
+   */
+  ReplaceRootVolumeTaskIds?: string[];
+
+  /**
+   * <p>Filter to use:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>instance-id</code> - The ID of the instance for which the root volume replacement task was created.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call. To retrieve the remaining results,
+   *       make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DescribeReplaceRootVolumeTasksRequest {
+  export const filterSensitiveLog = (obj: DescribeReplaceRootVolumeTasksRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeReplaceRootVolumeTasksResult {
+  /**
+   * <p>Information about the root volume replacement task.</p>
+   */
+  ReplaceRootVolumeTasks?: ReplaceRootVolumeTask[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no
+   *       more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeReplaceRootVolumeTasksResult {
+  export const filterSensitiveLog = (obj: DescribeReplaceRootVolumeTasksResult): any => ({
     ...obj,
   });
 }
@@ -5262,7 +5865,7 @@ export interface DescribeSecurityGroupsRequest {
    *             <li>
    *                 <p>
    *                   <code>egress.ip-permission.group-name</code> - The name of a security group
-   *                     that has been referenced in an outbound security group rule.</p>
+   *                     that is referenced in an outbound security group rule.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -5277,7 +5880,7 @@ export interface DescribeSecurityGroupsRequest {
    *                 <p>
    *                   <code>egress.ip-permission.protocol</code> - The IP protocol for an
    *                     outbound security group rule (<code>tcp</code> | <code>udp</code> |
-   *                         <code>icmp</code> or a protocol number).</p>
+   *                         <code>icmp</code>, a protocol number, or -1 for all protocols).</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -5299,24 +5902,24 @@ export interface DescribeSecurityGroupsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                     <code>ip-permission.cidr</code> - An IPv4 CIDR block for an inbound security
+   *                   <code>ip-permission.cidr</code> - An IPv4 CIDR block for an inbound security
    *                     group rule.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                     <code>ip-permission.from-port</code> - For an inbound rule, the start of port
+   *                   <code>ip-permission.from-port</code> - For an inbound rule, the start of port
    *                     range for the TCP and UDP protocols, or an ICMP type number.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                     <code>ip-permission.group-id</code> - The ID of a security group that has been
+   *                   <code>ip-permission.group-id</code> - The ID of a security group that has been
    *                     referenced in an inbound security group rule.</p>
    *             </li>
    *             <li>
-   * 				           <p>
-   *                     <code>ip-permission.group-name</code> - The name of a security group that has
-   *                     been referenced in an inbound security group rule.</p>
-   * 			         </li>
+   * 			            <p>
+   *                   <code>ip-permission.group-name</code> - The name of a security group that is
+   *                     referenced in an inbound security group rule.</p>
+   * 	           </li>
    *             <li>
    *                <p>
    *                   <code>ip-permission.ipv6-cidr</code> - An IPv6 CIDR block for an inbound security
@@ -5328,18 +5931,18 @@ export interface DescribeSecurityGroupsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                     <code>ip-permission.protocol</code> - The IP protocol for an inbound security
-   *                     group rule (<code>tcp</code> | <code>udp</code> | <code>icmp</code> or a
-   *                     protocol number).</p>
+   *                   <code>ip-permission.protocol</code> - The IP protocol for an inbound security
+   *                 group rule (<code>tcp</code> | <code>udp</code> | <code>icmp</code>, a
+   *                 protocol number, or -1 for all protocols).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                     <code>ip-permission.to-port</code> - For an inbound rule, the end of port range
+   *                   <code>ip-permission.to-port</code> - For an inbound rule, the end of port range
    *                     for the TCP and UDP protocols, or an ICMP code.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                     <code>ip-permission.user-id</code> - The ID of an AWS account that has been
+   *                   <code>ip-permission.user-id</code> - The ID of an AWS account that has been
    *                     referenced in an inbound security group rule.</p>
    *             </li>
    *             <li>
@@ -6291,11 +6894,18 @@ export interface LaunchTemplateOverrides {
   WeightedCapacity?: number;
 
   /**
-   * <p>The priority for the launch template override. If <b>OnDemandAllocationStrategy</b> is set to <code>prioritized</code>, Spot Fleet uses
-   *             priority to determine which launch template override to use first in fulfilling
-   *             On-Demand capacity. The highest priority is launched first. Valid values are whole numbers starting at <code>0</code>. The lower
-   *             the number, the higher the priority. If no number is set, the launch template override
-   *             has the lowest priority.</p>
+   * <p>The priority for the launch template override. The highest priority is launched
+   *             first.</p>
+   *         <p>If <code>OnDemandAllocationStrategy</code> is set to <code>prioritized</code>, Spot Fleet
+   *             uses priority to determine which launch template override to use first in fulfilling
+   *             On-Demand capacity.</p>
+   *         <p>If the Spot <code>AllocationStrategy</code> is set to
+   *                 <code>capacityOptimizedPrioritized</code>, Spot Fleet uses priority on a best-effort basis
+   *             to determine which launch template override to use in fulfilling Spot capacity,
+   *             but optimizes for capacity first.</p>
+   *         <p>Valid values are whole numbers starting at <code>0</code>. The lower the number, the
+   *             higher the priority. If no number is set, the launch template override has the lowest
+   *             priority. You can set the same priority for different launch template overrides.</p>
    */
   Priority?: number;
 }
@@ -6479,9 +7089,17 @@ export interface SpotFleetRequestConfigData {
    *             the Spot Instance pools with the lowest price. This is the default allocation strategy.</p>
    *         <p>If the allocation strategy is <code>diversified</code>, Spot Fleet launches instances from
    *             all the Spot Instance pools that you specify.</p>
-   *         <p>If the allocation strategy is <code>capacityOptimized</code>, Spot Fleet launches instances
-   *             from Spot Instance pools with optimal capacity for the number of instances that are
-   *             launching.</p>
+   *         <p>If the allocation strategy is <code>capacityOptimized</code> (recommended), Spot Fleet
+   *             launches instances from Spot Instance pools with optimal capacity for the number of instances
+   *             that are launching. To give certain instance types a higher chance of launching first,
+   *             use <code>capacityOptimizedPrioritized</code>. Set a priority for each instance type by
+   *             using the <code>Priority</code> parameter for <code>LaunchTemplateOverrides</code>. You
+   *             can assign the same priority to different <code>LaunchTemplateOverrides</code>. EC2
+   *             implements the priorities on a best-effort basis, but optimizes for capacity first.
+   *                 <code>capacityOptimizedPrioritized</code> is supported only if your Spot Fleet uses a
+   *             launch template. Note that if the <code>OnDemandAllocationStrategy</code> is set to
+   *                 <code>prioritized</code>, the same priority is applied when fulfilling On-Demand
+   *             capacity.</p>
    */
   AllocationStrategy?: AllocationStrategy | string;
 
@@ -7516,6 +8134,123 @@ export namespace DescribeStaleSecurityGroupsResult {
   });
 }
 
+export interface DescribeStoreImageTasksRequest {
+  /**
+   * <p>The AMI IDs for which to show progress. Up to 20 AMI IDs can be included in a request.</p>
+   */
+  ImageIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *       and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *       Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>task-state</code> - Returns tasks in a certain state (<code>InProgress</code> |
+   *             <code>Completed</code> | <code>Failed</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>bucket</code> - Returns task information for tasks that targeted a specific
+   *           bucket. For the filter value, specify the bucket name.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in a single call. To retrieve the remaining
+   *       results, make another call with the returned <code>NextToken</code> value. This value can be
+   *       between 1 and 200. You cannot specify this parameter and the <code>ImageIDs</code> parameter
+   *       in the same call.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace DescribeStoreImageTasksRequest {
+  export const filterSensitiveLog = (obj: DescribeStoreImageTasksRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The information about the AMI store task, including the progress of the task.</p>
+ */
+export interface StoreImageTaskResult {
+  /**
+   * <p>The ID of the AMI that is being stored.</p>
+   */
+  AmiId?: string;
+
+  /**
+   * <p>The time the task started.</p>
+   */
+  TaskStartTime?: Date;
+
+  /**
+   * <p>The name of the S3 bucket that contains the stored AMI object.</p>
+   */
+  Bucket?: string;
+
+  /**
+   * <p>The name of the stored AMI object in the bucket.</p>
+   */
+  S3objectKey?: string;
+
+  /**
+   * <p>The progress of the task as a percentage.</p>
+   */
+  ProgressPercentage?: number;
+
+  /**
+   * <p>The state of the store task (<code>InProgress</code>, <code>Completed</code>, or
+   *         <code>Failed</code>).</p>
+   */
+  StoreTaskState?: string;
+
+  /**
+   * <p>If the tasks fails, the reason for the failure is returned. If the task succeeds,
+   *         <code>null</code> is returned.</p>
+   */
+  StoreTaskFailureReason?: string;
+}
+
+export namespace StoreImageTaskResult {
+  export const filterSensitiveLog = (obj: StoreImageTaskResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeStoreImageTasksResult {
+  /**
+   * <p>The information about the AMI store tasks.</p>
+   */
+  StoreImageTaskResults?: StoreImageTaskResult[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
+   *       when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeStoreImageTasksResult {
+  export const filterSensitiveLog = (obj: DescribeStoreImageTasksResult): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeSubnetsRequest {
   /**
    * <p>One or more filters.</p>
@@ -7561,6 +8296,10 @@ export interface DescribeSubnetsRequest {
    *                 <p>
    *                   <code>ipv6-cidr-block-association.state</code> - The state of an IPv6 CIDR
    *                     block associated with the subnet.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -10102,6 +10841,11 @@ export interface DescribeVpcEndpointServicesRequest {
    *                   <code>service-name</code> - The name of the service.</p>
    *             </li>
    *             <li>
+   *                 <p>
+   *                   <code>service-type</code> - The type of service (<code>Interface</code> |
+   *                         <code>Gateway</code>).</p>
+   *             </li>
+   *             <li>
    *         		     <p>
    *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
    *         	   </li>
@@ -11040,409 +11784,6 @@ export interface DisableFastSnapshotRestoreErrorItem {
 
 export namespace DisableFastSnapshotRestoreErrorItem {
   export const filterSensitiveLog = (obj: DisableFastSnapshotRestoreErrorItem): any => ({
-    ...obj,
-  });
-}
-
-export interface DisableFastSnapshotRestoresResult {
-  /**
-   * <p>Information about the snapshots for which fast snapshot restores were successfully disabled.</p>
-   */
-  Successful?: DisableFastSnapshotRestoreSuccessItem[];
-
-  /**
-   * <p>Information about the snapshots for which fast snapshot restores could not be disabled.</p>
-   */
-  Unsuccessful?: DisableFastSnapshotRestoreErrorItem[];
-}
-
-export namespace DisableFastSnapshotRestoresResult {
-  export const filterSensitiveLog = (obj: DisableFastSnapshotRestoresResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DisableTransitGatewayRouteTablePropagationRequest {
-  /**
-   * <p>The ID of the propagation route table.</p>
-   */
-  TransitGatewayRouteTableId: string | undefined;
-
-  /**
-   * <p>The ID of the attachment.</p>
-   */
-  TransitGatewayAttachmentId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DisableTransitGatewayRouteTablePropagationRequest {
-  export const filterSensitiveLog = (obj: DisableTransitGatewayRouteTablePropagationRequest): any => ({
-    ...obj,
-  });
-}
-
-export type TransitGatewayPropagationState = "disabled" | "disabling" | "enabled" | "enabling";
-
-/**
- * <p>Describes route propagation.</p>
- */
-export interface TransitGatewayPropagation {
-  /**
-   * <p>The ID of the attachment.</p>
-   */
-  TransitGatewayAttachmentId?: string;
-
-  /**
-   * <p>The ID of the resource.</p>
-   */
-  ResourceId?: string;
-
-  /**
-   * <p>The resource type. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
-   */
-  ResourceType?: TransitGatewayAttachmentResourceType | string;
-
-  /**
-   * <p>The ID of the transit gateway route table.</p>
-   */
-  TransitGatewayRouteTableId?: string;
-
-  /**
-   * <p>The state.</p>
-   */
-  State?: TransitGatewayPropagationState | string;
-}
-
-export namespace TransitGatewayPropagation {
-  export const filterSensitiveLog = (obj: TransitGatewayPropagation): any => ({
-    ...obj,
-  });
-}
-
-export interface DisableTransitGatewayRouteTablePropagationResult {
-  /**
-   * <p>Information about route propagation.</p>
-   */
-  Propagation?: TransitGatewayPropagation;
-}
-
-export namespace DisableTransitGatewayRouteTablePropagationResult {
-  export const filterSensitiveLog = (obj: DisableTransitGatewayRouteTablePropagationResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the parameters for DisableVgwRoutePropagation.</p>
- */
-export interface DisableVgwRoutePropagationRequest {
-  /**
-   * <p>The ID of the virtual private gateway.</p>
-   */
-  GatewayId: string | undefined;
-
-  /**
-   * <p>The ID of the route table.</p>
-   */
-  RouteTableId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   * 			Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DisableVgwRoutePropagationRequest {
-  export const filterSensitiveLog = (obj: DisableVgwRoutePropagationRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DisableVpcClassicLinkRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId: string | undefined;
-}
-
-export namespace DisableVpcClassicLinkRequest {
-  export const filterSensitiveLog = (obj: DisableVpcClassicLinkRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DisableVpcClassicLinkResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   */
-  Return?: boolean;
-}
-
-export namespace DisableVpcClassicLinkResult {
-  export const filterSensitiveLog = (obj: DisableVpcClassicLinkResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DisableVpcClassicLinkDnsSupportRequest {
-  /**
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId?: string;
-}
-
-export namespace DisableVpcClassicLinkDnsSupportRequest {
-  export const filterSensitiveLog = (obj: DisableVpcClassicLinkDnsSupportRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DisableVpcClassicLinkDnsSupportResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   */
-  Return?: boolean;
-}
-
-export namespace DisableVpcClassicLinkDnsSupportResult {
-  export const filterSensitiveLog = (obj: DisableVpcClassicLinkDnsSupportResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DisassociateAddressRequest {
-  /**
-   * <p>[EC2-VPC] The association ID. Required for EC2-VPC.</p>
-   */
-  AssociationId?: string;
-
-  /**
-   * <p>[EC2-Classic] The Elastic IP address. Required for EC2-Classic.</p>
-   */
-  PublicIp?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DisassociateAddressRequest {
-  export const filterSensitiveLog = (obj: DisassociateAddressRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DisassociateClientVpnTargetNetworkRequest {
-  /**
-   * <p>The ID of the Client VPN endpoint from which to disassociate the target network.</p>
-   */
-  ClientVpnEndpointId: string | undefined;
-
-  /**
-   * <p>The ID of the target network association.</p>
-   */
-  AssociationId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DisassociateClientVpnTargetNetworkRequest {
-  export const filterSensitiveLog = (obj: DisassociateClientVpnTargetNetworkRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DisassociateClientVpnTargetNetworkResult {
-  /**
-   * <p>The ID of the target network association.</p>
-   */
-  AssociationId?: string;
-
-  /**
-   * <p>The current state of the target network association.</p>
-   */
-  Status?: AssociationStatus;
-}
-
-export namespace DisassociateClientVpnTargetNetworkResult {
-  export const filterSensitiveLog = (obj: DisassociateClientVpnTargetNetworkResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DisassociateEnclaveCertificateIamRoleRequest {
-  /**
-   * <p>The ARN of the ACM certificate from which to disassociate the IAM role.</p>
-   */
-  CertificateArn?: string;
-
-  /**
-   * <p>The ARN of the IAM role to disassociate.</p>
-   */
-  RoleArn?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DisassociateEnclaveCertificateIamRoleRequest {
-  export const filterSensitiveLog = (obj: DisassociateEnclaveCertificateIamRoleRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DisassociateEnclaveCertificateIamRoleResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   */
-  Return?: boolean;
-}
-
-export namespace DisassociateEnclaveCertificateIamRoleResult {
-  export const filterSensitiveLog = (obj: DisassociateEnclaveCertificateIamRoleResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DisassociateIamInstanceProfileRequest {
-  /**
-   * <p>The ID of the IAM instance profile association.</p>
-   */
-  AssociationId: string | undefined;
-}
-
-export namespace DisassociateIamInstanceProfileRequest {
-  export const filterSensitiveLog = (obj: DisassociateIamInstanceProfileRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DisassociateIamInstanceProfileResult {
-  /**
-   * <p>Information about the IAM instance profile association.</p>
-   */
-  IamInstanceProfileAssociation?: IamInstanceProfileAssociation;
-}
-
-export namespace DisassociateIamInstanceProfileResult {
-  export const filterSensitiveLog = (obj: DisassociateIamInstanceProfileResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DisassociateRouteTableRequest {
-  /**
-   * <p>The association ID representing the current association between the route table and subnet or gateway.</p>
-   */
-  AssociationId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DisassociateRouteTableRequest {
-  export const filterSensitiveLog = (obj: DisassociateRouteTableRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DisassociateSubnetCidrBlockRequest {
-  /**
-   * <p>The association ID for the CIDR block.</p>
-   */
-  AssociationId: string | undefined;
-}
-
-export namespace DisassociateSubnetCidrBlockRequest {
-  export const filterSensitiveLog = (obj: DisassociateSubnetCidrBlockRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DisassociateSubnetCidrBlockResult {
-  /**
-   * <p>Information about the IPv6 CIDR block association.</p>
-   */
-  Ipv6CidrBlockAssociation?: SubnetIpv6CidrBlockAssociation;
-
-  /**
-   * <p>The ID of the subnet.</p>
-   */
-  SubnetId?: string;
-}
-
-export namespace DisassociateSubnetCidrBlockResult {
-  export const filterSensitiveLog = (obj: DisassociateSubnetCidrBlockResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DisassociateTransitGatewayMulticastDomainRequest {
-  /**
-   * <p>The ID of the transit gateway multicast domain.</p>
-   */
-  TransitGatewayMulticastDomainId?: string;
-
-  /**
-   * <p>The ID of the attachment.</p>
-   */
-  TransitGatewayAttachmentId?: string;
-
-  /**
-   * <p>The IDs of the subnets;</p>
-   */
-  SubnetIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DisassociateTransitGatewayMulticastDomainRequest {
-  export const filterSensitiveLog = (obj: DisassociateTransitGatewayMulticastDomainRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DisassociateTransitGatewayMulticastDomainResult {
-  /**
-   * <p>Information about the association.</p>
-   */
-  Associations?: TransitGatewayMulticastDomainAssociations;
-}
-
-export namespace DisassociateTransitGatewayMulticastDomainResult {
-  export const filterSensitiveLog = (obj: DisassociateTransitGatewayMulticastDomainResult): any => ({
     ...obj,
   });
 }

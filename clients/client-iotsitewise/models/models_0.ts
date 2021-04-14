@@ -18,6 +18,24 @@ export namespace GroupIdentity {
 }
 
 /**
+ * <p>Contains information about an AWS Identity and Access Management (IAM) role. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM roles</a> in the
+ *       <i>IAM User Guide</i>.</p>
+ */
+export interface IAMRoleIdentity {
+  /**
+   * <p>The ARN of the IAM role. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.htmll#identifiers-arns">IAM ARNs</a> in the
+   *       <i>IAM User Guide</i>.</p>
+   */
+  arn: string | undefined;
+}
+
+export namespace IAMRoleIdentity {
+  export const filterSensitiveLog = (obj: IAMRoleIdentity): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Contains information about an AWS Identity and Access Management (IAM) user.</p>
  */
 export interface IAMUserIdentity {
@@ -77,6 +95,11 @@ export interface Identity {
    * <p>An IAM user identity.</p>
    */
   iamUser?: IAMUserIdentity;
+
+  /**
+   * <p>An IAM role identity.</p>
+   */
+  iamRole?: IAMRoleIdentity;
 }
 
 export namespace Identity {
@@ -482,7 +505,7 @@ export namespace Attribute {
 }
 
 /**
- * <p>Contains an asset measurement property. This structure is empty. For more information, see
+ * <p>Contains an asset measurement property. For more information, see
  *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#measurements">Measurements</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
  */
 export interface Measurement {}

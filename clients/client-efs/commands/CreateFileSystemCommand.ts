@@ -47,7 +47,9 @@ export type CreateFileSystemCommandOutput = FileSystemDescription & __MetadataBe
  *       be that a transport level timeout occurred or your connection was reset. As long as you use
  *       the same creation token, if the initial call had succeeded in creating a file system, the
  *       client can learn of its existence from the <code>FileSystemAlreadyExists</code> error.</p>
- *
+ *          <p>For more information, see
+ *       <a href="https://docs.aws.amazon.com/efs/latest/ug/creating-using-create-fs.html#creating-using-create-fs-part1">Creating a file system</a>
+ *      in the <i>Amazon EFS User Guide</i>.</p>
  *
  *          <note>
  *             <p>The <code>CreateFileSystem</code> call returns while the file system's lifecycle
@@ -56,13 +58,15 @@ export type CreateFileSystemCommandOutput = FileSystemDescription & __MetadataBe
  *         system state.</p>
  *          </note>
  *
- *          <p>This operation also takes an optional <code>PerformanceMode</code> parameter that you
+ *          <p>This operation accepts an optional <code>PerformanceMode</code> parameter that you
  *       choose for your file system. We recommend <code>generalPurpose</code> performance mode for
  *       most file systems. File systems using the <code>maxIO</code> performance mode can scale to
  *       higher levels of aggregate throughput and operations per second with a tradeoff of slightly
  *       higher latencies for most file operations. The performance mode can't be changed after
- *       the file system has been created. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes.html">Amazon EFS: Performance
- *         Modes</a>.</p>
+ *       the file system has been created. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes.html">Amazon EFS performance
+ *         modes</a>.</p>
+ *
+ *          <p>You can set the throughput mode for the file system using the <code>ThroughputMode</code> parameter.</p>
  *
  *          <p>After the file system is fully created, Amazon EFS sets its lifecycle state to
  *         <code>available</code>, at which point you can create one or more mount targets for the file

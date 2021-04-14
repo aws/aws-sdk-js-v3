@@ -54,6 +54,7 @@ import {
   DeleteScheduledActionCommandOutput,
 } from "../commands/DeleteScheduledActionCommand";
 import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "../commands/DeleteTagsCommand";
+import { DeleteWarmPoolCommandInput, DeleteWarmPoolCommandOutput } from "../commands/DeleteWarmPoolCommand";
 import {
   DescribeAccountLimitsCommandInput,
   DescribeAccountLimitsCommandOutput,
@@ -124,6 +125,7 @@ import {
   DescribeTerminationPolicyTypesCommandInput,
   DescribeTerminationPolicyTypesCommandOutput,
 } from "../commands/DescribeTerminationPolicyTypesCommand";
+import { DescribeWarmPoolCommandInput, DescribeWarmPoolCommandOutput } from "../commands/DescribeWarmPoolCommand";
 import { DetachInstancesCommandInput, DetachInstancesCommandOutput } from "../commands/DetachInstancesCommand";
 import {
   DetachLoadBalancerTargetGroupsCommandInput,
@@ -154,6 +156,7 @@ import {
   PutScheduledUpdateGroupActionCommandInput,
   PutScheduledUpdateGroupActionCommandOutput,
 } from "../commands/PutScheduledUpdateGroupActionCommand";
+import { PutWarmPoolCommandInput, PutWarmPoolCommandOutput } from "../commands/PutWarmPoolCommand";
 import {
   RecordLifecycleActionHeartbeatCommandInput,
   RecordLifecycleActionHeartbeatCommandOutput,
@@ -216,6 +219,8 @@ import {
   DeletePolicyType,
   DeleteScheduledActionType,
   DeleteTagsType,
+  DeleteWarmPoolAnswer,
+  DeleteWarmPoolType,
   DescribeAccountLimitsAnswer,
   DescribeAdjustmentTypesAnswer,
   DescribeAutoScalingInstancesType,
@@ -237,6 +242,8 @@ import {
   DescribeScheduledActionsType,
   DescribeTagsType,
   DescribeTerminationPolicyTypesAnswer,
+  DescribeWarmPoolAnswer,
+  DescribeWarmPoolType,
   DetachInstancesAnswer,
   DetachInstancesQuery,
   DetachLoadBalancerTargetGroupsResultType,
@@ -259,6 +266,9 @@ import {
   InstanceMonitoring,
   InstanceRefresh,
   InstanceRefreshInProgressFault,
+  InstanceRefreshLivePoolProgress,
+  InstanceRefreshProgressDetails,
+  InstanceRefreshWarmPoolProgress,
   InstancesDistribution,
   InvalidNextToken,
   LaunchConfiguration,
@@ -288,6 +298,8 @@ import {
   PutNotificationConfigurationType,
   PutScalingPolicyType,
   PutScheduledUpdateGroupActionType,
+  PutWarmPoolAnswer,
+  PutWarmPoolType,
   RecordLifecycleActionHeartbeatAnswer,
   RecordLifecycleActionHeartbeatType,
   RefreshPreferences,
@@ -314,6 +326,7 @@ import {
   TargetTrackingConfiguration,
   TerminateInstanceInAutoScalingGroupType,
   UpdateAutoScalingGroupType,
+  WarmPoolConfiguration,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
@@ -598,6 +611,22 @@ export const serializeAws_queryDeleteTagsCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryDeleteTagsType(input, context),
     Action: "DeleteTags",
+    Version: "2011-01-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryDeleteWarmPoolCommand = async (
+  input: DeleteWarmPoolCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDeleteWarmPoolType(input, context),
+    Action: "DeleteWarmPool",
     Version: "2011-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -893,6 +922,22 @@ export const serializeAws_queryDescribeTerminationPolicyTypesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryDescribeWarmPoolCommand = async (
+  input: DescribeWarmPoolCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDescribeWarmPoolType(input, context),
+    Action: "DescribeWarmPool",
+    Version: "2011-01-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_queryDetachInstancesCommand = async (
   input: DetachInstancesCommandInput,
   context: __SerdeContext
@@ -1080,6 +1125,22 @@ export const serializeAws_queryPutScheduledUpdateGroupActionCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryPutScheduledUpdateGroupActionType(input, context),
     Action: "PutScheduledUpdateGroupAction",
+    Version: "2011-01-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryPutWarmPoolCommand = async (
+  input: PutWarmPoolCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryPutWarmPoolType(input, context),
+    Action: "PutWarmPool",
     Version: "2011-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2283,6 +2344,84 @@ const deserializeAws_queryDeleteTagsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryDeleteWarmPoolCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteWarmPoolCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDeleteWarmPoolCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDeleteWarmPoolAnswer(data.DeleteWarmPoolResult, context);
+  const response: DeleteWarmPoolCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDeleteWarmPoolCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteWarmPoolCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "LimitExceededFault":
+    case "com.amazonaws.autoscaling#LimitExceededFault":
+      response = {
+        ...(await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceInUseFault":
+    case "com.amazonaws.autoscaling#ResourceInUseFault":
+      response = {
+        ...(await deserializeAws_queryResourceInUseFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ScalingActivityInProgressFault":
+    case "com.amazonaws.autoscaling#ScalingActivityInProgressFault":
+      response = {
+        ...(await deserializeAws_queryScalingActivityInProgressFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryDescribeAccountLimitsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3401,6 +3540,76 @@ const deserializeAws_queryDescribeTerminationPolicyTypesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryDescribeWarmPoolCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWarmPoolCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDescribeWarmPoolCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDescribeWarmPoolAnswer(data.DescribeWarmPoolResult, context);
+  const response: DescribeWarmPoolCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDescribeWarmPoolCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWarmPoolCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidNextToken":
+    case "com.amazonaws.autoscaling#InvalidNextToken":
+      response = {
+        ...(await deserializeAws_queryInvalidNextTokenResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededFault":
+    case "com.amazonaws.autoscaling#LimitExceededFault":
+      response = {
+        ...(await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryDetachInstancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4068,6 +4277,68 @@ const deserializeAws_queryPutScheduledUpdateGroupActionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "LimitExceededFault":
+    case "com.amazonaws.autoscaling#LimitExceededFault":
+      response = {
+        ...(await deserializeAws_queryLimitExceededFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryPutWarmPoolCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutWarmPoolCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryPutWarmPoolCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryPutWarmPoolAnswer(data.PutWarmPoolResult, context);
+  const response: PutWarmPoolCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryPutWarmPoolCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutWarmPoolCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
     case "LimitExceededFault":
     case "com.amazonaws.autoscaling#LimitExceededFault":
       response = {
@@ -4990,6 +5261,19 @@ const serializeAws_queryCancelInstanceRefreshType = (
   return entries;
 };
 
+const serializeAws_queryCheckpointPercentages = (input: number[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`member.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
 const serializeAws_queryClassicLinkVPCSecurityGroups = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
@@ -5335,6 +5619,17 @@ const serializeAws_queryDeleteTagsType = (input: DeleteTagsType, context: __Serd
   return entries;
 };
 
+const serializeAws_queryDeleteWarmPoolType = (input: DeleteWarmPoolType, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.AutoScalingGroupName !== undefined && input.AutoScalingGroupName !== null) {
+    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
+  }
+  if (input.ForceDelete !== undefined && input.ForceDelete !== null) {
+    entries["ForceDelete"] = input.ForceDelete;
+  }
+  return entries;
+};
+
 const serializeAws_queryDescribeAutoScalingInstancesType = (
   input: DescribeAutoScalingInstancesType,
   context: __SerdeContext
@@ -5496,6 +5791,9 @@ const serializeAws_queryDescribeScalingActivitiesType = (
   if (input.AutoScalingGroupName !== undefined && input.AutoScalingGroupName !== null) {
     entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
   }
+  if (input.IncludeDeletedGroups !== undefined && input.IncludeDeletedGroups !== null) {
+    entries["IncludeDeletedGroups"] = input.IncludeDeletedGroups;
+  }
   if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
     entries["MaxRecords"] = input.MaxRecords;
   }
@@ -5549,6 +5847,20 @@ const serializeAws_queryDescribeTagsType = (input: DescribeTagsType, context: __
   }
   if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
     entries["MaxRecords"] = input.MaxRecords;
+  }
+  return entries;
+};
+
+const serializeAws_queryDescribeWarmPoolType = (input: DescribeWarmPoolType, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.AutoScalingGroupName !== undefined && input.AutoScalingGroupName !== null) {
+    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
+  }
+  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
+    entries["MaxRecords"] = input.MaxRecords;
+  }
+  if (input.NextToken !== undefined && input.NextToken !== null) {
+    entries["NextToken"] = input.NextToken;
   }
   return entries;
 };
@@ -6256,6 +6568,26 @@ const serializeAws_queryPutScheduledUpdateGroupActionType = (
   if (input.DesiredCapacity !== undefined && input.DesiredCapacity !== null) {
     entries["DesiredCapacity"] = input.DesiredCapacity;
   }
+  if (input.TimeZone !== undefined && input.TimeZone !== null) {
+    entries["TimeZone"] = input.TimeZone;
+  }
+  return entries;
+};
+
+const serializeAws_queryPutWarmPoolType = (input: PutWarmPoolType, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.AutoScalingGroupName !== undefined && input.AutoScalingGroupName !== null) {
+    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
+  }
+  if (input.MaxGroupPreparedCapacity !== undefined && input.MaxGroupPreparedCapacity !== null) {
+    entries["MaxGroupPreparedCapacity"] = input.MaxGroupPreparedCapacity;
+  }
+  if (input.MinSize !== undefined && input.MinSize !== null) {
+    entries["MinSize"] = input.MinSize;
+  }
+  if (input.PoolState !== undefined && input.PoolState !== null) {
+    entries["PoolState"] = input.PoolState;
+  }
   return entries;
 };
 
@@ -6286,6 +6618,16 @@ const serializeAws_queryRefreshPreferences = (input: RefreshPreferences, context
   }
   if (input.InstanceWarmup !== undefined && input.InstanceWarmup !== null) {
     entries["InstanceWarmup"] = input.InstanceWarmup;
+  }
+  if (input.CheckpointPercentages !== undefined && input.CheckpointPercentages !== null) {
+    const memberEntries = serializeAws_queryCheckpointPercentages(input.CheckpointPercentages, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `CheckpointPercentages.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.CheckpointDelay !== undefined && input.CheckpointDelay !== null) {
+    entries["CheckpointDelay"] = input.CheckpointDelay;
   }
   return entries;
 };
@@ -6343,6 +6685,9 @@ const serializeAws_queryScheduledUpdateGroupActionRequest = (
   }
   if (input.DesiredCapacity !== undefined && input.DesiredCapacity !== null) {
     entries["DesiredCapacity"] = input.DesiredCapacity;
+  }
+  if (input.TimeZone !== undefined && input.TimeZone !== null) {
+    entries["TimeZone"] = input.TimeZone;
   }
   return entries;
 };
@@ -6727,6 +7072,8 @@ const deserializeAws_queryActivity = (output: any, context: __SerdeContext): Act
     StatusMessage: undefined,
     Progress: undefined,
     Details: undefined,
+    AutoScalingGroupState: undefined,
+    AutoScalingGroupARN: undefined,
   };
   if (output["ActivityId"] !== undefined) {
     contents.ActivityId = output["ActivityId"];
@@ -6757,6 +7104,12 @@ const deserializeAws_queryActivity = (output: any, context: __SerdeContext): Act
   }
   if (output["Details"] !== undefined) {
     contents.Details = output["Details"];
+  }
+  if (output["AutoScalingGroupState"] !== undefined) {
+    contents.AutoScalingGroupState = output["AutoScalingGroupState"];
+  }
+  if (output["AutoScalingGroupARN"] !== undefined) {
+    contents.AutoScalingGroupARN = output["AutoScalingGroupARN"];
   }
   return contents;
 };
@@ -6872,6 +7225,8 @@ const deserializeAws_queryAutoScalingGroup = (output: any, context: __SerdeConte
     ServiceLinkedRoleARN: undefined,
     MaxInstanceLifetime: undefined,
     CapacityRebalance: undefined,
+    WarmPoolConfiguration: undefined,
+    WarmPoolSize: undefined,
   };
   if (output["AutoScalingGroupName"] !== undefined) {
     contents.AutoScalingGroupName = output["AutoScalingGroupName"];
@@ -6995,6 +7350,15 @@ const deserializeAws_queryAutoScalingGroup = (output: any, context: __SerdeConte
   }
   if (output["CapacityRebalance"] !== undefined) {
     contents.CapacityRebalance = output["CapacityRebalance"] == "true";
+  }
+  if (output["WarmPoolConfiguration"] !== undefined) {
+    contents.WarmPoolConfiguration = deserializeAws_queryWarmPoolConfiguration(
+      output["WarmPoolConfiguration"],
+      context
+    );
+  }
+  if (output["WarmPoolSize"] !== undefined) {
+    contents.WarmPoolSize = parseInt(output["WarmPoolSize"]);
   }
   return contents;
 };
@@ -7287,6 +7651,11 @@ const deserializeAws_queryDeleteLifecycleHookAnswer = (
   return contents;
 };
 
+const deserializeAws_queryDeleteWarmPoolAnswer = (output: any, context: __SerdeContext): DeleteWarmPoolAnswer => {
+  let contents: any = {};
+  return contents;
+};
+
 const deserializeAws_queryDescribeAccountLimitsAnswer = (
   output: any,
   context: __SerdeContext
@@ -7534,6 +7903,30 @@ const deserializeAws_queryDescribeTerminationPolicyTypesAnswer = (
   return contents;
 };
 
+const deserializeAws_queryDescribeWarmPoolAnswer = (output: any, context: __SerdeContext): DescribeWarmPoolAnswer => {
+  let contents: any = {
+    WarmPoolConfiguration: undefined,
+    Instances: undefined,
+    NextToken: undefined,
+  };
+  if (output["WarmPoolConfiguration"] !== undefined) {
+    contents.WarmPoolConfiguration = deserializeAws_queryWarmPoolConfiguration(
+      output["WarmPoolConfiguration"],
+      context
+    );
+  }
+  if (output.Instances === "") {
+    contents.Instances = [];
+  }
+  if (output["Instances"] !== undefined && output["Instances"]["member"] !== undefined) {
+    contents.Instances = deserializeAws_queryInstances(__getArrayIfSingleItem(output["Instances"]["member"]), context);
+  }
+  if (output["NextToken"] !== undefined) {
+    contents.NextToken = output["NextToken"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryDetachInstancesAnswer = (output: any, context: __SerdeContext): DetachInstancesAnswer => {
   let contents: any = {
     Activities: undefined,
@@ -7768,6 +8161,7 @@ const deserializeAws_queryInstanceRefresh = (output: any, context: __SerdeContex
     EndTime: undefined,
     PercentageComplete: undefined,
     InstancesToUpdate: undefined,
+    ProgressDetails: undefined,
   };
   if (output["InstanceRefreshId"] !== undefined) {
     contents.InstanceRefreshId = output["InstanceRefreshId"];
@@ -7793,6 +8187,9 @@ const deserializeAws_queryInstanceRefresh = (output: any, context: __SerdeContex
   if (output["InstancesToUpdate"] !== undefined) {
     contents.InstancesToUpdate = parseInt(output["InstancesToUpdate"]);
   }
+  if (output["ProgressDetails"] !== undefined) {
+    contents.ProgressDetails = deserializeAws_queryInstanceRefreshProgressDetails(output["ProgressDetails"], context);
+  }
   return contents;
 };
 
@@ -7816,6 +8213,63 @@ const deserializeAws_queryInstanceRefreshInProgressFault = (
   };
   if (output["message"] !== undefined) {
     contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInstanceRefreshLivePoolProgress = (
+  output: any,
+  context: __SerdeContext
+): InstanceRefreshLivePoolProgress => {
+  let contents: any = {
+    PercentageComplete: undefined,
+    InstancesToUpdate: undefined,
+  };
+  if (output["PercentageComplete"] !== undefined) {
+    contents.PercentageComplete = parseInt(output["PercentageComplete"]);
+  }
+  if (output["InstancesToUpdate"] !== undefined) {
+    contents.InstancesToUpdate = parseInt(output["InstancesToUpdate"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryInstanceRefreshProgressDetails = (
+  output: any,
+  context: __SerdeContext
+): InstanceRefreshProgressDetails => {
+  let contents: any = {
+    LivePoolProgress: undefined,
+    WarmPoolProgress: undefined,
+  };
+  if (output["LivePoolProgress"] !== undefined) {
+    contents.LivePoolProgress = deserializeAws_queryInstanceRefreshLivePoolProgress(
+      output["LivePoolProgress"],
+      context
+    );
+  }
+  if (output["WarmPoolProgress"] !== undefined) {
+    contents.WarmPoolProgress = deserializeAws_queryInstanceRefreshWarmPoolProgress(
+      output["WarmPoolProgress"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryInstanceRefreshWarmPoolProgress = (
+  output: any,
+  context: __SerdeContext
+): InstanceRefreshWarmPoolProgress => {
+  let contents: any = {
+    PercentageComplete: undefined,
+    InstancesToUpdate: undefined,
+  };
+  if (output["PercentageComplete"] !== undefined) {
+    contents.PercentageComplete = parseInt(output["PercentageComplete"]);
+  }
+  if (output["InstancesToUpdate"] !== undefined) {
+    contents.InstancesToUpdate = parseInt(output["InstancesToUpdate"]);
   }
   return contents;
 };
@@ -8427,6 +8881,11 @@ const deserializeAws_queryPutLifecycleHookAnswer = (output: any, context: __Serd
   return contents;
 };
 
+const deserializeAws_queryPutWarmPoolAnswer = (output: any, context: __SerdeContext): PutWarmPoolAnswer => {
+  let contents: any = {};
+  return contents;
+};
+
 const deserializeAws_queryRecordLifecycleActionHeartbeatAnswer = (
   output: any,
   context: __SerdeContext
@@ -8595,6 +9054,7 @@ const deserializeAws_queryScheduledUpdateGroupAction = (
     MinSize: undefined,
     MaxSize: undefined,
     DesiredCapacity: undefined,
+    TimeZone: undefined,
   };
   if (output["AutoScalingGroupName"] !== undefined) {
     contents.AutoScalingGroupName = output["AutoScalingGroupName"];
@@ -8625,6 +9085,9 @@ const deserializeAws_queryScheduledUpdateGroupAction = (
   }
   if (output["DesiredCapacity"] !== undefined) {
     contents.DesiredCapacity = parseInt(output["DesiredCapacity"]);
+  }
+  if (output["TimeZone"] !== undefined) {
+    contents.TimeZone = output["TimeZone"];
   }
   return contents;
 };
@@ -8847,6 +9310,28 @@ const deserializeAws_queryTerminationPolicies = (output: any, context: __SerdeCo
       }
       return entry;
     });
+};
+
+const deserializeAws_queryWarmPoolConfiguration = (output: any, context: __SerdeContext): WarmPoolConfiguration => {
+  let contents: any = {
+    MaxGroupPreparedCapacity: undefined,
+    MinSize: undefined,
+    PoolState: undefined,
+    Status: undefined,
+  };
+  if (output["MaxGroupPreparedCapacity"] !== undefined) {
+    contents.MaxGroupPreparedCapacity = parseInt(output["MaxGroupPreparedCapacity"]);
+  }
+  if (output["MinSize"] !== undefined) {
+    contents.MinSize = parseInt(output["MinSize"]);
+  }
+  if (output["PoolState"] !== undefined) {
+    contents.PoolState = output["PoolState"];
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = output["Status"];
+  }
+  return contents;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

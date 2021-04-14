@@ -41,6 +41,15 @@ export type VerifyCommandOutput = VerifyResponse & __MetadataBearer;
  *          <p>The CMK that you use for this operation must be in a compatible key state. For
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
  * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ *          <p>
+ *             <b>Cross-account use</b>: Yes. To perform this operation with a CMK in a different AWS account, specify
+ *   the key ARN or alias ARN in the value of the <code>KeyId</code> parameter. </p>
+ *
+ *          <p>
+ *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:Verify</a> (key policy)</p>
+ *          <p>
+ *             <b>Related operations</b>: <a>Sign</a>
+ *          </p>
  */
 export class VerifyCommand extends $Command<VerifyCommandInput, VerifyCommandOutput, KMSClientResolvedConfig> {
   // Start section: command_properties

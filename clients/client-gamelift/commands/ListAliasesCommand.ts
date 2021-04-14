@@ -27,38 +27,18 @@ export type ListAliasesCommandOutput = ListAliasesOutput & __MetadataBearer;
  *         <note>
  *             <p>Returned aliases are not listed in any particular order.</p>
  *         </note>
- *         <ul>
- *             <li>
- *                <p>
- *                   <a>CreateAlias</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListAliases</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DescribeAlias</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateAlias</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteAlias</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ResolveAlias</a>
- *                </p>
- *             </li>
- *          </ul>
+ *         <p>
+ *             <b>Related actions</b>
+ *          </p>
+ *                     <p>
+ *             <a>CreateAlias</a> |
+ *                     <a>ListAliases</a> |
+ *                     <a>DescribeAlias</a> |
+ *                     <a>UpdateAlias</a> |
+ *                     <a>DeleteAlias</a> |
+ *                     <a>ResolveAlias</a> |
+ *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          </p>
  */
 export class ListAliasesCommand extends $Command<
   ListAliasesCommandInput,

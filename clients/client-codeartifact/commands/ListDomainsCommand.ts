@@ -21,9 +21,7 @@ export type ListDomainsCommandInput = ListDomainsRequest;
 export type ListDomainsCommandOutput = ListDomainsResult & __MetadataBearer;
 
 /**
- * <p> Returns a list of <code>
- *                <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html">DomainSummary</a>
- *             </code> objects for all domains owned by the AWS account that makes
+ * <p> Returns a list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html">DomainSummary</a> objects for all domains owned by the AWS account that makes
  *       this call. Each returned <code>DomainSummary</code> object contains information about a
  *       domain. </p>
  */

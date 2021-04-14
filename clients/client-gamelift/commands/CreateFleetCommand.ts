@@ -21,90 +21,58 @@ export type CreateFleetCommandInput = CreateFleetInput;
 export type CreateFleetCommandOutput = CreateFleetOutput & __MetadataBearer;
 
 /**
- * <p>Creates a new fleet to run your game servers. whether they are custom game builds or
- *             Realtime Servers with game-specific script. A fleet is a set of Amazon Elastic Compute Cloud
- *             (Amazon EC2) instances, each of which can host multiple game sessions. When creating a
- *             fleet, you choose the hardware specifications, set some configuration options, and
- *             specify the game server to deploy on the new fleet. </p>
- *         <p>To create a new fleet, provide the following: (1) a fleet name, (2) an EC2 instance
- *             type and fleet type (spot or on-demand), (3) the build ID for your game build or script
- *             ID if using Realtime Servers, and (4) a runtime configuration, which determines how game servers
- *             will run on each instance in the fleet. </p>
+ * <p>Creates a fleet of Amazon Elastic Compute Cloud (Amazon EC2) instances to host your
+ *             custom game server or Realtime Servers. Use this operation to configure the computing resources for
+ *             your fleet and provide instructions for running game servers on each instance.</p>
+ *         <p>Most GameLift fleets can deploy instances to multiple locations, including the home
+ *             Region (where the fleet is created) and an optional set of remote locations. Fleets that
+ *             are created in the following AWS Regions support multiple locations: us-east-1 (N.
+ *             Virginia), us-west-2 (Oregon), eu-central-1 (Frankfurt), eu-west-1 (Ireland),
+ *             ap-southeast-2 (Sydney), ap-northeast-1 (Tokyo), and ap-northeast-2 (Seoul). Fleets that
+ *             are created in other GameLift Regions can deploy instances in the fleet's home Region
+ *             only. All fleet instances use the same configuration regardless of location; however,
+ *             you can adjust capacity settings and turn auto-scaling on/off for each location.</p>
+ *         <p>To create a fleet, choose the hardware for your instances, specify a game server build
+ *             or Realtime script to deploy, and provide a runtime configuration to direct GameLift how
+ *             to start and run game servers on each instance in the fleet. Set permissions for inbound
+ *             traffic to your game servers, and enable optional features as needed. When creating a
+ *             multi-location fleet, provide a list of additional remote locations.</p>
  *
- *         <p>If the <code>CreateFleet</code> call is successful, Amazon GameLift performs the following
- *             tasks. You can track the process of a fleet by checking the fleet status or by
- *             monitoring fleet creation events:</p>
- *         <ul>
- *             <li>
- *                 <p>Creates a fleet resource. Status: <code>NEW</code>.</p>
- *             </li>
- *             <li>
- *                 <p>Begins writing events to the fleet event log, which can be accessed in the
- *                     Amazon GameLift console.</p>
- *             </li>
- *             <li>
- *                  <p>Sets the fleet's target capacity to 1 (desired instances), which triggers
- *                     Amazon GameLift to start one new EC2 instance.</p>
- *             </li>
- *             <li>
- *                 <p>Downloads the game build or Realtime script to the new instance and installs it.
- *                     Statuses: <code>DOWNLOADING</code>, <code>VALIDATING</code>,
- *                         <code>BUILDING</code>. </p>
- *             </li>
- *             <li>
- *                 <p>Starts launching server processes on the instance. If the fleet is configured
- *                     to run multiple server processes per instance, Amazon GameLift staggers each process
- *                     launch by a few seconds. Status: <code>ACTIVATING</code>.</p>
- *             </li>
- *             <li>
- *                 <p>Sets the fleet's status to <code>ACTIVE</code> as soon as one server
- *                     process is ready to host a game session.</p>
- *             </li>
- *          </ul>
+ *         <p>If successful, this operation creates a new Fleet resource and places it in
+ *                 <code>NEW</code> status, which prompts GameLift to initiate the <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creation-workflow.html">fleet creation
+ *                 workflow</a>. You can track fleet creation by checking fleet status using <a>DescribeFleetAttributes</a> and <a>DescribeFleetLocationAttributes</a>/, or by monitoring fleet creation events
+ *             using <a>DescribeFleetEvents</a>. As soon as the fleet status changes to
+ *                 <code>ACTIVE</code>, you can enable automatic scaling for the fleet with <a>PutScalingPolicy</a> and set capacity for the home Region with <a>UpdateFleetCapacity</a>. When the status of each remote location reaches
+ *                 <code>ACTIVE</code>, you can set capacity by location using <a>UpdateFleetCapacity</a>.</p>
+ *
+ *
  *         <p>
  *             <b>Learn more</b>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting Up Fleets</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up fleets</a>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html#fleets-creating-debug-creation">Debug Fleet Creation Issues</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html#fleets-creating-debug-creation">Debug fleet creation issues</a>
  *          </p>
  *         <p>
- *             <b>Related operations</b>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Multi-location fleets</a>
  *          </p>
- *         <ul>
- *             <li>
- *                <p>
- *                   <a>CreateFleet</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListFleets</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteFleet</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DescribeFleetAttributes</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateFleetAttributes</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>StartFleetActions</a> or <a>StopFleetActions</a>
- *                </p>
- *             </li>
- *          </ul>
+ *         <p>
+ *             <b>Related actions</b>
+ *          </p>
+ *                     <p>
+ *             <a>CreateFleet</a> |
+ *                     <a>UpdateFleetCapacity</a> |
+ *                     <a>PutScalingPolicy</a> |
+ *                     <a>DescribeEC2InstanceLimits</a> |
+ *                     <a>DescribeFleetAttributes</a> |
+ *                     <a>DescribeFleetLocationAttributes</a> |
+ *                     <a>UpdateFleetAttributes</a> |
+ *                     <a>StopFleetActions</a> |
+ *                     <a>DeleteFleet</a> |
+ *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          </p>
  */
 export class CreateFleetCommand extends $Command<
   CreateFleetCommandInput,

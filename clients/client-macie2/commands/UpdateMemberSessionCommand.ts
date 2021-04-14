@@ -21,7 +21,7 @@ export type UpdateMemberSessionCommandInput = UpdateMemberSessionRequest;
 export type UpdateMemberSessionCommandOutput = UpdateMemberSessionResponse & __MetadataBearer;
 
 /**
- * <p>Enables an Amazon Macie master account to suspend or re-enable a member account.</p>
+ * <p>Enables an Amazon Macie administrator to suspend or re-enable a member account.</p>
  */
 export class UpdateMemberSessionCommand extends $Command<
   UpdateMemberSessionCommandInput,

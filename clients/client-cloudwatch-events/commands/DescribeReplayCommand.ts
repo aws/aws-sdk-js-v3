@@ -22,14 +22,14 @@ export type DescribeReplayCommandOutput = DescribeReplayResponse & __MetadataBea
 
 /**
  * <p>Retrieves details about a replay. Use <code>DescribeReplay</code> to determine the
- *             progress of a running replay. A replay processes events to replay based on
- *             the time in the event, and replays them using 1 minute intervals. If you use <code>StartReplay</code> and specify an
- *             <code>EventStartTime</code> and an <code>EventEndTime</code> that covers a 20 minute
- *             time range, the events are replayed from the first minute of that 20 minute range first.
- *             Then the events from the second minute are replayed. You can use
- *             <code>DescribeReplay</code> to determine the progress of a replay. The value
- *             returned for <code>EventLastReplayedTime</code> indicates the time within the specified
- *             time range associated with the last event replayed.</p>
+ *       progress of a running replay. A replay processes events to replay based on the time in the
+ *       event, and replays them using 1 minute intervals. If you use <code>StartReplay</code> and
+ *       specify an <code>EventStartTime</code> and an <code>EventEndTime</code> that covers a 20
+ *       minute time range, the events are replayed from the first minute of that 20 minute range
+ *       first. Then the events from the second minute are replayed. You can use
+ *         <code>DescribeReplay</code> to determine the progress of a replay. The value returned for
+ *         <code>EventLastReplayedTime</code> indicates the time within the specified time range
+ *       associated with the last event replayed.</p>
  */
 export class DescribeReplayCommand extends $Command<
   DescribeReplayCommandInput,

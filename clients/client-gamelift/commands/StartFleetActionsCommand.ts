@@ -21,54 +21,44 @@ export type StartFleetActionsCommandInput = StartFleetActionsInput;
 export type StartFleetActionsCommandOutput = StartFleetActionsOutput & __MetadataBearer;
 
 /**
- * <p>Resumes activity on a fleet that was suspended with <a>StopFleetActions</a>. Currently, this operation is used to restart a fleet's
- *             auto-scaling activity. </p>
- *         <p>To start fleet actions, specify the fleet ID and the type of actions to restart. When
- *             auto-scaling fleet actions are restarted, Amazon GameLift once again initiates scaling events
- *             as triggered by the fleet's scaling policies. If actions on the fleet were never
- *             stopped, this operation will have no effect. You can view a fleet's stopped actions
- *             using <a>DescribeFleetAttributes</a>.</p>
+ * <p>Resumes certain types of activity on fleet instances that were suspended with <a>StopFleetActions</a>. For multi-location fleets, fleet actions are managed
+ *             separately for each location. Currently, this operation is used to restart a fleet's
+ *             auto-scaling activity.</p>
+ *         <p>This operation can be used in the following ways: </p>
+ *         <ul>
+ *             <li>
+ *                 <p>To restart actions on instances in the fleet's home Region, provide a fleet ID
+ *                     and the type of actions to resume. </p>
+ *             </li>
+ *             <li>
+ *                 <p>To restart actions on instances in one of the fleet's remote locations,
+ *                     provide a fleet ID, a location name, and the type of actions to resume.  </p>
+ *             </li>
+ *          </ul>
+ *         <p>If successful, GameLift once again initiates scaling events as triggered by the fleet's
+ *             scaling policies. If actions on the fleet location were never stopped, this operation
+ *             will have no effect. You can view a fleet's stopped actions using <a>DescribeFleetAttributes</a> or <a>DescribeFleetLocationAttributes</a>.</p>
  *         <p>
  *             <b>Learn more</b>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift Fleets</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift fleets</a>
  *          </p>
  *         <p>
- *             <b>Related operations</b>
+ *             <b>Related actions</b>
  *          </p>
- *         <ul>
- *             <li>
- *                <p>
- *                   <a>CreateFleet</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListFleets</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteFleet</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DescribeFleetAttributes</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateFleetAttributes</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>StartFleetActions</a> or <a>StopFleetActions</a>
- *                </p>
- *             </li>
- *          </ul>
+ *                     <p>
+ *             <a>CreateFleet</a> |
+ *                     <a>UpdateFleetCapacity</a> |
+ *                     <a>PutScalingPolicy</a> |
+ *                     <a>DescribeEC2InstanceLimits</a> |
+ *                     <a>DescribeFleetAttributes</a> |
+ *                     <a>DescribeFleetLocationAttributes</a> |
+ *                     <a>UpdateFleetAttributes</a> |
+ *                     <a>StopFleetActions</a> |
+ *                     <a>DeleteFleet</a> |
+ *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          </p>
  */
 export class StartFleetActionsCommand extends $Command<
   StartFleetActionsCommandInput,

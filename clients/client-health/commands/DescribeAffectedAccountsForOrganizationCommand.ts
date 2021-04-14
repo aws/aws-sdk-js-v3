@@ -30,7 +30,7 @@ export type DescribeAffectedAccountsForOrganizationCommandOutput = DescribeAffec
  *          <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html">Event</a>. </p>
  *          <p>Before you can call this operation, you must first enable AWS Health to work with
  *          AWS Organizations. To do this, call the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html">EnableHealthServiceAccessForOrganization</a>
- *          operation from your organization's master account.</p>
+ *          operation from your organization's management account.</p>
  *
  *          <note>
  *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the next request to return more results.</p>

@@ -26,6 +26,7 @@ export type GetProposalCommandOutput = GetProposalOutput & __MetadataBearer;
 
 /**
  * <p>Returns detailed information about a proposal.</p>
+ *          <p>Applies only to Hyperledger Fabric.</p>
  */
 export class GetProposalCommand extends $Command<
   GetProposalCommandInput,

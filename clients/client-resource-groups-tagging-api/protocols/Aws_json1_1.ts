@@ -910,6 +910,10 @@ const serializeAws_json1_1GetResourcesInput = (input: GetResourcesInput, context
       input.IncludeComplianceDetails !== null && { IncludeComplianceDetails: input.IncludeComplianceDetails }),
     ...(input.PaginationToken !== undefined &&
       input.PaginationToken !== null && { PaginationToken: input.PaginationToken }),
+    ...(input.ResourceARNList !== undefined &&
+      input.ResourceARNList !== null && {
+        ResourceARNList: serializeAws_json1_1ResourceARNListForGet(input.ResourceARNList, context),
+      }),
     ...(input.ResourceTypeFilters !== undefined &&
       input.ResourceTypeFilters !== null && {
         ResourceTypeFilters: serializeAws_json1_1ResourceTypeFilterList(input.ResourceTypeFilters, context),
@@ -924,7 +928,6 @@ const serializeAws_json1_1GetResourcesInput = (input: GetResourcesInput, context
 
 const serializeAws_json1_1GetTagKeysInput = (input: GetTagKeysInput, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.PaginationToken !== undefined &&
       input.PaginationToken !== null && { PaginationToken: input.PaginationToken }),
   };
@@ -933,7 +936,6 @@ const serializeAws_json1_1GetTagKeysInput = (input: GetTagKeysInput, context: __
 const serializeAws_json1_1GetTagValuesInput = (input: GetTagValuesInput, context: __SerdeContext): any => {
   return {
     ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
-    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.PaginationToken !== undefined &&
       input.PaginationToken !== null && { PaginationToken: input.PaginationToken }),
   };
@@ -961,7 +963,18 @@ const serializeAws_json1_1RegionFilterList = (input: string[], context: __SerdeC
     });
 };
 
-const serializeAws_json1_1ResourceARNList = (input: string[], context: __SerdeContext): any => {
+const serializeAws_json1_1ResourceARNListForGet = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1ResourceARNListForTagUntag = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -1049,7 +1062,7 @@ const serializeAws_json1_1TagResourcesInput = (input: TagResourcesInput, context
   return {
     ...(input.ResourceARNList !== undefined &&
       input.ResourceARNList !== null && {
-        ResourceARNList: serializeAws_json1_1ResourceARNList(input.ResourceARNList, context),
+        ResourceARNList: serializeAws_json1_1ResourceARNListForTagUntag(input.ResourceARNList, context),
       }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagMap(input.Tags, context) }),
   };
@@ -1081,7 +1094,7 @@ const serializeAws_json1_1UntagResourcesInput = (input: UntagResourcesInput, con
   return {
     ...(input.ResourceARNList !== undefined &&
       input.ResourceARNList !== null && {
-        ResourceARNList: serializeAws_json1_1ResourceARNList(input.ResourceARNList, context),
+        ResourceARNList: serializeAws_json1_1ResourceARNListForTagUntag(input.ResourceARNList, context),
       }),
     ...(input.TagKeys !== undefined &&
       input.TagKeys !== null && { TagKeys: serializeAws_json1_1TagKeyListForUntag(input.TagKeys, context) }),

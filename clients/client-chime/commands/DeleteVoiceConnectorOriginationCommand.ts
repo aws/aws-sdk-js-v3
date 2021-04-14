@@ -22,6 +22,7 @@ export type DeleteVoiceConnectorOriginationCommandOutput = __MetadataBearer;
 
 /**
  * <p>Deletes the origination settings for the specified Amazon Chime Voice Connector.</p>
+ *
  *          <note>
  *             <p>If emergency calling is configured for the Amazon Chime Voice Connector, it must be deleted prior to deleting the origination settings.</p>
  *          </note>

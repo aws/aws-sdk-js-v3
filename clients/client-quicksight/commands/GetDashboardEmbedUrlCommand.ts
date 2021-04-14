@@ -41,9 +41,8 @@ export type GetDashboardEmbedUrlCommandOutput = GetDashboardEmbedUrlResponse & _
  *                 <p>The resulting user session is valid for 10 hours.</p>
  *             </li>
  *          </ul>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedding-dashboards.html">Embedding Amazon QuickSight</a> in the <i>Amazon QuickSight User
- *             Guide</i>
- *          .</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html">Embedded Analytics</a> in the <i>Amazon QuickSight User
+ *             Guide</i>.</p>
  */
 export class GetDashboardEmbedUrlCommand extends $Command<
   GetDashboardEmbedUrlCommandInput,

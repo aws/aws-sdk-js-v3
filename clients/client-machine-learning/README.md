@@ -7,8 +7,8 @@
 
 AWS SDK for JavaScript MachineLearning Client for Node.js, Browser and React Native.
 
-<p>Definition of the public APIs
-exposed by Amazon Machine Learning</p>
+Definition of the public APIs
+exposed by Amazon Machine Learning
 
 ## Installing
 

@@ -10,6 +10,11 @@ import {
   AuthorizeClusterSecurityGroupIngressCommandOutput,
 } from "./commands/AuthorizeClusterSecurityGroupIngressCommand";
 import {
+  AuthorizeEndpointAccessCommand,
+  AuthorizeEndpointAccessCommandInput,
+  AuthorizeEndpointAccessCommandOutput,
+} from "./commands/AuthorizeEndpointAccessCommand";
+import {
   AuthorizeSnapshotAccessCommand,
   AuthorizeSnapshotAccessCommandInput,
   AuthorizeSnapshotAccessCommandOutput,
@@ -59,6 +64,11 @@ import {
   CreateClusterSubnetGroupCommandInput,
   CreateClusterSubnetGroupCommandOutput,
 } from "./commands/CreateClusterSubnetGroupCommand";
+import {
+  CreateEndpointAccessCommand,
+  CreateEndpointAccessCommandInput,
+  CreateEndpointAccessCommandOutput,
+} from "./commands/CreateEndpointAccessCommand";
 import {
   CreateEventSubscriptionCommand,
   CreateEventSubscriptionCommandInput,
@@ -120,6 +130,11 @@ import {
   DeleteClusterSubnetGroupCommandInput,
   DeleteClusterSubnetGroupCommandOutput,
 } from "./commands/DeleteClusterSubnetGroupCommand";
+import {
+  DeleteEndpointAccessCommand,
+  DeleteEndpointAccessCommandInput,
+  DeleteEndpointAccessCommandOutput,
+} from "./commands/DeleteEndpointAccessCommand";
 import {
   DeleteEventSubscriptionCommand,
   DeleteEventSubscriptionCommandInput,
@@ -211,6 +226,16 @@ import {
   DescribeDefaultClusterParametersCommandInput,
   DescribeDefaultClusterParametersCommandOutput,
 } from "./commands/DescribeDefaultClusterParametersCommand";
+import {
+  DescribeEndpointAccessCommand,
+  DescribeEndpointAccessCommandInput,
+  DescribeEndpointAccessCommandOutput,
+} from "./commands/DescribeEndpointAccessCommand";
+import {
+  DescribeEndpointAuthorizationCommand,
+  DescribeEndpointAuthorizationCommandInput,
+  DescribeEndpointAuthorizationCommandOutput,
+} from "./commands/DescribeEndpointAuthorizationCommand";
 import {
   DescribeEventCategoriesCommand,
   DescribeEventCategoriesCommandInput,
@@ -332,6 +357,11 @@ import {
   GetReservedNodeExchangeOfferingsCommandOutput,
 } from "./commands/GetReservedNodeExchangeOfferingsCommand";
 import {
+  ModifyAquaConfigurationCommand,
+  ModifyAquaConfigurationCommandInput,
+  ModifyAquaConfigurationCommandOutput,
+} from "./commands/ModifyAquaConfigurationCommand";
+import {
   ModifyClusterCommand,
   ModifyClusterCommandInput,
   ModifyClusterCommandOutput,
@@ -371,6 +401,11 @@ import {
   ModifyClusterSubnetGroupCommandInput,
   ModifyClusterSubnetGroupCommandOutput,
 } from "./commands/ModifyClusterSubnetGroupCommand";
+import {
+  ModifyEndpointAccessCommand,
+  ModifyEndpointAccessCommandInput,
+  ModifyEndpointAccessCommandOutput,
+} from "./commands/ModifyEndpointAccessCommand";
 import {
   ModifyEventSubscriptionCommand,
   ModifyEventSubscriptionCommandInput,
@@ -441,6 +476,11 @@ import {
   RevokeClusterSecurityGroupIngressCommandInput,
   RevokeClusterSecurityGroupIngressCommandOutput,
 } from "./commands/RevokeClusterSecurityGroupIngressCommand";
+import {
+  RevokeEndpointAccessCommand,
+  RevokeEndpointAccessCommandInput,
+  RevokeEndpointAccessCommandOutput,
+} from "./commands/RevokeEndpointAccessCommand";
 import {
   RevokeSnapshotAccessCommand,
   RevokeSnapshotAccessCommandInput,
@@ -549,6 +589,38 @@ export class Redshift extends RedshiftClient {
     cb?: (err: any, data?: AuthorizeClusterSecurityGroupIngressCommandOutput) => void
   ): Promise<AuthorizeClusterSecurityGroupIngressCommandOutput> | void {
     const command = new AuthorizeClusterSecurityGroupIngressCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Grants access to a cluster.</p>
+   */
+  public authorizeEndpointAccess(
+    args: AuthorizeEndpointAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AuthorizeEndpointAccessCommandOutput>;
+  public authorizeEndpointAccess(
+    args: AuthorizeEndpointAccessCommandInput,
+    cb: (err: any, data?: AuthorizeEndpointAccessCommandOutput) => void
+  ): void;
+  public authorizeEndpointAccess(
+    args: AuthorizeEndpointAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AuthorizeEndpointAccessCommandOutput) => void
+  ): void;
+  public authorizeEndpointAccess(
+    args: AuthorizeEndpointAccessCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AuthorizeEndpointAccessCommandOutput) => void),
+    cb?: (err: any, data?: AuthorizeEndpointAccessCommandOutput) => void
+  ): Promise<AuthorizeEndpointAccessCommandOutput> | void {
+    const command = new AuthorizeEndpointAccessCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -923,6 +995,38 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
+   * <p>Creates a Redshift-managed VPC endpoint.</p>
+   */
+  public createEndpointAccess(
+    args: CreateEndpointAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateEndpointAccessCommandOutput>;
+  public createEndpointAccess(
+    args: CreateEndpointAccessCommandInput,
+    cb: (err: any, data?: CreateEndpointAccessCommandOutput) => void
+  ): void;
+  public createEndpointAccess(
+    args: CreateEndpointAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateEndpointAccessCommandOutput) => void
+  ): void;
+  public createEndpointAccess(
+    args: CreateEndpointAccessCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEndpointAccessCommandOutput) => void),
+    cb?: (err: any, data?: CreateEndpointAccessCommandOutput) => void
+  ): Promise<CreateEndpointAccessCommandOutput> | void {
+    const command = new CreateEndpointAccessCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates an Amazon Redshift event notification subscription. This action requires an ARN
    *             (Amazon Resource Name) of an Amazon SNS topic created by either the Amazon Redshift console,
    *             the Amazon SNS console, or the Amazon SNS API. To obtain an ARN with Amazon SNS, you
@@ -978,8 +1082,8 @@ export class Redshift extends RedshiftClient {
    *         <p>The command returns a public key, which you must store in the HSM. In addition to
    *             creating the HSM certificate, you must create an Amazon Redshift HSM configuration that
    *             provides a cluster the information needed to store and use encryption keys in the HSM.
-   *             For more information, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html">Hardware Security Modules</a>
-   *             in the Amazon Redshift Cluster Management Guide.</p>
+   *             For more information, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html#working-with-HSM">Hardware Security Modules</a>
+   *             in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
    */
   public createHsmClientCertificate(
     args: CreateHsmClientCertificateCommandInput,
@@ -1399,6 +1503,38 @@ export class Redshift extends RedshiftClient {
     cb?: (err: any, data?: DeleteClusterSubnetGroupCommandOutput) => void
   ): Promise<DeleteClusterSubnetGroupCommandOutput> | void {
     const command = new DeleteClusterSubnetGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a Redshift-managed VPC endpoint.</p>
+   */
+  public deleteEndpointAccess(
+    args: DeleteEndpointAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteEndpointAccessCommandOutput>;
+  public deleteEndpointAccess(
+    args: DeleteEndpointAccessCommandInput,
+    cb: (err: any, data?: DeleteEndpointAccessCommandOutput) => void
+  ): void;
+  public deleteEndpointAccess(
+    args: DeleteEndpointAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteEndpointAccessCommandOutput) => void
+  ): void;
+  public deleteEndpointAccess(
+    args: DeleteEndpointAccessCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEndpointAccessCommandOutput) => void),
+    cb?: (err: any, data?: DeleteEndpointAccessCommandOutput) => void
+  ): Promise<DeleteEndpointAccessCommandOutput> | void {
+    const command = new DeleteEndpointAccessCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2088,6 +2224,70 @@ export class Redshift extends RedshiftClient {
     cb?: (err: any, data?: DescribeDefaultClusterParametersCommandOutput) => void
   ): Promise<DescribeDefaultClusterParametersCommandOutput> | void {
     const command = new DescribeDefaultClusterParametersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes a Redshift-managed VPC endpoint.</p>
+   */
+  public describeEndpointAccess(
+    args: DescribeEndpointAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeEndpointAccessCommandOutput>;
+  public describeEndpointAccess(
+    args: DescribeEndpointAccessCommandInput,
+    cb: (err: any, data?: DescribeEndpointAccessCommandOutput) => void
+  ): void;
+  public describeEndpointAccess(
+    args: DescribeEndpointAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeEndpointAccessCommandOutput) => void
+  ): void;
+  public describeEndpointAccess(
+    args: DescribeEndpointAccessCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEndpointAccessCommandOutput) => void),
+    cb?: (err: any, data?: DescribeEndpointAccessCommandOutput) => void
+  ): Promise<DescribeEndpointAccessCommandOutput> | void {
+    const command = new DescribeEndpointAccessCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes an endpoint authorization.</p>
+   */
+  public describeEndpointAuthorization(
+    args: DescribeEndpointAuthorizationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeEndpointAuthorizationCommandOutput>;
+  public describeEndpointAuthorization(
+    args: DescribeEndpointAuthorizationCommandInput,
+    cb: (err: any, data?: DescribeEndpointAuthorizationCommandOutput) => void
+  ): void;
+  public describeEndpointAuthorization(
+    args: DescribeEndpointAuthorizationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeEndpointAuthorizationCommandOutput) => void
+  ): void;
+  public describeEndpointAuthorization(
+    args: DescribeEndpointAuthorizationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEndpointAuthorizationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeEndpointAuthorizationCommandOutput) => void
+  ): Promise<DescribeEndpointAuthorizationCommandOutput> | void {
+    const command = new DescribeEndpointAuthorizationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3006,6 +3206,38 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
+   * <p>Modifies whether a cluster can use AQUA (Advanced Query Accelerator). </p>
+   */
+  public modifyAquaConfiguration(
+    args: ModifyAquaConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyAquaConfigurationCommandOutput>;
+  public modifyAquaConfiguration(
+    args: ModifyAquaConfigurationCommandInput,
+    cb: (err: any, data?: ModifyAquaConfigurationCommandOutput) => void
+  ): void;
+  public modifyAquaConfiguration(
+    args: ModifyAquaConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyAquaConfigurationCommandOutput) => void
+  ): void;
+  public modifyAquaConfiguration(
+    args: ModifyAquaConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyAquaConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: ModifyAquaConfigurationCommandOutput) => void
+  ): Promise<ModifyAquaConfigurationCommandOutput> | void {
+    const command = new ModifyAquaConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Modifies the settings for a cluster.</p>
    *         <p>You can also change node type and the number of nodes to scale up or down the
    *             cluster. When resizing a cluster, you must specify both the number of nodes and the node
@@ -3268,6 +3500,38 @@ export class Redshift extends RedshiftClient {
     cb?: (err: any, data?: ModifyClusterSubnetGroupCommandOutput) => void
   ): Promise<ModifyClusterSubnetGroupCommandOutput> | void {
     const command = new ModifyClusterSubnetGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Modifies a Redshift-managed VPC endpoint.</p>
+   */
+  public modifyEndpointAccess(
+    args: ModifyEndpointAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyEndpointAccessCommandOutput>;
+  public modifyEndpointAccess(
+    args: ModifyEndpointAccessCommandInput,
+    cb: (err: any, data?: ModifyEndpointAccessCommandOutput) => void
+  ): void;
+  public modifyEndpointAccess(
+    args: ModifyEndpointAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyEndpointAccessCommandOutput) => void
+  ): void;
+  public modifyEndpointAccess(
+    args: ModifyEndpointAccessCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyEndpointAccessCommandOutput) => void),
+    cb?: (err: any, data?: ModifyEndpointAccessCommandOutput) => void
+  ): Promise<ModifyEndpointAccessCommandOutput> | void {
+    const command = new ModifyEndpointAccessCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3808,6 +4072,38 @@ export class Redshift extends RedshiftClient {
     cb?: (err: any, data?: RevokeClusterSecurityGroupIngressCommandOutput) => void
   ): Promise<RevokeClusterSecurityGroupIngressCommandOutput> | void {
     const command = new RevokeClusterSecurityGroupIngressCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Revokes access to a cluster.</p>
+   */
+  public revokeEndpointAccess(
+    args: RevokeEndpointAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RevokeEndpointAccessCommandOutput>;
+  public revokeEndpointAccess(
+    args: RevokeEndpointAccessCommandInput,
+    cb: (err: any, data?: RevokeEndpointAccessCommandOutput) => void
+  ): void;
+  public revokeEndpointAccess(
+    args: RevokeEndpointAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RevokeEndpointAccessCommandOutput) => void
+  ): void;
+  public revokeEndpointAccess(
+    args: RevokeEndpointAccessCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RevokeEndpointAccessCommandOutput) => void),
+    cb?: (err: any, data?: RevokeEndpointAccessCommandOutput) => void
+  ): Promise<RevokeEndpointAccessCommandOutput> | void {
+    const command = new RevokeEndpointAccessCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

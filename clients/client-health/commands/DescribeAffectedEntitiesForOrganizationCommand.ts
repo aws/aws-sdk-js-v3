@@ -34,9 +34,18 @@ export type DescribeAffectedEntitiesForOrganizationCommandOutput = DescribeAffec
  *          recent.</p>
  *          <p>Before you can call this operation, you must first enable AWS Health to work with
  *          AWS Organizations. To do this, call the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html">EnableHealthServiceAccessForOrganization</a>
- *          operation from your organization's master account. </p>
+ *          operation from your organization's management account.</p>
  *          <note>
- *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the next request to return more results.</p>
+ *             <ul>
+ *                <li>
+ *                   <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the next request to return more results.</p>
+ *                </li>
+ *                <li>
+ *                   <p>This operation doesn't support resource-level permissions. You can't use this operation to allow or deny access to specific AWS Health events. For more
+ *                   information, see <a href="https://docs.aws.amazon.com/health/latest/ug/security_iam_id-based-policy-examples.html#resource-action-based-conditions">Resource- and action-based conditions</a> in the <i>AWS Health User Guide</i>.</p>
+ *                </li>
+ *             </ul>
+ *
  *          </note>
  */
 export class DescribeAffectedEntitiesForOrganizationCommand extends $Command<

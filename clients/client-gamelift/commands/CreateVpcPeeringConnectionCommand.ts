@@ -40,38 +40,18 @@ export type CreateVpcPeeringConnectionCommandOutput = CreateVpcPeeringConnection
  *             request is created. You can use continuous polling to track the request's status using
  *                 <a>DescribeVpcPeeringConnections</a>, or by monitoring fleet events for
  *             success or failure using <a>DescribeFleetEvents</a>. </p>
- *         <ul>
- *             <li>
- *                <p>
- *                   <a>CreateVpcPeeringAuthorization</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DescribeVpcPeeringAuthorizations</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteVpcPeeringAuthorization</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>CreateVpcPeeringConnection</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DescribeVpcPeeringConnections</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteVpcPeeringConnection</a>
- *                </p>
- *             </li>
- *          </ul>
+ *         <p>
+ *             <b>Related actions</b>
+ *          </p>
+ *                     <p>
+ *             <a>CreateVpcPeeringAuthorization</a> |
+ *                     <a>DescribeVpcPeeringAuthorizations</a> |
+ *                     <a>DeleteVpcPeeringAuthorization</a> |
+ *                     <a>CreateVpcPeeringConnection</a> |
+ *                     <a>DescribeVpcPeeringConnections</a> |
+ *                     <a>DeleteVpcPeeringConnection</a> |
+ *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          </p>
  */
 export class CreateVpcPeeringConnectionCommand extends $Command<
   CreateVpcPeeringConnectionCommandInput,

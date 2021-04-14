@@ -21,7 +21,7 @@ export type DeleteDistributionConfigurationCommandInput = DeleteDistributionConf
 export type DeleteDistributionConfigurationCommandOutput = DeleteDistributionConfigurationResponse & __MetadataBearer;
 
 /**
- * <p> Deletes a distribution configuration. </p>
+ * <p> Deletes a distribution configuration.</p>
  */
 export class DeleteDistributionConfigurationCommand extends $Command<
   DeleteDistributionConfigurationCommandInput,

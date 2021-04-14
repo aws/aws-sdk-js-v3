@@ -25,8 +25,8 @@ export type DescribeICD10CMInferenceJobCommandInput = DescribeICD10CMInferenceJo
 export type DescribeICD10CMInferenceJobCommandOutput = DescribeICD10CMInferenceJobResponse & __MetadataBearer;
 
 /**
- * <p>Gets the properties associated with an InferICD10CM job.
- *       Use this operation to get the status of an inference job.</p>
+ * <p>Gets the properties associated with an InferICD10CM job. Use this operation to get the
+ *       status of an inference job.</p>
  */
 export class DescribeICD10CMInferenceJobCommand extends $Command<
   DescribeICD10CMInferenceJobCommandInput,

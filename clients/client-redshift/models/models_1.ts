@@ -1,17 +1,790 @@
 import {
+  AquaConfiguration,
+  AquaConfigurationStatus,
   Cluster,
   ClusterSecurityGroup,
   ClusterSubnetGroup,
   EventSubscription,
   Parameter,
   ReservedNode,
+  ReservedNodeOffering,
   ScheduledActionType,
   Snapshot,
   TableRestoreStatus,
+  Tag,
+  UsageLimit,
   UsageLimitBreachAction,
+  UsageLimitFeatureType,
 } from "./models_0";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+/**
+ * <p></p>
+ */
+export interface DescribeTagsMessage {
+  /**
+   * <p>The Amazon Resource Name (ARN) for which you want to describe the tag or tags. For
+   *             example, <code>arn:aws:redshift:us-east-2:123456789:cluster:t1</code>. </p>
+   */
+  ResourceName?: string;
+
+  /**
+   * <p>The type of resource with which you want to view tags. Valid resource types are: </p>
+   *         <ul>
+   *             <li>
+   *                 <p>Cluster</p>
+   *             </li>
+   *             <li>
+   *                 <p>CIDR/IP</p>
+   *             </li>
+   *             <li>
+   *                 <p>EC2 security group</p>
+   *             </li>
+   *             <li>
+   *                 <p>Snapshot</p>
+   *             </li>
+   *             <li>
+   *                 <p>Cluster security group</p>
+   *             </li>
+   *             <li>
+   *                 <p>Subnet group</p>
+   *             </li>
+   *             <li>
+   *                 <p>HSM connection</p>
+   *             </li>
+   *             <li>
+   *                 <p>HSM certificate</p>
+   *             </li>
+   *             <li>
+   *                 <p>Parameter group</p>
+   *             </li>
+   *             <li>
+   *                 <p>Snapshot copy grant</p>
+   *             </li>
+   *          </ul>
+   *         <p>For more information about Amazon Redshift resource types and constructing ARNs, go to
+   *                 <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-iam-access-control-specify-actions">Specifying Policy Elements: Actions, Effects, Resources, and Principals</a> in
+   *             the Amazon Redshift Cluster Management Guide. </p>
+   */
+  ResourceType?: string;
+
+  /**
+   * <p>The maximum number or response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned <code>marker</code> value.
+   *         </p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a
+   *             subsequent request. If a value is returned in a response, you can retrieve the next set
+   *             of records by providing this returned marker value in the <code>marker</code> parameter
+   *             and retrying the command. If the <code>marker</code> field is empty, all response
+   *             records have been retrieved for the request. </p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>A tag key or keys for which you want to return all matching resources that are
+   *             associated with the specified key or keys. For example, suppose that you have resources
+   *             tagged with keys called <code>owner</code> and <code>environment</code>. If you specify
+   *             both of these tag keys in the request, Amazon Redshift returns a response with all resources
+   *             that have either or both of these tag keys associated with them.</p>
+   */
+  TagKeys?: string[];
+
+  /**
+   * <p>A tag value or values for which you want to return all matching resources that are
+   *             associated with the specified value or values. For example, suppose that you have
+   *             resources tagged with values called <code>admin</code> and <code>test</code>. If you
+   *             specify both of these tag values in the request, Amazon Redshift returns a response with all
+   *             resources that have either or both of these tag values associated with them.</p>
+   */
+  TagValues?: string[];
+}
+
+export namespace DescribeTagsMessage {
+  export const filterSensitiveLog = (obj: DescribeTagsMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A tag and its associated resource.</p>
+ */
+export interface TaggedResource {
+  /**
+   * <p>The tag for the resource.</p>
+   */
+  Tag?: Tag;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) with which the tag is associated, for example:
+   *                 <code>arn:aws:redshift:us-east-2:123456789:cluster:t1</code>.</p>
+   */
+  ResourceName?: string;
+
+  /**
+   * <p>The type of resource with which the tag is associated. Valid resource types are: </p>
+   *         <ul>
+   *             <li>
+   *                 <p>Cluster</p>
+   *             </li>
+   *             <li>
+   *                 <p>CIDR/IP</p>
+   *             </li>
+   *             <li>
+   *                 <p>EC2 security group</p>
+   *             </li>
+   *             <li>
+   *                 <p>Snapshot</p>
+   *             </li>
+   *             <li>
+   *                 <p>Cluster security group</p>
+   *             </li>
+   *             <li>
+   *                 <p>Subnet group</p>
+   *             </li>
+   *             <li>
+   *                 <p>HSM connection</p>
+   *             </li>
+   *             <li>
+   *                 <p>HSM certificate</p>
+   *             </li>
+   *             <li>
+   *                 <p>Parameter group</p>
+   *             </li>
+   *          </ul>
+   *         <p>For more information about Amazon Redshift resource types and constructing ARNs, go to
+   *                 <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-iam-access-control-specify-actions">Constructing an Amazon Redshift Amazon Resource Name (ARN)</a> in the
+   *             Amazon Redshift Cluster Management Guide. </p>
+   */
+  ResourceType?: string;
+}
+
+export namespace TaggedResource {
+  export const filterSensitiveLog = (obj: TaggedResource): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p></p>
+ */
+export interface TaggedResourceListMessage {
+  /**
+   * <p>A list of tags with their associated resources.</p>
+   */
+  TaggedResources?: TaggedResource[];
+
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a
+   *             subsequent request. If a value is returned in a response, you can retrieve the next set
+   *             of records by providing this returned marker value in the <code>Marker</code> parameter
+   *             and retrying the command. If the <code>Marker</code> field is empty, all response
+   *             records have been retrieved for the request. </p>
+   */
+  Marker?: string;
+}
+
+export namespace TaggedResourceListMessage {
+  export const filterSensitiveLog = (obj: TaggedResourceListMessage): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeUsageLimitsMessage {
+  /**
+   * <p>The identifier of the usage limit to describe.</p>
+   */
+  UsageLimitId?: string;
+
+  /**
+   * <p>The identifier of the cluster for which you want to describe usage limits.</p>
+   */
+  ClusterIdentifier?: string;
+
+  /**
+   * <p>The feature type for which you want to describe usage limits.</p>
+   */
+  FeatureType?: UsageLimitFeatureType | string;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *         <p>Default: <code>100</code>
+   *         </p>
+   *         <p>Constraints: minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeUsageLimits</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
+   *             <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>A tag key or keys for which you want to return all matching usage limit objects
+   *             that are associated with the specified key or keys. For example, suppose that you
+   *             have parameter groups that are tagged with keys called <code>owner</code> and
+   *             <code>environment</code>. If you specify both of these tag keys in the request,
+   *             Amazon Redshift returns a response with the usage limit objects have either or both of these
+   *             tag keys associated with them.</p>
+   */
+  TagKeys?: string[];
+
+  /**
+   * <p>A tag value or values for which you want to return all matching usage limit objects
+   *             that are associated with the specified tag value or values. For example, suppose
+   *             that you have parameter groups that are tagged with values called <code>admin</code> and
+   *             <code>test</code>. If you specify both of these tag values in the request, Amazon Redshift
+   *             returns a response with the usage limit objects that have either or both of these tag
+   *             values associated with them.</p>
+   */
+  TagValues?: string[];
+}
+
+export namespace DescribeUsageLimitsMessage {
+  export const filterSensitiveLog = (obj: DescribeUsageLimitsMessage): any => ({
+    ...obj,
+  });
+}
+
+export interface UsageLimitList {
+  /**
+   * <p>Contains the output from the <a>DescribeUsageLimits</a>
+   *             action. </p>
+   */
+  UsageLimits?: UsageLimit[];
+
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a
+   *             subsequent request. If a value is returned in a response, you can retrieve the next set
+   *             of records by providing this returned marker value in the <code>Marker</code> parameter
+   *             and retrying the command. If the <code>Marker</code> field is empty, all response
+   *             records have been retrieved for the request. </p>
+   */
+  Marker?: string;
+}
+
+export namespace UsageLimitList {
+  export const filterSensitiveLog = (obj: UsageLimitList): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p></p>
+ */
+export interface DisableLoggingMessage {
+  /**
+   * <p>The identifier of the cluster on which logging is to be stopped.</p>
+   *         <p>Example: <code>examplecluster</code>
+   *         </p>
+   */
+  ClusterIdentifier: string | undefined;
+}
+
+export namespace DisableLoggingMessage {
+  export const filterSensitiveLog = (obj: DisableLoggingMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p></p>
+ */
+export interface DisableSnapshotCopyMessage {
+  /**
+   * <p>The unique identifier of the source cluster that you want to disable copying of
+   *             snapshots to a destination region.</p>
+   *         <p>Constraints: Must be the valid name of an existing cluster that has cross-region
+   *             snapshot copy enabled.</p>
+   */
+  ClusterIdentifier: string | undefined;
+}
+
+export namespace DisableSnapshotCopyMessage {
+  export const filterSensitiveLog = (obj: DisableSnapshotCopyMessage): any => ({
+    ...obj,
+  });
+}
+
+export interface DisableSnapshotCopyResult {
+  /**
+   * <p>Describes a cluster.</p>
+   */
+  Cluster?: Cluster;
+}
+
+export namespace DisableSnapshotCopyResult {
+  export const filterSensitiveLog = (obj: DisableSnapshotCopyResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The cluster already has cross-region snapshot copy disabled.</p>
+ */
+export interface SnapshotCopyAlreadyDisabledFault extends __SmithyException, $MetadataBearer {
+  name: "SnapshotCopyAlreadyDisabledFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SnapshotCopyAlreadyDisabledFault {
+  export const filterSensitiveLog = (obj: SnapshotCopyAlreadyDisabledFault): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p></p>
+ */
+export interface EnableLoggingMessage {
+  /**
+   * <p>The identifier of the cluster on which logging is to be started.</p>
+   *         <p>Example: <code>examplecluster</code>
+   *         </p>
+   */
+  ClusterIdentifier: string | undefined;
+
+  /**
+   * <p>The name of an existing S3 bucket where the log files are to be stored.</p>
+   *         <p>Constraints:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Must be in the same region as the cluster</p>
+   *             </li>
+   *             <li>
+   *                 <p>The cluster must have read bucket and put object permissions</p>
+   *             </li>
+   *          </ul>
+   */
+  BucketName: string | undefined;
+
+  /**
+   * <p>The prefix applied to the log file names.</p>
+   *         <p>Constraints:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Cannot exceed 512 characters</p>
+   *             </li>
+   *             <li>
+   *                 <p>Cannot contain spaces( ), double quotes ("), single quotes ('), a backslash
+   *                     (\), or control characters. The hexadecimal codes for invalid characters are: </p>
+   *                 <ul>
+   *                   <li>
+   *                         <p>x00 to x20</p>
+   *                     </li>
+   *                   <li>
+   *                         <p>x22</p>
+   *                     </li>
+   *                   <li>
+   *                         <p>x27</p>
+   *                     </li>
+   *                   <li>
+   *                         <p>x5c</p>
+   *                     </li>
+   *                   <li>
+   *                         <p>x7f or larger</p>
+   *                     </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
+   */
+  S3KeyPrefix?: string;
+}
+
+export namespace EnableLoggingMessage {
+  export const filterSensitiveLog = (obj: EnableLoggingMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The cluster does not have read bucket or put object permissions on the S3 bucket
+ *             specified when enabling logging.</p>
+ */
+export interface InsufficientS3BucketPolicyFault extends __SmithyException, $MetadataBearer {
+  name: "InsufficientS3BucketPolicyFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InsufficientS3BucketPolicyFault {
+  export const filterSensitiveLog = (obj: InsufficientS3BucketPolicyFault): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The S3 bucket name is invalid. For more information about naming rules, go to
+ *                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html">Bucket
+ *                 Restrictions and Limitations</a> in the Amazon Simple Storage Service (S3)
+ *             Developer Guide.</p>
+ */
+export interface InvalidS3BucketNameFault extends __SmithyException, $MetadataBearer {
+  name: "InvalidS3BucketNameFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidS3BucketNameFault {
+  export const filterSensitiveLog = (obj: InvalidS3BucketNameFault): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The string specified for the logging S3 key prefix does not comply with the
+ *             documented constraints.</p>
+ */
+export interface InvalidS3KeyPrefixFault extends __SmithyException, $MetadataBearer {
+  name: "InvalidS3KeyPrefixFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidS3KeyPrefixFault {
+  export const filterSensitiveLog = (obj: InvalidS3KeyPrefixFault): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p></p>
+ */
+export interface EnableSnapshotCopyMessage {
+  /**
+   * <p>The unique identifier of the source cluster to copy snapshots from.</p>
+   *         <p>Constraints: Must be the valid name of an existing cluster that does not already
+   *             have cross-region snapshot copy enabled.</p>
+   */
+  ClusterIdentifier: string | undefined;
+
+  /**
+   * <p>The destination AWS Region that you want to copy snapshots to.</p>
+   *         <p>Constraints: Must be the name of a valid AWS Region. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region">Regions and Endpoints</a> in the Amazon Web Services General Reference.
+   *         </p>
+   */
+  DestinationRegion: string | undefined;
+
+  /**
+   * <p>The number of days to retain automated snapshots in the destination region after
+   *             they are copied from the source region.</p>
+   *         <p>Default: 7.</p>
+   *         <p>Constraints: Must be at least 1 and no more than 35.</p>
+   */
+  RetentionPeriod?: number;
+
+  /**
+   * <p>The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted
+   *             cluster are copied to the destination region.</p>
+   */
+  SnapshotCopyGrantName?: string;
+
+  /**
+   * <p>The number of days to retain newly copied snapshots in the destination AWS Region
+   *             after they are copied from the source AWS Region. If the value is -1, the manual
+   *             snapshot is retained indefinitely. </p>
+   *         <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+   */
+  ManualSnapshotRetentionPeriod?: number;
+}
+
+export namespace EnableSnapshotCopyMessage {
+  export const filterSensitiveLog = (obj: EnableSnapshotCopyMessage): any => ({
+    ...obj,
+  });
+}
+
+export interface EnableSnapshotCopyResult {
+  /**
+   * <p>Describes a cluster.</p>
+   */
+  Cluster?: Cluster;
+}
+
+export namespace EnableSnapshotCopyResult {
+  export const filterSensitiveLog = (obj: EnableSnapshotCopyResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The specified options are incompatible.</p>
+ */
+export interface IncompatibleOrderableOptions extends __SmithyException, $MetadataBearer {
+  name: "IncompatibleOrderableOptions";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace IncompatibleOrderableOptions {
+  export const filterSensitiveLog = (obj: IncompatibleOrderableOptions): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The cluster already has cross-region snapshot copy enabled.</p>
+ */
+export interface SnapshotCopyAlreadyEnabledFault extends __SmithyException, $MetadataBearer {
+  name: "SnapshotCopyAlreadyEnabledFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SnapshotCopyAlreadyEnabledFault {
+  export const filterSensitiveLog = (obj: SnapshotCopyAlreadyEnabledFault): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The specified region is incorrect or does not exist.</p>
+ */
+export interface UnknownSnapshotCopyRegionFault extends __SmithyException, $MetadataBearer {
+  name: "UnknownSnapshotCopyRegionFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace UnknownSnapshotCopyRegionFault {
+  export const filterSensitiveLog = (obj: UnknownSnapshotCopyRegionFault): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The authorization for this endpoint can't be found.</p>
+ */
+export interface EndpointAuthorizationNotFoundFault extends __SmithyException, $MetadataBearer {
+  name: "EndpointAuthorizationNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace EndpointAuthorizationNotFoundFault {
+  export const filterSensitiveLog = (obj: EndpointAuthorizationNotFoundFault): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The request parameters to get cluster credentials.</p>
+ */
+export interface GetClusterCredentialsMessage {
+  /**
+   * <p>The name of a database user. If a user name matching <code>DbUser</code> exists in
+   *             the database, the temporary user credentials have the same permissions as the existing
+   *             user. If <code>DbUser</code> doesn't exist in the database and <code>Autocreate</code>
+   *             is <code>True</code>, a new user is created using the value for <code>DbUser</code> with
+   *             PUBLIC permissions. If a database user matching the value for <code>DbUser</code>
+   *             doesn't exist and <code>Autocreate</code> is <code>False</code>, then the command
+   *             succeeds but the connection attempt will fail because the user doesn't exist in the
+   *             database.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_USER.html">CREATE USER</a> in the Amazon
+   *             Redshift Database Developer Guide. </p>
+   *         <p>Constraints:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Must be 1 to 64 alphanumeric characters or hyphens. The user name can't be
+   *                         <code>PUBLIC</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Must contain only lowercase letters, numbers, underscore, plus sign, period
+   *                     (dot), at symbol (@), or hyphen.</p>
+   *             </li>
+   *             <li>
+   *                 <p>First character must be a letter.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Must not contain a colon ( : ) or slash ( / ). </p>
+   *             </li>
+   *             <li>
+   *                 <p>Cannot be a reserved word. A list of reserved words can be found in <a href="http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved Words</a> in the Amazon
+   *                     Redshift Database Developer Guide.</p>
+   *             </li>
+   *          </ul>
+   */
+  DbUser: string | undefined;
+
+  /**
+   * <p>The name of a database that <code>DbUser</code> is authorized to log on to. If
+   *                 <code>DbName</code> is not specified, <code>DbUser</code> can log on to any existing
+   *             database.</p>
+   *         <p>Constraints:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Must be 1 to 64 alphanumeric characters or hyphens</p>
+   *             </li>
+   *             <li>
+   *                 <p>Must contain only lowercase letters, numbers, underscore, plus sign, period
+   *                     (dot), at symbol (@), or hyphen.</p>
+   *             </li>
+   *             <li>
+   *                 <p>First character must be a letter.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Must not contain a colon ( : ) or slash ( / ). </p>
+   *             </li>
+   *             <li>
+   *                 <p>Cannot be a reserved word. A list of reserved words can be found in <a href="http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved Words</a> in the Amazon
+   *                     Redshift Database Developer Guide.</p>
+   *             </li>
+   *          </ul>
+   */
+  DbName?: string;
+
+  /**
+   * <p>The unique identifier of the cluster that contains the database for which your are
+   *             requesting credentials. This parameter is case sensitive.</p>
+   */
+  ClusterIdentifier: string | undefined;
+
+  /**
+   * <p>The number of seconds until the returned temporary password expires.</p>
+   *         <p>Constraint: minimum 900, maximum 3600.</p>
+   *         <p>Default: 900</p>
+   */
+  DurationSeconds?: number;
+
+  /**
+   * <p>Create a database user with the name specified for the user named in
+   *                 <code>DbUser</code> if one does not exist.</p>
+   */
+  AutoCreate?: boolean;
+
+  /**
+   * <p>A list of the names of existing database groups that the user named in
+   *                 <code>DbUser</code> will join for the current session, in addition to any group
+   *             memberships for an existing user. If not specified, a new user is added only to
+   *             PUBLIC.</p>
+   *         <p>Database group name constraints</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Must be 1 to 64 alphanumeric characters or hyphens</p>
+   *             </li>
+   *             <li>
+   *                 <p>Must contain only lowercase letters, numbers, underscore, plus sign, period
+   *                     (dot), at symbol (@), or hyphen.</p>
+   *             </li>
+   *             <li>
+   *                 <p>First character must be a letter.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Must not contain a colon ( : ) or slash ( / ). </p>
+   *             </li>
+   *             <li>
+   *                 <p>Cannot be a reserved word. A list of reserved words can be found in <a href="http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved Words</a> in the Amazon
+   *                     Redshift Database Developer Guide.</p>
+   *             </li>
+   *          </ul>
+   */
+  DbGroups?: string[];
+}
+
+export namespace GetClusterCredentialsMessage {
+  export const filterSensitiveLog = (obj: GetClusterCredentialsMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p></p>
+ */
+export interface GetReservedNodeExchangeOfferingsInputMessage {
+  /**
+   * <p>A string representing the node identifier for the DC1 Reserved Node to be
+   *             exchanged.</p>
+   */
+  ReservedNodeId: string | undefined;
+
+  /**
+   * <p>An integer setting the maximum number of ReservedNodeOfferings to
+   *             retrieve.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>A value that indicates the starting point for the next set of
+   *             ReservedNodeOfferings.</p>
+   */
+  Marker?: string;
+}
+
+export namespace GetReservedNodeExchangeOfferingsInputMessage {
+  export const filterSensitiveLog = (obj: GetReservedNodeExchangeOfferingsInputMessage): any => ({
+    ...obj,
+  });
+}
+
+export interface GetReservedNodeExchangeOfferingsOutputMessage {
+  /**
+   * <p>An optional parameter that specifies the starting point for returning a set of
+   *             response records. When the results of a <code>GetReservedNodeExchangeOfferings</code>
+   *             request exceed the value specified in MaxRecords, Amazon Redshift returns a value in the
+   *             marker field of the response. You can retrieve the next set of response records by
+   *             providing the returned marker value in the marker parameter and retrying the request.
+   *         </p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>Returns an array of <a>ReservedNodeOffering</a> objects.</p>
+   */
+  ReservedNodeOfferings?: ReservedNodeOffering[];
+}
+
+export namespace GetReservedNodeExchangeOfferingsOutputMessage {
+  export const filterSensitiveLog = (obj: GetReservedNodeExchangeOfferingsOutputMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>You have exceeded the allowed number of table restore requests. Wait for your
+ *             current table restore requests to complete before making a new request.</p>
+ */
+export interface InProgressTableRestoreQuotaExceededFault extends __SmithyException, $MetadataBearer {
+  name: "InProgressTableRestoreQuotaExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InProgressTableRestoreQuotaExceededFault {
+  export const filterSensitiveLog = (obj: InProgressTableRestoreQuotaExceededFault): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The restore is invalid.</p>
+ */
+export interface InvalidRestoreFault extends __SmithyException, $MetadataBearer {
+  name: "InvalidRestoreFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidRestoreFault {
+  export const filterSensitiveLog = (obj: InvalidRestoreFault): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>The value specified for the <code>sourceDatabaseName</code>,
@@ -26,6 +799,48 @@ export interface InvalidTableRestoreArgumentFault extends __SmithyException, $Me
 
 export namespace InvalidTableRestoreArgumentFault {
   export const filterSensitiveLog = (obj: InvalidTableRestoreArgumentFault): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyAquaInputMessage {
+  /**
+   * <p>The identifier of the cluster to be modified.</p>
+   */
+  ClusterIdentifier: string | undefined;
+
+  /**
+   * <p>The new value of AQUA configuration status. Possible values include the following.</p>
+   *         <ul>
+   *             <li>
+   *                <p>enabled - Use AQUA if it is available for the current AWS Region and Amazon Redshift node type.</p>
+   *             </li>
+   *             <li>
+   *                <p>disabled - Don't use AQUA. </p>
+   *             </li>
+   *             <li>
+   *                <p>auto - Amazon Redshift determines whether to use AQUA.</p>
+   *             </li>
+   *          </ul>
+   */
+  AquaConfigurationStatus?: AquaConfigurationStatus | string;
+}
+
+export namespace ModifyAquaInputMessage {
+  export const filterSensitiveLog = (obj: ModifyAquaInputMessage): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyAquaOutputMessage {
+  /**
+   * <p>The updated AQUA configuration of the cluster. </p>
+   */
+  AquaConfiguration?: AquaConfiguration;
+}
+
+export namespace ModifyAquaOutputMessage {
+  export const filterSensitiveLog = (obj: ModifyAquaOutputMessage): any => ({
     ...obj,
   });
 }
@@ -155,6 +970,8 @@ export interface ModifyClusterMessage {
    *         <p>If you decrease the automated snapshot retention period from its current value,
    *             existing automated snapshots that fall outside of the new retention period will be
    *             immediately deleted.</p>
+   *
+   *         <p>You can't disable automated snapshots for RA3 node types. Set the automated retention period from 1-35 days.</p>
    *         <p>Default: Uses existing setting.</p>
    *         <p>Constraints: Must be a value from 0 to 35.</p>
    */
@@ -634,6 +1451,24 @@ export interface SubnetAlreadyInUse extends __SmithyException, $MetadataBearer {
 
 export namespace SubnetAlreadyInUse {
   export const filterSensitiveLog = (obj: SubnetAlreadyInUse): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyEndpointAccessMessage {
+  /**
+   * <p>The endpoint to be modified.</p>
+   */
+  EndpointName: string | undefined;
+
+  /**
+   * <p>The complete list of VPC security groups associated with the endpoint after the endpoint is modified.</p>
+   */
+  VpcSecurityGroupIds?: string[];
+}
+
+export namespace ModifyEndpointAccessMessage {
+  export const filterSensitiveLog = (obj: ModifyEndpointAccessMessage): any => ({
     ...obj,
   });
 }
@@ -1192,6 +2027,8 @@ export interface RestoreFromClusterSnapshotMessage {
    * <p>The number of days that automated snapshots are retained. If the value is 0,
    *             automated snapshots are disabled. Even if automated snapshots are disabled, you can
    *             still create manual snapshots when you want with <a>CreateClusterSnapshot</a>. </p>
+   *
+   *         <p>You can't disable automated snapshots for RA3 node types. Set the automated retention period from 1-35 days.</p>
    *         <p>Default: The value selected for the cluster from which the snapshot was
    *             taken.</p>
    *         <p>Constraints: Must be a value from 0 to 35.</p>
@@ -1275,6 +2112,22 @@ export interface RestoreFromClusterSnapshotMessage {
    * <p>The option to enable relocation for an Amazon Redshift cluster between Availability Zones after the cluster is restored.</p>
    */
   AvailabilityZoneRelocation?: boolean;
+
+  /**
+   * <p>The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values include the following.</p>
+   *         <ul>
+   *             <li>
+   *                <p>enabled - Use AQUA if it is available for the current AWS Region and Amazon Redshift node type.</p>
+   *             </li>
+   *             <li>
+   *                <p>disabled - Don't use AQUA. </p>
+   *             </li>
+   *             <li>
+   *                <p>auto - Amazon Redshift determines whether to use AQUA.</p>
+   *             </li>
+   *          </ul>
+   */
+  AquaConfigurationStatus?: AquaConfigurationStatus | string;
 }
 
 export namespace RestoreFromClusterSnapshotMessage {
@@ -1343,6 +2196,13 @@ export interface RestoreTableFromClusterSnapshotMessage {
    * <p>The name of the table to create as a result of the current request.</p>
    */
   NewTableName: string | undefined;
+
+  /**
+   * <p>Indicates whether name identifiers for database, schema, and table are case sensitive.
+   *             If <code>true</code>, the names are case sensitive.
+   *             If <code>false</code> (default), the names are not case sensitive.</p>
+   */
+  EnableCaseSensitiveIdentifier?: boolean;
 }
 
 export namespace RestoreTableFromClusterSnapshotMessage {
@@ -1429,6 +2289,35 @@ export interface RevokeClusterSecurityGroupIngressResult {
 
 export namespace RevokeClusterSecurityGroupIngressResult {
   export const filterSensitiveLog = (obj: RevokeClusterSecurityGroupIngressResult): any => ({
+    ...obj,
+  });
+}
+
+export interface RevokeEndpointAccessMessage {
+  /**
+   * <p>The cluster to revoke access from.</p>
+   */
+  ClusterIdentifier?: string;
+
+  /**
+   * <p>The AWS account ID whose access is to be revoked.</p>
+   */
+  Account?: string;
+
+  /**
+   * <p>The virtual private cloud (VPC) identifiers for which access is to be revoked.</p>
+   */
+  VpcIds?: string[];
+
+  /**
+   * <p>Indicates whether to force the revoke action.
+   *            If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted.</p>
+   */
+  Force?: boolean;
+}
+
+export namespace RevokeEndpointAccessMessage {
+  export const filterSensitiveLog = (obj: RevokeEndpointAccessMessage): any => ({
     ...obj,
   });
 }

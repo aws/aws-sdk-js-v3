@@ -56,6 +56,16 @@ import {
   PutSecretValueCommandOutput,
 } from "./commands/PutSecretValueCommand";
 import {
+  RemoveRegionsFromReplicationCommand,
+  RemoveRegionsFromReplicationCommandInput,
+  RemoveRegionsFromReplicationCommandOutput,
+} from "./commands/RemoveRegionsFromReplicationCommand";
+import {
+  ReplicateSecretToRegionsCommand,
+  ReplicateSecretToRegionsCommandInput,
+  ReplicateSecretToRegionsCommandOutput,
+} from "./commands/ReplicateSecretToRegionsCommand";
+import {
   RestoreSecretCommand,
   RestoreSecretCommandInput,
   RestoreSecretCommandOutput,
@@ -65,6 +75,11 @@ import {
   RotateSecretCommandInput,
   RotateSecretCommandOutput,
 } from "./commands/RotateSecretCommand";
+import {
+  StopReplicationToReplicaCommand,
+  StopReplicationToReplicaCommandInput,
+  StopReplicationToReplicaCommandOutput,
+} from "./commands/StopReplicationToReplicaCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -373,7 +388,7 @@ export class SecretsManager extends SecretsManagerClient {
    *                <p>To attach a resource policy to a secret, use <a>PutResourcePolicy</a>.</p>
    *             </li>
    *             <li>
-   *                <p>To retrieve the current resource-based policy that's attached to a secret, use <a>GetResourcePolicy</a>.</p>
+   *                <p>To retrieve the current resource-based policy attached to a secret, use <a>GetResourcePolicy</a>.</p>
    *             </li>
    *             <li>
    *                <p>To list all of the currently available secrets, use <a>ListSecrets</a>.</p>
@@ -410,22 +425,22 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   * <p>Deletes an entire secret and all of its versions. You can optionally include a recovery
+   * <p>Deletes an entire secret and all of the versions. You can optionally include a recovery
    *       window during which you can restore the secret. If you don't specify a recovery window value,
    *       the operation defaults to 30 days. Secrets Manager attaches a <code>DeletionDate</code> stamp to
    *       the secret that specifies the end of the recovery window. At the end of the recovery window,
    *       Secrets Manager deletes the secret permanently.</p>
    *          <p>At any time before recovery window ends, you can use <a>RestoreSecret</a> to
    *       remove the <code>DeletionDate</code> and cancel the deletion of the secret.</p>
-   *          <p>You cannot access the encrypted secret information in any secret that is scheduled for
-   *       deletion. If you need to access that information, you must cancel the deletion with <a>RestoreSecret</a> and then retrieve the information.</p>
+   *          <p>You cannot access the encrypted secret information in any secret scheduled for deletion.
+   *       If you need to access that information, you must cancel the deletion with <a>RestoreSecret</a> and then retrieve the information.</p>
    *          <note>
    *             <ul>
    *                <li>
    *                   <p>There is no explicit operation to delete a version of a secret. Instead, remove all
    *             staging labels from the <code>VersionStage</code> field of a version. That marks the
-   *             version as deprecated and allows Secrets Manager to delete it as needed. Versions that do not have
-   *             any staging labels do not show up in <a>ListSecretVersionIds</a> unless you
+   *             version as deprecated and allows Secrets Manager to delete it as needed. Versions without any
+   *             staging labels do not show up in <a>ListSecretVersionIds</a> unless you
    *             specify <code>IncludeDeprecated</code>.</p>
    *                </li>
    *                <li>
@@ -587,8 +602,8 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   * <p>Retrieves the JSON text of the resource-based policy document attached to the
-   *       specified secret. The JSON request string input and response output displays formatted code
+   * <p>Retrieves the JSON text of the resource-based policy document attached to the specified
+   *       secret. The JSON request string input and response output displays formatted code
    *       with white space and line breaks for better readability. Submit your input as a single line
    *       JSON string.</p>
    *          <p>
@@ -845,7 +860,7 @@ export class SecretsManager extends SecretsManagerClient {
    *                <p>To retrieve the resource policy attached to a secret, use <a>GetResourcePolicy</a>.</p>
    *             </li>
    *             <li>
-   *                <p>To delete the resource-based policy that's attached to a secret, use <a>DeleteResourcePolicy</a>.</p>
+   *                <p>To delete the resource-based policy attached to a secret, use <a>DeleteResourcePolicy</a>.</p>
    *             </li>
    *             <li>
    *                <p>To list all of the currently available secrets, use <a>ListSecrets</a>.</p>
@@ -897,15 +912,13 @@ export class SecretsManager extends SecretsManagerClient {
    *           automatically attaches the staging label <code>AWSCURRENT</code> to the new version.</p>
    *             </li>
    *             <li>
-   *                <p>If another version of this secret already exists, then this operation does not
-   *           automatically move any staging labels other than those that you explicitly specify in the
-   *             <code>VersionStages</code> parameter.</p>
+   *                <p>If you do not specify a value for VersionStages then Secrets Manager automatically
+   *           moves the staging label <code>AWSCURRENT</code> to this new version.</p>
    *             </li>
    *             <li>
    *                <p>If this operation moves the staging label <code>AWSCURRENT</code> from another version to this
-   *           version (because you included it in the <code>StagingLabels</code> parameter) then
-   *           Secrets Manager also automatically moves the staging label <code>AWSPREVIOUS</code> to the version that
-   *           <code>AWSCURRENT</code> was removed from.</p>
+   *           version, then Secrets Manager also automatically moves the staging label <code>AWSPREVIOUS</code> to
+   *           the version that <code>AWSCURRENT</code> was removed from.</p>
    *             </li>
    *             <li>
    *                <p>This operation is idempotent. If a version with a <code>VersionId</code> with the same
@@ -992,6 +1005,71 @@ export class SecretsManager extends SecretsManagerClient {
     cb?: (err: any, data?: PutSecretValueCommandOutput) => void
   ): Promise<PutSecretValueCommandOutput> | void {
     const command = new PutSecretValueCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Remove regions from replication.</p>
+   */
+  public removeRegionsFromReplication(
+    args: RemoveRegionsFromReplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RemoveRegionsFromReplicationCommandOutput>;
+  public removeRegionsFromReplication(
+    args: RemoveRegionsFromReplicationCommandInput,
+    cb: (err: any, data?: RemoveRegionsFromReplicationCommandOutput) => void
+  ): void;
+  public removeRegionsFromReplication(
+    args: RemoveRegionsFromReplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RemoveRegionsFromReplicationCommandOutput) => void
+  ): void;
+  public removeRegionsFromReplication(
+    args: RemoveRegionsFromReplicationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveRegionsFromReplicationCommandOutput) => void),
+    cb?: (err: any, data?: RemoveRegionsFromReplicationCommandOutput) => void
+  ): Promise<RemoveRegionsFromReplicationCommandOutput> | void {
+    const command = new RemoveRegionsFromReplicationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Converts an existing secret to a multi-Region secret and begins replication the secret to a
+   *       list of new regions. </p>
+   */
+  public replicateSecretToRegions(
+    args: ReplicateSecretToRegionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ReplicateSecretToRegionsCommandOutput>;
+  public replicateSecretToRegions(
+    args: ReplicateSecretToRegionsCommandInput,
+    cb: (err: any, data?: ReplicateSecretToRegionsCommandOutput) => void
+  ): void;
+  public replicateSecretToRegions(
+    args: ReplicateSecretToRegionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ReplicateSecretToRegionsCommandOutput) => void
+  ): void;
+  public replicateSecretToRegions(
+    args: ReplicateSecretToRegionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ReplicateSecretToRegionsCommandOutput) => void),
+    cb?: (err: any, data?: ReplicateSecretToRegionsCommandOutput) => void
+  ): Promise<ReplicateSecretToRegionsCommandOutput> | void {
+    const command = new ReplicateSecretToRegionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1132,6 +1210,38 @@ export class SecretsManager extends SecretsManagerClient {
     cb?: (err: any, data?: RotateSecretCommandOutput) => void
   ): Promise<RotateSecretCommandOutput> | void {
     const command = new RotateSecretCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes the secret from replication and promotes the secret to a regional secret in the replica Region.</p>
+   */
+  public stopReplicationToReplica(
+    args: StopReplicationToReplicaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopReplicationToReplicaCommandOutput>;
+  public stopReplicationToReplica(
+    args: StopReplicationToReplicaCommandInput,
+    cb: (err: any, data?: StopReplicationToReplicaCommandOutput) => void
+  ): void;
+  public stopReplicationToReplica(
+    args: StopReplicationToReplicaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopReplicationToReplicaCommandOutput) => void
+  ): void;
+  public stopReplicationToReplica(
+    args: StopReplicationToReplicaCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopReplicationToReplicaCommandOutput) => void),
+    cb?: (err: any, data?: StopReplicationToReplicaCommandOutput) => void
+  ): Promise<StopReplicationToReplicaCommandOutput> | void {
+    const command = new StopReplicationToReplicaCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1465,11 +1575,41 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   * <p>Validates the JSON text of the resource-based policy document attached to the
-   *       specified secret. The JSON request string input and response output displays formatted code
+   * <p>Validates that the resource policy does not grant a wide range of IAM principals access to
+   *       your secret. The JSON request string input and response output displays formatted code
    *       with white space and line breaks for better readability. Submit your input as a single line
-   *       JSON string. A resource-based
-   *       policy is optional.</p>
+   *       JSON string. A resource-based policy is optional for secrets.</p>
+   *          <p>The API performs three checks when validating the secret:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Sends a call to <a href="https://aws.amazon.com/blogs/security/protect-sensitive-data-in-the-cloud-with-automated-reasoning-zelkova/">Zelkova</a>, an automated reasoning engine, to ensure your Resource Policy does not
+   *           allow broad access to your secret.</p>
+   *             </li>
+   *             <li>
+   *                <p>Checks for correct syntax in a policy.</p>
+   *             </li>
+   *             <li>
+   *                <p>Verifies the policy does not lock out a caller.</p>
+   *             </li>
+   *          </ul>
+   *
+   *
+   *          <p>
+   *             <b>Minimum Permissions</b>
+   *          </p>
+   *          <p>You must have the permissions required to access the following APIs:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>secretsmanager:PutResourcePolicy</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>secretsmanager:ValidateResourcePolicy</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   public validateResourcePolicy(
     args: ValidateResourcePolicyCommandInput,

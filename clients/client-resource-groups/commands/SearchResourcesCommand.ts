@@ -24,6 +24,17 @@ export type SearchResourcesCommandOutput = SearchResourcesOutput & __MetadataBea
  * <p>Returns a list of AWS resource identifiers that matches the specified query. The
  *             query uses the same format as a resource query in a CreateGroup or UpdateGroupQuery
  *             operation.</p>
+ *          <p>
+ *             <b>Minimum permissions</b>
+ *          </p>
+ *          <p>To run this command, you must have the following permissions:</p>
+ *          <ul>
+ *             <li>
+ *                 <p>
+ *                   <code>resource-groups:SearchResources</code>
+ *                </p>
+ *             </li>
+ *          </ul>
  */
 export class SearchResourcesCommand extends $Command<
   SearchResourcesCommandInput,

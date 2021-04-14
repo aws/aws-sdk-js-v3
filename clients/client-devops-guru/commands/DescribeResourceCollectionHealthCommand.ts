@@ -20,6 +20,13 @@ import {
 export type DescribeResourceCollectionHealthCommandInput = DescribeResourceCollectionHealthRequest;
 export type DescribeResourceCollectionHealthCommandOutput = DescribeResourceCollectionHealthResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *    		Returns the number of open proactive insights, open reactive insights, and the Mean Time to Recover (MTTR) for all closed insights in
+ *    		resource collections in your account. You specify the type of AWS resources collection. The one type of AWS resource collection supported is AWS CloudFormation stacks. DevOps Guru can be configured to analyze
+ *       	only the AWS resources that are defined in the stacks.
+ *    	</p>
+ */
 export class DescribeResourceCollectionHealthCommand extends $Command<
   DescribeResourceCollectionHealthCommandInput,
   DescribeResourceCollectionHealthCommandOutput,

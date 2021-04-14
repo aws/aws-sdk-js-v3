@@ -21,7 +21,7 @@ export type GetImageRecipeCommandInput = GetImageRecipeRequest;
 export type GetImageRecipeCommandOutput = GetImageRecipeResponse & __MetadataBearer;
 
 /**
- * <p> Gets an image recipe. </p>
+ * <p> Gets an image recipe.</p>
  */
 export class GetImageRecipeCommand extends $Command<
   GetImageRecipeCommandInput,

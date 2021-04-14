@@ -21,93 +21,49 @@ export type DescribeFleetAttributesCommandInput = DescribeFleetAttributesInput;
 export type DescribeFleetAttributesCommandOutput = DescribeFleetAttributesOutput & __MetadataBearer;
 
 /**
- * <p>Retrieves core properties, including configuration, status, and metadata, for a fleet. </p>
- *         <p>To get attributes for one or more fleets, provide a list of fleet IDs or fleet ARNs.
- *             To get attributes for all fleets, do not specify a fleet identifier. When requesting
- *             attributes for multiple fleets, use the pagination parameters to retrieve results as a
- *             set of sequential pages. If successful, a <a>FleetAttributes</a> object is
- *             returned for each fleet requested, unless the fleet identifier is not found.</p>
+ * <p>Retrieves core fleet-wide properties, including the computing hardware and deployment
+ *             configuration for all instances in the fleet.</p>
+ *         <p>This operation can be used in the following ways: </p>
+ *         <ul>
+ *             <li>
+ *                 <p>To get attributes for one or more specific fleets, provide a list of fleet IDs
+ *                     or fleet ARNs. </p>
+ *             </li>
+ *             <li>
+ *                 <p>To get attributes for all fleets, do not provide a fleet identifier. </p>
+ *             </li>
+ *          </ul>
+ *         <p>When requesting attributes for multiple fleets, use the pagination parameters to
+ *             retrieve results as a set of sequential pages. </p>
+ *         <p>If successful, a <code>FleetAttributes</code> object is returned for each fleet
+ *             requested, unless the fleet identifier is not found. </p>
  *         <note>
- *             <p>Some API operations may limit the number of fleet IDs allowed in one request. If a
- *                 request exceeds this limit, the request fails and the error message includes the
+ *             <p>Some API operations limit the number of fleet IDs that allowed in one request. If a
+ *                 request exceeds this limit, the request fails and the error message contains the
  *                 maximum allowed number.</p>
  *         </note>
  *         <p>
  *             <b>Learn more</b>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift Fleets</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift fleets</a>
  *          </p>
  *         <p>
- *             <b>Related operations</b>
+ *             <b>Related actions</b>
  *          </p>
- *         <ul>
- *             <li>
- *                <p>
- *                   <a>CreateFleet</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListFleets</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteFleet</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>Describe fleets:</p>
- *                         <ul>
- *                   <li>
- *                      <p>
- *                         <a>DescribeFleetAttributes</a>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <a>DescribeFleetCapacity</a>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <a>DescribeFleetPortSettings</a>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <a>DescribeFleetUtilization</a>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <a>DescribeRuntimeConfiguration</a>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <a>DescribeEC2InstanceLimits</a>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <a>DescribeFleetEvents</a>
- *                      </p>
- *                   </li>
- *                </ul>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateFleetAttributes</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>StartFleetActions</a> or <a>StopFleetActions</a>
- *                </p>
- *             </li>
- *          </ul>
+ *                     <p>
+ *             <a>ListFleets</a> |
+ *                     <a>DescribeEC2InstanceLimits</a> |
+ *                     <a>DescribeFleetAttributes</a> |
+ *                     <a>DescribeFleetCapacity</a> |
+ *                     <a>DescribeFleetEvents</a> |
+ *                     <a>DescribeFleetLocationAttributes</a> |
+ *                     <a>DescribeFleetPortSettings</a> |
+ *                     <a>DescribeFleetUtilization</a> |
+ *                     <a>DescribeRuntimeConfiguration</a> |
+ *                     <a>DescribeScalingPolicies</a> |
+ *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          </p>
  */
 export class DescribeFleetAttributesCommand extends $Command<
   DescribeFleetAttributesCommandInput,

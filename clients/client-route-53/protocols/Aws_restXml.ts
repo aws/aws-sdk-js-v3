@@ -1,4 +1,8 @@
 import {
+  ActivateKeySigningKeyCommandInput,
+  ActivateKeySigningKeyCommandOutput,
+} from "../commands/ActivateKeySigningKeyCommand";
+import {
   AssociateVPCWithHostedZoneCommandInput,
   AssociateVPCWithHostedZoneCommandOutput,
 } from "../commands/AssociateVPCWithHostedZoneCommand";
@@ -12,6 +16,10 @@ import {
 } from "../commands/ChangeTagsForResourceCommand";
 import { CreateHealthCheckCommandInput, CreateHealthCheckCommandOutput } from "../commands/CreateHealthCheckCommand";
 import { CreateHostedZoneCommandInput, CreateHostedZoneCommandOutput } from "../commands/CreateHostedZoneCommand";
+import {
+  CreateKeySigningKeyCommandInput,
+  CreateKeySigningKeyCommandOutput,
+} from "../commands/CreateKeySigningKeyCommand";
 import {
   CreateQueryLoggingConfigCommandInput,
   CreateQueryLoggingConfigCommandOutput,
@@ -36,8 +44,16 @@ import {
   CreateVPCAssociationAuthorizationCommandInput,
   CreateVPCAssociationAuthorizationCommandOutput,
 } from "../commands/CreateVPCAssociationAuthorizationCommand";
+import {
+  DeactivateKeySigningKeyCommandInput,
+  DeactivateKeySigningKeyCommandOutput,
+} from "../commands/DeactivateKeySigningKeyCommand";
 import { DeleteHealthCheckCommandInput, DeleteHealthCheckCommandOutput } from "../commands/DeleteHealthCheckCommand";
 import { DeleteHostedZoneCommandInput, DeleteHostedZoneCommandOutput } from "../commands/DeleteHostedZoneCommand";
+import {
+  DeleteKeySigningKeyCommandInput,
+  DeleteKeySigningKeyCommandOutput,
+} from "../commands/DeleteKeySigningKeyCommand";
 import {
   DeleteQueryLoggingConfigCommandInput,
   DeleteQueryLoggingConfigCommandOutput,
@@ -59,12 +75,21 @@ import {
   DeleteVPCAssociationAuthorizationCommandOutput,
 } from "../commands/DeleteVPCAssociationAuthorizationCommand";
 import {
+  DisableHostedZoneDNSSECCommandInput,
+  DisableHostedZoneDNSSECCommandOutput,
+} from "../commands/DisableHostedZoneDNSSECCommand";
+import {
   DisassociateVPCFromHostedZoneCommandInput,
   DisassociateVPCFromHostedZoneCommandOutput,
 } from "../commands/DisassociateVPCFromHostedZoneCommand";
+import {
+  EnableHostedZoneDNSSECCommandInput,
+  EnableHostedZoneDNSSECCommandOutput,
+} from "../commands/EnableHostedZoneDNSSECCommand";
 import { GetAccountLimitCommandInput, GetAccountLimitCommandOutput } from "../commands/GetAccountLimitCommand";
 import { GetChangeCommandInput, GetChangeCommandOutput } from "../commands/GetChangeCommand";
 import { GetCheckerIpRangesCommandInput, GetCheckerIpRangesCommandOutput } from "../commands/GetCheckerIpRangesCommand";
+import { GetDNSSECCommandInput, GetDNSSECCommandOutput } from "../commands/GetDNSSECCommand";
 import { GetGeoLocationCommandInput, GetGeoLocationCommandOutput } from "../commands/GetGeoLocationCommand";
 import { GetHealthCheckCommandInput, GetHealthCheckCommandOutput } from "../commands/GetHealthCheckCommand";
 import {
@@ -183,6 +208,8 @@ import {
   ConcurrentModification,
   ConflictingDomainExists,
   ConflictingTypes,
+  DNSSECNotFound,
+  DNSSECStatus,
   DelegationSet,
   DelegationSetAlreadyCreated,
   DelegationSetAlreadyReusable,
@@ -207,6 +234,7 @@ import {
   HostedZoneNotFound,
   HostedZoneNotPrivate,
   HostedZoneOwner,
+  HostedZonePartiallyDelegated,
   HostedZoneSummary,
   IncompatibleVersion,
   InsufficientCloudWatchLogsResourcePolicy,
@@ -214,9 +242,18 @@ import {
   InvalidChangeBatch,
   InvalidDomainName,
   InvalidInput,
+  InvalidKMSArn,
+  InvalidKeySigningKeyName,
+  InvalidKeySigningKeyStatus,
   InvalidPaginationToken,
+  InvalidSigningStatus,
   InvalidTrafficPolicyDocument,
   InvalidVPCId,
+  KeySigningKey,
+  KeySigningKeyAlreadyExists,
+  KeySigningKeyInParentDSRecord,
+  KeySigningKeyInUse,
+  KeySigningKeyWithActiveStatusNotFound,
   LastVPCAssociation,
   LimitsExceeded,
   LinkedService,
@@ -226,6 +263,7 @@ import {
   NoSuchGeoLocation,
   NoSuchHealthCheck,
   NoSuchHostedZone,
+  NoSuchKeySigningKey,
   NoSuchQueryLoggingConfig,
   NoSuchTrafficPolicy,
   NoSuchTrafficPolicyInstance,
@@ -244,6 +282,7 @@ import {
   ThrottlingException,
   TooManyHealthChecks,
   TooManyHostedZones,
+  TooManyKeySigningKeys,
   TooManyTrafficPolicies,
   TooManyTrafficPolicyInstances,
   TooManyTrafficPolicyVersionsForCurrentPolicy,
@@ -273,6 +312,43 @@ import {
 } from "@aws-sdk/types";
 import { XmlNode as __XmlNode, XmlText as __XmlText } from "@aws-sdk/xml-builder";
 import { parse as xmlParse } from "fast-xml-parser";
+
+export const serializeAws_restXmlActivateKeySigningKeyCommand = async (
+  input: ActivateKeySigningKeyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/2013-04-01/keysigningkey/{HostedZoneId}/{Name}/activate";
+  if (input.HostedZoneId !== undefined) {
+    const labelValue: string = input.HostedZoneId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: HostedZoneId.");
+    }
+    resolvedPath = resolvedPath.replace("{HostedZoneId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: HostedZoneId.");
+  }
+  if (input.Name !== undefined) {
+    const labelValue: string = input.Name;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Name.");
+    }
+    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Name.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
 
 export const serializeAws_restXmlAssociateVPCWithHostedZoneCommand = async (
   input: AssociateVPCWithHostedZoneCommandInput,
@@ -480,6 +556,53 @@ export const serializeAws_restXmlCreateHostedZoneCommand = async (
   }
   if (input.VPC !== undefined) {
     const node = serializeAws_restXmlVPC(input.VPC, context).withName("VPC");
+    bodyNode.addChildNode(node);
+  }
+  body += bodyNode.toString();
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restXmlCreateKeySigningKeyCommand = async (
+  input: CreateKeySigningKeyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/xml",
+  };
+  let resolvedPath = "/2013-04-01/keysigningkey";
+  let body: any;
+  body = '<?xml version="1.0" encoding="UTF-8"?>';
+  const bodyNode = new __XmlNode("CreateKeySigningKeyRequest");
+  bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
+  if (input.CallerReference !== undefined) {
+    const node = new __XmlNode("Nonce").addChildNode(new __XmlText(input.CallerReference)).withName("CallerReference");
+    bodyNode.addChildNode(node);
+  }
+  if (input.HostedZoneId !== undefined) {
+    const node = new __XmlNode("ResourceId").addChildNode(new __XmlText(input.HostedZoneId)).withName("HostedZoneId");
+    bodyNode.addChildNode(node);
+  }
+  if (input.KeyManagementServiceArn !== undefined) {
+    const node = new __XmlNode("SigningKeyString")
+      .addChildNode(new __XmlText(input.KeyManagementServiceArn))
+      .withName("KeyManagementServiceArn");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Name !== undefined) {
+    const node = new __XmlNode("SigningKeyName").addChildNode(new __XmlText(input.Name)).withName("Name");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Status !== undefined) {
+    const node = new __XmlNode("SigningKeyStatus").addChildNode(new __XmlText(input.Status)).withName("Status");
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
@@ -733,6 +856,43 @@ export const serializeAws_restXmlCreateVPCAssociationAuthorizationCommand = asyn
   });
 };
 
+export const serializeAws_restXmlDeactivateKeySigningKeyCommand = async (
+  input: DeactivateKeySigningKeyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/2013-04-01/keysigningkey/{HostedZoneId}/{Name}/deactivate";
+  if (input.HostedZoneId !== undefined) {
+    const labelValue: string = input.HostedZoneId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: HostedZoneId.");
+    }
+    resolvedPath = resolvedPath.replace("{HostedZoneId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: HostedZoneId.");
+  }
+  if (input.Name !== undefined) {
+    const labelValue: string = input.Name;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Name.");
+    }
+    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Name.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restXmlDeleteHealthCheckCommand = async (
   input: DeleteHealthCheckCommandInput,
   context: __SerdeContext
@@ -775,6 +935,43 @@ export const serializeAws_restXmlDeleteHostedZoneCommand = async (
     resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restXmlDeleteKeySigningKeyCommand = async (
+  input: DeleteKeySigningKeyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/2013-04-01/keysigningkey/{HostedZoneId}/{Name}";
+  if (input.HostedZoneId !== undefined) {
+    const labelValue: string = input.HostedZoneId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: HostedZoneId.");
+    }
+    resolvedPath = resolvedPath.replace("{HostedZoneId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: HostedZoneId.");
+  }
+  if (input.Name !== undefined) {
+    const labelValue: string = input.Name;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Name.");
+    }
+    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Name.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -948,6 +1145,34 @@ export const serializeAws_restXmlDeleteVPCAssociationAuthorizationCommand = asyn
   });
 };
 
+export const serializeAws_restXmlDisableHostedZoneDNSSECCommand = async (
+  input: DisableHostedZoneDNSSECCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/2013-04-01/hostedzone/{HostedZoneId}/disable-dnssec";
+  if (input.HostedZoneId !== undefined) {
+    const labelValue: string = input.HostedZoneId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: HostedZoneId.");
+    }
+    resolvedPath = resolvedPath.replace("{HostedZoneId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: HostedZoneId.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restXmlDisassociateVPCFromHostedZoneCommand = async (
   input: DisassociateVPCFromHostedZoneCommandInput,
   context: __SerdeContext
@@ -978,6 +1203,34 @@ export const serializeAws_restXmlDisassociateVPCFromHostedZoneCommand = async (
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restXmlEnableHostedZoneDNSSECCommand = async (
+  input: EnableHostedZoneDNSSECCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/2013-04-01/hostedzone/{HostedZoneId}/enable-dnssec";
+  if (input.HostedZoneId !== undefined) {
+    const labelValue: string = input.HostedZoneId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: HostedZoneId.");
+    }
+    resolvedPath = resolvedPath.replace("{HostedZoneId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: HostedZoneId.");
+  }
+  let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1054,6 +1307,34 @@ export const serializeAws_restXmlGetCheckerIpRangesCommand = async (
   let resolvedPath = "/2013-04-01/checkeripranges";
   let body: any;
   body = "";
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restXmlGetDNSSECCommand = async (
+  input: GetDNSSECCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/2013-04-01/hostedzone/{HostedZoneId}/dnssec";
+  if (input.HostedZoneId !== undefined) {
+    const labelValue: string = input.HostedZoneId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: HostedZoneId.");
+    }
+    resolvedPath = resolvedPath.replace("{HostedZoneId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: HostedZoneId.");
+  }
+  let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2212,6 +2493,93 @@ export const serializeAws_restXmlUpdateTrafficPolicyInstanceCommand = async (
   });
 };
 
+export const deserializeAws_restXmlActivateKeySigningKeyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ActivateKeySigningKeyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlActivateKeySigningKeyCommandError(output, context);
+  }
+  const contents: ActivateKeySigningKeyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ChangeInfo: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data["ChangeInfo"] !== undefined) {
+    contents.ChangeInfo = deserializeAws_restXmlChangeInfo(data["ChangeInfo"], context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlActivateKeySigningKeyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ActivateKeySigningKeyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModification":
+    case "com.amazonaws.route53#ConcurrentModification":
+      response = {
+        ...(await deserializeAws_restXmlConcurrentModificationResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidKeySigningKeyStatus":
+    case "com.amazonaws.route53#InvalidKeySigningKeyStatus":
+      response = {
+        ...(await deserializeAws_restXmlInvalidKeySigningKeyStatusResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidKMSArn":
+    case "com.amazonaws.route53#InvalidKMSArn":
+      response = {
+        ...(await deserializeAws_restXmlInvalidKMSArnResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidSigningStatus":
+    case "com.amazonaws.route53#InvalidSigningStatus":
+      response = {
+        ...(await deserializeAws_restXmlInvalidSigningStatusResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NoSuchKeySigningKey":
+    case "com.amazonaws.route53#NoSuchKeySigningKey":
+      response = {
+        ...(await deserializeAws_restXmlNoSuchKeySigningKeyResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restXmlAssociateVPCWithHostedZoneCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2682,6 +3050,141 @@ const deserializeAws_restXmlCreateHostedZoneCommandError = async (
     case "com.amazonaws.route53#TooManyHostedZones":
       response = {
         ...(await deserializeAws_restXmlTooManyHostedZonesResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restXmlCreateKeySigningKeyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateKeySigningKeyCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return deserializeAws_restXmlCreateKeySigningKeyCommandError(output, context);
+  }
+  const contents: CreateKeySigningKeyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ChangeInfo: undefined,
+    KeySigningKey: undefined,
+    Location: undefined,
+  };
+  if (output.headers["location"] !== undefined) {
+    contents.Location = output.headers["location"];
+  }
+  const data: any = await parseBody(output.body, context);
+  if (data["ChangeInfo"] !== undefined) {
+    contents.ChangeInfo = deserializeAws_restXmlChangeInfo(data["ChangeInfo"], context);
+  }
+  if (data["KeySigningKey"] !== undefined) {
+    contents.KeySigningKey = deserializeAws_restXmlKeySigningKey(data["KeySigningKey"], context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlCreateKeySigningKeyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateKeySigningKeyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModification":
+    case "com.amazonaws.route53#ConcurrentModification":
+      response = {
+        ...(await deserializeAws_restXmlConcurrentModificationResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgument":
+    case "com.amazonaws.route53#InvalidArgument":
+      response = {
+        ...(await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInput":
+    case "com.amazonaws.route53#InvalidInput":
+      response = {
+        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidKeySigningKeyName":
+    case "com.amazonaws.route53#InvalidKeySigningKeyName":
+      response = {
+        ...(await deserializeAws_restXmlInvalidKeySigningKeyNameResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidKeySigningKeyStatus":
+    case "com.amazonaws.route53#InvalidKeySigningKeyStatus":
+      response = {
+        ...(await deserializeAws_restXmlInvalidKeySigningKeyStatusResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidKMSArn":
+    case "com.amazonaws.route53#InvalidKMSArn":
+      response = {
+        ...(await deserializeAws_restXmlInvalidKMSArnResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidSigningStatus":
+    case "com.amazonaws.route53#InvalidSigningStatus":
+      response = {
+        ...(await deserializeAws_restXmlInvalidSigningStatusResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "KeySigningKeyAlreadyExists":
+    case "com.amazonaws.route53#KeySigningKeyAlreadyExists":
+      response = {
+        ...(await deserializeAws_restXmlKeySigningKeyAlreadyExistsResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NoSuchHostedZone":
+    case "com.amazonaws.route53#NoSuchHostedZone":
+      response = {
+        ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyKeySigningKeys":
+    case "com.amazonaws.route53#TooManyKeySigningKeys":
+      response = {
+        ...(await deserializeAws_restXmlTooManyKeySigningKeysResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3268,6 +3771,101 @@ const deserializeAws_restXmlCreateVPCAssociationAuthorizationCommandError = asyn
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restXmlDeactivateKeySigningKeyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeactivateKeySigningKeyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlDeactivateKeySigningKeyCommandError(output, context);
+  }
+  const contents: DeactivateKeySigningKeyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ChangeInfo: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data["ChangeInfo"] !== undefined) {
+    contents.ChangeInfo = deserializeAws_restXmlChangeInfo(data["ChangeInfo"], context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlDeactivateKeySigningKeyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeactivateKeySigningKeyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModification":
+    case "com.amazonaws.route53#ConcurrentModification":
+      response = {
+        ...(await deserializeAws_restXmlConcurrentModificationResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidKeySigningKeyStatus":
+    case "com.amazonaws.route53#InvalidKeySigningKeyStatus":
+      response = {
+        ...(await deserializeAws_restXmlInvalidKeySigningKeyStatusResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidSigningStatus":
+    case "com.amazonaws.route53#InvalidSigningStatus":
+      response = {
+        ...(await deserializeAws_restXmlInvalidSigningStatusResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "KeySigningKeyInParentDSRecord":
+    case "com.amazonaws.route53#KeySigningKeyInParentDSRecord":
+      response = {
+        ...(await deserializeAws_restXmlKeySigningKeyInParentDSRecordResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "KeySigningKeyInUse":
+    case "com.amazonaws.route53#KeySigningKeyInUse":
+      response = {
+        ...(await deserializeAws_restXmlKeySigningKeyInUseResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NoSuchKeySigningKey":
+    case "com.amazonaws.route53#NoSuchKeySigningKey":
+      response = {
+        ...(await deserializeAws_restXmlNoSuchKeySigningKeyResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restXmlDeleteHealthCheckCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3401,6 +3999,93 @@ const deserializeAws_restXmlDeleteHostedZoneCommandError = async (
     case "com.amazonaws.route53#PriorRequestNotComplete":
       response = {
         ...(await deserializeAws_restXmlPriorRequestNotCompleteResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restXmlDeleteKeySigningKeyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteKeySigningKeyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlDeleteKeySigningKeyCommandError(output, context);
+  }
+  const contents: DeleteKeySigningKeyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ChangeInfo: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data["ChangeInfo"] !== undefined) {
+    contents.ChangeInfo = deserializeAws_restXmlChangeInfo(data["ChangeInfo"], context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlDeleteKeySigningKeyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteKeySigningKeyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModification":
+    case "com.amazonaws.route53#ConcurrentModification":
+      response = {
+        ...(await deserializeAws_restXmlConcurrentModificationResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidKeySigningKeyStatus":
+    case "com.amazonaws.route53#InvalidKeySigningKeyStatus":
+      response = {
+        ...(await deserializeAws_restXmlInvalidKeySigningKeyStatusResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidKMSArn":
+    case "com.amazonaws.route53#InvalidKMSArn":
+      response = {
+        ...(await deserializeAws_restXmlInvalidKMSArnResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidSigningStatus":
+    case "com.amazonaws.route53#InvalidSigningStatus":
+      response = {
+        ...(await deserializeAws_restXmlInvalidSigningStatusResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NoSuchKeySigningKey":
+    case "com.amazonaws.route53#NoSuchKeySigningKey":
+      response = {
+        ...(await deserializeAws_restXmlNoSuchKeySigningKeyResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3789,6 +4474,109 @@ const deserializeAws_restXmlDeleteVPCAssociationAuthorizationCommandError = asyn
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restXmlDisableHostedZoneDNSSECCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableHostedZoneDNSSECCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlDisableHostedZoneDNSSECCommandError(output, context);
+  }
+  const contents: DisableHostedZoneDNSSECCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ChangeInfo: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data["ChangeInfo"] !== undefined) {
+    contents.ChangeInfo = deserializeAws_restXmlChangeInfo(data["ChangeInfo"], context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlDisableHostedZoneDNSSECCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableHostedZoneDNSSECCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModification":
+    case "com.amazonaws.route53#ConcurrentModification":
+      response = {
+        ...(await deserializeAws_restXmlConcurrentModificationResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "DNSSECNotFound":
+    case "com.amazonaws.route53#DNSSECNotFound":
+      response = {
+        ...(await deserializeAws_restXmlDNSSECNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgument":
+    case "com.amazonaws.route53#InvalidArgument":
+      response = {
+        ...(await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidKeySigningKeyStatus":
+    case "com.amazonaws.route53#InvalidKeySigningKeyStatus":
+      response = {
+        ...(await deserializeAws_restXmlInvalidKeySigningKeyStatusResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidKMSArn":
+    case "com.amazonaws.route53#InvalidKMSArn":
+      response = {
+        ...(await deserializeAws_restXmlInvalidKMSArnResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "KeySigningKeyInParentDSRecord":
+    case "com.amazonaws.route53#KeySigningKeyInParentDSRecord":
+      response = {
+        ...(await deserializeAws_restXmlKeySigningKeyInParentDSRecordResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NoSuchHostedZone":
+    case "com.amazonaws.route53#NoSuchHostedZone":
+      response = {
+        ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restXmlDisassociateVPCFromHostedZoneCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3855,6 +4643,117 @@ const deserializeAws_restXmlDisassociateVPCFromHostedZoneCommandError = async (
     case "com.amazonaws.route53#VPCAssociationNotFound":
       response = {
         ...(await deserializeAws_restXmlVPCAssociationNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restXmlEnableHostedZoneDNSSECCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableHostedZoneDNSSECCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlEnableHostedZoneDNSSECCommandError(output, context);
+  }
+  const contents: EnableHostedZoneDNSSECCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ChangeInfo: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data["ChangeInfo"] !== undefined) {
+    contents.ChangeInfo = deserializeAws_restXmlChangeInfo(data["ChangeInfo"], context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlEnableHostedZoneDNSSECCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableHostedZoneDNSSECCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModification":
+    case "com.amazonaws.route53#ConcurrentModification":
+      response = {
+        ...(await deserializeAws_restXmlConcurrentModificationResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "DNSSECNotFound":
+    case "com.amazonaws.route53#DNSSECNotFound":
+      response = {
+        ...(await deserializeAws_restXmlDNSSECNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "HostedZonePartiallyDelegated":
+    case "com.amazonaws.route53#HostedZonePartiallyDelegated":
+      response = {
+        ...(await deserializeAws_restXmlHostedZonePartiallyDelegatedResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgument":
+    case "com.amazonaws.route53#InvalidArgument":
+      response = {
+        ...(await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidKeySigningKeyStatus":
+    case "com.amazonaws.route53#InvalidKeySigningKeyStatus":
+      response = {
+        ...(await deserializeAws_restXmlInvalidKeySigningKeyStatusResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidKMSArn":
+    case "com.amazonaws.route53#InvalidKMSArn":
+      response = {
+        ...(await deserializeAws_restXmlInvalidKMSArnResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "KeySigningKeyWithActiveStatusNotFound":
+    case "com.amazonaws.route53#KeySigningKeyWithActiveStatusNotFound":
+      response = {
+        ...(await deserializeAws_restXmlKeySigningKeyWithActiveStatusNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NoSuchHostedZone":
+    case "com.amazonaws.route53#NoSuchHostedZone":
+      response = {
+        ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4034,6 +4933,79 @@ const deserializeAws_restXmlGetCheckerIpRangesCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restXmlGetDNSSECCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDNSSECCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlGetDNSSECCommandError(output, context);
+  }
+  const contents: GetDNSSECCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    KeySigningKeys: undefined,
+    Status: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.KeySigningKeys === "") {
+    contents.KeySigningKeys = [];
+  }
+  if (data["KeySigningKeys"] !== undefined && data["KeySigningKeys"]["member"] !== undefined) {
+    contents.KeySigningKeys = deserializeAws_restXmlKeySigningKeys(
+      __getArrayIfSingleItem(data["KeySigningKeys"]["member"]),
+      context
+    );
+  }
+  if (data["Status"] !== undefined) {
+    contents.Status = deserializeAws_restXmlDNSSECStatus(data["Status"], context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlGetDNSSECCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDNSSECCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidArgument":
+    case "com.amazonaws.route53#InvalidArgument":
+      response = {
+        ...(await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NoSuchHostedZone":
+    case "com.amazonaws.route53#NoSuchHostedZone":
+      response = {
+        ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
@@ -6863,6 +7835,23 @@ const deserializeAws_restXmlDelegationSetNotReusableResponse = async (
   return contents;
 };
 
+const deserializeAws_restXmlDNSSECNotFoundResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<DNSSECNotFound> => {
+  const contents: DNSSECNotFound = {
+    name: "DNSSECNotFound",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    message: undefined,
+  };
+  const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_restXmlHealthCheckAlreadyExistsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -6971,6 +7960,23 @@ const deserializeAws_restXmlHostedZoneNotPrivateResponse = async (
 ): Promise<HostedZoneNotPrivate> => {
   const contents: HostedZoneNotPrivate = {
     name: "HostedZoneNotPrivate",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    message: undefined,
+  };
+  const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlHostedZonePartiallyDelegatedResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<HostedZonePartiallyDelegated> => {
+  const contents: HostedZonePartiallyDelegated = {
+    name: "HostedZonePartiallyDelegated",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined,
@@ -7094,12 +8100,80 @@ const deserializeAws_restXmlInvalidInputResponse = async (
   return contents;
 };
 
+const deserializeAws_restXmlInvalidKeySigningKeyNameResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidKeySigningKeyName> => {
+  const contents: InvalidKeySigningKeyName = {
+    name: "InvalidKeySigningKeyName",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    message: undefined,
+  };
+  const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlInvalidKeySigningKeyStatusResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidKeySigningKeyStatus> => {
+  const contents: InvalidKeySigningKeyStatus = {
+    name: "InvalidKeySigningKeyStatus",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    message: undefined,
+  };
+  const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlInvalidKMSArnResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidKMSArn> => {
+  const contents: InvalidKMSArn = {
+    name: "InvalidKMSArn",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    message: undefined,
+  };
+  const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_restXmlInvalidPaginationTokenResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidPaginationToken> => {
   const contents: InvalidPaginationToken = {
     name: "InvalidPaginationToken",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    message: undefined,
+  };
+  const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlInvalidSigningStatusResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidSigningStatus> => {
+  const contents: InvalidSigningStatus = {
+    name: "InvalidSigningStatus",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined,
@@ -7134,6 +8208,74 @@ const deserializeAws_restXmlInvalidVPCIdResponse = async (
 ): Promise<InvalidVPCId> => {
   const contents: InvalidVPCId = {
     name: "InvalidVPCId",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    message: undefined,
+  };
+  const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlKeySigningKeyAlreadyExistsResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<KeySigningKeyAlreadyExists> => {
+  const contents: KeySigningKeyAlreadyExists = {
+    name: "KeySigningKeyAlreadyExists",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    message: undefined,
+  };
+  const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlKeySigningKeyInParentDSRecordResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<KeySigningKeyInParentDSRecord> => {
+  const contents: KeySigningKeyInParentDSRecord = {
+    name: "KeySigningKeyInParentDSRecord",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    message: undefined,
+  };
+  const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlKeySigningKeyInUseResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<KeySigningKeyInUse> => {
+  const contents: KeySigningKeyInUse = {
+    name: "KeySigningKeyInUse",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    message: undefined,
+  };
+  const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlKeySigningKeyWithActiveStatusNotFoundResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<KeySigningKeyWithActiveStatusNotFound> => {
+  const contents: KeySigningKeyWithActiveStatusNotFound = {
+    name: "KeySigningKeyWithActiveStatusNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined,
@@ -7270,6 +8412,23 @@ const deserializeAws_restXmlNoSuchHostedZoneResponse = async (
 ): Promise<NoSuchHostedZone> => {
   const contents: NoSuchHostedZone = {
     name: "NoSuchHostedZone",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    message: undefined,
+  };
+  const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlNoSuchKeySigningKeyResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<NoSuchKeySigningKey> => {
+  const contents: NoSuchKeySigningKey = {
+    name: "NoSuchKeySigningKey",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined,
@@ -7440,6 +8599,23 @@ const deserializeAws_restXmlTooManyHostedZonesResponse = async (
 ): Promise<TooManyHostedZones> => {
   const contents: TooManyHostedZones = {
     name: "TooManyHostedZones",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    message: undefined,
+  };
+  const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlTooManyKeySigningKeysResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TooManyKeySigningKeys> => {
+  const contents: TooManyKeySigningKeys = {
+    name: "TooManyKeySigningKeys",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined,
@@ -8215,6 +9391,20 @@ const deserializeAws_restXmlDimensionList = (output: any, context: __SerdeContex
     });
 };
 
+const deserializeAws_restXmlDNSSECStatus = (output: any, context: __SerdeContext): DNSSECStatus => {
+  let contents: any = {
+    ServeSignature: undefined,
+    StatusMessage: undefined,
+  };
+  if (output["ServeSignature"] !== undefined) {
+    contents.ServeSignature = output["ServeSignature"];
+  }
+  if (output["StatusMessage"] !== undefined) {
+    contents.StatusMessage = output["StatusMessage"];
+  }
+  return contents;
+};
+
 const deserializeAws_restXmlErrorMessages = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -8571,6 +9761,87 @@ const deserializeAws_restXmlHostedZoneSummary = (output: any, context: __SerdeCo
     contents.Owner = deserializeAws_restXmlHostedZoneOwner(output["Owner"], context);
   }
   return contents;
+};
+
+const deserializeAws_restXmlKeySigningKey = (output: any, context: __SerdeContext): KeySigningKey => {
+  let contents: any = {
+    Name: undefined,
+    KmsArn: undefined,
+    Flag: undefined,
+    SigningAlgorithmMnemonic: undefined,
+    SigningAlgorithmType: undefined,
+    DigestAlgorithmMnemonic: undefined,
+    DigestAlgorithmType: undefined,
+    KeyTag: undefined,
+    DigestValue: undefined,
+    PublicKey: undefined,
+    DSRecord: undefined,
+    DNSKEYRecord: undefined,
+    Status: undefined,
+    StatusMessage: undefined,
+    CreatedDate: undefined,
+    LastModifiedDate: undefined,
+  };
+  if (output["Name"] !== undefined) {
+    contents.Name = output["Name"];
+  }
+  if (output["KmsArn"] !== undefined) {
+    contents.KmsArn = output["KmsArn"];
+  }
+  if (output["Flag"] !== undefined) {
+    contents.Flag = parseInt(output["Flag"]);
+  }
+  if (output["SigningAlgorithmMnemonic"] !== undefined) {
+    contents.SigningAlgorithmMnemonic = output["SigningAlgorithmMnemonic"];
+  }
+  if (output["SigningAlgorithmType"] !== undefined) {
+    contents.SigningAlgorithmType = parseInt(output["SigningAlgorithmType"]);
+  }
+  if (output["DigestAlgorithmMnemonic"] !== undefined) {
+    contents.DigestAlgorithmMnemonic = output["DigestAlgorithmMnemonic"];
+  }
+  if (output["DigestAlgorithmType"] !== undefined) {
+    contents.DigestAlgorithmType = parseInt(output["DigestAlgorithmType"]);
+  }
+  if (output["KeyTag"] !== undefined) {
+    contents.KeyTag = parseInt(output["KeyTag"]);
+  }
+  if (output["DigestValue"] !== undefined) {
+    contents.DigestValue = output["DigestValue"];
+  }
+  if (output["PublicKey"] !== undefined) {
+    contents.PublicKey = output["PublicKey"];
+  }
+  if (output["DSRecord"] !== undefined) {
+    contents.DSRecord = output["DSRecord"];
+  }
+  if (output["DNSKEYRecord"] !== undefined) {
+    contents.DNSKEYRecord = output["DNSKEYRecord"];
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = output["Status"];
+  }
+  if (output["StatusMessage"] !== undefined) {
+    contents.StatusMessage = output["StatusMessage"];
+  }
+  if (output["CreatedDate"] !== undefined) {
+    contents.CreatedDate = new Date(output["CreatedDate"]);
+  }
+  if (output["LastModifiedDate"] !== undefined) {
+    contents.LastModifiedDate = new Date(output["LastModifiedDate"]);
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlKeySigningKeys = (output: any, context: __SerdeContext): KeySigningKey[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlKeySigningKey(entry, context);
+    });
 };
 
 const deserializeAws_restXmlLinkedService = (output: any, context: __SerdeContext): LinkedService => {

@@ -1,3 +1,4 @@
+import { ConfigureLogsCommandInput, ConfigureLogsCommandOutput } from "./commands/ConfigureLogsCommand";
 import { CreateAssetCommandInput, CreateAssetCommandOutput } from "./commands/CreateAssetCommand";
 import {
   CreatePackagingConfigurationCommandInput,
@@ -96,6 +97,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
+  | ConfigureLogsCommandInput
   | CreateAssetCommandInput
   | CreatePackagingConfigurationCommandInput
   | CreatePackagingGroupCommandInput
@@ -114,6 +116,7 @@ export type ServiceInputTypes =
   | UpdatePackagingGroupCommandInput;
 
 export type ServiceOutputTypes =
+  | ConfigureLogsCommandOutput
   | CreateAssetCommandOutput
   | CreatePackagingConfigurationCommandOutput
   | CreatePackagingGroupCommandOutput

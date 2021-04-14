@@ -1,5 +1,20 @@
 import { AccessAnalyzerClient } from "./AccessAnalyzerClient";
 import {
+  ApplyArchiveRuleCommand,
+  ApplyArchiveRuleCommandInput,
+  ApplyArchiveRuleCommandOutput,
+} from "./commands/ApplyArchiveRuleCommand";
+import {
+  CancelPolicyGenerationCommand,
+  CancelPolicyGenerationCommandInput,
+  CancelPolicyGenerationCommandOutput,
+} from "./commands/CancelPolicyGenerationCommand";
+import {
+  CreateAccessPreviewCommand,
+  CreateAccessPreviewCommandInput,
+  CreateAccessPreviewCommandOutput,
+} from "./commands/CreateAccessPreviewCommand";
+import {
   CreateAnalyzerCommand,
   CreateAnalyzerCommandInput,
   CreateAnalyzerCommandOutput,
@@ -20,6 +35,11 @@ import {
   DeleteArchiveRuleCommandOutput,
 } from "./commands/DeleteArchiveRuleCommand";
 import {
+  GetAccessPreviewCommand,
+  GetAccessPreviewCommandInput,
+  GetAccessPreviewCommandOutput,
+} from "./commands/GetAccessPreviewCommand";
+import {
   GetAnalyzedResourceCommand,
   GetAnalyzedResourceCommandInput,
   GetAnalyzedResourceCommandOutput,
@@ -31,6 +51,21 @@ import {
   GetArchiveRuleCommandOutput,
 } from "./commands/GetArchiveRuleCommand";
 import { GetFindingCommand, GetFindingCommandInput, GetFindingCommandOutput } from "./commands/GetFindingCommand";
+import {
+  GetGeneratedPolicyCommand,
+  GetGeneratedPolicyCommandInput,
+  GetGeneratedPolicyCommandOutput,
+} from "./commands/GetGeneratedPolicyCommand";
+import {
+  ListAccessPreviewFindingsCommand,
+  ListAccessPreviewFindingsCommandInput,
+  ListAccessPreviewFindingsCommandOutput,
+} from "./commands/ListAccessPreviewFindingsCommand";
+import {
+  ListAccessPreviewsCommand,
+  ListAccessPreviewsCommandInput,
+  ListAccessPreviewsCommandOutput,
+} from "./commands/ListAccessPreviewsCommand";
 import {
   ListAnalyzedResourcesCommand,
   ListAnalyzedResourcesCommandInput,
@@ -52,10 +87,20 @@ import {
   ListFindingsCommandOutput,
 } from "./commands/ListFindingsCommand";
 import {
+  ListPolicyGenerationsCommand,
+  ListPolicyGenerationsCommandInput,
+  ListPolicyGenerationsCommandOutput,
+} from "./commands/ListPolicyGenerationsCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  StartPolicyGenerationCommand,
+  StartPolicyGenerationCommandInput,
+  StartPolicyGenerationCommandOutput,
+} from "./commands/StartPolicyGenerationCommand";
 import {
   StartResourceScanCommand,
   StartResourceScanCommandInput,
@@ -77,18 +122,123 @@ import {
   UpdateFindingsCommandInput,
   UpdateFindingsCommandOutput,
 } from "./commands/UpdateFindingsCommand";
+import {
+  ValidatePolicyCommand,
+  ValidatePolicyCommandInput,
+  ValidatePolicyCommandOutput,
+} from "./commands/ValidatePolicyCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <p>AWS IAM Access Analyzer helps identify potential resource-access risks by enabling you to identify
  *          any policies that grant access to an external principal. It does this by using logic-based
- *          reasoning to analyze resource-based policies in your AWS environment. An external principal
- *          can be another AWS account, a root user, an IAM user or role, a federated user, an AWS
- *          service, or an anonymous user. This guide describes the AWS IAM Access Analyzer operations that you can
- *          call programmatically. For general information about Access Analyzer, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">AWS IAM Access Analyzer section of the IAM User Guide</a>.</p>
+ *          reasoning to analyze resource-based policies in your AWS environment. An external
+ *          principal can be another AWS account, a root user, an IAM user or role, a federated
+ *          user, an AWS service, or an anonymous user. You can also use Access Analyzer to preview and
+ *          validate public and cross-account access to your resources before deploying permissions
+ *          changes. This guide describes the AWS IAM Access Analyzer operations that you can call
+ *          programmatically. For general information about Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">AWS IAM Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
  *          <p>To start using Access Analyzer, you first need to create an analyzer.</p>
  */
 export class AccessAnalyzer extends AccessAnalyzerClient {
+  /**
+   * <p>Retroactively applies the archive rule to existing findings that meet the archive rule
+   *          criteria.</p>
+   */
+  public applyArchiveRule(
+    args: ApplyArchiveRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ApplyArchiveRuleCommandOutput>;
+  public applyArchiveRule(
+    args: ApplyArchiveRuleCommandInput,
+    cb: (err: any, data?: ApplyArchiveRuleCommandOutput) => void
+  ): void;
+  public applyArchiveRule(
+    args: ApplyArchiveRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ApplyArchiveRuleCommandOutput) => void
+  ): void;
+  public applyArchiveRule(
+    args: ApplyArchiveRuleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ApplyArchiveRuleCommandOutput) => void),
+    cb?: (err: any, data?: ApplyArchiveRuleCommandOutput) => void
+  ): Promise<ApplyArchiveRuleCommandOutput> | void {
+    const command = new ApplyArchiveRuleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Cancels the requested policy generation.</p>
+   */
+  public cancelPolicyGeneration(
+    args: CancelPolicyGenerationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelPolicyGenerationCommandOutput>;
+  public cancelPolicyGeneration(
+    args: CancelPolicyGenerationCommandInput,
+    cb: (err: any, data?: CancelPolicyGenerationCommandOutput) => void
+  ): void;
+  public cancelPolicyGeneration(
+    args: CancelPolicyGenerationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelPolicyGenerationCommandOutput) => void
+  ): void;
+  public cancelPolicyGeneration(
+    args: CancelPolicyGenerationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelPolicyGenerationCommandOutput) => void),
+    cb?: (err: any, data?: CancelPolicyGenerationCommandOutput) => void
+  ): Promise<CancelPolicyGenerationCommandOutput> | void {
+    const command = new CancelPolicyGenerationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates an access preview that allows you to preview Access Analyzer findings for your resource
+   *          before deploying resource permissions.</p>
+   */
+  public createAccessPreview(
+    args: CreateAccessPreviewCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAccessPreviewCommandOutput>;
+  public createAccessPreview(
+    args: CreateAccessPreviewCommandInput,
+    cb: (err: any, data?: CreateAccessPreviewCommandOutput) => void
+  ): void;
+  public createAccessPreview(
+    args: CreateAccessPreviewCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAccessPreviewCommandOutput) => void
+  ): void;
+  public createAccessPreview(
+    args: CreateAccessPreviewCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAccessPreviewCommandOutput) => void),
+    cb?: (err: any, data?: CreateAccessPreviewCommandOutput) => void
+  ): Promise<CreateAccessPreviewCommandOutput> | void {
+    const command = new CreateAccessPreviewCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Creates an analyzer for your account.</p>
    */
@@ -123,7 +273,9 @@ export class AccessAnalyzer extends AccessAnalyzerClient {
 
   /**
    * <p>Creates an archive rule for the specified analyzer. Archive rules automatically archive
-   *          findings that meet the criteria you define when you create the rule.</p>
+   *          new findings that meet the criteria you define when you create the rule.</p>
+   *          <p>To learn about filter keys that you can use to create an archive rule, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html">Access Analyzer filter keys</a> in the <b>IAM User
+   *          Guide</b>.</p>
    */
   public createArchiveRule(
     args: CreateArchiveRuleCommandInput,
@@ -155,9 +307,9 @@ export class AccessAnalyzer extends AccessAnalyzerClient {
   }
 
   /**
-   * <p>Deletes the specified analyzer. When you delete an analyzer, Access Analyzer is disabled
-   *          for the account in the current or specific Region. All findings that were generated by the
-   *          analyzer are deleted. You cannot undo this action.</p>
+   * <p>Deletes the specified analyzer. When you delete an analyzer, Access Analyzer is disabled for the
+   *          account or organization in the current or specific Region. All findings that were generated
+   *          by the analyzer are deleted. You cannot undo this action.</p>
    */
   public deleteAnalyzer(
     args: DeleteAnalyzerCommandInput,
@@ -210,6 +362,38 @@ export class AccessAnalyzer extends AccessAnalyzerClient {
     cb?: (err: any, data?: DeleteArchiveRuleCommandOutput) => void
   ): Promise<DeleteArchiveRuleCommandOutput> | void {
     const command = new DeleteArchiveRuleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves information about an access preview for the specified analyzer.</p>
+   */
+  public getAccessPreview(
+    args: GetAccessPreviewCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAccessPreviewCommandOutput>;
+  public getAccessPreview(
+    args: GetAccessPreviewCommandInput,
+    cb: (err: any, data?: GetAccessPreviewCommandOutput) => void
+  ): void;
+  public getAccessPreview(
+    args: GetAccessPreviewCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAccessPreviewCommandOutput) => void
+  ): void;
+  public getAccessPreview(
+    args: GetAccessPreviewCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAccessPreviewCommandOutput) => void),
+    cb?: (err: any, data?: GetAccessPreviewCommandOutput) => void
+  ): Promise<GetAccessPreviewCommandOutput> | void {
+    const command = new GetAccessPreviewCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -280,6 +464,8 @@ export class AccessAnalyzer extends AccessAnalyzerClient {
 
   /**
    * <p>Retrieves information about an archive rule.</p>
+   *          <p>To learn about filter keys that you can use to create an archive rule, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html">Access Analyzer filter keys</a> in the <b>IAM User
+   *          Guide</b>.</p>
    */
   public getArchiveRule(
     args: GetArchiveRuleCommandInput,
@@ -326,6 +512,104 @@ export class AccessAnalyzer extends AccessAnalyzerClient {
     cb?: (err: any, data?: GetFindingCommandOutput) => void
   ): Promise<GetFindingCommandOutput> | void {
     const command = new GetFindingCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves the policy that was generated using <code>StartPolicyGeneration</code>.
+   *       </p>
+   */
+  public getGeneratedPolicy(
+    args: GetGeneratedPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetGeneratedPolicyCommandOutput>;
+  public getGeneratedPolicy(
+    args: GetGeneratedPolicyCommandInput,
+    cb: (err: any, data?: GetGeneratedPolicyCommandOutput) => void
+  ): void;
+  public getGeneratedPolicy(
+    args: GetGeneratedPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetGeneratedPolicyCommandOutput) => void
+  ): void;
+  public getGeneratedPolicy(
+    args: GetGeneratedPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetGeneratedPolicyCommandOutput) => void),
+    cb?: (err: any, data?: GetGeneratedPolicyCommandOutput) => void
+  ): Promise<GetGeneratedPolicyCommandOutput> | void {
+    const command = new GetGeneratedPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves a list of access preview findings generated by the specified access
+   *          preview.</p>
+   */
+  public listAccessPreviewFindings(
+    args: ListAccessPreviewFindingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAccessPreviewFindingsCommandOutput>;
+  public listAccessPreviewFindings(
+    args: ListAccessPreviewFindingsCommandInput,
+    cb: (err: any, data?: ListAccessPreviewFindingsCommandOutput) => void
+  ): void;
+  public listAccessPreviewFindings(
+    args: ListAccessPreviewFindingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAccessPreviewFindingsCommandOutput) => void
+  ): void;
+  public listAccessPreviewFindings(
+    args: ListAccessPreviewFindingsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAccessPreviewFindingsCommandOutput) => void),
+    cb?: (err: any, data?: ListAccessPreviewFindingsCommandOutput) => void
+  ): Promise<ListAccessPreviewFindingsCommandOutput> | void {
+    const command = new ListAccessPreviewFindingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves a list of access previews for the specified analyzer.</p>
+   */
+  public listAccessPreviews(
+    args: ListAccessPreviewsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAccessPreviewsCommandOutput>;
+  public listAccessPreviews(
+    args: ListAccessPreviewsCommandInput,
+    cb: (err: any, data?: ListAccessPreviewsCommandOutput) => void
+  ): void;
+  public listAccessPreviews(
+    args: ListAccessPreviewsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAccessPreviewsCommandOutput) => void
+  ): void;
+  public listAccessPreviews(
+    args: ListAccessPreviewsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAccessPreviewsCommandOutput) => void),
+    cb?: (err: any, data?: ListAccessPreviewsCommandOutput) => void
+  ): Promise<ListAccessPreviewsCommandOutput> | void {
+    const command = new ListAccessPreviewsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -435,6 +719,8 @@ export class AccessAnalyzer extends AccessAnalyzerClient {
 
   /**
    * <p>Retrieves a list of findings generated by the specified analyzer.</p>
+   *          <p>To learn about filter keys that you can use to retrieve a list of findings, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html">Access Analyzer filter keys</a> in the <b>IAM User
+   *          Guide</b>.</p>
    */
   public listFindings(
     args: ListFindingsCommandInput,
@@ -452,6 +738,38 @@ export class AccessAnalyzer extends AccessAnalyzerClient {
     cb?: (err: any, data?: ListFindingsCommandOutput) => void
   ): Promise<ListFindingsCommandOutput> | void {
     const command = new ListFindingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists all of the policy generations requested in the last seven days.</p>
+   */
+  public listPolicyGenerations(
+    args: ListPolicyGenerationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPolicyGenerationsCommandOutput>;
+  public listPolicyGenerations(
+    args: ListPolicyGenerationsCommandInput,
+    cb: (err: any, data?: ListPolicyGenerationsCommandOutput) => void
+  ): void;
+  public listPolicyGenerations(
+    args: ListPolicyGenerationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPolicyGenerationsCommandOutput) => void
+  ): void;
+  public listPolicyGenerations(
+    args: ListPolicyGenerationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPolicyGenerationsCommandOutput) => void),
+    cb?: (err: any, data?: ListPolicyGenerationsCommandOutput) => void
+  ): Promise<ListPolicyGenerationsCommandOutput> | void {
+    const command = new ListPolicyGenerationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -484,6 +802,38 @@ export class AccessAnalyzer extends AccessAnalyzerClient {
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts the policy generation request.</p>
+   */
+  public startPolicyGeneration(
+    args: StartPolicyGenerationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartPolicyGenerationCommandOutput>;
+  public startPolicyGeneration(
+    args: StartPolicyGenerationCommandInput,
+    cb: (err: any, data?: StartPolicyGenerationCommandOutput) => void
+  ): void;
+  public startPolicyGeneration(
+    args: StartPolicyGenerationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartPolicyGenerationCommandOutput) => void
+  ): void;
+  public startPolicyGeneration(
+    args: StartPolicyGenerationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartPolicyGenerationCommandOutput) => void),
+    cb?: (err: any, data?: StartPolicyGenerationCommandOutput) => void
+  ): Promise<StartPolicyGenerationCommandOutput> | void {
+    const command = new StartPolicyGenerationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -638,6 +988,40 @@ export class AccessAnalyzer extends AccessAnalyzerClient {
     cb?: (err: any, data?: UpdateFindingsCommandOutput) => void
   ): Promise<UpdateFindingsCommandOutput> | void {
     const command = new UpdateFindingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Requests the validation of a policy and returns a list of findings. The findings help
+   *          you identify issues and provide actionable recommendations to resolve the issue and enable
+   *          you to author functional policies that meet security best practices. </p>
+   */
+  public validatePolicy(
+    args: ValidatePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ValidatePolicyCommandOutput>;
+  public validatePolicy(
+    args: ValidatePolicyCommandInput,
+    cb: (err: any, data?: ValidatePolicyCommandOutput) => void
+  ): void;
+  public validatePolicy(
+    args: ValidatePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ValidatePolicyCommandOutput) => void
+  ): void;
+  public validatePolicy(
+    args: ValidatePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ValidatePolicyCommandOutput) => void),
+    cb?: (err: any, data?: ValidatePolicyCommandOutput) => void
+  ): Promise<ValidatePolicyCommandOutput> | void {
+    const command = new ValidatePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

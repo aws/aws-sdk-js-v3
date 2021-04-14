@@ -21,8 +21,7 @@ export type UpdateDatasetCommandInput = UpdateDatasetRequest;
 export type UpdateDatasetCommandOutput = UpdateDatasetResponse & __MetadataBearer;
 
 /**
- * <p>Modifies the definition of an existing AWS Glue DataBrew dataset in the current AWS
- *             account.</p>
+ * <p>Modifies the definition of an existing DataBrew dataset.</p>
  */
 export class UpdateDatasetCommand extends $Command<
   UpdateDatasetCommandInput,

@@ -13,8 +13,10 @@ import {
   DataSetImportMode,
   DataSourceCredentials,
   DataSourceParameters,
+  FieldFolder,
   Group,
   IdentityType,
+  Ingestion,
   LogicalTable,
   NamespaceInfoV2,
   PhysicalTable,
@@ -34,6 +36,34 @@ import {
   _Parameters,
 } from "./models_0";
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+
+export interface ListIngestionsResponse {
+  /**
+   * <p>A list of the ingestions.</p>
+   */
+  Ingestions?: Ingestion[];
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The AWS request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+export namespace ListIngestionsResponse {
+  export const filterSensitiveLog = (obj: ListIngestionsResponse): any => ({
+    ...obj,
+  });
+}
 
 export interface ListNamespacesRequest {
   /**
@@ -809,7 +839,7 @@ export interface RegisterUserRequest {
    * 			IAM role. You don't need to provide the session name for other scenarios, for example when
    * 			you are registering an IAM user or an Amazon QuickSight user. You can register multiple
    * 			users using the same IAM role if each user has a different session name. For more
-   * 			information on assuming IAM roles, see <a href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sts/assume-role.html">
+   * 			information on assuming IAM roles, see <a href="https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html">
    *                <code>assume-role</code>
    *             </a> in the <i>AWS CLI Reference.</i>
    *          </p>
@@ -1667,6 +1697,11 @@ export interface UpdateDataSetRequest {
    * <p>Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.</p>
    */
   ColumnGroups?: ColumnGroup[];
+
+  /**
+   * <p>The folder that contains fields and nested subfolders for your dataset.</p>
+   */
+  FieldFolders?: { [key: string]: FieldFolder };
 
   /**
    * <p>The row-level security configuration for the data you want to create.</p>

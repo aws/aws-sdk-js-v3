@@ -22,7 +22,7 @@ export type DisassociatePhoneNumberFromUserCommandOutput = DisassociatePhoneNumb
 
 /**
  * <p>Disassociates the primary provisioned phone number from the specified Amazon Chime
- *       user.</p>
+ *             user.</p>
  */
 export class DisassociatePhoneNumberFromUserCommand extends $Command<
   DisassociatePhoneNumberFromUserCommandInput,

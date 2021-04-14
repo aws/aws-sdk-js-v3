@@ -21,10 +21,7 @@ export type UpdateRuleGroupCommandInput = UpdateRuleGroupRequest;
 export type UpdateRuleGroupCommandOutput = UpdateRuleGroupResponse & __MetadataBearer;
 
 /**
- * <note>
- *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
- *          </note>
- *          <p>Updates the specified <a>RuleGroup</a>.</p>
+ * <p>Updates the specified <a>RuleGroup</a>.</p>
  *          <p> A rule group defines a collection of rules to inspect and control web requests that you can use in a <a>WebACL</a>. When you create a rule group, you define an immutable capacity limit. If you update a rule group, you must stay within the capacity. This allows others to reuse the rule group with confidence in its capacity requirements. </p>
  */
 export class UpdateRuleGroupCommand extends $Command<

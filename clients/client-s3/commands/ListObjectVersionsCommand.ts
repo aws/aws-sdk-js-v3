@@ -24,7 +24,13 @@ export type ListObjectVersionsCommandOutput = ListObjectVersionsOutput & __Metad
 /**
  * <p>Returns metadata about all versions of the objects in a bucket. You can also use request
  *          parameters as selection criteria to return metadata about a subset of all the object
- *          versions. </p>
+ *          versions.</p>
+ *          <important>
+ *             <p>
+ *             To use this operation, you must have permissions to perform the
+ *             <code>s3:ListBucketVersions</code> action. Be aware of the name difference.
+ *          </p>
+ *          </important>
  *          <note>
  *             <p> A 200 OK response can contain valid or invalid XML. Make sure to design your
  *             application to parse the contents of the response and handle it appropriately.</p>

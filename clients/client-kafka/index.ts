@@ -32,6 +32,7 @@ export * from "./commands/TagResourceCommand";
 export * from "./commands/UntagResourceCommand";
 export * from "./commands/UpdateBrokerCountCommand";
 export * from "./commands/UpdateBrokerStorageCommand";
+export * from "./commands/UpdateBrokerTypeCommand";
 export * from "./commands/UpdateClusterConfigurationCommand";
 export * from "./commands/UpdateClusterKafkaVersionCommand";
 export * from "./commands/UpdateConfigurationCommand";

@@ -868,6 +868,83 @@ export namespace CancelElasticsearchServiceSoftwareUpdateResponse {
   });
 }
 
+export enum AutoTuneDesiredState {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+export enum TimeUnit {
+  HOURS = "HOURS",
+}
+
+/**
+ * <p>Specifies maintenance schedule duration: duration value and duration unit. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information.</p>
+ */
+export interface Duration {
+  /**
+   * <p> Integer to specify the value of a maintenance schedule duration. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information.</p>
+   */
+  Value?: number;
+
+  /**
+   * <p>Specifies the unit of a maintenance schedule duration. Valid value is HOURS. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information.</p>
+   */
+  Unit?: TimeUnit | string;
+}
+
+export namespace Duration {
+  export const filterSensitiveLog = (obj: Duration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies Auto-Tune maitenance schedule. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information.</p>
+ */
+export interface AutoTuneMaintenanceSchedule {
+  /**
+   * <p>Specifies timestamp at which Auto-Tune maintenance schedule start. </p>
+   */
+  StartAt?: Date;
+
+  /**
+   * <p>Specifies maintenance schedule duration: duration value and duration unit. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information.</p>
+   */
+  Duration?: Duration;
+
+  /**
+   * <p>Specifies cron expression for a recurring maintenance schedule. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information.</p>
+   */
+  CronExpressionForRecurrence?: string;
+}
+
+export namespace AutoTuneMaintenanceSchedule {
+  export const filterSensitiveLog = (obj: AutoTuneMaintenanceSchedule): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the Auto-Tune options: the Auto-Tune desired state for the domain and list of maintenance schedules.</p>
+ */
+export interface AutoTuneOptionsInput {
+  /**
+   * <p>Specifies the Auto-Tune desired state. Valid values are ENABLED, DISABLED. </p>
+   */
+  DesiredState?: AutoTuneDesiredState | string;
+
+  /**
+   * <p>Specifies list of maitenance schedules. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information.</p>
+   */
+  MaintenanceSchedules?: AutoTuneMaintenanceSchedule[];
+}
+
+export namespace AutoTuneOptionsInput {
+  export const filterSensitiveLog = (obj: AutoTuneOptionsInput): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Options to specify the Cognito user and identity pools for Kibana authentication. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html" target="_blank">Amazon Cognito Authentication for Kibana</a>.</p>
  */
@@ -1293,6 +1370,16 @@ export interface CreateElasticsearchDomainRequest {
    * <p>Specifies advanced security options.</p>
    */
   AdvancedSecurityOptions?: AdvancedSecurityOptionsInput;
+
+  /**
+   * <p>Specifies Auto-Tune options.</p>
+   */
+  AutoTuneOptions?: AutoTuneOptionsInput;
+
+  /**
+   * <p>A list of <code>Tag</code> added during domain creation.</p>
+   */
+  TagList?: Tag[];
 }
 
 export namespace CreateElasticsearchDomainRequest {
@@ -1301,6 +1388,39 @@ export namespace CreateElasticsearchDomainRequest {
     ...(obj.AdvancedSecurityOptions && {
       AdvancedSecurityOptions: AdvancedSecurityOptionsInput.filterSensitiveLog(obj.AdvancedSecurityOptions),
     }),
+  });
+}
+
+export enum AutoTuneState {
+  DISABLED = "DISABLED",
+  DISABLED_AND_ROLLBACK_COMPLETE = "DISABLED_AND_ROLLBACK_COMPLETE",
+  DISABLED_AND_ROLLBACK_ERROR = "DISABLED_AND_ROLLBACK_ERROR",
+  DISABLED_AND_ROLLBACK_IN_PROGRESS = "DISABLED_AND_ROLLBACK_IN_PROGRESS",
+  DISABLED_AND_ROLLBACK_SCHEDULED = "DISABLED_AND_ROLLBACK_SCHEDULED",
+  DISABLE_IN_PROGRESS = "DISABLE_IN_PROGRESS",
+  ENABLED = "ENABLED",
+  ENABLE_IN_PROGRESS = "ENABLE_IN_PROGRESS",
+  ERROR = "ERROR",
+}
+
+/**
+ * <p>Specifies the Auto-Tune options: the Auto-Tune desired state for the domain and list of maintenance schedules.</p>
+ */
+export interface AutoTuneOptionsOutput {
+  /**
+   * <p>Specifies the <code>AutoTuneState</code> for the Elasticsearch domain.</p>
+   */
+  State?: AutoTuneState | string;
+
+  /**
+   * <p>Specifies the error message while enabling or disabling the Auto-Tune.</p>
+   */
+  ErrorMessage?: string;
+}
+
+export namespace AutoTuneOptionsOutput {
+  export const filterSensitiveLog = (obj: AutoTuneOptionsOutput): any => ({
+    ...obj,
   });
 }
 
@@ -1449,6 +1569,11 @@ export interface ElasticsearchDomainStatus {
    * <p>The current status of the Elasticsearch domain's advanced security options.</p>
    */
   AdvancedSecurityOptions?: AdvancedSecurityOptions;
+
+  /**
+   * <p>The current status of the Elasticsearch domain's Auto-Tune options.</p>
+   */
+  AutoTuneOptions?: AutoTuneOptionsOutput;
 }
 
 export namespace ElasticsearchDomainStatus {
@@ -1928,6 +2053,136 @@ export namespace DeletePackageResponse {
 }
 
 /**
+ * <p>Container for the parameters to the <code>DescribeDomainAutoTunes</code> operation.</p>
+ */
+export interface DescribeDomainAutoTunesRequest {
+  /**
+   * <p>Specifies the domain name for which you want Auto-Tune action details.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>Set this value to limit the number of results returned. If not specified, defaults to 100.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>NextToken is sent in case the earlier API call results contain the NextToken. It is used for pagination.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeDomainAutoTunesRequest {
+  export const filterSensitiveLog = (obj: DescribeDomainAutoTunesRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum ScheduledAutoTuneActionType {
+  JVM_HEAP_SIZE_TUNING = "JVM_HEAP_SIZE_TUNING",
+  JVM_YOUNG_GEN_TUNING = "JVM_YOUNG_GEN_TUNING",
+}
+
+export enum ScheduledAutoTuneSeverityType {
+  HIGH = "HIGH",
+  LOW = "LOW",
+  MEDIUM = "MEDIUM",
+}
+
+/**
+ * <p>Specifies details of the scheduled Auto-Tune action. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information. </p>
+ */
+export interface ScheduledAutoTuneDetails {
+  /**
+   * <p>Specifies timestamp for the Auto-Tune action scheduled for the domain. </p>
+   */
+  Date?: Date;
+
+  /**
+   * <p>Specifies Auto-Tune action type. Valid values are JVM_HEAP_SIZE_TUNING and JVM_YOUNG_GEN_TUNING. </p>
+   */
+  ActionType?: ScheduledAutoTuneActionType | string;
+
+  /**
+   * <p>Specifies Auto-Tune action description. </p>
+   */
+  Action?: string;
+
+  /**
+   * <p>Specifies Auto-Tune action severity. Valid values are LOW, MEDIUM and HIGH. </p>
+   */
+  Severity?: ScheduledAutoTuneSeverityType | string;
+}
+
+export namespace ScheduledAutoTuneDetails {
+  export const filterSensitiveLog = (obj: ScheduledAutoTuneDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies details of the Auto-Tune action. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information. </p>
+ */
+export interface AutoTuneDetails {
+  /**
+   * <p>Specifies details of the scheduled Auto-Tune action. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information. </p>
+   */
+  ScheduledAutoTuneDetails?: ScheduledAutoTuneDetails;
+}
+
+export namespace AutoTuneDetails {
+  export const filterSensitiveLog = (obj: AutoTuneDetails): any => ({
+    ...obj,
+  });
+}
+
+export enum AutoTuneType {
+  SCHEDULED_ACTION = "SCHEDULED_ACTION",
+}
+
+/**
+ * <p>Specifies Auto-Tune type and Auto-Tune action details. </p>
+ */
+export interface AutoTune {
+  /**
+   * <p>Specifies Auto-Tune type. Valid value is SCHEDULED_ACTION. </p>
+   */
+  AutoTuneType?: AutoTuneType | string;
+
+  /**
+   * <p>Specifies details of the Auto-Tune action. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information. </p>
+   */
+  AutoTuneDetails?: AutoTuneDetails;
+}
+
+export namespace AutoTune {
+  export const filterSensitiveLog = (obj: AutoTune): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The result of <code>DescribeDomainAutoTunes</code> request. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information. </p>
+ */
+export interface DescribeDomainAutoTunesResponse {
+  /**
+   * <p>Specifies the list of setting adjustments that Auto-Tune has made to the domain. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information.</p>
+   */
+  AutoTunes?: AutoTune[];
+
+  /**
+   * <p>Specifies an identifier to allow retrieval of paginated results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeDomainAutoTunesResponse {
+  export const filterSensitiveLog = (obj: DescribeDomainAutoTunesResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Container for the parameters to the <code><a>DescribeElasticsearchDomain</a></code> operation.</p>
  */
 export interface DescribeElasticsearchDomainRequest {
@@ -1971,6 +2226,99 @@ export interface DescribeElasticsearchDomainConfigRequest {
 
 export namespace DescribeElasticsearchDomainConfigRequest {
   export const filterSensitiveLog = (obj: DescribeElasticsearchDomainConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum RollbackOnDisable {
+  DEFAULT_ROLLBACK = "DEFAULT_ROLLBACK",
+  NO_ROLLBACK = "NO_ROLLBACK",
+}
+
+/**
+ * <p>Specifies the Auto-Tune options: the Auto-Tune desired state for the domain, rollback state when disabling Auto-Tune options and list of maintenance schedules.</p>
+ */
+export interface AutoTuneOptions {
+  /**
+   * <p>Specifies the Auto-Tune desired state. Valid values are ENABLED, DISABLED. </p>
+   */
+  DesiredState?: AutoTuneDesiredState | string;
+
+  /**
+   * <p>Specifies the rollback state while disabling Auto-Tune for the domain. Valid values are NO_ROLLBACK, DEFAULT_ROLLBACK. </p>
+   */
+  RollbackOnDisable?: RollbackOnDisable | string;
+
+  /**
+   * <p>Specifies list of maitenance schedules. See the <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html" target="_blank">Developer Guide</a> for more information.</p>
+   */
+  MaintenanceSchedules?: AutoTuneMaintenanceSchedule[];
+}
+
+export namespace AutoTuneOptions {
+  export const filterSensitiveLog = (obj: AutoTuneOptions): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides the current status of the Auto-Tune options. </p>
+ */
+export interface AutoTuneStatus {
+  /**
+   * <p>Timestamp which tells Auto-Tune options creation date .</p>
+   */
+  CreationDate: Date | undefined;
+
+  /**
+   * <p>Timestamp which tells Auto-Tune options last updated time.</p>
+   */
+  UpdateDate: Date | undefined;
+
+  /**
+   * <p>Specifies the Auto-Tune options latest version.</p>
+   */
+  UpdateVersion?: number;
+
+  /**
+   * <p>Specifies the <code>AutoTuneState</code> for the Elasticsearch domain.</p>
+   */
+  State: AutoTuneState | string | undefined;
+
+  /**
+   * <p>Specifies the error message while enabling or disabling the Auto-Tune options.</p>
+   */
+  ErrorMessage?: string;
+
+  /**
+   * <p>Indicates whether the Elasticsearch domain is being deleted.</p>
+   */
+  PendingDeletion?: boolean;
+}
+
+export namespace AutoTuneStatus {
+  export const filterSensitiveLog = (obj: AutoTuneStatus): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p> Specifies the status of Auto-Tune options for the specified Elasticsearch domain.</p>
+ */
+export interface AutoTuneOptionsStatus {
+  /**
+   * <p> Specifies Auto-Tune options for the specified Elasticsearch domain.</p>
+   */
+  Options?: AutoTuneOptions;
+
+  /**
+   * <p> Specifies Status of the Auto-Tune options for the specified Elasticsearch domain.</p>
+   */
+  Status?: AutoTuneStatus;
+}
+
+export namespace AutoTuneOptionsStatus {
+  export const filterSensitiveLog = (obj: AutoTuneOptionsStatus): any => ({
     ...obj,
   });
 }
@@ -2253,6 +2601,11 @@ export interface ElasticsearchDomainConfig {
    * <p>Specifies <code>AdvancedSecurityOptions</code> for the domain. </p>
    */
   AdvancedSecurityOptions?: AdvancedSecurityOptionsStatus;
+
+  /**
+   * <p>Specifies <code>AutoTuneOptions</code> for the domain. </p>
+   */
+  AutoTuneOptions?: AutoTuneOptionsStatus;
 }
 
 export namespace ElasticsearchDomainConfig {
@@ -4059,6 +4412,21 @@ export interface UpdateElasticsearchDomainConfigRequest {
    * <p>Specifies advanced security options.</p>
    */
   AdvancedSecurityOptions?: AdvancedSecurityOptionsInput;
+
+  /**
+   * <p>Specifies the NodeToNodeEncryptionOptions.</p>
+   */
+  NodeToNodeEncryptionOptions?: NodeToNodeEncryptionOptions;
+
+  /**
+   * <p>Specifies the Encryption At Rest Options.</p>
+   */
+  EncryptionAtRestOptions?: EncryptionAtRestOptions;
+
+  /**
+   * <p>Specifies Auto-Tune options.</p>
+   */
+  AutoTuneOptions?: AutoTuneOptions;
 }
 
 export namespace UpdateElasticsearchDomainConfigRequest {

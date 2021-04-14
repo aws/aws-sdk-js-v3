@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UpdateSAMLProviderRequest, UpdateSAMLProviderResponse } from "../models/models_0";
+import { UpdateSAMLProviderRequest, UpdateSAMLProviderResponse } from "../models/models_1";
 import {
   deserializeAws_queryUpdateSAMLProviderCommand,
   serializeAws_queryUpdateSAMLProviderCommand,
@@ -22,9 +22,9 @@ export type UpdateSAMLProviderCommandOutput = UpdateSAMLProviderResponse & __Met
 
 /**
  * <p>Updates the metadata document for an existing SAML provider resource object.</p>
- *          <note>
+ *         <note>
  *             <p>This operation requires <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>.</p>
- *          </note>
+ *         </note>
  */
 export class UpdateSAMLProviderCommand extends $Command<
   UpdateSAMLProviderCommandInput,

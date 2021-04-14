@@ -21,11 +21,7 @@ export type DeleteStudioSessionMappingCommandInput = DeleteStudioSessionMappingI
 export type DeleteStudioSessionMappingCommandOutput = __MetadataBearer;
 
 /**
- * <note>
- *             <p>The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject to
- *             change.</p>
- *          </note>
- *          <p>Removes a user or group from an Amazon EMR Studio.</p>
+ * <p>Removes a user or group from an Amazon EMR Studio.</p>
  */
 export class DeleteStudioSessionMappingCommand extends $Command<
   DeleteStudioSessionMappingCommandInput,

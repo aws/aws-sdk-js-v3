@@ -22,7 +22,7 @@ export type GetAccessPointPolicyStatusCommandInput = GetAccessPointPolicyStatusR
 export type GetAccessPointPolicyStatusCommandOutput = GetAccessPointPolicyStatusResult & __MetadataBearer;
 
 /**
- * <p>Indicates whether the specified access point currently has a policy that allows public access. For more information about public access through access points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-points.html">Managing Data Access with Amazon S3 Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+ * <p>Indicates whether the specified access point currently has a policy that allows public access. For more information about public access through access points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html">Managing Data Access with Amazon S3 Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
  */
 export class GetAccessPointPolicyStatusCommand extends $Command<
   GetAccessPointPolicyStatusCommandInput,

@@ -21,11 +21,16 @@ export type ListInstanceProfilesCommandInput = ListInstanceProfilesRequest;
 export type ListInstanceProfilesCommandOutput = ListInstanceProfilesResponse & __MetadataBearer;
 
 /**
- * <p>Lists the instance profiles that have the specified path prefix. If there are none, the
- *          operation returns an empty list. For more information about instance profiles, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About Instance
- *             Profiles</a>.</p>
- *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
- *          parameters.</p>
+ * <p>Lists the instance profiles that have the specified path prefix. If there are none,
+ *             the operation returns an empty list. For more information about instance profiles, see
+ *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About
+ *                 instance profiles</a>.</p>
+ *         <note>
+ *             <p>IAM resource-listing operations return a subset of the available
+ *    attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view all of the information for an instance profile, see <a>GetInstanceProfile</a>.</p>
+ *         </note>
+ *         <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
+ *             parameters.</p>
  */
 export class ListInstanceProfilesCommand extends $Command<
   ListInstanceProfilesCommandInput,

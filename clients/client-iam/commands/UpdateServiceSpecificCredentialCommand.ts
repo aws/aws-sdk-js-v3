@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UpdateServiceSpecificCredentialRequest } from "../models/models_0";
+import { UpdateServiceSpecificCredentialRequest } from "../models/models_1";
 import {
   deserializeAws_queryUpdateServiceSpecificCredentialCommand,
   serializeAws_queryUpdateServiceSpecificCredentialCommand,
@@ -22,9 +22,9 @@ export type UpdateServiceSpecificCredentialCommandOutput = __MetadataBearer;
 
 /**
  * <p>Sets the status of a service-specific credential to <code>Active</code> or
- *             <code>Inactive</code>. Service-specific credentials that are inactive cannot be used for
- *          authentication to the service. This operation can be used to disable a user's
- *          service-specific credential as part of a credential rotation work flow.</p>
+ *                 <code>Inactive</code>. Service-specific credentials that are inactive cannot be used
+ *             for authentication to the service. This operation can be used to disable a user's
+ *             service-specific credential as part of a credential rotation work flow.</p>
  */
 export class UpdateServiceSpecificCredentialCommand extends $Command<
   UpdateServiceSpecificCredentialCommandInput,

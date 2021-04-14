@@ -1,4 +1,4 @@
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -445,7 +445,136 @@ export namespace UpdateInProgressException {
 }
 
 /**
- * <p>The details of a capacity provider strategy.</p>
+ * <p>The log configuration for the results of the execute command actions. The logs can be
+ * 			sent to CloudWatch Logs or an Amazon S3 bucket.</p>
+ */
+export interface ExecuteCommandLogConfiguration {
+  /**
+   * <p>The name of the CloudWatch log group to send logs to.</p>
+   * 		       <note>
+   * 			         <p>The CloudWatch log group must already be created.</p>
+   * 		       </note>
+   */
+  cloudWatchLogGroupName?: string;
+
+  /**
+   * <p>Whether or not to enable encryption on the CloudWatch logs. If not specified,
+   * 			encryption will be disabled.</p>
+   */
+  cloudWatchEncryptionEnabled?: boolean;
+
+  /**
+   * <p>The name of the S3 bucket to send logs to.</p>
+   * 		       <note>
+   * 			         <p>The S3 bucket must already be created.</p>
+   * 		       </note>
+   */
+  s3BucketName?: string;
+
+  /**
+   * <p>Whether or not to enable encryption on the CloudWatch logs. If not specified,
+   * 			encryption will be disabled.</p>
+   */
+  s3EncryptionEnabled?: boolean;
+
+  /**
+   * <p>An optional folder in the S3 bucket to place logs in.</p>
+   */
+  s3KeyPrefix?: string;
+}
+
+export namespace ExecuteCommandLogConfiguration {
+  export const filterSensitiveLog = (obj: ExecuteCommandLogConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export enum ExecuteCommandLogging {
+  DEFAULT = "DEFAULT",
+  NONE = "NONE",
+  OVERRIDE = "OVERRIDE",
+}
+
+/**
+ * <p>The details of the execute command configuration.</p>
+ */
+export interface ExecuteCommandConfiguration {
+  /**
+   * <p>Specify an AWS Key Management Service key ID to encrypt the data between the local
+   * 			client and the container.</p>
+   */
+  kmsKeyId?: string;
+
+  /**
+   * <p>The log setting to use for redirecting logs for your execute command results. The
+   * 			following log settings are available.</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>
+   *                   <code>NONE</code>: The execute command session is not logged.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>DEFAULT</code>: The <code>awslogs</code> configuration in the task
+   * 					definition is used. If no logging parameter is specified, it defaults to this
+   * 					value. If no <code>awslogs</code> log driver is configured in the task
+   * 					definition, the output won't be logged.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>OVERRIDE</code>: Specify the logging details as a part of
+   * 						<code>logConfiguration</code>. If the <code>OVERRIDE</code> logging option
+   * 					is specified, the <code>logConfiguration</code> is required.</p>
+   * 			         </li>
+   *          </ul>
+   */
+  logging?: ExecuteCommandLogging | string;
+
+  /**
+   * <p>The log configuration for the results of the execute command actions. The logs can be
+   * 			sent to CloudWatch Logs or an Amazon S3 bucket. When <code>logging=OVERRIDE</code> is
+   * 			specified, a <code>logConfiguration</code> must be provided.</p>
+   */
+  logConfiguration?: ExecuteCommandLogConfiguration;
+}
+
+export namespace ExecuteCommandConfiguration {
+  export const filterSensitiveLog = (obj: ExecuteCommandConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The execute command configuration for the cluster.</p>
+ */
+export interface ClusterConfiguration {
+  /**
+   * <p>The details of the execute command configuration.</p>
+   */
+  executeCommandConfiguration?: ExecuteCommandConfiguration;
+}
+
+export namespace ClusterConfiguration {
+  export const filterSensitiveLog = (obj: ClusterConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The details of a capacity provider strategy. A capacity provider strategy can be set
+ * 			when using the <a>RunTask</a> or <a>CreateCluster</a> APIs or as
+ * 			the default capacity provider strategy for a cluster with the <a>CreateCluster</a> API.</p>
+ * 		       <p>Only capacity providers that are already associated with a cluster and have an
+ * 				<code>ACTIVE</code> or <code>UPDATING</code> status can be used in a capacity
+ * 			provider strategy. The <a>PutClusterCapacityProviders</a> API is used to
+ * 			associate a capacity provider with a cluster.</p>
+ * 		       <p>If specifying a capacity provider that uses an Auto Scaling group, the capacity
+ * 			provider must already be created. New Auto Scaling group capacity providers can be
+ * 			created with the <a>CreateCapacityProvider</a> API operation.</p>
+ * 		       <p>To use a AWS Fargate capacity provider, specify either the <code>FARGATE</code> or
+ * 				<code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers are
+ * 			available to all accounts and only need to be associated with a cluster to be used in a
+ * 			capacity provider strategy.</p>
  */
 export interface CapacityProviderStrategyItem {
   /**
@@ -455,13 +584,23 @@ export interface CapacityProviderStrategyItem {
 
   /**
    * <p>The <i>weight</i> value designates the relative percentage of the total
-   * 			number of tasks launched that should use the specified capacity provider.</p>
-   * 		       <p>For example, if you have a strategy that contains two capacity providers and both have
-   * 			a weight of <code>1</code>, then when the <code>base</code> is satisfied, the tasks will
-   * 			be split evenly across the two capacity providers. Using that same logic, if you specify
-   * 			a weight of <code>1</code> for <i>capacityProviderA</i> and a weight of
-   * 				<code>4</code> for <i>capacityProviderB</i>, then for every one task
-   * 			that is run using <i>capacityProviderA</i>, four tasks would use
+   * 			number of tasks launched that should use the specified capacity provider. The
+   * 				<code>weight</code> value is taken into consideration after the <code>base</code>
+   * 			value, if defined, is satisfied.</p>
+   * 		       <p>If no <code>weight</code> value is specified, the default value of <code>0</code> is
+   * 			used. When multiple capacity providers are specified within a capacity provider
+   * 			strategy, at least one of the capacity providers must have a weight value greater than
+   * 			zero and any capacity providers with a weight of <code>0</code> will not be used to
+   * 			place tasks. If you specify multiple capacity providers in a strategy that all have a
+   * 			weight of <code>0</code>, any <code>RunTask</code> or <code>CreateService</code> actions
+   * 			using the capacity provider strategy will fail.</p>
+   * 		       <p>An example scenario for using weights is defining a strategy that contains two
+   * 			capacity providers and both have a weight of <code>1</code>, then when the
+   * 				<code>base</code> is satisfied, the tasks will be split evenly across the two
+   * 			capacity providers. Using that same logic, if you specify a weight of <code>1</code> for
+   * 				<i>capacityProviderA</i> and a weight of <code>4</code> for
+   * 				<i>capacityProviderB</i>, then for every one task that is run using
+   * 				<i>capacityProviderA</i>, four tasks would use
    * 				<i>capacityProviderB</i>.</p>
    */
   weight?: number;
@@ -469,7 +608,8 @@ export interface CapacityProviderStrategyItem {
   /**
    * <p>The <i>base</i> value designates how many tasks, at a minimum, to run on
    * 			the specified capacity provider. Only one capacity provider in a capacity provider
-   * 			strategy can have a <i>base</i> defined.</p>
+   * 			strategy can have a <i>base</i> defined. If no value is specified, the
+   * 			default value of <code>0</code> is used.</p>
    */
   base?: number;
 }
@@ -565,12 +705,19 @@ export interface CreateClusterRequest {
   settings?: ClusterSetting[];
 
   /**
-   * <p>The short name of one or more capacity providers to associate
-   * 			with the cluster.</p>
+   * <p>The execute command configuration for the cluster.</p>
+   */
+  configuration?: ClusterConfiguration;
+
+  /**
+   * <p>The short name of one or more capacity providers to associate with the cluster. A
+   * 			capacity provider must be associated with a cluster before it can be included as part of
+   * 			the default capacity provider strategy of the cluster or used in a capacity provider
+   * 			strategy when calling the <a>CreateService</a> or <a>RunTask</a>
+   * 			actions.</p>
    * 		       <p>If specifying a capacity provider that uses an Auto Scaling group, the capacity
    * 			provider must already be created and not already associated with another cluster. New
-   * 			capacity providers can be created with the <a>CreateCapacityProvider</a> API
-   * 			operation.</p>
+   * 			Auto Scaling group capacity providers can be created with the <a>CreateCapacityProvider</a> API operation.</p>
    * 		       <p>To use a AWS Fargate capacity provider, specify either the <code>FARGATE</code> or
    * 				<code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers are
    * 			available to all accounts and only need to be associated with a cluster to be
@@ -581,22 +728,10 @@ export interface CreateClusterRequest {
   capacityProviders?: string[];
 
   /**
-   * <p>The capacity provider strategy to use by default for the cluster.</p>
-   * 		       <p>When creating a service or running a task on a cluster, if no capacity provider or
-   * 			launch type is specified then the default capacity provider strategy for the cluster is
-   * 			used.</p>
-   * 		       <p>A capacity provider strategy consists of one or more capacity providers along with the
-   * 				<code>base</code> and <code>weight</code> to assign to them. A capacity provider
-   * 			must be associated with the cluster to be used in a capacity provider strategy. The
-   * 				<a>PutClusterCapacityProviders</a> API is used to associate a capacity
-   * 			provider with a cluster. Only capacity providers with an <code>ACTIVE</code> or
-   * 				<code>UPDATING</code> status can be used.</p>
-   * 		       <p>If specifying a capacity provider that uses an Auto Scaling group, the capacity
-   * 			provider must already be created. New capacity providers can be created with the <a>CreateCapacityProvider</a> API operation.</p>
-   * 		       <p>To use a AWS Fargate capacity provider, specify either the <code>FARGATE</code> or
-   * 				<code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers are
-   * 			available to all accounts and only need to be associated with a cluster to be
-   * 			used.</p>
+   * <p>The capacity provider strategy to set as the default for the cluster. When a default
+   * 			capacity provider strategy is set for a cluster, when calling the <a>RunTask</a> or <a>CreateService</a> APIs wtih no capacity
+   * 			provider strategy or launch type specified, the default capacity provider strategy for
+   * 			the cluster is used.</p>
    * 		       <p>If a default capacity provider strategy is not defined for a cluster during creation,
    * 			it can be defined later with the <a>PutClusterCapacityProviders</a> API
    * 			operation.</p>
@@ -683,6 +818,11 @@ export interface Cluster {
    * <p>A user-generated string that you use to identify your cluster.</p>
    */
   clusterName?: string;
+
+  /**
+   * <p>The execute command configuration for the cluster.</p>
+   */
+  configuration?: ClusterConfiguration;
 
   /**
    * <p>The status of the cluster. The following are the possible states that will be
@@ -1333,7 +1473,7 @@ export interface CreateServiceRequest {
    * 		       <p>If the service is using the rolling update (<code>ECS</code>) deployment controller
    * 			and using either an Application Load Balancer or Network Load Balancer, you must specify one or more target group ARNs to
    * 			attach to the service. The service-linked role is required for services that make use of
-   * 			multiple target groups. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using Service-Linked Roles for Amazon ECS</a> in the
+   * 			multiple target groups. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using service-linked roles for Amazon ECS</a> in the
    * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
    * 		       <p>If the service is using the <code>CODE_DEPLOY</code> deployment controller, the
    * 			service is required to use either an Application Load Balancer or Network Load Balancer. When creating an AWS CodeDeploy deployment
@@ -1370,11 +1510,11 @@ export interface CreateServiceRequest {
   /**
    * <p>The details of the service discovery registries to assign to this service. For more
    * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
-   * 				Discovery</a>.</p>
+   * 				discovery</a>.</p>
    * 		       <note>
    * 			         <p>Service discovery is supported for Fargate tasks if you are using
-   * 				platform version v1.1.0 or later. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS Fargate Platform
-   * 					Versions</a>.</p>
+   * 				platform version v1.1.0 or later. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS Fargate platform
+   * 					versions</a>.</p>
    * 		       </note>
    */
   serviceRegistries?: ServiceRegistry[];
@@ -1395,8 +1535,14 @@ export interface CreateServiceRequest {
   clientToken?: string;
 
   /**
-   * <p>The launch type on which to run your service. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon ECS
-   * 				Launch Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * <p>The launch type on which to run your service. The accepted values are
+   * 				<code>FARGATE</code> and <code>EC2</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon ECS
+   * 				launch types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 		       <p>When a value of <code>FARGATE</code> is specified, your tasks are launched on
+   * 			AWS Fargate On-Demand infrastructure. To use Fargate Spot, you must use a capacity
+   * 			provider strategy with the <code>FARGATE_SPOT</code> capacity provider.</p>
+   * 		       <p>When a value of <code>EC2</code> is specified, your tasks are launched on Amazon EC2
+   * 			instances registered to your cluster.</p>
    * 		       <p>If a <code>launchType</code> is specified, the <code>capacityProviderStrategy</code>
    * 			parameter must be omitted.</p>
    */
@@ -1404,24 +1550,10 @@ export interface CreateServiceRequest {
 
   /**
    * <p>The capacity provider strategy to use for the service.</p>
-   * 		       <p>A capacity provider strategy consists of one or more capacity providers along with the
-   * 				<code>base</code> and <code>weight</code> to assign to them. A capacity provider
-   * 			must be associated with the cluster to be used in a capacity provider strategy. The
-   * 				<a>PutClusterCapacityProviders</a> API is used to associate a capacity
-   * 			provider with a cluster. Only capacity providers with an <code>ACTIVE</code> or
-   * 				<code>UPDATING</code> status can be used.</p>
    * 		       <p>If a <code>capacityProviderStrategy</code> is specified, the <code>launchType</code>
    * 			parameter must be omitted. If no <code>capacityProviderStrategy</code> or
    * 				<code>launchType</code> is specified, the
    * 				<code>defaultCapacityProviderStrategy</code> for the cluster is used.</p>
-   * 		       <p>If specifying a capacity provider that uses an Auto Scaling group, the capacity
-   * 			provider must already be created. New capacity providers can be created with the <a>CreateCapacityProvider</a> API operation.</p>
-   * 		       <p>To use a AWS Fargate capacity provider, specify either the <code>FARGATE</code> or
-   * 				<code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers are
-   * 			available to all accounts and only need to be associated with a cluster to be
-   * 			used.</p>
-   * 		       <p>The <a>PutClusterCapacityProviders</a> API operation is used to update the
-   * 			list of available capacity providers for a cluster after the cluster is created.</p>
    */
   capacityProviderStrategy?: CapacityProviderStrategyItem[];
 
@@ -1429,8 +1561,8 @@ export interface CreateServiceRequest {
    * <p>The platform version that your tasks in the service are running on. A platform version
    * 			is specified only for tasks using the Fargate launch type. If one isn't
    * 			specified, the <code>LATEST</code> platform version is used by default. For more
-   * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS Fargate Platform
-   * 				Versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS Fargate platform
+   * 				versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   platformVersion?: string;
 
@@ -1447,14 +1579,14 @@ export interface CreateServiceRequest {
    * 				or if the service is configured to use service discovery, an external deployment
    * 				controller, multiple target groups, or Elastic Inference accelerators in which case
    * 				you should not specify a role here. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
-   * 					Service-Linked Roles for Amazon ECS</a> in the
+   * 					service-linked roles for Amazon ECS</a> in the
    * 					<i>Amazon Elastic Container Service Developer Guide</i>.</p>
    * 		       </important>
    * 		       <p>If your specified role has a path other than <code>/</code>, then you must either
    * 			specify the full role ARN (this is recommended) or prefix the role name with the path.
    * 			For example, if a role with the name <code>bar</code> has a path of <code>/foo/</code>
    * 			then you would specify <code>/foo/bar</code> as the role name. For more information, see
-   * 				<a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names">Friendly Names and Paths</a> in the <i>IAM User Guide</i>.</p>
+   * 				<a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names">Friendly names and paths</a> in the <i>IAM User Guide</i>.</p>
    */
   role?: string;
 
@@ -1481,7 +1613,7 @@ export interface CreateServiceRequest {
    * <p>The network configuration for the service. This parameter is required for task
    * 			definitions that use the <code>awsvpc</code> network mode to receive their own elastic
    * 			network interface, and it is not supported for other network modes. For more
-   * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Task Networking</a>
+   * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Task networking</a>
    * 			in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   networkConfiguration?: NetworkConfiguration;
@@ -1591,6 +1723,13 @@ export interface CreateServiceRequest {
    * 			action.</p>
    */
   propagateTags?: PropagateTags | string;
+
+  /**
+   * <p>Whether or not the execute command functionality is enabled for the service. If
+   * 				<code>true</code>, this enables execute command functionality on all containers in
+   * 			the service tasks.</p>
+   */
+  enableExecuteCommand?: boolean;
 }
 
 export namespace CreateServiceRequest {
@@ -1897,7 +2036,7 @@ export interface TaskSet {
 
   /**
    * <p>The launch type the tasks in the task set are using. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon ECS
-   * 				Launch Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 				launch types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   launchType?: LaunchType | string;
 
@@ -1907,11 +2046,10 @@ export interface TaskSet {
   capacityProviderStrategy?: CapacityProviderStrategyItem[];
 
   /**
-   * <p>The platform version on which the tasks in the task set are running. A platform
-   * 			version is only specified for tasks using the Fargate launch type. If one
-   * 			is not specified, the <code>LATEST</code> platform version is used by default. For more
-   * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS Fargate Platform
-   * 				Versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * <p>The AWS Fargate platform version on which the tasks in the task set are running. A
+   * 			platform version is only specified for tasks run on AWS Fargate. For more information, see
+   * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS Fargate platform
+   * 				versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   platformVersion?: string;
 
@@ -1928,7 +2066,7 @@ export interface TaskSet {
   /**
    * <p>The details of the service discovery registries to assign to this task set. For more
    * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
-   * 				Discovery</a>.</p>
+   * 				discovery</a>.</p>
    */
   serviceRegistries?: ServiceRegistry[];
 
@@ -2245,6 +2383,13 @@ export interface Service {
    * 			task. If no value is specified, the tags are not propagated.</p>
    */
   propagateTags?: PropagateTags | string;
+
+  /**
+   * <p>Whether or not the execute command functionality is enabled for the service. If
+   * 				<code>true</code>, the execute command functionality is enabled for all containers
+   * 			in tasks as part of the service.</p>
+   */
+  enableExecuteCommand?: boolean;
 }
 
 export namespace Service {
@@ -3284,10 +3429,10 @@ export enum EnvironmentFileType {
  * 			parameter in a container definition, they take precedence over the variables contained
  * 			within an environment file. If multiple environment files are specified that contain the
  * 			same variable, they are processed from the top down. It is recommended to use unique
- * 			variable names. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html">Specifying Environment
- * 				Variables</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
- * 		       <p>This field is not valid for containers in tasks using the Fargate launch
- * 			type.</p>
+ * 			variable names. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html">Specifying environment
+ * 				variables</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * 		       <p>This field is only valid for containers in Fargate tasks that use
+ * 			platform version <code>1.4.0</code> or later.</p>
  */
 export interface EnvironmentFile {
   /**
@@ -3356,6 +3501,10 @@ export interface FirelensConfiguration {
    * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html#firelens-taskdef">Creating
    * 				a Task Definition that Uses a FireLens Configuration</a> in the
    * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 		       <note>
+   * 			         <p>Tasks hosted on AWS Fargate only support the <code>file</code> configuration file
+   * 				type.</p>
+   * 		       </note>
    */
   options?: { [key: string]: string };
 }
@@ -4387,8 +4536,6 @@ export interface ContainerDefinition {
    * 			same variable, they are processed from the top down. It is recommended to use unique
    * 			variable names. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html">Specifying Environment
    * 				Variables</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
-   * 		       <p>This field is not valid for containers in tasks using the Fargate launch
-   * 			type.</p>
    */
   environmentFiles?: EnvironmentFile[];
 
@@ -4578,7 +4725,7 @@ export interface ContainerDefinition {
    * 				<code>Privileged</code> in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a> section of the
    * 			<a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the <code>--privileged</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker run</a>.</p>
    *          <note>
-   *                                 <p>This parameter is not supported for Windows containers or tasks using the Fargate launch type.</p>
+   *                                 <p>This parameter is not supported for Windows containers or tasks run on AWS Fargate.</p>
    *                              </note>
    */
   privileged?: boolean;
@@ -4814,11 +4961,10 @@ export enum TaskDefinitionPlacementConstraintType {
 
 /**
  * <p>An object representing a constraint on task placement in the task definition. For more
- * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html">Task Placement Constraints</a> in the
+ * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html">Task placement constraints</a> in the
  * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * 		       <note>
- * 			         <p>If you are using the Fargate launch type, task placement constraints
- * 				are not supported.</p>
+ * 			         <p>Task placement constraints are not supported for tasks run on AWS Fargate.</p>
  * 		       </note>
  */
 export interface TaskDefinitionPlacementConstraint {
@@ -4830,7 +4976,7 @@ export interface TaskDefinitionPlacementConstraint {
 
   /**
    * <p>A cluster query language expression to apply to the constraint. For more information,
-   * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html">Cluster Query Language</a> in the
+   * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html">Cluster query language</a> in the
    * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   expression?: string;
@@ -5202,10 +5348,12 @@ export interface Volume {
   host?: HostVolumeProperties;
 
   /**
-   * <p>This parameter is specified when you are using Docker volumes. Docker volumes are only
-   * 			supported when you are using the EC2 launch type. Windows containers only
-   * 			support the use of the <code>local</code> driver. To use bind mounts, specify the
-   * 				<code>host</code> parameter instead.</p>
+   * <p>This parameter is specified when you are using Docker volumes.</p>
+   * 		       <p>Windows containers only support the use of the <code>local</code> driver. To use bind
+   * 			mounts, specify the <code>host</code> parameter instead.</p>
+   * 		       <note>
+   * 			         <p>Docker volumes are not supported by tasks run on AWS Fargate.</p>
+   * 		       </note>
    */
   dockerVolumeConfiguration?: DockerVolumeConfiguration;
 
@@ -5264,8 +5412,8 @@ export interface TaskDefinition {
    * 		       <p>IAM roles for tasks on Windows require that the <code>-EnableTaskIAMRole</code> option
    * 			is set when you launch the Amazon ECS-optimized Windows AMI. Your containers must also run some
    * 			configuration code in order to take advantage of the feature. For more information, see
-   * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows_task_IAM_roles.html">Windows IAM Roles
-   * 				for Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows_task_IAM_roles.html">Windows IAM roles
+   * 				for tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   taskRoleArn?: string;
 
@@ -5328,10 +5476,12 @@ export interface TaskDefinition {
   revision?: number;
 
   /**
-   * <p>The list of volume definitions for the task.</p>
-   * 		       <p>If your tasks are using the Fargate launch type, the <code>host</code>
-   * 			and <code>sourcePath</code> parameters are not supported.</p>
-   * 		       <p>For more information about volume definition parameters and defaults, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html">Amazon ECS Task Definitions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * <p>The list of data volume definitions for the task. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html">Using data volumes in tasks</a> in the
+   * 			<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 		       <note>
+   * 			         <p>The <code>host</code> and <code>sourcePath</code> parameters are not supported for
+   * 				tasks run on AWS Fargate.</p>
+   * 		       </note>
    */
   volumes?: Volume[];
 
@@ -5341,27 +5491,36 @@ export interface TaskDefinition {
   status?: TaskDefinitionStatus | string;
 
   /**
-   * <p>The container instance attributes required by your task. This field is not valid if
-   * 			you are using the Fargate launch type for your task.</p>
+   * <p>The container instance attributes required by your task. When an Amazon EC2 instance is
+   * 			registered to your cluster, the Amazon ECS container agent assigns some standard attributes
+   * 			to the instance. You can apply custom attributes, specified as key-value pairs using the
+   * 			Amazon ECS console or the <a>PutAttributes</a> API. These attributes are used when
+   * 			considering task placement for tasks hosted on Amazon EC2 instances. For more information,
+   * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html#attributes">Attributes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 		       <note>
+   * 			         <p>This parameter is not supported for tasks run on AWS Fargate.</p>
+   * 		       </note>
    */
   requiresAttributes?: Attribute[];
 
   /**
-   * <p>An array of placement constraint objects to use for tasks. This field is not valid if
-   * 			you are using the Fargate launch type for your task.</p>
+   * <p>An array of placement constraint objects to use for tasks.</p>
+   * 		       <note>
+   * 			         <p>This parameter is not supported for tasks run on AWS Fargate.</p>
+   * 		       </note>
    */
   placementConstraints?: TaskDefinitionPlacementConstraint[];
 
   /**
-   * <p>The launch type to use with your task. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon ECS
-   * 				Launch Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * <p>The task launch types the task definition validated against during task definition
+   * 			registration. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon ECS launch types</a>
+   * 			in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   compatibilities?: (Compatibility | string)[];
 
   /**
-   * <p>The launch type the task requires. If no value is specified, it will default to
-   * 				<code>EC2</code>. Valid values include <code>EC2</code> and
-   * 			<code>FARGATE</code>.</p>
+   * <p>The task launch types the task definition was validated against. To determine which
+   * 			task launch types the task definition is validated for, see the <a>TaskDefinition$compatibilities</a> parameter.</p>
    */
   requiresCompatibilities?: (Compatibility | string)[];
 
@@ -5392,13 +5551,13 @@ export interface TaskDefinition {
 
   /**
    * <p>The amount (in MiB) of memory used by the task.</p>
-   * 		       <p>If using the EC2 launch type, you must specify either a task-level
+   * 		       <p>If your tasks will be run on Amazon EC2 instances, you must specify either a task-level
    * 			memory value or a container-level memory value. This field is optional and any value can
    * 			be used. If a task-level memory value is specified then the container-level memory value
    * 			is optional. For more information regarding container-level memory and memory
    * 			reservation, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html">ContainerDefinition</a>.</p>
-   * 		       <p>If using the Fargate launch type, this field is required and you must
-   * 			use one of the following values, which determines your range of valid values for the
+   * 		       <p>If your tasks will be run on AWS Fargate, this field is required and you must use one of
+   * 			the following values, which determines your range of valid values for the
    * 				<code>cpu</code> parameter:</p>
    *          <ul>
    *             <li>
@@ -5440,7 +5599,7 @@ export interface TaskDefinition {
    *                             information, see <a href="https://docs.docker.com/engine/security/security/">Docker
    *                                 security</a>.</p>
    *          <note>
-   *                                 <p>This parameter is not supported for Windows containers or tasks using the Fargate launch type.</p>
+   *                                 <p>This parameter is not supported for Windows containers or tasks run on AWS Fargate.</p>
    *                              </note>
    */
   pidMode?: PidMode | string;
@@ -5476,7 +5635,7 @@ export interface TaskDefinition {
    *             </li>
    *          </ul>
    *          <note>
-   *                                 <p>This parameter is not supported for Windows containers or tasks using the Fargate launch type.</p>
+   *                                 <p>This parameter is not supported for Windows containers or tasks run on AWS Fargate.</p>
    *                              </note>
    */
   ipcMode?: IpcMode | string;
@@ -5490,6 +5649,21 @@ export interface TaskDefinition {
    * 			container agent and <code>ecs-init</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html">Amazon ECS-optimized Linux AMI</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   proxyConfiguration?: ProxyConfiguration;
+
+  /**
+   * <p>The Unix timestamp for when the task definition was registered.</p>
+   */
+  registeredAt?: Date;
+
+  /**
+   * <p>The Unix timestamp for when the task definition was deregistered.</p>
+   */
+  deregisteredAt?: Date;
+
+  /**
+   * <p>The principal that registered the task definition.</p>
+   */
+  registeredBy?: string;
 }
 
 export namespace TaskDefinition {
@@ -5619,6 +5793,7 @@ export namespace DescribeCapacityProvidersResponse {
 
 export enum ClusterField {
   ATTACHMENTS = "ATTACHMENTS",
+  CONFIGURATIONS = "CONFIGURATIONS",
   SETTINGS = "SETTINGS",
   STATISTICS = "STATISTICS",
   TAGS = "TAGS",
@@ -5916,6 +6091,42 @@ export enum HealthStatus {
   UNKNOWN = "UNKNOWN",
 }
 
+export enum ManagedAgentName {
+  ExecuteCommandAgent = "ExecuteCommandAgent",
+}
+
+/**
+ * <p>Details about the managed agent status for the container.</p>
+ */
+export interface ManagedAgent {
+  /**
+   * <p>The Unix timestamp for when the managed agent was last started.</p>
+   */
+  lastStartedAt?: Date;
+
+  /**
+   * <p>The name of the managed agent. When the execute command feature is enabled, the
+   * 			managed agent name is <code>ExecuteCommandAgent</code>.</p>
+   */
+  name?: ManagedAgentName | string;
+
+  /**
+   * <p>The reason for why the managed agent is in the state it is in.</p>
+   */
+  reason?: string;
+
+  /**
+   * <p>The last known status of the managed agent.</p>
+   */
+  lastStatus?: string;
+}
+
+export namespace ManagedAgent {
+  export const filterSensitiveLog = (obj: ManagedAgent): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Details on the network bindings between a container and its host container instance.
  * 			After a task reaches the <code>RUNNING</code> status, manual and automatic host and
@@ -6047,6 +6258,11 @@ export interface Container {
    * 				<code>UNKNOWN</code>.</p>
    */
   healthStatus?: HealthStatus | string;
+
+  /**
+   * <p>The details of any Amazon ECS managed agents associated with the container.</p>
+   */
+  managedAgents?: ManagedAgent[];
 
   /**
    * <p>The number of CPU units set for the container. The value will be <code>0</code> if no
@@ -6309,6 +6525,13 @@ export interface Task {
    * 			Lifecycle</a>.</p>
    */
   desiredStatus?: string;
+
+  /**
+   * <p>Whether or not execute command functionality is enabled for this task. If
+   * 				<code>true</code>, this enables execute command functionality on all containers in
+   * 			the task.</p>
+   */
+  enableExecuteCommand?: boolean;
 
   /**
    * <p>The Unix timestamp for when the task execution stopped.</p>
@@ -6614,6 +6837,126 @@ export interface DiscoverPollEndpointResponse {
 
 export namespace DiscoverPollEndpointResponse {
   export const filterSensitiveLog = (obj: DiscoverPollEndpointResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ExecuteCommandRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) or short name of the cluster the task is running in.
+   * 			If you do not specify a cluster, the default cluster is assumed.</p>
+   */
+  cluster?: string;
+
+  /**
+   * <p>The name of the container to execute the command on. A container name only needs to be
+   * 			specified for tasks containing multiple containers.</p>
+   */
+  container?: string;
+
+  /**
+   * <p>The command to run on the container.</p>
+   */
+  command: string | undefined;
+
+  /**
+   * <p>Use this flag to run your command in interactive mode.</p>
+   */
+  interactive: boolean | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) or ID of the task the container is part of.</p>
+   */
+  task: string | undefined;
+}
+
+export namespace ExecuteCommandRequest {
+  export const filterSensitiveLog = (obj: ExecuteCommandRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The details of the execute command session.</p>
+ */
+export interface Session {
+  /**
+   * <p>The ID of the execute command session.</p>
+   */
+  sessionId?: string;
+
+  /**
+   * <p>A URL back to managed agent on the container that the SSM Session Manager client uses
+   * 			to send commands and receive output from the container.</p>
+   */
+  streamUrl?: string;
+
+  /**
+   * <p>An encrypted token value containing session and caller information. Used to
+   * 			authenticate the connection to the container.</p>
+   */
+  tokenValue?: string;
+}
+
+export namespace Session {
+  export const filterSensitiveLog = (obj: Session): any => ({
+    ...obj,
+    ...(obj.tokenValue && { tokenValue: SENSITIVE_STRING }),
+  });
+}
+
+export interface ExecuteCommandResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   */
+  clusterArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the container.</p>
+   */
+  containerArn?: string;
+
+  /**
+   * <p>The name of the container.</p>
+   */
+  containerName?: string;
+
+  /**
+   * <p>Whether or not the execute command session is running in interactive mode.</p>
+   */
+  interactive?: boolean;
+
+  /**
+   * <p>The details of the SSM session that was created for this instance of
+   * 			execute-command.</p>
+   */
+  session?: Session;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the task.</p>
+   */
+  taskArn?: string;
+}
+
+export namespace ExecuteCommandResponse {
+  export const filterSensitiveLog = (obj: ExecuteCommandResponse): any => ({
+    ...obj,
+    ...(obj.session && { session: Session.filterSensitiveLog(obj.session) }),
+  });
+}
+
+/**
+ * <p>The target container is not properly configured with the execute command agent or the
+ * 			container is no longer active or running.</p>
+ */
+export interface TargetNotConnectedException extends __SmithyException, $MetadataBearer {
+  name: "TargetNotConnectedException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace TargetNotConnectedException {
+  export const filterSensitiveLog = (obj: TargetNotConnectedException): any => ({
     ...obj,
   });
 }
@@ -7741,9 +8084,10 @@ export interface RegisterTaskDefinitionRequest {
   placementConstraints?: TaskDefinitionPlacementConstraint[];
 
   /**
-   * <p>The task launch type that Amazon ECS should validate the task definition against. This
-   * 			ensures that the task definition parameters are compatible with the specified launch
-   * 			type. If no value is specified, it defaults to <code>EC2</code>.</p>
+   * <p>The task launch type that Amazon ECS should validate the task definition against. A client
+   * 			exception is returned if the task definition doesn't validate against the
+   * 			compatibilities specified. If no value is specified, the parameter is omitted from the
+   * 			response.</p>
    */
   requiresCompatibilities?: (Compatibility | string)[];
 
@@ -7869,7 +8213,7 @@ export interface RegisterTaskDefinitionRequest {
    *                             information, see <a href="https://docs.docker.com/engine/security/security/">Docker
    *                                 security</a>.</p>
    *          <note>
-   *                                 <p>This parameter is not supported for Windows containers or tasks using the Fargate launch type.</p>
+   *                                 <p>This parameter is not supported for Windows containers or tasks run on AWS Fargate.</p>
    *                              </note>
    */
   pidMode?: PidMode | string;
@@ -7905,7 +8249,7 @@ export interface RegisterTaskDefinitionRequest {
    *             </li>
    *          </ul>
    *          <note>
-   *                                 <p>This parameter is not supported for Windows containers or tasks using the Fargate launch type.</p>
+   *                                 <p>This parameter is not supported for Windows containers or tasks run on AWS Fargate.</p>
    *                              </note>
    */
   ipcMode?: IpcMode | string;
@@ -7970,24 +8314,10 @@ export namespace BlockedException {
 export interface RunTaskRequest {
   /**
    * <p>The capacity provider strategy to use for the task.</p>
-   * 		       <p>A capacity provider strategy consists of one or more capacity providers along with the
-   * 				<code>base</code> and <code>weight</code> to assign to them. A capacity provider
-   * 			must be associated with the cluster to be used in a capacity provider strategy. The
-   * 				<a>PutClusterCapacityProviders</a> API is used to associate a capacity
-   * 			provider with a cluster. Only capacity providers with an <code>ACTIVE</code> or
-   * 				<code>UPDATING</code> status can be used.</p>
    * 		       <p>If a <code>capacityProviderStrategy</code> is specified, the <code>launchType</code>
    * 			parameter must be omitted. If no <code>capacityProviderStrategy</code> or
    * 				<code>launchType</code> is specified, the
    * 				<code>defaultCapacityProviderStrategy</code> for the cluster is used.</p>
-   * 		       <p>If specifying a capacity provider that uses an Auto Scaling group, the capacity
-   * 			provider must already be created. New capacity providers can be created with the <a>CreateCapacityProvider</a> API operation.</p>
-   * 		       <p>To use a AWS Fargate capacity provider, specify either the <code>FARGATE</code> or
-   * 				<code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers are
-   * 			available to all accounts and only need to be associated with a cluster to be
-   * 			used.</p>
-   * 		       <p>The <a>PutClusterCapacityProviders</a> API operation is used to update the
-   * 			list of available capacity providers for a cluster after the cluster is created.</p>
    */
   capacityProviderStrategy?: CapacityProviderStrategyItem[];
 
@@ -8011,14 +8341,27 @@ export interface RunTaskRequest {
   enableECSManagedTags?: boolean;
 
   /**
+   * <p>Whether or not to enable the execute command functionality for the containers in this
+   * 			task. If <code>true</code>, this enables execute command functionality on all containers
+   * 			in the task.</p>
+   */
+  enableExecuteCommand?: boolean;
+
+  /**
    * <p>The name of the task group to associate with the task. The default value is the family
    * 			name of the task definition (for example, family:my-family-name).</p>
    */
   group?: string;
 
   /**
-   * <p>The launch type on which to run your task. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon ECS
+   * <p>The launch type on which to run your task. The accepted values are
+   * 				<code>FARGATE</code> and <code>EC2</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon ECS
    * 				Launch Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 		       <p>When a value of <code>FARGATE</code> is specified, your tasks are launched on
+   * 			AWS Fargate On-Demand infrastructure. To use Fargate Spot, you must use a capacity
+   * 			provider strategy with the <code>FARGATE_SPOT</code> capacity provider.</p>
+   * 		       <p>When a value of <code>EC2</code> is specified, your tasks are launched on Amazon EC2
+   * 			instances registered to your cluster.</p>
    * 		       <p>If a <code>launchType</code> is specified, the <code>capacityProviderStrategy</code>
    * 			parameter must be omitted.</p>
    */
@@ -8186,6 +8529,13 @@ export interface StartTaskRequest {
    * 				Resources</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   enableECSManagedTags?: boolean;
+
+  /**
+   * <p>Whether or not the execute command functionality is enabled for the task. If
+   * 				<code>true</code>, this enables execute command functionality on all containers in
+   * 			the task.</p>
+   */
+  enableExecuteCommand?: boolean;
 
   /**
    * <p>The name of the task group to associate with the task. The default value is the family
@@ -8507,6 +8857,37 @@ export namespace ContainerStateChange {
   });
 }
 
+/**
+ * <p>An object representing a change in state for a managed agent.</p>
+ */
+export interface ManagedAgentStateChange {
+  /**
+   * <p>The name of the container associated with the managed agent.</p>
+   */
+  containerName: string | undefined;
+
+  /**
+   * <p>The name of the managed agent.</p>
+   */
+  managedAgentName: ManagedAgentName | string | undefined;
+
+  /**
+   * <p>The status of the managed agent.</p>
+   */
+  status: string | undefined;
+
+  /**
+   * <p>The reason for the status of the managed agent.</p>
+   */
+  reason?: string;
+}
+
+export namespace ManagedAgentStateChange {
+  export const filterSensitiveLog = (obj: ManagedAgentStateChange): any => ({
+    ...obj,
+  });
+}
+
 export interface SubmitTaskStateChangeRequest {
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task.</p>
@@ -8537,6 +8918,11 @@ export interface SubmitTaskStateChangeRequest {
    * <p>Any attachments associated with the state change request.</p>
    */
   attachments?: AttachmentStateChange[];
+
+  /**
+   * <p>The details for the managed agent associated with the task.</p>
+   */
+  managedAgents?: ManagedAgentStateChange[];
 
   /**
    * <p>The Unix timestamp for when the container image pull began.</p>
@@ -8716,13 +9102,13 @@ export namespace AutoScalingGroupProviderUpdate {
 
 export interface UpdateCapacityProviderRequest {
   /**
-   * <p>An object representing the parameters to update for the Auto Scaling group capacity
-   * 			provider.</p>
+   * <p>The name of the capacity provider to update.</p>
    */
   name: string | undefined;
 
   /**
-   * <p>The name of the capacity provider to update.</p>
+   * <p>An object representing the parameters to update for the Auto Scaling group capacity
+   * 			provider.</p>
    */
   autoScalingGroupProvider: AutoScalingGroupProviderUpdate | undefined;
 }
@@ -8742,6 +9128,45 @@ export interface UpdateCapacityProviderResponse {
 
 export namespace UpdateCapacityProviderResponse {
   export const filterSensitiveLog = (obj: UpdateCapacityProviderResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateClusterRequest {
+  /**
+   * <p>The name of the cluster to modify the settings for.</p>
+   */
+  cluster: string | undefined;
+
+  /**
+   * <p>The cluster settings for your cluster.</p>
+   */
+  settings?: ClusterSetting[];
+
+  /**
+   * <p>The execute command configuration for the cluster.</p>
+   */
+  configuration?: ClusterConfiguration;
+}
+
+export namespace UpdateClusterRequest {
+  export const filterSensitiveLog = (obj: UpdateClusterRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateClusterResponse {
+  /**
+   * <p>A regional grouping of one or more container instances on which you can run task
+   * 			requests. Each account receives a default cluster the first time you use the Amazon ECS
+   * 			service, but you may also create other clusters. Clusters may contain more than one
+   * 			instance type simultaneously.</p>
+   */
+  cluster?: Cluster;
+}
+
+export namespace UpdateClusterResponse {
+  export const filterSensitiveLog = (obj: UpdateClusterResponse): any => ({
     ...obj,
   });
 }
@@ -9011,6 +9436,14 @@ export interface UpdateServiceRequest {
    * 			time to come up.</p>
    */
   healthCheckGracePeriodSeconds?: number;
+
+  /**
+   * <p>If <code>true</code>, this enables execute command functionality on all task
+   * 			containers.</p>
+   * 		       <p>If you do not want to override the value that was set when the service was created,
+   * 			you can set this to <code>null</code> when performing this action.</p>
+   */
+  enableExecuteCommand?: boolean;
 }
 
 export namespace UpdateServiceRequest {

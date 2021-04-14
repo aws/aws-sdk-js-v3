@@ -21,7 +21,7 @@ export type ListImageRecipesCommandInput = ListImageRecipesRequest;
 export type ListImageRecipesCommandOutput = ListImageRecipesResponse & __MetadataBearer;
 
 /**
- * <p> Returns a list of image recipes. </p>
+ * <p> Returns a list of image recipes.</p>
  */
 export class ListImageRecipesCommand extends $Command<
   ListImageRecipesCommandInput,

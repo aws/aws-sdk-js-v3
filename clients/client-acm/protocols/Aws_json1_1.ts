@@ -8,6 +8,10 @@ import {
   DescribeCertificateCommandOutput,
 } from "../commands/DescribeCertificateCommand";
 import { ExportCertificateCommandInput, ExportCertificateCommandOutput } from "../commands/ExportCertificateCommand";
+import {
+  GetAccountConfigurationCommandInput,
+  GetAccountConfigurationCommandOutput,
+} from "../commands/GetAccountConfigurationCommand";
 import { GetCertificateCommandInput, GetCertificateCommandOutput } from "../commands/GetCertificateCommand";
 import { ImportCertificateCommandInput, ImportCertificateCommandOutput } from "../commands/ImportCertificateCommand";
 import { ListCertificatesCommandInput, ListCertificatesCommandOutput } from "../commands/ListCertificatesCommand";
@@ -15,6 +19,10 @@ import {
   ListTagsForCertificateCommandInput,
   ListTagsForCertificateCommandOutput,
 } from "../commands/ListTagsForCertificateCommand";
+import {
+  PutAccountConfigurationCommandInput,
+  PutAccountConfigurationCommandOutput,
+} from "../commands/PutAccountConfigurationCommand";
 import {
   RemoveTagsFromCertificateCommandInput,
   RemoveTagsFromCertificateCommandOutput,
@@ -30,21 +38,25 @@ import {
   UpdateCertificateOptionsCommandOutput,
 } from "../commands/UpdateCertificateOptionsCommand";
 import {
+  AccessDeniedException,
   AddTagsToCertificateRequest,
   CertificateDetail,
   CertificateOptions,
   CertificateStatus,
   CertificateSummary,
+  ConflictException,
   DeleteCertificateRequest,
   DescribeCertificateRequest,
   DescribeCertificateResponse,
   DomainValidation,
   DomainValidationOption,
+  ExpiryEventsConfiguration,
   ExportCertificateRequest,
   ExportCertificateResponse,
   ExtendedKeyUsage,
   ExtendedKeyUsageName,
   Filters,
+  GetAccountConfigurationResponse,
   GetCertificateRequest,
   GetCertificateResponse,
   ImportCertificateRequest,
@@ -63,6 +75,7 @@ import {
   ListCertificatesResponse,
   ListTagsForCertificateRequest,
   ListTagsForCertificateResponse,
+  PutAccountConfigurationRequest,
   RemoveTagsFromCertificateRequest,
   RenewCertificateRequest,
   RenewalSummary,
@@ -75,8 +88,10 @@ import {
   ResourceRecord,
   Tag,
   TagPolicyException,
+  ThrottlingException,
   TooManyTagsException,
   UpdateCertificateOptionsRequest,
+  ValidationException,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
@@ -140,6 +155,18 @@ export const serializeAws_json1_1ExportCertificateCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1GetAccountConfigurationCommand = async (
+  input: GetAccountConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "CertificateManager.GetAccountConfiguration",
+  };
+  const body = "{}";
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1GetCertificateCommand = async (
   input: GetCertificateCommandInput,
   context: __SerdeContext
@@ -189,6 +216,19 @@ export const serializeAws_json1_1ListTagsForCertificateCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTagsForCertificateRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1PutAccountConfigurationCommand = async (
+  input: PutAccountConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "CertificateManager.PutAccountConfiguration",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1PutAccountConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -319,6 +359,14 @@ const deserializeAws_json1_1AddTagsToCertificateCommandError = async (
     case "com.amazonaws.acm#TagPolicyException":
       response = {
         ...(await deserializeAws_json1_1TagPolicyExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.acm#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -547,6 +595,68 @@ const deserializeAws_json1_1ExportCertificateCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1GetAccountConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAccountConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetAccountConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetAccountConfigurationResponse(data, context);
+  const response: GetAccountConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetAccountConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAccountConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.acm#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.acm#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1GetCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -646,6 +756,14 @@ const deserializeAws_json1_1ImportCertificateCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InvalidArnException":
+    case "com.amazonaws.acm#InvalidArnException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidParameterException":
     case "com.amazonaws.acm#InvalidParameterException":
       response = {
@@ -827,6 +945,81 @@ const deserializeAws_json1_1ListTagsForCertificateCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1PutAccountConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutAccountConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1PutAccountConfigurationCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: PutAccountConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1PutAccountConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutAccountConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.acm#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.acm#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.acm#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.acm#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1RemoveTagsFromCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -889,6 +1082,14 @@ const deserializeAws_json1_1RemoveTagsFromCertificateCommandError = async (
     case "com.amazonaws.acm#TagPolicyException":
       response = {
         ...(await deserializeAws_json1_1TagPolicyExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.acm#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1221,6 +1422,36 @@ const deserializeAws_json1_1UpdateCertificateOptionsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AccessDeniedException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1AccessDeniedException(body, context);
+  const contents: AccessDeniedException = {
+    name: "AccessDeniedException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1ConflictExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ConflictException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ConflictException(body, context);
+  const contents: ConflictException = {
+    name: "ConflictException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1InvalidArgsExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -1386,6 +1617,21 @@ const deserializeAws_json1_1TagPolicyExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1ThrottlingExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ThrottlingException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ThrottlingException(body, context);
+  const contents: ThrottlingException = {
+    name: "ThrottlingException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -1394,6 +1640,21 @@ const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
   const deserialized: any = deserializeAws_json1_1TooManyTagsException(body, context);
   const contents: TooManyTagsException = {
     name: "TooManyTagsException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1ValidationExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ValidationException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ValidationException(body, context);
+  const contents: ValidationException = {
+    name: "ValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1486,6 +1747,16 @@ const serializeAws_json1_1DomainValidationOptionList = (
       }
       return serializeAws_json1_1DomainValidationOption(entry, context);
     });
+};
+
+const serializeAws_json1_1ExpiryEventsConfiguration = (
+  input: ExpiryEventsConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DaysBeforeExpiry !== undefined &&
+      input.DaysBeforeExpiry !== null && { DaysBeforeExpiry: input.DaysBeforeExpiry }),
+  };
 };
 
 const serializeAws_json1_1ExportCertificateRequest = (
@@ -1596,6 +1867,20 @@ const serializeAws_json1_1ListTagsForCertificateRequest = (
   };
 };
 
+const serializeAws_json1_1PutAccountConfigurationRequest = (
+  input: PutAccountConfigurationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ExpiryEvents !== undefined &&
+      input.ExpiryEvents !== null && {
+        ExpiryEvents: serializeAws_json1_1ExpiryEventsConfiguration(input.ExpiryEvents, context),
+      }),
+    ...(input.IdempotencyToken !== undefined &&
+      input.IdempotencyToken !== null && { IdempotencyToken: input.IdempotencyToken }),
+  };
+};
+
 const serializeAws_json1_1RemoveTagsFromCertificateRequest = (
   input: RemoveTagsFromCertificateRequest,
   context: __SerdeContext
@@ -1681,6 +1966,12 @@ const serializeAws_json1_1UpdateCertificateOptionsRequest = (
     ...(input.Options !== undefined &&
       input.Options !== null && { Options: serializeAws_json1_1CertificateOptions(input.Options, context) }),
   };
+};
+
+const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1CertificateDetail = (output: any, context: __SerdeContext): CertificateDetail => {
@@ -1794,6 +2085,12 @@ const deserializeAws_json1_1CertificateSummaryList = (output: any, context: __Se
     });
 };
 
+const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
+  return {
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DescribeCertificateResponse = (
   output: any,
   context: __SerdeContext
@@ -1848,6 +2145,16 @@ const deserializeAws_json1_1DomainValidationList = (output: any, context: __Serd
     });
 };
 
+const deserializeAws_json1_1ExpiryEventsConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ExpiryEventsConfiguration => {
+  return {
+    DaysBeforeExpiry:
+      output.DaysBeforeExpiry !== undefined && output.DaysBeforeExpiry !== null ? output.DaysBeforeExpiry : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ExportCertificateResponse = (
   output: any,
   context: __SerdeContext
@@ -1876,6 +2183,18 @@ const deserializeAws_json1_1ExtendedKeyUsageList = (output: any, context: __Serd
       }
       return deserializeAws_json1_1ExtendedKeyUsage(entry, context);
     });
+};
+
+const deserializeAws_json1_1GetAccountConfigurationResponse = (
+  output: any,
+  context: __SerdeContext
+): GetAccountConfigurationResponse => {
+  return {
+    ExpiryEvents:
+      output.ExpiryEvents !== undefined && output.ExpiryEvents !== null
+        ? deserializeAws_json1_1ExpiryEventsConfiguration(output.ExpiryEvents, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1GetCertificateResponse = (output: any, context: __SerdeContext): GetCertificateResponse => {
@@ -2082,6 +2401,12 @@ const deserializeAws_json1_1TagPolicyException = (output: any, context: __SerdeC
   } as any;
 };
 
+const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
+  return {
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
   return {
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
@@ -2097,6 +2422,12 @@ const deserializeAws_json1_1ValidationEmailList = (output: any, context: __Serde
       }
       return entry;
     });
+};
+
+const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {
+  return {
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

@@ -25,8 +25,8 @@ export type DescribeRxNormInferenceJobCommandInput = DescribeRxNormInferenceJobR
 export type DescribeRxNormInferenceJobCommandOutput = DescribeRxNormInferenceJobResponse & __MetadataBearer;
 
 /**
- * <p>Gets the properties associated with an InferRxNorm job.
- *       Use this operation to get the status of an inference job.</p>
+ * <p>Gets the properties associated with an InferRxNorm job. Use this operation to get the
+ *       status of an inference job.</p>
  */
 export class DescribeRxNormInferenceJobCommand extends $Command<
   DescribeRxNormInferenceJobCommandInput,

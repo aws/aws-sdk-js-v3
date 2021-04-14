@@ -21,8 +21,8 @@ export type CreateDatasetContentCommandInput = CreateDatasetContentRequest;
 export type CreateDatasetContentCommandOutput = CreateDatasetContentResponse & __MetadataBearer;
 
 /**
- * <p>Creates the content of a data set by applying a <code>queryAction</code> (a SQL query)
- *       or a <code>containerAction</code> (executing a containerized application).</p>
+ * <p>Creates the content of a data set by applying a <code>queryAction</code> (a SQL query) or
+ *       a <code>containerAction</code> (executing a containerized application).</p>
  */
 export class CreateDatasetContentCommand extends $Command<
   CreateDatasetContentCommandInput,

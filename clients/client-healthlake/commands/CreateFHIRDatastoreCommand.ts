@@ -21,7 +21,7 @@ export type CreateFHIRDatastoreCommandInput = CreateFHIRDatastoreRequest;
 export type CreateFHIRDatastoreCommandOutput = CreateFHIRDatastoreResponse & __MetadataBearer;
 
 /**
- * <p>Creates a datastore that can ingest and export FHIR data.</p>
+ * <p>Creates a Data Store that can ingest and export FHIR formatted data.</p>
  */
 export class CreateFHIRDatastoreCommand extends $Command<
   CreateFHIRDatastoreCommandInput,

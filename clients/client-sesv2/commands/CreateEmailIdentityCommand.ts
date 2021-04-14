@@ -41,6 +41,12 @@ export type CreateEmailIdentityCommandOutput = CreateEmailIdentityResponse & __M
  *             has to include the <code>DkimSigningAttributes</code> object. When you specify this
  *             object, you provide a selector (a component of the DNS record name that identifies the
  *             public key that you want to use for DKIM authentication) and a private key.</p>
+ *         <p>When you verify a domain, this operation provides a set of DKIM tokens, which you can
+ *             convert into CNAME tokens. You add these CNAME tokens to the DNS configuration for your
+ *             domain. Your domain is verified when Amazon SES detects these records in the DNS
+ *             configuration for your domain. For some DNS providers, it can take 72 hours or more to
+ *             complete the domain verification process.</p>
+ *         <p>Additionally, you can associate an existing configuration set with the email identity that you're verifying.</p>
  */
 export class CreateEmailIdentityCommand extends $Command<
   CreateEmailIdentityCommandInput,

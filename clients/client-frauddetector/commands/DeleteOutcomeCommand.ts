@@ -23,7 +23,7 @@ export type DeleteOutcomeCommandOutput = DeleteOutcomeResult & __MetadataBearer;
 /**
  * <p>Deletes an outcome.</p>
  * 	        <p>You cannot delete an outcome that is used in a rule version.</p>
- * 	        <p>When you delete an outcome, Amazon Fraud Detector permanently deletes that outcome from the evaluation history, and the data is no longer stored in Amazon Fraud Detector.</p>
+ * 	        <p>When you delete an outcome, Amazon Fraud Detector permanently deletes that outcome and the data is no longer stored in Amazon Fraud Detector.</p>
  */
 export class DeleteOutcomeCommand extends $Command<
   DeleteOutcomeCommandInput,

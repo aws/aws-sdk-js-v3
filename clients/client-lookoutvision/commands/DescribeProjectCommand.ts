@@ -22,6 +22,8 @@ export type DescribeProjectCommandOutput = DescribeProjectResponse & __MetadataB
 
 /**
  * <p>Describes an Amazon Lookout for Vision project.</p>
+ *          <p>This operation requires permissions to perform the
+ *          <code>lookoutvision:DescribeProject</code> operation.</p>
  */
 export class DescribeProjectCommand extends $Command<
   DescribeProjectCommandInput,

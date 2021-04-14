@@ -28,9 +28,7 @@ export type GetScalingPlanResourceForecastDataCommandOutput = GetScalingPlanReso
  * <p>Retrieves the forecast data for a scalable resource.</p>
  *          <p>Capacity forecasts are represented as predicted values, or data points, that are
  *          calculated using historical data points from a specified CloudWatch load metric. Data points are
- *          available for up to 56 days.
- *
- *       </p>
+ *          available for up to 56 days. </p>
  */
 export class GetScalingPlanResourceForecastDataCommand extends $Command<
   GetScalingPlanResourceForecastDataCommandInput,

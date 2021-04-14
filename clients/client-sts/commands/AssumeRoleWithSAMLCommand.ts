@@ -48,6 +48,17 @@ export type AssumeRoleWithSAMLCommandOutput = AssumeRoleWithSAMLResponse & __Met
  *          commands. However the limit does not apply when you use those operations to create a
  *          console URL. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html">Using IAM Roles</a> in the
  *             <i>IAM User Guide</i>.</p>
+ *          <note>
+ *            <p>
+ *                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-role-chaining">Role chaining</a> limits your AWS CLI or AWS API
+ *                role session to a maximum of one hour. When you use the <code>AssumeRole</code> API
+ *                operation to assume a role, you can specify the duration of your role session with
+ *                the <code>DurationSeconds</code> parameter. You can specify a parameter value of up
+ *                to 43200 seconds (12 hours), depending on the maximum session duration setting for
+ *                your role. However, if you assume a role using role chaining and provide a
+ *                <code>DurationSeconds</code> parameter value greater than one hour, the
+ *                operation fails.</p>
+ *          </note>
  *          <p>
  *             <b>Permissions</b>
  *          </p>
@@ -58,7 +69,7 @@ export type AssumeRoleWithSAMLCommandOutput = AssumeRoleWithSAMLResponse & __Met
  *          <p>(Optional) You can pass inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session policies</a> to
  *          this operation. You can pass a single JSON policy document to use as an inline session
  *          policy. You can also specify up to 10 managed policies to use as managed session policies.
- *          The plain text that you use for both inline and managed session policies can't exceed 2,048
+ *          The plaintext that you use for both inline and managed session policies can't exceed 2,048
  *          characters. Passing policies to this operation returns new
  *          temporary credentials. The resulting session's permissions are the intersection of the
  *          role's identity-based policy and the session policies. You can use the role's temporary
@@ -85,7 +96,7 @@ export type AssumeRoleWithSAMLCommandOutput = AssumeRoleWithSAMLResponse & __Met
  *          session tags. Each session tag consists of a key name and an associated value. For more
  *          information about session tags, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html">Passing Session Tags in STS</a> in the
  *             <i>IAM User Guide</i>.</p>
- *          <p>You can pass up to 50 session tags. The plain text session tag keys can’t exceed 128
+ *          <p>You can pass up to 50 session tags. The plaintext session tag keys can’t exceed 128
  *          characters and the values can’t exceed 256 characters. For these and additional limits, see
  *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length">IAM
  *             and STS Character Limits</a> in the <i>IAM User Guide</i>.</p>
@@ -93,14 +104,14 @@ export type AssumeRoleWithSAMLCommandOutput = AssumeRoleWithSAMLResponse & __Met
  *          <note>
  *             <p>An AWS conversion compresses the passed session policies and session tags into a
  *             packed binary format that has a separate limit. Your request can fail for this limit
- *             even if your plain text meets the other requirements. The <code>PackedPolicySize</code>
+ *             even if your plaintext meets the other requirements. The <code>PackedPolicySize</code>
  *             response element indicates by percentage how close the policies and tags for your
  *             request are to the upper size limit.
  *             </p>
  *          </note>
- *
- *          <p>You can pass a session tag with the same key as a tag that is attached to the role. When
- *          you do, session tags override the role's tags with the same key.</p>
+ *          <p>You can pass a session tag with the same key as a tag that is
+ *          attached to the role. When you do, session tags override the role's tags with the same
+ *          key.</p>
  *          <p>An administrator must grant you the permissions necessary to pass session tags. The
  *          administrator can also create granular permissions to allow you to pass only specific
  *          session tags. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_attribute-based-access-control.html">Tutorial: Using Tags

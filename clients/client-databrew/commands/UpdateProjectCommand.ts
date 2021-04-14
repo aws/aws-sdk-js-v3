@@ -21,8 +21,7 @@ export type UpdateProjectCommandInput = UpdateProjectRequest;
 export type UpdateProjectCommandOutput = UpdateProjectResponse & __MetadataBearer;
 
 /**
- * <p>Modifies the definition of an existing AWS Glue DataBrew project in the current AWS
- *             account.</p>
+ * <p>Modifies the definition of an existing DataBrew project.</p>
  */
 export class UpdateProjectCommand extends $Command<
   UpdateProjectCommandInput,

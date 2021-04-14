@@ -21,8 +21,7 @@ export type CreateSipRuleCommandInput = CreateSipRuleRequest;
 export type CreateSipRuleCommandOutput = CreateSipRuleResponse & __MetadataBearer;
 
 /**
- * <p>Creates a SIP rule which can be used to run a SIP media application as a target for a
- *       specific trigger type.</p>
+ * <p>Creates a SIP rule which can be used to run a SIP media application as a target for a specific trigger type.</p>
  */
 export class CreateSipRuleCommand extends $Command<
   CreateSipRuleCommandInput,

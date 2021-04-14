@@ -21,8 +21,7 @@ export type CreateProfileJobCommandInput = CreateProfileJobRequest;
 export type CreateProfileJobCommandOutput = CreateProfileJobResponse & __MetadataBearer;
 
 /**
- * <p>Creates a new job to profile an AWS Glue DataBrew dataset that exists in the current AWS
- *             account.</p>
+ * <p>Creates a new job to analyze a dataset and create its data profile.</p>
  */
 export class CreateProfileJobCommand extends $Command<
   CreateProfileJobCommandInput,

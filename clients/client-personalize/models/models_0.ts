@@ -211,7 +211,9 @@ export namespace Algorithm {
  */
 export interface BatchInferenceJobConfig {
   /**
-   * <p>A string to string map specifying the inference hyperparameters you wish to use for hyperparameter optimization. See <a>customizing-solution-config-hpo</a>.</p>
+   * <p>A string to string map specifying the exploration configuration hyperparameters, including <code>explorationWeight</code> and
+   *       <code>explorationItemAgeCutOff</code>, you want to use to configure the amount of item exploration Amazon Personalize uses when
+   *       recommending items. See <a>native-recipe-new-item-USER_PERSONALIZATION</a>.</p>
    */
   itemExplorationConfig?: { [key: string]: string };
 }
@@ -422,7 +424,10 @@ export namespace ResourceNotFoundException {
  */
 export interface CampaignConfig {
   /**
-   * <p>A string to string map specifying the inference hyperparameters you wish to use for hyperparameter optimization. See <a>customizing-solution-config-hpo</a>.</p>
+   * <p>A string to string map specifying the exploration configuration hyperparameters, including <code>explorationWeight</code> and
+   *       <code>explorationItemAgeCutOff</code>, you want to use to configure the amount of item exploration Amazon Personalize uses when
+   *       recommending items. Provide <code>itemExplorationConfig</code> data only if your solution uses the
+   *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html">User-Personalization</a> recipe.</p>
    */
   itemExplorationConfig?: { [key: string]: string };
 }
@@ -676,15 +681,9 @@ export interface CreateFilterRequest {
   datasetGroupArn: string | undefined;
 
   /**
-   * <p>The filter expression that designates the interaction types that the filter will
-   *             filter out. A filter expression must follow the following format:</p>
-   *         <p>
-   *             <code>EXCLUDE itemId WHERE INTERACTIONS.event_type in ("EVENT_TYPE")</code>
-   *          </p>
-   *         <p>Where "EVENT_TYPE" is the type of event to filter out. To filter out all items with
-   *             any interactions history, set <code>"*"</code> as the EVENT_TYPE. For more information,
-   *             see <a href="https://docs.aws.amazon.com/personalize/latest/dg/filters.html">Using
-   *                 Filters with Amazon Personalize</a>.</p>
+   * <p>The filter expression defines which items are included or excluded from recommendations. Filter expression must follow specific format rules.
+   *             For information about filter expression structure and syntax, see
+   *              <a>filter-expressions</a>.</p>
    */
   filterExpression: string | undefined;
 }
@@ -866,6 +865,10 @@ export namespace HyperParameterRanges {
 
 /**
  * <p>The metric to optimize during hyperparameter optimization (HPO).</p>
+ *          <note>
+ *             <p>Amazon Personalize doesn't support configuring the <code>hpoObjective</code>
+ *         at this time.</p>
+ *          </note>
  */
 export interface HPOObjective {
   /**
@@ -922,12 +925,15 @@ export namespace HPOResourceConfig {
 }
 
 /**
- * <p>Describes the properties for hyperparameter optimization (HPO). For use with the
- *       bring-your-own-recipe feature. Do not use for Amazon Personalize native recipes.</p>
+ * <p>Describes the properties for hyperparameter optimization (HPO).</p>
  */
 export interface HPOConfig {
   /**
    * <p>The metric to optimize during HPO.</p>
+   *          <note>
+   *             <p>Amazon Personalize doesn't support configuring the <code>hpoObjective</code>
+   *         at this time.</p>
+   *          </note>
    */
   hpoObjective?: HPOObjective;
 
@@ -1026,6 +1032,8 @@ export interface CreateSolutionRequest {
    * <p>When your have multiple event types (using an <code>EVENT_TYPE</code> schema field),
    *       this parameter specifies which event type (for example, 'click' or 'like') is used for
    *       training the model.</p>
+   *          <p>If you do not provide an <code>eventType</code>, Amazon Personalize will use all interactions for training with
+   *        equal weight regardless of type.</p>
    */
   eventType?: string;
 
@@ -1033,6 +1041,10 @@ export interface CreateSolutionRequest {
    * <p>The configuration to use with the solution. When <code>performAutoML</code> is set to
    *       true, Amazon Personalize only evaluates the <code>autoMLConfig</code> section
    *       of the solution configuration.</p>
+   *          <note>
+   *             <p>Amazon Personalize doesn't support configuring the <code>hpoObjective</code>
+   *         at this time.</p>
+   *          </note>
    */
   solutionConfig?: SolutionConfig;
 }
@@ -1077,7 +1089,10 @@ export interface CreateSolutionVersionRequest {
    *          <important>
    *             <p>The <code>UPDATE</code> option can only be used when you already have an active solution
    *         version created from the input solution using the <code>FULL</code> option and the input
-   *         solution was trained with the <a>native-recipe-hrnn-coldstart</a> recipe.</p>
+   *         solution was trained with the
+   *         <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html">User-Personalization</a>
+   *         recipe or the
+   *         <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-hrnn-coldstart.html">HRNN-Coldstart</a> recipe.</p>
    *          </important>
    */
   trainingMode?: TrainingMode | string;
@@ -2003,13 +2018,8 @@ export interface Filter {
 
   /**
    * <p>Specifies the type of item interactions to filter out of recommendation results. The
-   *             filter expression must follow the following format:</p>
-   *         <p>
-   *             <code>EXCLUDE itemId WHERE INTERACTIONS.event_type in ("EVENT_TYPE")</code>
-   *          </p>
-   *         <p>Where "EVENT_TYPE" is the type of event to filter out. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/personalize/latest/dg/filters.html">Using
-   *                 Filters with Amazon Personalize</a>.</p>
+   *             filter expression must follow specific format rules. For information about filter expression structure and syntax, see
+   *             <a>filter-expressions</a>.</p>
    */
   filterExpression?: string;
 
@@ -2312,7 +2322,9 @@ export interface Solution {
   datasetGroupArn?: string;
 
   /**
-   * <p>The event type (for example, 'click' or 'like') that is used for training the model.</p>
+   * <p>The event type (for example, 'click' or 'like') that is used for training the model.
+   *       If no <code>eventType</code> is provided, Amazon Personalize uses all interactions for training with
+   *       equal weight regardless of type.</p>
    */
   eventType?: string;
 
@@ -2459,14 +2471,18 @@ export interface SolutionVersion {
   trainingHours?: number;
 
   /**
-   * <p>The scope of training used to create the solution version. The <code>FULL</code> option
-   *       trains the solution version based on the entirety of the input solution's training data, while
-   *       the <code>UPDATE</code> option processes only the training data that has changed since the
-   *       creation of the last solution version. Choose <code>UPDATE</code> when you want to start
-   *       recommending items added to the dataset without retraining the model.</p>
+   * <p>The scope of training to be performed when creating the solution version. The
+   *       <code>FULL</code> option trains the solution version based on the entirety of the input
+   *       solution's training data, while the <code>UPDATE</code> option processes only the data that
+   *       has changed in comparison to the input solution. Choose <code>UPDATE</code> when you want to
+   *       incrementally update your solution version instead of creating an entirely new one.</p>
    *          <important>
-   *             <p>The <code>UPDATE</code> option can only be used after you've created a solution version
-   *         with the <code>FULL</code> option and the training solution uses the <a>native-recipe-hrnn-coldstart</a>.</p>
+   *             <p>The <code>UPDATE</code> option can only be used when you already have an active solution
+   *         version created from the input solution using the <code>FULL</code> option and the input
+   *         solution was trained with the
+   *         <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html">User-Personalization</a>
+   *         recipe or the
+   *         <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-hrnn-coldstart.html">HRNN-Coldstart</a> recipe.</p>
    *          </important>
    */
   trainingMode?: TrainingMode | string;

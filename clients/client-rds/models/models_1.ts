@@ -8,13 +8,12 @@ import {
   DBInstance,
   DBInstanceAutomatedBackup,
   DBProxy,
+  DBProxyEndpoint,
   DBProxyTarget,
   DBProxyTargetGroup,
   DBSecurityGroup,
   DBSnapshot,
-  DBSnapshotAttributesResult,
   DBSubnetGroup,
-  EventCategoriesMap,
   EventSubscription,
   ExportTask,
   Filter,
@@ -32,6 +31,625 @@ import {
 } from "./models_0";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+/**
+ * <p>
+ *         Contains the result of a successful invocation of the <code>DescribeDBSecurityGroups</code> action.
+ *         </p>
+ */
+export interface DBSecurityGroupMessage {
+  /**
+   * <p>
+   *             An optional pagination token provided by a previous request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.
+   *         </p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>
+   *         A list of <code>DBSecurityGroup</code> instances.
+   *         </p>
+   */
+  DBSecurityGroups?: DBSecurityGroup[];
+}
+
+export namespace DBSecurityGroupMessage {
+  export const filterSensitiveLog = (obj: DBSecurityGroupMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p></p>
+ */
+export interface DescribeDBSecurityGroupsMessage {
+  /**
+   * <p>The name of the DB security group to return details for.</p>
+   */
+  DBSecurityGroupName?: string;
+
+  /**
+   * <p>This parameter isn't currently supported.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>
+   *         The maximum number of records to include in the response.
+   *         If more records exist than the specified <code>MaxRecords</code> value,
+   *         a pagination token called a marker is included in the response so that
+   *         you can retrieve the remaining results.
+   *         </p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>
+   *         An optional pagination token provided by a previous
+   *         <code>DescribeDBSecurityGroups</code> request.
+   *         If this parameter is specified, the response includes
+   *         only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.
+   *         </p>
+   */
+  Marker?: string;
+}
+
+export namespace DescribeDBSecurityGroupsMessage {
+  export const filterSensitiveLog = (obj: DescribeDBSecurityGroupsMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p></p>
+ */
+export interface DescribeDBSnapshotAttributesMessage {
+  /**
+   * <p>The identifier for the DB snapshot to describe the attributes for.</p>
+   */
+  DBSnapshotIdentifier: string | undefined;
+}
+
+export namespace DescribeDBSnapshotAttributesMessage {
+  export const filterSensitiveLog = (obj: DescribeDBSnapshotAttributesMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the name and values of a manual DB snapshot attribute</p>
+ *          <p>Manual DB snapshot attributes are used to authorize other AWS accounts
+ *     to restore a manual DB snapshot. For more information, see the <code>ModifyDBSnapshotAttribute</code>
+ *     API.</p>
+ */
+export interface DBSnapshotAttribute {
+  /**
+   * <p>The name of the manual DB snapshot attribute.</p>
+   *          <p>The attribute named <code>restore</code> refers to the list of AWS accounts that
+   *           have permission to copy or restore the manual DB cluster snapshot. For more information,
+   *           see the <code>ModifyDBSnapshotAttribute</code>
+   *           API action.</p>
+   */
+  AttributeName?: string;
+
+  /**
+   * <p>The value or values for the manual DB snapshot attribute.</p>
+   *          <p>If the <code>AttributeName</code> field is set to <code>restore</code>, then this element
+   *       returns a list of IDs of the AWS accounts that are authorized to copy or restore the manual
+   *       DB snapshot. If a value of <code>all</code> is in the list, then the manual DB snapshot
+   *       is public and available for any AWS account to copy or restore.</p>
+   */
+  AttributeValues?: string[];
+}
+
+export namespace DBSnapshotAttribute {
+  export const filterSensitiveLog = (obj: DBSnapshotAttribute): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the results of a successful call to the <code>DescribeDBSnapshotAttributes</code>
+ *     API action.</p>
+ *          <p>Manual DB snapshot attributes are used to authorize other AWS accounts
+ *       to copy or restore a manual DB snapshot. For more information, see the <code>ModifyDBSnapshotAttribute</code>
+ *       API action.</p>
+ */
+export interface DBSnapshotAttributesResult {
+  /**
+   * <p>The identifier of the manual DB snapshot that the attributes apply to.</p>
+   */
+  DBSnapshotIdentifier?: string;
+
+  /**
+   * <p>The list of attributes and values for the manual DB snapshot.</p>
+   */
+  DBSnapshotAttributes?: DBSnapshotAttribute[];
+}
+
+export namespace DBSnapshotAttributesResult {
+  export const filterSensitiveLog = (obj: DBSnapshotAttributesResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeDBSnapshotAttributesResult {
+  /**
+   * <p>Contains the results of a successful call to the <code>DescribeDBSnapshotAttributes</code>
+   *     API action.</p>
+   *          <p>Manual DB snapshot attributes are used to authorize other AWS accounts
+   *       to copy or restore a manual DB snapshot. For more information, see the <code>ModifyDBSnapshotAttribute</code>
+   *       API action.</p>
+   */
+  DBSnapshotAttributesResult?: DBSnapshotAttributesResult;
+}
+
+export namespace DescribeDBSnapshotAttributesResult {
+  export const filterSensitiveLog = (obj: DescribeDBSnapshotAttributesResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *         Contains the result of a successful invocation of the <code>DescribeDBSnapshots</code> action.
+ *         </p>
+ */
+export interface DBSnapshotMessage {
+  /**
+   * <p>
+   *             An optional pagination token provided by a previous request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.
+   *         </p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>
+   *         A list of <code>DBSnapshot</code> instances.
+   *         </p>
+   */
+  DBSnapshots?: DBSnapshot[];
+}
+
+export namespace DBSnapshotMessage {
+  export const filterSensitiveLog = (obj: DBSnapshotMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p></p>
+ */
+export interface DescribeDBSnapshotsMessage {
+  /**
+   * <p>The ID of the DB instance to retrieve the list of DB snapshots for.
+   *         This parameter can't be used in conjunction with <code>DBSnapshotIdentifier</code>.
+   *         This parameter isn't case-sensitive.
+   *         </p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match the identifier of an existing DBInstance.</p>
+   *             </li>
+   *          </ul>
+   */
+  DBInstanceIdentifier?: string;
+
+  /**
+   * <p>
+   *         A specific DB snapshot identifier to describe. This parameter can't be used in conjunction with <code>DBInstanceIdentifier</code>.
+   *             This value is stored as a lowercase string.
+   *         </p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match the identifier of an existing DBSnapshot.</p>
+   *             </li>
+   *             <li>
+   *                <p>If this identifier is for an automated snapshot, the <code>SnapshotType</code> parameter must also be specified.</p>
+   *             </li>
+   *          </ul>
+   */
+  DBSnapshotIdentifier?: string;
+
+  /**
+   * <p>The type of snapshots to be returned. You can specify one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>automated</code> - Return all DB snapshots that have been automatically taken by
+   *       Amazon RDS for my AWS account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>manual</code> - Return all DB snapshots that have been taken by my AWS account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>shared</code> - Return all manual DB snapshots that have been shared to my AWS account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>public</code> - Return all DB snapshots that have been marked as public.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>awsbackup</code> - Return the DB snapshots managed by the AWS Backup service.</p>
+   *               <p>For information about AWS Backup, see the
+   *                   <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html">
+   *                       <i>AWS Backup Developer Guide.</i>
+   *                   </a>
+   *                </p>
+   *               <p>The <code>awsbackup</code> type does not apply to Aurora.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you don't specify a <code>SnapshotType</code> value, then both automated and manual snapshots are
+   *       returned. Shared and public DB snapshots are not included in the returned results by default.
+   *       You can include shared snapshots with these results by enabling the <code>IncludeShared</code>
+   *       parameter. You can include public snapshots with these results by enabling the
+   *       <code>IncludePublic</code> parameter.</p>
+   *          <p>The <code>IncludeShared</code> and <code>IncludePublic</code> parameters don't apply for <code>SnapshotType</code> values
+   *       of <code>manual</code> or <code>automated</code>. The <code>IncludePublic</code> parameter doesn't apply when <code>SnapshotType</code> is
+   *       set to <code>shared</code>. The <code>IncludeShared</code> parameter doesn't apply when <code>SnapshotType</code> is set to
+   *       <code>public</code>.</p>
+   */
+  SnapshotType?: string;
+
+  /**
+   * <p>A filter that specifies one or more DB snapshots to describe.</p>
+   *          <p>Supported filters:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>db-instance-id</code> - Accepts DB instance identifiers and DB
+   *               instance Amazon Resource Names (ARNs).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db-snapshot-id</code> - Accepts DB snapshot identifiers.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>dbi-resource-id</code> - Accepts identifiers of source DB instances.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>snapshot-type</code> - Accepts types of DB snapshots.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>engine</code> - Accepts names of database engines.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>
+   *         The maximum number of records to include in the response.
+   *         If more records exist than the specified <code>MaxRecords</code> value,
+   *         a pagination token called a marker is included in the response so that
+   *         you can retrieve the remaining results.
+   *         </p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>
+   *         An optional pagination token provided by a previous
+   *         <code>DescribeDBSnapshots</code> request.
+   *             If this parameter is specified, the response includes
+   *         only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.
+   *         </p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>A value that indicates whether to include shared manual DB cluster snapshots
+   *           from other AWS accounts that this AWS account has been given
+   *           permission to copy or restore. By default, these snapshots are not included.</p>
+   *          <p>You can give an AWS account permission to restore a manual DB snapshot from
+   *     another AWS account by using the <code>ModifyDBSnapshotAttribute</code> API action.</p>
+   */
+  IncludeShared?: boolean;
+
+  /**
+   * <p>A value that indicates whether to include manual DB cluster snapshots that are public and can be copied
+   *           or restored by any AWS account. By default, the public snapshots are not included.</p>
+   *          <p>You can share a manual DB snapshot as public by using the <a>ModifyDBSnapshotAttribute</a> API.</p>
+   */
+  IncludePublic?: boolean;
+
+  /**
+   * <p>A specific DB resource ID to describe.</p>
+   */
+  DbiResourceId?: string;
+}
+
+export namespace DescribeDBSnapshotsMessage {
+  export const filterSensitiveLog = (obj: DescribeDBSnapshotsMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *         Contains the result of a successful invocation of the <code>DescribeDBSubnetGroups</code> action.
+ *         </p>
+ */
+export interface DBSubnetGroupMessage {
+  /**
+   * <p>
+   *             An optional pagination token provided by a previous request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.
+   *         </p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>
+   *         A list of <code>DBSubnetGroup</code> instances.
+   *         </p>
+   */
+  DBSubnetGroups?: DBSubnetGroup[];
+}
+
+export namespace DBSubnetGroupMessage {
+  export const filterSensitiveLog = (obj: DBSubnetGroupMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p></p>
+ */
+export interface DescribeDBSubnetGroupsMessage {
+  /**
+   * <p>The name of the DB subnet group to return details for.</p>
+   */
+  DBSubnetGroupName?: string;
+
+  /**
+   * <p>This parameter isn't currently supported.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>
+   *         The maximum number of records to include in the response.
+   *         If more records exist than the specified <code>MaxRecords</code> value,
+   *         a pagination token called a marker is included in the response so that
+   *         you can retrieve the remaining results.
+   *         </p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>
+   *             An optional pagination token provided by a previous DescribeDBSubnetGroups request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.
+   *         </p>
+   */
+  Marker?: string;
+}
+
+export namespace DescribeDBSubnetGroupsMessage {
+  export const filterSensitiveLog = (obj: DescribeDBSubnetGroupsMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p></p>
+ */
+export interface DescribeEngineDefaultClusterParametersMessage {
+  /**
+   * <p>The name of the DB cluster parameter group family to return engine parameter information for.</p>
+   */
+  DBParameterGroupFamily: string | undefined;
+
+  /**
+   * <p>This parameter isn't currently supported.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>
+   *       The maximum number of records to include in the response.
+   *       If more records exist than the specified <code>MaxRecords</code> value,
+   *           a pagination token called a marker is included in the response so you can retrieve the remaining results.
+   *     </p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>
+   *       An optional pagination token provided by a previous
+   *       <code>DescribeEngineDefaultClusterParameters</code> request.
+   *       If this parameter is specified, the response includes
+   *       only records beyond the marker,
+   *       up to the value specified by <code>MaxRecords</code>.
+   *     </p>
+   */
+  Marker?: string;
+}
+
+export namespace DescribeEngineDefaultClusterParametersMessage {
+  export const filterSensitiveLog = (obj: DescribeEngineDefaultClusterParametersMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *             Contains the result of a successful invocation of the <code>DescribeEngineDefaultParameters</code> action.
+ *         </p>
+ */
+export interface EngineDefaults {
+  /**
+   * <p>Specifies the name of the DB parameter group family that the engine default parameters apply to.</p>
+   */
+  DBParameterGroupFamily?: string;
+
+  /**
+   * <p>
+   *             An optional pagination token provided by a previous
+   *             EngineDefaults request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code> .
+   *         </p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>Contains a list of engine default parameters.</p>
+   */
+  Parameters?: Parameter[];
+}
+
+export namespace EngineDefaults {
+  export const filterSensitiveLog = (obj: EngineDefaults): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeEngineDefaultClusterParametersResult {
+  /**
+   * <p>
+   *             Contains the result of a successful invocation of the <code>DescribeEngineDefaultParameters</code> action.
+   *         </p>
+   */
+  EngineDefaults?: EngineDefaults;
+}
+
+export namespace DescribeEngineDefaultClusterParametersResult {
+  export const filterSensitiveLog = (obj: DescribeEngineDefaultClusterParametersResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p></p>
+ */
+export interface DescribeEngineDefaultParametersMessage {
+  /**
+   * <p>The name of the DB parameter group family.</p>
+   */
+  DBParameterGroupFamily: string | undefined;
+
+  /**
+   * <p>This parameter isn't currently supported.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>
+   *         The maximum number of records to include in the response.
+   *         If more records exist than the specified <code>MaxRecords</code> value,
+   *           a pagination token called a marker is included in the response so you can retrieve the remaining results.
+   *         </p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>
+   *         An optional pagination token provided by a previous
+   *         <code>DescribeEngineDefaultParameters</code> request.
+   *             If this parameter is specified, the response includes
+   *         only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.
+   *         </p>
+   */
+  Marker?: string;
+}
+
+export namespace DescribeEngineDefaultParametersMessage {
+  export const filterSensitiveLog = (obj: DescribeEngineDefaultParametersMessage): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeEngineDefaultParametersResult {
+  /**
+   * <p>
+   *             Contains the result of a successful invocation of the <code>DescribeEngineDefaultParameters</code> action.
+   *         </p>
+   */
+  EngineDefaults?: EngineDefaults;
+}
+
+export namespace DescribeEngineDefaultParametersResult {
+  export const filterSensitiveLog = (obj: DescribeEngineDefaultParametersResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p></p>
+ */
+export interface DescribeEventCategoriesMessage {
+  /**
+   * <p>The type of source that is generating the events.</p>
+   *          <p>Valid values: <code>db-instance</code> | <code>db-cluster</code> | <code>db-parameter-group</code> | <code>db-security-group</code> | <code>db-snapshot</code> | <code>db-cluster-snapshot</code>
+   *          </p>
+   */
+  SourceType?: string;
+
+  /**
+   * <p>This parameter isn't currently supported.</p>
+   */
+  Filters?: Filter[];
+}
+
+export namespace DescribeEventCategoriesMessage {
+  export const filterSensitiveLog = (obj: DescribeEventCategoriesMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the results of a successful invocation of the <code>DescribeEventCategories</code> operation.</p>
+ */
+export interface EventCategoriesMap {
+  /**
+   * <p>The source type that the returned categories belong to</p>
+   */
+  SourceType?: string;
+
+  /**
+   * <p>The event categories for the specified source type</p>
+   */
+  EventCategories?: string[];
+}
+
+export namespace EventCategoriesMap {
+  export const filterSensitiveLog = (obj: EventCategoriesMap): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>Data returned from the <code>DescribeEventCategories</code> operation.</p>
@@ -548,6 +1166,65 @@ export namespace InstallationMediaMessage {
 export interface DescribeOptionGroupOptionsMessage {
   /**
    * <p>A required parameter. Options available for the given engine name are described.</p>
+   *          <p>Valid Values:
+   *       </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>mariadb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mysql</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-ee</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-se2</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-se1</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-se</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>postgres</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-ee</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-se</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-ex</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-web</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   EngineName: string | undefined;
 
@@ -842,6 +1519,65 @@ export interface DescribeOptionGroupsMessage {
 
   /**
    * <p>Filters the list of option groups to only include groups associated with a specific database engine.</p>
+   *          <p>Valid Values:
+   *       </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>mariadb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mysql</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-ee</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-se2</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-se1</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-se</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>postgres</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-ee</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-se</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-ex</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-web</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   EngineName?: string;
 
@@ -888,6 +1624,78 @@ export namespace OptionGroups {
 export interface DescribeOrderableDBInstanceOptionsMessage {
   /**
    * <p>The name of the engine to retrieve DB instance options for.</p>
+   *          <p>Valid Values:
+   *       </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>aurora</code> (for MySQL 5.6-compatible Aurora)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aurora-postgresql</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mariadb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mysql</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-ee</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-se2</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-se1</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-se</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>postgres</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-ee</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-se</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-ex</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-web</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   Engine: string | undefined;
 
@@ -2096,6 +2904,50 @@ export namespace FailoverDBClusterResult {
   });
 }
 
+export interface FailoverGlobalClusterMessage {
+  /**
+   * <p>Identifier of the Aurora global database (<a>GlobalCluster</a>)
+   *     that should be failed over. The identifier is the unique key assigned by
+   *     the user when the Aurora global database was created. In other words,
+   *     it's the name of the Aurora global database that you want to fail over. </p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must match the identifier of an existing
+   *       <a>GlobalCluster</a> (Aurora global database).</p>
+   *             </li>
+   *          </ul>
+   */
+  GlobalClusterIdentifier: string | undefined;
+
+  /**
+   * <p>Identifier of the secondary Aurora DB cluster that you want to promote to primary for the Aurora
+   *        global database (<a>GlobalCluster</a>.) Use the Amazon Resource Name (ARN) for the identifier so that
+   *        Aurora can locate the cluster in its AWS Region.
+   *  </p>
+   */
+  TargetDbClusterIdentifier: string | undefined;
+}
+
+export namespace FailoverGlobalClusterMessage {
+  export const filterSensitiveLog = (obj: FailoverGlobalClusterMessage): any => ({
+    ...obj,
+  });
+}
+
+export interface FailoverGlobalClusterResult {
+  /**
+   * <p>A data type representing an Aurora global database.</p>
+   */
+  GlobalCluster?: GlobalCluster;
+}
+
+export namespace FailoverGlobalClusterResult {
+  export const filterSensitiveLog = (obj: FailoverGlobalClusterResult): any => ({
+    ...obj,
+  });
+}
+
 export interface ImportInstallationMediaMessage {
   /**
    * <p>The identifier of the custom Availability Zone (AZ) to import the installation media to.</p>
@@ -2501,9 +3353,9 @@ export interface ModifyDBClusterMessage {
    *         </p>
    *          <p>The default is a 30-minute window selected at random from an
    *             8-hour block of time for each AWS Region.
-   *             To see the time blocks available, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora">
-   *                 Adjusting the Preferred DB Cluster Maintenance Window</a> in the <i>Amazon Aurora User Guide.</i>
+   *             To view the time blocks available, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.Backups.BackupWindow">
+   *                 Backup window</a> in the <i>Amazon Aurora User Guide.</i>
    *         </p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -2665,11 +3517,14 @@ export interface ModifyDBClusterMessage {
   CopyTagsToSnapshot?: boolean;
 
   /**
-   * <p>A value that indicates whether to enable write operations to be forwarded
-   *       from this cluster to the primary cluster in an Aurora global database. The
-   *       resulting changes are replicated back to this cluster. This parameter only
-   *       applies to DB clusters that are secondary clusters in an Aurora global database.
-   *       By default, Aurora disallows write operations for secondary clusters.</p>
+   * <p>A value that indicates whether to enable this DB cluster to forward write operations to the primary cluster of an
+   *       Aurora global database (<a>GlobalCluster</a>). By default, write operations are not allowed on Aurora DB clusters that
+   *       are secondary clusters in an Aurora global database.</p>
+   *          <p>You can set this value only on Aurora DB clusters that are members of an Aurora global database. With this parameter
+   *       enabled, a secondary cluster can forward writes to the current primary cluster and the resulting changes are replicated back to
+   *       this cluster. For the primary DB cluster of an Aurora global database, this value is used immediately if the primary is
+   *       demoted by the <a>FailoverGlobalCluster</a> API operation, but it does nothing until then.
+   *     </p>
    */
   EnableGlobalWriteForwarding?: boolean;
 }
@@ -2927,7 +3782,7 @@ export interface ModifyDBInstanceMessage {
    *
    *           If your DB instance isn't in a VPC, you can also use this parameter to move your DB instance into a VPC.
    *           For more information, see
-   *           <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC">Updating the VPC for a DB Instance</a>
+   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC">Working with a DB instance in a VPC</a>
    *           in the <i>Amazon RDS User Guide.</i>
    *          </p>
    *          <p>Changing the subnet group causes an outage during the change.
@@ -3050,10 +3905,12 @@ export interface ModifyDBInstanceMessage {
 
   /**
    * <p>The number of days to retain automated backups. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups.</p>
-   *          <p>Changing this parameter can result in an outage if you change from 0 to a non-zero value or from a non-zero value to 0.
-   *             These changes are applied during the next maintenance window
-   *             unless the <code>ApplyImmediately</code> parameter is enabled for this request. If you change the parameter from one non-zero value to another
-   *             non-zero value, the change is asynchronously applied as soon as possible.</p>
+   *         <note>
+   *             <p>Enabling and disabling backups can result in a brief I/O suspension that lasts from a few seconds to a few minutes, depending on the size and class of your DB instance.</p>
+   *         </note>
+   *         <p>These changes are applied during the next maintenance window unless the <code>ApplyImmediately</code> parameter is enabled
+   *             for this request. If you change the parameter from one non-zero value to another non-zero value, the change is asynchronously
+   *             applied as soon as possible.</p>
    *          <p>
    *             <b>Amazon Aurora</b>
    *          </p>
@@ -3085,8 +3942,10 @@ export interface ModifyDBInstanceMessage {
    *         The daily time range during which automated backups are created
    *         if automated backups are enabled,
    *         as determined by the <code>BackupRetentionPeriod</code> parameter.
-   *             Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible.
-   *       </p>
+   *         Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible.
+   *         The default is a 30-minute window selected at random from an
+   *         8-hour block of time for each AWS Region. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow">Backup window</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
    *
    *          <p>
    *             <b>Amazon Aurora</b>
@@ -3121,6 +3980,8 @@ export interface ModifyDBInstanceMessage {
    *             of the DB instance. If moving this window to the current time, there must be at least 30
    *             minutes between the current time and end of the window to ensure pending changes are
    *             applied.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#Concepts.DBMaintenance">Amazon RDS Maintenance Window</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
    *          <p>Default: Uses existing setting</p>
    *          <p>Format: ddd:hh24:mi-ddd:hh24:mi</p>
    *          <p>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</p>
@@ -3149,7 +4010,10 @@ export interface ModifyDBInstanceMessage {
    *             new DB parameter group in the DB parameter group family for the new engine version must
    *             be specified. The new DB parameter group can be the default for that DB parameter group
    *             family.</p>
-   *          <p>For information about valid engine versions, see <code>CreateDBInstance</code>, or call <code>DescribeDBEngineVersions</code>.</p>
+   *          <p>If you specify only a major version, Amazon RDS will update the DB instance to the
+   *           default minor version if the current minor version is lower.
+   *           For information about valid engine versions, see <code>CreateDBInstance</code>,
+   *           or call <code>DescribeDBEngineVersions</code>.</p>
    */
   EngineVersion?: string;
 
@@ -3209,7 +4073,7 @@ export interface ModifyDBInstanceMessage {
 
   /**
    * <p>
-   *             Indicates that the DB instance should be associated with the specified option group.
+   *             A value that indicates the DB instance should be associated with the specified option group.
    *             Changing this parameter doesn't result in an outage except in the following case and the change
    *             is applied during the next maintenance window
    *             unless the <code>ApplyImmediately</code> parameter is enabled
@@ -3487,6 +4351,10 @@ export interface ModifyDBInstanceMessage {
 
   /**
    * <p>The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.</p>
+   *         <p>For more information about this setting, including limitations that apply to it, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling">
+   *                 Managing capacity automatically with Amazon RDS storage autoscaling</a>
+   *             in the <i>Amazon RDS User Guide</i>.</p>
    */
   MaxAllocatedStorage?: number;
 
@@ -3530,6 +4398,24 @@ export interface ModifyDBInstanceMessage {
    *             in the <i>Amazon RDS User Guide</i>.</p>
    */
   ReplicaMode?: ReplicaMode | string;
+
+  /**
+   * <p>A value that indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance.</p>
+   *         <p>A <i>CoIP</i> provides local or external connectivity to resources in
+   *             your Outpost subnets through your on-premises network. For some use cases, a CoIP can
+   *             provide lower latency for connections to the DB instance from outside of its virtual
+   *             private cloud (VPC) on your local network.</p>
+   *         <p>For more information about RDS on Outposts, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working with Amazon RDS on AWS Outposts</a>
+   *             in the <i>Amazon RDS User Guide</i>.</p>
+   *         <p>For more information about CoIPs, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing">Customer-owned IP addresses</a>
+   *             in the <i>AWS Outposts User Guide</i>.</p>
+   */
+  EnableCustomerOwnedIp?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the recovery point in AWS Backup.</p>
+   */
+  AwsBackupRecoveryPointArn?: string;
 }
 
 export namespace ModifyDBInstanceMessage {
@@ -3670,6 +4556,46 @@ export interface ModifyDBProxyResponse {
 
 export namespace ModifyDBProxyResponse {
   export const filterSensitiveLog = (obj: ModifyDBProxyResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyDBProxyEndpointRequest {
+  /**
+   * <p>The name of the DB proxy sociated with the DB proxy endpoint that you want to modify.</p>
+   */
+  DBProxyEndpointName: string | undefined;
+
+  /**
+   * <p>The new identifier for the <code>DBProxyEndpoint</code>. An identifier must
+   *         begin with a letter and must contain only ASCII letters, digits, and hyphens; it
+   *         can't end with a hyphen or contain two consecutive hyphens.</p>
+   */
+  NewDBProxyEndpointName?: string;
+
+  /**
+   * <p>The VPC security group IDs for the DB proxy endpoint. When the DB proxy endpoint
+   *         uses a different VPC than the original proxy, you also specify a different
+   *         set of security group IDs than for the original proxy.</p>
+   */
+  VpcSecurityGroupIds?: string[];
+}
+
+export namespace ModifyDBProxyEndpointRequest {
+  export const filterSensitiveLog = (obj: ModifyDBProxyEndpointRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyDBProxyEndpointResponse {
+  /**
+   * <p>The <code>DBProxyEndpoint</code> object representing the new settings for the DB proxy endpoint.</p>
+   */
+  DBProxyEndpoint?: DBProxyEndpoint;
+}
+
+export namespace ModifyDBProxyEndpointResponse {
+  export const filterSensitiveLog = (obj: ModifyDBProxyEndpointResponse): any => ({
     ...obj,
   });
 }
@@ -3837,7 +4763,7 @@ export interface ModifyDBSnapshotMessage {
    *         <p>You can specify this parameter when you upgrade an Oracle DB snapshot.
    *             The same option group considerations apply when upgrading a DB snapshot as when upgrading a DB instance.
    *             For more information, see
-   *             <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.html#USER_UpgradeDBInstance.Oracle.OGPG.OG">Option Group Considerations</a> in the <i>Amazon RDS User Guide.</i>
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.html#USER_UpgradeDBInstance.Oracle.OGPG.OG">Option group considerations</a> in the <i>Amazon RDS User Guide.</i>
    *         </p>
    */
   OptionGroupName?: string;
@@ -4095,6 +5021,36 @@ export interface ModifyGlobalClusterMessage {
    *       </p>
    */
   DeletionProtection?: boolean;
+
+  /**
+   * <p>The version number of the database engine to which you want to upgrade.
+   *           Changing this parameter results in an outage. The change is applied during
+   *           the next maintenance window unless <code>ApplyImmediately</code> is enabled.</p>
+   *          <p>To list all of the available engine versions for <code>aurora</code> (for MySQL 5.6-compatible Aurora), use the following command:</p>
+   *          <p>
+   *             <code>aws rds describe-db-engine-versions --engine aurora --query '*[]|[?SupportsGlobalDatabases == `true`].[EngineVersion]'</code>
+   *          </p>
+   *          <p>To list all of the available engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora), use the following command:</p>
+   *          <p>
+   *             <code>aws rds describe-db-engine-versions --engine aurora-mysql --query '*[]|[?SupportsGlobalDatabases == `true`].[EngineVersion]'</code>
+   *          </p>
+   *          <p>To list all of the available engine versions for <code>aurora-postgresql</code>, use the following command:</p>
+   *          <p>
+   *             <code>aws rds describe-db-engine-versions --engine aurora-postgresql --query '*[]|[?SupportsGlobalDatabases == `true`].[EngineVersion]'</code>
+   *          </p>
+   */
+  EngineVersion?: string;
+
+  /**
+   * <p>A value that indicates whether major version upgrades are allowed.</p>
+   *          <p>Constraints: You must allow major version upgrades when specifying a value for the
+   *                 <code>EngineVersion</code> parameter that is a different major version than the DB
+   *             cluster's current version.</p>
+   *          <p>If you upgrade the major version of a global database, the cluster and DB instance parameter
+   *         groups are set to the default parameter groups for the new version. Apply any custom parameter
+   *         groups after completing the upgrade.</p>
+   */
+  AllowMajorVersionUpgrade?: boolean;
 }
 
 export namespace ModifyGlobalClusterMessage {
@@ -4477,8 +5433,8 @@ export namespace DBProxyTargetAlreadyRegisteredFault {
 
 /**
  * <p>The requested operation can't be performed because there aren't enough available IP addresses
- *             in the proxy's subnets. Add more CIDR blocks to the VPC or remove IP address that aren't required
- *             from the subnets.</p>
+ *            in the proxy's subnets. Add more CIDR blocks to the VPC or remove IP address that aren't required
+ *            from the subnets.</p>
  */
 export interface InsufficientAvailableIPsInSubnetFault extends __SmithyException, $MetadataBearer {
   name: "InsufficientAvailableIPsInSubnetFault";
@@ -4970,9 +5926,9 @@ export interface RestoreDBClusterFromS3Message {
    *         </p>
    *         <p>The default is a 30-minute window selected at random from an
    *             8-hour block of time for each AWS Region.
-   *             To see the time blocks available, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora">
-   *                 Adjusting the Preferred Maintenance Window</a> in the <i>Amazon Aurora User Guide.</i>
+   *             To view the time blocks available, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.Backups.BackupWindow">
+   *                 Backup window</a> in the <i>Amazon Aurora User Guide.</i>
    *         </p>
    *         <p>Constraints:</p>
    *         <ul>
@@ -6018,6 +6974,19 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
    *         </p>
    */
   DeletionProtection?: boolean;
+
+  /**
+   * <p>A value that indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance.</p>
+   *         <p>A <i>CoIP</i> provides local or external connectivity to resources in
+   *             your Outpost subnets through your on-premises network. For some use cases, a CoIP can
+   *             provide lower latency for connections to the DB instance from outside of its virtual
+   *             private cloud (VPC) on your local network.</p>
+   *         <p>For more information about RDS on Outposts, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working with Amazon RDS on AWS Outposts</a>
+   *             in the <i>Amazon RDS User Guide</i>.</p>
+   *         <p>For more information about CoIPs, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing">Customer-owned IP addresses</a>
+   *             in the <i>AWS Outposts User Guide</i>.</p>
+   */
+  EnableCustomerOwnedIp?: boolean;
 }
 
 export namespace RestoreDBInstanceFromDBSnapshotMessage {
@@ -6216,7 +7185,7 @@ export interface RestoreDBInstanceFromS3Message {
    * <p>The time range each day
    *             during which automated backups are created
    *             if automated backups are enabled.
-   *             For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow">The Backup Window</a> in the <i>Amazon RDS User Guide.</i>
+   *             For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow">Backup window</a> in the <i>Amazon RDS User Guide.</i>
    *         </p>
    *
    *         <p>Constraints:</p>
@@ -6485,6 +7454,10 @@ export interface RestoreDBInstanceFromS3Message {
 
   /**
    * <p>The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.</p>
+   *         <p>For more information about this setting, including limitations that apply to it, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling">
+   *                 Managing capacity automatically with Amazon RDS storage autoscaling</a>
+   *             in the <i>Amazon RDS User Guide</i>.</p>
    */
   MaxAllocatedStorage?: number;
 }
@@ -6875,6 +7848,10 @@ export interface RestoreDBInstanceToPointInTimeMessage {
 
   /**
    * <p>The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.</p>
+   *          <p>For more information about this setting, including limitations that apply to it, see
+   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling">
+   *               Managing capacity automatically with Amazon RDS storage autoscaling</a>
+   *           in the <i>Amazon RDS User Guide</i>.</p>
    */
   MaxAllocatedStorage?: number;
 
@@ -6883,6 +7860,19 @@ export interface RestoreDBInstanceToPointInTimeMessage {
    *             <code>arn:aws:rds:useast-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE</code>.</p>
    */
   SourceDBInstanceAutomatedBackupsArn?: string;
+
+  /**
+   * <p>A value that indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance.</p>
+   *         <p>A <i>CoIP</i> provides local or external connectivity to resources in
+   *             your Outpost subnets through your on-premises network. For some use cases, a CoIP can
+   *             provide lower latency for connections to the DB instance from outside of its virtual
+   *             private cloud (VPC) on your local network.</p>
+   *         <p>For more information about RDS on Outposts, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working with Amazon RDS on AWS Outposts</a>
+   *             in the <i>Amazon RDS User Guide</i>.</p>
+   *         <p>For more information about CoIPs, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing">Customer-owned IP addresses</a>
+   *             in the <i>AWS Outposts User Guide</i>.</p>
+   */
+  EnableCustomerOwnedIp?: boolean;
 }
 
 export namespace RestoreDBInstanceToPointInTimeMessage {

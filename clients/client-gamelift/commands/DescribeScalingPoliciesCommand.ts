@@ -30,55 +30,20 @@ export type DescribeScalingPoliciesCommandOutput = DescribeScalingPoliciesOutput
  *             policies, which remains ACTIVE. To see whether a fleet's scaling policies are in force
  *             or suspended, call <a>DescribeFleetAttributes</a> and check the stopped
  *             actions.</p>
- *         <ul>
- *             <li>
- *                <p>
- *                   <a>DescribeFleetCapacity</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateFleetCapacity</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DescribeEC2InstanceLimits</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>Manage scaling policies:</p>
- *                <ul>
- *                   <li>
- *                      <p>
- *                         <a>PutScalingPolicy</a> (auto-scaling)</p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <a>DescribeScalingPolicies</a> (auto-scaling)</p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <a>DeleteScalingPolicy</a> (auto-scaling)</p>
- *                   </li>
- *                </ul>
- *             </li>
- *             <li>
- *                <p>Manage fleet actions:</p>
- *                <ul>
- *                   <li>
- *                      <p>
- *                         <a>StartFleetActions</a>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <a>StopFleetActions</a>
- *                      </p>
- *                   </li>
- *                </ul>
- *             </li>
- *          </ul>
+ *         <p>
+ *             <b>Related actions</b>
+ *          </p>
+ *                     <p>
+ *             <a>DescribeFleetCapacity</a> |
+ *                     <a>UpdateFleetCapacity</a> |
+ *                     <a>DescribeEC2InstanceLimits</a> |
+ *                     <a>PutScalingPolicy</a> |
+ *                     <a>DescribeScalingPolicies</a> |
+ *                     <a>DeleteScalingPolicy</a> |
+ *                     <a>StopFleetActions</a> |
+ *                     <a>StartFleetActions</a> |
+ *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          </p>
  */
 export class DescribeScalingPoliciesCommand extends $Command<
   DescribeScalingPoliciesCommandInput,

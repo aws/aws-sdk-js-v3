@@ -31,30 +31,15 @@ export type DeleteGameSessionQueueCommandOutput = DeleteGameSessionQueueOutput &
  *             Using Multi-Region Queues</a>
  *         </p>
  *         <p>
- *             <b>Related operations</b>
+ *             <b>Related actions</b>
  *          </p>
- *         <ul>
- *             <li>
- *                <p>
- *                   <a>CreateGameSessionQueue</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DescribeGameSessionQueues</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateGameSessionQueue</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteGameSessionQueue</a>
- *                </p>
- *             </li>
- *          </ul>
+ *                     <p>
+ *             <a>CreateGameSessionQueue</a> |
+ *                     <a>DescribeGameSessionQueues</a> |
+ *                     <a>UpdateGameSessionQueue</a> |
+ *                     <a>DeleteGameSessionQueue</a> |
+ *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          </p>
  */
 export class DeleteGameSessionQueueCommand extends $Command<
   DeleteGameSessionQueueCommandInput,

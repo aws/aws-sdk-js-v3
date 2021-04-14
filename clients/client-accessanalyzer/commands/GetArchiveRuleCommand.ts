@@ -22,6 +22,8 @@ export type GetArchiveRuleCommandOutput = GetArchiveRuleResponse & __MetadataBea
 
 /**
  * <p>Retrieves information about an archive rule.</p>
+ *          <p>To learn about filter keys that you can use to create an archive rule, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html">Access Analyzer filter keys</a> in the <b>IAM User
+ *          Guide</b>.</p>
  */
 export class GetArchiveRuleCommand extends $Command<
   GetArchiveRuleCommandInput,

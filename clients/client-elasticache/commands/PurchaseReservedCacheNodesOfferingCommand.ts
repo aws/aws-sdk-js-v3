@@ -26,7 +26,9 @@ export type PurchaseReservedCacheNodesOfferingCommandOutput = PurchaseReservedCa
 
 /**
  * <p>Allows you to purchase a reserved
- *             cache node offering.</p>
+ *             cache node offering. Reserved nodes are not eligible for cancellation and are non-refundable. For more information,
+ *             see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/reserved-nodes.html">Managing Costs with Reserved Nodes</a> for Redis or
+ *             <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/reserved-nodes.html">Managing Costs with Reserved Nodes</a> for Memcached.</p>
  */
 export class PurchaseReservedCacheNodesOfferingCommand extends $Command<
   PurchaseReservedCacheNodesOfferingCommandInput,

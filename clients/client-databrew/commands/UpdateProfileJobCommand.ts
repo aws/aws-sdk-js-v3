@@ -21,8 +21,7 @@ export type UpdateProfileJobCommandInput = UpdateProfileJobRequest;
 export type UpdateProfileJobCommandOutput = UpdateProfileJobResponse & __MetadataBearer;
 
 /**
- * <p>Modifies the definition of an existing AWS Glue DataBrew job in the current AWS
- *             account.</p>
+ * <p>Modifies the definition of an existing profile job.</p>
  */
 export class UpdateProfileJobCommand extends $Command<
   UpdateProfileJobCommandInput,

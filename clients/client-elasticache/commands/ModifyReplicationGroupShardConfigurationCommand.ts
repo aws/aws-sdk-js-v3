@@ -26,7 +26,7 @@ export type ModifyReplicationGroupShardConfigurationCommandOutput = ModifyReplic
 
 /**
  * <p>Modifies a replication group's shards (node groups) by allowing you to
- *             add shards, remove shards, or rebalance the keyspaces among exisiting shards.</p>
+ *             add shards, remove shards, or rebalance the keyspaces among existing shards.</p>
  */
 export class ModifyReplicationGroupShardConfigurationCommand extends $Command<
   ModifyReplicationGroupShardConfigurationCommandInput,

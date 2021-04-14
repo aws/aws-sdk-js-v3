@@ -22,10 +22,10 @@ export type DetachUserPolicyCommandOutput = __MetadataBearer;
 
 /**
  * <p>Removes the specified managed policy from the specified user.</p>
- *          <p>A user can also have inline policies embedded with it. To delete an inline policy, use
- *          the <a>DeleteUserPolicy</a> API. For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
- *             Policies and Inline Policies</a> in the
- *          <i>IAM User Guide</i>.</p>
+ *         <p>A user can also have inline policies embedded with it. To delete an inline policy, use
+ *                 <a>DeleteUserPolicy</a>. For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
+ *                 policies and inline policies</a> in the
+ *             <i>IAM User Guide</i>.</p>
  */
 export class DetachUserPolicyCommand extends $Command<
   DetachUserPolicyCommandInput,

@@ -25,8 +25,8 @@ export type DescribeTargetGroupsCommandInput = DescribeTargetGroupsInput;
 export type DescribeTargetGroupsCommandOutput = DescribeTargetGroupsOutput & __MetadataBearer;
 
 /**
- * <p>Describes the specified target groups or all of your target groups. By default, all
- *       target groups are described. Alternatively, you can specify one of the following to filter the
+ * <p>Describes the specified target groups or all of your target groups. By default, all target
+ *       groups are described. Alternatively, you can specify one of the following to filter the
  *       results: the ARN of the load balancer, the names of one or more target groups, or the ARNs of
  *       one or more target groups.</p>
  */

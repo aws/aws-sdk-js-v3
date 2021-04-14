@@ -41,7 +41,7 @@ export type GetBucketPolicyCommandOutput = GetBucketPolicyOutput & __MetadataBea
  *          <p>For more information about bucket policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using Bucket Policies and User
  *             Policies</a>.</p>
  *
- *          <p>The following operation is related to <code>GetBucketPolicy</code>:</p>
+ *          <p>The following action is related to <code>GetBucketPolicy</code>:</p>
  *          <ul>
  *             <li>
  *                <p>

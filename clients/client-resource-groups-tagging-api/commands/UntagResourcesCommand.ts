@@ -33,11 +33,12 @@ export type UntagResourcesCommandOutput = UntagResourcesOutput & __MetadataBeare
  *             <li>
  *                 <p>To remove tags from a resource, you need the necessary permissions for the
  *                     service that the resource belongs to as well as permissions for removing tags.
- *                     For more information, see <a href="http://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/Welcome.html">this list</a>.</p>
+ *                     For more information, see the documentation for the service whose resource you
+ *                     want to untag.</p>
  *             </li>
  *             <li>
- *                 <p>You can only tag resources that are located in the specified Region for the
- *                     AWS account.</p>
+ *                 <p>You can only tag resources that are located in the specified AWS Region for
+ *                     the calling AWS account.</p>
  *             </li>
  *          </ul>
  */

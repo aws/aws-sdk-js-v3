@@ -25,7 +25,7 @@ export type PutObjectAclCommandOutput = PutObjectAclOutput & __MetadataBearer;
  * <p>Uses the <code>acl</code> subresource to set the access control list (ACL) permissions
  *          for a new or existing object in an S3 bucket. You must have <code>WRITE_ACP</code>
  *          permission to set the ACL of an object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#permissions">What
- *             permissions can I grant?</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+ *             permissions can I grant?</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <p>This action is not supported by Amazon S3 on Outposts.</p>
  *          <p>Depending on your application needs, you can choose to set
  *          the ACL on an object using either the request body or the headers. For example, if you have

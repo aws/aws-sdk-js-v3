@@ -21,7 +21,7 @@ export type CreateLocationFsxWindowsCommandInput = CreateLocationFsxWindowsReque
 export type CreateLocationFsxWindowsCommandOutput = CreateLocationFsxWindowsResponse & __MetadataBearer;
 
 /**
- * <p>Creates an endpoint for an Amazon FSx for Windows file system.</p>
+ * <p>Creates an endpoint for an Amazon FSx for Windows File Server file system.</p>
  */
 export class CreateLocationFsxWindowsCommand extends $Command<
   CreateLocationFsxWindowsCommandInput,

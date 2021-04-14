@@ -16,8 +16,20 @@ import {
 import { ListSecretsCommandInput, ListSecretsCommandOutput } from "../commands/ListSecretsCommand";
 import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "../commands/PutResourcePolicyCommand";
 import { PutSecretValueCommandInput, PutSecretValueCommandOutput } from "../commands/PutSecretValueCommand";
+import {
+  RemoveRegionsFromReplicationCommandInput,
+  RemoveRegionsFromReplicationCommandOutput,
+} from "../commands/RemoveRegionsFromReplicationCommand";
+import {
+  ReplicateSecretToRegionsCommandInput,
+  ReplicateSecretToRegionsCommandOutput,
+} from "../commands/ReplicateSecretToRegionsCommand";
 import { RestoreSecretCommandInput, RestoreSecretCommandOutput } from "../commands/RestoreSecretCommand";
 import { RotateSecretCommandInput, RotateSecretCommandOutput } from "../commands/RotateSecretCommand";
+import {
+  StopReplicationToReplicaCommandInput,
+  StopReplicationToReplicaCommandOutput,
+} from "../commands/StopReplicationToReplicaCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateSecretCommandInput, UpdateSecretCommandOutput } from "../commands/UpdateSecretCommand";
@@ -65,6 +77,12 @@ import {
   PutResourcePolicyResponse,
   PutSecretValueRequest,
   PutSecretValueResponse,
+  RemoveRegionsFromReplicationRequest,
+  RemoveRegionsFromReplicationResponse,
+  ReplicaRegionType,
+  ReplicateSecretToRegionsRequest,
+  ReplicateSecretToRegionsResponse,
+  ReplicationStatusType,
   ResourceExistsException,
   ResourceNotFoundException,
   RestoreSecretRequest,
@@ -74,6 +92,8 @@ import {
   RotationRulesType,
   SecretListEntry,
   SecretVersionsListEntry,
+  StopReplicationToReplicaRequest,
+  StopReplicationToReplicaResponse,
   Tag,
   TagResourceRequest,
   UntagResourceRequest,
@@ -252,6 +272,32 @@ export const serializeAws_json1_1PutSecretValueCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1RemoveRegionsFromReplicationCommand = async (
+  input: RemoveRegionsFromReplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "secretsmanager.RemoveRegionsFromReplication",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1RemoveRegionsFromReplicationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ReplicateSecretToRegionsCommand = async (
+  input: ReplicateSecretToRegionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "secretsmanager.ReplicateSecretToRegions",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ReplicateSecretToRegionsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1RestoreSecretCommand = async (
   input: RestoreSecretCommandInput,
   context: __SerdeContext
@@ -275,6 +321,19 @@ export const serializeAws_json1_1RotateSecretCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RotateSecretRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1StopReplicationToReplicaCommand = async (
+  input: StopReplicationToReplicaCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "secretsmanager.StopReplicationToReplica",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StopReplicationToReplicaRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -572,6 +631,14 @@ const deserializeAws_json1_1DeleteResourcePolicyCommandError = async (
     case "com.amazonaws.secretsmanager#InternalServiceError":
       response = {
         ...(await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.secretsmanager#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1311,6 +1378,162 @@ const deserializeAws_json1_1PutSecretValueCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1RemoveRegionsFromReplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveRegionsFromReplicationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1RemoveRegionsFromReplicationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1RemoveRegionsFromReplicationResponse(data, context);
+  const response: RemoveRegionsFromReplicationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1RemoveRegionsFromReplicationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveRegionsFromReplicationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceError":
+    case "com.amazonaws.secretsmanager#InternalServiceError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.secretsmanager#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.secretsmanager#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.secretsmanager#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ReplicateSecretToRegionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ReplicateSecretToRegionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ReplicateSecretToRegionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ReplicateSecretToRegionsResponse(data, context);
+  const response: ReplicateSecretToRegionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ReplicateSecretToRegionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ReplicateSecretToRegionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceError":
+    case "com.amazonaws.secretsmanager#InternalServiceError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.secretsmanager#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.secretsmanager#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.secretsmanager#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1RestoreSecretCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1410,6 +1633,84 @@ const deserializeAws_json1_1RotateSecretCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RotateSecretCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceError":
+    case "com.amazonaws.secretsmanager#InternalServiceError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.secretsmanager#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.secretsmanager#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.secretsmanager#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1StopReplicationToReplicaCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopReplicationToReplicaCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1StopReplicationToReplicaCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1StopReplicationToReplicaResponse(data, context);
+  const response: StopReplicationToReplicaCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StopReplicationToReplicaCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopReplicationToReplicaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -2087,6 +2388,17 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   return contents;
 };
 
+const serializeAws_json1_1AddReplicaRegionListType = (input: ReplicaRegionType[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1ReplicaRegionType(entry, context);
+    });
+};
+
 const serializeAws_json1_1CancelRotateSecretRequest = (
   input: CancelRotateSecretRequest,
   context: __SerdeContext
@@ -2098,8 +2410,14 @@ const serializeAws_json1_1CancelRotateSecretRequest = (
 
 const serializeAws_json1_1CreateSecretRequest = (input: CreateSecretRequest, context: __SerdeContext): any => {
   return {
+    ...(input.AddReplicaRegions !== undefined &&
+      input.AddReplicaRegions !== null && {
+        AddReplicaRegions: serializeAws_json1_1AddReplicaRegionListType(input.AddReplicaRegions, context),
+      }),
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.ForceOverwriteReplicaSecret !== undefined &&
+      input.ForceOverwriteReplicaSecret !== null && { ForceOverwriteReplicaSecret: input.ForceOverwriteReplicaSecret }),
     ...(input.KmsKeyId !== undefined && input.KmsKeyId !== null && { KmsKeyId: input.KmsKeyId }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.SecretBinary !== undefined &&
@@ -2255,6 +2573,52 @@ const serializeAws_json1_1PutSecretValueRequest = (input: PutSecretValueRequest,
   };
 };
 
+const serializeAws_json1_1RemoveRegionsFromReplicationRequest = (
+  input: RemoveRegionsFromReplicationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.RemoveReplicaRegions !== undefined &&
+      input.RemoveReplicaRegions !== null && {
+        RemoveReplicaRegions: serializeAws_json1_1RemoveReplicaRegionListType(input.RemoveReplicaRegions, context),
+      }),
+    ...(input.SecretId !== undefined && input.SecretId !== null && { SecretId: input.SecretId }),
+  };
+};
+
+const serializeAws_json1_1RemoveReplicaRegionListType = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1ReplicaRegionType = (input: ReplicaRegionType, context: __SerdeContext): any => {
+  return {
+    ...(input.KmsKeyId !== undefined && input.KmsKeyId !== null && { KmsKeyId: input.KmsKeyId }),
+    ...(input.Region !== undefined && input.Region !== null && { Region: input.Region }),
+  };
+};
+
+const serializeAws_json1_1ReplicateSecretToRegionsRequest = (
+  input: ReplicateSecretToRegionsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AddReplicaRegions !== undefined &&
+      input.AddReplicaRegions !== null && {
+        AddReplicaRegions: serializeAws_json1_1AddReplicaRegionListType(input.AddReplicaRegions, context),
+      }),
+    ...(input.ForceOverwriteReplicaSecret !== undefined &&
+      input.ForceOverwriteReplicaSecret !== null && { ForceOverwriteReplicaSecret: input.ForceOverwriteReplicaSecret }),
+    ...(input.SecretId !== undefined && input.SecretId !== null && { SecretId: input.SecretId }),
+  };
+};
+
 const serializeAws_json1_1RestoreSecretRequest = (input: RestoreSecretRequest, context: __SerdeContext): any => {
   return {
     ...(input.SecretId !== undefined && input.SecretId !== null && { SecretId: input.SecretId }),
@@ -2290,6 +2654,15 @@ const serializeAws_json1_1SecretVersionStagesType = (input: string[], context: _
       }
       return entry;
     });
+};
+
+const serializeAws_json1_1StopReplicationToReplicaRequest = (
+  input: StopReplicationToReplicaRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SecretId !== undefined && input.SecretId !== null && { SecretId: input.SecretId }),
+  };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
@@ -2389,6 +2762,10 @@ const deserializeAws_json1_1CreateSecretResponse = (output: any, context: __Serd
   return {
     ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    ReplicationStatus:
+      output.ReplicationStatus !== undefined && output.ReplicationStatus !== null
+        ? deserializeAws_json1_1ReplicationStatusListType(output.ReplicationStatus, context)
+        : undefined,
     VersionId: output.VersionId !== undefined && output.VersionId !== null ? output.VersionId : undefined,
   } as any;
 };
@@ -2448,6 +2825,12 @@ const deserializeAws_json1_1DescribeSecretResponse = (output: any, context: __Se
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     OwningService:
       output.OwningService !== undefined && output.OwningService !== null ? output.OwningService : undefined,
+    PrimaryRegion:
+      output.PrimaryRegion !== undefined && output.PrimaryRegion !== null ? output.PrimaryRegion : undefined,
+    ReplicationStatus:
+      output.ReplicationStatus !== undefined && output.ReplicationStatus !== null
+        ? deserializeAws_json1_1ReplicationStatusListType(output.ReplicationStatus, context)
+        : undefined,
     RotationEnabled:
       output.RotationEnabled !== undefined && output.RotationEnabled !== null ? output.RotationEnabled : undefined,
     RotationLambdaARN:
@@ -2628,6 +3011,60 @@ const deserializeAws_json1_1PutSecretValueResponse = (output: any, context: __Se
   } as any;
 };
 
+const deserializeAws_json1_1RemoveRegionsFromReplicationResponse = (
+  output: any,
+  context: __SerdeContext
+): RemoveRegionsFromReplicationResponse => {
+  return {
+    ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
+    ReplicationStatus:
+      output.ReplicationStatus !== undefined && output.ReplicationStatus !== null
+        ? deserializeAws_json1_1ReplicationStatusListType(output.ReplicationStatus, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ReplicateSecretToRegionsResponse = (
+  output: any,
+  context: __SerdeContext
+): ReplicateSecretToRegionsResponse => {
+  return {
+    ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
+    ReplicationStatus:
+      output.ReplicationStatus !== undefined && output.ReplicationStatus !== null
+        ? deserializeAws_json1_1ReplicationStatusListType(output.ReplicationStatus, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ReplicationStatusListType = (
+  output: any,
+  context: __SerdeContext
+): ReplicationStatusType[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ReplicationStatusType(entry, context);
+    });
+};
+
+const deserializeAws_json1_1ReplicationStatusType = (output: any, context: __SerdeContext): ReplicationStatusType => {
+  return {
+    KmsKeyId: output.KmsKeyId !== undefined && output.KmsKeyId !== null ? output.KmsKeyId : undefined,
+    LastAccessedDate:
+      output.LastAccessedDate !== undefined && output.LastAccessedDate !== null
+        ? new Date(Math.round(output.LastAccessedDate * 1000))
+        : undefined,
+    Region: output.Region !== undefined && output.Region !== null ? output.Region : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    StatusMessage:
+      output.StatusMessage !== undefined && output.StatusMessage !== null ? output.StatusMessage : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ResourceExistsException = (
   output: any,
   context: __SerdeContext
@@ -2698,6 +3135,8 @@ const deserializeAws_json1_1SecretListEntry = (output: any, context: __SerdeCont
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     OwningService:
       output.OwningService !== undefined && output.OwningService !== null ? output.OwningService : undefined,
+    PrimaryRegion:
+      output.PrimaryRegion !== undefined && output.PrimaryRegion !== null ? output.PrimaryRegion : undefined,
     RotationEnabled:
       output.RotationEnabled !== undefined && output.RotationEnabled !== null ? output.RotationEnabled : undefined,
     RotationLambdaARN:
@@ -2789,6 +3228,15 @@ const deserializeAws_json1_1SecretVersionsToStagesMapType = (
       [key]: deserializeAws_json1_1SecretVersionStagesType(value, context),
     };
   }, {});
+};
+
+const deserializeAws_json1_1StopReplicationToReplicaResponse = (
+  output: any,
+  context: __SerdeContext
+): StopReplicationToReplicaResponse => {
+  return {
+    ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {

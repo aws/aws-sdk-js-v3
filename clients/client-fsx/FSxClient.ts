@@ -6,6 +6,7 @@ import {
   CancelDataRepositoryTaskCommandInput,
   CancelDataRepositoryTaskCommandOutput,
 } from "./commands/CancelDataRepositoryTaskCommand";
+import { CopyBackupCommandInput, CopyBackupCommandOutput } from "./commands/CopyBackupCommand";
 import { CreateBackupCommandInput, CreateBackupCommandOutput } from "./commands/CreateBackupCommand";
 import {
   CreateDataRepositoryTaskCommandInput,
@@ -96,6 +97,7 @@ import {
 export type ServiceInputTypes =
   | AssociateFileSystemAliasesCommandInput
   | CancelDataRepositoryTaskCommandInput
+  | CopyBackupCommandInput
   | CreateBackupCommandInput
   | CreateDataRepositoryTaskCommandInput
   | CreateFileSystemCommandInput
@@ -115,6 +117,7 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AssociateFileSystemAliasesCommandOutput
   | CancelDataRepositoryTaskCommandOutput
+  | CopyBackupCommandOutput
   | CreateBackupCommandOutput
   | CreateDataRepositoryTaskCommandOutput
   | CreateFileSystemCommandOutput

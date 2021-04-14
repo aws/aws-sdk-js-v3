@@ -27,7 +27,7 @@ export type DeleteBucketCorsCommandOutput = __MetadataBearer;
  *             <code>s3:PutBucketCORS</code> action. The bucket owner has this permission by default
  *          and can grant this permission to others. </p>
  *          <p>For information about <code>cors</code>, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html">Enabling
- *             Cross-Origin Resource Sharing</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+ *             Cross-Origin Resource Sharing</a> in the <i>Amazon S3 User Guide</i>.</p>
  *
  *          <p class="title">
  *             <b>Related Resources:</b>

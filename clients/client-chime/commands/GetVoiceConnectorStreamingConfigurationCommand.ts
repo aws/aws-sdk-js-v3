@@ -25,9 +25,9 @@ export type GetVoiceConnectorStreamingConfigurationCommandOutput = GetVoiceConne
   __MetadataBearer;
 
 /**
- * <p>Retrieves the streaming configuration details for the specified Amazon Chime Voice
- *       Connector. Shows whether media streaming is enabled for sending to Amazon Kinesis. It also
- *       shows the retention period, in hours, for the Amazon Kinesis data.</p>
+ * <p>Retrieves the streaming configuration details for the specified Amazon Chime Voice Connector.
+ *             Shows whether media streaming is enabled for sending to Amazon Kinesis. It also shows
+ *             the retention period, in hours, for the Amazon Kinesis data.</p>
  */
 export class GetVoiceConnectorStreamingConfigurationCommand extends $Command<
   GetVoiceConnectorStreamingConfigurationCommandInput,

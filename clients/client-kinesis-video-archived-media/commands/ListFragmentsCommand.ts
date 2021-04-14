@@ -44,14 +44,14 @@ export type ListFragmentsCommandOutput = ListFragmentsOutput & __MetadataBearer;
  *             <ul>
  *                <li>
  *                     <p>
- *                      <code>x-amz-ErrorType</code> HTTP header – contains a more specific error
+ *                         <code>x-amz-ErrorType</code> HTTP header – contains a more specific error
  *                         type in addition to what the HTTP status code provides. </p>
  *                 </li>
  *                <li>
  *                     <p>
- *                      <code>x-amz-RequestId</code> HTTP header – if you want to report an issue
- *                         to AWS, the support team can better diagnose the problem if given the
- *                         Request Id.</p>
+ *                         <code>x-amz-RequestId</code> HTTP header – if you want to report an issue to
+ *                         AWS, the support team can better diagnose the problem if given the Request
+ *                         Id.</p>
  *                 </li>
  *             </ul>
  *             <p>Both the HTTP status code and the ErrorType header can be utilized to make

@@ -328,16 +328,16 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  */
 export class ElastiCache extends ElastiCacheClient {
   /**
-   * <p>Adds up to 50 cost allocation tags to the named resource.
-   *             A cost allocation tag is a key-value pair where the key and value are case-sensitive.
-   *             You can use cost allocation tags to categorize and track your AWS costs.</p>
+   * <p>A  tag is a key-value pair where the key and value are case-sensitive.
+   *             You can use tags to categorize and track all your ElastiCache resources, with the exception of global replication group. When you add or remove tags on replication groups, those actions will be replicated to all nodes in the replication group.
+   *           For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/IAM.ResourceLevelPermissions.html">Resource-level permissions</a>.</p>
    *         <p>
-   *             When you apply tags to your ElastiCache resources,
+   *             For example, you can use cost-allocation tags to your ElastiCache resources,
    *             AWS generates a cost allocation report as a comma-separated value (CSV) file
    *             with your usage and costs aggregated by your tags.
    *             You can apply tags that represent business categories (such as cost centers, application names, or owners)
-   *             to organize your costs across multiple services.
-   *             For more information,
+   *             to organize your costs across multiple services.</p>
+   *             <p>For more information,
    *             see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Tagging.html">Using Cost Allocation Tags in Amazon ElastiCache</a>
    *             in the <i>ElastiCache User Guide</i>.</p>
    */
@@ -784,10 +784,12 @@ export class ElastiCache extends ElastiCacheClient {
    *             Using Global Datastore for Redis, you can create cross-region
    *             read replica clusters for ElastiCache for Redis to enable low-latency reads
    *             and disaster recovery across regions. For more information,
-   *             see <a href="/AmazonElastiCache/latest/red-ug/Redis-Global-Clusters.html">Replication Across Regions Using Global Datastore</a>. </p>
+   *
+   *             see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastore.html">Replication Across Regions Using Global Datastore</a>. </p>
+   *
    *          <ul>
    *             <li>
-   *                <p>The <b>GlobalReplicationGroupIdSuffix</b> is the name of the Global Datastore.</p>
+   *                <p>The <b>GlobalReplicationGroupIdSuffix</b> is the name of the Global datastore.</p>
    *             </li>
    *             <li>
    *                <p>The <b>PrimaryReplicationGroupId</b> represents the name of the primary cluster that accepts writes and will replicate updates to the secondary cluster.</p>
@@ -825,14 +827,22 @@ export class ElastiCache extends ElastiCacheClient {
 
   /**
    * <p>Creates a Redis (cluster mode disabled) or a Redis (cluster mode enabled) replication group.</p>
-   *         <p>This API can be used to create a standalone regional replication group or a secondary replication group associated with a Global Datastore.</p>
+   *         <p>This API can be used to create a standalone regional replication group or a secondary replication group associated with a Global datastore.</p>
    *         <p>A Redis (cluster mode disabled) replication group is a collection of clusters,
    *             where one of the clusters is a read/write primary and the others are read-only replicas.
    *             Writes to the primary are asynchronously propagated to the replicas.</p>
-   *         <p>A Redis (cluster mode enabled) replication group is a collection of 1 to 90 node groups (shards).
-   *             Each node group (shard) has one read/write primary node and up to 5 read-only replica nodes.
-   *             Writes to the primary are asynchronously propagated to the replicas.
-   *             Redis (cluster mode enabled) replication groups partition the data across node groups (shards).</p>
+   *         <p>A Redis cluster-mode enabled cluster is comprised of from 1 to 90 shards (API/CLI: node groups).
+   *             Each shard has a primary node and up to 5 read-only replica nodes. The configuration can range from 90 shards and 0 replicas to 15 shards and 5 replicas, which is the maximum number or replicas allowed.
+   *
+   *         </p>
+   *         <p>The node or shard limit can be increased to a maximum of 500 per cluster if the Redis engine version is 5.0.6 or higher. For example, you can choose to configure a 500 node cluster that ranges between
+   *             83 shards (one primary and 5 replicas per shard) and 500 shards (single primary and no replicas). Make sure there are enough available IP addresses to accommodate the increase.
+   *             Common pitfalls include the subnets in the subnet group have too small a CIDR range or the subnets are shared and heavily used by other clusters. For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.Creating.html">Creating a Subnet Group</a>. For versions below 5.0.6,
+   *             the limit is 250 per cluster.</p>
+   *         <p>To request a limit increase, see
+   *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">AWS Service Limits</a>
+   *             and choose the limit type <b>Nodes per cluster per instance type</b>. </p>
    *         <p>When a Redis (cluster mode disabled) replication group has been successfully created,
    *             you can add one or more read replicas to it, up to a total of 5 read replicas.
    *             If you need to increase or decrease the number of node groups (console: shards),
@@ -970,7 +980,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
-   * <p>Decreases the number of node groups in a Global Datastore</p>
+   * <p>Decreases the number of node groups in a Global datastore</p>
    */
   public decreaseNodeGroupsInGlobalReplicationGroup(
     args: DecreaseNodeGroupsInGlobalReplicationGroupCommandInput,
@@ -1049,7 +1059,14 @@ export class ElastiCache extends ElastiCacheClient {
    *                 <p>Redis (cluster mode enabled) clusters</p>
    *             </li>
    *             <li>
+   *                 <p>Redis (cluster mode disabled) clusters</p>
+   *             </li>
+   *             <li>
+   *
    *                 <p>A cluster that is the last read replica of a replication group</p>
+   *             </li>
+   *             <li>
+   *                 <p>A cluster that is the primary node of a replication group</p>
    *             </li>
    *             <li>
    *                 <p>A node group (shard) that has Multi-AZ mode enabled</p>
@@ -1094,7 +1111,7 @@ export class ElastiCache extends ElastiCacheClient {
   /**
    * <p>Deletes the specified cache parameter
    *             group. You cannot delete a cache parameter group if it is associated with any cache
-   *             clusters.</p>
+   *             clusters. You cannot delete the default cache parameter groups in your account.</p>
    */
   public deleteCacheParameterGroup(
     args: DeleteCacheParameterGroupCommandInput,
@@ -1163,7 +1180,7 @@ export class ElastiCache extends ElastiCacheClient {
   /**
    * <p>Deletes a cache subnet group.</p>
    *         <note>
-   *             <p>You cannot delete a cache subnet group if it is associated with any clusters.</p>
+   *             <p>You cannot delete a default cache subnet group or one that is associated with any clusters.</p>
    *          </note>
    */
   public deleteCacheSubnetGroup(
@@ -1196,18 +1213,21 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
-   * <p>Deleting a Global Datastore is a two-step process: </p>
+   * <p>Deleting a Global datastore is a two-step process: </p>
    *             <ul>
    *             <li>
-   *                <p>First, you must <a>DisassociateGlobalReplicationGroup</a> to remove the secondary clusters in the Global Datastore.</p>
+   *                <p>First, you must <a>DisassociateGlobalReplicationGroup</a> to remove the secondary clusters in the Global datastore.</p>
    *             </li>
    *             <li>
-   *                <p>Once the Global Datastore contains only the primary cluster, you can use DeleteGlobalReplicationGroup API to delete the Global Datastore while retainining the primary cluster using Retain…= true.</p>
+   *                <p>Once the Global datastore contains only the primary cluster, you can use the <code>DeleteGlobalReplicationGroup</code> API to delete the Global datastore while retainining the primary cluster using <code>RetainPrimaryReplicationGroup=true</code>.</p>
    *             </li>
    *          </ul>
    *
+   *
    *           <p>Since the Global Datastore has only a primary cluster, you can delete the Global Datastore
-   *              while retaining the primary by setting <code>RetainPrimaryCluster=true</code>.</p>
+   *              while retaining the primary by setting <code>RetainPrimaryReplicationGroup=true</code>. The primary cluster is never deleted when deleting a
+   *           Global Datastore. It can only be deleted when it no longer is associated with any Global Datastore.</p>
+   *
    *         <p>When you receive a successful response from this operation, Amazon ElastiCache immediately begins deleting the selected resources;
    *             you cannot cancel or revert this operation.</p>
    */
@@ -1345,7 +1365,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
-   * <p>For Redis engine version 6.x onwards: Deletes a ser group. The user group must first be disassociated from the replcation group before it can be deleted. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>. </p>
+   * <p>For Redis engine version 6.x onwards: Deletes a user group. The user group must first be disassociated from the replication group before it can be deleted. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>. </p>
    */
   public deleteUserGroup(
     args: DeleteUserGroupCommandInput,
@@ -1664,7 +1684,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
-   * <p>Returns information about a particular global replication group. If no identifier is specified, returns information about all Global Datastores. </p>
+   * <p>Returns information about a particular global replication group. If no identifier is specified, returns information about all Global datastores. </p>
    */
   public describeGlobalReplicationGroups(
     args: DescribeGlobalReplicationGroupsCommandInput,
@@ -1966,7 +1986,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
-   * <p>Remove a secondary cluster from the Global Datastore using the Global Datastore name. The secondary cluster will no longer receive updates from the primary cluster, but will remain as a standalone cluster in that AWS region.</p>
+   * <p>Remove a secondary cluster from the Global datastore using the Global datastore name. The secondary cluster will no longer receive updates from the primary cluster, but will remain as a standalone cluster in that AWS region.</p>
    */
   public disassociateGlobalReplicationGroup(
     args: DisassociateGlobalReplicationGroupCommandInput,
@@ -2030,7 +2050,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
-   * <p>Increase the number of node groups in the Global Datastore</p>
+   * <p>Increase the number of node groups in the Global datastore</p>
    */
   public increaseNodeGroupsInGlobalReplicationGroup(
     args: IncreaseNodeGroupsInGlobalReplicationGroupCommandInput,
@@ -2064,7 +2084,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
-   * <p>Dynamically increases the number of replics in a Redis (cluster mode disabled) replication group or the number of
+   * <p>Dynamically increases the number of replicas in a Redis (cluster mode disabled) replication group or the number of
    *             replica nodes in one or more node groups (shards) of a Redis (cluster mode enabled) replication group. This operation
    *             is performed with no cluster down time.</p>
    */
@@ -2135,14 +2155,13 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
-   * <p>Lists all cost allocation tags currently on the named resource.
-   *             A <code>cost allocation tag</code> is a key-value pair where the key is case-sensitive and the value is optional.
-   *             You can use cost allocation tags to categorize and track your AWS costs.</p>
+   * <p>Lists all tags currently on a  named resource.</p>
+   *          <p>    A  tag is a key-value pair where the key and value are case-sensitive.
+   *             You can use tags to categorize and track all your ElastiCache resources, with the exception of global replication group. When you add or remove tags on replication groups, those actions will be replicated to all nodes in the replication group.
+   *      For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/IAM.ResourceLevelPermissions.html">Resource-level permissions</a>.</p>
+   *
    *         <p>If the cluster is not in the <i>available</i> state, <code>ListTagsForResource</code>
    *             returns an error.</p>
-   *
-   *         <p>You can have a maximum of 50 cost allocation tags on an ElastiCache resource.
-   *             For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Tagging.html">Monitoring Costs with Tags</a>.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -2274,7 +2293,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
-   * <p>Modifies the settings for a Global Datastore.</p>
+   * <p>Modifies the settings for a Global datastore.</p>
    */
   public modifyGlobalReplicationGroup(
     args: ModifyGlobalReplicationGroupCommandInput,
@@ -2355,7 +2374,7 @@ export class ElastiCache extends ElastiCacheClient {
 
   /**
    * <p>Modifies a replication group's shards (node groups) by allowing you to
-   *             add shards, remove shards, or rebalance the keyspaces among exisiting shards.</p>
+   *             add shards, remove shards, or rebalance the keyspaces among existing shards.</p>
    */
   public modifyReplicationGroupShardConfiguration(
     args: ModifyReplicationGroupShardConfigurationCommandInput,
@@ -2448,7 +2467,9 @@ export class ElastiCache extends ElastiCacheClient {
 
   /**
    * <p>Allows you to purchase a reserved
-   *             cache node offering.</p>
+   *             cache node offering. Reserved nodes are not eligible for cancellation and are non-refundable. For more information,
+   *             see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/reserved-nodes.html">Managing Costs with Reserved Nodes</a> for Redis or
+   *             <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/reserved-nodes.html">Managing Costs with Reserved Nodes</a> for Memcached.</p>
    */
   public purchaseReservedCacheNodesOffering(
     args: PurchaseReservedCacheNodesOfferingCommandInput,
@@ -2559,7 +2580,9 @@ export class ElastiCache extends ElastiCacheClient {
 
   /**
    * <p>Removes the tags identified by the <code>TagKeys</code>
-   *             list from the named resource.</p>
+   *             list from the named resource. A  tag is a key-value pair where the key and value are case-sensitive.
+   *             You can use tags to categorize and track all your ElastiCache resources, with the exception of global replication group. When you add or remove tags on replication groups, those actions will be replicated to all nodes in the replication group.
+   *         For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/IAM.ResourceLevelPermissions.html">Resource-level permissions</a>.</p>
    */
   public removeTagsFromResource(
     args: RemoveTagsFromResourceCommandInput,

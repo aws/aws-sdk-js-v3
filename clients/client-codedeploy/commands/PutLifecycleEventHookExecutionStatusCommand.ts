@@ -25,16 +25,15 @@ export type PutLifecycleEventHookExecutionStatusCommandOutput = PutLifecycleEven
   __MetadataBearer;
 
 /**
- * <p> Sets the result of a Lambda validation function. The function validates
- *             lifecycle hooks during a deployment that uses the AWS Lambda or Amazon ECS compute platform. For AWS
- *             Lambda deployments, the available lifecycle hooks are <code>BeforeAllowTraffic</code> and <code>AfterAllowTraffic</code>.
- *             For Amazon ECS deployments, the available lifecycle hooks are <code>BeforeInstall</code>, <code>AfterInstall</code>,
- *             <code>AfterAllowTestTraffic</code>, <code>BeforeAllowTraffic</code>, and <code>AfterAllowTraffic</code>. Lambda
- *             validation functions return <code>Succeeded</code> or <code>Failed</code>. For more information,
- *             see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-lambda">AppSpec 'hooks'
- *                 Section for an AWS Lambda Deployment
- *             </a> and <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-ecs">AppSpec
- *                 'hooks' Section for an Amazon ECS Deployment</a>.</p>
+ * <p> Sets the result of a Lambda validation function. The function validates lifecycle
+ *             hooks during a deployment that uses the AWS Lambda or Amazon ECS compute platform. For
+ *             AWS Lambda deployments, the available lifecycle hooks are
+ *                 <code>BeforeAllowTraffic</code> and <code>AfterAllowTraffic</code>. For Amazon ECS
+ *             deployments, the available lifecycle hooks are <code>BeforeInstall</code>,
+ *                 <code>AfterInstall</code>, <code>AfterAllowTestTraffic</code>,
+ *                 <code>BeforeAllowTraffic</code>, and <code>AfterAllowTraffic</code>. Lambda
+ *             validation functions return <code>Succeeded</code> or <code>Failed</code>. For more
+ *             information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-lambda">AppSpec 'hooks' Section for an AWS Lambda Deployment </a> and <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-ecs">AppSpec 'hooks' Section for an Amazon ECS Deployment</a>.</p>
  */
 export class PutLifecycleEventHookExecutionStatusCommand extends $Command<
   PutLifecycleEventHookExecutionStatusCommandInput,

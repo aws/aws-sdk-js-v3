@@ -18,8 +18,7 @@ export type PutEventsCommandInput = PutEventsRequest;
 export type PutEventsCommandOutput = PutEventsResponse & __MetadataBearer;
 
 /**
- * <p>Sends custom events to Amazon EventBridge so that they can be matched to
- *             rules.</p>
+ * <p>Sends custom events to Amazon EventBridge so that they can be matched to rules.</p>
  */
 export class PutEventsCommand extends $Command<
   PutEventsCommandInput,

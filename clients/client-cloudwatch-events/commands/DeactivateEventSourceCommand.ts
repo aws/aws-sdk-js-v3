@@ -21,11 +21,11 @@ export type DeactivateEventSourceCommandInput = DeactivateEventSourceRequest;
 export type DeactivateEventSourceCommandOutput = __MetadataBearer;
 
 /**
- * <p>You can use this operation to temporarily stop receiving events from the specified
- *             partner event source. The matching event bus is not deleted. </p>
- *         <p>When you deactivate a partner event source, the source goes into PENDING state. If it
- *             remains in PENDING state for more than two weeks, it is deleted.</p>
- *         <p>To activate a deactivated partner event source, use <a>ActivateEventSource</a>.</p>
+ * <p>You can use this operation to temporarily stop receiving events from the specified partner
+ *       event source. The matching event bus is not deleted. </p>
+ *          <p>When you deactivate a partner event source, the source goes into PENDING state. If it
+ *       remains in PENDING state for more than two weeks, it is deleted.</p>
+ *          <p>To activate a deactivated partner event source, use <a>ActivateEventSource</a>.</p>
  */
 export class DeactivateEventSourceCommand extends $Command<
   DeactivateEventSourceCommandInput,

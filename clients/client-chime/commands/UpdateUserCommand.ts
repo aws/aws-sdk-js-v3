@@ -21,7 +21,11 @@ export type UpdateUserCommandInput = UpdateUserRequest;
 export type UpdateUserCommandOutput = UpdateUserResponse & __MetadataBearer;
 
 /**
- * <p>Updates user details for a specified user ID. Currently, only <code>LicenseType</code> updates are supported for this action.</p>
+ * <p>
+ * Updates user details for a specified user ID. Currently, only
+ * <code>LicenseType</code>
+ * updates are supported for this action.
+ * </p>
  */
 export class UpdateUserCommand extends $Command<
   UpdateUserCommandInput,

@@ -21,9 +21,7 @@ export type UpdateRoutingProfileNameCommandInput = UpdateRoutingProfileNameReque
 export type UpdateRoutingProfileNameCommandOutput = __MetadataBearer;
 
 /**
- * <p>Updates the name and description of a routing profile. The request accepts the following
- *    data in JSON format. At least <code>Name</code> or <code>Description</code> must be
- *    provided.</p>
+ * <p>Updates the name and description of a routing profile. The request accepts the following data in JSON format. At least <code>Name</code> or <code>Description</code> must be provided.</p>
  */
 export class UpdateRoutingProfileNameCommand extends $Command<
   UpdateRoutingProfileNameCommandInput,

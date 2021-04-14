@@ -6,11 +6,13 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <p>Amazon Personalize can consume real-time user event data, such as <i>stream</i> or <i>click</i> data, and use
- *       it for model training either alone or combined with historical data. For more information see <a>recording-events</a>.</p>
+ *       it for model training either alone or combined with historical data. For more information see
+ *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/recording-events.html">Recording Events</a>.</p>
  */
 export class PersonalizeEvents extends PersonalizeEventsClient {
   /**
-   * <p>Records user interaction event data. For more information see <a>event-record-api</a>.</p>
+   * <p>Records user interaction event data. For more information see
+   *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/recording-events.html">Recording Events</a>.</p>
    */
   public putEvents(args: PutEventsCommandInput, options?: __HttpHandlerOptions): Promise<PutEventsCommandOutput>;
   public putEvents(args: PutEventsCommandInput, cb: (err: any, data?: PutEventsCommandOutput) => void): void;
@@ -37,7 +39,8 @@ export class PersonalizeEvents extends PersonalizeEventsClient {
 
   /**
    * <p>Adds one or more items to an Items dataset. For more information see
-   *       <a>importing-items</a>.</p>
+   *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/importing-items.html">Importing Items Incrementally</a>.
+   *      </p>
    */
   public putItems(args: PutItemsCommandInput, options?: __HttpHandlerOptions): Promise<PutItemsCommandOutput>;
   public putItems(args: PutItemsCommandInput, cb: (err: any, data?: PutItemsCommandOutput) => void): void;
@@ -64,7 +67,7 @@ export class PersonalizeEvents extends PersonalizeEventsClient {
 
   /**
    * <p>Adds one or more users to a Users dataset. For more information see
-   *       <a>importing-users</a>.</p>
+   *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/importing-users.html">Importing Users Incrementally</a>.</p>
    */
   public putUsers(args: PutUsersCommandInput, options?: __HttpHandlerOptions): Promise<PutUsersCommandOutput>;
   public putUsers(args: PutUsersCommandInput, cb: (err: any, data?: PutUsersCommandOutput) => void): void;

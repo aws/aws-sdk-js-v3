@@ -29,14 +29,15 @@ export interface SearchRequest {
   /**
    * <p>Retrieves a cursor value you can use to page through large result sets.
    *          Use the <code>size</code> parameter to control the number of hits to include in each response. You can specify either the <code>cursor</code> or
-   *          <code>start</code> parameter in a request; they are mutually exclusive. To get the first cursor, set the cursor value to <code>initial</code>. In subsequent requests, specify the cursor value returned in the hits section of the response.</p>
+   *          <code>start</code> parameter in a request; they are mutually exclusive. To get the first cursor, set the cursor value to <code>initial</code>. In subsequent requests, specify the cursor value returned in the hits section of the response. </p>
    *       <p>For more
    *          information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/paginating-results.html">Paginating Results</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
    */
   cursor?: string;
 
   /**
-   * <p>Defines one or more numeric expressions that can be used to sort results or specify search criteria. You can also specify expressions as return fields.</p>
+   * <p>Defines one or more numeric expressions that can be used to sort results or specify search or filter
+   *          criteria. You can also specify expressions as return fields. </p>
    *       <p>You specify the expressions in JSON using the form <code>{"EXPRESSIONNAME":"EXPRESSION"}</code>. You can define and use multiple expressions in a search request. For example:</p>
    *       <p><code>
    *          {"expression1":"_score*rating", "expression2":"(1/rank)*year"}
@@ -73,7 +74,7 @@ export interface SearchRequest {
    *                sort by the facet counts computed for each facet value (in
    *                descending order). To retrieve facet counts for particular
    *                values or ranges of values, use the <code>buckets</code> option
-   *                instead of <code>sort</code>.</p>
+   *                instead of <code>sort</code>. </p>
    *          </li>
    *       </ul>
    *       <p>If no facet options are specified, facet counts are computed for all field values, the facets are sorted by facet count, and the top 10 facets are returned in the results.</p>
@@ -89,7 +90,7 @@ export interface SearchRequest {
    *             {"year":{"sort":"count","size":3}}
    *          </code></p>
    *
-   *          <p>To sort the facets by value, use the <code>bucket</code> option. For example, the following  request sets the <code>sort</code> option to <code>bucket</code> to sort the facet values numerically by year, with earliest year listed first.</p>
+   *          <p>To sort the facets by value, use the <code>bucket</code> option. For example, the following  request sets the <code>sort</code> option to <code>bucket</code> to sort the facet values numerically by year, with earliest year listed first. </p>
    *          <p><code>
    *             {"year":{"sort":"bucket"}}
    *          </code></p>
@@ -100,7 +101,7 @@ export interface SearchRequest {
   facet?: string;
 
   /**
-   * <p>Specifies a structured query that filters the results of a search without affecting how the results are scored and sorted. You use <code>filterQuery</code> in conjunction with the <code>query</code> parameter to filter the documents that match the constraints specified in the <code>query</code> parameter. Specifying a filter controls only which matching documents are included in the results, it has no effect on how they are scored and sorted. The <code>filterQuery</code> parameter supports the full structured query syntax.</p>
+   * <p>Specifies a structured query that filters the results of a search without affecting how the results are scored and sorted. You use <code>filterQuery</code> in conjunction with the <code>query</code> parameter to filter the documents that match the constraints specified in the <code>query</code> parameter. Specifying a filter controls only which matching documents are included in the results, it has no effect on how they are scored and sorted. The <code>filterQuery</code> parameter supports the full structured query syntax. </p>
    *       <p>For more information about using filters, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/filtering-results.html">Filtering Matching Documents</a>
    *          in the <i>Amazon CloudSearch Developer Guide</i>.</p>
    */
@@ -156,7 +157,7 @@ export interface SearchRequest {
    *          specified in the <code>queryOptions</code> parameter. By default,
    *          the <code>simple</code> query parser is used to process requests. To use
    *          the <code>structured</code>, <code>lucene</code>, or <code>dismax</code> query parser,
-   *          you must also specify the <code>queryParser</code> parameter.</p>
+   *          you must also specify the <code>queryParser</code> parameter. </p>
    *             <p>For more information about specifying search criteria, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/searching.html">Searching Your Data</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
    */
   query: string | undefined;
@@ -167,7 +168,7 @@ export interface SearchRequest {
    *       <p>The options you can configure vary according to which parser you use:</p>
    *       <ul>
    *          <li><code>defaultOperator</code>: The default operator used to combine individual terms in the search string. For example: <code>defaultOperator: 'or'</code>. For the <code>dismax</code> parser, you specify a percentage that represents the percentage of terms in the search string (rounded down) that must match, rather than a default operator. A value of <code>0%</code> is the equivalent to OR, and a value of <code>100%</code> is equivalent to AND. The percentage must be specified as a value in the range 0-100 followed by the percent (%) symbol. For example, <code>defaultOperator: 50%</code>. Valid values: <code>and</code>, <code>or</code>, a percentage in the range 0%-100% (<code>dismax</code>). Default: <code>and</code> (<code>simple</code>, <code>structured</code>, <code>lucene</code>) or <code>100</code> (<code>dismax</code>). Valid for: <code>simple</code>, <code>structured</code>, <code>lucene</code>, and <code>dismax</code>.</li>
-   *          <li><code>fields</code>: An array of the fields to search when no fields are specified in a search. If no fields are specified in a search and this option is not specified, all text and text-array fields are searched. You can specify a weight for each field to control the relative importance of each field when Amazon CloudSearch calculates relevance scores. To specify a field weight, append a caret (<code>^</code>) symbol and the weight to the field name. For example, to boost the importance of the <code>title</code> field over the <code>description</code> field you could specify: <code>"fields":["title^5","description"]</code>. Valid values: The name of any configured field and an optional numeric value greater than zero. Default: All <code>text</code> and <code>text-array</code> fields. Valid for: <code>simple</code>, <code>structured</code>, <code>lucene</code>, and <code>dismax</code>.</li>
+   *          <li><code>fields</code>: An array of the fields to search when no fields are specified in a search. If no fields are specified in a search and this option is not specified, all text and text-array fields are searched. You can specify a weight for each field to control the relative importance of each field when Amazon CloudSearch calculates relevance scores. To specify a field weight, append a caret (<code>^</code>) symbol and the weight to the field name. For example, to boost the importance of the <code>title</code> field over the <code>description</code> field you could specify: <code>"fields":["title^5","description"]</code>.  Valid values: The name of any configured field and an optional numeric value greater than zero. Default: All <code>text</code> and <code>text-array</code> fields. Valid for: <code>simple</code>, <code>structured</code>, <code>lucene</code>, and <code>dismax</code>.</li>
    *          <li><code>operators</code>: An array of the operators or special characters you want to
    *             disable for the simple query parser. If you disable the
    *             <code>and</code>, <code>or</code>, or <code>not</code>
@@ -223,7 +224,7 @@ export interface SearchRequest {
   /**
    * <p>Specifies which
    *          query parser to use to process the request. If <code>queryParser</code> is not specified, Amazon CloudSearch
-   *          uses the <code>simple</code> query parser.</p>
+   *          uses the <code>simple</code> query parser. </p>
    *       <p>Amazon CloudSearch supports four query parsers:</p>
    *       <ul>
    *          <li>
@@ -269,12 +270,12 @@ export interface SearchRequest {
    *          To  return only the document IDs for the matching documents,
    *          specify <code>_no_fields</code>.
    *          To retrieve the relevance score calculated for each document,
-   *          specify <code>_score</code>.</p>
+   *          specify <code>_score</code>.  </p>
    */
   return?: string;
 
   /**
-   * <p>Specifies the maximum number of search hits to include in the response.</p>
+   * <p>Specifies the maximum number of search hits to include in the response. </p>
    */
   size?: number;
 
@@ -294,7 +295,7 @@ export interface SearchRequest {
   sort?: string;
 
   /**
-   * <p>Specifies the offset of the first search hit you want to return. Note that the result set is zero-based; the first result is at index 0. You can specify either the <code>start</code> or <code>cursor</code> parameter in a request, they are mutually exclusive.</p>
+   * <p>Specifies the offset of the first search hit you want to return. Note that the result set is zero-based; the first result is at index 0. You can specify either the <code>start</code> or <code>cursor</code> parameter in a request, they are mutually exclusive.  </p>
    *       <p>For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/paginating-results.html">Paginating Results</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
    */
   start?: number;
@@ -314,7 +315,7 @@ export namespace SearchRequest {
 }
 
 /**
- * <p>A container for facet information.</p>
+ * <p>A container for facet information. </p>
  */
 export interface Bucket {
   /**
@@ -533,7 +534,7 @@ export interface SuggestRequest {
   suggester: string | undefined;
 
   /**
-   * <p>Specifies the maximum number of suggestions to return.</p>
+   * <p>Specifies the maximum number of suggestions to return. </p>
    */
   size?: number;
 }
@@ -566,11 +567,11 @@ export namespace SuggestStatus {
 }
 
 /**
- * <p>An autocomplete suggestion that matches the query string specified in a <code>SuggestRequest</code>.</p>
+ * <p>An autocomplete suggestion that matches the query string specified in a <code>SuggestRequest</code>. </p>
  */
 export interface SuggestionMatch {
   /**
-   * <p>The string that matches the query string specified in the <code>SuggestRequest</code>.</p>
+   * <p>The string that matches the query string specified in the <code>SuggestRequest</code>. </p>
    */
   suggestion?: string;
 

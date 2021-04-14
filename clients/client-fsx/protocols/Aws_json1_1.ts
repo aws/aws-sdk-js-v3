@@ -6,6 +6,7 @@ import {
   CancelDataRepositoryTaskCommandInput,
   CancelDataRepositoryTaskCommandOutput,
 } from "../commands/CancelDataRepositoryTaskCommand";
+import { CopyBackupCommandInput, CopyBackupCommandOutput } from "../commands/CopyBackupCommand";
 import { CreateBackupCommandInput, CreateBackupCommandOutput } from "../commands/CreateBackupCommand";
 import {
   CreateDataRepositoryTaskCommandInput,
@@ -51,6 +52,7 @@ import {
   AssociateFileSystemAliasesRequest,
   AssociateFileSystemAliasesResponse,
   Backup,
+  BackupBeingCopied,
   BackupFailureDetails,
   BackupInProgress,
   BackupNotFound,
@@ -59,6 +61,8 @@ import {
   CancelDataRepositoryTaskRequest,
   CancelDataRepositoryTaskResponse,
   CompletionReport,
+  CopyBackupRequest,
+  CopyBackupResponse,
   CreateBackupRequest,
   CreateBackupResponse,
   CreateDataRepositoryTaskRequest,
@@ -102,11 +106,15 @@ import {
   FileSystemNotFound,
   Filter,
   IncompatibleParameterError,
+  IncompatibleRegionForMultiAZ,
   InternalServerError,
+  InvalidDestinationKmsKey,
   InvalidExportPath,
   InvalidImportPath,
   InvalidNetworkSettings,
   InvalidPerUnitStorageThroughput,
+  InvalidRegion,
+  InvalidSourceKmsKey,
   ListTagsForResourceRequest,
   ListTagsForResourceResponse,
   LustreFileSystemConfiguration,
@@ -118,6 +126,7 @@ import {
   SelfManagedActiveDirectoryConfiguration,
   SelfManagedActiveDirectoryConfigurationUpdates,
   ServiceLimitExceeded,
+  SourceBackupUnavailable,
   Tag,
   TagResourceRequest,
   TagResourceResponse,
@@ -164,6 +173,19 @@ export const serializeAws_json1_1CancelDataRepositoryTaskCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CancelDataRepositoryTaskRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CopyBackupCommand = async (
+  input: CopyBackupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSSimbaAPIService_v20180301.CopyBackup",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CopyBackupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -489,6 +511,140 @@ const deserializeAws_json1_1CancelDataRepositoryTaskCommandError = async (
     case "com.amazonaws.fsx#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedOperation":
+    case "com.amazonaws.fsx#UnsupportedOperation":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1CopyBackupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CopyBackupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CopyBackupCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CopyBackupResponse(data, context);
+  const response: CopyBackupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CopyBackupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CopyBackupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BackupNotFound":
+    case "com.amazonaws.fsx#BackupNotFound":
+      response = {
+        ...(await deserializeAws_json1_1BackupNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "BadRequest":
+    case "com.amazonaws.fsx#BadRequest":
+      response = {
+        ...(await deserializeAws_json1_1BadRequestResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "IncompatibleParameterError":
+    case "com.amazonaws.fsx#IncompatibleParameterError":
+      response = {
+        ...(await deserializeAws_json1_1IncompatibleParameterErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "IncompatibleRegionForMultiAZ":
+    case "com.amazonaws.fsx#IncompatibleRegionForMultiAZ":
+      response = {
+        ...(await deserializeAws_json1_1IncompatibleRegionForMultiAZResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerError":
+    case "com.amazonaws.fsx#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidDestinationKmsKey":
+    case "com.amazonaws.fsx#InvalidDestinationKmsKey":
+      response = {
+        ...(await deserializeAws_json1_1InvalidDestinationKmsKeyResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRegion":
+    case "com.amazonaws.fsx#InvalidRegion":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRegionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidSourceKmsKey":
+    case "com.amazonaws.fsx#InvalidSourceKmsKey":
+      response = {
+        ...(await deserializeAws_json1_1InvalidSourceKmsKeyResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceLimitExceeded":
+    case "com.amazonaws.fsx#ServiceLimitExceeded":
+      response = {
+        ...(await deserializeAws_json1_1ServiceLimitExceededResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "SourceBackupUnavailable":
+    case "com.amazonaws.fsx#SourceBackupUnavailable":
+      response = {
+        ...(await deserializeAws_json1_1SourceBackupUnavailableResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -995,6 +1151,14 @@ const deserializeAws_json1_1DeleteBackupCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "BackupBeingCopied":
+    case "com.amazonaws.fsx#BackupBeingCopied":
+      response = {
+        ...(await deserializeAws_json1_1BackupBeingCopiedResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "BackupInProgress":
     case "com.amazonaws.fsx#BackupInProgress":
       response = {
@@ -1887,6 +2051,21 @@ const deserializeAws_json1_1ActiveDirectoryErrorResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1BackupBeingCopiedResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<BackupBeingCopied> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1BackupBeingCopied(body, context);
+  const contents: BackupBeingCopied = {
+    name: "BackupBeingCopied",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1BackupInProgressResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -2022,6 +2201,21 @@ const deserializeAws_json1_1IncompatibleParameterErrorResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1IncompatibleRegionForMultiAZResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<IncompatibleRegionForMultiAZ> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1IncompatibleRegionForMultiAZ(body, context);
+  const contents: IncompatibleRegionForMultiAZ = {
+    name: "IncompatibleRegionForMultiAZ",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1InternalServerErrorResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -2031,6 +2225,21 @@ const deserializeAws_json1_1InternalServerErrorResponse = async (
   const contents: InternalServerError = {
     name: "InternalServerError",
     $fault: "server",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidDestinationKmsKeyResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidDestinationKmsKey> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1InvalidDestinationKmsKey(body, context);
+  const contents: InvalidDestinationKmsKey = {
+    name: "InvalidDestinationKmsKey",
+    $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   };
@@ -2090,6 +2299,36 @@ const deserializeAws_json1_1InvalidPerUnitStorageThroughputResponse = async (
   const deserialized: any = deserializeAws_json1_1InvalidPerUnitStorageThroughput(body, context);
   const contents: InvalidPerUnitStorageThroughput = {
     name: "InvalidPerUnitStorageThroughput",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidRegionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidRegion> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1InvalidRegion(body, context);
+  const contents: InvalidRegion = {
+    name: "InvalidRegion",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidSourceKmsKeyResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidSourceKmsKey> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1InvalidSourceKmsKey(body, context);
+  const contents: InvalidSourceKmsKey = {
+    name: "InvalidSourceKmsKey",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2172,6 +2411,21 @@ const deserializeAws_json1_1ServiceLimitExceededResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1SourceBackupUnavailableResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<SourceBackupUnavailable> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1SourceBackupUnavailable(body, context);
+  const contents: SourceBackupUnavailable = {
+    name: "SourceBackupUnavailable",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1UnsupportedOperationResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -2239,6 +2493,18 @@ const serializeAws_json1_1CompletionReport = (input: CompletionReport, context: 
   };
 };
 
+const serializeAws_json1_1CopyBackupRequest = (input: CopyBackupRequest, context: __SerdeContext): any => {
+  return {
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.CopyTags !== undefined && input.CopyTags !== null && { CopyTags: input.CopyTags }),
+    ...(input.KmsKeyId !== undefined && input.KmsKeyId !== null && { KmsKeyId: input.KmsKeyId }),
+    ...(input.SourceBackupId !== undefined &&
+      input.SourceBackupId !== null && { SourceBackupId: input.SourceBackupId }),
+    ...(input.SourceRegion !== undefined && input.SourceRegion !== null && { SourceRegion: input.SourceRegion }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+  };
+};
+
 const serializeAws_json1_1CreateBackupRequest = (input: CreateBackupRequest, context: __SerdeContext): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
@@ -2270,6 +2536,7 @@ const serializeAws_json1_1CreateFileSystemFromBackupRequest = (
   return {
     ...(input.BackupId !== undefined && input.BackupId !== null && { BackupId: input.BackupId }),
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.KmsKeyId !== undefined && input.KmsKeyId !== null && { KmsKeyId: input.KmsKeyId }),
     ...(input.LustreConfiguration !== undefined &&
       input.LustreConfiguration !== null && {
         LustreConfiguration: serializeAws_json1_1CreateFileSystemLustreConfiguration(
@@ -2812,6 +3079,7 @@ const deserializeAws_json1_1ActiveDirectoryBackupAttributes = (
         ? output.ActiveDirectoryId
         : undefined,
     DomainName: output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined,
+    ResourceARN: output.ResourceARN !== undefined && output.ResourceARN !== null ? output.ResourceARN : undefined,
   } as any;
 };
 
@@ -2921,12 +3189,26 @@ const deserializeAws_json1_1Backup = (output: any, context: __SerdeContext): Bac
         : undefined,
     KmsKeyId: output.KmsKeyId !== undefined && output.KmsKeyId !== null ? output.KmsKeyId : undefined,
     Lifecycle: output.Lifecycle !== undefined && output.Lifecycle !== null ? output.Lifecycle : undefined,
+    OwnerId: output.OwnerId !== undefined && output.OwnerId !== null ? output.OwnerId : undefined,
     ProgressPercent:
       output.ProgressPercent !== undefined && output.ProgressPercent !== null ? output.ProgressPercent : undefined,
     ResourceARN: output.ResourceARN !== undefined && output.ResourceARN !== null ? output.ResourceARN : undefined,
+    SourceBackupId:
+      output.SourceBackupId !== undefined && output.SourceBackupId !== null ? output.SourceBackupId : undefined,
+    SourceBackupRegion:
+      output.SourceBackupRegion !== undefined && output.SourceBackupRegion !== null
+        ? output.SourceBackupRegion
+        : undefined,
     Tags:
       output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1BackupBeingCopied = (output: any, context: __SerdeContext): BackupBeingCopied => {
+  return {
+    BackupId: output.BackupId !== undefined && output.BackupId !== null ? output.BackupId : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
@@ -2988,6 +3270,15 @@ const deserializeAws_json1_1CompletionReport = (output: any, context: __SerdeCon
     Format: output.Format !== undefined && output.Format !== null ? output.Format : undefined,
     Path: output.Path !== undefined && output.Path !== null ? output.Path : undefined,
     Scope: output.Scope !== undefined && output.Scope !== null ? output.Scope : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CopyBackupResponse = (output: any, context: __SerdeContext): CopyBackupResponse => {
+  return {
+    Backup:
+      output.Backup !== undefined && output.Backup !== null
+        ? deserializeAws_json1_1Backup(output.Backup, context)
+        : undefined,
   } as any;
 };
 
@@ -3403,7 +3694,25 @@ const deserializeAws_json1_1IncompatibleParameterError = (
   } as any;
 };
 
+const deserializeAws_json1_1IncompatibleRegionForMultiAZ = (
+  output: any,
+  context: __SerdeContext
+): IncompatibleRegionForMultiAZ => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1InternalServerError = (output: any, context: __SerdeContext): InternalServerError => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1InvalidDestinationKmsKey = (
+  output: any,
+  context: __SerdeContext
+): InvalidDestinationKmsKey => {
   return {
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
@@ -3437,6 +3746,18 @@ const deserializeAws_json1_1InvalidPerUnitStorageThroughput = (
   output: any,
   context: __SerdeContext
 ): InvalidPerUnitStorageThroughput => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1InvalidRegion = (output: any, context: __SerdeContext): InvalidRegion => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1InvalidSourceKmsKey = (output: any, context: __SerdeContext): InvalidSourceKmsKey => {
   return {
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
@@ -3562,6 +3883,16 @@ const deserializeAws_json1_1SelfManagedActiveDirectoryAttributes = (
 const deserializeAws_json1_1ServiceLimitExceeded = (output: any, context: __SerdeContext): ServiceLimitExceeded => {
   return {
     Limit: output.Limit !== undefined && output.Limit !== null ? output.Limit : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SourceBackupUnavailable = (
+  output: any,
+  context: __SerdeContext
+): SourceBackupUnavailable => {
+  return {
+    BackupId: output.BackupId !== undefined && output.BackupId !== null ? output.BackupId : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };

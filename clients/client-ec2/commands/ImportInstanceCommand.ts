@@ -18,10 +18,12 @@ export type ImportInstanceCommandInput = ImportInstanceRequest;
 export type ImportInstanceCommandOutput = ImportInstanceResult & __MetadataBearer;
 
 /**
- * <p>Creates an import instance task using metadata from the specified disk image. <code>ImportInstance</code> only
- *    supports single-volume VMs. To import multi-volume VMs, use <a>ImportImage</a>. For more information, see
- *     <a href="https://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ec2-cli-vmimport-export.html">Importing a
- *     Virtual Machine Using the Amazon EC2 CLI</a>.</p>
+ * <p>Creates an import instance task using metadata from the specified disk image.</p>
+ *          <p>This API action supports only single-volume VMs. To import multi-volume VMs, use <a>ImportImage</a>
+ *    instead.</p>
+ *          <p>This API action is not supported by the AWS Command Line Interface (AWS CLI). For
+ *    information about using the Amazon EC2 CLI, which is deprecated, see
+ *    <a href="https://awsdocs.s3.amazonaws.com/EC2/ec2-clt.pdf#UsingVirtualMachinesinAmazonEC2">Importing a VM to Amazon EC2</a> in the <i>Amazon EC2 CLI Reference</i> PDF file.</p>
  *          <p>For information about the import manifest referenced by this API action, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html">VM Import Manifest</a>.</p>
  */
 export class ImportInstanceCommand extends $Command<

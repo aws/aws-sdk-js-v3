@@ -60,6 +60,8 @@ import {
   ConnectorProfileProperties,
   ConnectorServerException,
   ConnectorType,
+  CustomerProfilesDestinationProperties,
+  CustomerProfilesMetadata,
   DatadogConnectorProfileCredentials,
   DatadogConnectorProfileProperties,
   DatadogMetadata,
@@ -84,12 +86,17 @@ import {
   GoogleAnalyticsConnectorProfileProperties,
   GoogleAnalyticsMetadata,
   GoogleAnalyticsSourceProperties,
+  HoneycodeConnectorProfileCredentials,
+  HoneycodeConnectorProfileProperties,
+  HoneycodeDestinationProperties,
+  HoneycodeMetadata,
   IncrementalPullConfig,
   InforNexusConnectorProfileCredentials,
   InforNexusConnectorProfileProperties,
   InforNexusMetadata,
   InforNexusSourceProperties,
   InternalServerException,
+  LookoutMetricsDestinationProperties,
   MarketoConnectorProfileCredentials,
   MarketoConnectorProfileProperties,
   MarketoMetadata,
@@ -154,6 +161,7 @@ import {
   WriteOperationType,
   ZendeskConnectorProfileCredentials,
   ZendeskConnectorProfileProperties,
+  ZendeskDestinationProperties,
   ZendeskMetadata,
   ZendeskSourceProperties,
 } from "../models/models_0";
@@ -2416,6 +2424,10 @@ const serializeAws_restJson1ConnectorProfileCredentials = (
           context
         ),
       }),
+    ...(input.Honeycode !== undefined &&
+      input.Honeycode !== null && {
+        Honeycode: serializeAws_restJson1HoneycodeConnectorProfileCredentials(input.Honeycode, context),
+      }),
     ...(input.InforNexus !== undefined &&
       input.InforNexus !== null && {
         InforNexus: serializeAws_restJson1InforNexusConnectorProfileCredentials(input.InforNexus, context),
@@ -2494,6 +2506,10 @@ const serializeAws_restJson1ConnectorProfileProperties = (
           context
         ),
       }),
+    ...(input.Honeycode !== undefined &&
+      input.Honeycode !== null && {
+        Honeycode: serializeAws_restJson1HoneycodeConnectorProfileProperties(input.Honeycode, context),
+      }),
     ...(input.InforNexus !== undefined &&
       input.InforNexus !== null && {
         InforNexus: serializeAws_restJson1InforNexusConnectorProfileProperties(input.InforNexus, context),
@@ -2548,6 +2564,17 @@ const serializeAws_restJson1ConnectorTypeList = (input: (ConnectorType | string)
     });
 };
 
+const serializeAws_restJson1CustomerProfilesDestinationProperties = (
+  input: CustomerProfilesDestinationProperties,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.domainName !== undefined && input.domainName !== null && { domainName: input.domainName }),
+    ...(input.objectTypeName !== undefined &&
+      input.objectTypeName !== null && { objectTypeName: input.objectTypeName }),
+  };
+};
+
 const serializeAws_restJson1DatadogConnectorProfileCredentials = (
   input: DatadogConnectorProfileCredentials,
   context: __SerdeContext
@@ -2582,9 +2609,21 @@ const serializeAws_restJson1DestinationConnectorProperties = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.CustomerProfiles !== undefined &&
+      input.CustomerProfiles !== null && {
+        CustomerProfiles: serializeAws_restJson1CustomerProfilesDestinationProperties(input.CustomerProfiles, context),
+      }),
     ...(input.EventBridge !== undefined &&
       input.EventBridge !== null && {
         EventBridge: serializeAws_restJson1EventBridgeDestinationProperties(input.EventBridge, context),
+      }),
+    ...(input.Honeycode !== undefined &&
+      input.Honeycode !== null && {
+        Honeycode: serializeAws_restJson1HoneycodeDestinationProperties(input.Honeycode, context),
+      }),
+    ...(input.LookoutMetrics !== undefined &&
+      input.LookoutMetrics !== null && {
+        LookoutMetrics: serializeAws_restJson1LookoutMetricsDestinationProperties(input.LookoutMetrics, context),
       }),
     ...(input.Redshift !== undefined &&
       input.Redshift !== null && {
@@ -2603,6 +2642,10 @@ const serializeAws_restJson1DestinationConnectorProperties = (
     ...(input.Upsolver !== undefined &&
       input.Upsolver !== null && {
         Upsolver: serializeAws_restJson1UpsolverDestinationProperties(input.Upsolver, context),
+      }),
+    ...(input.Zendesk !== undefined &&
+      input.Zendesk !== null && {
+        Zendesk: serializeAws_restJson1ZendeskDestinationProperties(input.Zendesk, context),
       }),
   };
 };
@@ -2717,6 +2760,40 @@ const serializeAws_restJson1GoogleAnalyticsSourceProperties = (
   };
 };
 
+const serializeAws_restJson1HoneycodeConnectorProfileCredentials = (
+  input: HoneycodeConnectorProfileCredentials,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.accessToken !== undefined && input.accessToken !== null && { accessToken: input.accessToken }),
+    ...(input.oAuthRequest !== undefined &&
+      input.oAuthRequest !== null && {
+        oAuthRequest: serializeAws_restJson1ConnectorOAuthRequest(input.oAuthRequest, context),
+      }),
+    ...(input.refreshToken !== undefined && input.refreshToken !== null && { refreshToken: input.refreshToken }),
+  };
+};
+
+const serializeAws_restJson1HoneycodeConnectorProfileProperties = (
+  input: HoneycodeConnectorProfileProperties,
+  context: __SerdeContext
+): any => {
+  return {};
+};
+
+const serializeAws_restJson1HoneycodeDestinationProperties = (
+  input: HoneycodeDestinationProperties,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.errorHandlingConfig !== undefined &&
+      input.errorHandlingConfig !== null && {
+        errorHandlingConfig: serializeAws_restJson1ErrorHandlingConfig(input.errorHandlingConfig, context),
+      }),
+    ...(input.object !== undefined && input.object !== null && { object: input.object }),
+  };
+};
+
 const serializeAws_restJson1IdFieldNameList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -2764,6 +2841,13 @@ const serializeAws_restJson1InforNexusSourceProperties = (
   return {
     ...(input.object !== undefined && input.object !== null && { object: input.object }),
   };
+};
+
+const serializeAws_restJson1LookoutMetricsDestinationProperties = (
+  input: LookoutMetricsDestinationProperties,
+  context: __SerdeContext
+): any => {
+  return {};
 };
 
 const serializeAws_restJson1MarketoConnectorProfileCredentials = (
@@ -2942,10 +3026,16 @@ const serializeAws_restJson1ScheduledTriggerProperties = (
 ): any => {
   return {
     ...(input.dataPullMode !== undefined && input.dataPullMode !== null && { dataPullMode: input.dataPullMode }),
+    ...(input.firstExecutionFrom !== undefined &&
+      input.firstExecutionFrom !== null && {
+        firstExecutionFrom: Math.round(input.firstExecutionFrom.getTime() / 1000),
+      }),
     ...(input.scheduleEndTime !== undefined &&
       input.scheduleEndTime !== null && { scheduleEndTime: Math.round(input.scheduleEndTime.getTime() / 1000) }),
     ...(input.scheduleExpression !== undefined &&
       input.scheduleExpression !== null && { scheduleExpression: input.scheduleExpression }),
+    ...(input.scheduleOffset !== undefined &&
+      input.scheduleOffset !== null && { scheduleOffset: input.scheduleOffset }),
     ...(input.scheduleStartTime !== undefined &&
       input.scheduleStartTime !== null && { scheduleStartTime: Math.round(input.scheduleStartTime.getTime() / 1000) }),
     ...(input.timezone !== undefined && input.timezone !== null && { timezone: input.timezone }),
@@ -3335,6 +3425,25 @@ const serializeAws_restJson1ZendeskConnectorProfileProperties = (
   };
 };
 
+const serializeAws_restJson1ZendeskDestinationProperties = (
+  input: ZendeskDestinationProperties,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.errorHandlingConfig !== undefined &&
+      input.errorHandlingConfig !== null && {
+        errorHandlingConfig: serializeAws_restJson1ErrorHandlingConfig(input.errorHandlingConfig, context),
+      }),
+    ...(input.idFieldNames !== undefined &&
+      input.idFieldNames !== null && {
+        idFieldNames: serializeAws_restJson1IdFieldNameList(input.idFieldNames, context),
+      }),
+    ...(input.object !== undefined && input.object !== null && { object: input.object }),
+    ...(input.writeOperationType !== undefined &&
+      input.writeOperationType !== null && { writeOperationType: input.writeOperationType }),
+  };
+};
+
 const serializeAws_restJson1ZendeskSourceProperties = (
   input: ZendeskSourceProperties,
   context: __SerdeContext
@@ -3504,6 +3613,10 @@ const deserializeAws_restJson1ConnectorMetadata = (output: any, context: __Serde
       output.Amplitude !== undefined && output.Amplitude !== null
         ? deserializeAws_restJson1AmplitudeMetadata(output.Amplitude, context)
         : undefined,
+    CustomerProfiles:
+      output.CustomerProfiles !== undefined && output.CustomerProfiles !== null
+        ? deserializeAws_restJson1CustomerProfilesMetadata(output.CustomerProfiles, context)
+        : undefined,
     Datadog:
       output.Datadog !== undefined && output.Datadog !== null
         ? deserializeAws_restJson1DatadogMetadata(output.Datadog, context)
@@ -3519,6 +3632,10 @@ const deserializeAws_restJson1ConnectorMetadata = (output: any, context: __Serde
     GoogleAnalytics:
       output.GoogleAnalytics !== undefined && output.GoogleAnalytics !== null
         ? deserializeAws_restJson1GoogleAnalyticsMetadata(output.GoogleAnalytics, context)
+        : undefined,
+    Honeycode:
+      output.Honeycode !== undefined && output.Honeycode !== null
+        ? deserializeAws_restJson1HoneycodeMetadata(output.Honeycode, context)
         : undefined,
     InforNexus:
       output.InforNexus !== undefined && output.InforNexus !== null
@@ -3661,6 +3778,10 @@ const deserializeAws_restJson1ConnectorProfileProperties = (
       output.GoogleAnalytics !== undefined && output.GoogleAnalytics !== null
         ? deserializeAws_restJson1GoogleAnalyticsConnectorProfileProperties(output.GoogleAnalytics, context)
         : undefined,
+    Honeycode:
+      output.Honeycode !== undefined && output.Honeycode !== null
+        ? deserializeAws_restJson1HoneycodeConnectorProfileProperties(output.Honeycode, context)
+        : undefined,
     InforNexus:
       output.InforNexus !== undefined && output.InforNexus !== null
         ? deserializeAws_restJson1InforNexusConnectorProfileProperties(output.InforNexus, context)
@@ -3722,6 +3843,24 @@ const deserializeAws_restJson1ConnectorTypeList = (
     });
 };
 
+const deserializeAws_restJson1CustomerProfilesDestinationProperties = (
+  output: any,
+  context: __SerdeContext
+): CustomerProfilesDestinationProperties => {
+  return {
+    domainName: output.domainName !== undefined && output.domainName !== null ? output.domainName : undefined,
+    objectTypeName:
+      output.objectTypeName !== undefined && output.objectTypeName !== null ? output.objectTypeName : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1CustomerProfilesMetadata = (
+  output: any,
+  context: __SerdeContext
+): CustomerProfilesMetadata => {
+  return {} as any;
+};
+
 const deserializeAws_restJson1DatadogConnectorProfileProperties = (
   output: any,
   context: __SerdeContext
@@ -3749,9 +3888,21 @@ const deserializeAws_restJson1DestinationConnectorProperties = (
   context: __SerdeContext
 ): DestinationConnectorProperties => {
   return {
+    CustomerProfiles:
+      output.CustomerProfiles !== undefined && output.CustomerProfiles !== null
+        ? deserializeAws_restJson1CustomerProfilesDestinationProperties(output.CustomerProfiles, context)
+        : undefined,
     EventBridge:
       output.EventBridge !== undefined && output.EventBridge !== null
         ? deserializeAws_restJson1EventBridgeDestinationProperties(output.EventBridge, context)
+        : undefined,
+    Honeycode:
+      output.Honeycode !== undefined && output.Honeycode !== null
+        ? deserializeAws_restJson1HoneycodeDestinationProperties(output.Honeycode, context)
+        : undefined,
+    LookoutMetrics:
+      output.LookoutMetrics !== undefined && output.LookoutMetrics !== null
+        ? deserializeAws_restJson1LookoutMetricsDestinationProperties(output.LookoutMetrics, context)
         : undefined,
     Redshift:
       output.Redshift !== undefined && output.Redshift !== null
@@ -3772,6 +3923,10 @@ const deserializeAws_restJson1DestinationConnectorProperties = (
     Upsolver:
       output.Upsolver !== undefined && output.Upsolver !== null
         ? deserializeAws_restJson1UpsolverDestinationProperties(output.Upsolver, context)
+        : undefined,
+    Zendesk:
+      output.Zendesk !== undefined && output.Zendesk !== null
+        ? deserializeAws_restJson1ZendeskDestinationProperties(output.Zendesk, context)
         : undefined,
   } as any;
 };
@@ -3899,6 +4054,14 @@ const deserializeAws_restJson1ExecutionDetails = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1ExecutionRecord = (output: any, context: __SerdeContext): ExecutionRecord => {
   return {
+    dataPullEndTime:
+      output.dataPullEndTime !== undefined && output.dataPullEndTime !== null
+        ? new Date(Math.round(output.dataPullEndTime * 1000))
+        : undefined,
+    dataPullStartTime:
+      output.dataPullStartTime !== undefined && output.dataPullStartTime !== null
+        ? new Date(Math.round(output.dataPullStartTime * 1000))
+        : undefined,
     executionId: output.executionId !== undefined && output.executionId !== null ? output.executionId : undefined,
     executionResult:
       output.executionResult !== undefined && output.executionResult !== null
@@ -4043,6 +4206,35 @@ const deserializeAws_restJson1GoogleAnalyticsSourceProperties = (
   } as any;
 };
 
+const deserializeAws_restJson1HoneycodeConnectorProfileProperties = (
+  output: any,
+  context: __SerdeContext
+): HoneycodeConnectorProfileProperties => {
+  return {} as any;
+};
+
+const deserializeAws_restJson1HoneycodeDestinationProperties = (
+  output: any,
+  context: __SerdeContext
+): HoneycodeDestinationProperties => {
+  return {
+    errorHandlingConfig:
+      output.errorHandlingConfig !== undefined && output.errorHandlingConfig !== null
+        ? deserializeAws_restJson1ErrorHandlingConfig(output.errorHandlingConfig, context)
+        : undefined,
+    object: output.object !== undefined && output.object !== null ? output.object : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1HoneycodeMetadata = (output: any, context: __SerdeContext): HoneycodeMetadata => {
+  return {
+    oAuthScopes:
+      output.oAuthScopes !== undefined && output.oAuthScopes !== null
+        ? deserializeAws_restJson1OAuthScopeList(output.oAuthScopes, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1IdFieldNameList = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -4083,6 +4275,13 @@ const deserializeAws_restJson1InforNexusSourceProperties = (
   return {
     object: output.object !== undefined && output.object !== null ? output.object : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1LookoutMetricsDestinationProperties = (
+  output: any,
+  context: __SerdeContext
+): LookoutMetricsDestinationProperties => {
+  return {} as any;
 };
 
 const deserializeAws_restJson1MarketoConnectorProfileProperties = (
@@ -4275,6 +4474,10 @@ const deserializeAws_restJson1ScheduledTriggerProperties = (
 ): ScheduledTriggerProperties => {
   return {
     dataPullMode: output.dataPullMode !== undefined && output.dataPullMode !== null ? output.dataPullMode : undefined,
+    firstExecutionFrom:
+      output.firstExecutionFrom !== undefined && output.firstExecutionFrom !== null
+        ? new Date(Math.round(output.firstExecutionFrom * 1000))
+        : undefined,
     scheduleEndTime:
       output.scheduleEndTime !== undefined && output.scheduleEndTime !== null
         ? new Date(Math.round(output.scheduleEndTime * 1000))
@@ -4283,6 +4486,8 @@ const deserializeAws_restJson1ScheduledTriggerProperties = (
       output.scheduleExpression !== undefined && output.scheduleExpression !== null
         ? output.scheduleExpression
         : undefined,
+    scheduleOffset:
+      output.scheduleOffset !== undefined && output.scheduleOffset !== null ? output.scheduleOffset : undefined,
     scheduleStartTime:
       output.scheduleStartTime !== undefined && output.scheduleStartTime !== null
         ? new Date(Math.round(output.scheduleStartTime * 1000))
@@ -4723,6 +4928,27 @@ const deserializeAws_restJson1ZendeskConnectorProfileProperties = (
 ): ZendeskConnectorProfileProperties => {
   return {
     instanceUrl: output.instanceUrl !== undefined && output.instanceUrl !== null ? output.instanceUrl : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ZendeskDestinationProperties = (
+  output: any,
+  context: __SerdeContext
+): ZendeskDestinationProperties => {
+  return {
+    errorHandlingConfig:
+      output.errorHandlingConfig !== undefined && output.errorHandlingConfig !== null
+        ? deserializeAws_restJson1ErrorHandlingConfig(output.errorHandlingConfig, context)
+        : undefined,
+    idFieldNames:
+      output.idFieldNames !== undefined && output.idFieldNames !== null
+        ? deserializeAws_restJson1IdFieldNameList(output.idFieldNames, context)
+        : undefined,
+    object: output.object !== undefined && output.object !== null ? output.object : undefined,
+    writeOperationType:
+      output.writeOperationType !== undefined && output.writeOperationType !== null
+        ? output.writeOperationType
+        : undefined,
   } as any;
 };
 

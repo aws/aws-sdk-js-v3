@@ -16,6 +16,7 @@ import {
   Item,
   LimitExceededException,
   MedicalAlternative,
+  MedicalEntity,
   MedicalItem,
   MedicalResult,
   MedicalTranscript,
@@ -62,6 +63,9 @@ export const serializeAws_restJson1StartMedicalStreamTranscriptionCommand = asyn
     }),
     ...(isSerializableHeaderValue(input.NumberOfChannels) && {
       "x-amzn-transcribe-number-of-channels": input.NumberOfChannels!.toString(),
+    }),
+    ...(isSerializableHeaderValue(input.ContentIdentificationType) && {
+      "x-amzn-transcribe-content-identification-type": input.ContentIdentificationType!,
     }),
   };
   let resolvedPath = "/medical-stream-transcription";
@@ -141,6 +145,7 @@ export const deserializeAws_restJson1StartMedicalStreamTranscriptionCommand = as
   }
   const contents: StartMedicalStreamTranscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
+    ContentIdentificationType: undefined,
     EnableChannelIdentification: undefined,
     LanguageCode: undefined,
     MediaEncoding: undefined,
@@ -186,6 +191,9 @@ export const deserializeAws_restJson1StartMedicalStreamTranscriptionCommand = as
   }
   if (output.headers["x-amzn-transcribe-number-of-channels"] !== undefined) {
     contents.NumberOfChannels = parseInt(output.headers["x-amzn-transcribe-number-of-channels"], 10);
+  }
+  if (output.headers["x-amzn-transcribe-content-identification-type"] !== undefined) {
+    contents.ContentIdentificationType = output.headers["x-amzn-transcribe-content-identification-type"];
   }
   const data: any = context.eventStreamMarshaller.deserialize(output.body, async (event) => {
     const eventName = Object.keys(event)[0];
@@ -727,6 +735,7 @@ const deserializeAws_restJson1AlternativeList = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1Item = (output: any, context: __SerdeContext): Item => {
   return {
+    Confidence: output.Confidence !== undefined && output.Confidence !== null ? output.Confidence : undefined,
     Content: output.Content !== undefined && output.Content !== null ? output.Content : undefined,
     EndTime: output.EndTime !== undefined && output.EndTime !== null ? output.EndTime : undefined,
     Speaker: output.Speaker !== undefined && output.Speaker !== null ? output.Speaker : undefined,
@@ -752,6 +761,10 @@ const deserializeAws_restJson1ItemList = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1MedicalAlternative = (output: any, context: __SerdeContext): MedicalAlternative => {
   return {
+    Entities:
+      output.Entities !== undefined && output.Entities !== null
+        ? deserializeAws_restJson1MedicalEntityList(output.Entities, context)
+        : undefined,
     Items:
       output.Items !== undefined && output.Items !== null
         ? deserializeAws_restJson1MedicalItemList(output.Items, context)
@@ -768,6 +781,27 @@ const deserializeAws_restJson1MedicalAlternativeList = (output: any, context: __
         return null as any;
       }
       return deserializeAws_restJson1MedicalAlternative(entry, context);
+    });
+};
+
+const deserializeAws_restJson1MedicalEntity = (output: any, context: __SerdeContext): MedicalEntity => {
+  return {
+    Category: output.Category !== undefined && output.Category !== null ? output.Category : undefined,
+    Confidence: output.Confidence !== undefined && output.Confidence !== null ? output.Confidence : undefined,
+    Content: output.Content !== undefined && output.Content !== null ? output.Content : undefined,
+    EndTime: output.EndTime !== undefined && output.EndTime !== null ? output.EndTime : undefined,
+    StartTime: output.StartTime !== undefined && output.StartTime !== null ? output.StartTime : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1MedicalEntityList = (output: any, context: __SerdeContext): MedicalEntity[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MedicalEntity(entry, context);
     });
 };
 

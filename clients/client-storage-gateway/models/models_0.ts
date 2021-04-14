@@ -552,6 +552,94 @@ export namespace AssignTapePoolOutput {
 }
 
 /**
+ * <p>The refresh cache information for the file share.</p>
+ */
+export interface CacheAttributes {
+  /**
+   * <p>Refreshes a file share's cache by using Time To Live (TTL). TTL is the length of
+   *          time since the last refresh after which access to the directory would cause the file
+   *          gateway to first refresh that directory's contents from the Amazon S3 bucket or Amazon FSx file system. The TTL
+   *          duration is in seconds.</p>
+   *
+   *          <p>Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)</p>
+   */
+  CacheStaleTimeoutInSeconds?: number;
+}
+
+export namespace CacheAttributes {
+  export const filterSensitiveLog = (obj: CacheAttributes): any => ({
+    ...obj,
+  });
+}
+
+export interface AssociateFileSystemInput {
+  /**
+   * <p>The user name of the user credential that has permission to access the root share D$ of
+   *          the Amazon FSx file system. The user account must belong to the Amazon FSx delegated admin
+   *          user group.</p>
+   */
+  UserName: string | undefined;
+
+  /**
+   * <p>The password of the user credential.</p>
+   */
+  Password: string | undefined;
+
+  /**
+   * <p>A unique string value that you supply that is used by the file gateway to ensure
+   *          idempotent file system association creation.</p>
+   */
+  ClientToken: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the
+   *          Amazon FSx file gateway.</p>
+   */
+  LocationARN: string | undefined;
+
+  /**
+   * <p>A list of up to 50 tags that can be assigned to the file system association. Each tag is a key-value pair.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the storage used for the audit logs.</p>
+   */
+  AuditDestinationARN?: string;
+
+  /**
+   * <p>The refresh cache information for the file share.</p>
+   */
+  CacheAttributes?: CacheAttributes;
+}
+
+export namespace AssociateFileSystemInput {
+  export const filterSensitiveLog = (obj: AssociateFileSystemInput): any => ({
+    ...obj,
+    ...(obj.Password && { Password: SENSITIVE_STRING }),
+  });
+}
+
+export interface AssociateFileSystemOutput {
+  /**
+   * <p>The ARN of the newly created file system association.</p>
+   */
+  FileSystemAssociationARN?: string;
+}
+
+export namespace AssociateFileSystemOutput {
+  export const filterSensitiveLog = (obj: AssociateFileSystemOutput): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>AttachVolumeInput</p>
  */
 export interface AttachVolumeInput {
@@ -752,10 +840,8 @@ export interface BandwidthRateLimitInterval {
   EndMinuteOfHour: number | undefined;
 
   /**
-   * <p>
-   *          The days of the week component of the bandwidth rate limit interval,
-   *          represented as ordinal numbers from 0 to 6, where 0 represents Sunday and 6 Saturday.
-   *       </p>
+   * <p> The days of the week component of the bandwidth rate limit interval, represented as
+   *          ordinal numbers from 0 to 6, where 0 represents Sunday and 6 represents Saturday. </p>
    */
   DaysOfWeek: number[] | undefined;
 
@@ -778,27 +864,6 @@ export interface BandwidthRateLimitInterval {
 
 export namespace BandwidthRateLimitInterval {
   export const filterSensitiveLog = (obj: BandwidthRateLimitInterval): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Lists refresh cache information.</p>
- */
-export interface CacheAttributes {
-  /**
-   * <p>Refreshes a file share's cache by using Time To Live (TTL). TTL is the length of
-   *          time since the last refresh after which access to the directory would cause the file
-   *          gateway to first refresh that directory's contents from the Amazon S3 bucket. The TTL
-   *          duration is in seconds.</p>
-   *
-   *          <p>Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)</p>
-   */
-  CacheStaleTimeoutInSeconds?: number;
-}
-
-export namespace CacheAttributes {
-  export const filterSensitiveLog = (obj: CacheAttributes): any => ({
     ...obj,
   });
 }
@@ -1374,12 +1439,35 @@ export interface CreateNFSFileShareInput {
   FileShareName?: string;
 
   /**
-   * <p>Refresh cache information.</p>
+   * <p>Specifies refresh cache information for the file share.</p>
    */
   CacheAttributes?: CacheAttributes;
 
   /**
-   * <p>The notification policy of the file share.</p>
+   * <p>The notification policy of the file share. <code>SettlingTimeInSeconds</code> controls
+   *          the number of seconds to wait after the last point in time a client wrote to a file before
+   *          generating an <code>ObjectUploaded</code> notification. Because clients can make many small
+   *          writes to files, it's best to set this parameter for as long as possible to avoid
+   *          generating multiple notifications for the same file in a small time period.</p>
+   *
+   *          <note>
+   *             <p>
+   *                <code>SettlingTimeInSeconds</code> has no effect on the timing of the object
+   *             uploading to Amazon S3, only the timing of the notification.</p>
+   *          </note>
+   *
+   *          <p>The following example sets <code>NotificationPolicy</code> on with
+   *             <code>SettlingTimeInSeconds</code> set to 60.</p>
+   *
+   *          <p>
+   *             <code>{\"Upload\": {\"SettlingTimeInSeconds\": 60}}</code>
+   *          </p>
+   *
+   *          <p>The following example sets <code>NotificationPolicy</code> off.</p>
+   *
+   *          <p>
+   *             <code>{}</code>
+   *          </p>
    */
   NotificationPolicy?: string;
 }
@@ -1556,7 +1644,7 @@ export interface CreateSMBFileShareInput {
   InvalidUserList?: string[];
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the storage used for the audit logs.</p>
+   * <p>The Amazon Resource Name (ARN) of the storage used for audit logs.</p>
    */
   AuditDestinationARN?: string;
 
@@ -1601,12 +1689,35 @@ export interface CreateSMBFileShareInput {
   FileShareName?: string;
 
   /**
-   * <p>Refresh cache information.</p>
+   * <p>Specifies refresh cache information for the file share.</p>
    */
   CacheAttributes?: CacheAttributes;
 
   /**
-   * <p>The notification policy of the file share.</p>
+   * <p>The notification policy of the file share. <code>SettlingTimeInSeconds</code> controls
+   *          the number of seconds to wait after the last point in time a client wrote to a file before
+   *          generating an <code>ObjectUploaded</code> notification. Because clients can make many small
+   *          writes to files, it's best to set this parameter for as long as possible to avoid
+   *          generating multiple notifications for the same file in a small time period.</p>
+   *
+   *          <note>
+   *             <p>
+   *                <code>SettlingTimeInSeconds</code> has no effect on the timing of the object
+   *             uploading to Amazon S3, only the timing of the notification.</p>
+   *          </note>
+   *
+   *          <p>The following example sets <code>NotificationPolicy</code> on with
+   *             <code>SettlingTimeInSeconds</code> set to 60.</p>
+   *
+   *          <p>
+   *             <code>{\"Upload\": {\"SettlingTimeInSeconds\": 60}}</code>
+   *          </p>
+   *
+   *          <p>The following example sets <code>NotificationPolicy</code> off.</p>
+   *
+   *          <p>
+   *             <code>{}</code>
+   *          </p>
    */
   NotificationPolicy?: string;
 }
@@ -1837,7 +1948,7 @@ export interface CreateStorediSCSIVolumeInput {
   DiskId: string | undefined;
 
   /**
-   * <p>The snapshot ID (e.g. "snap-1122aabb") of the snapshot to restore as the new stored
+   * <p>The snapshot ID (e.g., "snap-1122aabb") of the snapshot to restore as the new stored
    *          volume. Specify this field if you want to create the iSCSI storage volume from a snapshot;
    *          otherwise, do not include this field. To list snapshots for your account use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html">DescribeSnapshots</a> in the <i>Amazon Elastic Compute Cloud API
    *             Reference</i>.</p>
@@ -1845,8 +1956,8 @@ export interface CreateStorediSCSIVolumeInput {
   SnapshotId?: string;
 
   /**
-   * <p>Set to true <code>true</code> if you want to preserve the data on the local disk.
-   *          Otherwise, set to <code>false</code> to create an empty volume.</p>
+   * <p>Set to <code>true</code> if you want to preserve the data on the local disk. Otherwise,
+   *          set to <code>false</code> to create an empty volume.</p>
    *
    *          <p>Valid Values: <code>true</code> | <code>false</code>
    *          </p>
@@ -2044,8 +2155,8 @@ export interface CreateTapesInput {
    *          prefix makes the barcode unique.</p>
    *
    *          <note>
-   *             <p>The prefix must be 1 to 4 characters in length and must be one of the uppercase
-   *             letters from A to Z.</p>
+   *             <p>The prefix must be 1-4 characters in length and must be one of the uppercase letters
+   *             from A to Z.</p>
    *          </note>
    */
   TapeBarcodePrefix: string | undefined;
@@ -2632,13 +2743,13 @@ export interface DescribeAvailabilityMonitorTestOutput {
   GatewayARN?: string;
 
   /**
-   * <p>The status of the High Availability monitoring test. If a test hasn't been
+   * <p>The status of the high availability monitoring test. If a test hasn't been
    *          performed, the value of this field is null.</p>
    */
   Status?: AvailabilityMonitorTestStatus | string;
 
   /**
-   * <p>The time the High Availability monitoring test was started. If a test hasn't been
+   * <p>The time the high availability monitoring test was started. If a test hasn't been
    *          performed, the value of this field is null.</p>
    */
   StartTime?: Date;
@@ -2892,6 +3003,86 @@ export namespace DescribeChapCredentialsOutput {
     ...(obj.ChapCredentials && {
       ChapCredentials: obj.ChapCredentials.map((item) => ChapInfo.filterSensitiveLog(item)),
     }),
+  });
+}
+
+export interface DescribeFileSystemAssociationsInput {
+  /**
+   * <p>An array containing the Amazon Resource Name (ARN) of each file system association to be described.</p>
+   */
+  FileSystemAssociationARNList: string[] | undefined;
+}
+
+export namespace DescribeFileSystemAssociationsInput {
+  export const filterSensitiveLog = (obj: DescribeFileSystemAssociationsInput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the object returned by <code>DescribeFileSystemAssociations</code> that
+ *          describes a created file system association.</p>
+ */
+export interface FileSystemAssociationInfo {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the file system association.</p>
+   */
+  FileSystemAssociationARN?: string;
+
+  /**
+   * <p>The ARN of the backend Amazon FSx file system used for storing file data. For
+   *          information, see <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_FileSystem.html">FileSystem</a> in the <i>Amazon FSx
+   *                API Reference</i>.</p>
+   */
+  LocationARN?: string;
+
+  /**
+   * <p>The status of the file system association.
+   *          Valid Values: <code>AVAILABLE</code> | <code>CREATING</code> | <code>DELETING</code> |
+   *          <code>FORCE_DELETING</code> | <code>MISCONFIGURED</code> | <code>UPDATING</code> | <code>UNAVAILABLE</code>
+   *          </p>
+   */
+  FileSystemAssociationStatus?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the storage used for the audit logs.</p>
+   */
+  AuditDestinationARN?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN?: string;
+
+  /**
+   * <p>A list of up to 50 tags assigned to the SMB file share, sorted alphabetically by key name. Each tag is a key-value pair.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The refresh cache information for the file share.</p>
+   */
+  CacheAttributes?: CacheAttributes;
+}
+
+export namespace FileSystemAssociationInfo {
+  export const filterSensitiveLog = (obj: FileSystemAssociationInfo): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeFileSystemAssociationsOutput {
+  /**
+   * <p>An array containing the <code>FileSystemAssociationInfo</code> data type of each file system association to be described.
+   *          </p>
+   */
+  FileSystemAssociationInfoList?: FileSystemAssociationInfo[];
+}
+
+export namespace DescribeFileSystemAssociationsOutput {
+  export const filterSensitiveLog = (obj: DescribeFileSystemAssociationsOutput): any => ({
+    ...obj,
   });
 }
 
@@ -3345,12 +3536,35 @@ export interface NFSFileShareInfo {
   FileShareName?: string;
 
   /**
-   * <p>Refresh cache information.</p>
+   * <p>Refresh cache information for the file share.</p>
    */
   CacheAttributes?: CacheAttributes;
 
   /**
-   * <p>The notification policy of the file share.</p>
+   * <p>The notification policy of the file share. <code>SettlingTimeInSeconds</code> controls
+   *          the number of seconds to wait after the last point in time a client wrote to a file before
+   *          generating an <code>ObjectUploaded</code> notification. Because clients can make many small
+   *          writes to files, it's best to set this parameter for as long as possible to avoid
+   *          generating multiple notifications for the same file in a small time period.</p>
+   *
+   *          <note>
+   *             <p>
+   *                <code>SettlingTimeInSeconds</code> has no effect on the timing of the object
+   *             uploading to Amazon S3, only the timing of the notification.</p>
+   *          </note>
+   *
+   *          <p>The following example sets <code>NotificationPolicy</code> on with
+   *             <code>SettlingTimeInSeconds</code> set to 60.</p>
+   *
+   *          <p>
+   *             <code>{\"Upload\": {\"SettlingTimeInSeconds\": 60}}</code>
+   *          </p>
+   *
+   *          <p>The following example sets <code>NotificationPolicy</code> off.</p>
+   *
+   *          <p>
+   *             <code>{}</code>
+   *          </p>
    */
   NotificationPolicy?: string;
 }
@@ -3557,7 +3771,7 @@ export interface SMBFileShareInfo {
   InvalidUserList?: string[];
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the storage used for the audit logs.</p>
+   * <p>The Amazon Resource Name (ARN) of the storage used for audit logs.</p>
    */
   AuditDestinationARN?: string;
 
@@ -3596,12 +3810,35 @@ export interface SMBFileShareInfo {
   FileShareName?: string;
 
   /**
-   * <p>Refresh cache information.</p>
+   * <p>Refresh cache information for the file share.</p>
    */
   CacheAttributes?: CacheAttributes;
 
   /**
-   * <p>The notification policy of the file share.</p>
+   * <p>The notification policy of the file share. <code>SettlingTimeInSeconds</code> controls
+   *          the number of seconds to wait after the last point in time a client wrote to a file before
+   *          generating an <code>ObjectUploaded</code> notification. Because clients can make many small
+   *          writes to files, it's best to set this parameter for as long as possible to avoid
+   *          generating multiple notifications for the same file in a small time period.</p>
+   *
+   *          <note>
+   *             <p>
+   *                <code>SettlingTimeInSeconds</code> has no effect on the timing of the object
+   *             uploading to Amazon S3, only the timing of the notification.</p>
+   *          </note>
+   *
+   *          <p>The following example sets <code>NotificationPolicy</code> on with
+   *             <code>SettlingTimeInSeconds</code> set to 60.</p>
+   *
+   *          <p>
+   *             <code>{\"Upload\": {\"SettlingTimeInSeconds\": 60}}</code>
+   *          </p>
+   *
+   *          <p>The following example sets <code>NotificationPolicy</code> off.</p>
+   *
+   *          <p>
+   *             <code>{}</code>
+   *          </p>
    */
   NotificationPolicy?: string;
 }
@@ -4428,8 +4665,8 @@ export interface DescribeTapesOutput {
   Tapes?: Tape[];
 
   /**
-   * <p>An opaque string which can be used as part of a subsequent DescribeTapes call to
-   *          retrieve the next page of results.</p>
+   * <p>An opaque string that can be used as part of a subsequent <code>DescribeTapes</code>
+   *          call to retrieve the next page of results.</p>
    *
    *          <p>If a response does not contain a marker, then there are no more results to be
    *          retrieved.</p>
@@ -4759,6 +4996,40 @@ export namespace DisableGatewayOutput {
   });
 }
 
+export interface DisassociateFileSystemInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the file system association to be deleted.</p>
+   */
+  FileSystemAssociationARN: string | undefined;
+
+  /**
+   * <p>If this value is set to true, the operation disassociates an Amazon FSx file system
+   *          immediately. It ends all data uploads to the file system, and the file system association
+   *          enters the <code>FORCE_DELETING</code> status. If this value is set to false, the Amazon
+   *          FSx file system does not disassociate until all data is uploaded.</p>
+   */
+  ForceDelete?: boolean;
+}
+
+export namespace DisassociateFileSystemInput {
+  export const filterSensitiveLog = (obj: DisassociateFileSystemInput): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateFileSystemOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the deleted file system association.</p>
+   */
+  FileSystemAssociationARN?: string;
+}
+
+export namespace DisassociateFileSystemOutput {
+  export const filterSensitiveLog = (obj: DisassociateFileSystemOutput): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Represents a gateway's local disk.</p>
  */
@@ -4855,6 +5126,41 @@ export interface FileShareInfo {
 
 export namespace FileShareInfo {
   export const filterSensitiveLog = (obj: FileShareInfo): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Gets the summary returned by <code>ListFileSystemAssociation</code>, which is a summary
+ *          of a created file system association.</p>
+ */
+export interface FileSystemAssociationSummary {
+  /**
+   * <p>The ID of the file system association.</p>
+   */
+  FileSystemAssociationId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the file system association.</p>
+   */
+  FileSystemAssociationARN?: string;
+
+  /**
+   * <p>The status of the file share. Valid Values: <code>AVAILABLE</code> | <code>CREATING</code> | <code>DELETING</code> |
+   *          <code>FORCE_DELETING</code> | <code>MISCONFIGURED</code> | <code>UPDATING</code> | <code>UNAVAILABLE</code>
+   *          </p>
+   */
+  FileSystemAssociationStatus?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN?: string;
+}
+
+export namespace FileSystemAssociationSummary {
+  export const filterSensitiveLog = (obj: FileSystemAssociationSummary): any => ({
     ...obj,
   });
 }
@@ -5110,6 +5416,54 @@ export interface ListFileSharesOutput {
 
 export namespace ListFileSharesOutput {
   export const filterSensitiveLog = (obj: ListFileSharesOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface ListFileSystemAssociationsInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
+   *          operation to return a list of gateways for your account and AWS Region.</p>
+   */
+  GatewayARN?: string;
+
+  /**
+   * <p>The maximum number of file system associations to return in the response. If present, <code>Limit</code> must be an integer with a value greater than zero. Optional.</p>
+   */
+  Limit?: number;
+
+  /**
+   * <p>Opaque pagination token returned from a previous <code>ListFileSystemAssociations</code> operation. If present, <code>Marker</code> specifies where to continue the list from after a previous call to <code>ListFileSystemAssociations</code>. Optional.</p>
+   */
+  Marker?: string;
+}
+
+export namespace ListFileSystemAssociationsInput {
+  export const filterSensitiveLog = (obj: ListFileSystemAssociationsInput): any => ({
+    ...obj,
+  });
+}
+
+export interface ListFileSystemAssociationsOutput {
+  /**
+   * <p>If the request includes <code>Marker</code>, the response returns that value in this field.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>If a value is present, there are more file system associations to return.
+   *          In a subsequent request, use <code>NextMarker</code> as the value for <code>Marker</code> to retrieve the next set of file system associations.</p>
+   */
+  NextMarker?: string;
+
+  /**
+   * <p>An array of information about the Amazon FSx gateway's file system associations.</p>
+   */
+  FileSystemAssociationSummaryList?: FileSystemAssociationSummary[];
+}
+
+export namespace ListFileSystemAssociationsOutput {
+  export const filterSensitiveLog = (obj: ListFileSystemAssociationsOutput): any => ({
     ...obj,
   });
 }
@@ -6396,6 +6750,55 @@ export namespace UpdateChapCredentialsOutput {
   });
 }
 
+export interface UpdateFileSystemAssociationInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the file system association that you want to update.</p>
+   */
+  FileSystemAssociationARN: string | undefined;
+
+  /**
+   * <p>The user name of the user credential that has permission to access the root share D$ of
+   *          the Amazon FSx file system. The user account must belong to the Amazon FSx delegated admin
+   *          user group.</p>
+   */
+  UserName?: string;
+
+  /**
+   * <p>The password of the user credential.</p>
+   */
+  Password?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the storage used for the audit logs.</p>
+   */
+  AuditDestinationARN?: string;
+
+  /**
+   * <p>The refresh cache information for the file share.</p>
+   */
+  CacheAttributes?: CacheAttributes;
+}
+
+export namespace UpdateFileSystemAssociationInput {
+  export const filterSensitiveLog = (obj: UpdateFileSystemAssociationInput): any => ({
+    ...obj,
+    ...(obj.Password && { Password: SENSITIVE_STRING }),
+  });
+}
+
+export interface UpdateFileSystemAssociationOutput {
+  /**
+   * <p>The ARN of the updated file system association.</p>
+   */
+  FileSystemAssociationARN?: string;
+}
+
+export namespace UpdateFileSystemAssociationOutput {
+  export const filterSensitiveLog = (obj: UpdateFileSystemAssociationOutput): any => ({
+    ...obj,
+  });
+}
+
 export interface UpdateGatewayInformationInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -6696,12 +7099,35 @@ export interface UpdateNFSFileShareInput {
   FileShareName?: string;
 
   /**
-   * <p>Refresh cache information.</p>
+   * <p>specifies refresh cache information for the file share.</p>
    */
   CacheAttributes?: CacheAttributes;
 
   /**
-   * <p>The notification policy of the file share.</p>
+   * <p>The notification policy of the file share. <code>SettlingTimeInSeconds</code> controls
+   *          the number of seconds to wait after the last point in time a client wrote to a file before
+   *          generating an <code>ObjectUploaded</code> notification. Because clients can make many small
+   *          writes to files, it's best to set this parameter for as long as possible to avoid
+   *          generating multiple notifications for the same file in a small time period.</p>
+   *
+   *          <note>
+   *             <p>
+   *                <code>SettlingTimeInSeconds</code> has no effect on the timing of the object
+   *             uploading to Amazon S3, only the timing of the notification.</p>
+   *          </note>
+   *
+   *          <p>The following example sets <code>NotificationPolicy</code> on with
+   *             <code>SettlingTimeInSeconds</code> set to 60.</p>
+   *
+   *          <p>
+   *             <code>{\"Upload\": {\"SettlingTimeInSeconds\": 60}}</code>
+   *          </p>
+   *
+   *          <p>The following example sets <code>NotificationPolicy</code> off.</p>
+   *
+   *          <p>
+   *             <code>{}</code>
+   *          </p>
    */
   NotificationPolicy?: string;
 }
@@ -6856,7 +7282,7 @@ export interface UpdateSMBFileShareInput {
   InvalidUserList?: string[];
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the storage used for the audit logs.</p>
+   * <p>The Amazon Resource Name (ARN) of the storage used for audit logs.</p>
    */
   AuditDestinationARN?: string;
 
@@ -6879,12 +7305,35 @@ export interface UpdateSMBFileShareInput {
   FileShareName?: string;
 
   /**
-   * <p>Refresh cache information.</p>
+   * <p>Specifies refresh cache information for the file share.</p>
    */
   CacheAttributes?: CacheAttributes;
 
   /**
-   * <p>The notification policy of the file share.</p>
+   * <p>The notification policy of the file share. <code>SettlingTimeInSeconds</code> controls
+   *          the number of seconds to wait after the last point in time a client wrote to a file before
+   *          generating an <code>ObjectUploaded</code> notification. Because clients can make many small
+   *          writes to files, it's best to set this parameter for as long as possible to avoid
+   *          generating multiple notifications for the same file in a small time period.</p>
+   *
+   *          <note>
+   *             <p>
+   *                <code>SettlingTimeInSeconds</code> has no effect on the timing of the object
+   *             uploading to Amazon S3, only the timing of the notification.</p>
+   *          </note>
+   *
+   *          <p>The following example sets <code>NotificationPolicy</code> on with
+   *             <code>SettlingTimeInSeconds</code> set to 60.</p>
+   *
+   *          <p>
+   *             <code>{\"Upload\": {\"SettlingTimeInSeconds\": 60}}</code>
+   *          </p>
+   *
+   *          <p>The following example sets <code>NotificationPolicy</code> off.</p>
+   *
+   *          <p>
+   *             <code>{}</code>
+   *          </p>
    */
   NotificationPolicy?: string;
 }

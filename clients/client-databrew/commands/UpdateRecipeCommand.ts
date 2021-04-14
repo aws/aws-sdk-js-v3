@@ -21,8 +21,8 @@ export type UpdateRecipeCommandInput = UpdateRecipeRequest;
 export type UpdateRecipeCommandOutput = UpdateRecipeResponse & __MetadataBearer;
 
 /**
- * <p>Modifies the definition of the latest working version of an AWS Glue DataBrew recipe
- *             in the current AWS account.</p>
+ * <p>Modifies the definition of the <code>LATEST_WORKING</code> version of a DataBrew
+ *             recipe.</p>
  */
 export class UpdateRecipeCommand extends $Command<
   UpdateRecipeCommandInput,

@@ -21,10 +21,12 @@ export type UpdateRegionSettingsCommandInput = UpdateRegionSettingsInput;
 export type UpdateRegionSettingsCommandOutput = __MetadataBearer;
 
 /**
- * <p>Updates the current service opt-in settings for the Region. If service-opt-in is enabled for a service,
- *          AWS Backup tries to protect that service's resources in this Region, when the resource is included in an on-demand backup or scheduled backup plan.
- *          Otherwise, AWS Backup does not try to protect that service's resources in this Region. Use the <code>DescribeRegionSettings</code> API to determine the
- *          resource types that are supported.</p>
+ * <p>Updates the current service opt-in settings for the Region. If service-opt-in is enabled
+ *          for a service, AWS Backup tries to protect that service's resources in this Region, when
+ *          the resource is included in an on-demand backup or scheduled backup plan. Otherwise, AWS
+ *          Backup does not try to protect that service's resources in this Region. Use the
+ *             <code>DescribeRegionSettings</code> API to determine the resource types that are
+ *          supported.</p>
  */
 export class UpdateRegionSettingsCommand extends $Command<
   UpdateRegionSettingsCommandInput,

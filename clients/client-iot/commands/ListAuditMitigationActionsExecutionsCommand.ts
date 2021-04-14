@@ -25,7 +25,8 @@ export type ListAuditMitigationActionsExecutionsCommandOutput = ListAuditMitigat
   __MetadataBearer;
 
 /**
- * <p>Gets the status of audit mitigation action tasks that were executed.</p>
+ * <p>Gets the status of audit mitigation action tasks that were
+ *       executed.</p>
  */
 export class ListAuditMitigationActionsExecutionsCommand extends $Command<
   ListAuditMitigationActionsExecutionsCommandInput,

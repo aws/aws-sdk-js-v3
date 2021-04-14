@@ -21,7 +21,7 @@ export type ListComponentBuildVersionsCommandInput = ListComponentBuildVersionsR
 export type ListComponentBuildVersionsCommandOutput = ListComponentBuildVersionsResponse & __MetadataBearer;
 
 /**
- * <p> Returns the list of component build versions for the specified semantic version. </p>
+ * <p> Returns the list of component build versions for the specified semantic version.</p>
  */
 export class ListComponentBuildVersionsCommand extends $Command<
   ListComponentBuildVersionsCommandInput,

@@ -26,7 +26,7 @@ export type PutUsersCommandOutput = __MetadataBearer;
 
 /**
  * <p>Adds one or more users to a Users dataset. For more information see
- *       <a>importing-users</a>.</p>
+ *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/importing-users.html">Importing Users Incrementally</a>.</p>
  */
 export class PutUsersCommand extends $Command<
   PutUsersCommandInput,

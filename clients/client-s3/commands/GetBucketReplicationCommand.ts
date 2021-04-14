@@ -29,9 +29,9 @@ export type GetBucketReplicationCommandOutput = GetBucketReplicationOutput & __M
  *             result. </p>
  *          </note>
  *          <p> For information about replication configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html">Replication</a> in the
- *             <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+ *             <i>Amazon S3 User Guide</i>.</p>
  *
- *          <p>This operation requires permissions for the <code>s3:GetReplicationConfiguration</code>
+ *          <p>This action requires permissions for the <code>s3:GetReplicationConfiguration</code>
  *          action. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using Bucket Policies and User
  *             Policies</a>.</p>
  *

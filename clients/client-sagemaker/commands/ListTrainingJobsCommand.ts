@@ -22,6 +22,26 @@ export type ListTrainingJobsCommandOutput = ListTrainingJobsResponse & __Metadat
 
 /**
  * <p>Lists training jobs.</p>
+ *         <note>
+ *             <p>When <code>StatusEquals</code> and <code>MaxResults</code> are set at the same
+ *                 time, the <code>MaxResults</code> number of training jobs are first retrieved
+ *                 ignoring the <code>StatusEquals</code> parameter and then they are filtered by the
+ *                     <code>StatusEquals</code> parameter, which is returned as a response. For
+ *                 example, if <code>ListTrainingJobs</code> is invoked with the following
+ *                 parameters:</p>
+ *             <p>
+ *                <code>{ ... MaxResults: 100, StatusEquals: InProgress ... }</code>
+ *             </p>
+ *             <p>Then, 100 trainings jobs with any status including those other than
+ *                     <code>InProgress</code> are selected first (sorted according the creation time,
+ *                 from the latest to the oldest) and those with status <code>InProgress</code> are
+ *                 returned.</p>
+ *             <p>You can quickly test the API using the following AWS CLI code.</p>
+ *             <p>
+ *                <code>aws sagemaker list-training-jobs --max-results 100 --status-equals
+ *                     InProgress</code>
+ *             </p>
+ *         </note>
  */
 export class ListTrainingJobsCommand extends $Command<
   ListTrainingJobsCommandInput,

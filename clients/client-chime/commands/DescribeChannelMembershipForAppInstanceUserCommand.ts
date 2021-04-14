@@ -25,7 +25,13 @@ export type DescribeChannelMembershipForAppInstanceUserCommandOutput = DescribeC
   __MetadataBearer;
 
 /**
- * <p>Returns the details of a channel based on the membership of the <code>AppInstanceUser</code> specified.</p>
+ * <p>
+ * Returns the details of a channel based on the membership of the specified <code>AppInstanceUser</code>.</p>
+ *
+ *          <note>
+ *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
+ *         the API call as the value in the header.</p>
+ *          </note>
  */
 export class DescribeChannelMembershipForAppInstanceUserCommand extends $Command<
   DescribeChannelMembershipForAppInstanceUserCommandInput,

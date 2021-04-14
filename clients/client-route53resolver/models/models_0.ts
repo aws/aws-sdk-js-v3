@@ -16,6 +16,286 @@ export namespace AccessDeniedException {
   });
 }
 
+export enum Action {
+  ALERT = "ALERT",
+  ALLOW = "ALLOW",
+  BLOCK = "BLOCK",
+}
+
+export enum MutationProtectionStatus {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+/**
+ * <p>One tag that you want to add to the specified resource. A tag consists of a <code>Key</code> (a name for the tag) and a <code>Value</code>.</p>
+ */
+export interface Tag {
+  /**
+   * <p>The name for the tag. For example, if you want to associate Resolver resources with the account IDs of your customers for billing purposes,
+   * 			the value of <code>Key</code> might be <code>account-id</code>.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The value for the tag. For example, if <code>Key</code> is <code>account-id</code>, then <code>Value</code> might be the ID of the
+   * 			customer account that you're creating the resource for.</p>
+   */
+  Value: string | undefined;
+}
+
+export namespace Tag {
+  export const filterSensitiveLog = (obj: Tag): any => ({
+    ...obj,
+  });
+}
+
+export interface AssociateFirewallRuleGroupRequest {
+  /**
+   * <p>A unique string that identifies the request and that allows failed requests
+   *            to be retried without the risk of executing the operation twice.
+   *       <code>CreatorRequestId</code> can be any unique string, for example, a date/time stamp. </p>
+   */
+  CreatorRequestId?: string;
+
+  /**
+   * <p>The unique identifier of the firewall rule group. </p>
+   */
+  FirewallRuleGroupId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the VPC that you want to associate with the rule group. </p>
+   */
+  VpcId: string | undefined;
+
+  /**
+   * <p>The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall
+   *            filters VPC traffic starting from rule group with the lowest numeric priority setting. </p>
+   *          <p>You must specify a unique priority for each rule group that you associate with a single VPC.
+   *            To make it easier to insert rule groups later, leave space between the numbers, for example, use 100, 200, and so on. You
+   *    can change the priority setting for a rule group association after you create it.</p>
+   */
+  Priority: number | undefined;
+
+  /**
+   * <p>A name that lets you identify the association, to manage and use it.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections.
+   *        When you create the association, the default setting is <code>DISABLED</code>. </p>
+   */
+  MutationProtection?: MutationProtectionStatus | string;
+
+  /**
+   * <p>A list of the tag keys and values that you want to associate with the rule group association. </p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace AssociateFirewallRuleGroupRequest {
+  export const filterSensitiveLog = (obj: AssociateFirewallRuleGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum FirewallRuleGroupAssociationStatus {
+  COMPLETE = "COMPLETE",
+  DELETING = "DELETING",
+  UPDATING = "UPDATING",
+}
+
+/**
+ * <p>An association between a firewall rul group and a VPC, which enables DNS filtering for the VPC. </p>
+ */
+export interface FirewallRuleGroupAssociation {
+  /**
+   * <p>The identifier for the association.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the firewall rule group association.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The unique identifier of the firewall rule group. </p>
+   */
+  FirewallRuleGroupId?: string;
+
+  /**
+   * <p>The unique identifier of the VPC that is associated with the rule group. </p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>The name of the association.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The setting that determines the processing order of the rule group among the rule groups that are associated with a single VPC. DNS Firewall
+   *            filters VPC traffic starting from rule group with the lowest numeric priority setting. </p>
+   */
+  Priority?: number;
+
+  /**
+   * <p>If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. </p>
+   */
+  MutationProtection?: MutationProtectionStatus | string;
+
+  /**
+   * <p>The owner of the association, used only for associations that are not managed by you. If you use AWS Firewall Manager to
+   *    manage your DNS Firewalls, then this reports Firewall Manager as the managed owner.</p>
+   */
+  ManagedOwnerName?: string;
+
+  /**
+   * <p>The current status of the association.</p>
+   */
+  Status?: FirewallRuleGroupAssociationStatus | string;
+
+  /**
+   * <p>Additional information about the status of the response, if available.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>A unique string defined by you to identify the request. This allows you to retry failed requests
+   *            without the risk of executing the operation twice. This can be any unique string, for example, a timestamp. </p>
+   */
+  CreatorRequestId?: string;
+
+  /**
+   * <p>The date and time that the association was created, in Unix time format and Coordinated Universal Time (UTC). </p>
+   */
+  CreationTime?: string;
+
+  /**
+   * <p>The date and time that the association was last modified, in Unix time format and Coordinated Universal Time (UTC).</p>
+   */
+  ModificationTime?: string;
+}
+
+export namespace FirewallRuleGroupAssociation {
+  export const filterSensitiveLog = (obj: FirewallRuleGroupAssociation): any => ({
+    ...obj,
+  });
+}
+
+export interface AssociateFirewallRuleGroupResponse {
+  /**
+   * <p>The association that you just created. The association has an Id that you can use to identify it in other requests, like update and delete.</p>
+   */
+  FirewallRuleGroupAssociation?: FirewallRuleGroupAssociation;
+}
+
+export namespace AssociateFirewallRuleGroupResponse {
+  export const filterSensitiveLog = (obj: AssociateFirewallRuleGroupResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p></p>
+ */
+export interface ConflictException extends __SmithyException, $MetadataBearer {
+  name: "ConflictException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace ConflictException {
+  export const filterSensitiveLog = (obj: ConflictException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>We encountered an unknown error. Try again in a few minutes.</p>
+ */
+export interface InternalServiceErrorException extends __SmithyException, $MetadataBearer {
+  name: "InternalServiceErrorException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InternalServiceErrorException {
+  export const filterSensitiveLog = (obj: InternalServiceErrorException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The request caused one or more limits to be exceeded.</p>
+ */
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
+  name: "LimitExceededException";
+  $fault: "client";
+  Message?: string;
+  /**
+   * <p>For a <code>LimitExceededException</code> error, the type of resource that exceeded the current limit.</p>
+   */
+  ResourceType?: string;
+}
+
+export namespace LimitExceededException {
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The specified resource doesn't exist.</p>
+ */
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  Message?: string;
+  /**
+   * <p>For a <code>ResourceNotFoundException</code> error, the type of resource that doesn't exist.</p>
+   */
+  ResourceType?: string;
+}
+
+export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The request was throttled. Try again in a few minutes.</p>
+ */
+export interface ThrottlingException extends __SmithyException, $MetadataBearer {
+  name: "ThrottlingException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace ThrottlingException {
+  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p></p>
+ */
+export interface ValidationException extends __SmithyException, $MetadataBearer {
+  name: "ValidationException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace ValidationException {
+  export const filterSensitiveLog = (obj: ValidationException): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>In an
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_UpdateResolverEndpoint.html">UpdateResolverEndpoint</a>
@@ -231,21 +511,6 @@ export namespace AssociateResolverEndpointIpAddressResponse {
 }
 
 /**
- * <p>We encountered an unknown error. Try again in a few minutes.</p>
- */
-export interface InternalServiceErrorException extends __SmithyException, $MetadataBearer {
-  name: "InternalServiceErrorException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InternalServiceErrorException {
-  export const filterSensitiveLog = (obj: InternalServiceErrorException): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>One or more parameters in this request are not valid.</p>
  */
 export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
@@ -280,25 +545,6 @@ export namespace InvalidRequestException {
 }
 
 /**
- * <p>The request caused one or more limits to be exceeded.</p>
- */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
-  Message?: string;
-  /**
-   * <p>For a <code>LimitExceededException</code> error, the type of resource that exceeded the current limit.</p>
-   */
-  ResourceType?: string;
-}
-
-export namespace LimitExceededException {
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>The resource that you tried to create already exists.</p>
  */
 export interface ResourceExistsException extends __SmithyException, $MetadataBearer {
@@ -313,40 +559,6 @@ export interface ResourceExistsException extends __SmithyException, $MetadataBea
 
 export namespace ResourceExistsException {
   export const filterSensitiveLog = (obj: ResourceExistsException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The specified resource doesn't exist.</p>
- */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  Message?: string;
-  /**
-   * <p>For a <code>ResourceNotFoundException</code> error, the type of resource that doesn't exist.</p>
-   */
-  ResourceType?: string;
-}
-
-export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The request was throttled. Try again in a few minutes.</p>
- */
-export interface ThrottlingException extends __SmithyException, $MetadataBearer {
-  name: "ThrottlingException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace ThrottlingException {
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
 }
@@ -596,6 +808,452 @@ export namespace ResourceUnavailableException {
   });
 }
 
+export enum BlockOverrideDnsType {
+  CNAME = "CNAME",
+}
+
+export enum BlockResponse {
+  NODATA = "NODATA",
+  NXDOMAIN = "NXDOMAIN",
+  OVERRIDE = "OVERRIDE",
+}
+
+export interface CreateFirewallDomainListRequest {
+  /**
+   * <p>A unique string that identifies the request and that allows you to retry failed requests
+   *            without the risk of executing the operation twice.
+   *       <code>CreatorRequestId</code> can be any unique string, for example, a date/time stamp. </p>
+   */
+  CreatorRequestId?: string;
+
+  /**
+   * <p>A name that lets you identify the domain list to manage and use it.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A list of the tag keys and values that you want to associate with the domain list. </p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace CreateFirewallDomainListRequest {
+  export const filterSensitiveLog = (obj: CreateFirewallDomainListRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum FirewallDomainListStatus {
+  COMPLETE = "COMPLETE",
+  COMPLETE_IMPORT_FAILED = "COMPLETE_IMPORT_FAILED",
+  DELETING = "DELETING",
+  IMPORTING = "IMPORTING",
+  UPDATING = "UPDATING",
+}
+
+/**
+ * <p>High level information about a list of firewall domains for use in a <a>FirewallRule</a>. This is returned by <a>GetFirewallDomainList</a>.</p>
+ *          <p>To retrieve the domains that are defined for this domain list, call <a>ListFirewallDomains</a>.</p>
+ */
+export interface FirewallDomainList {
+  /**
+   * <p>The ID of the domain list. </p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the firewall domain list.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The name of the domain list. </p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The number of domain names that are specified in the domain list.</p>
+   */
+  DomainCount?: number;
+
+  /**
+   * <p>The status of the domain list.  </p>
+   */
+  Status?: FirewallDomainListStatus | string;
+
+  /**
+   * <p>Additional information about the status of the list, if available.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>The owner of the list, used only for lists that are not managed by you. For example, the managed domain list <code>AWSManagedDomainsMalwareDomainList</code> has the managed owner name <code>Route 53 Resolver DNS Firewall</code>.</p>
+   */
+  ManagedOwnerName?: string;
+
+  /**
+   * <p>A unique string defined by you to identify the request. This allows you to retry failed requests
+   *            without the risk of executing the operation twice. This can be any unique string, for example, a timestamp. </p>
+   */
+  CreatorRequestId?: string;
+
+  /**
+   * <p>The date and time that the domain list was created, in Unix time format and Coordinated Universal Time (UTC). </p>
+   */
+  CreationTime?: string;
+
+  /**
+   * <p>The date and time that the domain list was last modified, in Unix time format and Coordinated Universal Time (UTC). </p>
+   */
+  ModificationTime?: string;
+}
+
+export namespace FirewallDomainList {
+  export const filterSensitiveLog = (obj: FirewallDomainList): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateFirewallDomainListResponse {
+  /**
+   * <p>The domain list that you just created.</p>
+   */
+  FirewallDomainList?: FirewallDomainList;
+}
+
+export namespace CreateFirewallDomainListResponse {
+  export const filterSensitiveLog = (obj: CreateFirewallDomainListResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateFirewallRuleRequest {
+  /**
+   * <p>A unique string that identifies the request and that allows you to retry failed requests
+   *            without the risk of executing the operation twice.
+   *       <code>CreatorRequestId</code> can be any unique string, for example, a date/time stamp. </p>
+   */
+  CreatorRequestId?: string;
+
+  /**
+   * <p>The unique identifier of the firewall rule group where you want to create the rule. </p>
+   */
+  FirewallRuleGroupId: string | undefined;
+
+  /**
+   * <p>The ID of the domain list that you want to use in the rule. </p>
+   */
+  FirewallDomainListId: string | undefined;
+
+  /**
+   * <p>The setting that determines the processing order of the rule in the rule group. DNS Firewall
+   *            processes the rules in a rule group by order of priority, starting from the lowest setting.</p>
+   *          <p>You must specify a unique priority for each rule in a rule group.
+   *            To make it easier to insert rules later, leave space between the numbers, for example, use 100, 200, and so on. You
+   *    can change the priority setting for the rules in a rule group at any time.</p>
+   */
+  Priority: number | undefined;
+
+  /**
+   * <p>The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> - Permit the request to go through.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALERT</code> - Permit the request and send metrics and log to Cloud Watch.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BLOCK</code> - Disallow the request. This option requires additional details in the rule's <code>BlockResponse</code>. </p>
+   *             </li>
+   *          </ul>
+   */
+  Action: Action | string | undefined;
+
+  /**
+   * <p>The way that you want DNS Firewall to block the request, used with the rule aciton setting <code>BLOCK</code>. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NODATA</code> - Respond indicating that the query was successful, but no response is available for it.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NXDOMAIN</code> - Respond indicating that the domain name that's in the query doesn't exist.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OVERRIDE</code> - Provide a custom override in the response. This option requires custom handling details in the rule's <code>BlockOverride*</code> settings. </p>
+   *             </li>
+   *          </ul>
+   *          <p>This setting is required if the rule action setting is <code>BLOCK</code>.</p>
+   */
+  BlockResponse?: BlockResponse | string;
+
+  /**
+   * <p>The custom DNS record to send back in response to the query. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
+   *          <p>This setting is required if the <code>BlockResponse</code> setting is <code>OVERRIDE</code>.</p>
+   */
+  BlockOverrideDomain?: string;
+
+  /**
+   * <p>The DNS record's type. This determines the format of the record value that you provided in <code>BlockOverrideDomain</code>. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
+   *          <p>This setting is required if the <code>BlockResponse</code> setting is <code>OVERRIDE</code>.</p>
+   */
+  BlockOverrideDnsType?: BlockOverrideDnsType | string;
+
+  /**
+   * <p>The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
+   *          <p>This setting is required if the <code>BlockResponse</code> setting is <code>OVERRIDE</code>.</p>
+   */
+  BlockOverrideTtl?: number;
+
+  /**
+   * <p>A name that lets you identify the rule in the rule group.</p>
+   */
+  Name: string | undefined;
+}
+
+export namespace CreateFirewallRuleRequest {
+  export const filterSensitiveLog = (obj: CreateFirewallRuleRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A single firewall rule in a rule group.</p>
+ */
+export interface FirewallRule {
+  /**
+   * <p>The unique identifier of the firewall rule group of the rule. </p>
+   */
+  FirewallRuleGroupId?: string;
+
+  /**
+   * <p>The ID of the domain list that's used in the rule. </p>
+   */
+  FirewallDomainListId?: string;
+
+  /**
+   * <p>The name of the rule. </p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The priority of the rule in the rule group. This value must be unique within the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.</p>
+   */
+  Priority?: number;
+
+  /**
+   * <p>The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> - Permit the request to go through.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALERT</code> - Permit the request to go through but send an alert to the logs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BLOCK</code> - Disallow the request. If this is specified, additional handling details are provided in the rule's <code>BlockResponse</code> setting. </p>
+   *             </li>
+   *          </ul>
+   */
+  Action?: Action | string;
+
+  /**
+   * <p>The way that you want DNS Firewall to block the request. Used for the rule action setting <code>BLOCK</code>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NODATA</code> - Respond indicating that the query was successful, but no response is available for it.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NXDOMAIN</code> - Respond indicating that the domain name that's in the query doesn't exist.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OVERRIDE</code> - Provide a custom override in the response. This option requires custom handling details in the rule's <code>BlockOverride*</code> settings. </p>
+   *             </li>
+   *          </ul>
+   */
+  BlockResponse?: BlockResponse | string;
+
+  /**
+   * <p>The custom DNS record to send back in response to the query. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
+   */
+  BlockOverrideDomain?: string;
+
+  /**
+   * <p>The DNS record's type. This determines the format of the record value that you provided in <code>BlockOverrideDomain</code>. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
+   */
+  BlockOverrideDnsType?: BlockOverrideDnsType | string;
+
+  /**
+   * <p>The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
+   */
+  BlockOverrideTtl?: number;
+
+  /**
+   * <p>A unique string defined by you to identify the request. This allows you to retry failed requests
+   *            without the risk of executing the operation twice. This can be any unique string, for example, a timestamp. </p>
+   */
+  CreatorRequestId?: string;
+
+  /**
+   * <p>The date and time that the rule was created, in Unix time format and Coordinated Universal Time (UTC). </p>
+   */
+  CreationTime?: string;
+
+  /**
+   * <p>The date and time that the rule was last modified, in Unix time format and Coordinated Universal Time (UTC).</p>
+   */
+  ModificationTime?: string;
+}
+
+export namespace FirewallRule {
+  export const filterSensitiveLog = (obj: FirewallRule): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateFirewallRuleResponse {
+  /**
+   * <p>The firewall rule that you just created. </p>
+   */
+  FirewallRule?: FirewallRule;
+}
+
+export namespace CreateFirewallRuleResponse {
+  export const filterSensitiveLog = (obj: CreateFirewallRuleResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateFirewallRuleGroupRequest {
+  /**
+   * <p>A unique string defined by you to identify the request. This allows you to retry failed requests
+   *            without the risk of executing the operation twice. This can be any unique string, for example, a timestamp. </p>
+   */
+  CreatorRequestId?: string;
+
+  /**
+   * <p>A name that lets you identify the rule group, to manage and use it.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A list of the tag keys and values that you want to associate with the rule group. </p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace CreateFirewallRuleGroupRequest {
+  export const filterSensitiveLog = (obj: CreateFirewallRuleGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum ShareStatus {
+  NotShared = "NOT_SHARED",
+  SharedByMe = "SHARED_BY_ME",
+  SharedWithMe = "SHARED_WITH_ME",
+}
+
+export enum FirewallRuleGroupStatus {
+  COMPLETE = "COMPLETE",
+  DELETING = "DELETING",
+  UPDATING = "UPDATING",
+}
+
+/**
+ * <p>High-level information for a firewall rule group. A firewall rule group is a collection of rules that DNS Firewall uses to filter DNS network traffic for a VPC. To retrieve the rules for the rule group, call <a>ListFirewallRules</a>.</p>
+ */
+export interface FirewallRuleGroup {
+  /**
+   * <p>The ID of the rule group. </p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The ARN (Amazon Resource Name) of the rule group.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The name of the rule group.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The number of rules in the rule group.</p>
+   */
+  RuleCount?: number;
+
+  /**
+   * <p>The status of the domain list.  </p>
+   */
+  Status?: FirewallRuleGroupStatus | string;
+
+  /**
+   * <p>Additional information about the status of the rule group, if available.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>The AWS account ID for the account that created the rule group. When a rule group is shared with your account,
+   *        this is the account that has shared the rule group with you.  </p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>A unique string defined by you to identify the request. This allows you to retry failed requests
+   *            without the risk of executing the operation twice. This can be any unique string, for example, a timestamp. </p>
+   */
+  CreatorRequestId?: string;
+
+  /**
+   * <p>Whether the rule group is shared with other AWS accounts, or was shared with the current account by another
+   *               AWS account. Sharing is configured through AWS Resource Access Manager (AWS RAM).</p>
+   */
+  ShareStatus?: ShareStatus | string;
+
+  /**
+   * <p>The date and time that the rule group was created, in Unix time format and Coordinated Universal Time (UTC). </p>
+   */
+  CreationTime?: string;
+
+  /**
+   * <p>The date and time that the rule group was last modified, in Unix time format and Coordinated Universal Time (UTC).</p>
+   */
+  ModificationTime?: string;
+}
+
+export namespace FirewallRuleGroup {
+  export const filterSensitiveLog = (obj: FirewallRuleGroup): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateFirewallRuleGroupResponse {
+  /**
+   * <p>A collection of rules used to filter DNS network traffic. </p>
+   */
+  FirewallRuleGroup?: FirewallRuleGroup;
+}
+
+export namespace CreateFirewallRuleGroupResponse {
+  export const filterSensitiveLog = (obj: CreateFirewallRuleGroupResponse): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>In a
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateResolverEndpoint.html">CreateResolverEndpoint</a>
@@ -616,29 +1274,6 @@ export interface IpAddressRequest {
 
 export namespace IpAddressRequest {
   export const filterSensitiveLog = (obj: IpAddressRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>One tag that you want to add to the specified resource. A tag consists of a <code>Key</code> (a name for the tag) and a <code>Value</code>.</p>
- */
-export interface Tag {
-  /**
-   * <p>The name for the tag. For example, if you want to associate Resolver resources with the account IDs of your customers for billing purposes,
-   * 			the value of <code>Key</code> might be <code>account-id</code>.</p>
-   */
-  Key: string | undefined;
-
-  /**
-   * <p>The value for the tag. For example, if <code>Key</code> is <code>account-id</code>, then <code>Value</code> might be the ID of the
-   * 			customer account that you're creating the resource for.</p>
-   */
-  Value: string | undefined;
-}
-
-export namespace Tag {
-  export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
 }
@@ -765,12 +1400,6 @@ export namespace CreateResolverQueryLogConfigRequest {
   export const filterSensitiveLog = (obj: CreateResolverQueryLogConfigRequest): any => ({
     ...obj,
   });
-}
-
-export enum ShareStatus {
-  NotShared = "NOT_SHARED",
-  SharedByMe = "SHARED_BY_ME",
-  SharedWithMe = "SHARED_WITH_ME",
 }
 
 export enum ResolverQueryLogConfigStatus {
@@ -1094,6 +1723,89 @@ export namespace CreateResolverRuleResponse {
   });
 }
 
+export interface DeleteFirewallDomainListRequest {
+  /**
+   * <p>The ID of the domain list that you want to delete. </p>
+   */
+  FirewallDomainListId: string | undefined;
+}
+
+export namespace DeleteFirewallDomainListRequest {
+  export const filterSensitiveLog = (obj: DeleteFirewallDomainListRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteFirewallDomainListResponse {
+  /**
+   * <p>The domain list that you just deleted. </p>
+   */
+  FirewallDomainList?: FirewallDomainList;
+}
+
+export namespace DeleteFirewallDomainListResponse {
+  export const filterSensitiveLog = (obj: DeleteFirewallDomainListResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteFirewallRuleRequest {
+  /**
+   * <p>The unique identifier of the firewall rule group that you want to delete the rule from. </p>
+   */
+  FirewallRuleGroupId: string | undefined;
+
+  /**
+   * <p>The ID of the domain list that's used in the rule.  </p>
+   */
+  FirewallDomainListId: string | undefined;
+}
+
+export namespace DeleteFirewallRuleRequest {
+  export const filterSensitiveLog = (obj: DeleteFirewallRuleRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteFirewallRuleResponse {
+  /**
+   * <p>The specification for the firewall rule that you just deleted.</p>
+   */
+  FirewallRule?: FirewallRule;
+}
+
+export namespace DeleteFirewallRuleResponse {
+  export const filterSensitiveLog = (obj: DeleteFirewallRuleResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteFirewallRuleGroupRequest {
+  /**
+   * <p>The unique identifier of the firewall rule group that you want to delete. </p>
+   */
+  FirewallRuleGroupId: string | undefined;
+}
+
+export namespace DeleteFirewallRuleGroupRequest {
+  export const filterSensitiveLog = (obj: DeleteFirewallRuleGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteFirewallRuleGroupResponse {
+  /**
+   * <p>A collection of rules used to filter DNS network traffic. </p>
+   */
+  FirewallRuleGroup?: FirewallRuleGroup;
+}
+
+export namespace DeleteFirewallRuleGroupResponse {
+  export const filterSensitiveLog = (obj: DeleteFirewallRuleGroupResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteResolverEndpointRequest {
   /**
    * <p>The ID of the Resolver endpoint that you want to delete.</p>
@@ -1187,6 +1899,32 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
 
 export namespace ResourceInUseException {
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateFirewallRuleGroupRequest {
+  /**
+   * <p>The identifier of the <a>FirewallRuleGroupAssociation</a>. </p>
+   */
+  FirewallRuleGroupAssociationId: string | undefined;
+}
+
+export namespace DisassociateFirewallRuleGroupRequest {
+  export const filterSensitiveLog = (obj: DisassociateFirewallRuleGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateFirewallRuleGroupResponse {
+  /**
+   * <p>The firewall rule group association that you just removed. </p>
+   */
+  FirewallRuleGroupAssociation?: FirewallRuleGroupAssociation;
+}
+
+export namespace DisassociateFirewallRuleGroupResponse {
+  export const filterSensitiveLog = (obj: DisassociateFirewallRuleGroupResponse): any => ({
     ...obj,
   });
 }
@@ -1290,8 +2028,9 @@ export namespace DisassociateResolverRuleResponse {
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRules.html">ListResolverRules</a>,
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRuleAssociations.html">ListResolverRuleAssociations</a>,
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverQueryLogConfigs.html">ListResolverQueryLogConfigs</a>,
- * 			and
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverQueryLogConfigAssociations.html">ListResolverQueryLogConfigAssociations</a>),
+ * 			and
+ * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverDnssecConfigs.html">ListResolverDnssecConfigs</a>),
  * 			an optional specification to return a subset of objects.</p>
  * 		       <p>To filter objects, such as Resolver endpoints or Resolver rules, you specify <code>Name</code> and <code>Values</code>. For example,
  * 			to list only inbound Resolver endpoints, specify <code>Direction</code> for <code>Name</code> and specify <code>INBOUND</code> for <code>Values</code>. </p>
@@ -1534,7 +2273,7 @@ export interface Filter {
    *                   <code>Status</code>: The status of the query logging association. If you specify <code>Status</code> for <code>Name</code>,
    * 				specify the applicable status code for <code>Values</code>: <code>CREATING</code>, <code>CREATED</code>,
    * 				<code>DELETING</code>, or <code>FAILED</code>. For more information, see
-   * 				<a href="https://docs.aws.amazon.com/API_route53resolver_ResolverQueryLogConfigAssociation.html#Route53Resolver-Type-route53resolver_ResolverQueryLogConfigAssociation-Status">Status</a>.
+   * 			    <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ResolverQueryLogConfigAssociation.html#Route53Resolver-Type-route53resolver_ResolverQueryLogConfigAssociation-Status">Status</a>.
    * 				</p>
    * 			         </li>
    *          </ul>
@@ -1551,6 +2290,358 @@ export interface Filter {
 
 export namespace Filter {
   export const filterSensitiveLog = (obj: Filter): any => ({
+    ...obj,
+  });
+}
+
+export enum FirewallFailOpenStatus {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+/**
+ * <p>Configuration of the firewall behavior provided by DNS Firewall for a single Amazon virtual private cloud (VPC). </p>
+ */
+export interface FirewallConfig {
+  /**
+   * <p>The Id of the firewall configuration.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The ID of the VPC that this firewall configuration applies to.</p>
+   */
+  ResourceId?: string;
+
+  /**
+   * <p>The AWS account ID of the owner of the VPC that this firewall configuration applies to.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>Determines how DNS Firewall operates during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. </p>
+   *          <ul>
+   *             <li>
+   *                <p>By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability. DNS Firewall returns
+   *            a failure error when it is unable to properly evaluate a query. </p>
+   *             </li>
+   *             <li>
+   *                <p>If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it
+   *        is unable to properly evaluate them. </p>
+   *             </li>
+   *          </ul>
+   *          <p>This behavior is only enforced for VPCs that have at least one DNS Firewall rule group association. </p>
+   */
+  FirewallFailOpen?: FirewallFailOpenStatus | string;
+}
+
+export namespace FirewallConfig {
+  export const filterSensitiveLog = (obj: FirewallConfig): any => ({
+    ...obj,
+  });
+}
+
+export enum FirewallDomainImportOperation {
+  REPLACE = "REPLACE",
+}
+
+/**
+ * <p>Minimal high-level information for a firewall domain list. The action <a>ListFirewallDomainLists</a> returns an array of these objects. </p>
+ *          <p>To retrieve full information for a firewall domain list, call  <a>GetFirewallDomainList</a> and <a>ListFirewallDomains</a>.</p>
+ */
+export interface FirewallDomainListMetadata {
+  /**
+   * <p>The ID of the domain list. </p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the firewall domain list metadata.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The name of the domain list. </p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A unique string defined by you to identify the request. This allows you to retry failed requests
+   *            without the risk of executing the operation twice. This can be any unique string, for example, a timestamp. </p>
+   */
+  CreatorRequestId?: string;
+
+  /**
+   * <p>The owner of the list, used only for lists that are not managed by you. For example, the managed domain list <code>AWSManagedDomainsMalwareDomainList</code> has the managed owner name <code>Route 53 Resolver DNS Firewall</code>.</p>
+   */
+  ManagedOwnerName?: string;
+}
+
+export namespace FirewallDomainListMetadata {
+  export const filterSensitiveLog = (obj: FirewallDomainListMetadata): any => ({
+    ...obj,
+  });
+}
+
+export enum FirewallDomainUpdateOperation {
+  ADD = "ADD",
+  REMOVE = "REMOVE",
+  REPLACE = "REPLACE",
+}
+
+/**
+ * <p>Minimal high-level information for a firewall rule group. The action <a>ListFirewallRuleGroups</a> returns an array of these objects. </p>
+ *          <p>To retrieve full information for a firewall rule group, call <a>GetFirewallRuleGroup</a> and <a>ListFirewallRules</a>.</p>
+ */
+export interface FirewallRuleGroupMetadata {
+  /**
+   * <p>The ID of the rule group. </p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The ARN (Amazon Resource Name) of the rule group.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The name of the rule group.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The AWS account ID for the account that created the rule group. When a rule group is shared with your account,
+   *        this is the account that has shared the rule group with you.  </p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>A unique string defined by you to identify the request. This allows you to retry failed requests
+   *            without the risk of executing the operation twice. This can be any unique string, for example, a timestamp. </p>
+   */
+  CreatorRequestId?: string;
+
+  /**
+   * <p>Whether the rule group is shared with other AWS accounts, or was shared with the current account by another
+   *               AWS account. Sharing is configured through AWS Resource Access Manager (AWS RAM).</p>
+   */
+  ShareStatus?: ShareStatus | string;
+}
+
+export namespace FirewallRuleGroupMetadata {
+  export const filterSensitiveLog = (obj: FirewallRuleGroupMetadata): any => ({
+    ...obj,
+  });
+}
+
+export interface GetFirewallConfigRequest {
+  /**
+   * <p>The ID of the Amazon virtual private cloud (VPC) that the configuration is for.</p>
+   */
+  ResourceId: string | undefined;
+}
+
+export namespace GetFirewallConfigRequest {
+  export const filterSensitiveLog = (obj: GetFirewallConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetFirewallConfigResponse {
+  /**
+   * <p>Configuration of the firewall behavior provided by DNS Firewall for a single Amazon virtual private cloud (VPC). </p>
+   */
+  FirewallConfig?: FirewallConfig;
+}
+
+export namespace GetFirewallConfigResponse {
+  export const filterSensitiveLog = (obj: GetFirewallConfigResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetFirewallDomainListRequest {
+  /**
+   * <p>The ID of the domain list.  </p>
+   */
+  FirewallDomainListId: string | undefined;
+}
+
+export namespace GetFirewallDomainListRequest {
+  export const filterSensitiveLog = (obj: GetFirewallDomainListRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetFirewallDomainListResponse {
+  /**
+   * <p>The domain list that you requested.  </p>
+   */
+  FirewallDomainList?: FirewallDomainList;
+}
+
+export namespace GetFirewallDomainListResponse {
+  export const filterSensitiveLog = (obj: GetFirewallDomainListResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetFirewallRuleGroupRequest {
+  /**
+   * <p>The unique identifier of the firewall rule group. </p>
+   */
+  FirewallRuleGroupId: string | undefined;
+}
+
+export namespace GetFirewallRuleGroupRequest {
+  export const filterSensitiveLog = (obj: GetFirewallRuleGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetFirewallRuleGroupResponse {
+  /**
+   * <p>A collection of rules used to filter DNS network traffic. </p>
+   */
+  FirewallRuleGroup?: FirewallRuleGroup;
+}
+
+export namespace GetFirewallRuleGroupResponse {
+  export const filterSensitiveLog = (obj: GetFirewallRuleGroupResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetFirewallRuleGroupAssociationRequest {
+  /**
+   * <p>The identifier of the <a>FirewallRuleGroupAssociation</a>. </p>
+   */
+  FirewallRuleGroupAssociationId: string | undefined;
+}
+
+export namespace GetFirewallRuleGroupAssociationRequest {
+  export const filterSensitiveLog = (obj: GetFirewallRuleGroupAssociationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetFirewallRuleGroupAssociationResponse {
+  /**
+   * <p>The association that you requested. </p>
+   */
+  FirewallRuleGroupAssociation?: FirewallRuleGroupAssociation;
+}
+
+export namespace GetFirewallRuleGroupAssociationResponse {
+  export const filterSensitiveLog = (obj: GetFirewallRuleGroupAssociationResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetFirewallRuleGroupPolicyRequest {
+  /**
+   * <p>The ARN (Amazon Resource Name) for the rule group.</p>
+   */
+  Arn: string | undefined;
+}
+
+export namespace GetFirewallRuleGroupPolicyRequest {
+  export const filterSensitiveLog = (obj: GetFirewallRuleGroupPolicyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetFirewallRuleGroupPolicyResponse {
+  /**
+   * <p>The AWS Identity and Access Management (AWS IAM) policy for sharing the specified rule group. You can use the policy to share the rule group using AWS Resource Access Manager (RAM). </p>
+   */
+  FirewallRuleGroupPolicy?: string;
+}
+
+export namespace GetFirewallRuleGroupPolicyResponse {
+  export const filterSensitiveLog = (obj: GetFirewallRuleGroupPolicyResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetResolverDnssecConfigRequest {
+  /**
+   * <p>The ID of the virtual private cloud (VPC) for the DNSSEC validation status.</p>
+   */
+  ResourceId: string | undefined;
+}
+
+export namespace GetResolverDnssecConfigRequest {
+  export const filterSensitiveLog = (obj: GetResolverDnssecConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum ResolverDNSSECValidationStatus {
+  Disabled = "DISABLED",
+  Disabling = "DISABLING",
+  Enabled = "ENABLED",
+  Enabling = "ENABLING",
+}
+
+/**
+ * <p>A complex type that contains information about a configuration for DNSSEC validation.</p>
+ */
+export interface ResolverDnssecConfig {
+  /**
+   * <p>The ID for a configuration for DNSSEC validation.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The ID of the virtual private cloud (VPC) that you're configuring the DNSSEC validation status for.</p>
+   */
+  ResourceId?: string;
+
+  /**
+   * <p>The validation status for a DNSSEC configuration. The status can be one of the following:</p>
+   * 		       <ul>
+   *             <li>
+   *                <p>
+   *                   <b>ENABLING:</b> DNSSEC validation is being enabled but is not complete.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>ENABLED:</b> DNSSEC validation is enabled.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>DISABLING:</b> DNSSEC validation is being disabled but is not complete.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>DISABLED</b> DNSSEC validation is disabled.</p>
+   *             </li>
+   *          </ul>
+   */
+  ValidationStatus?: ResolverDNSSECValidationStatus | string;
+}
+
+export namespace ResolverDnssecConfig {
+  export const filterSensitiveLog = (obj: ResolverDnssecConfig): any => ({
+    ...obj,
+  });
+}
+
+export interface GetResolverDnssecConfigResponse {
+  /**
+   * <p>The information about a configuration for DNSSEC validation.</p>
+   */
+  ResolverDNSSECConfig?: ResolverDnssecConfig;
+}
+
+export namespace GetResolverDnssecConfigResponse {
+  export const filterSensitiveLog = (obj: GetResolverDnssecConfigResponse): any => ({
     ...obj,
   });
 }
@@ -1729,7 +2820,7 @@ export namespace GetResolverRuleAssociationResponse {
 
 export interface GetResolverRulePolicyRequest {
   /**
-   * <p>The ID of the Resolver rule policy that you want to get information about.</p>
+   * <p>The ID of the Resolver rule that you want to get the Resolver rule policy for.</p>
    */
   Arn: string | undefined;
 }
@@ -1742,13 +2833,66 @@ export namespace GetResolverRulePolicyRequest {
 
 export interface GetResolverRulePolicyResponse {
   /**
-   * <p>Information about the Resolver rule policy that you specified in a <code>GetResolverRulePolicy</code> request.</p>
+   * <p>The Resolver rule policy for the rule that you specified in a <code>GetResolverRulePolicy</code> request.</p>
    */
   ResolverRulePolicy?: string;
 }
 
 export namespace GetResolverRulePolicyResponse {
   export const filterSensitiveLog = (obj: GetResolverRulePolicyResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ImportFirewallDomainsRequest {
+  /**
+   * <p>The ID of the domain list that you want to modify with the import operation.</p>
+   */
+  FirewallDomainListId: string | undefined;
+
+  /**
+   * <p>What you want DNS Firewall to do with the domains that are listed in the file. This must be set to <code>REPLACE</code>, which updates the domain list to exactly match the list in the file. </p>
+   */
+  Operation: FirewallDomainImportOperation | string | undefined;
+
+  /**
+   * <p>The fully qualified URL or URI of the file stored in Amazon Simple Storage Service (S3) that contains the list of domains to import.</p>
+   *          <p>The file must be in an S3 bucket that's in the same Region
+   *        as your DNS Firewall. The file must be a text file and must contain a single domain per line.</p>
+   */
+  DomainFileUrl: string | undefined;
+}
+
+export namespace ImportFirewallDomainsRequest {
+  export const filterSensitiveLog = (obj: ImportFirewallDomainsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ImportFirewallDomainsResponse {
+  /**
+   * <p>The Id of the firewall domain list that DNS Firewall just updated.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The name of the domain list. </p>
+   */
+  Name?: string;
+
+  /**
+   * <p> </p>
+   */
+  Status?: FirewallDomainListStatus | string;
+
+  /**
+   * <p>Additional information about the status of the list, if available.</p>
+   */
+  StatusMessage?: string;
+}
+
+export namespace ImportFirewallDomainsResponse {
+  export const filterSensitiveLog = (obj: ImportFirewallDomainsResponse): any => ({
     ...obj,
   });
 }
@@ -1855,6 +2999,389 @@ export interface IpAddressResponse {
 
 export namespace IpAddressResponse {
   export const filterSensitiveLog = (obj: IpAddressResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListFirewallConfigsRequest {
+  /**
+   * <p>The maximum number of objects that you want Resolver to return for this request. If more
+   *             objects are available, in the response, Resolver provides a
+   *            <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+   *          <p>If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 objects. </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>For the first call to this list request, omit this value.</p>
+   *          <p>When you request a list of objects, Resolver returns at most the number of objects
+   *        specified in <code>MaxResults</code>. If more objects are available for retrieval,
+   *            Resolver returns a <code>NextToken</code> value in the response. To retrieve the next
+   *                batch of objects, use the token that was returned for the prior request in your next request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListFirewallConfigsRequest {
+  export const filterSensitiveLog = (obj: ListFirewallConfigsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListFirewallConfigsResponse {
+  /**
+   * <p>If objects are still available for retrieval, Resolver returns this token in the response.
+   *            To retrieve the next batch of objects, provide this token in your next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The configurations for the firewall behavior provided by DNS Firewall for Amazon virtual private clouds (VPC). </p>
+   */
+  FirewallConfigs?: FirewallConfig[];
+}
+
+export namespace ListFirewallConfigsResponse {
+  export const filterSensitiveLog = (obj: ListFirewallConfigsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListFirewallDomainListsRequest {
+  /**
+   * <p>The maximum number of objects that you want Resolver to return for this request. If more
+   *             objects are available, in the response, Resolver provides a
+   *            <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+   *          <p>If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 objects. </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>For the first call to this list request, omit this value.</p>
+   *          <p>When you request a list of objects, Resolver returns at most the number of objects
+   *        specified in <code>MaxResults</code>. If more objects are available for retrieval,
+   *            Resolver returns a <code>NextToken</code> value in the response. To retrieve the next
+   *                batch of objects, use the token that was returned for the prior request in your next request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListFirewallDomainListsRequest {
+  export const filterSensitiveLog = (obj: ListFirewallDomainListsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListFirewallDomainListsResponse {
+  /**
+   * <p>If objects are still available for retrieval, Resolver returns this token in the response.
+   *            To retrieve the next batch of objects, provide this token in your next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A list of the domain lists that you have defined.   </p>
+   *          <p>This might be a parital list of the domain lists that you've defined. For information, see <code>MaxResults</code>. </p>
+   */
+  FirewallDomainLists?: FirewallDomainListMetadata[];
+}
+
+export namespace ListFirewallDomainListsResponse {
+  export const filterSensitiveLog = (obj: ListFirewallDomainListsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListFirewallDomainsRequest {
+  /**
+   * <p>The ID of the domain list whose domains you want to retrieve. </p>
+   */
+  FirewallDomainListId: string | undefined;
+
+  /**
+   * <p>The maximum number of objects that you want Resolver to return for this request. If more
+   *             objects are available, in the response, Resolver provides a
+   *            <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+   *          <p>If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 objects. </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>For the first call to this list request, omit this value.</p>
+   *          <p>When you request a list of objects, Resolver returns at most the number of objects
+   *        specified in <code>MaxResults</code>. If more objects are available for retrieval,
+   *            Resolver returns a <code>NextToken</code> value in the response. To retrieve the next
+   *                batch of objects, use the token that was returned for the prior request in your next request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListFirewallDomainsRequest {
+  export const filterSensitiveLog = (obj: ListFirewallDomainsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListFirewallDomainsResponse {
+  /**
+   * <p>If objects are still available for retrieval, Resolver returns this token in the response.
+   *            To retrieve the next batch of objects, provide this token in your next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A list of the domains in the firewall domain list.  </p>
+   *          <p>This might be a parital list of the domains that you've defined in the domain list. For information, see <code>MaxResults</code>. </p>
+   */
+  Domains?: string[];
+}
+
+export namespace ListFirewallDomainsResponse {
+  export const filterSensitiveLog = (obj: ListFirewallDomainsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListFirewallRuleGroupAssociationsRequest {
+  /**
+   * <p>The unique identifier of the firewall rule group that you want to retrieve the associations
+   *            for. Leave this blank to retrieve associations for any rule group. </p>
+   */
+  FirewallRuleGroupId?: string;
+
+  /**
+   * <p>The unique identifier of the VPC that you want to retrieve the associations
+   *            for. Leave this blank to retrieve associations for any VPC. </p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>The setting that determines the processing order of the rule group among the rule groups that are associated with a single VPC. DNS Firewall
+   *            filters VPC traffic starting from rule group with the lowest numeric priority setting. </p>
+   */
+  Priority?: number;
+
+  /**
+   * <p>The association <code>Status</code> setting that you want DNS Firewall to filter on for the list. If you don't specify this, then DNS Firewall returns all associations, regardless of status.</p>
+   */
+  Status?: FirewallRuleGroupAssociationStatus | string;
+
+  /**
+   * <p>The maximum number of objects that you want Resolver to return for this request. If more
+   *             objects are available, in the response, Resolver provides a
+   *            <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+   *          <p>If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 objects. </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>For the first call to this list request, omit this value.</p>
+   *          <p>When you request a list of objects, Resolver returns at most the number of objects
+   *        specified in <code>MaxResults</code>. If more objects are available for retrieval,
+   *            Resolver returns a <code>NextToken</code> value in the response. To retrieve the next
+   *                batch of objects, use the token that was returned for the prior request in your next request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListFirewallRuleGroupAssociationsRequest {
+  export const filterSensitiveLog = (obj: ListFirewallRuleGroupAssociationsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListFirewallRuleGroupAssociationsResponse {
+  /**
+   * <p>If objects are still available for retrieval, Resolver returns this token in the response.
+   *            To retrieve the next batch of objects, provide this token in your next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A list of your firewall rule group associations.</p>
+   *          <p>This might be a partial list of the associations that you have defined. For information, see <code>MaxResults</code>. </p>
+   */
+  FirewallRuleGroupAssociations?: FirewallRuleGroupAssociation[];
+}
+
+export namespace ListFirewallRuleGroupAssociationsResponse {
+  export const filterSensitiveLog = (obj: ListFirewallRuleGroupAssociationsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListFirewallRuleGroupsRequest {
+  /**
+   * <p>The maximum number of objects that you want Resolver to return for this request. If more
+   *             objects are available, in the response, Resolver provides a
+   *            <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+   *          <p>If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 objects. </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>For the first call to this list request, omit this value.</p>
+   *          <p>When you request a list of objects, Resolver returns at most the number of objects
+   *        specified in <code>MaxResults</code>. If more objects are available for retrieval,
+   *            Resolver returns a <code>NextToken</code> value in the response. To retrieve the next
+   *                batch of objects, use the token that was returned for the prior request in your next request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListFirewallRuleGroupsRequest {
+  export const filterSensitiveLog = (obj: ListFirewallRuleGroupsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListFirewallRuleGroupsResponse {
+  /**
+   * <p>If objects are still available for retrieval, Resolver returns this token in the response.
+   *            To retrieve the next batch of objects, provide this token in your next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A list of your firewall rule groups.</p>
+   *          <p>This might be a partial list of the rule groups that you have defined. For information, see <code>MaxResults</code>. </p>
+   */
+  FirewallRuleGroups?: FirewallRuleGroupMetadata[];
+}
+
+export namespace ListFirewallRuleGroupsResponse {
+  export const filterSensitiveLog = (obj: ListFirewallRuleGroupsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListFirewallRulesRequest {
+  /**
+   * <p>The unique identifier of the firewall rule group that you want to retrieve the rules for. </p>
+   */
+  FirewallRuleGroupId: string | undefined;
+
+  /**
+   * <p>Optional additional filter for the rules to retrieve.</p>
+   *          <p>The setting that determines the processing order of the rules in a rule group. DNS Firewall
+   *            processes the rules in a rule group by order of priority, starting from the lowest setting.</p>
+   */
+  Priority?: number;
+
+  /**
+   * <p>Optional additional filter for the rules to retrieve.</p>
+   *          <p>The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> - Permit the request to go through.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALERT</code> - Permit the request to go through but send an alert to the logs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BLOCK</code> - Disallow the request. If this is specified, additional handling details are provided in the rule's <code>BlockResponse</code> setting. </p>
+   *             </li>
+   *          </ul>
+   */
+  Action?: Action | string;
+
+  /**
+   * <p>The maximum number of objects that you want Resolver to return for this request. If more
+   *             objects are available, in the response, Resolver provides a
+   *            <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+   *          <p>If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 objects. </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>For the first call to this list request, omit this value.</p>
+   *          <p>When you request a list of objects, Resolver returns at most the number of objects
+   *        specified in <code>MaxResults</code>. If more objects are available for retrieval,
+   *            Resolver returns a <code>NextToken</code> value in the response. To retrieve the next
+   *                batch of objects, use the token that was returned for the prior request in your next request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListFirewallRulesRequest {
+  export const filterSensitiveLog = (obj: ListFirewallRulesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListFirewallRulesResponse {
+  /**
+   * <p>If objects are still available for retrieval, Resolver returns this token in the response.
+   *            To retrieve the next batch of objects, provide this token in your next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A list of the rules that you have defined.  </p>
+   *          <p>This might be a parital list of the firewall rules that you've defined. For information, see <code>MaxResults</code>. </p>
+   */
+  FirewallRules?: FirewallRule[];
+}
+
+export namespace ListFirewallRulesResponse {
+  export const filterSensitiveLog = (obj: ListFirewallRulesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListResolverDnssecConfigsRequest {
+  /**
+   * <p>
+   *             <i>Optional</i>: An integer that specifies the maximum number of DNSSEC configuration results that you want Amazon Route 53 to return.
+   * 			If you don't specify a value for <code>MaxResults</code>, Route 53 returns up to 100 configuration per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>(Optional) If the current AWS account has more than <code>MaxResults</code> DNSSEC configurations, use <code>NextToken</code>
+   * 			to get the second and subsequent pages of results.</p>
+   * 		       <p>For the first <code>ListResolverDnssecConfigs</code> request, omit this value.</p>
+   * 		       <p>For the second and subsequent requests, get the value of <code>NextToken</code> from the previous response and specify that value
+   * 			for <code>NextToken</code> in the request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>An optional specification to return a subset of objects.</p>
+   */
+  Filters?: Filter[];
+}
+
+export namespace ListResolverDnssecConfigsRequest {
+  export const filterSensitiveLog = (obj: ListResolverDnssecConfigsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListResolverDnssecConfigsResponse {
+  /**
+   * <p>If a response includes the last of the DNSSEC configurations that are associated with the current AWS account,
+   * 			<code>NextToken</code> doesn't appear in the response.</p>
+   * 		       <p>If a response doesn't include the last of the configurations, you can get more configurations by submitting another
+   * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListResolverDnssecConfigs.html">ListResolverDnssecConfigs</a>
+   * 			request. Get the value of <code>NextToken</code> that Amazon Route 53 returned in the previous response and include it in
+   * 			<code>NextToken</code> in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>An array that contains one
+   * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ResolverDnssecConfig.html">ResolverDnssecConfig</a> element
+   * 			for each configuration for DNSSEC validation that is associated with the current AWS account.</p>
+   */
+  ResolverDnssecConfigs?: ResolverDnssecConfig[];
+}
+
+export namespace ListResolverDnssecConfigsResponse {
+  export const filterSensitiveLog = (obj: ListResolverDnssecConfigsResponse): any => ({
     ...obj,
   });
 }
@@ -2439,6 +3966,37 @@ export namespace ListTagsForResourceResponse {
   });
 }
 
+export interface PutFirewallRuleGroupPolicyRequest {
+  /**
+   * <p>The ARN (Amazon Resource Name) for the rule group that you want to share.</p>
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The AWS Identity and Access Management (AWS IAM) policy to attach to the rule group.</p>
+   */
+  FirewallRuleGroupPolicy: string | undefined;
+}
+
+export namespace PutFirewallRuleGroupPolicyRequest {
+  export const filterSensitiveLog = (obj: PutFirewallRuleGroupPolicyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface PutFirewallRuleGroupPolicyResponse {
+  /**
+   * <p></p>
+   */
+  ReturnValue?: boolean;
+}
+
+export namespace PutFirewallRuleGroupPolicyResponse {
+  export const filterSensitiveLog = (obj: PutFirewallRuleGroupPolicyResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface PutResolverQueryLogConfigPolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the account that you want to share rules with.</p>
@@ -2502,13 +4060,13 @@ export namespace PutResolverQueryLogConfigPolicyResponse {
 
 export interface PutResolverRulePolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the account that you want to share rules with.</p>
+   * <p>The Amazon Resource Name (ARN) of the rule that you want to share with another account.</p>
    */
   Arn: string | undefined;
 
   /**
    * <p>An AWS Identity and Access Management policy statement that lists the rules that you want to share with another AWS account and the operations that you want the account
-   * 			to be able to perform. You can specify the following operations in the <code>Actions</code> section of the statement:</p>
+   * 			to be able to perform. You can specify the following operations in the <code>Action</code> section of the statement:</p>
    * 			      <ul>
    *             <li>
    *                <p>
@@ -2537,8 +4095,8 @@ export interface PutResolverRulePolicyRequest {
    *             </li>
    *          </ul>
    *
-   * 		       <p>In the <code>Resource</code> section of the statement, you specify the ARNs for the rules that you want to share with the account that you
-   * 			specified in <code>Arn</code>. </p>
+   * 		       <p>In the <code>Resource</code> section of the statement, specify the ARN for the rule that you want to share with another account. Specify the same ARN
+   * 			that you specified in <code>Arn</code>.</p>
    */
   ResolverRulePolicy: string | undefined;
 }
@@ -2708,6 +4266,308 @@ export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateFirewallConfigRequest {
+  /**
+   * <p>The ID of the Amazon virtual private cloud (VPC) that the configuration is for.</p>
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * <p>Determines how Route 53 Resolver handles queries during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. </p>
+   *          <ul>
+   *             <li>
+   *                <p>By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability.
+   *        DNS Firewall blocks queries that it is unable to evaluate properly. </p>
+   *             </li>
+   *             <li>
+   *                <p>If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it
+   *        is unable to properly evaluate them. </p>
+   *             </li>
+   *          </ul>
+   *          <p>This behavior is only enforced for VPCs that have at least one DNS Firewall rule group association. </p>
+   */
+  FirewallFailOpen: FirewallFailOpenStatus | string | undefined;
+}
+
+export namespace UpdateFirewallConfigRequest {
+  export const filterSensitiveLog = (obj: UpdateFirewallConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateFirewallConfigResponse {
+  /**
+   * <p>Configuration of the firewall behavior provided by DNS Firewall for a single Amazon virtual private cloud (VPC). </p>
+   */
+  FirewallConfig?: FirewallConfig;
+}
+
+export namespace UpdateFirewallConfigResponse {
+  export const filterSensitiveLog = (obj: UpdateFirewallConfigResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateFirewallDomainsRequest {
+  /**
+   * <p>The ID of the domain list whose domains you want to update. </p>
+   */
+  FirewallDomainListId: string | undefined;
+
+  /**
+   * <p>What you want DNS Firewall to do with the domains that you are providing: </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ADD</code> - Add the domains to the ones that are already in the domain list. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REMOVE</code> - Search the domain list for the domains and remove them from the list.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REPLACE</code> - Update the domain list to exactly match the list that you are providing. </p>
+   *             </li>
+   *          </ul>
+   */
+  Operation: FirewallDomainUpdateOperation | string | undefined;
+
+  /**
+   * <p>A list of domains to use in the update operation.</p>
+   *          <p>Each domain specification in your domain list must satisfy the following
+   * 	requirements: </p>
+   *          <ul>
+   *             <li>
+   *       	        <p>It can optionally start with <code>*</code> (asterisk).</p>
+   *       	     </li>
+   *             <li>
+   *       	        <p>With the exception of the optional starting asterisk, it must only contain
+   *       	   the following characters: <code>A-Z</code>, <code>a-z</code>,
+   *       	   <code>0-9</code>, <code>-</code> (hyphen).</p>
+   *       	     </li>
+   *             <li>
+   *       	        <p>It must be from 1-255 characters in length. </p>
+   *       	     </li>
+   *          </ul>
+   */
+  Domains: string[] | undefined;
+}
+
+export namespace UpdateFirewallDomainsRequest {
+  export const filterSensitiveLog = (obj: UpdateFirewallDomainsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateFirewallDomainsResponse {
+  /**
+   * <p>The Id of the firewall domain list that DNS Firewall just updated.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The name of the domain list. </p>
+   */
+  Name?: string;
+
+  /**
+   * <p> </p>
+   */
+  Status?: FirewallDomainListStatus | string;
+
+  /**
+   * <p>Additional information about the status of the list, if available.</p>
+   */
+  StatusMessage?: string;
+}
+
+export namespace UpdateFirewallDomainsResponse {
+  export const filterSensitiveLog = (obj: UpdateFirewallDomainsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateFirewallRuleRequest {
+  /**
+   * <p>The unique identifier of the firewall rule group for the rule. </p>
+   */
+  FirewallRuleGroupId: string | undefined;
+
+  /**
+   * <p>The ID of the domain list to use in the rule.  </p>
+   */
+  FirewallDomainListId: string | undefined;
+
+  /**
+   * <p>The setting that determines the processing order of the rule in the rule group. DNS Firewall
+   *            processes the rules in a rule group by order of priority, starting from the lowest setting.</p>
+   *          <p>You must specify a unique priority for each rule in a rule group.
+   *            To make it easier to insert rules later, leave space between the numbers, for example, use 100, 200, and so on. You
+   *    can change the priority setting for the rules in a rule group at any time.</p>
+   */
+  Priority?: number;
+
+  /**
+   * <p>The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> - Permit the request to go through.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALERT</code> - Permit the request to go through but send an alert to the logs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BLOCK</code> - Disallow the request. This option requires additional details in the rule's <code>BlockResponse</code>. </p>
+   *             </li>
+   *          </ul>
+   */
+  Action?: Action | string;
+
+  /**
+   * <p>The way that you want DNS Firewall to block the request. Used for the rule action setting <code>BLOCK</code>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NODATA</code> - Respond indicating that the query was successful, but no response is available for it.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NXDOMAIN</code> - Respond indicating that the domain name that's in the query doesn't exist.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OVERRIDE</code> - Provide a custom override in the response. This option requires custom handling details in the rule's <code>BlockOverride*</code> settings. </p>
+   *             </li>
+   *          </ul>
+   */
+  BlockResponse?: BlockResponse | string;
+
+  /**
+   * <p>The custom DNS record to send back in response to the query. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
+   */
+  BlockOverrideDomain?: string;
+
+  /**
+   * <p>The DNS record's type. This determines the format of the record value that you provided in <code>BlockOverrideDomain</code>. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
+   */
+  BlockOverrideDnsType?: BlockOverrideDnsType | string;
+
+  /**
+   * <p>The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
+   */
+  BlockOverrideTtl?: number;
+
+  /**
+   * <p>The name of the rule.</p>
+   */
+  Name?: string;
+}
+
+export namespace UpdateFirewallRuleRequest {
+  export const filterSensitiveLog = (obj: UpdateFirewallRuleRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateFirewallRuleResponse {
+  /**
+   * <p>The firewall rule that you just updated. </p>
+   */
+  FirewallRule?: FirewallRule;
+}
+
+export namespace UpdateFirewallRuleResponse {
+  export const filterSensitiveLog = (obj: UpdateFirewallRuleResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateFirewallRuleGroupAssociationRequest {
+  /**
+   * <p>The identifier of the <a>FirewallRuleGroupAssociation</a>. </p>
+   */
+  FirewallRuleGroupAssociationId: string | undefined;
+
+  /**
+   * <p>The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall
+   *            filters VPC traffic starting from rule group with the lowest numeric priority setting. </p>
+   *          <p>You must specify a unique priority for each rule group that you associate with a single VPC.
+   *            To make it easier to insert rule groups later, leave space between the numbers, for example, use 100, 200, and so on. You
+   *    can change the priority setting for a rule group association after you create it.</p>
+   */
+  Priority?: number;
+
+  /**
+   * <p>If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. </p>
+   */
+  MutationProtection?: MutationProtectionStatus | string;
+
+  /**
+   * <p>The name of the rule group association.</p>
+   */
+  Name?: string;
+}
+
+export namespace UpdateFirewallRuleGroupAssociationRequest {
+  export const filterSensitiveLog = (obj: UpdateFirewallRuleGroupAssociationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateFirewallRuleGroupAssociationResponse {
+  /**
+   * <p>The association that you just updated. </p>
+   */
+  FirewallRuleGroupAssociation?: FirewallRuleGroupAssociation;
+}
+
+export namespace UpdateFirewallRuleGroupAssociationResponse {
+  export const filterSensitiveLog = (obj: UpdateFirewallRuleGroupAssociationResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum Validation {
+  DISABLE = "DISABLE",
+  ENABLE = "ENABLE",
+}
+
+export interface UpdateResolverDnssecConfigRequest {
+  /**
+   * <p>The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.</p>
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * <p>The new value that you are specifying for DNSSEC validation for the VPC. The value can be <code>ENABLE</code>
+   * 			or <code>DISABLE</code>. Be aware that it can take time for a validation status change to be completed.</p>
+   */
+  Validation: Validation | string | undefined;
+}
+
+export namespace UpdateResolverDnssecConfigRequest {
+  export const filterSensitiveLog = (obj: UpdateResolverDnssecConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateResolverDnssecConfigResponse {
+  /**
+   * <p>A complex type that contains settings for the specified DNSSEC configuration.</p>
+   */
+  ResolverDNSSECConfig?: ResolverDnssecConfig;
+}
+
+export namespace UpdateResolverDnssecConfigResponse {
+  export const filterSensitiveLog = (obj: UpdateResolverDnssecConfigResponse): any => ({
     ...obj,
   });
 }

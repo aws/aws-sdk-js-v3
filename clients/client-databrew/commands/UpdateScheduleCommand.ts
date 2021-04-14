@@ -21,8 +21,7 @@ export type UpdateScheduleCommandInput = UpdateScheduleRequest;
 export type UpdateScheduleCommandOutput = UpdateScheduleResponse & __MetadataBearer;
 
 /**
- * <p>Modifies the definition of an existing AWS Glue DataBrew schedule in the current AWS
- *             account.</p>
+ * <p>Modifies the definition of an existing DataBrew schedule.</p>
  */
 export class UpdateScheduleCommand extends $Command<
   UpdateScheduleCommandInput,

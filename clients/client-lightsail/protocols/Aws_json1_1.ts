@@ -313,6 +313,7 @@ import {
   SendContactMethodVerificationCommandInput,
   SendContactMethodVerificationCommandOutput,
 } from "../commands/SendContactMethodVerificationCommand";
+import { SetIpAddressTypeCommandInput, SetIpAddressTypeCommandOutput } from "../commands/SetIpAddressTypeCommand";
 import { StartInstanceCommandInput, StartInstanceCommandOutput } from "../commands/StartInstanceCommand";
 import {
   StartRelationalDatabaseCommandInput,
@@ -397,6 +398,7 @@ import {
   ContainerServicePower,
   ContainerServiceProtocol,
   ContainerServiceRegistryLogin,
+  ContainerServiceStateDetail,
   ContainerServicesListResult,
   CookieObject,
   CopySnapshotRequest,
@@ -577,9 +579,6 @@ import {
   GetInstanceStateResult,
   GetInstancesRequest,
   GetInstancesResult,
-  GetKeyPairRequest,
-  GetKeyPairResult,
-  GetKeyPairsRequest,
   HeaderEnum,
   HeaderObject,
   HostKeyAttributes,
@@ -617,6 +616,9 @@ import {
   UnauthenticatedException,
 } from "../models/models_0";
 import {
+  GetKeyPairRequest,
+  GetKeyPairResult,
+  GetKeyPairsRequest,
   GetKeyPairsResult,
   GetLoadBalancerMetricDataRequest,
   GetLoadBalancerMetricDataResult,
@@ -706,6 +708,8 @@ import {
   ResetDistributionCacheResult,
   SendContactMethodVerificationRequest,
   SendContactMethodVerificationResult,
+  SetIpAddressTypeRequest,
+  SetIpAddressTypeResult,
   StartInstanceRequest,
   StartInstanceResult,
   StartRelationalDatabaseRequest,
@@ -2383,6 +2387,19 @@ export const serializeAws_json1_1SendContactMethodVerificationCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1SendContactMethodVerificationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1SetIpAddressTypeCommand = async (
+  input: SetIpAddressTypeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Lightsail_20161128.SetIpAddressType",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1SetIpAddressTypeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -15001,6 +15018,108 @@ const deserializeAws_json1_1SendContactMethodVerificationCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1SetIpAddressTypeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SetIpAddressTypeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1SetIpAddressTypeCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1SetIpAddressTypeResult(data, context);
+  const response: SetIpAddressTypeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1SetIpAddressTypeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SetIpAddressTypeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lightsail#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AccountSetupInProgressException":
+    case "com.amazonaws.lightsail#AccountSetupInProgressException":
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.lightsail#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.lightsail#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationFailureException":
+    case "com.amazonaws.lightsail#OperationFailureException":
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.lightsail#ServiceException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthenticatedException":
+    case "com.amazonaws.lightsail#UnauthenticatedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1StartInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -17042,6 +17161,7 @@ const serializeAws_json1_1CreateDistributionRequest = (
       }),
     ...(input.distributionName !== undefined &&
       input.distributionName !== null && { distributionName: input.distributionName }),
+    ...(input.ipAddressType !== undefined && input.ipAddressType !== null && { ipAddressType: input.ipAddressType }),
     ...(input.origin !== undefined &&
       input.origin !== null && { origin: serializeAws_json1_1InputOrigin(input.origin, context) }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
@@ -17084,6 +17204,7 @@ const serializeAws_json1_1CreateInstancesFromSnapshotRequest = (
       input.instanceNames !== null && { instanceNames: serializeAws_json1_1StringList(input.instanceNames, context) }),
     ...(input.instanceSnapshotName !== undefined &&
       input.instanceSnapshotName !== null && { instanceSnapshotName: input.instanceSnapshotName }),
+    ...(input.ipAddressType !== undefined && input.ipAddressType !== null && { ipAddressType: input.ipAddressType }),
     ...(input.keyPairName !== undefined && input.keyPairName !== null && { keyPairName: input.keyPairName }),
     ...(input.restoreDate !== undefined && input.restoreDate !== null && { restoreDate: input.restoreDate }),
     ...(input.sourceInstanceName !== undefined &&
@@ -17121,6 +17242,7 @@ const serializeAws_json1_1CreateInstancesRequest = (input: CreateInstancesReques
       input.customImageName !== null && { customImageName: input.customImageName }),
     ...(input.instanceNames !== undefined &&
       input.instanceNames !== null && { instanceNames: serializeAws_json1_1StringList(input.instanceNames, context) }),
+    ...(input.ipAddressType !== undefined && input.ipAddressType !== null && { ipAddressType: input.ipAddressType }),
     ...(input.keyPairName !== undefined && input.keyPairName !== null && { keyPairName: input.keyPairName }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
     ...(input.userData !== undefined && input.userData !== null && { userData: input.userData }),
@@ -17150,6 +17272,7 @@ const serializeAws_json1_1CreateLoadBalancerRequest = (
     ...(input.healthCheckPath !== undefined &&
       input.healthCheckPath !== null && { healthCheckPath: input.healthCheckPath }),
     ...(input.instancePort !== undefined && input.instancePort !== null && { instancePort: input.instancePort }),
+    ...(input.ipAddressType !== undefined && input.ipAddressType !== null && { ipAddressType: input.ipAddressType }),
     ...(input.loadBalancerName !== undefined &&
       input.loadBalancerName !== null && { loadBalancerName: input.loadBalancerName }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
@@ -18229,6 +18352,8 @@ const serializeAws_json1_1PortInfo = (input: PortInfo, context: __SerdeContext):
     ...(input.cidrs !== undefined &&
       input.cidrs !== null && { cidrs: serializeAws_json1_1StringList(input.cidrs, context) }),
     ...(input.fromPort !== undefined && input.fromPort !== null && { fromPort: input.fromPort }),
+    ...(input.ipv6Cidrs !== undefined &&
+      input.ipv6Cidrs !== null && { ipv6Cidrs: serializeAws_json1_1StringList(input.ipv6Cidrs, context) }),
     ...(input.protocol !== undefined && input.protocol !== null && { protocol: input.protocol }),
     ...(input.toPort !== undefined && input.toPort !== null && { toPort: input.toPort }),
   };
@@ -18403,6 +18528,14 @@ const serializeAws_json1_1SendContactMethodVerificationRequest = (
 ): any => {
   return {
     ...(input.protocol !== undefined && input.protocol !== null && { protocol: input.protocol }),
+  };
+};
+
+const serializeAws_json1_1SetIpAddressTypeRequest = (input: SetIpAddressTypeRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.ipAddressType !== undefined && input.ipAddressType !== null && { ipAddressType: input.ipAddressType }),
+    ...(input.resourceName !== undefined && input.resourceName !== null && { resourceName: input.resourceName }),
+    ...(input.resourceType !== undefined && input.resourceType !== null && { resourceType: input.resourceType }),
   };
 };
 
@@ -19294,6 +19427,10 @@ const deserializeAws_json1_1ContainerService = (output: any, context: __SerdeCon
     resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
     scale: output.scale !== undefined && output.scale !== null ? output.scale : undefined,
     state: output.state !== undefined && output.state !== null ? output.state : undefined,
+    stateDetail:
+      output.stateDetail !== undefined && output.stateDetail !== null
+        ? deserializeAws_json1_1ContainerServiceStateDetail(output.stateDetail, context)
+        : undefined,
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_json1_1TagList(output.tags, context)
@@ -19516,6 +19653,16 @@ const deserializeAws_json1_1ContainerServicesListResult = (
       output.containerServices !== undefined && output.containerServices !== null
         ? deserializeAws_json1_1ContainerServiceList(output.containerServices, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ContainerServiceStateDetail = (
+  output: any,
+  context: __SerdeContext
+): ContainerServiceStateDetail => {
+  return {
+    code: output.code !== undefined && output.code !== null ? output.code : undefined,
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
@@ -21169,7 +21316,12 @@ const deserializeAws_json1_1Instance = (output: any, context: __SerdeContext): I
       output.hardware !== undefined && output.hardware !== null
         ? deserializeAws_json1_1InstanceHardware(output.hardware, context)
         : undefined,
-    ipv6Address: output.ipv6Address !== undefined && output.ipv6Address !== null ? output.ipv6Address : undefined,
+    ipAddressType:
+      output.ipAddressType !== undefined && output.ipAddressType !== null ? output.ipAddressType : undefined,
+    ipv6Addresses:
+      output.ipv6Addresses !== undefined && output.ipv6Addresses !== null
+        ? deserializeAws_json1_1Ipv6AddressList(output.ipv6Addresses, context)
+        : undefined,
     isStaticIp: output.isStaticIp !== undefined && output.isStaticIp !== null ? output.isStaticIp : undefined,
     location:
       output.location !== undefined && output.location !== null
@@ -21314,6 +21466,10 @@ const deserializeAws_json1_1InstancePortInfo = (output: any, context: __SerdeCon
         : undefined,
     commonName: output.commonName !== undefined && output.commonName !== null ? output.commonName : undefined,
     fromPort: output.fromPort !== undefined && output.fromPort !== null ? output.fromPort : undefined,
+    ipv6Cidrs:
+      output.ipv6Cidrs !== undefined && output.ipv6Cidrs !== null
+        ? deserializeAws_json1_1StringList(output.ipv6Cidrs, context)
+        : undefined,
     protocol: output.protocol !== undefined && output.protocol !== null ? output.protocol : undefined,
     toPort: output.toPort !== undefined && output.toPort !== null ? output.toPort : undefined,
   } as any;
@@ -21341,6 +21497,10 @@ const deserializeAws_json1_1InstancePortState = (output: any, context: __SerdeCo
         ? deserializeAws_json1_1StringList(output.cidrs, context)
         : undefined,
     fromPort: output.fromPort !== undefined && output.fromPort !== null ? output.fromPort : undefined,
+    ipv6Cidrs:
+      output.ipv6Cidrs !== undefined && output.ipv6Cidrs !== null
+        ? deserializeAws_json1_1StringList(output.ipv6Cidrs, context)
+        : undefined,
     protocol: output.protocol !== undefined && output.protocol !== null ? output.protocol : undefined,
     state: output.state !== undefined && output.state !== null ? output.state : undefined,
     toPort: output.toPort !== undefined && output.toPort !== null ? output.toPort : undefined,
@@ -21436,6 +21596,17 @@ const deserializeAws_json1_1InvalidInputException = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_json1_1Ipv6AddressList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const deserializeAws_json1_1IsVpcPeeredResult = (output: any, context: __SerdeContext): IsVpcPeeredResult => {
   return {
     isPeered: output.isPeered !== undefined && output.isPeered !== null ? output.isPeered : undefined,
@@ -21506,6 +21677,8 @@ const deserializeAws_json1_1LightsailDistribution = (output: any, context: __Ser
         ? deserializeAws_json1_1CacheBehavior(output.defaultCacheBehavior, context)
         : undefined,
     domainName: output.domainName !== undefined && output.domainName !== null ? output.domainName : undefined,
+    ipAddressType:
+      output.ipAddressType !== undefined && output.ipAddressType !== null ? output.ipAddressType : undefined,
     isEnabled: output.isEnabled !== undefined && output.isEnabled !== null ? output.isEnabled : undefined,
     location:
       output.location !== undefined && output.location !== null
@@ -21547,6 +21720,8 @@ const deserializeAws_json1_1LoadBalancer = (output: any, context: __SerdeContext
         ? deserializeAws_json1_1InstanceHealthSummaryList(output.instanceHealthSummary, context)
         : undefined,
     instancePort: output.instancePort !== undefined && output.instancePort !== null ? output.instancePort : undefined,
+    ipAddressType:
+      output.ipAddressType !== undefined && output.ipAddressType !== null ? output.ipAddressType : undefined,
     location:
       output.location !== undefined && output.location !== null
         ? deserializeAws_json1_1ResourceLocation(output.location, context)
@@ -22516,6 +22691,15 @@ const deserializeAws_json1_1ServiceException = (output: any, context: __SerdeCon
     docs: output.docs !== undefined && output.docs !== null ? output.docs : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
     tip: output.tip !== undefined && output.tip !== null ? output.tip : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SetIpAddressTypeResult = (output: any, context: __SerdeContext): SetIpAddressTypeResult => {
+  return {
+    operations:
+      output.operations !== undefined && output.operations !== null
+        ? deserializeAws_json1_1OperationList(output.operations, context)
+        : undefined,
   } as any;
 };
 

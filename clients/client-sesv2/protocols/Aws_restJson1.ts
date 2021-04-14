@@ -197,6 +197,10 @@ import {
   PutDeliverabilityDashboardOptionCommandOutput,
 } from "../commands/PutDeliverabilityDashboardOptionCommand";
 import {
+  PutEmailIdentityConfigurationSetAttributesCommandInput,
+  PutEmailIdentityConfigurationSetAttributesCommandOutput,
+} from "../commands/PutEmailIdentityConfigurationSetAttributesCommand";
+import {
   PutEmailIdentityDkimAttributesCommandInput,
   PutEmailIdentityDkimAttributesCommandOutput,
 } from "../commands/PutEmailIdentityDkimAttributesCommand";
@@ -595,6 +599,8 @@ export const serializeAws_restJson1CreateEmailIdentityCommand = async (
   let resolvedPath = "/v2/email/identities";
   let body: any;
   body = JSON.stringify({
+    ...(input.ConfigurationSetName !== undefined &&
+      input.ConfigurationSetName !== null && { ConfigurationSetName: input.ConfigurationSetName }),
     ...(input.DkimSigningAttributes !== undefined &&
       input.DkimSigningAttributes !== null && {
         DkimSigningAttributes: serializeAws_restJson1DkimSigningAttributes(input.DkimSigningAttributes, context),
@@ -2226,6 +2232,40 @@ export const serializeAws_restJson1PutDeliverabilityDashboardOptionCommand = asy
   });
 };
 
+export const serializeAws_restJson1PutEmailIdentityConfigurationSetAttributesCommand = async (
+  input: PutEmailIdentityConfigurationSetAttributesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = "/v2/email/identities/{EmailIdentity}/configuration-set";
+  if (input.EmailIdentity !== undefined) {
+    const labelValue: string = input.EmailIdentity;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: EmailIdentity.");
+    }
+    resolvedPath = resolvedPath.replace("{EmailIdentity}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: EmailIdentity.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ConfigurationSetName !== undefined &&
+      input.ConfigurationSetName !== null && { ConfigurationSetName: input.ConfigurationSetName }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1PutEmailIdentityDkimAttributesCommand = async (
   input: PutEmailIdentityDkimAttributesCommandInput,
   context: __SerdeContext
@@ -3535,6 +3575,14 @@ const deserializeAws_restJson1CreateEmailIdentityCommandError = async (
     case "com.amazonaws.sesv2#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.sesv2#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5590,6 +5638,7 @@ export const deserializeAws_restJson1GetEmailIdentityCommand = async (
   }
   const contents: GetEmailIdentityCommandOutput = {
     $metadata: deserializeMetadata(output),
+    ConfigurationSetName: undefined,
     DkimAttributes: undefined,
     FeedbackForwardingStatus: undefined,
     IdentityType: undefined,
@@ -5599,6 +5648,9 @@ export const deserializeAws_restJson1GetEmailIdentityCommand = async (
     VerifiedForSendingStatus: undefined,
   };
   const data: any = await parseBody(output.body, context);
+  if (data.ConfigurationSetName !== undefined && data.ConfigurationSetName !== null) {
+    contents.ConfigurationSetName = data.ConfigurationSetName;
+  }
   if (data.DkimAttributes !== undefined && data.DkimAttributes !== null) {
     contents.DkimAttributes = deserializeAws_restJson1DkimAttributes(data.DkimAttributes, context);
   }
@@ -7607,6 +7659,73 @@ const deserializeAws_restJson1PutDeliverabilityDashboardOptionCommandError = asy
     case "com.amazonaws.sesv2#LimitExceededException":
       response = {
         ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.sesv2#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.sesv2#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1PutEmailIdentityConfigurationSetAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutEmailIdentityConfigurationSetAttributesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1PutEmailIdentityConfigurationSetAttributesCommandError(output, context);
+  }
+  const contents: PutEmailIdentityConfigurationSetAttributesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1PutEmailIdentityConfigurationSetAttributesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutEmailIdentityConfigurationSetAttributesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.sesv2#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };

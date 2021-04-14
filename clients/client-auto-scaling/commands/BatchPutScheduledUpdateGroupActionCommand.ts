@@ -22,9 +22,7 @@ export type BatchPutScheduledUpdateGroupActionCommandOutput = BatchPutScheduledU
   __MetadataBearer;
 
 /**
- * <p>Creates or updates one or more scheduled scaling actions for an Auto Scaling group. If you
- *             leave a parameter unspecified when updating a scheduled scaling action, the
- *             corresponding value remains unchanged.</p>
+ * <p>Creates or updates one or more scheduled scaling actions for an Auto Scaling group.</p>
  */
 export class BatchPutScheduledUpdateGroupActionCommand extends $Command<
   BatchPutScheduledUpdateGroupActionCommandInput,

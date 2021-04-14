@@ -21,10 +21,7 @@ export type DeleteWebACLCommandInput = DeleteWebACLRequest;
 export type DeleteWebACLCommandOutput = DeleteWebACLResponse & __MetadataBearer;
 
 /**
- * <note>
- *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
- *          </note>
- *          <p>Deletes the specified <a>WebACL</a>.</p>
+ * <p>Deletes the specified <a>WebACL</a>.</p>
  *          <p>You can only use this if <code>ManagedByFirewallManager</code> is false in the specified <a>WebACL</a>.  </p>
  */
 export class DeleteWebACLCommand extends $Command<

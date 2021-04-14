@@ -22,9 +22,10 @@ export type RemoveClientIDFromOpenIDConnectProviderCommandOutput = __MetadataBea
 
 /**
  * <p>Removes the specified client ID (also known as audience) from the list of client IDs
- *          registered for the specified IAM OpenID Connect (OIDC) provider resource object.</p>
- *          <p>This operation is idempotent; it does not fail or return an error if you try to remove a
- *          client ID that does not exist.</p>
+ *             registered for the specified IAM OpenID Connect (OIDC) provider resource
+ *             object.</p>
+ *         <p>This operation is idempotent; it does not fail or return an error if you try to remove
+ *             a client ID that does not exist.</p>
  */
 export class RemoveClientIDFromOpenIDConnectProviderCommand extends $Command<
   RemoveClientIDFromOpenIDConnectProviderCommandInput,

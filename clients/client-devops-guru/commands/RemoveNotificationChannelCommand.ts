@@ -20,6 +20,12 @@ import {
 export type RemoveNotificationChannelCommandInput = RemoveNotificationChannelRequest;
 export type RemoveNotificationChannelCommandOutput = RemoveNotificationChannelResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *    		Removes a notification channel from DevOps Guru. A notification channel is used to notify you when DevOps Guru generates an insight
+ *    		that contains information about how to improve your operations.
+ *    	</p>
+ */
 export class RemoveNotificationChannelCommand extends $Command<
   RemoveNotificationChannelCommandInput,
   RemoveNotificationChannelCommandOutput,

@@ -21,7 +21,7 @@ export type GetMemberCommandInput = GetMemberRequest;
 export type GetMemberCommandOutput = GetMemberResponse & __MetadataBearer;
 
 /**
- * <p>Retrieves information about a member account that's associated with an Amazon Macie master account.</p>
+ * <p>Retrieves information about an account that's associated with an Amazon Macie administrator account.</p>
  */
 export class GetMemberCommand extends $Command<
   GetMemberCommandInput,

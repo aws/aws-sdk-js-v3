@@ -21,7 +21,7 @@ export type DeleteAppInstanceStreamingConfigurationsCommandInput = DeleteAppInst
 export type DeleteAppInstanceStreamingConfigurationsCommandOutput = __MetadataBearer;
 
 /**
- * <p>Deletes the streaming configurations of an app instance.</p>
+ * <p>Deletes the streaming configurations of an <code>AppInstance</code>.</p>
  */
 export class DeleteAppInstanceStreamingConfigurationsCommand extends $Command<
   DeleteAppInstanceStreamingConfigurationsCommandInput,

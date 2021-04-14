@@ -77,7 +77,8 @@ export namespace ValidationException {
 }
 
 /**
- * <p>An AWS account that is the master of or a member of a behavior graph.</p>
+ * <p>An AWS account that is the administrator account of or a member of a behavior
+ *          graph.</p>
  */
 export interface Account {
   /**
@@ -93,6 +94,20 @@ export interface Account {
 
 export namespace Account {
   export const filterSensitiveLog = (obj: Account): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateGraphRequest {
+  /**
+   * <p>The tags to assign to the new behavior graph. For each tag, you provide the tag key and
+   *          the tag value.</p>
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace CreateGraphRequest {
+  export const filterSensitiveLog = (obj: CreateGraphRequest): any => ({
     ...obj,
   });
 }
@@ -154,6 +169,13 @@ export interface CreateMembersRequest {
   Message?: string;
 
   /**
+   * <p>if set to <code>true</code>, then the member accounts do not receive email
+   *          notifications. By default, this is set to <code>false</code>, and the member accounts
+   *          receive email notifications.</p>
+   */
+  DisableEmailNotification?: boolean;
+
+  /**
    * <p>The list of AWS accounts to invite to become member accounts in the behavior graph.
    *          For each invited account, the account list contains the account identifier and the AWS
    *          account root user email address.</p>
@@ -201,9 +223,17 @@ export interface MemberDetail {
   GraphArn?: string;
 
   /**
-   * <p>The AWS account identifier of the master account for the behavior graph.</p>
+   * @deprecated
+   *
+   * <p>Deprecated. Instead of <code>MasterId</code>, use <code>AdministratorId</code>.</p>
+   *          <p>The AWS account identifier of the administrator account for the behavior graph.</p>
    */
   MasterId?: string;
+
+  /**
+   * <p>The AWS account identifier of the administrator account for the behavior graph.</p>
+   */
+  AdministratorId?: string;
 
   /**
    * <p>The current membership status of the member account. The status can have one of the
@@ -498,7 +528,7 @@ export namespace Graph {
 
 export interface ListGraphsResponse {
   /**
-   * <p>A list of behavior graphs that the account is a master for.</p>
+   * <p>A list of behavior graphs that the account is an administrator account for.</p>
    */
   GraphList?: Graph[];
 
@@ -518,7 +548,7 @@ export namespace ListGraphsResponse {
 export interface ListInvitationsRequest {
   /**
    * <p>For requests to retrieve the next page of results, the pagination token that was
-   *          returned with the previous page of results.  The initial request does not include a
+   *          returned with the previous page of results. The initial request does not include a
    *          pagination token.</p>
    */
   NextToken?: string;
@@ -605,6 +635,32 @@ export namespace ListMembersResponse {
   });
 }
 
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The ARN of the behavior graph for which to retrieve the tag values.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+export namespace ListTagsForResourceRequest {
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>The tag values that are assigned to the behavior graph.</p>
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace ListTagsForResourceResponse {
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface RejectInvitationRequest {
   /**
    * <p>The ARN of the behavior graph to reject the invitation to.</p>
@@ -629,13 +685,65 @@ export interface StartMonitoringMemberRequest {
   /**
    * <p>The account ID of the member account to try to enable.</p>
    *          <p>The account must be an invited member account with a status of
-   *          <code>ACCEPTED_BUT_DISABLED</code>. </p>
+   *             <code>ACCEPTED_BUT_DISABLED</code>. </p>
    */
   AccountId: string | undefined;
 }
 
 export namespace StartMonitoringMemberRequest {
   export const filterSensitiveLog = (obj: StartMonitoringMemberRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface TagResourceRequest {
+  /**
+   * <p>The ARN of the behavior graph to assign the tags to.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The tag values to assign to the behavior graph.</p>
+   */
+  Tags: { [key: string]: string } | undefined;
+}
+
+export namespace TagResourceRequest {
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface TagResourceResponse {}
+
+export namespace TagResourceResponse {
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceRequest {
+  /**
+   * <p>The ARN of the behavior graph to remove the tags from.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The tag keys of the tags to remove from the behavior graph.</p>
+   */
+  TagKeys: string[] | undefined;
+}
+
+export namespace UntagResourceRequest {
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceResponse {}
+
+export namespace UntagResourceResponse {
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
 }

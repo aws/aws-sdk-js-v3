@@ -160,7 +160,7 @@ export interface TagRef {
    * <p>The optional part of a key-value pair that make up a tag. A <code>value</code> acts as a
    *          descriptor within a tag category (key).</p>
    */
-  value?: string;
+  value: string | undefined;
 }
 
 export namespace TagRef {
@@ -232,6 +232,9 @@ export namespace ServiceUnavailableException {
 export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
+  $retryable: {
+    throttling: true;
+  };
   message?: string;
 }
 
@@ -703,7 +706,139 @@ export namespace UpdateMeshOutput {
 }
 
 /**
- * <p>An object that represents a TLS validation context trust for an AWS Certicate Manager (ACM)
+ * <p>An object that represents a local file certificate.
+ *          The certificate must meet specific requirements and you must have proxy authorization enabled. For more information, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html#virtual-node-tls-prerequisites">Transport Layer Security (TLS)</a>.</p>
+ */
+export interface VirtualGatewayListenerTlsFileCertificate {
+  /**
+   * <p>The certificate chain for the certificate.</p>
+   */
+  certificateChain: string | undefined;
+
+  /**
+   * <p>The private key for a certificate stored on the file system of the mesh endpoint that
+   *          the proxy is running on.</p>
+   */
+  privateKey: string | undefined;
+}
+
+export namespace VirtualGatewayListenerTlsFileCertificate {
+  export const filterSensitiveLog = (obj: VirtualGatewayListenerTlsFileCertificate): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An object that represents the virtual gateway's listener's Secret Discovery Service
+ *          certificate.The proxy must be configured with a local SDS provider via a Unix Domain
+ *          Socket. See App Mesh <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html">TLS
+ *             documentation</a> for more info. </p>
+ */
+export interface VirtualGatewayListenerTlsSdsCertificate {
+  /**
+   * <p>A reference to an object that represents the name of the secret secret requested from
+   *          the Secret Discovery Service provider representing Transport Layer Security (TLS) materials like a certificate or
+   *          certificate chain.</p>
+   */
+  secretName: string | undefined;
+}
+
+export namespace VirtualGatewayListenerTlsSdsCertificate {
+  export const filterSensitiveLog = (obj: VirtualGatewayListenerTlsSdsCertificate): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An object that represents the virtual gateway's client's Transport Layer Security (TLS) certificate.</p>
+ */
+export type VirtualGatewayClientTlsCertificate =
+  | VirtualGatewayClientTlsCertificate.FileMember
+  | VirtualGatewayClientTlsCertificate.SdsMember
+  | VirtualGatewayClientTlsCertificate.$UnknownMember;
+
+export namespace VirtualGatewayClientTlsCertificate {
+  /**
+   * <p>An object that represents a local file certificate.
+   *          The certificate must meet specific requirements and you must have proxy authorization enabled. For more information, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html#virtual-node-tls-prerequisites">Transport Layer Security (TLS)</a>.</p>
+   */
+  export interface FileMember {
+    file: VirtualGatewayListenerTlsFileCertificate;
+    sds?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A reference to an object that represents a virtual gateway's client's Secret Discovery
+   *          Service certificate.</p>
+   */
+  export interface SdsMember {
+    file?: never;
+    sds: VirtualGatewayListenerTlsSdsCertificate;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    file?: never;
+    sds?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    file: (value: VirtualGatewayListenerTlsFileCertificate) => T;
+    sds: (value: VirtualGatewayListenerTlsSdsCertificate) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: VirtualGatewayClientTlsCertificate, visitor: Visitor<T>): T => {
+    if (value.file !== undefined) return visitor.file(value.file);
+    if (value.sds !== undefined) return visitor.sds(value.sds);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  export const filterSensitiveLog = (obj: VirtualGatewayClientTlsCertificate): any => {
+    if (obj.file !== undefined) return { file: VirtualGatewayListenerTlsFileCertificate.filterSensitiveLog(obj.file) };
+    if (obj.sds !== undefined) return { sds: VirtualGatewayListenerTlsSdsCertificate.filterSensitiveLog(obj.sds) };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+  };
+}
+
+/**
+ * <p>An object that represents the methods by which a subject alternative name on a peer
+ *          Transport Layer Security (TLS) certificate can be matched.</p>
+ */
+export interface SubjectAlternativeNameMatchers {
+  /**
+   * <p>The values sent must match the specified values exactly.</p>
+   */
+  exact: string[] | undefined;
+}
+
+export namespace SubjectAlternativeNameMatchers {
+  export const filterSensitiveLog = (obj: SubjectAlternativeNameMatchers): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An object that represents the subject alternative names secured by the
+ *          certificate.</p>
+ */
+export interface SubjectAlternativeNames {
+  /**
+   * <p>An object that represents the criteria for determining a SANs match.</p>
+   */
+  match: SubjectAlternativeNameMatchers | undefined;
+}
+
+export namespace SubjectAlternativeNames {
+  export const filterSensitiveLog = (obj: SubjectAlternativeNames): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An object that represents a Transport Layer Security (TLS) validation context trust for an AWS Certicate Manager (ACM)
  *          certificate.</p>
  */
 export interface VirtualGatewayTlsValidationContextAcmTrust {
@@ -737,48 +872,85 @@ export namespace VirtualGatewayTlsValidationContextFileTrust {
 }
 
 /**
+ * <p>An object that represents a virtual gateway's listener's Transport Layer Security (TLS) Secret Discovery Service
+ *          validation context trust. The proxy must be configured with a local SDS provider via a Unix
+ *          Domain Socket. See App Mesh <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html">TLS
+ *             documentation</a> for more info.</p>
+ */
+export interface VirtualGatewayTlsValidationContextSdsTrust {
+  /**
+   * <p>A reference to an object that represents the name of the secret for a virtual gateway's
+   *          Transport Layer Security (TLS) Secret Discovery Service validation context trust.</p>
+   */
+  secretName: string | undefined;
+}
+
+export namespace VirtualGatewayTlsValidationContextSdsTrust {
+  export const filterSensitiveLog = (obj: VirtualGatewayTlsValidationContextSdsTrust): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>An object that represents a Transport Layer Security (TLS) validation context trust.</p>
  */
 export type VirtualGatewayTlsValidationContextTrust =
   | VirtualGatewayTlsValidationContextTrust.AcmMember
   | VirtualGatewayTlsValidationContextTrust.FileMember
+  | VirtualGatewayTlsValidationContextTrust.SdsMember
   | VirtualGatewayTlsValidationContextTrust.$UnknownMember;
 
 export namespace VirtualGatewayTlsValidationContextTrust {
   /**
-   * <p>A reference to an object that represents a TLS validation context trust for an AWS Certicate Manager (ACM)
-   *          certificate.</p>
+   * <p>A reference to an object that represents a Transport Layer Security (TLS) validation context trust for an
+   *          AWS Certicate Manager (ACM) certificate.</p>
    */
   export interface AcmMember {
     acm: VirtualGatewayTlsValidationContextAcmTrust;
     file?: never;
+    sds?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>An object that represents a TLS validation context trust for a local file.</p>
+   * <p>An object that represents a Transport Layer Security (TLS) validation context trust for a local file.</p>
    */
   export interface FileMember {
     acm?: never;
     file: VirtualGatewayTlsValidationContextFileTrust;
+    sds?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A reference to an object that represents a virtual gateway's Transport Layer Security (TLS) Secret Discovery
+   *          Service validation context trust.</p>
+   */
+  export interface SdsMember {
+    acm?: never;
+    file?: never;
+    sds: VirtualGatewayTlsValidationContextSdsTrust;
     $unknown?: never;
   }
 
   export interface $UnknownMember {
     acm?: never;
     file?: never;
+    sds?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     acm: (value: VirtualGatewayTlsValidationContextAcmTrust) => T;
     file: (value: VirtualGatewayTlsValidationContextFileTrust) => T;
+    sds: (value: VirtualGatewayTlsValidationContextSdsTrust) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: VirtualGatewayTlsValidationContextTrust, visitor: Visitor<T>): T => {
     if (value.acm !== undefined) return visitor.acm(value.acm);
     if (value.file !== undefined) return visitor.file(value.file);
+    if (value.sds !== undefined) return visitor.sds(value.sds);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 
@@ -786,6 +958,7 @@ export namespace VirtualGatewayTlsValidationContextTrust {
     if (obj.acm !== undefined) return { acm: VirtualGatewayTlsValidationContextAcmTrust.filterSensitiveLog(obj.acm) };
     if (obj.file !== undefined)
       return { file: VirtualGatewayTlsValidationContextFileTrust.filterSensitiveLog(obj.file) };
+    if (obj.sds !== undefined) return { sds: VirtualGatewayTlsValidationContextSdsTrust.filterSensitiveLog(obj.sds) };
     if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
@@ -795,9 +968,16 @@ export namespace VirtualGatewayTlsValidationContextTrust {
  */
 export interface VirtualGatewayTlsValidationContext {
   /**
-   * <p>A reference to an object that represents a TLS validation context trust.</p>
+   * <p>A reference to where to retrieve the trust chain when validating a peer’s Transport Layer Security (TLS)
+   *          certificate.</p>
    */
   trust: VirtualGatewayTlsValidationContextTrust | undefined;
+
+  /**
+   * <p>A reference to an object that represents the SANs for a virtual gateway's listener's
+   *          Transport Layer Security (TLS) validation context.</p>
+   */
+  subjectAlternativeNames?: SubjectAlternativeNames;
 }
 
 export namespace VirtualGatewayTlsValidationContext {
@@ -823,7 +1003,13 @@ export interface VirtualGatewayClientPolicyTls {
   ports?: number[];
 
   /**
-   * <p>A reference to an object that represents a TLS validation context.</p>
+   * <p>A reference to an object that represents a virtual gateway's client's Transport Layer Security (TLS)
+   *          certificate.</p>
+   */
+  certificate?: VirtualGatewayClientTlsCertificate;
+
+  /**
+   * <p>A reference to an object that represents a Transport Layer Security (TLS) validation context.</p>
    */
   validation: VirtualGatewayTlsValidationContext | undefined;
 }
@@ -831,6 +1017,7 @@ export interface VirtualGatewayClientPolicyTls {
 export namespace VirtualGatewayClientPolicyTls {
   export const filterSensitiveLog = (obj: VirtualGatewayClientPolicyTls): any => ({
     ...obj,
+    ...(obj.certificate && { certificate: VirtualGatewayClientTlsCertificate.filterSensitiveLog(obj.certificate) }),
     ...(obj.validation && { validation: VirtualGatewayTlsValidationContext.filterSensitiveLog(obj.validation) }),
   });
 }
@@ -867,6 +1054,136 @@ export namespace VirtualGatewayBackendDefaults {
     ...obj,
     ...(obj.clientPolicy && { clientPolicy: VirtualGatewayClientPolicy.filterSensitiveLog(obj.clientPolicy) }),
   });
+}
+
+/**
+ * <p>An object that represents a type of connection pool.</p>
+ */
+export interface VirtualGatewayGrpcConnectionPool {
+  /**
+   * <p>Maximum number of inflight requests Envoy can concurrently support across hosts in
+   *          upstream cluster.</p>
+   */
+  maxRequests: number | undefined;
+}
+
+export namespace VirtualGatewayGrpcConnectionPool {
+  export const filterSensitiveLog = (obj: VirtualGatewayGrpcConnectionPool): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An object that represents a type of connection pool.</p>
+ */
+export interface VirtualGatewayHttpConnectionPool {
+  /**
+   * <p>Maximum number of outbound TCP connections Envoy can establish concurrently with all
+   *          hosts in upstream cluster.</p>
+   */
+  maxConnections: number | undefined;
+
+  /**
+   * <p>Number of overflowing requests after <code>max_connections</code> Envoy will queue to
+   *          upstream cluster.</p>
+   */
+  maxPendingRequests?: number;
+}
+
+export namespace VirtualGatewayHttpConnectionPool {
+  export const filterSensitiveLog = (obj: VirtualGatewayHttpConnectionPool): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An object that represents a type of connection pool.</p>
+ */
+export interface VirtualGatewayHttp2ConnectionPool {
+  /**
+   * <p>Maximum number of inflight requests Envoy can concurrently support across hosts in
+   *          upstream cluster.</p>
+   */
+  maxRequests: number | undefined;
+}
+
+export namespace VirtualGatewayHttp2ConnectionPool {
+  export const filterSensitiveLog = (obj: VirtualGatewayHttp2ConnectionPool): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An object that represents the type of virtual gateway connection pool.</p>
+ *          <p>Only one protocol is used at a time and should be the same protocol as the one chosen
+ *          under port mapping.</p>
+ *          <p>If not present the default value for <code>maxPendingRequests</code> is
+ *             <code>2147483647</code>.</p>
+ */
+export type VirtualGatewayConnectionPool =
+  | VirtualGatewayConnectionPool.GrpcMember
+  | VirtualGatewayConnectionPool.HttpMember
+  | VirtualGatewayConnectionPool.Http2Member
+  | VirtualGatewayConnectionPool.$UnknownMember;
+
+export namespace VirtualGatewayConnectionPool {
+  /**
+   * <p>An object that represents a type of connection pool.</p>
+   */
+  export interface HttpMember {
+    http: VirtualGatewayHttpConnectionPool;
+    http2?: never;
+    grpc?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An object that represents a type of connection pool.</p>
+   */
+  export interface Http2Member {
+    http?: never;
+    http2: VirtualGatewayHttp2ConnectionPool;
+    grpc?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An object that represents a type of connection pool. </p>
+   */
+  export interface GrpcMember {
+    http?: never;
+    http2?: never;
+    grpc: VirtualGatewayGrpcConnectionPool;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    http?: never;
+    http2?: never;
+    grpc?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    http: (value: VirtualGatewayHttpConnectionPool) => T;
+    http2: (value: VirtualGatewayHttp2ConnectionPool) => T;
+    grpc: (value: VirtualGatewayGrpcConnectionPool) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: VirtualGatewayConnectionPool, visitor: Visitor<T>): T => {
+    if (value.http !== undefined) return visitor.http(value.http);
+    if (value.http2 !== undefined) return visitor.http2(value.http2);
+    if (value.grpc !== undefined) return visitor.grpc(value.grpc);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  export const filterSensitiveLog = (obj: VirtualGatewayConnectionPool): any => {
+    if (obj.http !== undefined) return { http: VirtualGatewayHttpConnectionPool.filterSensitiveLog(obj.http) };
+    if (obj.http2 !== undefined) return { http2: VirtualGatewayHttp2ConnectionPool.filterSensitiveLog(obj.http2) };
+    if (obj.grpc !== undefined) return { grpc: VirtualGatewayGrpcConnectionPool.filterSensitiveLog(obj.grpc) };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+  };
 }
 
 export enum VirtualGatewayPortProtocol {
@@ -967,34 +1284,12 @@ export namespace VirtualGatewayListenerTlsAcmCertificate {
 }
 
 /**
- * <p>An object that represents a local file certificate.
- *          The certificate must meet specific requirements and you must have proxy authorization enabled. For more information, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html#virtual-node-tls-prerequisites">Transport Layer Security (TLS)</a>.</p>
- */
-export interface VirtualGatewayListenerTlsFileCertificate {
-  /**
-   * <p>The certificate chain for the certificate.</p>
-   */
-  certificateChain: string | undefined;
-
-  /**
-   * <p>The private key for a certificate stored on the file system of the mesh endpoint that
-   *          the proxy is running on.</p>
-   */
-  privateKey: string | undefined;
-}
-
-export namespace VirtualGatewayListenerTlsFileCertificate {
-  export const filterSensitiveLog = (obj: VirtualGatewayListenerTlsFileCertificate): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>An object that represents a listener's Transport Layer Security (TLS) certificate.</p>
  */
 export type VirtualGatewayListenerTlsCertificate =
   | VirtualGatewayListenerTlsCertificate.AcmMember
   | VirtualGatewayListenerTlsCertificate.FileMember
+  | VirtualGatewayListenerTlsCertificate.SdsMember
   | VirtualGatewayListenerTlsCertificate.$UnknownMember;
 
 export namespace VirtualGatewayListenerTlsCertificate {
@@ -1004,6 +1299,7 @@ export namespace VirtualGatewayListenerTlsCertificate {
   export interface AcmMember {
     acm: VirtualGatewayListenerTlsAcmCertificate;
     file?: never;
+    sds?: never;
     $unknown?: never;
   }
 
@@ -1013,30 +1309,46 @@ export namespace VirtualGatewayListenerTlsCertificate {
   export interface FileMember {
     acm?: never;
     file: VirtualGatewayListenerTlsFileCertificate;
+    sds?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A reference to an object that represents a virtual gateway's listener's Secret Discovery
+   *          Service certificate.</p>
+   */
+  export interface SdsMember {
+    acm?: never;
+    file?: never;
+    sds: VirtualGatewayListenerTlsSdsCertificate;
     $unknown?: never;
   }
 
   export interface $UnknownMember {
     acm?: never;
     file?: never;
+    sds?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     acm: (value: VirtualGatewayListenerTlsAcmCertificate) => T;
     file: (value: VirtualGatewayListenerTlsFileCertificate) => T;
+    sds: (value: VirtualGatewayListenerTlsSdsCertificate) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: VirtualGatewayListenerTlsCertificate, visitor: Visitor<T>): T => {
     if (value.acm !== undefined) return visitor.acm(value.acm);
     if (value.file !== undefined) return visitor.file(value.file);
+    if (value.sds !== undefined) return visitor.sds(value.sds);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 
   export const filterSensitiveLog = (obj: VirtualGatewayListenerTlsCertificate): any => {
     if (obj.acm !== undefined) return { acm: VirtualGatewayListenerTlsAcmCertificate.filterSensitiveLog(obj.acm) };
     if (obj.file !== undefined) return { file: VirtualGatewayListenerTlsFileCertificate.filterSensitiveLog(obj.file) };
+    if (obj.sds !== undefined) return { sds: VirtualGatewayListenerTlsSdsCertificate.filterSensitiveLog(obj.sds) };
     if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
@@ -1045,6 +1357,86 @@ export enum VirtualGatewayListenerTlsMode {
   DISABLED = "DISABLED",
   PERMISSIVE = "PERMISSIVE",
   STRICT = "STRICT",
+}
+
+/**
+ * <p>An object that represents a virtual gateway's listener's Transport Layer Security (TLS) validation context
+ *          trust.</p>
+ */
+export type VirtualGatewayListenerTlsValidationContextTrust =
+  | VirtualGatewayListenerTlsValidationContextTrust.FileMember
+  | VirtualGatewayListenerTlsValidationContextTrust.SdsMember
+  | VirtualGatewayListenerTlsValidationContextTrust.$UnknownMember;
+
+export namespace VirtualGatewayListenerTlsValidationContextTrust {
+  /**
+   * <p>An object that represents a Transport Layer Security (TLS) validation context trust for a local file.</p>
+   */
+  export interface FileMember {
+    file: VirtualGatewayTlsValidationContextFileTrust;
+    sds?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A reference to an object that represents a virtual gateway's listener's Transport Layer Security (TLS) Secret
+   *          Discovery Service validation context trust.</p>
+   */
+  export interface SdsMember {
+    file?: never;
+    sds: VirtualGatewayTlsValidationContextSdsTrust;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    file?: never;
+    sds?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    file: (value: VirtualGatewayTlsValidationContextFileTrust) => T;
+    sds: (value: VirtualGatewayTlsValidationContextSdsTrust) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: VirtualGatewayListenerTlsValidationContextTrust, visitor: Visitor<T>): T => {
+    if (value.file !== undefined) return visitor.file(value.file);
+    if (value.sds !== undefined) return visitor.sds(value.sds);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  export const filterSensitiveLog = (obj: VirtualGatewayListenerTlsValidationContextTrust): any => {
+    if (obj.file !== undefined)
+      return { file: VirtualGatewayTlsValidationContextFileTrust.filterSensitiveLog(obj.file) };
+    if (obj.sds !== undefined) return { sds: VirtualGatewayTlsValidationContextSdsTrust.filterSensitiveLog(obj.sds) };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+  };
+}
+
+/**
+ * <p>An object that represents a virtual gateway's listener's Transport Layer Security (TLS) validation
+ *          context.</p>
+ */
+export interface VirtualGatewayListenerTlsValidationContext {
+  /**
+   * <p>A reference to where to retrieve the trust chain when validating a peer’s Transport Layer Security (TLS)
+   *          certificate.</p>
+   */
+  trust: VirtualGatewayListenerTlsValidationContextTrust | undefined;
+
+  /**
+   * <p>A reference to an object that represents the SANs for a virtual gateway listener's Transport Layer Security (TLS)
+   *          validation context.</p>
+   */
+  subjectAlternativeNames?: SubjectAlternativeNames;
+}
+
+export namespace VirtualGatewayListenerTlsValidationContext {
+  export const filterSensitiveLog = (obj: VirtualGatewayListenerTlsValidationContext): any => ({
+    ...obj,
+    ...(obj.trust && { trust: VirtualGatewayListenerTlsValidationContextTrust.filterSensitiveLog(obj.trust) }),
+  });
 }
 
 /**
@@ -1074,6 +1466,12 @@ export interface VirtualGatewayListenerTls {
   mode: VirtualGatewayListenerTlsMode | string | undefined;
 
   /**
+   * <p>A reference to an object that represents a virtual gateway's listener's Transport Layer Security (TLS) validation
+   *          context.</p>
+   */
+  validation?: VirtualGatewayListenerTlsValidationContext;
+
+  /**
    * <p>An object that represents a Transport Layer Security (TLS) certificate.</p>
    */
   certificate: VirtualGatewayListenerTlsCertificate | undefined;
@@ -1082,6 +1480,9 @@ export interface VirtualGatewayListenerTls {
 export namespace VirtualGatewayListenerTls {
   export const filterSensitiveLog = (obj: VirtualGatewayListenerTls): any => ({
     ...obj,
+    ...(obj.validation && {
+      validation: VirtualGatewayListenerTlsValidationContext.filterSensitiveLog(obj.validation),
+    }),
     ...(obj.certificate && { certificate: VirtualGatewayListenerTlsCertificate.filterSensitiveLog(obj.certificate) }),
   });
 }
@@ -1104,12 +1505,18 @@ export interface VirtualGatewayListener {
    * <p>A reference to an object that represents the Transport Layer Security (TLS) properties for the listener.</p>
    */
   tls?: VirtualGatewayListenerTls;
+
+  /**
+   * <p>The connection pool information for the virtual gateway listener.</p>
+   */
+  connectionPool?: VirtualGatewayConnectionPool;
 }
 
 export namespace VirtualGatewayListener {
   export const filterSensitiveLog = (obj: VirtualGatewayListener): any => ({
     ...obj,
     ...(obj.tls && { tls: VirtualGatewayListenerTls.filterSensitiveLog(obj.tls) }),
+    ...(obj.connectionPool && { connectionPool: VirtualGatewayConnectionPool.filterSensitiveLog(obj.connectionPool) }),
   });
 }
 
@@ -2134,7 +2541,104 @@ export namespace UpdateVirtualGatewayOutput {
 }
 
 /**
- * <p>An object that represents a TLS validation context trust for an AWS Certicate Manager (ACM)
+ * <p>An object that represents a local file certificate.
+ *          The certificate must meet specific requirements and you must have proxy authorization enabled. For more information, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html#virtual-node-tls-prerequisites">Transport Layer Security (TLS)</a>.</p>
+ */
+export interface ListenerTlsFileCertificate {
+  /**
+   * <p>The certificate chain for the certificate.</p>
+   */
+  certificateChain: string | undefined;
+
+  /**
+   * <p>The private key for a certificate stored on the file system of the virtual node that the
+   *          proxy is running on.</p>
+   */
+  privateKey: string | undefined;
+}
+
+export namespace ListenerTlsFileCertificate {
+  export const filterSensitiveLog = (obj: ListenerTlsFileCertificate): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An object that represents the listener's Secret Discovery Service certificate. The proxy
+ *          must be configured with a local SDS provider via a Unix Domain Socket. See App Mesh <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html">TLS
+ *             documentation</a> for more info.</p>
+ */
+export interface ListenerTlsSdsCertificate {
+  /**
+   * <p>A reference to an object that represents the name of the secret requested from the
+   *          Secret Discovery Service provider representing Transport Layer Security (TLS) materials like a certificate or
+   *          certificate chain.</p>
+   */
+  secretName: string | undefined;
+}
+
+export namespace ListenerTlsSdsCertificate {
+  export const filterSensitiveLog = (obj: ListenerTlsSdsCertificate): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An object that represents the client's certificate.</p>
+ */
+export type ClientTlsCertificate =
+  | ClientTlsCertificate.FileMember
+  | ClientTlsCertificate.SdsMember
+  | ClientTlsCertificate.$UnknownMember;
+
+export namespace ClientTlsCertificate {
+  /**
+   * <p>An object that represents a local file certificate.
+   *          The certificate must meet specific requirements and you must have proxy authorization enabled. For more information, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html#virtual-node-tls-prerequisites">Transport Layer Security (TLS)</a>.</p>
+   */
+  export interface FileMember {
+    file: ListenerTlsFileCertificate;
+    sds?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A reference to an object that represents a client's TLS Secret Discovery Service
+   *          certificate.</p>
+   */
+  export interface SdsMember {
+    file?: never;
+    sds: ListenerTlsSdsCertificate;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    file?: never;
+    sds?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    file: (value: ListenerTlsFileCertificate) => T;
+    sds: (value: ListenerTlsSdsCertificate) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ClientTlsCertificate, visitor: Visitor<T>): T => {
+    if (value.file !== undefined) return visitor.file(value.file);
+    if (value.sds !== undefined) return visitor.sds(value.sds);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  export const filterSensitiveLog = (obj: ClientTlsCertificate): any => {
+    if (obj.file !== undefined) return { file: ListenerTlsFileCertificate.filterSensitiveLog(obj.file) };
+    if (obj.sds !== undefined) return { sds: ListenerTlsSdsCertificate.filterSensitiveLog(obj.sds) };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+  };
+}
+
+/**
+ * <p>An object that represents a Transport Layer Security (TLS) validation context trust for an AWS Certicate Manager (ACM)
  *          certificate.</p>
  */
 export interface TlsValidationContextAcmTrust {
@@ -2168,66 +2672,111 @@ export namespace TlsValidationContextFileTrust {
 }
 
 /**
+ * <p>An object that represents a Transport Layer Security (TLS) Secret Discovery Service validation context trust. The
+ *          proxy must be configured with a local SDS provider via a Unix Domain Socket. See App Mesh
+ *             <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html">TLS
+ *             documentation</a> for more info.</p>
+ */
+export interface TlsValidationContextSdsTrust {
+  /**
+   * <p>A reference to an object that represents the name of the secret for a Transport Layer Security (TLS) Secret
+   *          Discovery Service validation context trust.</p>
+   */
+  secretName: string | undefined;
+}
+
+export namespace TlsValidationContextSdsTrust {
+  export const filterSensitiveLog = (obj: TlsValidationContextSdsTrust): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>An object that represents a Transport Layer Security (TLS) validation context trust.</p>
  */
 export type TlsValidationContextTrust =
   | TlsValidationContextTrust.AcmMember
   | TlsValidationContextTrust.FileMember
+  | TlsValidationContextTrust.SdsMember
   | TlsValidationContextTrust.$UnknownMember;
 
 export namespace TlsValidationContextTrust {
   /**
-   * <p>A reference to an object that represents a TLS validation context trust for an AWS Certicate Manager (ACM)
-   *          certificate.</p>
+   * <p>A reference to an object that represents a Transport Layer Security (TLS) validation context trust for an
+   *          AWS Certicate Manager (ACM) certificate.</p>
    */
   export interface AcmMember {
     acm: TlsValidationContextAcmTrust;
     file?: never;
+    sds?: never;
     $unknown?: never;
   }
 
   /**
-   * <p>An object that represents a TLS validation context trust for a local file.</p>
+   * <p>An object that represents a Transport Layer Security (TLS) validation context trust for a local file.</p>
    */
   export interface FileMember {
     acm?: never;
     file: TlsValidationContextFileTrust;
+    sds?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A reference to an object that represents a Transport Layer Security (TLS) Secret Discovery Service validation
+   *          context trust.</p>
+   */
+  export interface SdsMember {
+    acm?: never;
+    file?: never;
+    sds: TlsValidationContextSdsTrust;
     $unknown?: never;
   }
 
   export interface $UnknownMember {
     acm?: never;
     file?: never;
+    sds?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     acm: (value: TlsValidationContextAcmTrust) => T;
     file: (value: TlsValidationContextFileTrust) => T;
+    sds: (value: TlsValidationContextSdsTrust) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: TlsValidationContextTrust, visitor: Visitor<T>): T => {
     if (value.acm !== undefined) return visitor.acm(value.acm);
     if (value.file !== undefined) return visitor.file(value.file);
+    if (value.sds !== undefined) return visitor.sds(value.sds);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 
   export const filterSensitiveLog = (obj: TlsValidationContextTrust): any => {
     if (obj.acm !== undefined) return { acm: TlsValidationContextAcmTrust.filterSensitiveLog(obj.acm) };
     if (obj.file !== undefined) return { file: TlsValidationContextFileTrust.filterSensitiveLog(obj.file) };
+    if (obj.sds !== undefined) return { sds: TlsValidationContextSdsTrust.filterSensitiveLog(obj.sds) };
     if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
 
 /**
- * <p>An object that represents a Transport Layer Security (TLS) validation context.</p>
+ * <p>An object that represents how the proxy will validate its peer during Transport Layer Security (TLS)
+ *          negotiation.</p>
  */
 export interface TlsValidationContext {
   /**
-   * <p>A reference to an object that represents a TLS validation context trust.</p>
+   * <p>A reference to where to retrieve the trust chain when validating a peer’s Transport Layer Security (TLS)
+   *          certificate.</p>
    */
   trust: TlsValidationContextTrust | undefined;
+
+  /**
+   * <p>A reference to an object that represents the SANs for a Transport Layer Security (TLS) validation context.</p>
+   */
+  subjectAlternativeNames?: SubjectAlternativeNames;
 }
 
 export namespace TlsValidationContext {
@@ -2238,12 +2787,11 @@ export namespace TlsValidationContext {
 }
 
 /**
- * <p>An object that represents a Transport Layer Security (TLS) client policy.</p>
+ * <p>A reference to an object that represents a Transport Layer Security (TLS) client policy.</p>
  */
 export interface ClientPolicyTls {
   /**
-   * <p>Whether the policy is enforced. The default is <code>True</code>, if a value isn't
-   *          specified.</p>
+   * <p>Whether the policy is enforced. The default is <code>True</code>, if a value isn't specified.</p>
    */
   enforce?: boolean;
 
@@ -2251,6 +2799,11 @@ export interface ClientPolicyTls {
    * <p>One or more ports that the policy is enforced for.</p>
    */
   ports?: number[];
+
+  /**
+   * <p>A reference to an object that represents a client's TLS certificate.</p>
+   */
+  certificate?: ClientTlsCertificate;
 
   /**
    * <p>A reference to an object that represents a TLS validation context.</p>
@@ -2261,6 +2814,7 @@ export interface ClientPolicyTls {
 export namespace ClientPolicyTls {
   export const filterSensitiveLog = (obj: ClientPolicyTls): any => ({
     ...obj,
+    ...(obj.certificate && { certificate: ClientTlsCertificate.filterSensitiveLog(obj.certificate) }),
     ...(obj.validation && { validation: TlsValidationContext.filterSensitiveLog(obj.validation) }),
   });
 }
@@ -2323,13 +2877,13 @@ export namespace VirtualServiceBackend {
 
 /**
  * <p>An object that represents the backends that a virtual node is expected to send outbound
- *          traffic to. </p>
+ *          traffic to.</p>
  */
 export type Backend = Backend.VirtualServiceMember | Backend.$UnknownMember;
 
 export namespace Backend {
   /**
-   * <p>Specifies a virtual service to use as a backend for a virtual node. </p>
+   * <p>Specifies a virtual service to use as a backend.  </p>
    */
   export interface VirtualServiceMember {
     virtualService: VirtualServiceBackend;
@@ -2354,6 +2908,173 @@ export namespace Backend {
   export const filterSensitiveLog = (obj: Backend): any => {
     if (obj.virtualService !== undefined)
       return { virtualService: VirtualServiceBackend.filterSensitiveLog(obj.virtualService) };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+  };
+}
+
+/**
+ * <p>An object that represents a type of connection pool.</p>
+ */
+export interface VirtualNodeGrpcConnectionPool {
+  /**
+   * <p>Maximum number of inflight requests Envoy can concurrently support across hosts in
+   *          upstream cluster.</p>
+   */
+  maxRequests: number | undefined;
+}
+
+export namespace VirtualNodeGrpcConnectionPool {
+  export const filterSensitiveLog = (obj: VirtualNodeGrpcConnectionPool): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An object that represents a type of connection pool.</p>
+ */
+export interface VirtualNodeHttpConnectionPool {
+  /**
+   * <p>Maximum number of outbound TCP connections Envoy can establish concurrently with all
+   *          hosts in upstream cluster.</p>
+   */
+  maxConnections: number | undefined;
+
+  /**
+   * <p>Number of overflowing requests after <code>max_connections</code> Envoy will queue to
+   *          upstream cluster.</p>
+   */
+  maxPendingRequests?: number;
+}
+
+export namespace VirtualNodeHttpConnectionPool {
+  export const filterSensitiveLog = (obj: VirtualNodeHttpConnectionPool): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An object that represents a type of connection pool.</p>
+ */
+export interface VirtualNodeHttp2ConnectionPool {
+  /**
+   * <p>Maximum number of inflight requests Envoy can concurrently support across hosts in
+   *          upstream cluster.</p>
+   */
+  maxRequests: number | undefined;
+}
+
+export namespace VirtualNodeHttp2ConnectionPool {
+  export const filterSensitiveLog = (obj: VirtualNodeHttp2ConnectionPool): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An object that represents a type of connection pool.</p>
+ */
+export interface VirtualNodeTcpConnectionPool {
+  /**
+   * <p>Maximum number of outbound TCP connections Envoy can establish concurrently with all
+   *          hosts in upstream cluster.</p>
+   */
+  maxConnections: number | undefined;
+}
+
+export namespace VirtualNodeTcpConnectionPool {
+  export const filterSensitiveLog = (obj: VirtualNodeTcpConnectionPool): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An object that represents the type of virtual node connection pool.</p>
+ *          <p>Only one protocol is used at a time and should be the same protocol as the one chosen
+ *          under port mapping.</p>
+ *          <p>If not present the default value for <code>maxPendingRequests</code> is
+ *             <code>2147483647</code>.</p>
+ *          <p/>
+ */
+export type VirtualNodeConnectionPool =
+  | VirtualNodeConnectionPool.GrpcMember
+  | VirtualNodeConnectionPool.HttpMember
+  | VirtualNodeConnectionPool.Http2Member
+  | VirtualNodeConnectionPool.TcpMember
+  | VirtualNodeConnectionPool.$UnknownMember;
+
+export namespace VirtualNodeConnectionPool {
+  /**
+   * <p>An object that represents a type of connection pool.</p>
+   */
+  export interface TcpMember {
+    tcp: VirtualNodeTcpConnectionPool;
+    http?: never;
+    http2?: never;
+    grpc?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An object that represents a type of connection pool.</p>
+   */
+  export interface HttpMember {
+    tcp?: never;
+    http: VirtualNodeHttpConnectionPool;
+    http2?: never;
+    grpc?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An object that represents a type of connection pool.</p>
+   */
+  export interface Http2Member {
+    tcp?: never;
+    http?: never;
+    http2: VirtualNodeHttp2ConnectionPool;
+    grpc?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An object that represents a type of connection pool.</p>
+   */
+  export interface GrpcMember {
+    tcp?: never;
+    http?: never;
+    http2?: never;
+    grpc: VirtualNodeGrpcConnectionPool;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    tcp?: never;
+    http?: never;
+    http2?: never;
+    grpc?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    tcp: (value: VirtualNodeTcpConnectionPool) => T;
+    http: (value: VirtualNodeHttpConnectionPool) => T;
+    http2: (value: VirtualNodeHttp2ConnectionPool) => T;
+    grpc: (value: VirtualNodeGrpcConnectionPool) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: VirtualNodeConnectionPool, visitor: Visitor<T>): T => {
+    if (value.tcp !== undefined) return visitor.tcp(value.tcp);
+    if (value.http !== undefined) return visitor.http(value.http);
+    if (value.http2 !== undefined) return visitor.http2(value.http2);
+    if (value.grpc !== undefined) return visitor.grpc(value.grpc);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  export const filterSensitiveLog = (obj: VirtualNodeConnectionPool): any => {
+    if (obj.tcp !== undefined) return { tcp: VirtualNodeTcpConnectionPool.filterSensitiveLog(obj.tcp) };
+    if (obj.http !== undefined) return { http: VirtualNodeHttpConnectionPool.filterSensitiveLog(obj.http) };
+    if (obj.http2 !== undefined) return { http2: VirtualNodeHttp2ConnectionPool.filterSensitiveLog(obj.http2) };
+    if (obj.grpc !== undefined) return { grpc: VirtualNodeGrpcConnectionPool.filterSensitiveLog(obj.grpc) };
     if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
@@ -2418,27 +3139,6 @@ export namespace HealthCheckPolicy {
   });
 }
 
-/**
- * <p>An object that represents a port mapping.</p>
- */
-export interface PortMapping {
-  /**
-   * <p>The port used for the port mapping.</p>
-   */
-  port: number | undefined;
-
-  /**
-   * <p>The protocol used for the port mapping. Specify one protocol.</p>
-   */
-  protocol: PortProtocol | string | undefined;
-}
-
-export namespace PortMapping {
-  export const filterSensitiveLog = (obj: PortMapping): any => ({
-    ...obj,
-  });
-}
-
 export enum DurationUnit {
   MS = "ms",
   S = "s",
@@ -2466,11 +3166,66 @@ export namespace Duration {
 }
 
 /**
+ * <p>An object that represents the outlier detection for a virtual node's listener.</p>
+ */
+export interface OutlierDetection {
+  /**
+   * <p>Number of consecutive <code>5xx</code> errors required for ejection. </p>
+   */
+  maxServerErrors: number | undefined;
+
+  /**
+   * <p>The time interval between ejection sweep analysis.</p>
+   */
+  interval: Duration | undefined;
+
+  /**
+   * <p>The base amount of time for which a host is ejected.</p>
+   */
+  baseEjectionDuration: Duration | undefined;
+
+  /**
+   * <p>Maximum percentage of hosts in load balancing pool for upstream service that can be
+   *          ejected. Will eject at least one host regardless of the value.</p>
+   */
+  maxEjectionPercent: number | undefined;
+}
+
+export namespace OutlierDetection {
+  export const filterSensitiveLog = (obj: OutlierDetection): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An object that represents a port mapping.</p>
+ */
+export interface PortMapping {
+  /**
+   * <p>The port used for the port mapping.</p>
+   */
+  port: number | undefined;
+
+  /**
+   * <p>The protocol used for the port mapping. Specify one protocol.</p>
+   */
+  protocol: PortProtocol | string | undefined;
+}
+
+export namespace PortMapping {
+  export const filterSensitiveLog = (obj: PortMapping): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>An object that represents types of timeouts. </p>
  */
 export interface GrpcTimeout {
   /**
-   * <p>An object that represents a per request timeout. The default value is 15 seconds. If you set a higher timeout, then make sure that the higher value is set for each App Mesh resource in a conversation. For example, if a virtual node backend uses a virtual router provider to route to another virtual node, then the timeout should be greater than 15 seconds for the source and destination virtual node and the route.</p>
+   * <p>An object that represents a per request timeout. The default value is 15 seconds. If you set a higher timeout, then make sure that the higher value is set for each App Mesh
+   *                                   resource in a conversation. For example, if a virtual node backend uses a virtual router provider to route to another virtual node, then the timeout should be greater than 15
+   *                                   seconds for the source and destination virtual node and the route.</p>
    */
   perRequest?: Duration;
 
@@ -2491,12 +3246,14 @@ export namespace GrpcTimeout {
  */
 export interface HttpTimeout {
   /**
-   * <p>An object that represents a duration of time.</p>
+   * <p>An object that represents a per request timeout. The default value is 15 seconds. If you set a higher timeout, then make sure that the higher value is set for each App Mesh
+   *                                   resource in a conversation. For example, if a virtual node backend uses a virtual router provider to route to another virtual node, then the timeout should be greater than 15
+   *                                   seconds for the source and destination virtual node and the route.</p>
    */
   perRequest?: Duration;
 
   /**
-   * <p>An object that represents a duration of time.</p>
+   * <p>An object that represents an idle timeout. An idle timeout bounds the amount of time that a connection may be idle. The default value is none.</p>
    */
   idle?: Duration;
 }
@@ -2512,7 +3269,7 @@ export namespace HttpTimeout {
  */
 export interface TcpTimeout {
   /**
-   * <p>An object that represents a duration of time.</p>
+   * <p>An object that represents an idle timeout. An idle timeout bounds the amount of time that a connection may be idle. The default value is none.</p>
    */
   idle?: Duration;
 }
@@ -2628,34 +3385,12 @@ export namespace ListenerTlsAcmCertificate {
 }
 
 /**
- * <p>An object that represents a local file certificate.
- *          The certificate must meet specific requirements and you must have proxy authorization enabled. For more information, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html#virtual-node-tls-prerequisites">Transport Layer Security (TLS)</a>.</p>
- */
-export interface ListenerTlsFileCertificate {
-  /**
-   * <p>The certificate chain for the certificate.</p>
-   */
-  certificateChain: string | undefined;
-
-  /**
-   * <p>The private key for a certificate stored on the file system of the virtual node that the
-   *          proxy is running on.</p>
-   */
-  privateKey: string | undefined;
-}
-
-export namespace ListenerTlsFileCertificate {
-  export const filterSensitiveLog = (obj: ListenerTlsFileCertificate): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>An object that represents a listener's Transport Layer Security (TLS) certificate.</p>
  */
 export type ListenerTlsCertificate =
   | ListenerTlsCertificate.AcmMember
   | ListenerTlsCertificate.FileMember
+  | ListenerTlsCertificate.SdsMember
   | ListenerTlsCertificate.$UnknownMember;
 
 export namespace ListenerTlsCertificate {
@@ -2665,6 +3400,7 @@ export namespace ListenerTlsCertificate {
   export interface AcmMember {
     acm: ListenerTlsAcmCertificate;
     file?: never;
+    sds?: never;
     $unknown?: never;
   }
 
@@ -2674,30 +3410,46 @@ export namespace ListenerTlsCertificate {
   export interface FileMember {
     acm?: never;
     file: ListenerTlsFileCertificate;
+    sds?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A reference to an object that represents a listener's Secret Discovery Service
+   *          certificate.</p>
+   */
+  export interface SdsMember {
+    acm?: never;
+    file?: never;
+    sds: ListenerTlsSdsCertificate;
     $unknown?: never;
   }
 
   export interface $UnknownMember {
     acm?: never;
     file?: never;
+    sds?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     acm: (value: ListenerTlsAcmCertificate) => T;
     file: (value: ListenerTlsFileCertificate) => T;
+    sds: (value: ListenerTlsSdsCertificate) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: ListenerTlsCertificate, visitor: Visitor<T>): T => {
     if (value.acm !== undefined) return visitor.acm(value.acm);
     if (value.file !== undefined) return visitor.file(value.file);
+    if (value.sds !== undefined) return visitor.sds(value.sds);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 
   export const filterSensitiveLog = (obj: ListenerTlsCertificate): any => {
     if (obj.acm !== undefined) return { acm: ListenerTlsAcmCertificate.filterSensitiveLog(obj.acm) };
     if (obj.file !== undefined) return { file: ListenerTlsFileCertificate.filterSensitiveLog(obj.file) };
+    if (obj.sds !== undefined) return { sds: ListenerTlsSdsCertificate.filterSensitiveLog(obj.sds) };
     if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
@@ -2706,6 +3458,83 @@ export enum ListenerTlsMode {
   DISABLED = "DISABLED",
   PERMISSIVE = "PERMISSIVE",
   STRICT = "STRICT",
+}
+
+/**
+ * <p>An object that represents a listener's Transport Layer Security (TLS) validation context trust.</p>
+ */
+export type ListenerTlsValidationContextTrust =
+  | ListenerTlsValidationContextTrust.FileMember
+  | ListenerTlsValidationContextTrust.SdsMember
+  | ListenerTlsValidationContextTrust.$UnknownMember;
+
+export namespace ListenerTlsValidationContextTrust {
+  /**
+   * <p>An object that represents a Transport Layer Security (TLS) validation context trust for a local file.</p>
+   */
+  export interface FileMember {
+    file: TlsValidationContextFileTrust;
+    sds?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A reference to an object that represents a listener's Transport Layer Security (TLS) Secret Discovery Service
+   *          validation context trust.</p>
+   */
+  export interface SdsMember {
+    file?: never;
+    sds: TlsValidationContextSdsTrust;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    file?: never;
+    sds?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    file: (value: TlsValidationContextFileTrust) => T;
+    sds: (value: TlsValidationContextSdsTrust) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ListenerTlsValidationContextTrust, visitor: Visitor<T>): T => {
+    if (value.file !== undefined) return visitor.file(value.file);
+    if (value.sds !== undefined) return visitor.sds(value.sds);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  export const filterSensitiveLog = (obj: ListenerTlsValidationContextTrust): any => {
+    if (obj.file !== undefined) return { file: TlsValidationContextFileTrust.filterSensitiveLog(obj.file) };
+    if (obj.sds !== undefined) return { sds: TlsValidationContextSdsTrust.filterSensitiveLog(obj.sds) };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+  };
+}
+
+/**
+ * <p>An object that represents a listener's Transport Layer Security (TLS) validation context.</p>
+ */
+export interface ListenerTlsValidationContext {
+  /**
+   * <p>A reference to where to retrieve the trust chain when validating a peer’s Transport Layer Security (TLS)
+   *          certificate.</p>
+   */
+  trust: ListenerTlsValidationContextTrust | undefined;
+
+  /**
+   * <p>A reference to an object that represents the SANs for a listener's Transport Layer Security (TLS) validation
+   *          context.</p>
+   */
+  subjectAlternativeNames?: SubjectAlternativeNames;
+}
+
+export namespace ListenerTlsValidationContext {
+  export const filterSensitiveLog = (obj: ListenerTlsValidationContext): any => ({
+    ...obj,
+    ...(obj.trust && { trust: ListenerTlsValidationContextTrust.filterSensitiveLog(obj.trust) }),
+  });
 }
 
 /**
@@ -2735,15 +3564,21 @@ export interface ListenerTls {
   mode: ListenerTlsMode | string | undefined;
 
   /**
-   * <p>A reference to an object that represents a listener's TLS certificate.</p>
+   * <p>A reference to an object that represents a listener's Transport Layer Security (TLS) certificate.</p>
    */
   certificate: ListenerTlsCertificate | undefined;
+
+  /**
+   * <p>A reference to an object that represents a listener's Transport Layer Security (TLS) validation context.</p>
+   */
+  validation?: ListenerTlsValidationContext;
 }
 
 export namespace ListenerTls {
   export const filterSensitiveLog = (obj: ListenerTls): any => ({
     ...obj,
     ...(obj.certificate && { certificate: ListenerTlsCertificate.filterSensitiveLog(obj.certificate) }),
+    ...(obj.validation && { validation: ListenerTlsValidationContext.filterSensitiveLog(obj.validation) }),
   });
 }
 
@@ -2770,6 +3605,16 @@ export interface Listener {
    * <p>An object that represents timeouts for different protocols.</p>
    */
   timeout?: ListenerTimeout;
+
+  /**
+   * <p>The outlier detection information for the listener.</p>
+   */
+  outlierDetection?: OutlierDetection;
+
+  /**
+   * <p>The connection pool information for the listener.</p>
+   */
+  connectionPool?: VirtualNodeConnectionPool;
 }
 
 export namespace Listener {
@@ -2777,6 +3622,7 @@ export namespace Listener {
     ...obj,
     ...(obj.tls && { tls: ListenerTls.filterSensitiveLog(obj.tls) }),
     ...(obj.timeout && { timeout: ListenerTimeout.filterSensitiveLog(obj.timeout) }),
+    ...(obj.connectionPool && { connectionPool: VirtualNodeConnectionPool.filterSensitiveLog(obj.connectionPool) }),
   });
 }
 
@@ -2800,6 +3646,9 @@ export namespace Logging {
 /**
  * <p>An object that represents the AWS Cloud Map attribute information for your virtual
  *          node.</p>
+ *          <note>
+ *             <p>AWS Cloud Map is not available in the eu-south-1 Region.</p>
+ *          </note>
  */
 export interface AwsCloudMapInstanceAttribute {
   /**
@@ -2824,6 +3673,9 @@ export namespace AwsCloudMapInstanceAttribute {
 /**
  * <p>An object that represents the AWS Cloud Map service discovery information for your virtual
  *          node.</p>
+ *          <note>
+ *             <p>AWS Cloud Map is not available in the eu-south-1 Region.</p>
+ *          </note>
  */
 export interface AwsCloudMapServiceDiscovery {
   /**
@@ -3952,7 +4804,7 @@ export enum TcpRetryPolicyEvent {
  */
 export interface GrpcRetryPolicy {
   /**
-   * <p>An object that represents a duration of time.</p>
+   * <p>The timeout for each retry attempt.</p>
    */
   perRetryTimeout: Duration | undefined;
 
@@ -3988,7 +4840,7 @@ export interface GrpcRetryPolicy {
   httpRetryEvents?: string[];
 
   /**
-   * <p>Specify a valid value.</p>
+   * <p>Specify a valid value. The event occurs before any processing of a request has started and is encountered when the upstream is temporarily or permanently unavailable.</p>
    */
   tcpRetryEvents?: (TcpRetryPolicyEvent | string)[];
 
@@ -4248,7 +5100,7 @@ export namespace HttpRouteMatch {
  */
 export interface HttpRetryPolicy {
   /**
-   * <p>An object that represents a duration of time.</p>
+   * <p>The timeout for each retry attempt.</p>
    */
   perRetryTimeout: Duration | undefined;
 
@@ -4284,7 +5136,7 @@ export interface HttpRetryPolicy {
   httpRetryEvents?: string[];
 
   /**
-   * <p>Specify a valid value.</p>
+   * <p>Specify a valid value. The event occurs before any processing of a request has started and is encountered when the upstream is temporarily or permanently unavailable.</p>
    */
   tcpRetryEvents?: (TcpRetryPolicyEvent | string)[];
 }

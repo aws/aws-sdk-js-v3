@@ -9,6 +9,7 @@ import {
   CancelDataRepositoryTaskCommandInput,
   CancelDataRepositoryTaskCommandOutput,
 } from "./commands/CancelDataRepositoryTaskCommand";
+import { CopyBackupCommand, CopyBackupCommandInput, CopyBackupCommandOutput } from "./commands/CopyBackupCommand";
 import {
   CreateBackupCommand,
   CreateBackupCommandInput,
@@ -163,6 +164,52 @@ export class FSx extends FSxClient {
     cb?: (err: any, data?: CancelDataRepositoryTaskCommandOutput) => void
   ): Promise<CancelDataRepositoryTaskCommandOutput> | void {
     const command = new CancelDataRepositoryTaskCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Copies an existing backup within the same AWS account to another Region
+   *          (cross-Region copy) or within the same Region (in-Region copy). You can have up to five
+   *          backup copy requests in progress to a single destination Region per account.</p>
+   *          <p>You can use cross-Region backup copies for cross-region disaster recovery.
+   *          You periodically take backups and copy them to another Region so that in the
+   *          event of a disaster in the primary Region, you can restore from backup and recover
+   *          availability quickly in the other Region. You can make cross-Region copies
+   *          only within your AWS partition.</p>
+   *          <p> You can also use backup copies to clone your file data set to another Region
+   *          or within the same Region.</p>
+   *          <p>You can use the <code>SourceRegion</code> parameter to specify the AWS Region
+   *          from which the backup will be copied. For example, if you make the call from the
+   *          <code>us-west-1</code> Region and want to copy a backup from the <code>us-east-2</code>
+   *          Region, you specify <code>us-east-2</code> in the <code>SourceRegion</code> parameter
+   *          to make a cross-Region copy. If you don't specify a Region, the backup copy is
+   *          created in the same Region where the request is sent from (in-Region copy).</p>
+   *          <p>For more information on creating backup copies, see
+   *          <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/copy-backups.html">
+   *             Copying backups</a> in the <i>Amazon FSx for Windows User Guide</i> and
+   *          <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/copy-backups.html">Copying backups</a>
+   *          in the <i>Amazon FSx for Lustre User Guide</i>.</p>
+   */
+  public copyBackup(args: CopyBackupCommandInput, options?: __HttpHandlerOptions): Promise<CopyBackupCommandOutput>;
+  public copyBackup(args: CopyBackupCommandInput, cb: (err: any, data?: CopyBackupCommandOutput) => void): void;
+  public copyBackup(
+    args: CopyBackupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CopyBackupCommandOutput) => void
+  ): void;
+  public copyBackup(
+    args: CopyBackupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CopyBackupCommandOutput) => void),
+    cb?: (err: any, data?: CopyBackupCommandOutput) => void
+  ): Promise<CopyBackupCommandOutput> | void {
+    const command = new CopyBackupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

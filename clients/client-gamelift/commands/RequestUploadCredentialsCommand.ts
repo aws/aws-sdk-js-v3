@@ -35,35 +35,16 @@ export type RequestUploadCredentialsCommandOutput = RequestUploadCredentialsOutp
  *             Create a Build with Files in S3</a>
  *         </p>
  *         <p>
- *             <b>Related operations</b>
+ *             <b>Related actions</b>
  *          </p>
- *         <ul>
- *             <li>
- *                <p>
- *                   <a>CreateBuild</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListBuilds</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DescribeBuild</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateBuild</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteBuild</a>
- *                </p>
- *             </li>
- *          </ul>
+ *                     <p>
+ *             <a>CreateBuild</a> |
+ *                     <a>ListBuilds</a> |
+ *                     <a>DescribeBuild</a> |
+ *                     <a>UpdateBuild</a> |
+ *                     <a>DeleteBuild</a> |
+ *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          </p>
  */
 export class RequestUploadCredentialsCommand extends $Command<
   RequestUploadCredentialsCommandInput,

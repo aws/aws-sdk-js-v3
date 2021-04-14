@@ -117,6 +117,11 @@ import {
   UpdateBrokerStorageCommandOutput,
 } from "./commands/UpdateBrokerStorageCommand";
 import {
+  UpdateBrokerTypeCommand,
+  UpdateBrokerTypeCommandInput,
+  UpdateBrokerTypeCommandOutput,
+} from "./commands/UpdateBrokerTypeCommand";
+import {
   UpdateClusterConfigurationCommand,
   UpdateClusterConfigurationCommandInput,
   UpdateClusterConfigurationCommandOutput,
@@ -914,6 +919,38 @@ export class Kafka extends KafkaClient {
     cb?: (err: any, data?: UpdateBrokerStorageCommandOutput) => void
   ): Promise<UpdateBrokerStorageCommandOutput> | void {
     const command = new UpdateBrokerStorageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates EC2 instance type.</p>
+   */
+  public updateBrokerType(
+    args: UpdateBrokerTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateBrokerTypeCommandOutput>;
+  public updateBrokerType(
+    args: UpdateBrokerTypeCommandInput,
+    cb: (err: any, data?: UpdateBrokerTypeCommandOutput) => void
+  ): void;
+  public updateBrokerType(
+    args: UpdateBrokerTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateBrokerTypeCommandOutput) => void
+  ): void;
+  public updateBrokerType(
+    args: UpdateBrokerTypeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateBrokerTypeCommandOutput) => void),
+    cb?: (err: any, data?: UpdateBrokerTypeCommandOutput) => void
+  ): Promise<UpdateBrokerTypeCommandOutput> | void {
+    const command = new UpdateBrokerTypeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -34,8 +34,8 @@ export type CreateContainerServiceRegistryLoginCommandOutput = CreateContainerSe
  *
  *          <note>
  *             <p>You can only push container images to the container service registry of your Lightsail
- *         account. You cannot pull container images perform any other container image management
- *         actions on the container service registry of your Lightsail account.</p>
+ *         account. You cannot pull container images or perform any other container image management
+ *         actions on the container service registry.</p>
  *          </note>
  *
  *          <p>After you push your container images to the container image registry of your Lightsail
@@ -45,9 +45,8 @@ export type CreateContainerServiceRegistryLoginCommandOutput = CreateContainerSe
  *          <note>
  *             <p>This action is not required if you install and use the Lightsail Control
  *         (lightsailctl) plugin to push container images to your Lightsail container service. For
- *         more information, see <a href="amazon-lightsail-pushing-container-images">Pushing and
- *           managing container images on your Amazon Lightsail container services</a> in the
- *           <i>Lightsail Dev Guide</i>.</p>
+ *         more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-pushing-container-images">Pushing and managing container images on your Amazon Lightsail container services</a>
+ *         in the <i>Lightsail Dev Guide</i>.</p>
  *          </note>
  */
 export class CreateContainerServiceRegistryLoginCommand extends $Command<

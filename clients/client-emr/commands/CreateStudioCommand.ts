@@ -21,11 +21,7 @@ export type CreateStudioCommandInput = CreateStudioInput;
 export type CreateStudioCommandOutput = CreateStudioOutput & __MetadataBearer;
 
 /**
- * <note>
- *             <p>The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject to
- *             change.</p>
- *          </note>
- *          <p>Creates a new Amazon EMR Studio.</p>
+ * <p>Creates a new Amazon EMR Studio.</p>
  */
 export class CreateStudioCommand extends $Command<
   CreateStudioCommandInput,

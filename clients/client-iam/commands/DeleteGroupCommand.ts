@@ -19,7 +19,7 @@ export type DeleteGroupCommandOutput = __MetadataBearer;
 
 /**
  * <p>Deletes the specified IAM group. The group must not contain any users or have any
- *          attached policies.</p>
+ *             attached policies.</p>
  */
 export class DeleteGroupCommand extends $Command<
   DeleteGroupCommandInput,

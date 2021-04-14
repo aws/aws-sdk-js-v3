@@ -23,7 +23,7 @@ export type UpdateTaskExecutionCommandOutput = UpdateTaskExecutionResponse & __M
 /**
  * <p>Updates execution of a task.</p>
  *          <p>You can modify bandwidth throttling for a task execution that is running or queued.
- *       For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/working-with-task-executions.html#adjust-bandwidth-throttling">Adjusting Bandwidth Throttling for a Task Execution</a>.</p>
+ *       For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/working-with-task-executions.html#adjust-bandwidth-throttling">Adjusting Bandwidth Throttling for a Task Execution</a>.</p>
  *
  *          <note>
  *             <p>The only <code>Option</code> that can be modified by <code>UpdateTaskExecution</code>

@@ -1837,6 +1837,8 @@ export namespace DescribeScalingParametersRequest {
 }
 
 export type PartitionInstanceType =
+  | "search.2xlarge"
+  | "search.large"
   | "search.m1.large"
   | "search.m1.small"
   | "search.m2.2xlarge"
@@ -1844,7 +1846,10 @@ export type PartitionInstanceType =
   | "search.m3.2xlarge"
   | "search.m3.large"
   | "search.m3.medium"
-  | "search.m3.xlarge";
+  | "search.m3.xlarge"
+  | "search.medium"
+  | "search.small"
+  | "search.xlarge";
 
 /**
  * <p>The desired instance type and desired number of replicas of each index partition.</p>

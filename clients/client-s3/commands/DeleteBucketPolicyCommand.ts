@@ -22,7 +22,7 @@ export type DeleteBucketPolicyCommandInput = DeleteBucketPolicyRequest;
 export type DeleteBucketPolicyCommandOutput = __MetadataBearer;
 
 /**
- * <p>This implementation of the DELETE operation uses the policy subresource to delete the
+ * <p>This implementation of the DELETE action uses the policy subresource to delete the
  *          policy of a specified bucket. If you are using an identity other than the root user of the
  *          AWS account that owns the bucket, the calling identity must have the
  *             <code>DeleteBucketPolicy</code> permissions on the specified bucket and belong to the
@@ -33,14 +33,13 @@ export type DeleteBucketPolicyCommandOutput = __MetadataBearer;
  *          identity that belongs to the bucket owner's account, Amazon S3 returns a <code>405 Method Not
  *             Allowed</code> error. </p>
  *
- *
  *          <important>
  *             <p>As a security precaution, the root user of the AWS account that owns a bucket can
  *             always use this operation, even if the policy explicitly denies the root user the
  *             ability to perform this action.</p>
  *          </important>
  *
- *          <p>For more information about bucket policies, see <a href=" https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using Bucket Policies and
+ *          <p>For more information about bucket policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using Bucket Policies and
  *             UserPolicies</a>. </p>
  *          <p>The following operations are related to <code>DeleteBucketPolicy</code>
  *          </p>

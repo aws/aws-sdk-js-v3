@@ -1,5 +1,10 @@
 import { DocDBClient } from "./DocDBClient";
 import {
+  AddSourceIdentifierToSubscriptionCommand,
+  AddSourceIdentifierToSubscriptionCommandInput,
+  AddSourceIdentifierToSubscriptionCommandOutput,
+} from "./commands/AddSourceIdentifierToSubscriptionCommand";
+import {
   AddTagsToResourceCommand,
   AddTagsToResourceCommandInput,
   AddTagsToResourceCommandOutput,
@@ -45,6 +50,11 @@ import {
   CreateDBSubnetGroupCommandOutput,
 } from "./commands/CreateDBSubnetGroupCommand";
 import {
+  CreateEventSubscriptionCommand,
+  CreateEventSubscriptionCommandInput,
+  CreateEventSubscriptionCommandOutput,
+} from "./commands/CreateEventSubscriptionCommand";
+import {
   DeleteDBClusterCommand,
   DeleteDBClusterCommandInput,
   DeleteDBClusterCommandOutput,
@@ -69,6 +79,11 @@ import {
   DeleteDBSubnetGroupCommandInput,
   DeleteDBSubnetGroupCommandOutput,
 } from "./commands/DeleteDBSubnetGroupCommand";
+import {
+  DeleteEventSubscriptionCommand,
+  DeleteEventSubscriptionCommandInput,
+  DeleteEventSubscriptionCommandOutput,
+} from "./commands/DeleteEventSubscriptionCommand";
 import {
   DescribeCertificatesCommand,
   DescribeCertificatesCommandInput,
@@ -125,6 +140,11 @@ import {
   DescribeEventCategoriesCommandOutput,
 } from "./commands/DescribeEventCategoriesCommand";
 import {
+  DescribeEventSubscriptionsCommand,
+  DescribeEventSubscriptionsCommandInput,
+  DescribeEventSubscriptionsCommandOutput,
+} from "./commands/DescribeEventSubscriptionsCommand";
+import {
   DescribeEventsCommand,
   DescribeEventsCommandInput,
   DescribeEventsCommandOutput,
@@ -175,10 +195,20 @@ import {
   ModifyDBSubnetGroupCommandOutput,
 } from "./commands/ModifyDBSubnetGroupCommand";
 import {
+  ModifyEventSubscriptionCommand,
+  ModifyEventSubscriptionCommandInput,
+  ModifyEventSubscriptionCommandOutput,
+} from "./commands/ModifyEventSubscriptionCommand";
+import {
   RebootDBInstanceCommand,
   RebootDBInstanceCommandInput,
   RebootDBInstanceCommandOutput,
 } from "./commands/RebootDBInstanceCommand";
+import {
+  RemoveSourceIdentifierFromSubscriptionCommand,
+  RemoveSourceIdentifierFromSubscriptionCommandInput,
+  RemoveSourceIdentifierFromSubscriptionCommandOutput,
+} from "./commands/RemoveSourceIdentifierFromSubscriptionCommand";
 import {
   RemoveTagsFromResourceCommand,
   RemoveTagsFromResourceCommandInput,
@@ -215,6 +245,39 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  * <p>Amazon DocumentDB API documentation</p>
  */
 export class DocDB extends DocDBClient {
+  /**
+   * <p>Adds a source identifier to an existing event notification
+   *             subscription.</p>
+   */
+  public addSourceIdentifierToSubscription(
+    args: AddSourceIdentifierToSubscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AddSourceIdentifierToSubscriptionCommandOutput>;
+  public addSourceIdentifierToSubscription(
+    args: AddSourceIdentifierToSubscriptionCommandInput,
+    cb: (err: any, data?: AddSourceIdentifierToSubscriptionCommandOutput) => void
+  ): void;
+  public addSourceIdentifierToSubscription(
+    args: AddSourceIdentifierToSubscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AddSourceIdentifierToSubscriptionCommandOutput) => void
+  ): void;
+  public addSourceIdentifierToSubscription(
+    args: AddSourceIdentifierToSubscriptionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddSourceIdentifierToSubscriptionCommandOutput) => void),
+    cb?: (err: any, data?: AddSourceIdentifierToSubscriptionCommandOutput) => void
+  ): Promise<AddSourceIdentifierToSubscriptionCommandOutput> | void {
+    const command = new AddSourceIdentifierToSubscriptionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Adds metadata tags to an Amazon DocumentDB resource. You can use these tags
    *             with cost allocation reporting to track costs that are associated
@@ -538,6 +601,57 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * <p>Creates an Amazon DocumentDB event notification subscription. This action requires a topic
+   *             Amazon Resource Name (ARN) created by using the Amazon DocumentDB console, the Amazon SNS console,
+   *             or the Amazon SNS API. To obtain an ARN with Amazon SNS, you must create a topic in
+   *             Amazon SNS and subscribe to the topic. The ARN is displayed in the Amazon SNS
+   *             console.</p>
+   *         <p>You can specify the type of source (<code>SourceType</code>) that you want to be
+   *             notified of. You can also provide a list of Amazon DocumentDB sources (<code>SourceIds</code>)
+   *             that trigger the events, and you can provide a list of event categories
+   *                 (<code>EventCategories</code>) for events that you want to be notified of. For
+   *             example, you can specify <code>SourceType = db-instance</code>, <code>SourceIds =
+   *                 mydbinstance1, mydbinstance2</code> and <code>EventCategories = Availability,
+   *                 Backup</code>.</p>
+   *         <p>If you specify both the <code>SourceType</code> and <code>SourceIds</code> (such as
+   *                 <code>SourceType = db-instance</code> and <code>SourceIdentifier =
+   *                 myDBInstance1</code>), you are notified of all the <code>db-instance</code> events
+   *             for the specified source. If you specify a <code>SourceType</code> but do not specify a
+   *                 <code>SourceIdentifier</code>, you receive notice of the events for that source type
+   *             for all your Amazon DocumentDB sources. If you do not specify either the <code>SourceType</code>
+   *             or the <code>SourceIdentifier</code>, you are notified of events generated from all
+   *             Amazon DocumentDB sources belonging to your customer account.</p>
+   */
+  public createEventSubscription(
+    args: CreateEventSubscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateEventSubscriptionCommandOutput>;
+  public createEventSubscription(
+    args: CreateEventSubscriptionCommandInput,
+    cb: (err: any, data?: CreateEventSubscriptionCommandOutput) => void
+  ): void;
+  public createEventSubscription(
+    args: CreateEventSubscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateEventSubscriptionCommandOutput) => void
+  ): void;
+  public createEventSubscription(
+    args: CreateEventSubscriptionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEventSubscriptionCommandOutput) => void),
+    cb?: (err: any, data?: CreateEventSubscriptionCommandOutput) => void
+  ): Promise<CreateEventSubscriptionCommandOutput> | void {
+    const command = new CreateEventSubscriptionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a previously provisioned cluster. When you delete a cluster, all
    *             automated backups for that cluster are deleted and can't be recovered. Manual DB
    *             cluster snapshots of the specified cluster are not deleted.</p>
@@ -701,6 +815,38 @@ export class DocDB extends DocDBClient {
     cb?: (err: any, data?: DeleteDBSubnetGroupCommandOutput) => void
   ): Promise<DeleteDBSubnetGroupCommandOutput> | void {
     const command = new DeleteDBSubnetGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an Amazon DocumentDB event notification subscription.</p>
+   */
+  public deleteEventSubscription(
+    args: DeleteEventSubscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteEventSubscriptionCommandOutput>;
+  public deleteEventSubscription(
+    args: DeleteEventSubscriptionCommandInput,
+    cb: (err: any, data?: DeleteEventSubscriptionCommandOutput) => void
+  ): void;
+  public deleteEventSubscription(
+    args: DeleteEventSubscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteEventSubscriptionCommandOutput) => void
+  ): void;
+  public deleteEventSubscription(
+    args: DeleteEventSubscriptionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEventSubscriptionCommandOutput) => void),
+    cb?: (err: any, data?: DeleteEventSubscriptionCommandOutput) => void
+  ): Promise<DeleteEventSubscriptionCommandOutput> | void {
+    const command = new DeleteEventSubscriptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1123,6 +1269,43 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * <p>Lists all the subscription descriptions for a customer account. The description for a
+   *             subscription includes <code>SubscriptionName</code>, <code>SNSTopicARN</code>,
+   *                 <code>CustomerID</code>, <code>SourceType</code>, <code>SourceID</code>,
+   *                 <code>CreationTime</code>, and <code>Status</code>.</p>
+   *         <p>If you specify a <code>SubscriptionName</code>, lists the description for that
+   *             subscription.</p>
+   */
+  public describeEventSubscriptions(
+    args: DescribeEventSubscriptionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeEventSubscriptionsCommandOutput>;
+  public describeEventSubscriptions(
+    args: DescribeEventSubscriptionsCommandInput,
+    cb: (err: any, data?: DescribeEventSubscriptionsCommandOutput) => void
+  ): void;
+  public describeEventSubscriptions(
+    args: DescribeEventSubscriptionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeEventSubscriptionsCommandOutput) => void
+  ): void;
+  public describeEventSubscriptions(
+    args: DescribeEventSubscriptionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEventSubscriptionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeEventSubscriptionsCommandOutput) => void
+  ): Promise<DescribeEventSubscriptionsCommandOutput> | void {
+    const command = new DescribeEventSubscriptionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns a list of orderable instance options for the specified engine.</p>
    */
   public describeOrderableDBInstanceOptions(
@@ -1452,6 +1635,38 @@ export class DocDB extends DocDBClient {
   }
 
   /**
+   * <p>Modifies an existing Amazon DocumentDB event notification subscription.</p>
+   */
+  public modifyEventSubscription(
+    args: ModifyEventSubscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyEventSubscriptionCommandOutput>;
+  public modifyEventSubscription(
+    args: ModifyEventSubscriptionCommandInput,
+    cb: (err: any, data?: ModifyEventSubscriptionCommandOutput) => void
+  ): void;
+  public modifyEventSubscription(
+    args: ModifyEventSubscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyEventSubscriptionCommandOutput) => void
+  ): void;
+  public modifyEventSubscription(
+    args: ModifyEventSubscriptionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyEventSubscriptionCommandOutput) => void),
+    cb?: (err: any, data?: ModifyEventSubscriptionCommandOutput) => void
+  ): Promise<ModifyEventSubscriptionCommandOutput> | void {
+    const command = new ModifyEventSubscriptionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>You might need to reboot your instance, usually for maintenance reasons. For
    *             example, if you make certain changes, or if you change the cluster parameter group
    *             that is associated with the instance, you must reboot the instance for the changes to
@@ -1479,6 +1694,41 @@ export class DocDB extends DocDBClient {
     cb?: (err: any, data?: RebootDBInstanceCommandOutput) => void
   ): Promise<RebootDBInstanceCommandOutput> | void {
     const command = new RebootDBInstanceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes a source identifier from an existing Amazon DocumentDB event notification
+   *             subscription.</p>
+   */
+  public removeSourceIdentifierFromSubscription(
+    args: RemoveSourceIdentifierFromSubscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RemoveSourceIdentifierFromSubscriptionCommandOutput>;
+  public removeSourceIdentifierFromSubscription(
+    args: RemoveSourceIdentifierFromSubscriptionCommandInput,
+    cb: (err: any, data?: RemoveSourceIdentifierFromSubscriptionCommandOutput) => void
+  ): void;
+  public removeSourceIdentifierFromSubscription(
+    args: RemoveSourceIdentifierFromSubscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RemoveSourceIdentifierFromSubscriptionCommandOutput) => void
+  ): void;
+  public removeSourceIdentifierFromSubscription(
+    args: RemoveSourceIdentifierFromSubscriptionCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RemoveSourceIdentifierFromSubscriptionCommandOutput) => void),
+    cb?: (err: any, data?: RemoveSourceIdentifierFromSubscriptionCommandOutput) => void
+  ): Promise<RemoveSourceIdentifierFromSubscriptionCommandOutput> | void {
+    const command = new RemoveSourceIdentifierFromSubscriptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -4,6 +4,7 @@ export * from "./commands/AddNotificationChannelCommand";
 export * from "./commands/DescribeAccountHealthCommand";
 export * from "./commands/DescribeAccountOverviewCommand";
 export * from "./commands/DescribeAnomalyCommand";
+export * from "./commands/DescribeFeedbackCommand";
 export * from "./commands/DescribeInsightCommand";
 export * from "./commands/DescribeResourceCollectionHealthCommand";
 export * from "./pagination/DescribeResourceCollectionHealthPaginator";

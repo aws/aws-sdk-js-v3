@@ -21,8 +21,8 @@ export type TagResourceCommandInput = TagResourceRequest;
 export type TagResourceCommandOutput = TagResourceResponse & __MetadataBearer;
 
 /**
- * <p>Adds metadata tags to an AWS Glue DataBrew resource, such as a dataset, job, project,
- *             or recipe.</p>
+ * <p>Adds metadata tags to a DataBrew resource, such as a dataset, project, recipe, job, or
+ *             schedule.</p>
  */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,

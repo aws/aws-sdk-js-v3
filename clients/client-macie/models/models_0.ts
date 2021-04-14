@@ -127,7 +127,7 @@ export interface ClassificationType {
   /**
    * <p>A continuous classification of the objects that are added to a specified S3 bucket.
    *       Amazon Macie Classic begins performing continuous classification after a bucket is
-   *       successfully associated with Amazon Macie Classic. </p>
+   *       successfully associated with Macie Classic. </p>
    */
   continuous: S3ContinuousClassificationType | string | undefined;
 }
@@ -267,7 +267,7 @@ export interface ClassificationTypeUpdate {
   /**
    * <p>A continuous classification of the objects that are added to a specified S3 bucket.
    *       Amazon Macie Classic begins performing continuous classification after a bucket is
-   *       successfully associated with Amazon Macie Classic. </p>
+   *       successfully associated with Macie Classic. </p>
    */
   continuous?: S3ContinuousClassificationType | string;
 }
@@ -295,7 +295,7 @@ export namespace DisassociateMemberAccountRequest {
 export interface DisassociateS3ResourcesRequest {
   /**
    * <p>The ID of the Amazon Macie Classic member account whose resources you want to remove
-   *       from being monitored by Amazon Macie Classic. </p>
+   *       from being monitored by Macie Classic. </p>
    */
   memberAccountId?: string;
 
@@ -368,7 +368,7 @@ export namespace MemberAccount {
 export interface ListMemberAccountsResult {
   /**
    * <p>A list of the Amazon Macie Classic member accounts returned by the action. The current
-   *       master account is also included in this list. </p>
+   *       Macie Classic administrator account is also included in this list. </p>
    */
   memberAccounts?: MemberAccount[];
 

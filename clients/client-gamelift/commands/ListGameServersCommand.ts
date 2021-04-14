@@ -22,7 +22,7 @@ export type ListGameServersCommandOutput = ListGameServersOutput & __MetadataBea
 
 /**
  * <p>
- *             <b>This operation is used with the Amazon GameLift FleetIQ solution and game server groups.</b>
+ *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
  *          </p>
  *         <p>Retrieves information on all game servers that are currently active in a specified
  *             game server group. You can opt to sort the list by game server age. Use the
@@ -34,40 +34,17 @@ export type ListGameServersCommandOutput = ListGameServersOutput & __MetadataBea
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift FleetIQ Guide</a>
  *         </p>
  *         <p>
- *             <b>Related operations</b>
+ *             <b>Related actions</b>
  *          </p>
- *         <ul>
- *             <li>
- *                <p>
- *                   <a>RegisterGameServer</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListGameServers</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ClaimGameServer</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DescribeGameServer</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateGameServer</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeregisterGameServer</a>
- *                </p>
- *             </li>
- *          </ul>
+ *                     <p>
+ *             <a>RegisterGameServer</a> |
+ *                     <a>ListGameServers</a> |
+ *                     <a>ClaimGameServer</a> |
+ *                     <a>DescribeGameServer</a> |
+ *                     <a>UpdateGameServer</a> |
+ *                     <a>DeregisterGameServer</a> |
+ *                     <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html">All APIs by task</a>
+ *          </p>
  */
 export class ListGameServersCommand extends $Command<
   ListGameServersCommandInput,

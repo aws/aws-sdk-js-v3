@@ -21,7 +21,7 @@ export type ListTagsForResourceCommandInput = ListTagsForResourceRequest;
 export type ListTagsForResourceCommandOutput = ListTagsForResourceResponse & __MetadataBearer;
 
 /**
- * <p> Returns the list of tags for the specified resource. </p>
+ * <p> Returns the list of tags for the specified resource.</p>
  */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,

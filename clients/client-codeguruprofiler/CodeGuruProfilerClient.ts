@@ -1,3 +1,11 @@
+import {
+  AddNotificationChannelsCommandInput,
+  AddNotificationChannelsCommandOutput,
+} from "./commands/AddNotificationChannelsCommand";
+import {
+  BatchGetFrameMetricDataCommandInput,
+  BatchGetFrameMetricDataCommandOutput,
+} from "./commands/BatchGetFrameMetricDataCommand";
 import { ConfigureAgentCommandInput, ConfigureAgentCommandOutput } from "./commands/ConfigureAgentCommand";
 import {
   CreateProfilingGroupCommandInput,
@@ -11,17 +19,40 @@ import {
   DescribeProfilingGroupCommandInput,
   DescribeProfilingGroupCommandOutput,
 } from "./commands/DescribeProfilingGroupCommand";
+import {
+  GetFindingsReportAccountSummaryCommandInput,
+  GetFindingsReportAccountSummaryCommandOutput,
+} from "./commands/GetFindingsReportAccountSummaryCommand";
+import {
+  GetNotificationConfigurationCommandInput,
+  GetNotificationConfigurationCommandOutput,
+} from "./commands/GetNotificationConfigurationCommand";
 import { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
 import { GetProfileCommandInput, GetProfileCommandOutput } from "./commands/GetProfileCommand";
+import { GetRecommendationsCommandInput, GetRecommendationsCommandOutput } from "./commands/GetRecommendationsCommand";
+import {
+  ListFindingsReportsCommandInput,
+  ListFindingsReportsCommandOutput,
+} from "./commands/ListFindingsReportsCommand";
 import { ListProfileTimesCommandInput, ListProfileTimesCommandOutput } from "./commands/ListProfileTimesCommand";
 import {
   ListProfilingGroupsCommandInput,
   ListProfilingGroupsCommandOutput,
 } from "./commands/ListProfilingGroupsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
 import { PostAgentProfileCommandInput, PostAgentProfileCommandOutput } from "./commands/PostAgentProfileCommand";
 import { PutPermissionCommandInput, PutPermissionCommandOutput } from "./commands/PutPermissionCommand";
+import {
+  RemoveNotificationChannelCommandInput,
+  RemoveNotificationChannelCommandOutput,
+} from "./commands/RemoveNotificationChannelCommand";
 import { RemovePermissionCommandInput, RemovePermissionCommandOutput } from "./commands/RemovePermissionCommand";
-import { RetrieveTimeSeriesCommandInput, RetrieveTimeSeriesCommandOutput } from "./commands/RetrieveTimeSeriesCommand";
+import { SubmitFeedbackCommandInput, SubmitFeedbackCommandOutput } from "./commands/SubmitFeedbackCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateProfilingGroupCommandInput,
   UpdateProfilingGroupCommandOutput,
@@ -78,33 +109,53 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
+  | AddNotificationChannelsCommandInput
+  | BatchGetFrameMetricDataCommandInput
   | ConfigureAgentCommandInput
   | CreateProfilingGroupCommandInput
   | DeleteProfilingGroupCommandInput
   | DescribeProfilingGroupCommandInput
+  | GetFindingsReportAccountSummaryCommandInput
+  | GetNotificationConfigurationCommandInput
   | GetPolicyCommandInput
   | GetProfileCommandInput
+  | GetRecommendationsCommandInput
+  | ListFindingsReportsCommandInput
   | ListProfileTimesCommandInput
   | ListProfilingGroupsCommandInput
+  | ListTagsForResourceCommandInput
   | PostAgentProfileCommandInput
   | PutPermissionCommandInput
+  | RemoveNotificationChannelCommandInput
   | RemovePermissionCommandInput
-  | RetrieveTimeSeriesCommandInput
+  | SubmitFeedbackCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateProfilingGroupCommandInput;
 
 export type ServiceOutputTypes =
+  | AddNotificationChannelsCommandOutput
+  | BatchGetFrameMetricDataCommandOutput
   | ConfigureAgentCommandOutput
   | CreateProfilingGroupCommandOutput
   | DeleteProfilingGroupCommandOutput
   | DescribeProfilingGroupCommandOutput
+  | GetFindingsReportAccountSummaryCommandOutput
+  | GetNotificationConfigurationCommandOutput
   | GetPolicyCommandOutput
   | GetProfileCommandOutput
+  | GetRecommendationsCommandOutput
+  | ListFindingsReportsCommandOutput
   | ListProfileTimesCommandOutput
   | ListProfilingGroupsCommandOutput
+  | ListTagsForResourceCommandOutput
   | PostAgentProfileCommandOutput
   | PutPermissionCommandOutput
+  | RemoveNotificationChannelCommandOutput
   | RemovePermissionCommandOutput
-  | RetrieveTimeSeriesCommandOutput
+  | SubmitFeedbackCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateProfilingGroupCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
@@ -222,7 +273,29 @@ export type CodeGuruProfilerClientResolvedConfig = __SmithyResolvedConfiguration
   UserAgentResolvedConfig;
 
 /**
- * <p>This section provides documentation for the Amazon CodeGuru Profiler API operations.</p>
+ * <p>
+ *           This section provides documentation for the Amazon CodeGuru Profiler API operations.
+ *       </p>
+ *          <p>
+ *          Amazon CodeGuru Profiler collects runtime performance data from your live applications, and provides
+ *          recommendations that can help you fine-tune your application performance. Using machine learning
+ *          algorithms, CodeGuru Profiler can help you find your most expensive lines of code and suggest ways you can
+ *          improve efficiency and remove CPU bottlenecks.
+ *       </p>
+ *          <p>
+ *          Amazon CodeGuru Profiler provides different visualizations of profiling data to help you identify what code is
+ *          running on the CPU, see how much time is consumed, and suggest ways to reduce CPU utilization.
+ *       </p>
+ *          <note>
+ *             <p>Amazon CodeGuru Profiler currently supports applications written in all Java virtual machine (JVM)
+ *             languages and Python. While CodeGuru Profiler supports both visualizations and recommendations for applications
+ *             written in Java, it can also generate visualizations and a subset of recommendations for
+ *             applications written in other JVM languages and Python.</p>
+ *          </note>
+ *          <p>
+ *          For more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-ug/what-is-codeguru-profiler.html">What is Amazon CodeGuru Profiler</a> in
+ *          the <i>Amazon CodeGuru Profiler User Guide</i>.
+ *       </p>
  */
 export class CodeGuruProfilerClient extends __Client<
   __HttpHandlerOptions,

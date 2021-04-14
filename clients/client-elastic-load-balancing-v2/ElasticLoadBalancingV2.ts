@@ -150,31 +150,34 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 /**
  * <fullname>Elastic Load Balancing</fullname>
  *
- *          <p>A load balancer distributes incoming traffic across targets, such as your EC2
- *       instances. This enables you to increase the availability of your application. The load
- *       balancer also monitors the health of its registered targets and ensures that it routes traffic
- *       only to healthy targets. You configure your load balancer to accept incoming traffic by
- *       specifying one or more listeners, which are configured with a protocol and port number for
- *       connections from clients to the load balancer. You configure a target group with a protocol
- *       and port number for connections from the load balancer to the targets, and with health check
- *       settings to be used when checking the health status of the targets.</p>
+ *          <p>A load balancer distributes incoming traffic across targets, such as your EC2 instances.
+ *       This enables you to increase the availability of your application. The load balancer also
+ *       monitors the health of its registered targets and ensures that it routes traffic only to
+ *       healthy targets. You configure your load balancer to accept incoming traffic by specifying one
+ *       or more listeners, which are configured with a protocol and port number for connections from
+ *       clients to the load balancer. You configure a target group with a protocol and port number for
+ *       connections from the load balancer to the targets, and with health check settings to be used
+ *       when checking the health status of the targets.</p>
  *
  *          <p>Elastic Load Balancing supports the following types of load balancers: Application Load
- *       Balancers, Network Load Balancers, Gateway Load Balancers, and Classic Load Balancers.
- *       This reference covers the following load balancer types:</p>
+ *       Balancers, Network Load Balancers, Gateway Load Balancers, and Classic Load Balancers. This
+ *       reference covers the following load balancer types:</p>
  *          <ul>
  *             <li>
- *                <p>Application Load Balancer - Operates at the application layer (layer 7) and supports HTTP and HTTPS.</p>
+ *                <p>Application Load Balancer - Operates at the application layer (layer 7) and supports
+ *           HTTP and HTTPS.</p>
  *             </li>
  *             <li>
- *                <p>Network Load Balancer - Operates at the transport layer (layer 4) and supports TCP, TLS, and UDP.</p>
+ *                <p>Network Load Balancer - Operates at the transport layer (layer 4) and supports TCP,
+ *           TLS, and UDP.</p>
  *             </li>
  *             <li>
  *                <p>Gateway Load Balancer - Operates at the network layer (layer 3).</p>
  *             </li>
  *          </ul>
  *
- *          <p>For more information, see the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/">Elastic Load Balancing User Guide</a>.</p>
+ *          <p>For more information, see the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/">Elastic Load Balancing User
+ *       Guide</a>.</p>
  *
  *
  *
@@ -187,12 +190,14 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  */
 export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   /**
-   * <p>Adds the specified SSL server certificate to the certificate list for the specified HTTPS or TLS listener.</p>
-   *          <p>If the certificate in already in the certificate list, the call is successful but the certificate
-   *       is not added again.</p>
+   * <p>Adds the specified SSL server certificate to the certificate list for the specified HTTPS
+   *       or TLS listener.</p>
+   *          <p>If the certificate in already in the certificate list, the call is successful but the
+   *       certificate is not added again.</p>
    *
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html">HTTPS listeners</a> in the <i>Application Load Balancers Guide</i> or <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html">TLS listeners</a> in the
-   *       <i>Network Load Balancers Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html">HTTPS
+   *         listeners</a> in the <i>Application Load Balancers Guide</i> or <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html">TLS
+   *         listeners</a> in the <i>Network Load Balancers Guide</i>.</p>
    */
   public addListenerCertificates(
     args: AddListenerCertificatesCommandInput,
@@ -227,8 +232,8 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
    * <p>Adds the specified tags to the specified Elastic Load Balancing resource. You can tag your
    *       Application Load Balancers, Network Load Balancers, Gateway Load Balancers, target groups,
    *       listeners, and rules.</p>
-   *          <p>Each tag consists of a key and an optional value. If a resource already has a tag with
-   *       the same key, <code>AddTags</code> updates its value.</p>
+   *          <p>Each tag consists of a key and an optional value. If a resource already has a tag with the
+   *       same key, <code>AddTags</code> updates its value.</p>
    */
   public addTags(args: AddTagsCommandInput, options?: __HttpHandlerOptions): Promise<AddTagsCommandOutput>;
   public addTags(args: AddTagsCommandInput, cb: (err: any, data?: AddTagsCommandOutput) => void): void;
@@ -254,7 +259,7 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
-   * <p>Creates a listener for the specified Application Load Balancer, Network Load Balancer. or
+   * <p>Creates a listener for the specified Application Load Balancer, Network Load Balancer, or
    *       Gateway Load Balancer.</p>
    *
    *
@@ -263,19 +268,19 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html">Listeners for
-   *           your Application Load Balancers</a>
+   *             your Application Load Balancers</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-listeners.html">Listeners for your
-   *           Network Load Balancers</a>
+   *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-listeners.html">Listeners for
+   *             your Network Load Balancers</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/gateway-listeners.html">Listeners for your
-   *           Gateway Load Balancers</a>
+   *             Gateway Load Balancers</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -313,7 +318,8 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
-   * <p>Creates an Application Load Balancer, Network Load Balancer, or Gateway Load Balancer.</p>
+   * <p>Creates an Application Load Balancer, Network Load Balancer, or Gateway Load
+   *       Balancer.</p>
    *
    *
    *
@@ -326,19 +332,20 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
    *             </li>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html">Network Load Balancers</a>
+   *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html">Network Load
+   *             Balancers</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/gateway-load-balancers.html">Gateway Load Balancers</a>
+   *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/gateway-load-balancers.html">Gateway Load
+   *             Balancers</a>
    *                </p>
    *             </li>
    *          </ul>
    *
    *          <p>This operation is idempotent, which means that it completes at most one time. If you
-   *       attempt to create multiple load balancers with the same settings, each call
-   *       succeeds.</p>
+   *       attempt to create multiple load balancers with the same settings, each call succeeds.</p>
    */
   public createLoadBalancer(
     args: CreateLoadBalancerCommandInput,
@@ -372,10 +379,10 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   /**
    * <p>Creates a rule for the specified listener. The listener must be associated with an
    *       Application Load Balancer.</p>
-   *          <p>Each rule consists of a priority, one or more actions, and one or more conditions.
-   *       Rules are evaluated in priority order, from the lowest value to the highest value.
-   *       When the conditions for a rule are met, its actions are performed. If the conditions for no rules are met,
-   *       the actions for the default rule are performed. For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules">Listener rules</a> in the <i>Application Load Balancers Guide</i>.</p>
+   *          <p>Each rule consists of a priority, one or more actions, and one or more conditions. Rules
+   *       are evaluated in priority order, from the lowest value to the highest value. When the
+   *       conditions for a rule are met, its actions are performed. If the conditions for no rules are
+   *       met, the actions for the default rule are performed. For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules">Listener rules</a> in the <i>Application Load Balancers Guide</i>.</p>
    */
   public createRule(args: CreateRuleCommandInput, options?: __HttpHandlerOptions): Promise<CreateRuleCommandOutput>;
   public createRule(args: CreateRuleCommandInput, cb: (err: any, data?: CreateRuleCommandOutput) => void): void;
@@ -409,17 +416,20 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html">Target groups for your Application Load Balancers</a>
+   *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html">Target
+   *             groups for your Application Load Balancers</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html">Target groups for your Network Load Balancers</a>
+   *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html">Target groups
+   *             for your Network Load Balancers</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/target-groups.html">Target groups for your Gateway Load Balancers</a>
+   *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/target-groups.html">Target groups for your
+   *             Gateway Load Balancers</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -458,8 +468,8 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
 
   /**
    * <p>Deletes the specified listener.</p>
-   *          <p>Alternatively, your listener is deleted when you delete the load balancer to which it
-   *       is attached.</p>
+   *          <p>Alternatively, your listener is deleted when you delete the load balancer to which it is
+   *         attached.</p>
    */
   public deleteListener(
     args: DeleteListenerCommandInput,
@@ -493,8 +503,8 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   /**
    * <p>Deletes the specified Application Load Balancer, Network Load Balancer, or Gateway Load
    *       Balancer. Deleting a load balancer also deletes its listeners.</p>
-   *          <p>You can't delete a load balancer if deletion protection is enabled. If the load
-   *       balancer does not exist or has already been deleted, the call succeeds.</p>
+   *          <p>You can't delete a load balancer if deletion protection is enabled. If the load balancer
+   *       does not exist or has already been deleted, the call succeeds.</p>
    *          <p>Deleting a load balancer does not affect its registered targets. For example, your EC2
    *       instances continue to run and are still registered to their target groups. If you no longer
    *       need these EC2 instances, you can stop or terminate them.</p>
@@ -592,8 +602,8 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
-   * <p>Deregisters the specified targets from the specified target group. After the targets
-   *       are deregistered, they no longer receive traffic from the load balancer.</p>
+   * <p>Deregisters the specified targets from the specified target group. After the targets are
+   *       deregistered, they no longer receive traffic from the load balancer.</p>
    */
   public deregisterTargets(
     args: DeregisterTargetsCommandInput,
@@ -630,17 +640,20 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html">Quotas for your Application Load Balancers</a>
+   *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html">Quotas for your
+   *             Application Load Balancers</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-limits.html">Quotas for your Network Load Balancers</a>
+   *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-limits.html">Quotas for your
+   *             Network Load Balancers</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/quotas-limits.html">Quotas for your Gateway Load Balancers</a>
+   *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/quotas-limits.html">Quotas for your Gateway
+   *             Load Balancers</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -675,11 +688,14 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
-   * <p>Describes the default certificate and the certificate list for the specified HTTPS or TLS listener.</p>
-   *          <p>If the default certificate is also in the certificate list, it appears twice in the results
-   *       (once with <code>IsDefault</code> set to true and once with <code>IsDefault</code> set to false).</p>
+   * <p>Describes the default certificate and the certificate list for the specified HTTPS or TLS
+   *       listener.</p>
+   *          <p>If the default certificate is also in the certificate list, it appears twice in the
+   *       results (once with <code>IsDefault</code> set to true and once with <code>IsDefault</code> set
+   *       to false).</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#https-listener-certificates">SSL certificates</a> in the <i>Application Load Balancers Guide</i> or
-   *       <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#tls-listener-certificate">Server certificates</a> in the <i>Network Load Balancers Guide</i>.</p>
+   *         <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#tls-listener-certificate">Server certificates</a> in the <i>Network Load Balancers
+   *       Guide</i>.</p>
    */
   public describeListenerCertificates(
     args: DescribeListenerCertificatesCommandInput,
@@ -745,24 +761,27 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
-   * <p>Describes the attributes for the specified Application Load Balancer, Network Load Balancer,
-   *       or Gateway Load Balancer.</p>
+   * <p>Describes the attributes for the specified Application Load Balancer, Network Load
+   *       Balancer, or Gateway Load Balancer.</p>
    *
    *          <p>For more information, see the following:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html#load-balancer-attributes">Load balancer attributes</a> in the <i>Application Load Balancers Guide</i>
+   *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html#load-balancer-attributes">Load balancer attributes</a> in the <i>Application Load Balancers
+   *             Guide</i>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#load-balancer-attributes">Load balancer attributes</a> in the <i>Network Load Balancers Guide</i>
+   *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#load-balancer-attributes">Load balancer attributes</a> in the <i>Network Load Balancers
+   *             Guide</i>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/gateway-load-balancers.html#load-balancer-attributes">Load balancer attributes</a> in the <i>Gateway Load Balancers Guide</i>
+   *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/gateway-load-balancers.html#load-balancer-attributes">Load balancer attributes</a> in the <i>Gateway Load Balancers
+   *             Guide</i>
    *                </p>
    *             </li>
    *          </ul>
@@ -864,7 +883,7 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   /**
    * <p>Describes the specified policies or all policies used for SSL negotiation.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies">Security policies</a> in the <i>Application Load Balancers Guide</i> or
-   *       <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies">Security policies</a> in the <i>Network Load Balancers Guide</i>.</p>
+   *         <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies">Security policies</a> in the <i>Network Load Balancers Guide</i>.</p>
    */
   public describeSSLPolicies(
     args: DescribeSSLPoliciesCommandInput,
@@ -932,17 +951,20 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#target-group-attributes">Target group attributes</a> in the <i>Application Load Balancers Guide</i>
+   *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#target-group-attributes">Target group attributes</a> in the <i>Application Load Balancers
+   *             Guide</i>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#target-group-attributes">Target group attributes</a> in the <i>Network Load Balancers Guide</i>
+   *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#target-group-attributes">Target group attributes</a> in the <i>Network Load Balancers
+   *             Guide</i>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/target-groups.html#target-group-attributes">Target group attributes</a> in the <i>Gateway Load Balancers Guide</i>
+   *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/target-groups.html#target-group-attributes">Target group attributes</a> in the <i>Gateway Load Balancers
+   *             Guide</i>
    *                </p>
    *             </li>
    *          </ul>
@@ -977,8 +999,8 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
-   * <p>Describes the specified target groups or all of your target groups. By default, all
-   *       target groups are described. Alternatively, you can specify one of the following to filter the
+   * <p>Describes the specified target groups or all of your target groups. By default, all target
+   *       groups are described. Alternatively, you can specify one of the following to filter the
    *       results: the ARN of the load balancer, the names of one or more target groups, or the ARNs of
    *       one or more target groups.</p>
    */
@@ -1044,14 +1066,14 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
-   * <p>Replaces the specified properties of the specified listener. Any properties that you do not
-   *       specify remain unchanged.</p>
+   * <p>Replaces the specified properties of the specified listener. Any properties that you do
+   *       not specify remain unchanged.</p>
    *          <p>Changing the protocol from HTTPS to HTTP, or from TLS to TCP, removes the security policy
-   *       and default certificate properties. If you change the protocol from HTTP to HTTPS, or from
-   *       TCP to TLS, you must add the security policy and default certificate properties.</p>
-   *          <p>To add an item to a list, remove an item from a list, or update an item in a list,
-   *       you must provide the entire list. For example, to add an action, specify a list with the
-   *       current actions plus the new action.</p>
+   *       and default certificate properties. If you change the protocol from HTTP to HTTPS, or from TCP
+   *       to TLS, you must add the security policy and default certificate properties.</p>
+   *          <p>To add an item to a list, remove an item from a list, or update an item in a list, you
+   *       must provide the entire list. For example, to add an action, specify a list with the current
+   *       actions plus the new action.</p>
    */
   public modifyListener(
     args: ModifyListenerCommandInput,
@@ -1120,9 +1142,9 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   /**
    * <p>Replaces the specified properties of the specified rule. Any properties that you do not
    *       specify are unchanged.</p>
-   *          <p>To add an item to a list, remove an item from a list, or update an item in a list,
-   *       you must provide the entire list. For example, to add an action, specify a list with the
-   *       current actions plus the new action.</p>
+   *          <p>To add an item to a list, remove an item from a list, or update an item in a list, you
+   *       must provide the entire list. For example, to add an action, specify a list with the current
+   *       actions plus the new action.</p>
    */
   public modifyRule(args: ModifyRuleCommandInput, options?: __HttpHandlerOptions): Promise<ModifyRuleCommandOutput>;
   public modifyRule(args: ModifyRuleCommandInput, cb: (err: any, data?: ModifyRuleCommandOutput) => void): void;
@@ -1215,10 +1237,11 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   /**
    * <p>Registers the specified targets with the specified target group.</p>
    *
-   *          <p>If the target is an EC2 instance, it must be in the <code>running</code> state when you register it.</p>
+   *          <p>If the target is an EC2 instance, it must be in the <code>running</code> state when you
+   *       register it.</p>
    *
-   *          <p>By default, the load balancer routes requests to registered targets using the protocol
-   *       and port for the target group. Alternatively, you can override the port for a target when you
+   *          <p>By default, the load balancer routes requests to registered targets using the protocol and
+   *       port for the target group. Alternatively, you can override the port for a target when you
    *       register it. You can register each EC2 instance or IP address with the same target group
    *       multiple times using different ports.</p>
    *
@@ -1256,7 +1279,8 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
-   * <p>Removes the specified certificate from the certificate list for the specified HTTPS or TLS listener.</p>
+   * <p>Removes the specified certificate from the certificate list for the specified HTTPS or TLS
+   *       listener.</p>
    */
   public removeListenerCertificates(
     args: RemoveListenerCertificatesCommandInput,
@@ -1350,8 +1374,8 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
 
   /**
    * <p>Sets the priorities of the specified rules.</p>
-   *          <p>You can reorder the rules as long as there are no priority conflicts in the new order.
-   *       Any existing rules that you do not specify retain their current priority.</p>
+   *          <p>You can reorder the rules as long as there are no priority conflicts in the new order. Any
+   *       existing rules that you do not specify retain their current priority.</p>
    */
   public setRulePriorities(
     args: SetRulePrioritiesCommandInput,
@@ -1383,8 +1407,8 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
-   * <p>Associates the specified security groups with the specified Application Load Balancer.
-   *       The specified security groups override the previously associated security groups.</p>
+   * <p>Associates the specified security groups with the specified Application Load Balancer. The
+   *       specified security groups override the previously associated security groups.</p>
    *          <p>You can't specify a security group for a Network Load Balancer or Gateway Load
    *       Balancer.</p>
    */
@@ -1421,9 +1445,9 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
    * <p>Enables the Availability Zones for the specified public subnets for the specified
    *       Application Load Balancer or Network Load Balancer. The specified subnets replace the
    *       previously enabled subnets.</p>
-   *          <p>When you specify subnets for a Network Load Balancer, you must include all
-   *       subnets that were enabled previously, with their existing configurations, plus any
-   *       additional subnets.</p>
+   *          <p>When you specify subnets for a Network Load Balancer, you must include all subnets that
+   *       were enabled previously, with their existing configurations, plus any additional
+   *       subnets.</p>
    */
   public setSubnets(args: SetSubnetsCommandInput, options?: __HttpHandlerOptions): Promise<SetSubnetsCommandOutput>;
   public setSubnets(args: SetSubnetsCommandInput, cb: (err: any, data?: SetSubnetsCommandOutput) => void): void;

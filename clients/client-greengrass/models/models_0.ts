@@ -1723,7 +1723,7 @@ export interface CreateGroupRequest {
   /**
    * The name of the group.
    */
-  Name?: string;
+  Name: string | undefined;
 
   /**
    * Tag(s) to add to the new resource.

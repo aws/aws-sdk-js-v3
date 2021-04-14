@@ -27,6 +27,8 @@ export type SendEventCommandOutput = SendEventResponse & __MetadataBearer;
 /**
  * <p>Sends an event. Note that ConnectionToken is used for invoking this API instead of
  *             ParticipantToken.</p>
+ *         <p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4
+ *                 authentication</a>.</p>
  */
 export class SendEventCommand extends $Command<
   SendEventCommandInput,

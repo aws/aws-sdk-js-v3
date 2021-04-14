@@ -21,19 +21,8 @@ export type ListAWSDefaultServiceQuotasCommandInput = ListAWSDefaultServiceQuota
 export type ListAWSDefaultServiceQuotasCommandOutput = ListAWSDefaultServiceQuotasResponse & __MetadataBearer;
 
 /**
- * <p>Lists all default service quotas for the specified AWS service or all AWS services.
- *       ListAWSDefaultServiceQuotas is similar to <a>ListServiceQuotas</a> except for the
- *       Value object. The Value object returned by <code>ListAWSDefaultServiceQuotas</code> is the
- *       default value assigned by AWS. This request returns a list of all service quotas for the
- *       specified service. The listing of each you'll see the default values are the values that AWS
- *       provides for the quotas. </p>
- *          <note>
- *             <p>Always check the <code>NextToken</code> response parameter when calling any of the
- *           <code>List*</code> operations. These operations can return an unexpected list of results,
- *         even when there are more results available. When this happens, the <code>NextToken</code>
- *         response parameter contains a value to pass the next call to the same API to request the
- *         next part of the list.</p>
- *          </note>
+ * <p>Lists the default values for the quotas for the specified AWS service. A default value
+ *       does not reflect any quota increases.</p>
  */
 export class ListAWSDefaultServiceQuotasCommand extends $Command<
   ListAWSDefaultServiceQuotasCommandInput,

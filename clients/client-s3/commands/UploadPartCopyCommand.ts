@@ -30,10 +30,10 @@ export type UploadPartCopyCommandOutput = UploadPartCopyOutput & __MetadataBeare
  *          request. </p>
  *          <p>The minimum allowable part size for a multipart upload is 5 MB. For more information
  *          about multipart upload limits, go to <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/qfacts.html">Quick
- *             Facts</a> in the <i>Amazon Simple Storage Service Developer Guide</i>. </p>
+ *             Facts</a> in the <i>Amazon S3 User Guide</i>. </p>
  *          <note>
  *             <p>Instead of using an existing object as part data, you might use the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a>
- *             operation and provide data in your request.</p>
+ *             action and provide data in your request.</p>
  *          </note>
  *
  *          <p>You must initiate a multipart upload before you can upload any part. In response to your
@@ -45,17 +45,17 @@ export type UploadPartCopyCommandOutput = UploadPartCopyOutput & __MetadataBeare
  *          <ul>
  *             <li>
  *                <p>For conceptual information about multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html">Uploading Objects Using Multipart
- *                   Upload</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+ *                   Upload</a> in the <i>Amazon S3 User Guide</i>.</p>
  *             </li>
  *             <li>
  *                <p>For information about permissions required to use the multipart upload API, see
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload API and
- *                   Permissions</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload  and
+ *                   Permissions</a> in the <i>Amazon S3 User Guide</i>.</p>
  *             </li>
  *             <li>
- *                <p>For information about copying objects using a single atomic operation vs. the
+ *                <p>For information about copying objects using a single atomic action vs. the
  *                multipart upload, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectOperations.html">Operations on
- *                   Objects</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+ *                   Objects</a> in the <i>Amazon S3 User Guide</i>.</p>
  *             </li>
  *             <li>
  *                <p>For information about using server-side encryption with customer-provided

@@ -21,8 +21,7 @@ export type CreateFilterCommandInput = CreateFilterRequest;
 export type CreateFilterCommandOutput = CreateFilterResponse & __MetadataBearer;
 
 /**
- * <p>Creates a recommendation filter. For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/filters.html">Using
- *             Filters with Amazon Personalize</a>.</p>
+ * <p>Creates a recommendation filter. For more information, see <a>filter</a>.</p>
  */
 export class CreateFilterCommand extends $Command<
   CreateFilterCommandInput,

@@ -21,7 +21,7 @@ export type CreateLoadBalancerTlsCertificateCommandInput = CreateLoadBalancerTls
 export type CreateLoadBalancerTlsCertificateCommandOutput = CreateLoadBalancerTlsCertificateResult & __MetadataBearer;
 
 /**
- * <p>Creates a Lightsail load balancer TLS certificate.</p>
+ * <p>Creates an SSL/TLS certificate for an Amazon Lightsail load balancer.</p>
  *          <p>TLS is just an updated, more secure version of Secure Socket Layer (SSL).</p>
  *          <p>The <code>CreateLoadBalancerTlsCertificate</code> operation supports tag-based access
  *       control via resource tags applied to the resource identified by <code>load balancer

@@ -17,6 +17,10 @@ import {
 import { BatchDetectSyntaxCommandInput, BatchDetectSyntaxCommandOutput } from "../commands/BatchDetectSyntaxCommand";
 import { ClassifyDocumentCommandInput, ClassifyDocumentCommandOutput } from "../commands/ClassifyDocumentCommand";
 import {
+  ContainsPiiEntitiesCommandInput,
+  ContainsPiiEntitiesCommandOutput,
+} from "../commands/ContainsPiiEntitiesCommand";
+import {
   CreateDocumentClassifierCommandInput,
   CreateDocumentClassifierCommandOutput,
 } from "../commands/CreateDocumentClassifierCommand";
@@ -220,6 +224,8 @@ import {
   ClassifyDocumentRequest,
   ClassifyDocumentResponse,
   ConcurrentModificationException,
+  ContainsPiiEntitiesRequest,
+  ContainsPiiEntitiesResponse,
   CreateDocumentClassifierRequest,
   CreateDocumentClassifierResponse,
   CreateEndpointRequest,
@@ -282,6 +288,7 @@ import {
   EntitiesDetectionJobFilter,
   EntitiesDetectionJobProperties,
   Entity,
+  EntityLabel,
   EntityRecognizerAnnotations,
   EntityRecognizerDocuments,
   EntityRecognizerEntityList,
@@ -478,6 +485,19 @@ export const serializeAws_json1_1ClassifyDocumentCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ClassifyDocumentRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ContainsPiiEntitiesCommand = async (
+  input: ContainsPiiEntitiesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Comprehend_20171127.ContainsPiiEntities",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ContainsPiiEntitiesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1662,6 +1682,84 @@ const deserializeAws_json1_1ClassifyDocumentCommandError = async (
     case "com.amazonaws.comprehend#TextSizeLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ContainsPiiEntitiesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ContainsPiiEntitiesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ContainsPiiEntitiesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ContainsPiiEntitiesResponse(data, context);
+  const response: ContainsPiiEntitiesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ContainsPiiEntitiesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ContainsPiiEntitiesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.comprehend#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.comprehend#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TextSizeLimitExceededException":
+    case "com.amazonaws.comprehend#TextSizeLimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedLanguageException":
+    case "com.amazonaws.comprehend#UnsupportedLanguageException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -6364,6 +6462,16 @@ const serializeAws_json1_1ClassifyDocumentRequest = (input: ClassifyDocumentRequ
   };
 };
 
+const serializeAws_json1_1ContainsPiiEntitiesRequest = (
+  input: ContainsPiiEntitiesRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
+    ...(input.Text !== undefined && input.Text !== null && { Text: input.Text }),
+  };
+};
+
 const serializeAws_json1_1CreateDocumentClassifierRequest = (
   input: CreateDocumentClassifierRequest,
   context: __SerdeContext
@@ -6380,6 +6488,7 @@ const serializeAws_json1_1CreateDocumentClassifierRequest = (
       }),
     ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
     ...(input.Mode !== undefined && input.Mode !== null && { Mode: input.Mode }),
+    ...(input.ModelKmsKeyId !== undefined && input.ModelKmsKeyId !== null && { ModelKmsKeyId: input.ModelKmsKeyId }),
     ...(input.OutputDataConfig !== undefined &&
       input.OutputDataConfig !== null && {
         OutputDataConfig: serializeAws_json1_1DocumentClassifierOutputDataConfig(input.OutputDataConfig, context),
@@ -6395,6 +6504,8 @@ const serializeAws_json1_1CreateDocumentClassifierRequest = (
 const serializeAws_json1_1CreateEndpointRequest = (input: CreateEndpointRequest, context: __SerdeContext): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.DataAccessRoleArn !== undefined &&
+      input.DataAccessRoleArn !== null && { DataAccessRoleArn: input.DataAccessRoleArn }),
     ...(input.DesiredInferenceUnits !== undefined &&
       input.DesiredInferenceUnits !== null && { DesiredInferenceUnits: input.DesiredInferenceUnits }),
     ...(input.EndpointName !== undefined && input.EndpointName !== null && { EndpointName: input.EndpointName }),
@@ -6416,6 +6527,7 @@ const serializeAws_json1_1CreateEntityRecognizerRequest = (
         InputDataConfig: serializeAws_json1_1EntityRecognizerInputDataConfig(input.InputDataConfig, context),
       }),
     ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
+    ...(input.ModelKmsKeyId !== undefined && input.ModelKmsKeyId !== null && { ModelKmsKeyId: input.ModelKmsKeyId }),
     ...(input.RecognizerName !== undefined &&
       input.RecognizerName !== null && { RecognizerName: input.RecognizerName }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
@@ -7697,6 +7809,18 @@ const deserializeAws_json1_1ConcurrentModificationException = (
   } as any;
 };
 
+const deserializeAws_json1_1ContainsPiiEntitiesResponse = (
+  output: any,
+  context: __SerdeContext
+): ContainsPiiEntitiesResponse => {
+  return {
+    Labels:
+      output.Labels !== undefined && output.Labels !== null
+        ? deserializeAws_json1_1ListOfEntityLabels(output.Labels, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1CreateDocumentClassifierResponse = (
   output: any,
   context: __SerdeContext
@@ -8075,6 +8199,8 @@ const deserializeAws_json1_1DocumentClassifierProperties = (
     LanguageCode: output.LanguageCode !== undefined && output.LanguageCode !== null ? output.LanguageCode : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     Mode: output.Mode !== undefined && output.Mode !== null ? output.Mode : undefined,
+    ModelKmsKeyId:
+      output.ModelKmsKeyId !== undefined && output.ModelKmsKeyId !== null ? output.ModelKmsKeyId : undefined,
     OutputDataConfig:
       output.OutputDataConfig !== undefined && output.OutputDataConfig !== null
         ? deserializeAws_json1_1DocumentClassifierOutputDataConfig(output.OutputDataConfig, context)
@@ -8189,6 +8315,10 @@ const deserializeAws_json1_1EndpointProperties = (output: any, context: __SerdeC
       output.CurrentInferenceUnits !== undefined && output.CurrentInferenceUnits !== null
         ? output.CurrentInferenceUnits
         : undefined,
+    DataAccessRoleArn:
+      output.DataAccessRoleArn !== undefined && output.DataAccessRoleArn !== null
+        ? output.DataAccessRoleArn
+        : undefined,
     DesiredInferenceUnits:
       output.DesiredInferenceUnits !== undefined && output.DesiredInferenceUnits !== null
         ? output.DesiredInferenceUnits
@@ -8277,6 +8407,13 @@ const deserializeAws_json1_1Entity = (output: any, context: __SerdeContext): Ent
     Score: output.Score !== undefined && output.Score !== null ? output.Score : undefined,
     Text: output.Text !== undefined && output.Text !== null ? output.Text : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1EntityLabel = (output: any, context: __SerdeContext): EntityLabel => {
+  return {
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Score: output.Score !== undefined && output.Score !== null ? output.Score : undefined,
   } as any;
 };
 
@@ -8437,6 +8574,8 @@ const deserializeAws_json1_1EntityRecognizerProperties = (
         : undefined,
     LanguageCode: output.LanguageCode !== undefined && output.LanguageCode !== null ? output.LanguageCode : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    ModelKmsKeyId:
+      output.ModelKmsKeyId !== undefined && output.ModelKmsKeyId !== null ? output.ModelKmsKeyId : undefined,
     RecognizerMetadata:
       output.RecognizerMetadata !== undefined && output.RecognizerMetadata !== null
         ? deserializeAws_json1_1EntityRecognizerMetadata(output.RecognizerMetadata, context)
@@ -8872,6 +9011,17 @@ const deserializeAws_json1_1ListOfEntities = (output: any, context: __SerdeConte
         return null as any;
       }
       return deserializeAws_json1_1Entity(entry, context);
+    });
+};
+
+const deserializeAws_json1_1ListOfEntityLabels = (output: any, context: __SerdeContext): EntityLabel[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1EntityLabel(entry, context);
     });
 };
 

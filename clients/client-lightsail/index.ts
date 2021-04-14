@@ -126,6 +126,7 @@ export * from "./commands/RegisterContainerImageCommand";
 export * from "./commands/ReleaseStaticIpCommand";
 export * from "./commands/ResetDistributionCacheCommand";
 export * from "./commands/SendContactMethodVerificationCommand";
+export * from "./commands/SetIpAddressTypeCommand";
 export * from "./commands/StartInstanceCommand";
 export * from "./commands/StartRelationalDatabaseCommand";
 export * from "./commands/StopInstanceCommand";

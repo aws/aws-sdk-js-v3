@@ -143,6 +143,7 @@ import {
   GatewaySummary,
   Greengrass,
   GroupIdentity,
+  IAMRoleIdentity,
   IAMUserIdentity,
   Identity,
   Image,
@@ -7884,6 +7885,12 @@ const serializeAws_restJson1GroupIdentity = (input: GroupIdentity, context: __Se
   };
 };
 
+const serializeAws_restJson1IAMRoleIdentity = (input: IAMRoleIdentity, context: __SerdeContext): any => {
+  return {
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+  };
+};
+
 const serializeAws_restJson1IAMUserIdentity = (input: IAMUserIdentity, context: __SerdeContext): any => {
   return {
     ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
@@ -7894,6 +7901,8 @@ const serializeAws_restJson1Identity = (input: Identity, context: __SerdeContext
   return {
     ...(input.group !== undefined &&
       input.group !== null && { group: serializeAws_restJson1GroupIdentity(input.group, context) }),
+    ...(input.iamRole !== undefined &&
+      input.iamRole !== null && { iamRole: serializeAws_restJson1IAMRoleIdentity(input.iamRole, context) }),
     ...(input.iamUser !== undefined &&
       input.iamUser !== null && { iamUser: serializeAws_restJson1IAMUserIdentity(input.iamUser, context) }),
     ...(input.user !== undefined &&
@@ -8761,6 +8770,12 @@ const deserializeAws_restJson1GroupIdentity = (output: any, context: __SerdeCont
   } as any;
 };
 
+const deserializeAws_restJson1IAMRoleIdentity = (output: any, context: __SerdeContext): IAMRoleIdentity => {
+  return {
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1IAMUserIdentity = (output: any, context: __SerdeContext): IAMUserIdentity => {
   return {
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
@@ -8772,6 +8787,10 @@ const deserializeAws_restJson1Identity = (output: any, context: __SerdeContext):
     group:
       output.group !== undefined && output.group !== null
         ? deserializeAws_restJson1GroupIdentity(output.group, context)
+        : undefined,
+    iamRole:
+      output.iamRole !== undefined && output.iamRole !== null
+        ? deserializeAws_restJson1IAMRoleIdentity(output.iamRole, context)
         : undefined,
     iamUser:
       output.iamUser !== undefined && output.iamUser !== null

@@ -21,11 +21,12 @@ export type BatchGetDeploymentTargetsCommandInput = BatchGetDeploymentTargetsInp
 export type BatchGetDeploymentTargetsCommandOutput = BatchGetDeploymentTargetsOutput & __MetadataBearer;
 
 /**
- * <p> Returns an array of one or more targets associated with a deployment. This method works with all
- *             compute types and should be used instead of the deprecated
- *             <code>BatchGetDeploymentInstances</code>.
- *             The maximum number of targets that can be returned is 25.</p>
- *         <p> The type of targets returned depends on the deployment's compute platform or deployment method: </p>
+ * <p> Returns an array of one or more targets associated with a deployment. This method
+ *             works with all compute types and should be used instead of the deprecated
+ *                 <code>BatchGetDeploymentInstances</code>. The maximum number of targets that can be
+ *             returned is 25.</p>
+ *         <p> The type of targets returned depends on the deployment's compute platform or
+ *             deployment method: </p>
  *         <ul>
  *             <li>
  *                 <p>

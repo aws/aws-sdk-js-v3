@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteNetworkAclEntryRequest } from "../models/models_1";
+import { DeleteNetworkAclEntryRequest } from "../models/models_2";
 import {
   deserializeAws_ec2DeleteNetworkAclEntryCommand,
   serializeAws_ec2DeleteNetworkAclEntryCommand,

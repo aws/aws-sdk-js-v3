@@ -4,6 +4,10 @@ import {
 } from "./commands/CancelImageCreationCommand";
 import { CreateComponentCommandInput, CreateComponentCommandOutput } from "./commands/CreateComponentCommand";
 import {
+  CreateContainerRecipeCommandInput,
+  CreateContainerRecipeCommandOutput,
+} from "./commands/CreateContainerRecipeCommand";
+import {
   CreateDistributionConfigurationCommandInput,
   CreateDistributionConfigurationCommandOutput,
 } from "./commands/CreateDistributionConfigurationCommand";
@@ -18,6 +22,10 @@ import {
   CreateInfrastructureConfigurationCommandOutput,
 } from "./commands/CreateInfrastructureConfigurationCommand";
 import { DeleteComponentCommandInput, DeleteComponentCommandOutput } from "./commands/DeleteComponentCommand";
+import {
+  DeleteContainerRecipeCommandInput,
+  DeleteContainerRecipeCommandOutput,
+} from "./commands/DeleteContainerRecipeCommand";
 import {
   DeleteDistributionConfigurationCommandInput,
   DeleteDistributionConfigurationCommandOutput,
@@ -34,6 +42,11 @@ import {
 } from "./commands/DeleteInfrastructureConfigurationCommand";
 import { GetComponentCommandInput, GetComponentCommandOutput } from "./commands/GetComponentCommand";
 import { GetComponentPolicyCommandInput, GetComponentPolicyCommandOutput } from "./commands/GetComponentPolicyCommand";
+import { GetContainerRecipeCommandInput, GetContainerRecipeCommandOutput } from "./commands/GetContainerRecipeCommand";
+import {
+  GetContainerRecipePolicyCommandInput,
+  GetContainerRecipePolicyCommandOutput,
+} from "./commands/GetContainerRecipePolicyCommand";
 import {
   GetDistributionConfigurationCommandInput,
   GetDistributionConfigurationCommandOutput,
@@ -57,6 +70,10 @@ import {
 } from "./commands/ListComponentBuildVersionsCommand";
 import { ListComponentsCommandInput, ListComponentsCommandOutput } from "./commands/ListComponentsCommand";
 import {
+  ListContainerRecipesCommandInput,
+  ListContainerRecipesCommandOutput,
+} from "./commands/ListContainerRecipesCommand";
+import {
   ListDistributionConfigurationsCommandInput,
   ListDistributionConfigurationsCommandOutput,
 } from "./commands/ListDistributionConfigurationsCommand";
@@ -64,6 +81,7 @@ import {
   ListImageBuildVersionsCommandInput,
   ListImageBuildVersionsCommandOutput,
 } from "./commands/ListImageBuildVersionsCommand";
+import { ListImagePackagesCommandInput, ListImagePackagesCommandOutput } from "./commands/ListImagePackagesCommand";
 import {
   ListImagePipelineImagesCommandInput,
   ListImagePipelineImagesCommandOutput,
@@ -80,6 +98,10 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { PutComponentPolicyCommandInput, PutComponentPolicyCommandOutput } from "./commands/PutComponentPolicyCommand";
+import {
+  PutContainerRecipePolicyCommandInput,
+  PutContainerRecipePolicyCommandOutput,
+} from "./commands/PutContainerRecipePolicyCommand";
 import { PutImagePolicyCommandInput, PutImagePolicyCommandOutput } from "./commands/PutImagePolicyCommand";
 import {
   PutImageRecipePolicyCommandInput,
@@ -157,12 +179,14 @@ import {
 export type ServiceInputTypes =
   | CancelImageCreationCommandInput
   | CreateComponentCommandInput
+  | CreateContainerRecipeCommandInput
   | CreateDistributionConfigurationCommandInput
   | CreateImageCommandInput
   | CreateImagePipelineCommandInput
   | CreateImageRecipeCommandInput
   | CreateInfrastructureConfigurationCommandInput
   | DeleteComponentCommandInput
+  | DeleteContainerRecipeCommandInput
   | DeleteDistributionConfigurationCommandInput
   | DeleteImageCommandInput
   | DeleteImagePipelineCommandInput
@@ -170,6 +194,8 @@ export type ServiceInputTypes =
   | DeleteInfrastructureConfigurationCommandInput
   | GetComponentCommandInput
   | GetComponentPolicyCommandInput
+  | GetContainerRecipeCommandInput
+  | GetContainerRecipePolicyCommandInput
   | GetDistributionConfigurationCommandInput
   | GetImageCommandInput
   | GetImagePipelineCommandInput
@@ -180,8 +206,10 @@ export type ServiceInputTypes =
   | ImportComponentCommandInput
   | ListComponentBuildVersionsCommandInput
   | ListComponentsCommandInput
+  | ListContainerRecipesCommandInput
   | ListDistributionConfigurationsCommandInput
   | ListImageBuildVersionsCommandInput
+  | ListImagePackagesCommandInput
   | ListImagePipelineImagesCommandInput
   | ListImagePipelinesCommandInput
   | ListImageRecipesCommandInput
@@ -189,6 +217,7 @@ export type ServiceInputTypes =
   | ListInfrastructureConfigurationsCommandInput
   | ListTagsForResourceCommandInput
   | PutComponentPolicyCommandInput
+  | PutContainerRecipePolicyCommandInput
   | PutImagePolicyCommandInput
   | PutImageRecipePolicyCommandInput
   | StartImagePipelineExecutionCommandInput
@@ -201,12 +230,14 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | CancelImageCreationCommandOutput
   | CreateComponentCommandOutput
+  | CreateContainerRecipeCommandOutput
   | CreateDistributionConfigurationCommandOutput
   | CreateImageCommandOutput
   | CreateImagePipelineCommandOutput
   | CreateImageRecipeCommandOutput
   | CreateInfrastructureConfigurationCommandOutput
   | DeleteComponentCommandOutput
+  | DeleteContainerRecipeCommandOutput
   | DeleteDistributionConfigurationCommandOutput
   | DeleteImageCommandOutput
   | DeleteImagePipelineCommandOutput
@@ -214,6 +245,8 @@ export type ServiceOutputTypes =
   | DeleteInfrastructureConfigurationCommandOutput
   | GetComponentCommandOutput
   | GetComponentPolicyCommandOutput
+  | GetContainerRecipeCommandOutput
+  | GetContainerRecipePolicyCommandOutput
   | GetDistributionConfigurationCommandOutput
   | GetImageCommandOutput
   | GetImagePipelineCommandOutput
@@ -224,8 +257,10 @@ export type ServiceOutputTypes =
   | ImportComponentCommandOutput
   | ListComponentBuildVersionsCommandOutput
   | ListComponentsCommandOutput
+  | ListContainerRecipesCommandOutput
   | ListDistributionConfigurationsCommandOutput
   | ListImageBuildVersionsCommandOutput
+  | ListImagePackagesCommandOutput
   | ListImagePipelineImagesCommandOutput
   | ListImagePipelinesCommandOutput
   | ListImageRecipesCommandOutput
@@ -233,6 +268,7 @@ export type ServiceOutputTypes =
   | ListInfrastructureConfigurationsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutComponentPolicyCommandOutput
+  | PutContainerRecipePolicyCommandOutput
   | PutImagePolicyCommandOutput
   | PutImageRecipePolicyCommandOutput
   | StartImagePipelineExecutionCommandOutput
@@ -357,7 +393,10 @@ export type ImagebuilderClientResolvedConfig = __SmithyResolvedConfiguration<__H
   UserAgentResolvedConfig;
 
 /**
- * <p>EC2 Image Builder is a fully managed AWS service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date “golden” server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.</p>
+ * <p>EC2 Image Builder is a fully managed AWS service that makes it easier to automate the
+ *       creation, management, and deployment of customized, secure, and up-to-date "golden" server
+ *       images that are pre-installed and pre-configured with software and settings to meet specific
+ *       IT standards.</p>
  */
 export class ImagebuilderClient extends __Client<
   __HttpHandlerOptions,

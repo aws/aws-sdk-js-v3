@@ -186,9 +186,6 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *                <p>Perform deep packet inspection on traffic entering or leaving your VPC.</p>
  *             </li>
  *             <li>
- *                <p>Rate limit traffic going from AWS to on-premises IP destinations.</p>
- *             </li>
- *             <li>
  *                <p>Use stateful protocol detection to filter protocols like HTTPS, regardless of the
  *                port used.</p>
  *             </li>

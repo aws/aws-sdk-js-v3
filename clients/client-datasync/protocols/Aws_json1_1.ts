@@ -58,6 +58,12 @@ import { StartTaskExecutionCommandInput, StartTaskExecutionCommandOutput } from 
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateAgentCommandInput, UpdateAgentCommandOutput } from "../commands/UpdateAgentCommand";
+import { UpdateLocationNfsCommandInput, UpdateLocationNfsCommandOutput } from "../commands/UpdateLocationNfsCommand";
+import {
+  UpdateLocationObjectStorageCommandInput,
+  UpdateLocationObjectStorageCommandOutput,
+} from "../commands/UpdateLocationObjectStorageCommand";
+import { UpdateLocationSmbCommandInput, UpdateLocationSmbCommandOutput } from "../commands/UpdateLocationSmbCommand";
 import { UpdateTaskCommandInput, UpdateTaskCommandOutput } from "../commands/UpdateTaskCommand";
 import {
   UpdateTaskExecutionCommandInput,
@@ -143,6 +149,12 @@ import {
   UntagResourceResponse,
   UpdateAgentRequest,
   UpdateAgentResponse,
+  UpdateLocationNfsRequest,
+  UpdateLocationNfsResponse,
+  UpdateLocationObjectStorageRequest,
+  UpdateLocationObjectStorageResponse,
+  UpdateLocationSmbRequest,
+  UpdateLocationSmbResponse,
   UpdateTaskExecutionRequest,
   UpdateTaskExecutionResponse,
   UpdateTaskRequest,
@@ -545,6 +557,45 @@ export const serializeAws_json1_1UpdateAgentCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateAgentRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateLocationNfsCommand = async (
+  input: UpdateLocationNfsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "FmrsService.UpdateLocationNfs",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateLocationNfsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateLocationObjectStorageCommand = async (
+  input: UpdateLocationObjectStorageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "FmrsService.UpdateLocationObjectStorage",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateLocationObjectStorageRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateLocationSmbCommand = async (
+  input: UpdateLocationSmbCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "FmrsService.UpdateLocationSmb",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateLocationSmbRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2434,6 +2485,192 @@ const deserializeAws_json1_1UpdateAgentCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1UpdateLocationNfsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLocationNfsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateLocationNfsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateLocationNfsResponse(data, context);
+  const response: UpdateLocationNfsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateLocationNfsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLocationNfsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.datasync#InternalException":
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1UpdateLocationObjectStorageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLocationObjectStorageCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateLocationObjectStorageCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateLocationObjectStorageResponse(data, context);
+  const response: UpdateLocationObjectStorageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateLocationObjectStorageCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLocationObjectStorageCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.datasync#InternalException":
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1UpdateLocationSmbCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLocationSmbCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateLocationSmbCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateLocationSmbResponse(data, context);
+  const response: UpdateLocationSmbCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateLocationSmbCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLocationSmbCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.datasync#InternalException":
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1UpdateTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3129,6 +3366,58 @@ const serializeAws_json1_1UpdateAgentRequest = (input: UpdateAgentRequest, conte
   return {
     ...(input.AgentArn !== undefined && input.AgentArn !== null && { AgentArn: input.AgentArn }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+  };
+};
+
+const serializeAws_json1_1UpdateLocationNfsRequest = (
+  input: UpdateLocationNfsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.LocationArn !== undefined && input.LocationArn !== null && { LocationArn: input.LocationArn }),
+    ...(input.MountOptions !== undefined &&
+      input.MountOptions !== null && {
+        MountOptions: serializeAws_json1_1NfsMountOptions(input.MountOptions, context),
+      }),
+    ...(input.OnPremConfig !== undefined &&
+      input.OnPremConfig !== null && { OnPremConfig: serializeAws_json1_1OnPremConfig(input.OnPremConfig, context) }),
+    ...(input.Subdirectory !== undefined && input.Subdirectory !== null && { Subdirectory: input.Subdirectory }),
+  };
+};
+
+const serializeAws_json1_1UpdateLocationObjectStorageRequest = (
+  input: UpdateLocationObjectStorageRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AccessKey !== undefined && input.AccessKey !== null && { AccessKey: input.AccessKey }),
+    ...(input.AgentArns !== undefined &&
+      input.AgentArns !== null && { AgentArns: serializeAws_json1_1AgentArnList(input.AgentArns, context) }),
+    ...(input.LocationArn !== undefined && input.LocationArn !== null && { LocationArn: input.LocationArn }),
+    ...(input.SecretKey !== undefined && input.SecretKey !== null && { SecretKey: input.SecretKey }),
+    ...(input.ServerPort !== undefined && input.ServerPort !== null && { ServerPort: input.ServerPort }),
+    ...(input.ServerProtocol !== undefined &&
+      input.ServerProtocol !== null && { ServerProtocol: input.ServerProtocol }),
+    ...(input.Subdirectory !== undefined && input.Subdirectory !== null && { Subdirectory: input.Subdirectory }),
+  };
+};
+
+const serializeAws_json1_1UpdateLocationSmbRequest = (
+  input: UpdateLocationSmbRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AgentArns !== undefined &&
+      input.AgentArns !== null && { AgentArns: serializeAws_json1_1AgentArnList(input.AgentArns, context) }),
+    ...(input.Domain !== undefined && input.Domain !== null && { Domain: input.Domain }),
+    ...(input.LocationArn !== undefined && input.LocationArn !== null && { LocationArn: input.LocationArn }),
+    ...(input.MountOptions !== undefined &&
+      input.MountOptions !== null && {
+        MountOptions: serializeAws_json1_1SmbMountOptions(input.MountOptions, context),
+      }),
+    ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
+    ...(input.Subdirectory !== undefined && input.Subdirectory !== null && { Subdirectory: input.Subdirectory }),
+    ...(input.User !== undefined && input.User !== null && { User: input.User }),
   };
 };
 
@@ -3874,6 +4163,27 @@ const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __Ser
 };
 
 const deserializeAws_json1_1UpdateAgentResponse = (output: any, context: __SerdeContext): UpdateAgentResponse => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1UpdateLocationNfsResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateLocationNfsResponse => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1UpdateLocationObjectStorageResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateLocationObjectStorageResponse => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1UpdateLocationSmbResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateLocationSmbResponse => {
   return {} as any;
 };
 

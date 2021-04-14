@@ -22,8 +22,8 @@ export type ListGroupsForUserCommandOutput = ListGroupsForUserResponse & __Metad
 
 /**
  * <p>Lists the IAM groups that the specified IAM user belongs to.</p>
- *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
- *          parameters.</p>
+ *         <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
+ *             parameters.</p>
  */
 export class ListGroupsForUserCommand extends $Command<
   ListGroupsForUserCommandInput,

@@ -21,7 +21,13 @@ export type GetMeetingCommandInput = GetMeetingRequest;
 export type GetMeetingCommandOutput = GetMeetingResponse & __MetadataBearer;
 
 /**
- * <p>Gets the Amazon Chime SDK meeting details for the specified meeting ID. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
+ * <p>
+ * Gets the Amazon Chime SDK meeting details for the specified meeting ID. For more information about the Amazon Chime SDK, see
+ * <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
+ * in the
+ * <i>Amazon Chime Developer Guide</i>
+ * .
+ * </p>
  */
 export class GetMeetingCommand extends $Command<
   GetMeetingCommandInput,

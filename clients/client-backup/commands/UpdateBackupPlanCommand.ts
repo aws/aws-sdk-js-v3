@@ -21,8 +21,8 @@ export type UpdateBackupPlanCommandInput = UpdateBackupPlanInput;
 export type UpdateBackupPlanCommandOutput = UpdateBackupPlanOutput & __MetadataBearer;
 
 /**
- * <p>Updates an existing backup plan identified by its <code>backupPlanId</code>
- *          with the input document in JSON format. The new version is uniquely identified by a
+ * <p>Updates an existing backup plan identified by its <code>backupPlanId</code> with the
+ *          input document in JSON format. The new version is uniquely identified by a
  *             <code>VersionId</code>.</p>
  */
 export class UpdateBackupPlanCommand extends $Command<

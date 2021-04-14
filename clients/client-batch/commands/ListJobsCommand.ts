@@ -28,10 +28,10 @@ export type ListJobsCommandOutput = ListJobsResponse & __MetadataBearer;
  *                <p>A job queue ID to return a list of jobs in that job queue</p>
  *             </li>
  *             <li>
- *                <p>A multi-node parallel job ID to return a list of that job's nodes</p>
+ *                <p>A multi-node parallel job ID to return a list of nodes for that job</p>
  *             </li>
  *             <li>
- *                <p>An array job ID to return a list of that job's children</p>
+ *                <p>An array job ID to return a list of the children for that job</p>
  *             </li>
  *          </ul>
  *          <p>You can filter the results by job status with the <code>jobStatus</code> parameter. If you don't specify a

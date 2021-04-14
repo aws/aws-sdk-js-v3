@@ -477,6 +477,8 @@ const serializeAws_json1_1ReportDefinition = (input: ReportDefinition, context: 
       input.AdditionalSchemaElements !== null && {
         AdditionalSchemaElements: serializeAws_json1_1SchemaElementList(input.AdditionalSchemaElements, context),
       }),
+    ...(input.BillingViewArn !== undefined &&
+      input.BillingViewArn !== null && { BillingViewArn: input.BillingViewArn }),
     ...(input.Compression !== undefined && input.Compression !== null && { Compression: input.Compression }),
     ...(input.Format !== undefined && input.Format !== null && { Format: input.Format }),
     ...(input.RefreshClosedReports !== undefined &&
@@ -578,6 +580,8 @@ const deserializeAws_json1_1ReportDefinition = (output: any, context: __SerdeCon
       output.AdditionalSchemaElements !== undefined && output.AdditionalSchemaElements !== null
         ? deserializeAws_json1_1SchemaElementList(output.AdditionalSchemaElements, context)
         : undefined,
+    BillingViewArn:
+      output.BillingViewArn !== undefined && output.BillingViewArn !== null ? output.BillingViewArn : undefined,
     Compression: output.Compression !== undefined && output.Compression !== null ? output.Compression : undefined,
     Format: output.Format !== undefined && output.Format !== null ? output.Format : undefined,
     RefreshClosedReports:

@@ -5718,6 +5718,10 @@ const serializeAws_json1_1DocDbSettings = (input: DocDbSettings, context: __Serd
     ...(input.NestingLevel !== undefined && input.NestingLevel !== null && { NestingLevel: input.NestingLevel }),
     ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
     ...(input.Port !== undefined && input.Port !== null && { Port: input.Port }),
+    ...(input.SecretsManagerAccessRoleArn !== undefined &&
+      input.SecretsManagerAccessRoleArn !== null && { SecretsManagerAccessRoleArn: input.SecretsManagerAccessRoleArn }),
+    ...(input.SecretsManagerSecretId !== undefined &&
+      input.SecretsManagerSecretId !== null && { SecretsManagerSecretId: input.SecretsManagerSecretId }),
     ...(input.ServerName !== undefined && input.ServerName !== null && { ServerName: input.ServerName }),
     ...(input.Username !== undefined && input.Username !== null && { Username: input.Username }),
   };
@@ -5802,6 +5806,10 @@ const serializeAws_json1_1IBMDb2Settings = (input: IBMDb2Settings, context: __Se
       input.MaxKBytesPerRead !== null && { MaxKBytesPerRead: input.MaxKBytesPerRead }),
     ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
     ...(input.Port !== undefined && input.Port !== null && { Port: input.Port }),
+    ...(input.SecretsManagerAccessRoleArn !== undefined &&
+      input.SecretsManagerAccessRoleArn !== null && { SecretsManagerAccessRoleArn: input.SecretsManagerAccessRoleArn }),
+    ...(input.SecretsManagerSecretId !== undefined &&
+      input.SecretsManagerSecretId !== null && { SecretsManagerSecretId: input.SecretsManagerSecretId }),
     ...(input.ServerName !== undefined && input.ServerName !== null && { ServerName: input.ServerName }),
     ...(input.SetDataCaptureChanges !== undefined &&
       input.SetDataCaptureChanges !== null && { SetDataCaptureChanges: input.SetDataCaptureChanges }),
@@ -5913,6 +5921,10 @@ const serializeAws_json1_1MicrosoftSQLServerSettings = (
       input.ReadBackupOnly !== null && { ReadBackupOnly: input.ReadBackupOnly }),
     ...(input.SafeguardPolicy !== undefined &&
       input.SafeguardPolicy !== null && { SafeguardPolicy: input.SafeguardPolicy }),
+    ...(input.SecretsManagerAccessRoleArn !== undefined &&
+      input.SecretsManagerAccessRoleArn !== null && { SecretsManagerAccessRoleArn: input.SecretsManagerAccessRoleArn }),
+    ...(input.SecretsManagerSecretId !== undefined &&
+      input.SecretsManagerSecretId !== null && { SecretsManagerSecretId: input.SecretsManagerSecretId }),
     ...(input.ServerName !== undefined && input.ServerName !== null && { ServerName: input.ServerName }),
     ...(input.UseBcpFullLoad !== undefined &&
       input.UseBcpFullLoad !== null && { UseBcpFullLoad: input.UseBcpFullLoad }),
@@ -6112,6 +6124,10 @@ const serializeAws_json1_1MongoDbSettings = (input: MongoDbSettings, context: __
     ...(input.NestingLevel !== undefined && input.NestingLevel !== null && { NestingLevel: input.NestingLevel }),
     ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
     ...(input.Port !== undefined && input.Port !== null && { Port: input.Port }),
+    ...(input.SecretsManagerAccessRoleArn !== undefined &&
+      input.SecretsManagerAccessRoleArn !== null && { SecretsManagerAccessRoleArn: input.SecretsManagerAccessRoleArn }),
+    ...(input.SecretsManagerSecretId !== undefined &&
+      input.SecretsManagerSecretId !== null && { SecretsManagerSecretId: input.SecretsManagerSecretId }),
     ...(input.ServerName !== undefined && input.ServerName !== null && { ServerName: input.ServerName }),
     ...(input.Username !== undefined && input.Username !== null && { Username: input.Username }),
   };
@@ -6143,6 +6159,10 @@ const serializeAws_json1_1MySQLSettings = (input: MySQLSettings, context: __Serd
       input.ParallelLoadThreads !== null && { ParallelLoadThreads: input.ParallelLoadThreads }),
     ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
     ...(input.Port !== undefined && input.Port !== null && { Port: input.Port }),
+    ...(input.SecretsManagerAccessRoleArn !== undefined &&
+      input.SecretsManagerAccessRoleArn !== null && { SecretsManagerAccessRoleArn: input.SecretsManagerAccessRoleArn }),
+    ...(input.SecretsManagerSecretId !== undefined &&
+      input.SecretsManagerSecretId !== null && { SecretsManagerSecretId: input.SecretsManagerSecretId }),
     ...(input.ServerName !== undefined && input.ServerName !== null && { ServerName: input.ServerName }),
     ...(input.ServerTimezone !== undefined &&
       input.ServerTimezone !== null && { ServerTimezone: input.ServerTimezone }),
@@ -6210,6 +6230,18 @@ const serializeAws_json1_1OracleSettings = (input: OracleSettings, context: __Se
     ...(input.ReplacePathPrefix !== undefined &&
       input.ReplacePathPrefix !== null && { ReplacePathPrefix: input.ReplacePathPrefix }),
     ...(input.RetryInterval !== undefined && input.RetryInterval !== null && { RetryInterval: input.RetryInterval }),
+    ...(input.SecretsManagerAccessRoleArn !== undefined &&
+      input.SecretsManagerAccessRoleArn !== null && { SecretsManagerAccessRoleArn: input.SecretsManagerAccessRoleArn }),
+    ...(input.SecretsManagerOracleAsmAccessRoleArn !== undefined &&
+      input.SecretsManagerOracleAsmAccessRoleArn !== null && {
+        SecretsManagerOracleAsmAccessRoleArn: input.SecretsManagerOracleAsmAccessRoleArn,
+      }),
+    ...(input.SecretsManagerOracleAsmSecretId !== undefined &&
+      input.SecretsManagerOracleAsmSecretId !== null && {
+        SecretsManagerOracleAsmSecretId: input.SecretsManagerOracleAsmSecretId,
+      }),
+    ...(input.SecretsManagerSecretId !== undefined &&
+      input.SecretsManagerSecretId !== null && { SecretsManagerSecretId: input.SecretsManagerSecretId }),
     ...(input.SecurityDbEncryption !== undefined &&
       input.SecurityDbEncryption !== null && { SecurityDbEncryption: input.SecurityDbEncryption }),
     ...(input.SecurityDbEncryptionName !== undefined &&
@@ -6237,6 +6269,10 @@ const serializeAws_json1_1PostgreSQLSettings = (input: PostgreSQLSettings, conte
     ...(input.MaxFileSize !== undefined && input.MaxFileSize !== null && { MaxFileSize: input.MaxFileSize }),
     ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
     ...(input.Port !== undefined && input.Port !== null && { Port: input.Port }),
+    ...(input.SecretsManagerAccessRoleArn !== undefined &&
+      input.SecretsManagerAccessRoleArn !== null && { SecretsManagerAccessRoleArn: input.SecretsManagerAccessRoleArn }),
+    ...(input.SecretsManagerSecretId !== undefined &&
+      input.SecretsManagerSecretId !== null && { SecretsManagerSecretId: input.SecretsManagerSecretId }),
     ...(input.ServerName !== undefined && input.ServerName !== null && { ServerName: input.ServerName }),
     ...(input.SlotName !== undefined && input.SlotName !== null && { SlotName: input.SlotName }),
     ...(input.Username !== undefined && input.Username !== null && { Username: input.Username }),
@@ -6282,6 +6318,10 @@ const serializeAws_json1_1RedshiftSettings = (input: RedshiftSettings, context: 
     ...(input.ReplaceChars !== undefined && input.ReplaceChars !== null && { ReplaceChars: input.ReplaceChars }),
     ...(input.ReplaceInvalidChars !== undefined &&
       input.ReplaceInvalidChars !== null && { ReplaceInvalidChars: input.ReplaceInvalidChars }),
+    ...(input.SecretsManagerAccessRoleArn !== undefined &&
+      input.SecretsManagerAccessRoleArn !== null && { SecretsManagerAccessRoleArn: input.SecretsManagerAccessRoleArn }),
+    ...(input.SecretsManagerSecretId !== undefined &&
+      input.SecretsManagerSecretId !== null && { SecretsManagerSecretId: input.SecretsManagerSecretId }),
     ...(input.ServerName !== undefined && input.ServerName !== null && { ServerName: input.ServerName }),
     ...(input.ServerSideEncryptionKmsKeyId !== undefined &&
       input.ServerSideEncryptionKmsKeyId !== null && {
@@ -6478,6 +6518,10 @@ const serializeAws_json1_1SybaseSettings = (input: SybaseSettings, context: __Se
     ...(input.DatabaseName !== undefined && input.DatabaseName !== null && { DatabaseName: input.DatabaseName }),
     ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
     ...(input.Port !== undefined && input.Port !== null && { Port: input.Port }),
+    ...(input.SecretsManagerAccessRoleArn !== undefined &&
+      input.SecretsManagerAccessRoleArn !== null && { SecretsManagerAccessRoleArn: input.SecretsManagerAccessRoleArn }),
+    ...(input.SecretsManagerSecretId !== undefined &&
+      input.SecretsManagerSecretId !== null && { SecretsManagerSecretId: input.SecretsManagerSecretId }),
     ...(input.ServerName !== undefined && input.ServerName !== null && { ServerName: input.ServerName }),
     ...(input.Username !== undefined && input.Username !== null && { Username: input.Username }),
   };
@@ -7141,6 +7185,14 @@ const deserializeAws_json1_1DocDbSettings = (output: any, context: __SerdeContex
     NestingLevel: output.NestingLevel !== undefined && output.NestingLevel !== null ? output.NestingLevel : undefined,
     Password: output.Password !== undefined && output.Password !== null ? output.Password : undefined,
     Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined,
+    SecretsManagerAccessRoleArn:
+      output.SecretsManagerAccessRoleArn !== undefined && output.SecretsManagerAccessRoleArn !== null
+        ? output.SecretsManagerAccessRoleArn
+        : undefined,
+    SecretsManagerSecretId:
+      output.SecretsManagerSecretId !== undefined && output.SecretsManagerSecretId !== null
+        ? output.SecretsManagerSecretId
+        : undefined,
     ServerName: output.ServerName !== undefined && output.ServerName !== null ? output.ServerName : undefined,
     Username: output.Username !== undefined && output.Username !== null ? output.Username : undefined,
   } as any;
@@ -7389,6 +7441,14 @@ const deserializeAws_json1_1IBMDb2Settings = (output: any, context: __SerdeConte
       output.MaxKBytesPerRead !== undefined && output.MaxKBytesPerRead !== null ? output.MaxKBytesPerRead : undefined,
     Password: output.Password !== undefined && output.Password !== null ? output.Password : undefined,
     Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined,
+    SecretsManagerAccessRoleArn:
+      output.SecretsManagerAccessRoleArn !== undefined && output.SecretsManagerAccessRoleArn !== null
+        ? output.SecretsManagerAccessRoleArn
+        : undefined,
+    SecretsManagerSecretId:
+      output.SecretsManagerSecretId !== undefined && output.SecretsManagerSecretId !== null
+        ? output.SecretsManagerSecretId
+        : undefined,
     ServerName: output.ServerName !== undefined && output.ServerName !== null ? output.ServerName : undefined,
     SetDataCaptureChanges:
       output.SetDataCaptureChanges !== undefined && output.SetDataCaptureChanges !== null
@@ -7600,6 +7660,14 @@ const deserializeAws_json1_1MicrosoftSQLServerSettings = (
       output.ReadBackupOnly !== undefined && output.ReadBackupOnly !== null ? output.ReadBackupOnly : undefined,
     SafeguardPolicy:
       output.SafeguardPolicy !== undefined && output.SafeguardPolicy !== null ? output.SafeguardPolicy : undefined,
+    SecretsManagerAccessRoleArn:
+      output.SecretsManagerAccessRoleArn !== undefined && output.SecretsManagerAccessRoleArn !== null
+        ? output.SecretsManagerAccessRoleArn
+        : undefined,
+    SecretsManagerSecretId:
+      output.SecretsManagerSecretId !== undefined && output.SecretsManagerSecretId !== null
+        ? output.SecretsManagerSecretId
+        : undefined,
     ServerName: output.ServerName !== undefined && output.ServerName !== null ? output.ServerName : undefined,
     UseBcpFullLoad:
       output.UseBcpFullLoad !== undefined && output.UseBcpFullLoad !== null ? output.UseBcpFullLoad : undefined,
@@ -7680,6 +7748,14 @@ const deserializeAws_json1_1MongoDbSettings = (output: any, context: __SerdeCont
     NestingLevel: output.NestingLevel !== undefined && output.NestingLevel !== null ? output.NestingLevel : undefined,
     Password: output.Password !== undefined && output.Password !== null ? output.Password : undefined,
     Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined,
+    SecretsManagerAccessRoleArn:
+      output.SecretsManagerAccessRoleArn !== undefined && output.SecretsManagerAccessRoleArn !== null
+        ? output.SecretsManagerAccessRoleArn
+        : undefined,
+    SecretsManagerSecretId:
+      output.SecretsManagerSecretId !== undefined && output.SecretsManagerSecretId !== null
+        ? output.SecretsManagerSecretId
+        : undefined,
     ServerName: output.ServerName !== undefined && output.ServerName !== null ? output.ServerName : undefined,
     Username: output.Username !== undefined && output.Username !== null ? output.Username : undefined,
   } as any;
@@ -7715,6 +7791,14 @@ const deserializeAws_json1_1MySQLSettings = (output: any, context: __SerdeContex
         : undefined,
     Password: output.Password !== undefined && output.Password !== null ? output.Password : undefined,
     Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined,
+    SecretsManagerAccessRoleArn:
+      output.SecretsManagerAccessRoleArn !== undefined && output.SecretsManagerAccessRoleArn !== null
+        ? output.SecretsManagerAccessRoleArn
+        : undefined,
+    SecretsManagerSecretId:
+      output.SecretsManagerSecretId !== undefined && output.SecretsManagerSecretId !== null
+        ? output.SecretsManagerSecretId
+        : undefined,
     ServerName: output.ServerName !== undefined && output.ServerName !== null ? output.ServerName : undefined,
     ServerTimezone:
       output.ServerTimezone !== undefined && output.ServerTimezone !== null ? output.ServerTimezone : undefined,
@@ -7814,6 +7898,22 @@ const deserializeAws_json1_1OracleSettings = (output: any, context: __SerdeConte
         : undefined,
     RetryInterval:
       output.RetryInterval !== undefined && output.RetryInterval !== null ? output.RetryInterval : undefined,
+    SecretsManagerAccessRoleArn:
+      output.SecretsManagerAccessRoleArn !== undefined && output.SecretsManagerAccessRoleArn !== null
+        ? output.SecretsManagerAccessRoleArn
+        : undefined,
+    SecretsManagerOracleAsmAccessRoleArn:
+      output.SecretsManagerOracleAsmAccessRoleArn !== undefined && output.SecretsManagerOracleAsmAccessRoleArn !== null
+        ? output.SecretsManagerOracleAsmAccessRoleArn
+        : undefined,
+    SecretsManagerOracleAsmSecretId:
+      output.SecretsManagerOracleAsmSecretId !== undefined && output.SecretsManagerOracleAsmSecretId !== null
+        ? output.SecretsManagerOracleAsmSecretId
+        : undefined,
+    SecretsManagerSecretId:
+      output.SecretsManagerSecretId !== undefined && output.SecretsManagerSecretId !== null
+        ? output.SecretsManagerSecretId
+        : undefined,
     SecurityDbEncryption:
       output.SecurityDbEncryption !== undefined && output.SecurityDbEncryption !== null
         ? output.SecurityDbEncryption
@@ -7956,6 +8056,14 @@ const deserializeAws_json1_1PostgreSQLSettings = (output: any, context: __SerdeC
     MaxFileSize: output.MaxFileSize !== undefined && output.MaxFileSize !== null ? output.MaxFileSize : undefined,
     Password: output.Password !== undefined && output.Password !== null ? output.Password : undefined,
     Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined,
+    SecretsManagerAccessRoleArn:
+      output.SecretsManagerAccessRoleArn !== undefined && output.SecretsManagerAccessRoleArn !== null
+        ? output.SecretsManagerAccessRoleArn
+        : undefined,
+    SecretsManagerSecretId:
+      output.SecretsManagerSecretId !== undefined && output.SecretsManagerSecretId !== null
+        ? output.SecretsManagerSecretId
+        : undefined,
     ServerName: output.ServerName !== undefined && output.ServerName !== null ? output.ServerName : undefined,
     SlotName: output.SlotName !== undefined && output.SlotName !== null ? output.SlotName : undefined,
     Username: output.Username !== undefined && output.Username !== null ? output.Username : undefined,
@@ -8012,6 +8120,14 @@ const deserializeAws_json1_1RedshiftSettings = (output: any, context: __SerdeCon
     ReplaceInvalidChars:
       output.ReplaceInvalidChars !== undefined && output.ReplaceInvalidChars !== null
         ? output.ReplaceInvalidChars
+        : undefined,
+    SecretsManagerAccessRoleArn:
+      output.SecretsManagerAccessRoleArn !== undefined && output.SecretsManagerAccessRoleArn !== null
+        ? output.SecretsManagerAccessRoleArn
+        : undefined,
+    SecretsManagerSecretId:
+      output.SecretsManagerSecretId !== undefined && output.SecretsManagerSecretId !== null
+        ? output.SecretsManagerSecretId
         : undefined,
     ServerName: output.ServerName !== undefined && output.ServerName !== null ? output.ServerName : undefined,
     ServerSideEncryptionKmsKeyId:
@@ -8876,6 +8992,14 @@ const deserializeAws_json1_1SybaseSettings = (output: any, context: __SerdeConte
     DatabaseName: output.DatabaseName !== undefined && output.DatabaseName !== null ? output.DatabaseName : undefined,
     Password: output.Password !== undefined && output.Password !== null ? output.Password : undefined,
     Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined,
+    SecretsManagerAccessRoleArn:
+      output.SecretsManagerAccessRoleArn !== undefined && output.SecretsManagerAccessRoleArn !== null
+        ? output.SecretsManagerAccessRoleArn
+        : undefined,
+    SecretsManagerSecretId:
+      output.SecretsManagerSecretId !== undefined && output.SecretsManagerSecretId !== null
+        ? output.SecretsManagerSecretId
+        : undefined,
     ServerName: output.ServerName !== undefined && output.ServerName !== null ? output.ServerName : undefined,
     Username: output.Username !== undefined && output.Username !== null ? output.Username : undefined,
   } as any;

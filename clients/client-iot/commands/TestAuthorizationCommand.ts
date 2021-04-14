@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { TestAuthorizationRequest, TestAuthorizationResponse } from "../models/models_1";
+import { TestAuthorizationRequest, TestAuthorizationResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1TestAuthorizationCommand,
   serializeAws_restJson1TestAuthorizationCommand,

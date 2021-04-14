@@ -41,11 +41,6 @@ export type GetRepositoryEndpointCommandOutput = GetRepositoryEndpointResult & _
  *                   <code>maven</code>
  *                </p>
  *             </li>
- *             <li>
- *                <p>
- *                   <code>nuget</code>
- *                </p>
- *             </li>
  *          </ul>
  */
 export class GetRepositoryEndpointCommand extends $Command<

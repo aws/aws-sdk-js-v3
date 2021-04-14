@@ -27,8 +27,7 @@ export type CreatePresignedDomainUrlCommandOutput = CreatePresignedDomainUrlResp
  *        This operation can only be called when the authentication mode equals IAM.
  *    </p>
  *          <note>
- *             <p>The URL that you get from a call to <code>CreatePresignedDomainUrl</code> is valid
- *             only for 5 minutes. If you try to use the URL after the 5-minute limit expires, you
+ *             <p>The URL that you get from a call to <code>CreatePresignedDomainUrl</code> has a default timeout of 5 minutes. You can configure this value using <code>ExpiresInSeconds</code>. If you try to use the URL after the timeout limit expires, you
  *             are directed to the AWS console sign-in page.</p>
  *          </note>
  */

@@ -2352,6 +2352,7 @@ const serializeAws_json1_1CreateServiceRequest = (input: CreateServiceRequest, c
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.NamespaceId !== undefined && input.NamespaceId !== null && { NamespaceId: input.NamespaceId }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   };
 };
 
@@ -3244,6 +3245,7 @@ const deserializeAws_json1_1Service = (output: any, context: __SerdeContext): Se
       output.InstanceCount !== undefined && output.InstanceCount !== null ? output.InstanceCount : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     NamespaceId: output.NamespaceId !== undefined && output.NamespaceId !== null ? output.NamespaceId : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;
 };
 
@@ -3297,6 +3299,7 @@ const deserializeAws_json1_1ServiceSummary = (output: any, context: __SerdeConte
     InstanceCount:
       output.InstanceCount !== undefined && output.InstanceCount !== null ? output.InstanceCount : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;
 };
 

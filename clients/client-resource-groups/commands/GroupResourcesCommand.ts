@@ -22,6 +22,17 @@ export type GroupResourcesCommandOutput = GroupResourcesOutput & __MetadataBeare
 
 /**
  * <p>Adds the specified resources to the specified group.</p>
+ *          <p>
+ *             <b>Minimum permissions</b>
+ *          </p>
+ *          <p>To run this command, you must have the following permissions:</p>
+ *          <ul>
+ *             <li>
+ *                 <p>
+ *                   <code>resource-groups:GroupResources</code>
+ *                </p>
+ *             </li>
+ *          </ul>
  */
 export class GroupResourcesCommand extends $Command<
   GroupResourcesCommandInput,

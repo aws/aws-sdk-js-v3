@@ -3,7 +3,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>
- *    You do not have sufficient access to perform this action.
+ *    Your account is not registered with AWS Audit Manager. Check the delegated administrator setup on the AWS Audit Manager settings page, and try again.
  * </p>
  */
 export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
@@ -296,7 +296,7 @@ export namespace Delegation {
 
 /**
  * <p>
- *      The wrapper that contains AWS Audit Manager role information, such as the role type and IAM Amazon Resource Name (ARN).
+ *      The wrapper that contains the AWS Audit Manager role information of the current user, such as the role type and IAM Amazon Resource Name (ARN).
  *   </p>
  */
 export interface Role {
@@ -856,6 +856,13 @@ export enum FrameworkType {
  * </p>
  */
 export interface AssessmentFrameworkMetadata {
+  /**
+   * <p>
+   *    The Amazon Resource Name (ARN) of the framework.
+   * </p>
+   */
+  arn?: string;
+
   /**
    * <p>
    * The unique identified for the specified framework.
@@ -1703,7 +1710,7 @@ export interface BatchImportEvidenceToAssessmentControlError {
 
   /**
    * <p>
-   *   The error message returned by the <code>BatchImportEvidenceToAssessmentControlError</code> API.
+   *   The error message returned by the <code>BatchImportEvidenceToAssessmentControl</code> API.
    * </p>
    */
   errorMessage?: string;
@@ -1877,6 +1884,13 @@ export interface CreateAssessmentFrameworkRequest {
    * </p>
    */
   controlSets: CreateAssessmentFrameworkControlSet[] | undefined;
+
+  /**
+   * <p>
+   *    The tags associated with the framework.
+   * </p>
+   */
+  tags?: { [key: string]: string };
 }
 
 export namespace CreateAssessmentFrameworkRequest {
@@ -1897,7 +1911,7 @@ export enum KeywordInputType {
 
 /**
  * <p>
- *    The keyword to search for in AWS CloudTrail logs.
+ * The keyword to search for in AWS CloudTrail logs, AWS Config rules, AWS Security Hub checks, and AWS API names.
  * </p>
  */
 export interface SourceKeyword {
@@ -1910,7 +1924,7 @@ export interface SourceKeyword {
 
   /**
    * <p>
-   *    The value of the keyword used to search AWS CloudTrail logs when mapping a control data source.
+   * The value of the keyword used to search AWS CloudTrail logs, AWS Config rules, AWS Security Hub checks, and AWS API names when mapping a control data source.
    * </p>
    */
   keywordValue?: string;
@@ -1978,7 +1992,7 @@ export interface ControlMappingSource {
 
   /**
    * <p>
-   *    The keyword to search for in AWS CloudTrail logs.
+   * The keyword to search for in AWS CloudTrail logs, AWS Config rules, AWS Security Hub checks, and AWS API names.
    * </p>
    */
   sourceKeyword?: SourceKeyword;
@@ -2074,7 +2088,7 @@ export interface Control {
 
   /**
    * <p>
-   *    The data mapping sources for the specified control.
+   *    The data source that determines from where AWS Audit Manager collects evidence for the control.
    * </p>
    */
   controlSources?: string;
@@ -2258,6 +2272,13 @@ export interface Framework {
    * </p>
    */
   lastUpdatedBy?: string;
+
+  /**
+   * <p>
+   *          The tags associated with the framework.
+   *       </p>
+   */
+  tags?: { [key: string]: string };
 }
 
 export namespace Framework {
@@ -2362,7 +2383,7 @@ export interface CreateControlMappingSource {
 
   /**
    * <p>
-   *    The keyword to search for in AWS CloudTrail logs.
+   * The keyword to search for in AWS CloudTrail logs, AWS Config rules, AWS Security Hub checks, and AWS API names.
    * </p>
    */
   sourceKeyword?: SourceKeyword;
@@ -2426,7 +2447,7 @@ export interface CreateControlRequest {
 
   /**
    * <p>
-   *  The data source that determines from where AWS Audit Manager collects evidence for the control.
+   *    The data mapping sources for the specified control.
    * </p>
    */
   controlMappingSources: CreateControlMappingSource[] | undefined;
@@ -2680,6 +2701,13 @@ export interface GetAssessmentResponse {
    * </p>
    */
   assessment?: Assessment;
+
+  /**
+   * <p>
+   *      The wrapper that contains the AWS Audit Manager role information of the current user, such as the role type and IAM Amazon Resource Name (ARN).
+   *   </p>
+   */
+  userRole?: Role;
 }
 
 export namespace GetAssessmentResponse {
@@ -4565,7 +4593,7 @@ export interface UpdateControlRequest {
 
   /**
    * <p>
-   *    The data source that determines from where AWS Audit Manager collects evidence for the control.
+   *    The data mapping sources for the specified control.
    * </p>
    */
   controlMappingSources: ControlMappingSource[] | undefined;

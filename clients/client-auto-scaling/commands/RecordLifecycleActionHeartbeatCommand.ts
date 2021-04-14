@@ -52,8 +52,8 @@ export type RecordLifecycleActionHeartbeatCommandOutput = RecordLifecycleActionH
  *                     action.</p>
  *             </li>
  *          </ol>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroupLifecycle.html">Auto Scaling
- *                 lifecycle</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html">Amazon EC2 Auto Scaling lifecycle
+ *                 hooks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  */
 export class RecordLifecycleActionHeartbeatCommand extends $Command<
   RecordLifecycleActionHeartbeatCommandInput,

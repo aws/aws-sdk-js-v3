@@ -23,8 +23,37 @@ export type RevokeGrantCommandOutput = __MetadataBearer;
 /**
  * <p>Revokes the specified grant for the specified customer master key (CMK). You can revoke a
  *       grant to actively deny operations that depend on it.</p>
- *          <p>To perform this operation on a CMK in a different AWS account, specify the key
+ *          <p>
+ *             <b>Cross-account use</b>: Yes. To perform this operation on a CMK in a different AWS account, specify the key
  *   ARN in the value of the <code>KeyId</code> parameter.</p>
+ *
+ *          <p>
+ *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:RevokeGrant</a> (key policy)</p>
+ *          <p>
+ *             <b>Related operations:</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateGrant</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListGrants</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListRetirableGrants</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>RetireGrant</a>
+ *                </p>
+ *             </li>
+ *          </ul>
  */
 export class RevokeGrantCommand extends $Command<
   RevokeGrantCommandInput,

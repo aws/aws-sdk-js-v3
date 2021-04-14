@@ -21,7 +21,13 @@ export type DescribeTrainingJobCommandInput = DescribeTrainingJobRequest;
 export type DescribeTrainingJobCommandOutput = DescribeTrainingJobResponse & __MetadataBearer;
 
 /**
- * <p>Returns information about a training job.</p>
+ * <p>Returns information about a training job. </p>
+ *         <p>Some of the attributes below only appear if the training job successfully starts.
+ *             If the training job fails, <code>TrainingJobStatus</code> is <code>Failed</code> and,
+ *             depending on the <code>FailureReason</code>, attributes like
+ *                 <code>TrainingStartTime</code>, <code>TrainingTimeInSeconds</code>,
+ *                 <code>TrainingEndTime</code>, and <code>BillableTimeInSeconds</code> may not be
+ *             present in the response.</p>
  */
 export class DescribeTrainingJobCommand extends $Command<
   DescribeTrainingJobCommandInput,

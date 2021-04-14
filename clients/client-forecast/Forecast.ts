@@ -149,6 +149,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  StopResourceCommand,
+  StopResourceCommandInput,
+  StopResourceCommandOutput,
+} from "./commands/StopResourceCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -1538,6 +1543,57 @@ export class Forecast extends ForecastClient {
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Stops a resource.</p>
+   *          <p>The resource undergoes the following states:
+   *          <code>CREATE_STOPPING</code> and <code>CREATE_STOPPED</code>. You cannot resume
+   *          a resource once it has been stopped.</p>
+   *          <p>This operation can be applied to the following resources (and their corresponding child
+   *          resources):</p>
+   *          <ul>
+   *             <li>
+   *                <p>Dataset Import Job</p>
+   *             </li>
+   *             <li>
+   *                <p>Predictor Job</p>
+   *             </li>
+   *             <li>
+   *                <p>Forecast Job</p>
+   *             </li>
+   *             <li>
+   *                <p>Forecast Export Job</p>
+   *             </li>
+   *             <li>
+   *                <p>Predictor Backtest Export Job</p>
+   *             </li>
+   *          </ul>
+   */
+  public stopResource(
+    args: StopResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopResourceCommandOutput>;
+  public stopResource(args: StopResourceCommandInput, cb: (err: any, data?: StopResourceCommandOutput) => void): void;
+  public stopResource(
+    args: StopResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopResourceCommandOutput) => void
+  ): void;
+  public stopResource(
+    args: StopResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopResourceCommandOutput) => void),
+    cb?: (err: any, data?: StopResourceCommandOutput) => void
+  ): Promise<StopResourceCommandOutput> | void {
+    const command = new StopResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

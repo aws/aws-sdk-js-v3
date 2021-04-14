@@ -18,16 +18,16 @@ export type GetPolicyCommandInput = GetPolicyRequest;
 export type GetPolicyCommandOutput = GetPolicyResponse & __MetadataBearer;
 
 /**
- * <p>Retrieves information about the specified managed policy, including the policy's default
- *          version and the total number of IAM users, groups, and roles to which the policy is
- *          attached. To retrieve the list of the specific users, groups, and roles that the policy is
- *          attached to, use the <a>ListEntitiesForPolicy</a> API. This API returns metadata
- *          about the policy. To retrieve the actual policy document for a specific version of the
- *          policy, use <a>GetPolicyVersion</a>.</p>
- *          <p>This API retrieves information about managed policies. To retrieve information about an
- *          inline policy that is embedded with an IAM user, group, or role, use the <a>GetUserPolicy</a>, <a>GetGroupPolicy</a>, or <a>GetRolePolicy</a> API.</p>
- *          <p>For more information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline
- *             Policies</a> in the <i>IAM User Guide</i>.</p>
+ * <p>Retrieves information about the specified managed policy, including the policy's
+ *             default version and the total number of IAM users, groups, and roles to which the
+ *             policy is attached. To retrieve the list of the specific users, groups, and roles that
+ *             the policy is attached to, use <a>ListEntitiesForPolicy</a>. This operation
+ *             returns metadata about the policy. To retrieve the actual policy document for a specific
+ *             version of the policy, use <a>GetPolicyVersion</a>.</p>
+ *         <p>This operation retrieves information about managed policies. To retrieve information
+ *             about an inline policy that is embedded with an IAM user, group, or role, use <a>GetUserPolicy</a>, <a>GetGroupPolicy</a>, or <a>GetRolePolicy</a>.</p>
+ *         <p>For more information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
+ *                 policies</a> in the <i>IAM User Guide</i>.</p>
  */
 export class GetPolicyCommand extends $Command<GetPolicyCommandInput, GetPolicyCommandOutput, IAMClientResolvedConfig> {
   // Start section: command_properties

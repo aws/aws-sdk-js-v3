@@ -21,12 +21,14 @@ export type CreateIndexCommandInput = CreateIndexRequest;
 export type CreateIndexCommandOutput = CreateIndexResponse & __MetadataBearer;
 
 /**
- * <p>Creates a new Amazon Kendra index. Index creation is an asynchronous operation. To
- *       determine if index creation has completed, check the <code>Status</code> field returned from a
- *       call to . The <code>Status</code> field is set to
+ * <p>Creates a new Amazon Kendra index. Index creation is an asynchronous
+ *       operation. To determine if index creation has completed, check the
+ *         <code>Status</code> field returned from a call to
+ *         <code>DescribeIndex</code>. The <code>Status</code> field is set to
  *         <code>ACTIVE</code> when the index is ready to use.</p>
- *          <p>Once the index is active you can index your documents using the  operation or using one of the supported data sources.
- *     </p>
+ *          <p>Once the index is active you can index your documents using the
+ *         <code>BatchPutDocument</code> operation or using one of the supported
+ *       data sources. </p>
  */
 export class CreateIndexCommand extends $Command<
   CreateIndexCommandInput,

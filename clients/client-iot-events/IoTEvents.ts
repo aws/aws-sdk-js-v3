@@ -12,6 +12,11 @@ import {
 } from "./commands/DeleteDetectorModelCommand";
 import { DeleteInputCommand, DeleteInputCommandInput, DeleteInputCommandOutput } from "./commands/DeleteInputCommand";
 import {
+  DescribeDetectorModelAnalysisCommand,
+  DescribeDetectorModelAnalysisCommandInput,
+  DescribeDetectorModelAnalysisCommandOutput,
+} from "./commands/DescribeDetectorModelAnalysisCommand";
+import {
   DescribeDetectorModelCommand,
   DescribeDetectorModelCommandInput,
   DescribeDetectorModelCommandOutput,
@@ -26,6 +31,11 @@ import {
   DescribeLoggingOptionsCommandInput,
   DescribeLoggingOptionsCommandOutput,
 } from "./commands/DescribeLoggingOptionsCommand";
+import {
+  GetDetectorModelAnalysisResultsCommand,
+  GetDetectorModelAnalysisResultsCommandInput,
+  GetDetectorModelAnalysisResultsCommandOutput,
+} from "./commands/GetDetectorModelAnalysisResultsCommand";
 import {
   ListDetectorModelVersionsCommand,
   ListDetectorModelVersionsCommandInput,
@@ -47,6 +57,11 @@ import {
   PutLoggingOptionsCommandInput,
   PutLoggingOptionsCommandOutput,
 } from "./commands/PutLoggingOptionsCommand";
+import {
+  StartDetectorModelAnalysisCommand,
+  StartDetectorModelAnalysisCommandInput,
+  StartDetectorModelAnalysisCommandOutput,
+} from "./commands/StartDetectorModelAnalysisCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -218,6 +233,38 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
+   * <p>Retrieves execution information about a detector model analysis</p>
+   */
+  public describeDetectorModelAnalysis(
+    args: DescribeDetectorModelAnalysisCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDetectorModelAnalysisCommandOutput>;
+  public describeDetectorModelAnalysis(
+    args: DescribeDetectorModelAnalysisCommandInput,
+    cb: (err: any, data?: DescribeDetectorModelAnalysisCommandOutput) => void
+  ): void;
+  public describeDetectorModelAnalysis(
+    args: DescribeDetectorModelAnalysisCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDetectorModelAnalysisCommandOutput) => void
+  ): void;
+  public describeDetectorModelAnalysis(
+    args: DescribeDetectorModelAnalysisCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDetectorModelAnalysisCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDetectorModelAnalysisCommandOutput) => void
+  ): Promise<DescribeDetectorModelAnalysisCommandOutput> | void {
+    const command = new DescribeDetectorModelAnalysisCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Describes an input.</p>
    */
   public describeInput(
@@ -271,6 +318,38 @@ export class IoTEvents extends IoTEventsClient {
     cb?: (err: any, data?: DescribeLoggingOptionsCommandOutput) => void
   ): Promise<DescribeLoggingOptionsCommandOutput> | void {
     const command = new DescribeLoggingOptionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves one or more analysis results of the detector model.</p>
+   */
+  public getDetectorModelAnalysisResults(
+    args: GetDetectorModelAnalysisResultsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDetectorModelAnalysisResultsCommandOutput>;
+  public getDetectorModelAnalysisResults(
+    args: GetDetectorModelAnalysisResultsCommandInput,
+    cb: (err: any, data?: GetDetectorModelAnalysisResultsCommandOutput) => void
+  ): void;
+  public getDetectorModelAnalysisResults(
+    args: GetDetectorModelAnalysisResultsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDetectorModelAnalysisResultsCommandOutput) => void
+  ): void;
+  public getDetectorModelAnalysisResults(
+    args: GetDetectorModelAnalysisResultsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDetectorModelAnalysisResultsCommandOutput) => void),
+    cb?: (err: any, data?: GetDetectorModelAnalysisResultsCommandOutput) => void
+  ): Promise<GetDetectorModelAnalysisResultsCommandOutput> | void {
+    const command = new GetDetectorModelAnalysisResultsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -431,6 +510,40 @@ export class IoTEvents extends IoTEventsClient {
     cb?: (err: any, data?: PutLoggingOptionsCommandOutput) => void
   ): Promise<PutLoggingOptionsCommandOutput> | void {
     const command = new PutLoggingOptionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Performs an analysis of your detector model. For more information,
+   *       see <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-analyze-api.html">Running detector model analyses</a>
+   *       in the <i>AWS IoT Events Developer Guide</i>.</p>
+   */
+  public startDetectorModelAnalysis(
+    args: StartDetectorModelAnalysisCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartDetectorModelAnalysisCommandOutput>;
+  public startDetectorModelAnalysis(
+    args: StartDetectorModelAnalysisCommandInput,
+    cb: (err: any, data?: StartDetectorModelAnalysisCommandOutput) => void
+  ): void;
+  public startDetectorModelAnalysis(
+    args: StartDetectorModelAnalysisCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartDetectorModelAnalysisCommandOutput) => void
+  ): void;
+  public startDetectorModelAnalysis(
+    args: StartDetectorModelAnalysisCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartDetectorModelAnalysisCommandOutput) => void),
+    cb?: (err: any, data?: StartDetectorModelAnalysisCommandOutput) => void
+  ): Promise<StartDetectorModelAnalysisCommandOutput> | void {
+    const command = new StartDetectorModelAnalysisCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

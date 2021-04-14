@@ -62,25 +62,14 @@ export type ListTagsForResourceCommandOutput = ListTagsForResourceResponse & __M
  *             AWS Tagging Strategies</a>
  *          </p>
  *         <p>
- *             <b>Related operations</b>
+ *             <b>Related actions</b>
  *          </p>
- *         <ul>
- *             <li>
- *                <p>
- *                   <a>TagResource</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UntagResource</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListTagsForResource</a>
- *                </p>
- *             </li>
- *          </ul>
+ *                     <p>
+ *             <a>TagResource</a> |
+ *                     <a>UntagResource</a> |
+ *                     <a>ListTagsForResource</a> |
+ *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          </p>
  */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,

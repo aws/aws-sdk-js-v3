@@ -22,7 +22,7 @@ export type ListRuleNamesByTargetCommandOutput = ListRuleNamesByTargetResponse &
 
 /**
  * <p>Lists the rules for the specified target. You can see which of the rules in Amazon
- *             EventBridge can invoke a specific target in your account.</p>
+ *       EventBridge can invoke a specific target in your account.</p>
  */
 export class ListRuleNamesByTargetCommand extends $Command<
   ListRuleNamesByTargetCommandInput,

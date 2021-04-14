@@ -21,7 +21,7 @@ export type ListTagsForResourceCommandInput = ListTagsForResourceRequest;
 export type ListTagsForResourceCommandOutput = ListTagsForResourceResponse & __MetadataBearer;
 
 /**
- * <p>Lists all the tags for an AWS Glue DataBrew resource. </p>
+ * <p>Lists all the tags for a DataBrew resource. </p>
  */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,

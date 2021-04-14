@@ -38,35 +38,16 @@ export type UpdateScriptCommandOutput = UpdateScriptOutput & __MetadataBearer;
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon GameLift Realtime Servers</a>
  *         </p>
  *         <p>
- *             <b>Related operations</b>
+ *             <b>Related actions</b>
  *          </p>
- *         <ul>
- *             <li>
- *                <p>
- *                   <a>CreateScript</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListScripts</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DescribeScript</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateScript</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteScript</a>
- *                </p>
- *             </li>
- *          </ul>
+ *                     <p>
+ *             <a>CreateScript</a> |
+ *                     <a>ListScripts</a> |
+ *                     <a>DescribeScript</a> |
+ *                     <a>UpdateScript</a> |
+ *                     <a>DeleteScript</a> |
+ *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          </p>
  */
 export class UpdateScriptCommand extends $Command<
   UpdateScriptCommandInput,

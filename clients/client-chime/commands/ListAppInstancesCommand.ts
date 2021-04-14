@@ -21,7 +21,7 @@ export type ListAppInstancesCommandInput = ListAppInstancesRequest;
 export type ListAppInstancesCommandOutput = ListAppInstancesResponse & __MetadataBearer;
 
 /**
- * <p>Lists all Amazon Chime app instances created under a single AWS account.</p>
+ * <p>Lists all Amazon Chime <code>AppInstance</code>s created under a single AWS account.</p>
  */
 export class ListAppInstancesCommand extends $Command<
   ListAppInstancesCommandInput,

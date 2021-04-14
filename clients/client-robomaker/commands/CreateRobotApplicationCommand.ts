@@ -21,8 +21,7 @@ export type CreateRobotApplicationCommandInput = CreateRobotApplicationRequest;
 export type CreateRobotApplicationCommandOutput = CreateRobotApplicationResponse & __MetadataBearer;
 
 /**
- * <p>Creates a robot application.
- *       </p>
+ * <p>Creates a robot application. </p>
  */
 export class CreateRobotApplicationCommand extends $Command<
   CreateRobotApplicationCommandInput,

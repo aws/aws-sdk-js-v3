@@ -21,8 +21,8 @@ export type ListRecipeVersionsCommandInput = ListRecipeVersionsRequest;
 export type ListRecipeVersionsCommandOutput = ListRecipeVersionsResponse & __MetadataBearer;
 
 /**
- * <p>Lists all of the versions of a particular AWS Glue DataBrew recipe in the current AWS
- *             account.</p>
+ * <p>Lists the versions of a particular DataBrew recipe, except for
+ *                 <code>LATEST_WORKING</code>.</p>
  */
 export class ListRecipeVersionsCommand extends $Command<
   ListRecipeVersionsCommandInput,

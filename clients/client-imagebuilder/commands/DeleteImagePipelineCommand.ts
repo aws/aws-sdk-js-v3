@@ -21,7 +21,7 @@ export type DeleteImagePipelineCommandInput = DeleteImagePipelineRequest;
 export type DeleteImagePipelineCommandOutput = DeleteImagePipelineResponse & __MetadataBearer;
 
 /**
- * <p> Deletes an image pipeline. </p>
+ * <p> Deletes an image pipeline.</p>
  */
 export class DeleteImagePipelineCommand extends $Command<
   DeleteImagePipelineCommandInput,

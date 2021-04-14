@@ -20,6 +20,11 @@ import {
   ExportCertificateCommandOutput,
 } from "./commands/ExportCertificateCommand";
 import {
+  GetAccountConfigurationCommand,
+  GetAccountConfigurationCommandInput,
+  GetAccountConfigurationCommandOutput,
+} from "./commands/GetAccountConfigurationCommand";
+import {
   GetCertificateCommand,
   GetCertificateCommandInput,
   GetCertificateCommandOutput,
@@ -39,6 +44,11 @@ import {
   ListTagsForCertificateCommandInput,
   ListTagsForCertificateCommandOutput,
 } from "./commands/ListTagsForCertificateCommand";
+import {
+  PutAccountConfigurationCommand,
+  PutAccountConfigurationCommandInput,
+  PutAccountConfigurationCommandOutput,
+} from "./commands/PutAccountConfigurationCommand";
 import {
   RemoveTagsFromCertificateCommand,
   RemoveTagsFromCertificateCommandInput,
@@ -68,11 +78,8 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <fullname>AWS Certificate Manager</fullname>
- *          <p>Welcome to the AWS Certificate Manager (ACM) API documentation.</p>
- *          <p>You can use ACM to manage SSL/TLS certificates for your AWS-based websites and
- *       applications. For general information about using ACM, see the <a href="https://docs.aws.amazon.com/acm/latest/userguide/">
- *                <i>AWS Certificate Manager User Guide</i>
- *             </a>.</p>
+ *          <p>You can use AWS Certificate Manager (ACM) to manage SSL/TLS certificates for your AWS-based websites
+ *       and applications. For more information about using ACM, see the <a href="https://docs.aws.amazon.com/acm/latest/userguide/">AWS Certificate Manager User Guide</a>.</p>
  */
 export class ACM extends ACMClient {
   /**
@@ -232,6 +239,39 @@ export class ACM extends ACMClient {
   }
 
   /**
+   * <p>Returns the account
+   *       configuration options associated with an AWS account.</p>
+   */
+  public getAccountConfiguration(
+    args: GetAccountConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAccountConfigurationCommandOutput>;
+  public getAccountConfiguration(
+    args: GetAccountConfigurationCommandInput,
+    cb: (err: any, data?: GetAccountConfigurationCommandOutput) => void
+  ): void;
+  public getAccountConfiguration(
+    args: GetAccountConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAccountConfigurationCommandOutput) => void
+  ): void;
+  public getAccountConfiguration(
+    args: GetAccountConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAccountConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: GetAccountConfigurationCommandOutput) => void
+  ): Promise<GetAccountConfigurationCommandOutput> | void {
+    const command = new GetAccountConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves an Amazon-issued certificate and its certificate chain. The chain consists of
    *       the certificate of the issuing CA and the intermediate certificates of any other subordinate
    *       CAs. All of the certificates are base64 encoded. You can use <a href="https://wiki.openssl.org/index.php/Command_Line_Utilities">OpenSSL</a> to decode
@@ -291,6 +331,9 @@ export class ACM extends ACMClient {
    *           by a password or a passphrase.</p>
    *             </li>
    *             <li>
+   *                <p>The private key must be no larger than 5 KB (5,120 bytes).</p>
+   *             </li>
+   *             <li>
    *                <p>If the certificate you are importing is not self-signed, you must enter its
    *           certificate chain.</p>
    *             </li>
@@ -313,14 +356,15 @@ export class ACM extends ACMClient {
    *             </li>
    *             <li>
    *                <p>To import a new certificate, omit the <code>CertificateArn</code> argument. Include
-   *           this argument only when you want to replace a previously imported certifica</p>
+   *           this argument only when you want to replace a previously imported certificate.</p>
    *             </li>
    *             <li>
    *                <p>When you import a certificate by using the CLI, you must specify the certificate, the
    *           certificate chain, and the private key by their file names preceded by
-   *             <code>file://</code>. For example, you can specify a certificate saved in the
-   *             <code>C:\temp</code> folder as <code>file://C:\temp\certificate_to_import.pem</code>. If
-   *           you are making an HTTP or HTTPS Query request, include these arguments as BLOBs. </p>
+   *             <code>fileb://</code>. For example, you can specify a certificate saved in the
+   *             <code>C:\temp</code> folder as <code>fileb://C:\temp\certificate_to_import.pem</code>.
+   *           If you are making an HTTP or HTTPS Query request, include these arguments as BLOBs.
+   *         </p>
    *             </li>
    *             <li>
    *                <p>When you import a certificate by using an SDK, you must specify the certificate, the
@@ -436,6 +480,46 @@ export class ACM extends ACMClient {
   }
 
   /**
+   * <p>Adds or modifies
+   *       account-level configurations in ACM.
+   *       </p>
+   *          <p>The
+   *       supported configuration option is <code>DaysBeforeExpiry</code>. This option specifies the
+   *       number of days prior to certificate expiration when ACM starts generating
+   *         <code>EventBridge</code> events. ACM sends one event per day per certificate until the
+   *       certificate expires. By default, accounts receive events starting 45 days before certificate
+   *       expiration.</p>
+   */
+  public putAccountConfiguration(
+    args: PutAccountConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutAccountConfigurationCommandOutput>;
+  public putAccountConfiguration(
+    args: PutAccountConfigurationCommandInput,
+    cb: (err: any, data?: PutAccountConfigurationCommandOutput) => void
+  ): void;
+  public putAccountConfiguration(
+    args: PutAccountConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutAccountConfigurationCommandOutput) => void
+  ): void;
+  public putAccountConfiguration(
+    args: PutAccountConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutAccountConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: PutAccountConfigurationCommandOutput) => void
+  ): Promise<PutAccountConfigurationCommandOutput> | void {
+    const command = new PutAccountConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Remove one or more tags from an ACM certificate. A tag consists of a key-value pair. If
    *       you do not specify the value portion of the tag when calling this function, the tag will be
    *       removed regardless of value. If you specify a value, the tag is removed only if it is
@@ -474,7 +558,7 @@ export class ACM extends ACMClient {
   }
 
   /**
-   * <p>Renews an eligable ACM certificate. At this time, only exported private certificates can
+   * <p>Renews an eligible ACM certificate. At this time, only exported private certificates can
    *       be renewed with this operation. In order to renew your ACM PCA certificates with ACM, you must
    *       first <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaPermissions.html">grant the ACM
    *         service principal permission to do so</a>. For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/manual-renewal.html">Testing Managed Renewal</a>

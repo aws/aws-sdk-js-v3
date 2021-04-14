@@ -18,7 +18,7 @@ export type ListTypesCommandInput = ListTypesInput;
 export type ListTypesCommandOutput = ListTypesOutput & __MetadataBearer;
 
 /**
- * <p>Returns summary information about types that have been registered with CloudFormation.</p>
+ * <p>Returns summary information about extension that have been registered with CloudFormation.</p>
  */
 export class ListTypesCommand extends $Command<
   ListTypesCommandInput,

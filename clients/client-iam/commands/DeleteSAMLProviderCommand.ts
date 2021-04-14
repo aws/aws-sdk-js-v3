@@ -22,12 +22,12 @@ export type DeleteSAMLProviderCommandOutput = __MetadataBearer;
 
 /**
  * <p>Deletes a SAML provider resource in IAM.</p>
- *          <p>Deleting the provider resource from IAM does not update any roles that reference the
- *          SAML provider resource's ARN as a principal in their trust policies. Any attempt to assume
- *          a role that references a non-existent provider resource ARN fails.</p>
- *          <note>
+ *         <p>Deleting the provider resource from IAM does not update any roles that reference the
+ *             SAML provider resource's ARN as a principal in their trust policies. Any attempt to
+ *             assume a role that references a non-existent provider resource ARN fails.</p>
+ *         <note>
  *             <p> This operation requires <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>.</p>
- *          </note>
+ *         </note>
  */
 export class DeleteSAMLProviderCommand extends $Command<
   DeleteSAMLProviderCommandInput,

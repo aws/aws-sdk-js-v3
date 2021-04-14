@@ -40,6 +40,10 @@ import {
   InitiateLayerUploadCommandInput,
   InitiateLayerUploadCommandOutput,
 } from "../commands/InitiateLayerUploadCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
 import { PutImageCommandInput, PutImageCommandOutput } from "../commands/PutImageCommand";
 import {
   PutRegistryCatalogDataCommandInput,
@@ -53,6 +57,8 @@ import {
   SetRepositoryPolicyCommandInput,
   SetRepositoryPolicyCommandOutput,
 } from "../commands/SetRepositoryPolicyCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UploadLayerPartCommandInput, UploadLayerPartCommandOutput } from "../commands/UploadLayerPartCommand";
 import {
   AuthorizationData,
@@ -99,12 +105,15 @@ import {
   InvalidLayerException,
   InvalidLayerPartException,
   InvalidParameterException,
+  InvalidTagParameterException,
   Layer,
   LayerAlreadyExistsException,
   LayerFailure,
   LayerPartTooSmallException,
   LayersNotFoundException,
   LimitExceededException,
+  ListTagsForResourceRequest,
+  ListTagsForResourceResponse,
   PutImageRequest,
   PutImageResponse,
   PutRegistryCatalogDataRequest,
@@ -127,7 +136,13 @@ import {
   ServerException,
   SetRepositoryPolicyRequest,
   SetRepositoryPolicyResponse,
+  Tag,
+  TagResourceRequest,
+  TagResourceResponse,
+  TooManyTagsException,
   UnsupportedCommandException,
+  UntagResourceRequest,
+  UntagResourceResponse,
   UploadLayerPartRequest,
   UploadLayerPartResponse,
   UploadNotFoundException,
@@ -337,6 +352,19 @@ export const serializeAws_json1_1InitiateLayerUploadCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SpencerFrontendService.ListTagsForResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1PutImageCommand = async (
   input: PutImageCommandInput,
   context: __SerdeContext
@@ -386,6 +414,32 @@ export const serializeAws_json1_1SetRepositoryPolicyCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1SetRepositoryPolicyRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SpencerFrontendService.TagResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SpencerFrontendService.UntagResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -713,6 +767,14 @@ const deserializeAws_json1_1CreateRepositoryCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InvalidTagParameterException":
+    case "com.amazonaws.ecrpublic#InvalidTagParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidTagParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "LimitExceededException":
     case "com.amazonaws.ecrpublic#LimitExceededException":
       response = {
@@ -733,6 +795,14 @@ const deserializeAws_json1_1CreateRepositoryCommandError = async (
     case "com.amazonaws.ecrpublic#ServerException":
       response = {
         ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyTagsException":
+    case "com.amazonaws.ecrpublic#TooManyTagsException":
+      response = {
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1556,6 +1626,76 @@ const deserializeAws_json1_1InitiateLayerUploadCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListTagsForResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.ecrpublic#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "RepositoryNotFoundException":
+    case "com.amazonaws.ecrpublic#RepositoryNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServerException":
+    case "com.amazonaws.ecrpublic#ServerException":
+      response = {
+        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1PutImageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1900,6 +2040,178 @@ const deserializeAws_json1_1SetRepositoryPolicyCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1TagResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1TagResourceResponse(data, context);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1TagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.ecrpublic#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidTagParameterException":
+    case "com.amazonaws.ecrpublic#InvalidTagParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidTagParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "RepositoryNotFoundException":
+    case "com.amazonaws.ecrpublic#RepositoryNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServerException":
+    case "com.amazonaws.ecrpublic#ServerException":
+      response = {
+        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyTagsException":
+    case "com.amazonaws.ecrpublic#TooManyTagsException":
+      response = {
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UntagResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UntagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.ecrpublic#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidTagParameterException":
+    case "com.amazonaws.ecrpublic#InvalidTagParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidTagParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "RepositoryNotFoundException":
+    case "com.amazonaws.ecrpublic#RepositoryNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServerException":
+    case "com.amazonaws.ecrpublic#ServerException":
+      response = {
+        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyTagsException":
+    case "com.amazonaws.ecrpublic#TooManyTagsException":
+      response = {
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1UploadLayerPartCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2130,6 +2442,21 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1InvalidTagParameterExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidTagParameterException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1InvalidTagParameterException(body, context);
+  const contents: InvalidTagParameterException = {
+    name: "InvalidTagParameterException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1LayerAlreadyExistsExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -2295,6 +2622,21 @@ const deserializeAws_json1_1ServerExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TooManyTagsException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1TooManyTagsException(body, context);
+  const contents: TooManyTagsException = {
+    name: "TooManyTagsException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1UnsupportedCommandExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -2396,6 +2738,7 @@ const serializeAws_json1_1CreateRepositoryRequest = (input: CreateRepositoryRequ
       }),
     ...(input.repositoryName !== undefined &&
       input.repositoryName !== null && { repositoryName: input.repositoryName }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
 
@@ -2545,6 +2888,15 @@ const serializeAws_json1_1LayerDigestList = (input: string[], context: __SerdeCo
     });
 };
 
+const serializeAws_json1_1ListTagsForResourceRequest = (
+  input: ListTagsForResourceRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
+  };
+};
+
 const serializeAws_json1_1OperatingSystemList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -2635,6 +2987,50 @@ const serializeAws_json1_1SetRepositoryPolicyRequest = (
     ...(input.registryId !== undefined && input.registryId !== null && { registryId: input.registryId }),
     ...(input.repositoryName !== undefined &&
       input.repositoryName !== null && { repositoryName: input.repositoryName }),
+  };
+};
+
+const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
+  return {
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+  };
+};
+
+const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Tag(entry, context);
+    });
+};
+
+const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+  };
+};
+
+const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
+    ...(input.tagKeys !== undefined &&
+      input.tagKeys !== null && { tagKeys: serializeAws_json1_1TagKeyList(input.tagKeys, context) }),
   };
 };
 
@@ -3071,6 +3467,15 @@ const deserializeAws_json1_1InvalidParameterException = (
   } as any;
 };
 
+const deserializeAws_json1_1InvalidTagParameterException = (
+  output: any,
+  context: __SerdeContext
+): InvalidTagParameterException => {
+  return {
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1Layer = (output: any, context: __SerdeContext): Layer => {
   return {
     layerAvailability:
@@ -3144,6 +3549,18 @@ const deserializeAws_json1_1LayersNotFoundException = (
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ListTagsForResourceResponse = (
+  output: any,
+  context: __SerdeContext
+): ListTagsForResourceResponse => {
+  return {
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_json1_1TagList(output.tags, context)
+        : undefined,
   } as any;
 };
 
@@ -3387,6 +3804,34 @@ const deserializeAws_json1_1SetRepositoryPolicyResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
+  return {
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Tag(entry, context);
+    });
+};
+
+const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
+  return {
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1UnsupportedCommandException = (
   output: any,
   context: __SerdeContext
@@ -3394,6 +3839,10 @@ const deserializeAws_json1_1UnsupportedCommandException = (
   return {
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
+  return {} as any;
 };
 
 const deserializeAws_json1_1UploadLayerPartResponse = (

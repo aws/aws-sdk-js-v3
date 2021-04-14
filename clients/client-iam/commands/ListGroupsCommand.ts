@@ -19,8 +19,8 @@ export type ListGroupsCommandOutput = ListGroupsResponse & __MetadataBearer;
 
 /**
  * <p>Lists the IAM groups that have the specified path prefix.</p>
- *          <p> You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
- *          parameters.</p>
+ *         <p> You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
+ *             parameters.</p>
  */
 export class ListGroupsCommand extends $Command<
   ListGroupsCommandInput,

@@ -22,6 +22,8 @@ export type ListProjectsCommandOutput = ListProjectsResponse & __MetadataBearer;
 
 /**
  * <p>Lists the Amazon Lookout for Vision projects in your AWS account.</p>
+ *          <p>This operation requires permissions to perform the
+ *          <code>lookoutvision:ListProjects</code> operation.</p>
  */
 export class ListProjectsCommand extends $Command<
   ListProjectsCommandInput,

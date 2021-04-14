@@ -22,22 +22,23 @@ export type GetOrganizationsAccessReportCommandOutput = GetOrganizationsAccessRe
 
 /**
  * <p>Retrieves the service last accessed data report for AWS Organizations that was previously generated
- *          using the <code>
+ *             using the <code>
  *                <a>GenerateOrganizationsAccessReport</a>
- *             </code> operation. This
- *          operation retrieves the status of your report job and the report contents.</p>
- *          <p>Depending on the parameters that you passed when you generated the report, the data
- *          returned could include different information. For details, see <a>GenerateOrganizationsAccessReport</a>.</p>
- *          <p>To call this operation, you must be signed in to the master account in your
- *          organization. SCPs must be enabled for your organization root. You must have permissions to
- *          perform this operation. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Refining Permissions Using
- *             Service Last Accessed Data</a> in the <i>IAM User Guide</i>.</p>
- *          <p>For each service that principals in an account (root users, IAM users, or IAM roles)
- *          could access using SCPs, the operation returns details about the most recent access
- *          attempt. If there was no attempt, the service is listed without details about the most
- *          recent attempt to access the service. If the operation fails, it returns the reason that it
- *          failed.</p>
- *          <p>By default, the list is sorted by service namespace.</p>
+ *             </code> operation.
+ *             This operation retrieves the status of your report job and the report contents.</p>
+ *         <p>Depending on the parameters that you passed when you generated the report, the data
+ *             returned could include different information. For details, see <a>GenerateOrganizationsAccessReport</a>.</p>
+ *         <p>To call this operation, you must be signed in to the management account in your
+ *             organization. SCPs must be enabled for your organization root. You must have permissions
+ *             to perform this operation. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Refining permissions using
+ *                 service last accessed data</a> in the
+ *             <i>IAM User Guide</i>.</p>
+ *         <p>For each service that principals in an account (root users, IAM users, or IAM
+ *             roles) could access using SCPs, the operation returns details about the most recent
+ *             access attempt. If there was no attempt, the service is listed without details about the
+ *             most recent attempt to access the service. If the operation fails, it returns the reason
+ *             that it failed.</p>
+ *         <p>By default, the list is sorted by service namespace.</p>
  */
 export class GetOrganizationsAccessReportCommand extends $Command<
   GetOrganizationsAccessReportCommandInput,

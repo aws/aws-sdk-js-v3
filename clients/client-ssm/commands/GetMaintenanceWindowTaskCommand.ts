@@ -22,6 +22,12 @@ export type GetMaintenanceWindowTaskCommandOutput = GetMaintenanceWindowTaskResu
 
 /**
  * <p>Lists the tasks in a maintenance window.</p>
+ *          <note>
+ *             <p>For maintenance window tasks without a specified target, you cannot supply values for
+ *      <code>--max-errors</code> and <code>--max-concurrency</code>. Instead, the system inserts a
+ *     placeholder value of <code>1</code>, which may be reported in the response to this command.
+ *     These values do not affect the running of your task and can be ignored.</p>
+ *          </note>
  */
 export class GetMaintenanceWindowTaskCommand extends $Command<
   GetMaintenanceWindowTaskCommandInput,

@@ -22,7 +22,7 @@ export type UpdateGameServerGroupCommandOutput = UpdateGameServerGroupOutput & _
 
 /**
  * <p>
- *             <b>This operation is used with the Amazon GameLift FleetIQ solution and game server groups.</b>
+ *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
  *          </p>
  *         <p>Updates GameLift FleetIQ-specific properties for a game server group. Many Auto Scaling group
  *             properties are updated on the Auto Scaling group directly, including the launch
@@ -38,50 +38,19 @@ export type UpdateGameServerGroupCommandOutput = UpdateGameServerGroupOutput & _
  *         </p>
  *
  *         <p>
- *             <b>Related operations</b>
+ *             <b>Related actions</b>
  *          </p>
- *         <ul>
- *             <li>
- *                <p>
- *                   <a>CreateGameServerGroup</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListGameServerGroups</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DescribeGameServerGroup</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateGameServerGroup</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteGameServerGroup</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ResumeGameServerGroup</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>SuspendGameServerGroup</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DescribeGameServerInstances</a>
- *                </p>
- *             </li>
- *          </ul>
+ *                     <p>
+ *             <a>CreateGameServerGroup</a> |
+ *                     <a>ListGameServerGroups</a> |
+ *                     <a>DescribeGameServerGroup</a> |
+ *                     <a>UpdateGameServerGroup</a> |
+ *                     <a>DeleteGameServerGroup</a> |
+ *                     <a>ResumeGameServerGroup</a> |
+ *                     <a>SuspendGameServerGroup</a> |
+ *                     <a>DescribeGameServerInstances</a> |
+ *                     <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html">All APIs by task</a>
+ *          </p>
  */
 export class UpdateGameServerGroupCommand extends $Command<
   UpdateGameServerGroupCommandInput,

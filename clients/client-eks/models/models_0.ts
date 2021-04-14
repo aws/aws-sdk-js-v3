@@ -3,6 +3,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum AddonIssueCode {
   ACCESS_DENIED = "AccessDenied",
+  ADMISSION_REQUEST_DENIED = "AdmissionRequestDenied",
   CLUSTER_UNREACHABLE = "ClusterUnreachable",
   CONFIGURATION_CONFLICT = "ConfigurationConflict",
   INSUFFICIENT_NUMBER_OF_REPLICAS = "InsufficientNumberOfReplicas",
@@ -207,17 +208,262 @@ export namespace AddonInfo {
 export type AMITypes = "AL2_ARM_64" | "AL2_x86_64" | "AL2_x86_64_GPU";
 
 /**
- * <p>An Auto Scaling group that is associated with an Amazon EKS managed node group.</p>
+ * <p>Identifies the AWS Key Management Service (AWS KMS) customer master key (CMK) used to encrypt the
+ *             secrets.</p>
  */
-export interface AutoScalingGroup {
+export interface Provider {
   /**
-   * <p>The name of the Auto Scaling group associated with an Amazon EKS managed node group.</p>
+   * <p>Amazon Resource Name (ARN) or alias of the customer master key (CMK). The CMK must be symmetric,
+   *             created in the same region as the cluster, and if the CMK was created in a different
+   *             account, the user must have access to the CMK. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html">Allowing
+   *                 Users in Other Accounts to Use a CMK</a> in the <i>AWS Key Management Service Developer
+   *                 Guide</i>.</p>
    */
-  name?: string;
+  keyArn?: string;
 }
 
-export namespace AutoScalingGroup {
-  export const filterSensitiveLog = (obj: AutoScalingGroup): any => ({
+export namespace Provider {
+  export const filterSensitiveLog = (obj: Provider): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The encryption configuration for the cluster.</p>
+ */
+export interface EncryptionConfig {
+  /**
+   * <p>Specifies the resources to be encrypted. The only supported value is "secrets".</p>
+   */
+  resources?: string[];
+
+  /**
+   * <p>AWS Key Management Service (AWS KMS) customer master key (CMK). Either the ARN or the alias can be
+   *             used.</p>
+   */
+  provider?: Provider;
+}
+
+export namespace EncryptionConfig {
+  export const filterSensitiveLog = (obj: EncryptionConfig): any => ({
+    ...obj,
+  });
+}
+
+export interface AssociateEncryptionConfigRequest {
+  /**
+   * <p>The name of the cluster that you are associating with encryption configuration.</p>
+   */
+  clusterName: string | undefined;
+
+  /**
+   * <p>The configuration you are using for encryption.</p>
+   */
+  encryptionConfig: EncryptionConfig[] | undefined;
+
+  /**
+   * <p>The client request token you are using with the encryption configuration.</p>
+   */
+  clientRequestToken?: string;
+}
+
+export namespace AssociateEncryptionConfigRequest {
+  export const filterSensitiveLog = (obj: AssociateEncryptionConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum ErrorCode {
+  ACCESS_DENIED = "AccessDenied",
+  ADMISSION_REQUEST_DENIED = "AdmissionRequestDenied",
+  CLUSTER_UNREACHABLE = "ClusterUnreachable",
+  CONFIGURATION_CONFLICT = "ConfigurationConflict",
+  ENI_LIMIT_REACHED = "EniLimitReached",
+  INSUFFICIENT_FREE_ADDRESSES = "InsufficientFreeAddresses",
+  INSUFFICIENT_NUMBER_OF_REPLICAS = "InsufficientNumberOfReplicas",
+  IP_NOT_AVAILABLE = "IpNotAvailable",
+  NODE_CREATION_FAILURE = "NodeCreationFailure",
+  OPERATION_NOT_PERMITTED = "OperationNotPermitted",
+  POD_EVICTION_FAILURE = "PodEvictionFailure",
+  SECURITY_GROUP_NOT_FOUND = "SecurityGroupNotFound",
+  SUBNET_NOT_FOUND = "SubnetNotFound",
+  UNKNOWN = "Unknown",
+  VPC_ID_NOT_FOUND = "VpcIdNotFound",
+}
+
+/**
+ * <p>An object representing an error when an asynchronous operation fails.</p>
+ */
+export interface ErrorDetail {
+  /**
+   * <p>A brief description of the error. </p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <b>SubnetNotFound</b>: We couldn't find one of the
+   *                     subnets associated with the cluster.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <b>SecurityGroupNotFound</b>: We couldn't find one
+   *                     of the security groups associated with the cluster.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <b>EniLimitReached</b>: You have reached the elastic
+   *                     network interface limit for your account.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <b>IpNotAvailable</b>: A subnet associated with the
+   *                     cluster doesn't have any free IP addresses.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <b>AccessDenied</b>: You don't have permissions to
+   *                     perform the specified operation.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <b>OperationNotPermitted</b>: The service role
+   *                     associated with the cluster doesn't have the required access permissions for
+   *                     Amazon EKS.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <b>VpcIdNotFound</b>: We couldn't find the VPC
+   *                     associated with the cluster.</p>
+   *             </li>
+   *          </ul>
+   */
+  errorCode?: ErrorCode | string;
+
+  /**
+   * <p>A more complete description of the error.</p>
+   */
+  errorMessage?: string;
+
+  /**
+   * <p>An optional field that contains the resource IDs associated with the error.</p>
+   */
+  resourceIds?: string[];
+}
+
+export namespace ErrorDetail {
+  export const filterSensitiveLog = (obj: ErrorDetail): any => ({
+    ...obj,
+  });
+}
+
+export enum UpdateParamType {
+  ADDON_VERSION = "AddonVersion",
+  CLUSTER_LOGGING = "ClusterLogging",
+  DESIRED_SIZE = "DesiredSize",
+  ENCRYPTION_CONFIG = "EncryptionConfig",
+  ENDPOINT_PRIVATE_ACCESS = "EndpointPrivateAccess",
+  ENDPOINT_PUBLIC_ACCESS = "EndpointPublicAccess",
+  IDENTITY_PROVIDER_CONFIG = "IdentityProviderConfig",
+  LABELS_TO_ADD = "LabelsToAdd",
+  LABELS_TO_REMOVE = "LabelsToRemove",
+  MAX_SIZE = "MaxSize",
+  MIN_SIZE = "MinSize",
+  PLATFORM_VERSION = "PlatformVersion",
+  PUBLIC_ACCESS_CIDRS = "PublicAccessCidrs",
+  RELEASE_VERSION = "ReleaseVersion",
+  RESOLVE_CONFLICTS = "ResolveConflicts",
+  SERVICE_ACCOUNT_ROLE_ARN = "ServiceAccountRoleArn",
+  VERSION = "Version",
+}
+
+/**
+ * <p>An object representing the details of an update request.</p>
+ */
+export interface UpdateParam {
+  /**
+   * <p>The keys associated with an update request.</p>
+   */
+  type?: UpdateParamType | string;
+
+  /**
+   * <p>The value of the keys submitted as part of an update request.</p>
+   */
+  value?: string;
+}
+
+export namespace UpdateParam {
+  export const filterSensitiveLog = (obj: UpdateParam): any => ({
+    ...obj,
+  });
+}
+
+export enum UpdateStatus {
+  CANCELLED = "Cancelled",
+  FAILED = "Failed",
+  IN_PROGRESS = "InProgress",
+  SUCCESSFUL = "Successful",
+}
+
+export enum UpdateType {
+  ADDON_UPDATE = "AddonUpdate",
+  ASSOCIATE_ENCRYPTION_CONFIG = "AssociateEncryptionConfig",
+  ASSOCIATE_IDENTITY_PROVIDER_CONFIG = "AssociateIdentityProviderConfig",
+  CONFIG_UPDATE = "ConfigUpdate",
+  DISASSOCIATE_IDENTITY_PROVIDER_CONFIG = "DisassociateIdentityProviderConfig",
+  ENDPOINT_ACCESS_UPDATE = "EndpointAccessUpdate",
+  LOGGING_UPDATE = "LoggingUpdate",
+  VERSION_UPDATE = "VersionUpdate",
+}
+
+/**
+ * <p>An object representing an asynchronous update.</p>
+ */
+export interface Update {
+  /**
+   * <p>A UUID that is used to track the update.</p>
+   */
+  id?: string;
+
+  /**
+   * <p>The current status of the update.</p>
+   */
+  status?: UpdateStatus | string;
+
+  /**
+   * <p>The type of the update.</p>
+   */
+  type?: UpdateType | string;
+
+  /**
+   * <p>A key-value map that contains the parameters associated with the update.</p>
+   */
+  params?: UpdateParam[];
+
+  /**
+   * <p>The Unix epoch timestamp in seconds for when the update was created.</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>Any errors associated with a <code>Failed</code> update.</p>
+   */
+  errors?: ErrorDetail[];
+}
+
+export namespace Update {
+  export const filterSensitiveLog = (obj: Update): any => ({
+    ...obj,
+  });
+}
+
+export interface AssociateEncryptionConfigResponse {
+  /**
+   * <p>An object representing an asynchronous update.</p>
+   */
+  update?: Update;
+}
+
+export namespace AssociateEncryptionConfigResponse {
+  export const filterSensitiveLog = (obj: AssociateEncryptionConfigResponse): any => ({
     ...obj,
   });
 }
@@ -246,78 +492,6 @@ export interface ClientException extends __SmithyException, $MetadataBearer {
 
 export namespace ClientException {
   export const filterSensitiveLog = (obj: ClientException): any => ({
-    ...obj,
-  });
-}
-
-export type ResolveConflicts = "NONE" | "OVERWRITE";
-
-export interface CreateAddonRequest {
-  /**
-   * <p>The name of the cluster to create the add-on for.</p>
-   */
-  clusterName: string | undefined;
-
-  /**
-   * <p>The name of the add-on. The name must match one of the names returned by <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html">
-   *                <code>ListAddons</code>
-   *             </a>.</p>
-   */
-  addonName: string | undefined;
-
-  /**
-   * <p>The version of the add-on. The version must match one of the versions returned by <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html">
-   *                <code>DescribeAddonVersions</code>
-   *             </a>.</p>
-   */
-  addonVersion?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an existing IAM role to bind to the add-on's service account. The role must be assigned the IAM permissions required by the add-on. If you don't specify an existing IAM role, then the add-on uses the
-   *      permissions assigned to the node IAM role. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html">Amazon EKS node IAM role</a> in the <i>Amazon EKS User Guide</i>.</p>
-   *         <note>
-   *             <p>To specify an existing IAM role, you must have an IAM OpenID Connect (OIDC) provider created for
-   *                 your cluster. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html">Enabling
-   *                     IAM roles for service accounts on your cluster</a> in the
-   *                 <i>Amazon EKS User Guide</i>.</p>
-   *          </note>
-   */
-  serviceAccountRoleArn?: string;
-
-  /**
-   * <p>How to resolve parameter value conflicts when migrating an existing add-on to an
-   *             Amazon EKS add-on.</p>
-   */
-  resolveConflicts?: ResolveConflicts | string;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request.</p>
-   */
-  clientRequestToken?: string;
-
-  /**
-   * <p>The metadata to apply to the cluster to assist with categorization and organization.
-   *             Each tag consists of a key and an optional value, both of which you define. </p>
-   */
-  tags?: { [key: string]: string };
-}
-
-export namespace CreateAddonRequest {
-  export const filterSensitiveLog = (obj: CreateAddonRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateAddonResponse {
-  /**
-   * <p>An Amazon EKS add-on.</p>
-   */
-  addon?: Addon;
-}
-
-export namespace CreateAddonResponse {
-  export const filterSensitiveLog = (obj: CreateAddonResponse): any => ({
     ...obj,
   });
 }
@@ -468,44 +642,214 @@ export namespace ServerException {
 }
 
 /**
- * <p>Identifies the AWS Key Management Service (AWS KMS) customer master key (CMK) used to encrypt the
- *             secrets.</p>
+ * <p>An object representing an OpenID Connect (OIDC) configuration. Before associating an
+ *             OIDC identity provider to your cluster, review the considerations in <a href="https://docs.aws.amazon.com/eks/latest/userguide/authenticate-oidc-identity-provider.html">Authenticating
+ *                 users for your cluster from an OpenID Connect identity provider</a> in the
+ *             <i>Amazon EKS User Guide</i>.</p>
  */
-export interface Provider {
+export interface OidcIdentityProviderConfigRequest {
   /**
-   * <p>Amazon Resource Name (ARN) or alias of the customer master key (CMK). The CMK must be symmetric,
-   *             created in the same region as the cluster, and if the CMK was created in a different
-   *             account, the user must have access to the CMK. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html">Allowing
-   *                 Users in Other Accounts to Use a CMK</a> in the <i>AWS Key Management Service Developer
-   *                 Guide</i>.</p>
+   * <p>The name of the OIDC provider configuration.</p>
    */
-  keyArn?: string;
+  identityProviderConfigName: string | undefined;
+
+  /**
+   * <p>The URL of the OpenID identity provider that allows the API server to discover public
+   *             signing keys for verifying tokens. The URL must begin with <code>https://</code> and
+   *             should correspond to the <code>iss</code> claim in the provider's OIDC ID tokens. Per
+   *             the OIDC standard, path components are allowed but query parameters are not. Typically
+   *             the URL consists of only a hostname, like <code>https://server.example.org</code> or
+   *                 <code>https://example.com</code>. This URL should point to the level below
+   *                 <code>.well-known/openid-configuration</code> and must be publicly accessible over
+   *             the internet.</p>
+   */
+  issuerUrl: string | undefined;
+
+  /**
+   * <p>This is also known as <i>audience</i>. The ID for the client application
+   *             that makes authentication requests to the OpenID identity provider.</p>
+   */
+  clientId: string | undefined;
+
+  /**
+   * <p>The JSON Web Token (JWT) claim to use as the username. The default is
+   *             <code>sub</code>, which is expected to be a unique identifier of the end user. You can
+   *             choose other claims, such as <code>email</code> or <code>name</code>, depending on the
+   *             OpenID identity provider. Claims other than <code>email</code> are prefixed with the
+   *             issuer URL to prevent naming clashes with other plug-ins.</p>
+   */
+  usernameClaim?: string;
+
+  /**
+   * <p>The prefix that is prepended to username claims to prevent clashes with existing
+   *             names. If you do not provide this field, and <code>username</code> is a value other than
+   *                 <code>email</code>, the prefix defaults to <code>issuerurl#</code>. You can use the
+   *             value <code>-</code> to disable all prefixing.</p>
+   */
+  usernamePrefix?: string;
+
+  /**
+   * <p>The JWT claim that the provider uses to return your groups.</p>
+   */
+  groupsClaim?: string;
+
+  /**
+   * <p>The prefix that is prepended to group claims to prevent clashes with existing names
+   *             (such as <code>system:</code> groups). For example, the value<code> oidc:</code> will
+   *             create group names like <code>oidc:engineering</code> and
+   *             <code>oidc:infra</code>.</p>
+   */
+  groupsPrefix?: string;
+
+  /**
+   * <p>The key value pairs that describe required claims in the identity token. If set, each
+   *             claim is verified to be present in the token with a matching value. For the maximum
+   *             number of claims that you can require, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/service-quotas.html">Amazon EKS service quotas</a> in the
+   *             <i>Amazon EKS User Guide</i>.</p>
+   */
+  requiredClaims?: { [key: string]: string };
 }
 
-export namespace Provider {
-  export const filterSensitiveLog = (obj: Provider): any => ({
+export namespace OidcIdentityProviderConfigRequest {
+  export const filterSensitiveLog = (obj: OidcIdentityProviderConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface AssociateIdentityProviderConfigRequest {
+  /**
+   * <p>The name of the cluster to associate the configuration to.</p>
+   */
+  clusterName: string | undefined;
+
+  /**
+   * <p>An object that represents an OpenID Connect (OIDC) identity provider
+   *             configuration.</p>
+   */
+  oidc: OidcIdentityProviderConfigRequest | undefined;
+
+  /**
+   * <p>The metadata to apply to the configuration to assist with categorization and
+   *             organization. Each tag consists of a key and an optional value, both of which you
+   *             define.</p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request.</p>
+   */
+  clientRequestToken?: string;
+}
+
+export namespace AssociateIdentityProviderConfigRequest {
+  export const filterSensitiveLog = (obj: AssociateIdentityProviderConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface AssociateIdentityProviderConfigResponse {
+  /**
+   * <p>An object representing an asynchronous update.</p>
+   */
+  update?: Update;
+
+  /**
+   * <p>The tags for the resource.</p>
+   */
+  tags?: { [key: string]: string };
+}
+
+export namespace AssociateIdentityProviderConfigResponse {
+  export const filterSensitiveLog = (obj: AssociateIdentityProviderConfigResponse): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>The encryption configuration for the cluster.</p>
+ * <p>An Auto Scaling group that is associated with an Amazon EKS managed node group.</p>
  */
-export interface EncryptionConfig {
+export interface AutoScalingGroup {
   /**
-   * <p>Specifies the resources to be encrypted. The only supported value is "secrets".</p>
+   * <p>The name of the Auto Scaling group associated with an Amazon EKS managed node group.</p>
    */
-  resources?: string[];
-
-  /**
-   * <p>AWS Key Management Service (AWS KMS) customer master key (CMK). Either the ARN or the alias can be
-   *             used.</p>
-   */
-  provider?: Provider;
+  name?: string;
 }
 
-export namespace EncryptionConfig {
-  export const filterSensitiveLog = (obj: EncryptionConfig): any => ({
+export namespace AutoScalingGroup {
+  export const filterSensitiveLog = (obj: AutoScalingGroup): any => ({
+    ...obj,
+  });
+}
+
+export type ResolveConflicts = "NONE" | "OVERWRITE";
+
+export interface CreateAddonRequest {
+  /**
+   * <p>The name of the cluster to create the add-on for.</p>
+   */
+  clusterName: string | undefined;
+
+  /**
+   * <p>The name of the add-on. The name must match one of the names returned by <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html">
+   *                <code>ListAddons</code>
+   *             </a>.</p>
+   */
+  addonName: string | undefined;
+
+  /**
+   * <p>The version of the add-on. The version must match one of the versions returned by <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html">
+   *                <code>DescribeAddonVersions</code>
+   *             </a>.</p>
+   */
+  addonVersion?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an existing IAM role to bind to the add-on's service account. The role must be assigned the IAM permissions required by the add-on. If you don't specify an existing IAM role, then the add-on uses the
+   *      permissions assigned to the node IAM role. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html">Amazon EKS node IAM role</a> in the <i>Amazon EKS User Guide</i>.</p>
+   *         <note>
+   *             <p>To specify an existing IAM role, you must have an IAM OpenID Connect (OIDC) provider created for
+   *                 your cluster. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html">Enabling
+   *                     IAM roles for service accounts on your cluster</a> in the
+   *                 <i>Amazon EKS User Guide</i>.</p>
+   *          </note>
+   */
+  serviceAccountRoleArn?: string;
+
+  /**
+   * <p>How to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS
+   *             add-on.</p>
+   */
+  resolveConflicts?: ResolveConflicts | string;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request.</p>
+   */
+  clientRequestToken?: string;
+
+  /**
+   * <p>The metadata to apply to the cluster to assist with categorization and organization.
+   *             Each tag consists of a key and an optional value, both of which you define. </p>
+   */
+  tags?: { [key: string]: string };
+}
+
+export namespace CreateAddonRequest {
+  export const filterSensitiveLog = (obj: CreateAddonRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateAddonResponse {
+  /**
+   * <p>An Amazon EKS add-on.</p>
+   */
+  addon?: Addon;
+}
+
+export namespace CreateAddonResponse {
+  export const filterSensitiveLog = (obj: CreateAddonResponse): any => ({
     ...obj,
   });
 }
@@ -600,18 +944,17 @@ export namespace Logging {
  */
 export interface VpcConfigRequest {
   /**
-   * <p>Specify subnets for your Amazon EKS worker nodes. Amazon EKS creates cross-account elastic
-   *             network interfaces in these subnets to allow communication between your worker nodes and
-   *             the Kubernetes control plane.</p>
+   * <p>Specify subnets for your Amazon EKS nodes. Amazon EKS creates cross-account elastic network
+   *             interfaces in these subnets to allow communication between your nodes and the Kubernetes
+   *             control plane.</p>
    */
   subnetIds?: string[];
 
   /**
    * <p>Specify one or more security groups for the cross-account elastic network interfaces
-   *             that Amazon EKS creates to use to allow communication between your worker nodes and the
-   *             Kubernetes control plane. If you don't specify any security groups, then familiarize
-   *             yourself with the difference between Amazon EKS defaults for clusters deployed with
-   *             Kubernetes:</p>
+   *             that Amazon EKS creates to use to allow communication between your nodes and the Kubernetes
+   *             control plane. If you don't specify any security groups, then familiarize yourself with
+   *             the difference between Amazon EKS defaults for clusters deployed with Kubernetes:</p>
    *         <ul>
    *             <li>
    *                 <p>1.14 Amazon EKS platform version <code>eks.2</code> and earlier</p>
@@ -644,12 +987,10 @@ export interface VpcConfigRequest {
    *             Kubernetes API server endpoint. If you enable private access, Kubernetes API requests
    *             from within your cluster's VPC use the private VPC endpoint. The default value for this
    *             parameter is <code>false</code>, which disables private access for your Kubernetes API
-   *             server. If you disable private access and you have worker nodes or AWS Fargate pods in the
+   *             server. If you disable private access and you have nodes or AWS Fargate pods in the
    *             cluster, then ensure that <code>publicAccessCidrs</code> includes the necessary CIDR
-   *             blocks for communication with the worker nodes or Fargate pods. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS
-   *                 Cluster Endpoint Access Control</a> in the
-   *             <i>
+   *             blocks for communication with the nodes or Fargate pods. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS Cluster
+   *                 Endpoint Access Control</a> in the <i>
    *                <i>Amazon EKS User Guide</i>
    *             </i>.</p>
    */
@@ -659,8 +1000,8 @@ export interface VpcConfigRequest {
    * <p>The CIDR blocks that are allowed access to your cluster's public Kubernetes API server
    *             endpoint. Communication to the endpoint from addresses outside of the CIDR blocks that
    *             you specify is denied. The default value is <code>0.0.0.0/0</code>. If you've disabled
-   *             private endpoint access and you have worker nodes or AWS Fargate pods in the cluster, then
-   *             ensure that you specify the necessary CIDR blocks. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS Cluster
+   *             private endpoint access and you have nodes or AWS Fargate pods in the cluster, then ensure
+   *             that you specify the necessary CIDR blocks. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS Cluster
    *                 Endpoint Access Control</a> in the <i>
    *                <i>Amazon EKS User Guide</i>
    *             </i>.</p>
@@ -770,11 +1111,11 @@ export namespace Certificate {
 
 /**
  * <p>An object representing the <a href="https://openid.net/connect/">OpenID
- *                 Connect</a> identity provider information for the cluster.</p>
+ *                 Connect</a> (OIDC) identity provider information for the cluster.</p>
  */
 export interface OIDC {
   /**
-   * <p>The issuer URL for the OpenID Connect identity provider.</p>
+   * <p>The issuer URL for the OIDC identity provider.</p>
    */
   issuer?: string;
 }
@@ -786,12 +1127,12 @@ export namespace OIDC {
 }
 
 /**
- * <p>An object representing an identity provider for authentication credentials.</p>
+ * <p>An object representing an identity provider.</p>
  */
 export interface Identity {
   /**
-   * <p>The <a href="https://openid.net/connect/">OpenID Connect</a> identity provider
-   *             information for the cluster.</p>
+   * <p>An object representing the <a href="https://openid.net/connect/">OpenID
+   *                 Connect</a> identity provider information.</p>
    */
   oidc?: OIDC;
 }
@@ -832,7 +1173,7 @@ export interface VpcConfigResponse {
 
   /**
    * <p>The security groups associated with the cross-account elastic network interfaces that
-   *             are used to allow communication between your worker nodes and the Kubernetes control
+   *             are used to allow communication between your nodes and the Kubernetes control
    *             plane.</p>
    */
   securityGroupIds?: string[];
@@ -859,12 +1200,10 @@ export interface VpcConfigResponse {
    * <p>This parameter indicates whether the Amazon EKS private API server endpoint is enabled. If
    *             the Amazon EKS private API server endpoint is enabled, Kubernetes API requests that originate
    *             from within your cluster's VPC use the private VPC endpoint instead of traversing the
-   *             internet. If this value is disabled and you have worker nodes or AWS Fargate pods in the
-   *             cluster, then ensure that <code>publicAccessCidrs</code> includes the necessary CIDR
-   *             blocks for communication with the worker nodes or Fargate pods. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS
-   *                 Cluster Endpoint Access Control</a> in the
-   *             <i>
+   *             internet. If this value is disabled and you have nodes or AWS Fargate pods in the cluster,
+   *             then ensure that <code>publicAccessCidrs</code> includes the necessary CIDR blocks for
+   *             communication with the nodes or Fargate pods. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS Cluster
+   *                 Endpoint Access Control</a> in the <i>
    *                <i>Amazon EKS User Guide</i>
    *             </i>.</p>
    */
@@ -874,8 +1213,8 @@ export interface VpcConfigResponse {
    * <p>The CIDR blocks that are allowed access to your cluster's public Kubernetes API server
    *             endpoint. Communication to the endpoint from addresses outside of the listed CIDR blocks
    *             is denied. The default value is <code>0.0.0.0/0</code>. If you've disabled private
-   *             endpoint access and you have worker nodes or AWS Fargate pods in the cluster, then ensure
-   *             that the necessary CIDR blocks are listed. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS Cluster
+   *             endpoint access and you have nodes or AWS Fargate pods in the cluster, then ensure that the
+   *             necessary CIDR blocks are listed. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS Cluster
    *                 Endpoint Access Control</a> in the <i>
    *                <i>Amazon EKS User Guide</i>
    *             </i>.</p>
@@ -1282,18 +1621,18 @@ export namespace LaunchTemplateSpecification {
  */
 export interface RemoteAccessConfig {
   /**
-   * <p>The Amazon EC2 SSH key that provides access for SSH communication with the worker nodes in
-   *             the managed node group. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon EC2 Key
+   * <p>The Amazon EC2 SSH key that provides access for SSH communication with the nodes in the
+   *             managed node group. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon EC2 Key
    *                 Pairs</a> in the <i>Amazon Elastic Compute Cloud User Guide for Linux Instances</i>.</p>
    */
   ec2SshKey?: string;
 
   /**
-   * <p>The security groups that are allowed SSH access (port 22) to the worker nodes. If you
-   *             specify an Amazon EC2 SSH key but do not specify a source security group when you create a
-   *             managed node group, then port 22 on the worker nodes is opened to the internet
-   *             (0.0.0.0/0). For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html">Security
-   *                 Groups for Your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   * <p>The security groups that are allowed SSH access (port 22) to the nodes. If you specify
+   *             an Amazon EC2 SSH key but do not specify a source security group when you create a managed
+   *             node group, then port 22 on the nodes is opened to the internet (0.0.0.0/0). For more
+   *             information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html">Security Groups for Your VPC</a> in the
+   *             <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
   sourceSecurityGroups?: string[];
 }
@@ -1311,19 +1650,20 @@ export namespace RemoteAccessConfig {
  */
 export interface NodegroupScalingConfig {
   /**
-   * <p>The minimum number of worker nodes that the managed node group can scale in to. This
-   *             number must be greater than zero.</p>
+   * <p>The minimum number of nodes that the managed node group can scale in to. This number
+   *             must be greater than zero.</p>
    */
   minSize?: number;
 
   /**
-   * <p>The maximum number of worker nodes that the managed node group can scale out to.
-   *             Managed node groups can support up to 100 nodes by default.</p>
+   * <p>The maximum number of nodes that the managed node group can scale out to. For
+   *             information about the maximum number that you can specify, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/service-quotas.html">Amazon EKS service
+   *                 quotas</a> in the <i>Amazon EKS User Guide</i>.</p>
    */
   maxSize?: number;
 
   /**
-   * <p>The current number of worker nodes that the managed node group should maintain.</p>
+   * <p>The current number of nodes that the managed node group should maintain.</p>
    */
   desiredSize?: number;
 }
@@ -1379,8 +1719,7 @@ export interface CreateNodegroupRequest {
    *             deployment will fail. If you don't specify an instance type in a launch template or for
    *                 <code>instanceTypes</code>, then <code>t3.medium</code> is used, by default. If you
    *             specify <code>Spot</code> for <code>capacityType</code>, then we recommend specifying
-   *             multiple values for <code>instanceTypes</code>. For more information, see <a href="https://docs.aws.amazon.com/managed-node-groups.html#managed-node-group-capacity-types">Managed node group
-   *                 capacity types</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch template support</a> in
+   *             multiple values for <code>instanceTypes</code>. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html#managed-node-group-capacity-types">Managed node group capacity types</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch template support</a> in
    *             the <i>Amazon EKS User Guide</i>.</p>
    */
   instanceTypes?: string[];
@@ -1404,15 +1743,14 @@ export interface CreateNodegroupRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role to associate with your node group. The Amazon EKS worker
-   *             node <code>kubelet</code> daemon makes calls to AWS APIs on your behalf. Worker nodes
-   *             receive permissions for these API calls through an IAM instance profile and associated
-   *             policies. Before you can launch worker nodes and register them into a cluster, you must
-   *             create an IAM role for those worker nodes to use when they are launched. For more
-   *             information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/worker_node_IAM_role.html">Amazon EKS Worker Node IAM Role</a> in the
-   *                 <i>
+   *             node <code>kubelet</code> daemon makes calls to AWS APIs on your behalf. Nodes receive
+   *             permissions for these API calls through an IAM instance profile and associated
+   *             policies. Before you can launch nodes and register them into a cluster, you must create
+   *             an IAM role for those nodes to use when they are launched. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/eks/latest/userguide/worker_node_IAM_role.html">Amazon EKS node IAM role</a> in the <i>
    *                <i>Amazon EKS User Guide</i>
-   *             </i>. If you specify <code>launchTemplate</code>, then don't specify
-   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IamInstanceProfile.html">
+   *             </i>.
+   *             If you specify <code>launchTemplate</code>, then don't specify  <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IamInstanceProfile.html">
    *                <code>IamInstanceProfile</code>
    *             </a> in your launch template,
    *             or the node group  deployment will fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch template support</a> in the Amazon EKS User Guide.</p>
@@ -1597,9 +1935,8 @@ export interface Issue {
    *                 <p>
    *                   <b>NodeCreationFailure</b>: Your launched instances
    *                     are unable to register with your Amazon EKS cluster. Common causes of this failure
-   *                     are insufficient <a href="https://docs.aws.amazon.com/eks/latest/userguide/worker_node_IAM_role.html">worker node IAM
-   *                         role</a> permissions or lack of outbound internet access for the nodes.
-   *                 </p>
+   *                     are insufficient <a href="https://docs.aws.amazon.com/eks/latest/userguide/worker_node_IAM_role.html">node IAM role</a>
+   *                     permissions or lack of outbound internet access for the nodes. </p>
    *             </li>
    *          </ul>
    */
@@ -1650,7 +1987,7 @@ export interface NodegroupResources {
 
   /**
    * <p>The remote access security group associated with the node group. This security group
-   *             controls SSH access to the worker nodes.</p>
+   *             controls SSH access to the nodes.</p>
    */
   remoteAccessSecurityGroup?: string;
 }
@@ -1758,10 +2095,9 @@ export interface Nodegroup {
   amiType?: AMITypes | string;
 
   /**
-   * <p>The IAM role associated with your node group. The Amazon EKS worker node
-   *                 <code>kubelet</code> daemon makes calls to AWS APIs on your behalf. Worker nodes
-   *             receive permissions for these API calls through an IAM instance profile and associated
-   *             policies.</p>
+   * <p>The IAM role associated with your node group. The Amazon EKS node <code>kubelet</code>
+   *             daemon makes calls to AWS APIs on your behalf. Nodes receive permissions for these API
+   *             calls through an IAM instance profile and associated policies.</p>
    */
   nodeRole?: string;
 
@@ -2100,6 +2436,165 @@ export namespace DescribeFargateProfileResponse {
   });
 }
 
+/**
+ * <p>An object representing an identity provider configuration.</p>
+ */
+export interface IdentityProviderConfig {
+  /**
+   * <p>The type of the identity provider configuration.</p>
+   */
+  type: string | undefined;
+
+  /**
+   * <p>The name of the identity provider configuration.</p>
+   */
+  name: string | undefined;
+}
+
+export namespace IdentityProviderConfig {
+  export const filterSensitiveLog = (obj: IdentityProviderConfig): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeIdentityProviderConfigRequest {
+  /**
+   * <p>The cluster name that the identity provider configuration is associated to.</p>
+   */
+  clusterName: string | undefined;
+
+  /**
+   * <p>An object that represents an identity provider configuration.</p>
+   */
+  identityProviderConfig: IdentityProviderConfig | undefined;
+}
+
+export namespace DescribeIdentityProviderConfigRequest {
+  export const filterSensitiveLog = (obj: DescribeIdentityProviderConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum ConfigStatus {
+  ACTIVE = "ACTIVE",
+  CREATING = "CREATING",
+  DELETING = "DELETING",
+}
+
+/**
+ * <p>An object that represents the configuration for an OpenID Connect (OIDC) identity
+ *             provider. </p>
+ */
+export interface OidcIdentityProviderConfig {
+  /**
+   * <p>The name of the configuration.</p>
+   */
+  identityProviderConfigName?: string;
+
+  /**
+   * <p>The ARN of the configuration.</p>
+   */
+  identityProviderConfigArn?: string;
+
+  /**
+   * <p>The cluster that the configuration is associated to.</p>
+   */
+  clusterName?: string;
+
+  /**
+   * <p>The URL of the OIDC identity provider that allows the API server to discover public
+   *             signing keys for verifying tokens.</p>
+   */
+  issuerUrl?: string;
+
+  /**
+   * <p>This is also known as <i>audience</i>. The ID of the client application
+   *             that makes authentication requests to the OIDC identity provider.</p>
+   */
+  clientId?: string;
+
+  /**
+   * <p>The JSON Web token (JWT) claim that is used as the username.</p>
+   */
+  usernameClaim?: string;
+
+  /**
+   * <p>The prefix that is prepended to username claims to prevent clashes with existing
+   *             names. The prefix can't contain <code>system:</code>
+   *          </p>
+   */
+  usernamePrefix?: string;
+
+  /**
+   * <p>The JSON web token (JWT) claim that the provider uses to return your groups.</p>
+   */
+  groupsClaim?: string;
+
+  /**
+   * <p>The prefix that is prepended to group claims to prevent clashes with existing names
+   *             (such as <code>system:</code> groups). For example, the value<code> oidc:</code> creates
+   *             group names like <code>oidc:engineering</code> and <code>oidc:infra</code>. The prefix
+   *             can't contain <code>system:</code>
+   *          </p>
+   */
+  groupsPrefix?: string;
+
+  /**
+   * <p>The key-value pairs that describe required claims in the identity token. If set, each
+   *             claim is verified to be present in the token with a matching value.</p>
+   */
+  requiredClaims?: { [key: string]: string };
+
+  /**
+   * <p>The metadata to apply to the provider configuration to assist with categorization and
+   *             organization. Each tag consists of a key and an optional value, both of which you
+   *             defined.</p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
+   * <p>The status of the OIDC identity provider.</p>
+   */
+  status?: ConfigStatus | string;
+}
+
+export namespace OidcIdentityProviderConfig {
+  export const filterSensitiveLog = (obj: OidcIdentityProviderConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An object that represents an identity configuration.</p>
+ */
+export interface IdentityProviderConfigResponse {
+  /**
+   * <p>An object that represents an OpenID Connect (OIDC) identity provider
+   *             configuration.</p>
+   */
+  oidc?: OidcIdentityProviderConfig;
+}
+
+export namespace IdentityProviderConfigResponse {
+  export const filterSensitiveLog = (obj: IdentityProviderConfigResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeIdentityProviderConfigResponse {
+  /**
+   * <p>The object that represents an OpenID Connect (OIDC) identity provider
+   *             configuration.</p>
+   */
+  identityProviderConfig?: IdentityProviderConfigResponse;
+}
+
+export namespace DescribeIdentityProviderConfigResponse {
+  export const filterSensitiveLog = (obj: DescribeIdentityProviderConfigResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeNodegroupRequest {
   /**
    * <p>The name of the Amazon EKS cluster associated with the node group.</p>
@@ -2161,182 +2656,6 @@ export namespace DescribeUpdateRequest {
   });
 }
 
-export enum ErrorCode {
-  ACCESS_DENIED = "AccessDenied",
-  CLUSTER_UNREACHABLE = "ClusterUnreachable",
-  CONFIGURATION_CONFLICT = "ConfigurationConflict",
-  ENI_LIMIT_REACHED = "EniLimitReached",
-  INSUFFICIENT_FREE_ADDRESSES = "InsufficientFreeAddresses",
-  INSUFFICIENT_NUMBER_OF_REPLICAS = "InsufficientNumberOfReplicas",
-  IP_NOT_AVAILABLE = "IpNotAvailable",
-  NODE_CREATION_FAILURE = "NodeCreationFailure",
-  OPERATION_NOT_PERMITTED = "OperationNotPermitted",
-  POD_EVICTION_FAILURE = "PodEvictionFailure",
-  SECURITY_GROUP_NOT_FOUND = "SecurityGroupNotFound",
-  SUBNET_NOT_FOUND = "SubnetNotFound",
-  UNKNOWN = "Unknown",
-  VPC_ID_NOT_FOUND = "VpcIdNotFound",
-}
-
-/**
- * <p>An object representing an error when an asynchronous operation fails.</p>
- */
-export interface ErrorDetail {
-  /**
-   * <p>A brief description of the error. </p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <b>SubnetNotFound</b>: We couldn't find one of the
-   *                     subnets associated with the cluster.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <b>SecurityGroupNotFound</b>: We couldn't find one
-   *                     of the security groups associated with the cluster.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <b>EniLimitReached</b>: You have reached the elastic
-   *                     network interface limit for your account.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <b>IpNotAvailable</b>: A subnet associated with the
-   *                     cluster doesn't have any free IP addresses.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <b>AccessDenied</b>: You don't have permissions to
-   *                     perform the specified operation.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <b>OperationNotPermitted</b>: The service role
-   *                     associated with the cluster doesn't have the required access permissions for
-   *                     Amazon EKS.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <b>VpcIdNotFound</b>: We couldn't find the VPC
-   *                     associated with the cluster.</p>
-   *             </li>
-   *          </ul>
-   */
-  errorCode?: ErrorCode | string;
-
-  /**
-   * <p>A more complete description of the error.</p>
-   */
-  errorMessage?: string;
-
-  /**
-   * <p>An optional field that contains the resource IDs associated with the error.</p>
-   */
-  resourceIds?: string[];
-}
-
-export namespace ErrorDetail {
-  export const filterSensitiveLog = (obj: ErrorDetail): any => ({
-    ...obj,
-  });
-}
-
-export enum UpdateParamType {
-  ADDON_VERSION = "AddonVersion",
-  CLUSTER_LOGGING = "ClusterLogging",
-  DESIRED_SIZE = "DesiredSize",
-  ENDPOINT_PRIVATE_ACCESS = "EndpointPrivateAccess",
-  ENDPOINT_PUBLIC_ACCESS = "EndpointPublicAccess",
-  LABELS_TO_ADD = "LabelsToAdd",
-  LABELS_TO_REMOVE = "LabelsToRemove",
-  MAX_SIZE = "MaxSize",
-  MIN_SIZE = "MinSize",
-  PLATFORM_VERSION = "PlatformVersion",
-  PUBLIC_ACCESS_CIDRS = "PublicAccessCidrs",
-  RELEASE_VERSION = "ReleaseVersion",
-  RESOLVE_CONFLICTS = "ResolveConflicts",
-  SERVICE_ACCOUNT_ROLE_ARN = "ServiceAccountRoleArn",
-  VERSION = "Version",
-}
-
-/**
- * <p>An object representing the details of an update request.</p>
- */
-export interface UpdateParam {
-  /**
-   * <p>The keys associated with an update request.</p>
-   */
-  type?: UpdateParamType | string;
-
-  /**
-   * <p>The value of the keys submitted as part of an update request.</p>
-   */
-  value?: string;
-}
-
-export namespace UpdateParam {
-  export const filterSensitiveLog = (obj: UpdateParam): any => ({
-    ...obj,
-  });
-}
-
-export enum UpdateStatus {
-  CANCELLED = "Cancelled",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  SUCCESSFUL = "Successful",
-}
-
-export enum UpdateType {
-  ADDON_UPDATE = "AddonUpdate",
-  CONFIG_UPDATE = "ConfigUpdate",
-  ENDPOINT_ACCESS_UPDATE = "EndpointAccessUpdate",
-  LOGGING_UPDATE = "LoggingUpdate",
-  VERSION_UPDATE = "VersionUpdate",
-}
-
-/**
- * <p>An object representing an asynchronous update.</p>
- */
-export interface Update {
-  /**
-   * <p>A UUID that is used to track the update.</p>
-   */
-  id?: string;
-
-  /**
-   * <p>The current status of the update.</p>
-   */
-  status?: UpdateStatus | string;
-
-  /**
-   * <p>The type of the update.</p>
-   */
-  type?: UpdateType | string;
-
-  /**
-   * <p>A key-value map that contains the parameters associated with the update.</p>
-   */
-  params?: UpdateParam[];
-
-  /**
-   * <p>The Unix epoch timestamp in seconds for when the update was created.</p>
-   */
-  createdAt?: Date;
-
-  /**
-   * <p>Any errors associated with a <code>Failed</code> update.</p>
-   */
-  errors?: ErrorDetail[];
-}
-
-export namespace Update {
-  export const filterSensitiveLog = (obj: Update): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeUpdateResponse {
   /**
    * <p>The full description of the specified update.</p>
@@ -2346,6 +2665,43 @@ export interface DescribeUpdateResponse {
 
 export namespace DescribeUpdateResponse {
   export const filterSensitiveLog = (obj: DescribeUpdateResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateIdentityProviderConfigRequest {
+  /**
+   * <p>The name of the cluster to disassociate an identity provider from.</p>
+   */
+  clusterName: string | undefined;
+
+  /**
+   * <p>An object that represents an identity provider configuration.</p>
+   */
+  identityProviderConfig: IdentityProviderConfig | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request.</p>
+   */
+  clientRequestToken?: string;
+}
+
+export namespace DisassociateIdentityProviderConfigRequest {
+  export const filterSensitiveLog = (obj: DisassociateIdentityProviderConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateIdentityProviderConfigResponse {
+  /**
+   * <p>An object representing an asynchronous update.</p>
+   */
+  update?: Update;
+}
+
+export namespace DisassociateIdentityProviderConfigResponse {
+  export const filterSensitiveLog = (obj: DisassociateIdentityProviderConfigResponse): any => ({
     ...obj,
   });
 }
@@ -2519,6 +2875,62 @@ export interface ListFargateProfilesResponse {
 
 export namespace ListFargateProfilesResponse {
   export const filterSensitiveLog = (obj: ListFargateProfilesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListIdentityProviderConfigsRequest {
+  /**
+   * <p>The cluster name that you want to list identity provider configurations for.</p>
+   */
+  clusterName: string | undefined;
+
+  /**
+   * <p>The maximum number of identity provider configurations returned by
+   *                 <code>ListIdentityProviderConfigs</code> in paginated output. When you use this
+   *             parameter, <code>ListIdentityProviderConfigs</code> returns only <code>maxResults</code>
+   *             results in a single page along with a <code>nextToken</code> response element. You can
+   *             see the remaining results of the initial request by sending another
+   *                 <code>ListIdentityProviderConfigs</code> request with the returned
+   *                 <code>nextToken</code> value. This value can be between 1 and
+   *             100. If you don't use this parameter,
+   *                 <code>ListIdentityProviderConfigs</code> returns up to 100 results
+   *             and a <code>nextToken</code> value, if applicable.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The <code>nextToken</code> value returned from a previous paginated
+   *                 <code>IdentityProviderConfigsRequest</code> where <code>maxResults</code> was used
+   *             and the results exceeded the value of that parameter. Pagination continues from the end
+   *             of the previous results that returned the <code>nextToken</code> value.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListIdentityProviderConfigsRequest {
+  export const filterSensitiveLog = (obj: ListIdentityProviderConfigsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListIdentityProviderConfigsResponse {
+  /**
+   * <p>The identity provider configurations for the cluster.</p>
+   */
+  identityProviderConfigs?: IdentityProviderConfig[];
+
+  /**
+   * <p>The <code>nextToken</code> value returned from a previous paginated
+   *                 <code>ListIdentityProviderConfigsResponse</code> where <code>maxResults</code> was
+   *             used and the results exceeded the value of that parameter. Pagination continues from the
+   *             end of the previous results that returned the <code>nextToken</code> value.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListIdentityProviderConfigsResponse {
+  export const filterSensitiveLog = (obj: ListIdentityProviderConfigsResponse): any => ({
     ...obj,
   });
 }

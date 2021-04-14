@@ -21,12 +21,17 @@ export type ListVirtualMFADevicesCommandInput = ListVirtualMFADevicesRequest;
 export type ListVirtualMFADevicesCommandOutput = ListVirtualMFADevicesResponse & __MetadataBearer;
 
 /**
- * <p>Lists the virtual MFA devices defined in the AWS account by assignment status. If you
- *          do not specify an assignment status, the operation returns a list of all virtual MFA
- *          devices. Assignment status can be <code>Assigned</code>, <code>Unassigned</code>, or
- *             <code>Any</code>.</p>
- *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
- *          parameters.</p>
+ * <p>Lists the virtual MFA devices defined in the AWS account by assignment status. If
+ *             you do not specify an assignment status, the operation returns a list of all virtual MFA
+ *             devices. Assignment status can be <code>Assigned</code>, <code>Unassigned</code>, or
+ *                 <code>Any</code>.</p>
+ *         <note>
+ *             <p>IAM resource-listing operations return a subset of the available
+ *    attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view all of the information for a virtual MFA device, see
+ *                     <a>ListVirtualMFADevices</a>.</p>
+ *         </note>
+ *         <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
+ *             parameters.</p>
  */
 export class ListVirtualMFADevicesCommand extends $Command<
   ListVirtualMFADevicesCommandInput,

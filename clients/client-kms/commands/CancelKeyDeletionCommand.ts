@@ -22,13 +22,19 @@ export type CancelKeyDeletionCommandOutput = CancelKeyDeletionResponse & __Metad
 
 /**
  * <p>Cancels the deletion of a customer master key (CMK). When this operation succeeds, the key
- *       state of the CMK is <code>Disabled</code>. To enable the CMK, use <a>EnableKey</a>.
- *       You cannot perform this operation on a CMK in a different AWS account.</p>
+ *       state of the CMK is <code>Disabled</code>. To enable the CMK, use <a>EnableKey</a>. </p>
  *          <p>For more information about scheduling and canceling deletion of a CMK, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html">Deleting Customer Master
  *         Keys</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
  *          <p>The CMK that you use for this operation must be in a compatible key state. For
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
  * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ *          <p>
+ *             <b>Cross-account use</b>: No. You cannot perform this operation on a CMK in a different AWS account.</p>
+ *          <p>
+ *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:CancelKeyDeletion</a> (key policy)</p>
+ *          <p>
+ *             <b>Related operations</b>: <a>ScheduleKeyDeletion</a>
+ *          </p>
  */
 export class CancelKeyDeletionCommand extends $Command<
   CancelKeyDeletionCommandInput,

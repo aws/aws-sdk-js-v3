@@ -1,5 +1,5 @@
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
-import { DescribeProductsRequest, DescribeProductsResponse } from "../models/models_0";
+import { DescribeProductsRequest, DescribeProductsResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DescribeProductsCommand,
   serializeAws_restJson1DescribeProductsCommand,
@@ -21,8 +21,11 @@ export type DescribeProductsCommandInput = DescribeProductsRequest;
 export type DescribeProductsCommandOutput = DescribeProductsResponse & __MetadataBearer;
 
 /**
- * <p>Returns information about the available products that you can subscribe to and integrate
- *          with Security Hub in order to consolidate findings.</p>
+ * <p>Returns information about product integrations in Security Hub.</p>
+ *          <p>You can optionally provide an integration ARN. If you provide an integration ARN, then
+ *          the results only include that integration.</p>
+ *          <p>If you do not provide an integration ARN, then the results include all of the available
+ *          product integrations. </p>
  */
 export class DescribeProductsCommand extends $Command<
   DescribeProductsCommandInput,

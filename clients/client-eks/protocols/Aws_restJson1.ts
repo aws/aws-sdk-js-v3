@@ -1,3 +1,11 @@
+import {
+  AssociateEncryptionConfigCommandInput,
+  AssociateEncryptionConfigCommandOutput,
+} from "../commands/AssociateEncryptionConfigCommand";
+import {
+  AssociateIdentityProviderConfigCommandInput,
+  AssociateIdentityProviderConfigCommandOutput,
+} from "../commands/AssociateIdentityProviderConfigCommand";
 import { CreateAddonCommandInput, CreateAddonCommandOutput } from "../commands/CreateAddonCommand";
 import { CreateClusterCommandInput, CreateClusterCommandOutput } from "../commands/CreateClusterCommand";
 import {
@@ -22,14 +30,26 @@ import {
   DescribeFargateProfileCommandInput,
   DescribeFargateProfileCommandOutput,
 } from "../commands/DescribeFargateProfileCommand";
+import {
+  DescribeIdentityProviderConfigCommandInput,
+  DescribeIdentityProviderConfigCommandOutput,
+} from "../commands/DescribeIdentityProviderConfigCommand";
 import { DescribeNodegroupCommandInput, DescribeNodegroupCommandOutput } from "../commands/DescribeNodegroupCommand";
 import { DescribeUpdateCommandInput, DescribeUpdateCommandOutput } from "../commands/DescribeUpdateCommand";
+import {
+  DisassociateIdentityProviderConfigCommandInput,
+  DisassociateIdentityProviderConfigCommandOutput,
+} from "../commands/DisassociateIdentityProviderConfigCommand";
 import { ListAddonsCommandInput, ListAddonsCommandOutput } from "../commands/ListAddonsCommand";
 import { ListClustersCommandInput, ListClustersCommandOutput } from "../commands/ListClustersCommand";
 import {
   ListFargateProfilesCommandInput,
   ListFargateProfilesCommandOutput,
 } from "../commands/ListFargateProfilesCommand";
+import {
+  ListIdentityProviderConfigsCommandInput,
+  ListIdentityProviderConfigsCommandOutput,
+} from "../commands/ListIdentityProviderConfigsCommand";
 import { ListNodegroupsCommandInput, ListNodegroupsCommandOutput } from "../commands/ListNodegroupsCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -72,6 +92,8 @@ import {
   FargateProfile,
   FargateProfileSelector,
   Identity,
+  IdentityProviderConfig,
+  IdentityProviderConfigResponse,
   InvalidParameterException,
   InvalidRequestException,
   Issue,
@@ -87,6 +109,8 @@ import {
   NodegroupScalingConfig,
   NotFoundException,
   OIDC,
+  OidcIdentityProviderConfig,
+  OidcIdentityProviderConfigRequest,
   Provider,
   RemoteAccessConfig,
   ResourceInUseException,
@@ -113,6 +137,79 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
+
+export const serializeAws_restJson1AssociateEncryptionConfigCommand = async (
+  input: AssociateEncryptionConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = "/clusters/{clusterName}/encryption-config/associate";
+  if (input.clusterName !== undefined) {
+    const labelValue: string = input.clusterName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: clusterName.");
+    }
+    resolvedPath = resolvedPath.replace("{clusterName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: clusterName.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
+    ...(input.encryptionConfig !== undefined &&
+      input.encryptionConfig !== null && {
+        encryptionConfig: serializeAws_restJson1EncryptionConfigList(input.encryptionConfig, context),
+      }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1AssociateIdentityProviderConfigCommand = async (
+  input: AssociateIdentityProviderConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = "/clusters/{clusterName}/identity-provider-configs/associate";
+  if (input.clusterName !== undefined) {
+    const labelValue: string = input.clusterName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: clusterName.");
+    }
+    resolvedPath = resolvedPath.replace("{clusterName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: clusterName.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
+    ...(input.oidc !== undefined &&
+      input.oidc !== null && { oidc: serializeAws_restJson1OidcIdentityProviderConfigRequest(input.oidc, context) }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
 
 export const serializeAws_restJson1CreateAddonCommand = async (
   input: CreateAddonCommandInput,
@@ -572,6 +669,42 @@ export const serializeAws_restJson1DescribeFargateProfileCommand = async (
   });
 };
 
+export const serializeAws_restJson1DescribeIdentityProviderConfigCommand = async (
+  input: DescribeIdentityProviderConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = "/clusters/{clusterName}/identity-provider-configs/describe";
+  if (input.clusterName !== undefined) {
+    const labelValue: string = input.clusterName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: clusterName.");
+    }
+    resolvedPath = resolvedPath.replace("{clusterName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: clusterName.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.identityProviderConfig !== undefined &&
+      input.identityProviderConfig !== null && {
+        identityProviderConfig: serializeAws_restJson1IdentityProviderConfig(input.identityProviderConfig, context),
+      }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DescribeNodegroupCommand = async (
   input: DescribeNodegroupCommandInput,
   context: __SerdeContext
@@ -651,6 +784,43 @@ export const serializeAws_restJson1DescribeUpdateCommand = async (
   });
 };
 
+export const serializeAws_restJson1DisassociateIdentityProviderConfigCommand = async (
+  input: DisassociateIdentityProviderConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = "/clusters/{clusterName}/identity-provider-configs/disassociate";
+  if (input.clusterName !== undefined) {
+    const labelValue: string = input.clusterName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: clusterName.");
+    }
+    resolvedPath = resolvedPath.replace("{clusterName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: clusterName.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
+    ...(input.identityProviderConfig !== undefined &&
+      input.identityProviderConfig !== null && {
+        identityProviderConfig: serializeAws_restJson1IdentityProviderConfig(input.identityProviderConfig, context),
+      }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListAddonsCommand = async (
   input: ListAddonsCommandInput,
   context: __SerdeContext
@@ -714,6 +884,39 @@ export const serializeAws_restJson1ListFargateProfilesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {};
   let resolvedPath = "/clusters/{clusterName}/fargate-profiles";
+  if (input.clusterName !== undefined) {
+    const labelValue: string = input.clusterName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: clusterName.");
+    }
+    resolvedPath = resolvedPath.replace("{clusterName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: clusterName.");
+  }
+  const query: any = {
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListIdentityProviderConfigsCommand = async (
+  input: ListIdentityProviderConfigsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/clusters/{clusterName}/identity-provider-configs";
   if (input.clusterName !== undefined) {
     const labelValue: string = input.clusterName;
     if (labelValue.length <= 0) {
@@ -1118,6 +1321,200 @@ export const serializeAws_restJson1UpdateNodegroupVersionCommand = async (
     path: resolvedPath,
     body,
   });
+};
+
+export const deserializeAws_restJson1AssociateEncryptionConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateEncryptionConfigCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1AssociateEncryptionConfigCommandError(output, context);
+  }
+  const contents: AssociateEncryptionConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    update: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.update !== undefined && data.update !== null) {
+    contents.update = deserializeAws_restJson1Update(data.update, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1AssociateEncryptionConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateEncryptionConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ClientException":
+    case "com.amazonaws.eks#ClientException":
+      response = {
+        ...(await deserializeAws_restJson1ClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.eks#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.eks#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.eks#ResourceInUseException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.eks#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServerException":
+    case "com.amazonaws.eks#ServerException":
+      response = {
+        ...(await deserializeAws_restJson1ServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1AssociateIdentityProviderConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateIdentityProviderConfigCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1AssociateIdentityProviderConfigCommandError(output, context);
+  }
+  const contents: AssociateIdentityProviderConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    tags: undefined,
+    update: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.tags !== undefined && data.tags !== null) {
+    contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
+  }
+  if (data.update !== undefined && data.update !== null) {
+    contents.update = deserializeAws_restJson1Update(data.update, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1AssociateIdentityProviderConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateIdentityProviderConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ClientException":
+    case "com.amazonaws.eks#ClientException":
+      response = {
+        ...(await deserializeAws_restJson1ClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.eks#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.eks#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.eks#ResourceInUseException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.eks#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServerException":
+    case "com.amazonaws.eks#ServerException":
+      response = {
+        ...(await deserializeAws_restJson1ServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CreateAddonCommand = async (
@@ -2184,6 +2581,96 @@ const deserializeAws_restJson1DescribeFargateProfileCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DescribeIdentityProviderConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeIdentityProviderConfigCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeIdentityProviderConfigCommandError(output, context);
+  }
+  const contents: DescribeIdentityProviderConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    identityProviderConfig: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.identityProviderConfig !== undefined && data.identityProviderConfig !== null) {
+    contents.identityProviderConfig = deserializeAws_restJson1IdentityProviderConfigResponse(
+      data.identityProviderConfig,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeIdentityProviderConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeIdentityProviderConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ClientException":
+    case "com.amazonaws.eks#ClientException":
+      response = {
+        ...(await deserializeAws_restJson1ClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.eks#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.eks#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServerException":
+    case "com.amazonaws.eks#ServerException":
+      response = {
+        ...(await deserializeAws_restJson1ServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.eks#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DescribeNodegroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2313,6 +2800,101 @@ const deserializeAws_restJson1DescribeUpdateCommandError = async (
     case "com.amazonaws.eks#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.eks#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServerException":
+    case "com.amazonaws.eks#ServerException":
+      response = {
+        ...(await deserializeAws_restJson1ServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DisassociateIdentityProviderConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateIdentityProviderConfigCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DisassociateIdentityProviderConfigCommandError(output, context);
+  }
+  const contents: DisassociateIdentityProviderConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    update: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.update !== undefined && data.update !== null) {
+    contents.update = deserializeAws_restJson1Update(data.update, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DisassociateIdentityProviderConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateIdentityProviderConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ClientException":
+    case "com.amazonaws.eks#ClientException":
+      response = {
+        ...(await deserializeAws_restJson1ClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.eks#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.eks#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.eks#ResourceInUseException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2586,6 +3168,100 @@ const deserializeAws_restJson1ListFargateProfilesCommandError = async (
     case "com.amazonaws.eks#ServerException":
       response = {
         ...(await deserializeAws_restJson1ServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListIdentityProviderConfigsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListIdentityProviderConfigsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListIdentityProviderConfigsCommandError(output, context);
+  }
+  const contents: ListIdentityProviderConfigsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    identityProviderConfigs: undefined,
+    nextToken: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.identityProviderConfigs !== undefined && data.identityProviderConfigs !== null) {
+    contents.identityProviderConfigs = deserializeAws_restJson1IdentityProviderConfigs(
+      data.identityProviderConfigs,
+      context
+    );
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = data.nextToken;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListIdentityProviderConfigsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListIdentityProviderConfigsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ClientException":
+    case "com.amazonaws.eks#ClientException":
+      response = {
+        ...(await deserializeAws_restJson1ClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.eks#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.eks#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServerException":
+    case "com.amazonaws.eks#ServerException":
+      response = {
+        ...(await deserializeAws_restJson1ServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.eks#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3778,6 +4454,13 @@ const serializeAws_restJson1FargateProfileSelectors = (
     });
 };
 
+const serializeAws_restJson1IdentityProviderConfig = (input: IdentityProviderConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.type !== undefined && input.type !== null && { type: input.type }),
+  };
+};
+
 const serializeAws_restJson1KubernetesNetworkConfigRequest = (
   input: KubernetesNetworkConfigRequest,
   context: __SerdeContext
@@ -3869,6 +4552,27 @@ const serializeAws_restJson1NodegroupScalingConfig = (input: NodegroupScalingCon
   };
 };
 
+const serializeAws_restJson1OidcIdentityProviderConfigRequest = (
+  input: OidcIdentityProviderConfigRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.clientId !== undefined && input.clientId !== null && { clientId: input.clientId }),
+    ...(input.groupsClaim !== undefined && input.groupsClaim !== null && { groupsClaim: input.groupsClaim }),
+    ...(input.groupsPrefix !== undefined && input.groupsPrefix !== null && { groupsPrefix: input.groupsPrefix }),
+    ...(input.identityProviderConfigName !== undefined &&
+      input.identityProviderConfigName !== null && { identityProviderConfigName: input.identityProviderConfigName }),
+    ...(input.issuerUrl !== undefined && input.issuerUrl !== null && { issuerUrl: input.issuerUrl }),
+    ...(input.requiredClaims !== undefined &&
+      input.requiredClaims !== null && {
+        requiredClaims: serializeAws_restJson1requiredClaimsMap(input.requiredClaims, context),
+      }),
+    ...(input.usernameClaim !== undefined && input.usernameClaim !== null && { usernameClaim: input.usernameClaim }),
+    ...(input.usernamePrefix !== undefined &&
+      input.usernamePrefix !== null && { usernamePrefix: input.usernamePrefix }),
+  };
+};
+
 const serializeAws_restJson1Provider = (input: Provider, context: __SerdeContext): any => {
   return {
     ...(input.keyArn !== undefined && input.keyArn !== null && { keyArn: input.keyArn }),
@@ -3883,6 +4587,18 @@ const serializeAws_restJson1RemoteAccessConfig = (input: RemoteAccessConfig, con
         sourceSecurityGroups: serializeAws_restJson1StringList(input.sourceSecurityGroups, context),
       }),
   };
+};
+
+const serializeAws_restJson1requiredClaimsMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
 };
 
 const serializeAws_restJson1StringList = (input: string[], context: __SerdeContext): any => {
@@ -4276,6 +4992,42 @@ const deserializeAws_restJson1Identity = (output: any, context: __SerdeContext):
   } as any;
 };
 
+const deserializeAws_restJson1IdentityProviderConfig = (
+  output: any,
+  context: __SerdeContext
+): IdentityProviderConfig => {
+  return {
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1IdentityProviderConfigResponse = (
+  output: any,
+  context: __SerdeContext
+): IdentityProviderConfigResponse => {
+  return {
+    oidc:
+      output.oidc !== undefined && output.oidc !== null
+        ? deserializeAws_restJson1OidcIdentityProviderConfig(output.oidc, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1IdentityProviderConfigs = (
+  output: any,
+  context: __SerdeContext
+): IdentityProviderConfig[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1IdentityProviderConfig(entry, context);
+    });
+};
+
 const deserializeAws_restJson1Issue = (output: any, context: __SerdeContext): Issue => {
   return {
     code: output.code !== undefined && output.code !== null ? output.code : undefined,
@@ -4472,6 +5224,40 @@ const deserializeAws_restJson1OIDC = (output: any, context: __SerdeContext): OID
   } as any;
 };
 
+const deserializeAws_restJson1OidcIdentityProviderConfig = (
+  output: any,
+  context: __SerdeContext
+): OidcIdentityProviderConfig => {
+  return {
+    clientId: output.clientId !== undefined && output.clientId !== null ? output.clientId : undefined,
+    clusterName: output.clusterName !== undefined && output.clusterName !== null ? output.clusterName : undefined,
+    groupsClaim: output.groupsClaim !== undefined && output.groupsClaim !== null ? output.groupsClaim : undefined,
+    groupsPrefix: output.groupsPrefix !== undefined && output.groupsPrefix !== null ? output.groupsPrefix : undefined,
+    identityProviderConfigArn:
+      output.identityProviderConfigArn !== undefined && output.identityProviderConfigArn !== null
+        ? output.identityProviderConfigArn
+        : undefined,
+    identityProviderConfigName:
+      output.identityProviderConfigName !== undefined && output.identityProviderConfigName !== null
+        ? output.identityProviderConfigName
+        : undefined,
+    issuerUrl: output.issuerUrl !== undefined && output.issuerUrl !== null ? output.issuerUrl : undefined,
+    requiredClaims:
+      output.requiredClaims !== undefined && output.requiredClaims !== null
+        ? deserializeAws_restJson1requiredClaimsMap(output.requiredClaims, context)
+        : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_restJson1TagMap(output.tags, context)
+        : undefined,
+    usernameClaim:
+      output.usernameClaim !== undefined && output.usernameClaim !== null ? output.usernameClaim : undefined,
+    usernamePrefix:
+      output.usernamePrefix !== undefined && output.usernamePrefix !== null ? output.usernamePrefix : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1Provider = (output: any, context: __SerdeContext): Provider => {
   return {
     keyArn: output.keyArn !== undefined && output.keyArn !== null ? output.keyArn : undefined,
@@ -4486,6 +5272,18 @@ const deserializeAws_restJson1RemoteAccessConfig = (output: any, context: __Serd
         ? deserializeAws_restJson1StringList(output.sourceSecurityGroups, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1requiredClaimsMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1StringList = (output: any, context: __SerdeContext): string[] => {

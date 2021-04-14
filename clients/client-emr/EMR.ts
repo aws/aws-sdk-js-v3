@@ -201,6 +201,11 @@ import {
   TerminateJobFlowsCommandOutput,
 } from "./commands/TerminateJobFlowsCommand";
 import {
+  UpdateStudioCommand,
+  UpdateStudioCommandInput,
+  UpdateStudioCommandOutput,
+} from "./commands/UpdateStudioCommand";
+import {
   UpdateStudioSessionMappingCommand,
   UpdateStudioSessionMappingCommandInput,
   UpdateStudioSessionMappingCommandOutput,
@@ -422,11 +427,7 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <note>
-   *             <p>The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject to
-   *             change.</p>
-   *          </note>
-   *          <p>Creates a new Amazon EMR Studio.</p>
+   * <p>Creates a new Amazon EMR Studio.</p>
    */
   public createStudio(
     args: CreateStudioCommandInput,
@@ -455,11 +456,7 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <note>
-   *             <p>The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject to
-   *             change.</p>
-   *          </note>
-   *          <p>Maps a user or group to the Amazon EMR Studio specified by <code>StudioId</code>, and
+   * <p>Maps a user or group to the Amazon EMR Studio specified by <code>StudioId</code>, and
    *          applies a session policy to refine Studio permissions for that user or group.</p>
    */
   public createStudioSessionMapping(
@@ -524,11 +521,7 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <note>
-   *             <p>The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject to
-   *             change.</p>
-   *          </note>
-   *          <p>Removes an Amazon EMR Studio from the Studio metadata store.</p>
+   * <p>Removes an Amazon EMR Studio from the Studio metadata store.</p>
    */
   public deleteStudio(
     args: DeleteStudioCommandInput,
@@ -557,11 +550,7 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <note>
-   *             <p>The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject to
-   *             change.</p>
-   *          </note>
-   *          <p>Removes a user or group from an Amazon EMR Studio.</p>
+   * <p>Removes a user or group from an Amazon EMR Studio.</p>
    */
   public deleteStudioSessionMapping(
     args: DeleteStudioSessionMappingCommandInput,
@@ -774,11 +763,7 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <note>
-   *             <p>The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject to
-   *             change.</p>
-   *          </note>
-   *          <p>Returns details for the specified Amazon EMR Studio including ID, Name, VPC, Studio
+   * <p>Returns details for the specified Amazon EMR Studio including ID, Name, VPC, Studio
    *          access URL, and so on.</p>
    */
   public describeStudio(
@@ -878,11 +863,7 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <note>
-   *             <p>The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject to
-   *             change.</p>
-   *          </note>
-   *          <p>Fetches mapping details for the specified Amazon EMR Studio and identity (user or
+   * <p>Fetches mapping details for the specified Amazon EMR Studio and identity (user or
    *          group).</p>
    */
   public getStudioSessionMapping(
@@ -1154,7 +1135,7 @@ export class EMR extends EMRClient {
   /**
    * <p>Provides a list of steps for the cluster in reverse order unless you specify
    *             <code>stepIds</code> with the request of filter by <code>StepStates</code>. You can
-   *          specify a maximum of ten <code>stepIDs</code>.</p>
+   *          specify a maximum of 10 <code>stepIDs</code>.</p>
    */
   public listSteps(args: ListStepsCommandInput, options?: __HttpHandlerOptions): Promise<ListStepsCommandOutput>;
   public listSteps(args: ListStepsCommandInput, cb: (err: any, data?: ListStepsCommandOutput) => void): void;
@@ -1180,11 +1161,7 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <note>
-   *             <p>The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject to
-   *             change.</p>
-   *          </note>
-   *          <p>Returns a list of all Amazon EMR Studios associated with the AWS account. The list
+   * <p>Returns a list of all Amazon EMR Studios associated with the AWS account. The list
    *          includes details such as ID, Studio Access URL, and creation time for each Studio.</p>
    */
   public listStudios(args: ListStudiosCommandInput, options?: __HttpHandlerOptions): Promise<ListStudiosCommandOutput>;
@@ -1211,11 +1188,7 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <note>
-   *             <p>The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject to
-   *             change.</p>
-   *          </note>
-   *          <p>Returns a list of all user or group session mappings for the EMR Studio specified by
+   * <p>Returns a list of all user or group session mappings for the Amazon EMR Studio specified by
    *             <code>StudioId</code>.</p>
    */
   public listStudioSessionMappings(
@@ -1789,11 +1762,36 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <note>
-   *             <p>The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject to
-   *             change.</p>
-   *          </note>
-   *          <p>Updates the session policy attached to the user or group for the specified Amazon EMR
+   * <p>Updates an Amazon EMR Studio configuration, including attributes such as name, description, and subnets.</p>
+   */
+  public updateStudio(
+    args: UpdateStudioCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateStudioCommandOutput>;
+  public updateStudio(args: UpdateStudioCommandInput, cb: (err: any, data?: UpdateStudioCommandOutput) => void): void;
+  public updateStudio(
+    args: UpdateStudioCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateStudioCommandOutput) => void
+  ): void;
+  public updateStudio(
+    args: UpdateStudioCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateStudioCommandOutput) => void),
+    cb?: (err: any, data?: UpdateStudioCommandOutput) => void
+  ): Promise<UpdateStudioCommandOutput> | void {
+    const command = new UpdateStudioCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the session policy attached to the user or group for the specified Amazon EMR
    *          Studio.</p>
    */
   public updateStudioSessionMapping(

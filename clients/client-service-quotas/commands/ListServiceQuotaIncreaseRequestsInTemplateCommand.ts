@@ -25,7 +25,7 @@ export type ListServiceQuotaIncreaseRequestsInTemplateCommandOutput = ListServic
   __MetadataBearer;
 
 /**
- * <p>Returns a list of the quota increase requests in the template. </p>
+ * <p>Lists the quota increase requests in the specified quota request template.</p>
  */
 export class ListServiceQuotaIncreaseRequestsInTemplateCommand extends $Command<
   ListServiceQuotaIncreaseRequestsInTemplateCommandInput,

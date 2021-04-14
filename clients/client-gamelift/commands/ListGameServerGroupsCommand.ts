@@ -22,7 +22,7 @@ export type ListGameServerGroupsCommandOutput = ListGameServerGroupsOutput & __M
 
 /**
  * <p>
- *             <b>This operation is used with the Amazon GameLift FleetIQ solution and game server groups.</b>
+ *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
  *          </p>
  *         <p>Retrieves information on all game servers groups that exist in the current AWS
  *             account for the selected Region. Use the pagination parameters to retrieve results in a
@@ -34,50 +34,19 @@ export type ListGameServerGroupsCommandOutput = ListGameServerGroupsOutput & __M
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift FleetIQ Guide</a>
  *         </p>
  *         <p>
- *             <b>Related operations</b>
+ *             <b>Related actions</b>
  *          </p>
- *         <ul>
- *             <li>
- *                <p>
- *                   <a>CreateGameServerGroup</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListGameServerGroups</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DescribeGameServerGroup</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateGameServerGroup</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteGameServerGroup</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ResumeGameServerGroup</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>SuspendGameServerGroup</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DescribeGameServerInstances</a>
- *                </p>
- *             </li>
- *          </ul>
+ *                     <p>
+ *             <a>CreateGameServerGroup</a> |
+ *                     <a>ListGameServerGroups</a> |
+ *                     <a>DescribeGameServerGroup</a> |
+ *                     <a>UpdateGameServerGroup</a> |
+ *                     <a>DeleteGameServerGroup</a> |
+ *                     <a>ResumeGameServerGroup</a> |
+ *                     <a>SuspendGameServerGroup</a> |
+ *                     <a>DescribeGameServerInstances</a> |
+ *                     <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html">All APIs by task</a>
+ *          </p>
  */
 export class ListGameServerGroupsCommand extends $Command<
   ListGameServerGroupsCommandInput,

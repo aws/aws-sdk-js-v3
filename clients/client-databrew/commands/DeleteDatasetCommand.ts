@@ -21,7 +21,7 @@ export type DeleteDatasetCommandInput = DeleteDatasetRequest;
 export type DeleteDatasetCommandOutput = DeleteDatasetResponse & __MetadataBearer;
 
 /**
- * <p>Deletes a dataset from AWS Glue DataBrew.</p>
+ * <p>Deletes a dataset from DataBrew.</p>
  */
 export class DeleteDatasetCommand extends $Command<
   DeleteDatasetCommandInput,

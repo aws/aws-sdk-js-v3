@@ -21,7 +21,7 @@ export type DescribeAvailabilityMonitorTestCommandInput = DescribeAvailabilityMo
 export type DescribeAvailabilityMonitorTestCommandOutput = DescribeAvailabilityMonitorTestOutput & __MetadataBearer;
 
 /**
- * <p>Returns information about the most recent High Availability monitoring test that was
+ * <p>Returns information about the most recent high availability monitoring test that was
  *          performed on the host in a cluster. If a test isn't performed, the status and start
  *          time in the response would be null.</p>
  */

@@ -26,30 +26,31 @@ export type GetServiceLastAccessedDetailsWithEntitiesCommandOutput = GetServiceL
 
 /**
  * <p>After you generate a group or policy report using the
- *             <code>GenerateServiceLastAccessedDetails</code> operation, you can use the
- *             <code>JobId</code> parameter in <code>GetServiceLastAccessedDetailsWithEntities</code>.
- *          This operation retrieves the status of your report job and a list of entities that could
- *          have used group or policy permissions to access the specified service.</p>
- *          <ul>
+ *                 <code>GenerateServiceLastAccessedDetails</code> operation, you can use the
+ *                 <code>JobId</code> parameter in
+ *                 <code>GetServiceLastAccessedDetailsWithEntities</code>. This operation retrieves the
+ *             status of your report job and a list of entities that could have used group or policy
+ *             permissions to access the specified service.</p>
+ *         <ul>
  *             <li>
- *                <p>
- *                   <b>Group</b> – For a group report, this operation
- *                returns a list of users in the group that could have used the group’s policies in an
- *                attempt to access the service.</p>
+ *                 <p>
+ *                   <b>Group</b> – For a group report, this
+ *                     operation returns a list of users in the group that could have used the group’s
+ *                     policies in an attempt to access the service.</p>
  *             </li>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <b>Policy</b> – For a policy report, this
- *                operation returns a list of entities (users or roles) that could have used the policy
- *                in an attempt to access the service.</p>
+ *                     operation returns a list of entities (users or roles) that could have used the
+ *                     policy in an attempt to access the service.</p>
  *             </li>
  *          </ul>
- *          <p>You can also use this operation for user or role reports to retrieve details about those
- *          entities.</p>
- *          <p>If the operation fails, the <code>GetServiceLastAccessedDetailsWithEntities</code>
- *          operation returns the reason that it failed.</p>
- *          <p>By default, the list of associated entities is sorted by date, with the most recent
- *          access listed first.</p>
+ *         <p>You can also use this operation for user or role reports to retrieve details about
+ *             those entities.</p>
+ *         <p>If the operation fails, the <code>GetServiceLastAccessedDetailsWithEntities</code>
+ *             operation returns the reason that it failed.</p>
+ *         <p>By default, the list of associated entities is sorted by date, with the most recent
+ *             access listed first.</p>
  */
 export class GetServiceLastAccessedDetailsWithEntitiesCommand extends $Command<
   GetServiceLastAccessedDetailsWithEntitiesCommandInput,

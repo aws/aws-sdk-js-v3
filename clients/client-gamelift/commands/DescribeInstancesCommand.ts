@@ -21,13 +21,26 @@ export type DescribeInstancesCommandInput = DescribeInstancesInput;
 export type DescribeInstancesCommandOutput = DescribeInstancesOutput & __MetadataBearer;
 
 /**
- * <p>Retrieves information about a fleet's instances, including instance IDs. Use this
- *             operation to get details on all instances in the fleet or get details on one specific
- *             instance.</p>
- *         <p>To get a specific instance, specify fleet ID and instance ID. To get all instances
- *             in a fleet, specify a fleet ID only. Use the pagination parameters to retrieve results
- *             as a set of sequential pages. If successful, an <a>Instance</a> object is
- *             returned for each result.</p>
+ * <p>Retrieves information about a fleet's instances, including instance IDs, connection
+ *             data, and status. </p>
+ *         <p>This operation can be used in the following ways:</p>
+ *         <ul>
+ *             <li>
+ *                 <p>To get information on all instances that are deployed to a fleet's home
+ *                     Region, provide the fleet ID.</p>
+ *             </li>
+ *             <li>
+ *                 <p>To get information on all instances that are deployed to a fleet's remote
+ *                     location, provide the fleet ID and location name.</p>
+ *             </li>
+ *             <li>
+ *                 <p>To get information on a specific instance in a fleet, provide the fleet ID and
+ *                     instance ID.</p>
+ *             </li>
+ *          </ul>
+ *         <p>Use the pagination parameters to retrieve results as a set of sequential pages. </p>
+ *         <p>If successful, an <code>Instance</code> object is returned for each requested
+ *             instance. Instances are not returned in any particular order. </p>
  *         <p>
  *             <b>Learn more</b>
  *          </p>
@@ -37,21 +50,16 @@ export type DescribeInstancesCommandOutput = DescribeInstancesOutput & __Metadat
  *         <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html">Debug Fleet Issues</a>
  *          </p>
+ *
  *         <p>
- *             <b>Related operations</b>
+ *             <b>Related actions</b>
  *          </p>
- *         <ul>
- *             <li>
- *                <p>
- *                   <a>DescribeInstances</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>GetInstanceAccess</a>
- *                </p>
- *             </li>
- *          </ul>
+ *                     <p>
+ *             <a>DescribeInstances</a> |
+ *                     <a>GetInstanceAccess</a> |
+ *                     <a>DescribeEC2InstanceLimits</a> |
+ *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          </p>
  */
 export class DescribeInstancesCommand extends $Command<
   DescribeInstancesCommandInput,

@@ -30,13 +30,13 @@ export type AssociateEnclaveCertificateIamRoleCommandOutput = AssociateEnclaveCe
  * 			information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html">AWS Certificate
  * 				Manager for Nitro Enclaves</a> in the <i>AWS Nitro Enclaves User Guide</i>.</p>
  *
- * 		       <p>When the IAM role is associated with the ACM certificate, places the certificate, certificate chain, and encrypted
- * 			private key in an Amazon S3 bucket that only the associated IAM role can access. The private key of the certificate
+ * 		       <p>When the IAM role is associated with the ACM certificate, the certificate, certificate chain, and encrypted
+ * 			private key are placed in an Amazon S3 bucket that only the associated IAM role can access. The private key of the certificate
  * 			is encrypted with an AWS-managed KMS customer master (CMK) that has an attached attestation-based CMK policy.</p>
  *
  * 		       <p>To enable the IAM role to access the Amazon S3 object, you must grant it permission to call <code>s3:GetObject</code>
  * 			on the Amazon S3 bucket returned by the command. To enable the IAM role to access the AWS KMS CMK, you must
- * 			grant it permission to call <code>kms:Decrypt</code> on AWS KMS CMK returned by the command. For more
+ * 			grant it permission to call <code>kms:Decrypt</code> on the AWS KMS CMK returned by the command. For more
  * 			information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html#add-policy">
  * 				Grant the role permission to access the certificate and encryption key</a> in the
  * 			<i>AWS Nitro Enclaves User Guide</i>.</p>

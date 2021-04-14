@@ -18,20 +18,20 @@ export type RegisterTypeCommandInput = RegisterTypeInput;
 export type RegisterTypeCommandOutput = RegisterTypeOutput & __MetadataBearer;
 
 /**
- * <p>Registers a type with the CloudFormation service. Registering a type makes it available for use in CloudFormation templates in your AWS account, and includes:</p>
+ * <p>Registers an extension with the CloudFormation service. Registering an extension makes it available for use in CloudFormation templates in your AWS account, and includes:</p>
  *          <ul>
  *             <li>
- *                <p>Validating the resource schema</p>
+ *                <p>Validating the extension schema</p>
  *             </li>
  *             <li>
- *                <p>Determining which handlers have been specified for the resource</p>
+ *                <p>Determining which handlers, if any, have been specified for the extension</p>
  *             </li>
  *             <li>
- *                <p>Making the resource type available for use in your account</p>
+ *                <p>Making the extension available for use in your account</p>
  *             </li>
  *          </ul>
- *          <p>For more information on how to develop types and ready them for registeration, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-types.html">Creating Resource Providers</a> in the <i>CloudFormation CLI User Guide</i>.</p>
- *          <p>You can have a maximum of 50 resource type versions registered at a time. This maximum is per account and per region. Use <a href="AWSCloudFormation/latest/APIReference/API_DeregisterType.html">DeregisterType</a> to deregister specific resource type versions if necessary.</p>
+ *          <p>For more information on how to develop extensions and ready them for registeration, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-types.html">Creating Resource Providers</a> in the <i>CloudFormation CLI User Guide</i>.</p>
+ *          <p>You can have a maximum of 50 resource extension versions registered at a time. This maximum is per account and per region. Use <a href="AWSCloudFormation/latest/APIReference/API_DeregisterType.html">DeregisterType</a> to deregister specific extension versions if necessary.</p>
  *          <p>Once you have initiated a registration request using <code>
  *                <a>RegisterType</a>
  *             </code>, you can use <code>

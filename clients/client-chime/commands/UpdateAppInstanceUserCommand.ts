@@ -21,7 +21,7 @@ export type UpdateAppInstanceUserCommandInput = UpdateAppInstanceUserRequest;
 export type UpdateAppInstanceUserCommandOutput = UpdateAppInstanceUserResponse & __MetadataBearer;
 
 /**
- * <p>Updates the details for an <code>AppInstanceUser</code>. You can update names and metadata.</p>
+ * <p>Updates the details of an <code>AppInstanceUser</code>. You can update names and metadata.</p>
  */
 export class UpdateAppInstanceUserCommand extends $Command<
   UpdateAppInstanceUserCommandInput,

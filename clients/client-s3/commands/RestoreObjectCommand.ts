@@ -38,8 +38,8 @@ export type RestoreObjectCommandOutput = RestoreObjectOutput & __MetadataBearer;
  *          </ul>
  *          <p>To use this operation, you must have permissions to perform the
  *             <code>s3:RestoreObject</code> action. The bucket owner has this permission by default
- *          and can grant this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing Access Permissions to Your Amazon S3
- *             Resources</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+ *          and can grant this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to Your Amazon S3
+ *             Resources</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <p>
  *             <b>Querying Archives with Select Requests</b>
  *          </p>
@@ -47,7 +47,7 @@ export type RestoreObjectCommandOutput = RestoreObjectOutput & __MetadataBearer;
  *          archived objects that are being queried by the select request must be formatted as
  *          uncompressed comma-separated values (CSV) files. You can run queries and custom analytics
  *          on your archived data without having to restore your data to a hotter Amazon S3 tier. For an
- *          overview about select requests, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/querying-glacier-archives.html">Querying Archived Objects</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+ *          overview about select requests, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/querying-glacier-archives.html">Querying Archived Objects</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <p>When making a select request, do the following:</p>
  *          <ul>
  *             <li>
@@ -56,7 +56,7 @@ export type RestoreObjectCommandOutput = RestoreObjectOutput & __MetadataBearer;
  *                being queried. The AWS account that initiates the job must have permissions to write
  *                to the S3 bucket. You can specify the storage class and encryption for the output
  *                objects stored in the bucket. For more information about output, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/querying-glacier-archives.html">Querying Archived Objects</a>
- *                in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+ *                in the <i>Amazon S3 User Guide</i>.</p>
  *                <p>For more information about the <code>S3</code> structure in the request body, see
  *                the following:</p>
  *                <ul>
@@ -68,14 +68,14 @@ export type RestoreObjectCommandOutput = RestoreObjectOutput & __MetadataBearer;
  *                   <li>
  *                      <p>
  *                         <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html">Managing Access with
- *                         ACLs</a> in the <i>Amazon Simple Storage Service Developer Guide</i>
+ *                         ACLs</a> in the <i>Amazon S3 User Guide</i>
  *                      </p>
  *                   </li>
  *                   <li>
  *                      <p>
  *                         <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">Protecting Data Using
  *                         Server-Side Encryption</a> in the
- *                      <i>Amazon Simple Storage Service Developer Guide</i>
+ *                      <i>Amazon S3 User Guide</i>
  *                      </p>
  *                   </li>
  *                </ul>
@@ -113,7 +113,7 @@ export type RestoreObjectCommandOutput = RestoreObjectOutput & __MetadataBearer;
  *             </li>
  *          </ul>
  *          <p>For more information about using SQL with S3 Glacier Select restore, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference.html">SQL Reference for Amazon S3 Select and
- *             S3 Glacier Select</a> in the <i>Amazon Simple Storage Service Developer Guide</i>. </p>
+ *             S3 Glacier Select</a> in the <i>Amazon S3 User Guide</i>. </p>
  *          <p>When making a select request, you can also do the following:</p>
  *          <ul>
  *             <li>
@@ -199,16 +199,16 @@ export type RestoreObjectCommandOutput = RestoreObjectOutput & __MetadataBearer;
  *             </li>
  *          </ul>
  *          <p>For more information about archive retrieval options and provisioned capacity for
- *             <code>Expedited</code> data access, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/restoring-objects.html">Restoring Archived Objects</a> in the <i>Amazon Simple Storage Service Developer Guide</i>. </p>
+ *             <code>Expedited</code> data access, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/restoring-objects.html">Restoring Archived Objects</a> in the <i>Amazon S3 User Guide</i>. </p>
  *          <p>You can use Amazon S3 restore speed upgrade to change the restore speed to a faster speed
  *          while it is in progress. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/restoring-objects.html#restoring-objects-upgrade-tier.title.html">
  *             Upgrading the speed of an in-progress restore</a> in the
- *             <i>Amazon Simple Storage Service Developer Guide</i>. </p>
+ *             <i>Amazon S3 User Guide</i>. </p>
  *          <p>To get the status of object restoration, you can send a <code>HEAD</code> request.
  *          Operations return the <code>x-amz-restore</code> header, which provides information about
  *          the restoration status, in the response. You can use Amazon S3 event notifications to notify you
  *          when a restore is initiated or completed. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Configuring Amazon S3 Event Notifications</a> in
- *          the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+ *          the <i>Amazon S3 User Guide</i>.</p>
  *          <p>After restoring an archived object, you can update the restoration period by reissuing
  *          the request with a new period. Amazon S3 updates the restoration period relative to the current
  *          time and charges only for the request-there are no data transfer charges. You cannot
@@ -219,11 +219,11 @@ export type RestoreObjectCommandOutput = RestoreObjectOutput & __MetadataBearer;
  *          request. For example, if you restore an object copy for 10 days, but the object is
  *          scheduled to expire in 3 days, Amazon S3 deletes the object in 3 days. For more information
  *          about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html">PutBucketLifecycleConfiguration</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html">Object Lifecycle Management</a> in
- *             <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+ *             <i>Amazon S3 User Guide</i>.</p>
  *          <p>
  *             <b>Responses</b>
  *          </p>
- *          <p>A successful operation returns either the <code>200 OK</code> or <code>202
+ *          <p>A successful action returns either the <code>200 OK</code> or <code>202
  *             Accepted</code> status code. </p>
  *          <ul>
  *             <li>
@@ -311,7 +311,7 @@ export type RestoreObjectCommandOutput = RestoreObjectOutput & __MetadataBearer;
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference.html">SQL Reference for
  *                   Amazon S3 Select and S3 Glacier Select </a> in the
- *                   <i>Amazon Simple Storage Service Developer Guide</i>
+ *                   <i>Amazon S3 User Guide</i>
  *                </p>
  *             </li>
  *          </ul>

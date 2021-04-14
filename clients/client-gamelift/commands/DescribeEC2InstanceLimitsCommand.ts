@@ -21,59 +21,77 @@ export type DescribeEC2InstanceLimitsCommandInput = DescribeEC2InstanceLimitsInp
 export type DescribeEC2InstanceLimitsCommandOutput = DescribeEC2InstanceLimitsOutput & __MetadataBearer;
 
 /**
- * <p>Retrieves the following information for the specified EC2 instance
- *             type:</p>
+ * <p>The GameLift service limits and current utilization for an AWS Region or location.
+ *             Instance limits control the number of instances, per instance type, per location, that
+ *             your AWS account can use. Learn more at <a href="http://aws.amazon.com/ec2/instance-types/">Amazon EC2 Instance Types</a>. The information
+ *             returned includes the maximum number of instances allowed and your account's current
+ *             usage across all fleets. This information can affect your ability to scale your GameLift
+ *             fleets. You can request a limit increase for your account by using the <b>Service limits</b> page in the GameLift console.</p>
+ *         <p>Instance limits differ based on whether the instances are deployed in a fleet's home
+ *             Region or in a remote location. For remote locations, limits also differ based on the
+ *             combination of home Region and remote location. All  requests must specify an AWS Region
+ *             (either explicitly or as your default settings). To get the limit for a remote location,
+ *             you must also specify the location. For example, the following requests all return
+ *             different results: </p>
  *         <ul>
  *             <li>
- *                 <p>Maximum number of instances allowed per AWS account (service limit).</p>
+ *                 <p>Request specifies the Region <code>ap-northeast-1</code> with no location. The
+ *                     result is limits and usage data on all instance types that are deployed in
+ *                         <code>us-east-2</code>, by all of the fleets that reside in
+ *                         <code>ap-northeast-1</code>. </p>
  *             </li>
  *             <li>
- *                 <p>Current usage for the AWS account.</p>
+ *                 <p>Request specifies the Region <code>us-east-1</code> with location
+ *                         <code>ca-central-1</code>. The result is limits and usage data on all
+ *                     instance types that are deployed in <code>ca-central-1</code>, by all of the
+ *                     fleets that reside in <code>us-east-2</code>. These limits do not affect fleets
+ *                     in any other Regions that deploy instances to <code>ca-central-1</code>.</p>
+ *             </li>
+ *             <li>
+ *                 <p>Request specifies the Region <code>eu-west-1</code> with location
+ *                         <code>ca-central-1</code>. The result is limits and usage data on all
+ *                     instance types that are deployed in <code>ca-central-1</code>, by all of the
+ *                     fleets that reside in <code>eu-west-1</code>.</p>
  *             </li>
  *          </ul>
- *         <p>To learn more about the capabilities of each instance type, see <a href="http://aws.amazon.com/ec2/instance-types/">Amazon EC2 Instance
- *             Types</a>. Note that the instance types offered may vary depending on the region.</p>
+ *         <p>This operation can be used in the following ways:</p>
+ *         <ul>
+ *             <li>
+ *                 <p>To get limit and usage data for all instance types that are deployed in an AWS
+ *                     Region by fleets that reside in the same Region: Specify the Region only.
+ *                     Optionally, specify a single instance type to retrieve information for.</p>
+ *             </li>
+ *             <li>
+ *                 <p>To get limit and usage data for all instance types that are deployed to a
+ *                     remote location by fleets that reside in different AWS Region: Provide both the
+ *                     AWS Region and the remote location. Optionally, specify a single instance type
+ *                     to retrieve information for.</p>
+ *             </li>
+ *          </ul>
+ *         <p>If successful, an <code>EC2InstanceLimits</code> object is returned with limits and
+ *             usage data for each requested instance type.</p>
  *         <p>
  *             <b>Learn more</b>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift Fleets</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift fleets</a>
  *          </p>
+ *
  *         <p>
- *             <b>Related operations</b>
+ *             <b>Related actions</b>
  *          </p>
- *         <ul>
- *             <li>
- *                <p>
- *                   <a>CreateFleet</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListFleets</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteFleet</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DescribeFleetAttributes</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateFleetAttributes</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>StartFleetActions</a> or <a>StopFleetActions</a>
- *                </p>
- *             </li>
- *          </ul>
+ *                     <p>
+ *             <a>CreateFleet</a> |
+ *                     <a>UpdateFleetCapacity</a> |
+ *                     <a>PutScalingPolicy</a> |
+ *                     <a>DescribeEC2InstanceLimits</a> |
+ *                     <a>DescribeFleetAttributes</a> |
+ *                     <a>DescribeFleetLocationAttributes</a> |
+ *                     <a>UpdateFleetAttributes</a> |
+ *                     <a>StopFleetActions</a> |
+ *                     <a>DeleteFleet</a> |
+ *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          </p>
  */
 export class DescribeEC2InstanceLimitsCommand extends $Command<
   DescribeEC2InstanceLimitsCommandInput,

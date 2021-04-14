@@ -894,6 +894,9 @@ const serializeAws_queryAssumeRoleRequest = (input: AssumeRoleRequest, context: 
   if (input.TokenCode !== undefined && input.TokenCode !== null) {
     entries["TokenCode"] = input.TokenCode;
   }
+  if (input.SourceIdentity !== undefined && input.SourceIdentity !== null) {
+    entries["SourceIdentity"] = input.SourceIdentity;
+  }
   return entries;
 };
 
@@ -1112,6 +1115,7 @@ const deserializeAws_queryAssumeRoleResponse = (output: any, context: __SerdeCon
     Credentials: undefined,
     AssumedRoleUser: undefined,
     PackedPolicySize: undefined,
+    SourceIdentity: undefined,
   };
   if (output["Credentials"] !== undefined) {
     contents.Credentials = deserializeAws_queryCredentials(output["Credentials"], context);
@@ -1121,6 +1125,9 @@ const deserializeAws_queryAssumeRoleResponse = (output: any, context: __SerdeCon
   }
   if (output["PackedPolicySize"] !== undefined) {
     contents.PackedPolicySize = parseInt(output["PackedPolicySize"]);
+  }
+  if (output["SourceIdentity"] !== undefined) {
+    contents.SourceIdentity = output["SourceIdentity"];
   }
   return contents;
 };
@@ -1138,6 +1145,7 @@ const deserializeAws_queryAssumeRoleWithSAMLResponse = (
     Issuer: undefined,
     Audience: undefined,
     NameQualifier: undefined,
+    SourceIdentity: undefined,
   };
   if (output["Credentials"] !== undefined) {
     contents.Credentials = deserializeAws_queryCredentials(output["Credentials"], context);
@@ -1163,6 +1171,9 @@ const deserializeAws_queryAssumeRoleWithSAMLResponse = (
   if (output["NameQualifier"] !== undefined) {
     contents.NameQualifier = output["NameQualifier"];
   }
+  if (output["SourceIdentity"] !== undefined) {
+    contents.SourceIdentity = output["SourceIdentity"];
+  }
   return contents;
 };
 
@@ -1177,6 +1188,7 @@ const deserializeAws_queryAssumeRoleWithWebIdentityResponse = (
     PackedPolicySize: undefined,
     Provider: undefined,
     Audience: undefined,
+    SourceIdentity: undefined,
   };
   if (output["Credentials"] !== undefined) {
     contents.Credentials = deserializeAws_queryCredentials(output["Credentials"], context);
@@ -1195,6 +1207,9 @@ const deserializeAws_queryAssumeRoleWithWebIdentityResponse = (
   }
   if (output["Audience"] !== undefined) {
     contents.Audience = output["Audience"];
+  }
+  if (output["SourceIdentity"] !== undefined) {
+    contents.SourceIdentity = output["SourceIdentity"];
   }
   return contents;
 };

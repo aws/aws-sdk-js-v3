@@ -23,7 +23,7 @@ export type CreateMultipartUploadCommandInput = CreateMultipartUploadRequest;
 export type CreateMultipartUploadCommandOutput = CreateMultipartUploadOutput & __MetadataBearer;
 
 /**
- * <p>This operation initiates a multipart upload and returns an upload ID. This upload ID is
+ * <p>This action initiates a multipart upload and returns an upload ID. This upload ID is
  *          used to associate all of the parts in the specific multipart upload. You specify this
  *          upload ID in each of your subsequent upload part requests (see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a>). You also include this
  *          upload ID in the final request to either complete or abort the multipart upload
@@ -34,11 +34,11 @@ export type CreateMultipartUploadCommandOutput = CreateMultipartUploadOutput & _
  *          <p>If you have configured a lifecycle rule to abort incomplete multipart uploads, the
  *          upload must complete within the number of days specified in the bucket lifecycle
  *          configuration. Otherwise, the incomplete multipart upload becomes eligible for an abort
- *          operation and Amazon S3 aborts the multipart upload. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">Aborting
+ *          action and Amazon S3 aborts the multipart upload. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">Aborting
  *             Incomplete Multipart Uploads Using a Bucket Lifecycle Policy</a>.</p>
  *
  *          <p>For information about the permissions required to use the multipart upload API, see
- *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload API and
+ *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload and
  *             Permissions</a>.</p>
  *
  *          <p>For request signing, multipart upload is just a series of regular requests. You initiate
@@ -58,7 +58,7 @@ export type CreateMultipartUploadCommandOutput = CreateMultipartUploadOutput & _
  *          encrypts your data as it writes it to disks in its data centers and decrypts it when you
  *          access it. You can provide your own encryption key, or use AWS Key Management Service (AWS
  *          KMS) customer master keys (CMKs) or Amazon S3-managed encryption keys. If you choose to provide
- *          your own encryption key, the request headers you provide in <a href="AmazonS3/latest/API/API_UploadPart.html">UploadPart</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPartCopy.html">UploadPartCopy</a> requests must match the headers you used in the request to
+ *          your own encryption key, the request headers you provide in <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPartCopy.html">UploadPartCopy</a> requests must match the headers you used in the request to
  *          initiate the upload by using <code>CreateMultipartUpload</code>. </p>
  *          <p>To perform a multipart upload with encryption using an AWS KMS CMK, the requester must
  *          have permission to the <code>kms:Encrypt</code>, <code>kms:Decrypt</code>,

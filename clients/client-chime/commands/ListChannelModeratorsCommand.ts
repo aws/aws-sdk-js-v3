@@ -22,6 +22,12 @@ export type ListChannelModeratorsCommandOutput = ListChannelModeratorsResponse &
 
 /**
  * <p>Lists all the moderators for a channel.</p>
+ *
+ *          <note>
+ *
+ *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
+ *         the API call as the value in the header.</p>
+ *          </note>
  */
 export class ListChannelModeratorsCommand extends $Command<
   ListChannelModeratorsCommandInput,

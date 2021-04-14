@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DescribeAuditFindingRequest, DescribeAuditFindingResponse } from "../models/models_0";
+import { DescribeAuditFindingRequest, DescribeAuditFindingResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DescribeAuditFindingCommand,
   serializeAws_restJson1DescribeAuditFindingCommand,
@@ -21,7 +21,11 @@ export type DescribeAuditFindingCommandInput = DescribeAuditFindingRequest;
 export type DescribeAuditFindingCommandOutput = DescribeAuditFindingResponse & __MetadataBearer;
 
 /**
- * <p>Gets information about a single audit finding. Properties include the reason for noncompliance, the severity of the issue, and when the audit that returned the finding was started.</p>
+ * <p>Gets information about a single audit finding. Properties include the reason for
+ *       noncompliance, the severity of the issue,
+ *       and the start time
+ *       when the audit that returned the
+ *       finding.</p>
  */
 export class DescribeAuditFindingCommand extends $Command<
   DescribeAuditFindingCommandInput,

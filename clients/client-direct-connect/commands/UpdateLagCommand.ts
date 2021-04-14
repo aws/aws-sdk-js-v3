@@ -19,7 +19,7 @@ export type UpdateLagCommandOutput = Lag & __MetadataBearer;
 
 /**
  * <p>Updates the attributes of the specified link aggregation group (LAG).</p>
- *          <p>You can update the following attributes:</p>
+ *          <p>You can update the following LAG attributes:</p>
  *          <ul>
  *             <li>
  *                <p>The name of the LAG.</p>
@@ -28,13 +28,19 @@ export type UpdateLagCommandOutput = Lag & __MetadataBearer;
  *                <p>The value for the minimum number of connections that must be operational
  *           for the LAG itself to be operational. </p>
  *             </li>
+ *             <li>
+ *                <p>The LAG's MACsec encryption mode.</p>
+ *                <p>AWS assigns this value to each connection which is part of the LAG.</p>
+ *             </li>
+ *             <li>
+ *                <p>The tags</p>
+ *             </li>
  *          </ul>
- *          <p>When you create a LAG, the default value for the minimum number of operational
- *       connections is zero (0). If you update this value and the number of operational
- *       connections falls below the specified value, the LAG automatically goes down to avoid
- *       over-utilization of the remaining connections. Adjust this value with care, as it
- *       could force the LAG down if it is set higher than the current number of operational
- *       connections.</p>
+ *          <note>
+ *             <p>If you adjust the threshold value for the minimum number of operational connections, ensure
+ *       that the new value does not cause the LAG to fall below the threshold and become
+ *       non-operational.</p>
+ *          </note>
  */
 export class UpdateLagCommand extends $Command<
   UpdateLagCommandInput,

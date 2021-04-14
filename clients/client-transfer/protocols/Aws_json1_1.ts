@@ -67,6 +67,7 @@ import {
   ListUsersResponse,
   ListedServer,
   ListedUser,
+  PosixProfile,
   Protocol,
   ResourceExistsException,
   ResourceNotFoundException,
@@ -2163,6 +2164,7 @@ const serializeAws_json1_1AddressAllocationIds = (input: string[], context: __Se
 const serializeAws_json1_1CreateServerRequest = (input: CreateServerRequest, context: __SerdeContext): any => {
   return {
     ...(input.Certificate !== undefined && input.Certificate !== null && { Certificate: input.Certificate }),
+    ...(input.Domain !== undefined && input.Domain !== null && { Domain: input.Domain }),
     ...(input.EndpointDetails !== undefined &&
       input.EndpointDetails !== null && {
         EndpointDetails: serializeAws_json1_1EndpointDetails(input.EndpointDetails, context),
@@ -2194,6 +2196,8 @@ const serializeAws_json1_1CreateUserRequest = (input: CreateUserRequest, context
     ...(input.HomeDirectoryType !== undefined &&
       input.HomeDirectoryType !== null && { HomeDirectoryType: input.HomeDirectoryType }),
     ...(input.Policy !== undefined && input.Policy !== null && { Policy: input.Policy }),
+    ...(input.PosixProfile !== undefined &&
+      input.PosixProfile !== null && { PosixProfile: serializeAws_json1_1PosixProfile(input.PosixProfile, context) }),
     ...(input.Role !== undefined && input.Role !== null && { Role: input.Role }),
     ...(input.ServerId !== undefined && input.ServerId !== null && { ServerId: input.ServerId }),
     ...(input.SshPublicKeyBody !== undefined &&
@@ -2342,7 +2346,29 @@ const serializeAws_json1_1ListUsersRequest = (input: ListUsersRequest, context: 
   };
 };
 
+const serializeAws_json1_1PosixProfile = (input: PosixProfile, context: __SerdeContext): any => {
+  return {
+    ...(input.Gid !== undefined && input.Gid !== null && { Gid: input.Gid }),
+    ...(input.SecondaryGids !== undefined &&
+      input.SecondaryGids !== null && {
+        SecondaryGids: serializeAws_json1_1SecondaryGids(input.SecondaryGids, context),
+      }),
+    ...(input.Uid !== undefined && input.Uid !== null && { Uid: input.Uid }),
+  };
+};
+
 const serializeAws_json1_1Protocols = (input: (Protocol | string)[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1SecondaryGids = (input: number[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -2477,6 +2503,8 @@ const serializeAws_json1_1UpdateUserRequest = (input: UpdateUserRequest, context
     ...(input.HomeDirectoryType !== undefined &&
       input.HomeDirectoryType !== null && { HomeDirectoryType: input.HomeDirectoryType }),
     ...(input.Policy !== undefined && input.Policy !== null && { Policy: input.Policy }),
+    ...(input.PosixProfile !== undefined &&
+      input.PosixProfile !== null && { PosixProfile: serializeAws_json1_1PosixProfile(input.PosixProfile, context) }),
     ...(input.Role !== undefined && input.Role !== null && { Role: input.Role }),
     ...(input.ServerId !== undefined && input.ServerId !== null && { ServerId: input.ServerId }),
     ...(input.UserName !== undefined && input.UserName !== null && { UserName: input.UserName }),
@@ -2552,6 +2580,7 @@ const deserializeAws_json1_1DescribedServer = (output: any, context: __SerdeCont
   return {
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     Certificate: output.Certificate !== undefined && output.Certificate !== null ? output.Certificate : undefined,
+    Domain: output.Domain !== undefined && output.Domain !== null ? output.Domain : undefined,
     EndpointDetails:
       output.EndpointDetails !== undefined && output.EndpointDetails !== null
         ? deserializeAws_json1_1EndpointDetails(output.EndpointDetails, context)
@@ -2600,6 +2629,10 @@ const deserializeAws_json1_1DescribedUser = (output: any, context: __SerdeContex
         ? output.HomeDirectoryType
         : undefined,
     Policy: output.Policy !== undefined && output.Policy !== null ? output.Policy : undefined,
+    PosixProfile:
+      output.PosixProfile !== undefined && output.PosixProfile !== null
+        ? deserializeAws_json1_1PosixProfile(output.PosixProfile, context)
+        : undefined,
     Role: output.Role !== undefined && output.Role !== null ? output.Role : undefined,
     SshPublicKeys:
       output.SshPublicKeys !== undefined && output.SshPublicKeys !== null
@@ -2730,6 +2763,7 @@ const deserializeAws_json1_1InvalidRequestException = (
 const deserializeAws_json1_1ListedServer = (output: any, context: __SerdeContext): ListedServer => {
   return {
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Domain: output.Domain !== undefined && output.Domain !== null ? output.Domain : undefined,
     EndpointType: output.EndpointType !== undefined && output.EndpointType !== null ? output.EndpointType : undefined,
     IdentityProviderType:
       output.IdentityProviderType !== undefined && output.IdentityProviderType !== null
@@ -2828,6 +2862,17 @@ const deserializeAws_json1_1ListUsersResponse = (output: any, context: __SerdeCo
   } as any;
 };
 
+const deserializeAws_json1_1PosixProfile = (output: any, context: __SerdeContext): PosixProfile => {
+  return {
+    Gid: output.Gid !== undefined && output.Gid !== null ? output.Gid : undefined,
+    SecondaryGids:
+      output.SecondaryGids !== undefined && output.SecondaryGids !== null
+        ? deserializeAws_json1_1SecondaryGids(output.SecondaryGids, context)
+        : undefined,
+    Uid: output.Uid !== undefined && output.Uid !== null ? output.Uid : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1Protocols = (output: any, context: __SerdeContext): (Protocol | string)[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -2859,6 +2904,17 @@ const deserializeAws_json1_1ResourceNotFoundException = (
     Resource: output.Resource !== undefined && output.Resource !== null ? output.Resource : undefined,
     ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1SecondaryGids = (output: any, context: __SerdeContext): number[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1SecurityGroupIds = (output: any, context: __SerdeContext): string[] => {

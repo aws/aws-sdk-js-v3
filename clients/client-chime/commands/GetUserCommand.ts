@@ -21,9 +21,13 @@ export type GetUserCommandInput = GetUserRequest;
 export type GetUserCommandOutput = GetUserResponse & __MetadataBearer;
 
 /**
- * <p>Retrieves details for the specified user ID, such as primary email address, license type,
- *      and personal meeting PIN.</p>
- *          <p>To retrieve user details with an email address instead of a user ID, use the <a>ListUsers</a> action, and then filter by email address.</p>
+ * <p>Retrieves details for the specified user ID, such as primary email address, license type,and personal meeting PIN.</p>
+ *
+ *          <p>
+ * To retrieve user details with an email address instead of a user ID, use the
+ * <a>ListUsers</a>
+ * action, and then filter by email address.
+ * </p>
  */
 export class GetUserCommand extends $Command<GetUserCommandInput, GetUserCommandOutput, ChimeClientResolvedConfig> {
   // Start section: command_properties

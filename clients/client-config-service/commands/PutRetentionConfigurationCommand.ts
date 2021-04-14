@@ -1,5 +1,5 @@
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { PutRetentionConfigurationRequest, PutRetentionConfigurationResponse } from "../models/models_0";
+import { PutRetentionConfigurationRequest, PutRetentionConfigurationResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1PutRetentionConfigurationCommand,
   serializeAws_json1_1PutRetentionConfigurationCommand,

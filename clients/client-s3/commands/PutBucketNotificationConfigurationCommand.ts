@@ -40,7 +40,7 @@ export type PutBucketNotificationConfigurationCommandOutput = __MetadataBearer;
  *          <p>
  *             <code></NotificationConfiguration></code>
  *          </p>
- *          <p>This operation replaces the existing notification configuration with the configuration
+ *          <p>This action replaces the existing notification configuration with the configuration
  *          you include in the request body.</p>
  *
  *          <p>After Amazon S3 receives this request, it first verifies that any Amazon Simple Notification
@@ -62,7 +62,7 @@ export type PutBucketNotificationConfigurationCommandOutput = __MetadataBearer;
  *             <p>The PUT notification is an atomic operation. For example, suppose your notification
  *             configuration includes SNS topic, SQS queue, and Lambda function configurations. When
  *             you send a PUT request with this configuration, Amazon S3 sends test messages to your SNS
- *             topic. If the message fails, the entire PUT operation will fail, and Amazon S3 will not add
+ *             topic. If the message fails, the entire PUT action will fail, and Amazon S3 will not add
  *             the configuration to your bucket.</p>
  *          </note>
  *
@@ -75,7 +75,7 @@ export type PutBucketNotificationConfigurationCommandOutput = __MetadataBearer;
  *          the <code>x-amz-sns-test-message-id</code> header containing the message ID of the test
  *          notification sent to the topic.</p>
  *
- *          <p>The following operation is related to
+ *          <p>The following action is related to
  *          <code>PutBucketNotificationConfiguration</code>:</p>
  *          <ul>
  *             <li>

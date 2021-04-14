@@ -22,7 +22,7 @@ export type PutBucketInventoryConfigurationCommandInput = PutBucketInventoryConf
 export type PutBucketInventoryConfigurationCommandOutput = __MetadataBearer;
 
 /**
- * <p>This implementation of the <code>PUT</code> operation adds an inventory configuration
+ * <p>This implementation of the <code>PUT</code> action adds an inventory configuration
  *          (identified by the inventory ID) to the bucket. You can have up to 1,000 inventory
  *          configurations per bucket. </p>
  *          <p>Amazon S3 inventory generates inventories of the objects in the bucket on a daily or weekly
@@ -36,7 +36,7 @@ export type PutBucketInventoryConfigurationCommandOutput = __MetadataBearer;
  *          whether to generate the inventory daily or weekly. You can also configure what object
  *          metadata to include and whether to inventory all object versions or only current versions.
  *          For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html">Amazon S3
- *             Inventory</a> in the Amazon Simple Storage Service Developer Guide.</p>
+ *             Inventory</a> in the Amazon S3 User Guide.</p>
  *          <important>
  *             <p>You must create a bucket policy on the <i>destination</i> bucket to
  *             grant permissions to Amazon S3 to write objects to the bucket in the defined location. For an
@@ -46,8 +46,8 @@ export type PutBucketInventoryConfigurationCommandOutput = __MetadataBearer;
  *          <p>To use this operation, you must have permissions to perform the
  *             <code>s3:PutInventoryConfiguration</code> action. The bucket owner has this permission
  *          by default and can grant this permission to others. For more information about permissions,
- *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing Access Permissions to Your Amazon S3
- *             Resources</a> in the Amazon Simple Storage Service Developer Guide.</p>
+ *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to Your Amazon S3
+ *             Resources</a> in the Amazon S3 User Guide.</p>
  *
  *          <p class="title">
  *             <b>Special Errors</b>

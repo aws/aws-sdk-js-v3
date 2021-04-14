@@ -22,13 +22,14 @@ export type BatchPutDocumentCommandOutput = BatchPutDocumentResponse & __Metadat
 
 /**
  * <p>Adds one or more documents to an index.</p>
- *          <p>The <code>BatchPutDocument</code> operation enables you to ingest inline documents or a
- *       set of documents stored in an Amazon S3 bucket. Use this operation to ingest your text and
- *       unstructured text into an index, add custom attributes to the documents, and to attach an
- *       access control list to the documents added to the index.</p>
- *          <p>The documents are indexed asynchronously. You can see the progress of the batch using AWS
- *       CloudWatch. Any error messages related to processing the batch are sent to your AWS CloudWatch
- *       log.</p>
+ *          <p>The <code>BatchPutDocument</code> operation enables you to ingest
+ *       inline documents or a set of documents stored in an Amazon S3 bucket. Use
+ *       this operation to ingest your text and unstructured text into an index,
+ *       add custom attributes to the documents, and to attach an access control
+ *       list to the documents added to the index.</p>
+ *          <p>The documents are indexed asynchronously. You can see the progress of
+ *       the batch using AWS CloudWatch. Any error messages related to processing
+ *       the batch are sent to your AWS CloudWatch log.</p>
  */
 export class BatchPutDocumentCommand extends $Command<
   BatchPutDocumentCommandInput,

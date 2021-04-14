@@ -8,6 +8,7 @@ import { ListSchemasCommandInput, ListSchemasCommandOutput } from "../commands/L
 import { ListStatementsCommandInput, ListStatementsCommandOutput } from "../commands/ListStatementsCommand";
 import { ListTablesCommandInput, ListTablesCommandOutput } from "../commands/ListTablesCommand";
 import {
+  ActiveStatementsExceededException,
   CancelStatementRequest,
   CancelStatementResponse,
   ColumnMetadata,
@@ -385,6 +386,14 @@ const deserializeAws_json1_1ExecuteStatementCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ActiveStatementsExceededException":
+    case "com.amazonaws.redshiftdata#ActiveStatementsExceededException":
+      response = {
+        ...(await deserializeAws_json1_1ActiveStatementsExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ExecuteStatementException":
     case "com.amazonaws.redshiftdata#ExecuteStatementException":
       response = {
@@ -736,6 +745,21 @@ const deserializeAws_json1_1ListTablesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+const deserializeAws_json1_1ActiveStatementsExceededExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ActiveStatementsExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ActiveStatementsExceededException(body, context);
+  const contents: ActiveStatementsExceededException = {
+    name: "ActiveStatementsExceededException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1ExecuteStatementExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -815,6 +839,8 @@ const serializeAws_json1_1DescribeTableRequest = (input: DescribeTableRequest, c
   return {
     ...(input.ClusterIdentifier !== undefined &&
       input.ClusterIdentifier !== null && { ClusterIdentifier: input.ClusterIdentifier }),
+    ...(input.ConnectedDatabase !== undefined &&
+      input.ConnectedDatabase !== null && { ConnectedDatabase: input.ConnectedDatabase }),
     ...(input.Database !== undefined && input.Database !== null && { Database: input.Database }),
     ...(input.DbUser !== undefined && input.DbUser !== null && { DbUser: input.DbUser }),
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
@@ -864,6 +890,8 @@ const serializeAws_json1_1ListSchemasRequest = (input: ListSchemasRequest, conte
   return {
     ...(input.ClusterIdentifier !== undefined &&
       input.ClusterIdentifier !== null && { ClusterIdentifier: input.ClusterIdentifier }),
+    ...(input.ConnectedDatabase !== undefined &&
+      input.ConnectedDatabase !== null && { ConnectedDatabase: input.ConnectedDatabase }),
     ...(input.Database !== undefined && input.Database !== null && { Database: input.Database }),
     ...(input.DbUser !== undefined && input.DbUser !== null && { DbUser: input.DbUser }),
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
@@ -877,6 +905,7 @@ const serializeAws_json1_1ListStatementsRequest = (input: ListStatementsRequest,
   return {
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.RoleLevel !== undefined && input.RoleLevel !== null && { RoleLevel: input.RoleLevel }),
     ...(input.StatementName !== undefined && input.StatementName !== null && { StatementName: input.StatementName }),
     ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
   };
@@ -886,6 +915,8 @@ const serializeAws_json1_1ListTablesRequest = (input: ListTablesRequest, context
   return {
     ...(input.ClusterIdentifier !== undefined &&
       input.ClusterIdentifier !== null && { ClusterIdentifier: input.ClusterIdentifier }),
+    ...(input.ConnectedDatabase !== undefined &&
+      input.ConnectedDatabase !== null && { ConnectedDatabase: input.ConnectedDatabase }),
     ...(input.Database !== undefined && input.Database !== null && { Database: input.Database }),
     ...(input.DbUser !== undefined && input.DbUser !== null && { DbUser: input.DbUser }),
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
@@ -894,6 +925,15 @@ const serializeAws_json1_1ListTablesRequest = (input: ListTablesRequest, context
     ...(input.SecretArn !== undefined && input.SecretArn !== null && { SecretArn: input.SecretArn }),
     ...(input.TablePattern !== undefined && input.TablePattern !== null && { TablePattern: input.TablePattern }),
   };
+};
+
+const deserializeAws_json1_1ActiveStatementsExceededException = (
+  output: any,
+  context: __SerdeContext
+): ActiveStatementsExceededException => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1CancelStatementResponse = (
@@ -975,6 +1015,7 @@ const deserializeAws_json1_1DescribeStatementResponse = (
     DbUser: output.DbUser !== undefined && output.DbUser !== null ? output.DbUser : undefined,
     Duration: output.Duration !== undefined && output.Duration !== null ? output.Duration : undefined,
     Error: output.Error !== undefined && output.Error !== null ? output.Error : undefined,
+    HasResultSet: output.HasResultSet !== undefined && output.HasResultSet !== null ? output.HasResultSet : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     QueryString: output.QueryString !== undefined && output.QueryString !== null ? output.QueryString : undefined,
     RedshiftPid: output.RedshiftPid !== undefined && output.RedshiftPid !== null ? output.RedshiftPid : undefined,

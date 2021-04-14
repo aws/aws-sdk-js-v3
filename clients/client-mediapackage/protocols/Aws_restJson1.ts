@@ -50,6 +50,7 @@ import {
   DashEncryption,
   DashPackage,
   EgressAccessLogs,
+  EncryptionContractConfiguration,
   ForbiddenException,
   HarvestJob,
   HlsEncryption,
@@ -2999,6 +3000,18 @@ const serializeAws_restJson1EgressAccessLogs = (input: EgressAccessLogs, context
   };
 };
 
+const serializeAws_restJson1EncryptionContractConfiguration = (
+  input: EncryptionContractConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.PresetSpeke20Audio !== undefined &&
+      input.PresetSpeke20Audio !== null && { presetSpeke20Audio: input.PresetSpeke20Audio }),
+    ...(input.PresetSpeke20Video !== undefined &&
+      input.PresetSpeke20Video !== null && { presetSpeke20Video: input.PresetSpeke20Video }),
+  };
+};
+
 const serializeAws_restJson1HlsEncryption = (input: HlsEncryption, context: __SerdeContext): any => {
   return {
     ...(input.ConstantInitializationVector !== undefined &&
@@ -3112,6 +3125,13 @@ const serializeAws_restJson1SpekeKeyProvider = (input: SpekeKeyProvider, context
   return {
     ...(input.CertificateArn !== undefined &&
       input.CertificateArn !== null && { certificateArn: input.CertificateArn }),
+    ...(input.EncryptionContractConfiguration !== undefined &&
+      input.EncryptionContractConfiguration !== null && {
+        encryptionContractConfiguration: serializeAws_restJson1EncryptionContractConfiguration(
+          input.EncryptionContractConfiguration,
+          context
+        ),
+      }),
     ...(input.ResourceId !== undefined && input.ResourceId !== null && { resourceId: input.ResourceId }),
     ...(input.RoleArn !== undefined && input.RoleArn !== null && { roleArn: input.RoleArn }),
     ...(input.SystemIds !== undefined &&
@@ -3389,6 +3409,22 @@ const deserializeAws_restJson1EgressAccessLogs = (output: any, context: __SerdeC
   } as any;
 };
 
+const deserializeAws_restJson1EncryptionContractConfiguration = (
+  output: any,
+  context: __SerdeContext
+): EncryptionContractConfiguration => {
+  return {
+    PresetSpeke20Audio:
+      output.presetSpeke20Audio !== undefined && output.presetSpeke20Audio !== null
+        ? output.presetSpeke20Audio
+        : undefined,
+    PresetSpeke20Video:
+      output.presetSpeke20Video !== undefined && output.presetSpeke20Video !== null
+        ? output.presetSpeke20Video
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1HarvestJob = (output: any, context: __SerdeContext): HarvestJob => {
   return {
     Arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
@@ -3605,6 +3641,10 @@ const deserializeAws_restJson1SpekeKeyProvider = (output: any, context: __SerdeC
   return {
     CertificateArn:
       output.certificateArn !== undefined && output.certificateArn !== null ? output.certificateArn : undefined,
+    EncryptionContractConfiguration:
+      output.encryptionContractConfiguration !== undefined && output.encryptionContractConfiguration !== null
+        ? deserializeAws_restJson1EncryptionContractConfiguration(output.encryptionContractConfiguration, context)
+        : undefined,
     ResourceId: output.resourceId !== undefined && output.resourceId !== null ? output.resourceId : undefined,
     RoleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
     SystemIds:

@@ -21,7 +21,7 @@ export type UpdateOpsMetadataCommandInput = UpdateOpsMetadataRequest;
 export type UpdateOpsMetadataCommandOutput = UpdateOpsMetadataResult & __MetadataBearer;
 
 /**
- * <p>Systems Manager calls this API action when you edit OpsMetadata in AppManager.</p>
+ * <p>Systems Manager calls this API action when you edit OpsMetadata in Application Manager.</p>
  */
 export class UpdateOpsMetadataCommand extends $Command<
   UpdateOpsMetadataCommandInput,

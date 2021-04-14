@@ -1644,6 +1644,7 @@ const serializeAws_json1_1CreateEnvironmentEC2Request = (
     ...(input.connectionType !== undefined &&
       input.connectionType !== null && { connectionType: input.connectionType }),
     ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.imageId !== undefined && input.imageId !== null && { imageId: input.imageId }),
     ...(input.instanceType !== undefined && input.instanceType !== null && { instanceType: input.instanceType }),
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
     ...(input.ownerArn !== undefined && input.ownerArn !== null && { ownerArn: input.ownerArn }),
@@ -1918,6 +1919,10 @@ const deserializeAws_json1_1Environment = (output: any, context: __SerdeContext)
     lifecycle:
       output.lifecycle !== undefined && output.lifecycle !== null
         ? deserializeAws_json1_1EnvironmentLifecycle(output.lifecycle, context)
+        : undefined,
+    managedCredentialsStatus:
+      output.managedCredentialsStatus !== undefined && output.managedCredentialsStatus !== null
+        ? output.managedCredentialsStatus
         : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     ownerArn: output.ownerArn !== undefined && output.ownerArn !== null ? output.ownerArn : undefined,

@@ -24,7 +24,7 @@ export type DeleteVariableCommandOutput = DeleteVariableResult & __MetadataBeare
  * <p>Deletes a variable.</p>
  * 	        <p>You can't delete variables that are included in an event type in Amazon Fraud Detector.</p>
  * 	        <p>Amazon Fraud Detector automatically deletes model output variables and SageMaker model output variables when you delete the model. You can't delete these variables manually.</p>
- * 	        <p>When you delete a variable, Amazon Fraud Detector permanently deletes that variable from the evaluation history, and the data is no longer stored in Amazon Fraud Detector.</p>
+ * 	        <p>When you delete a variable, Amazon Fraud Detector permanently deletes that variable and the data is no longer stored in Amazon Fraud Detector.</p>
  */
 export class DeleteVariableCommand extends $Command<
   DeleteVariableCommandInput,

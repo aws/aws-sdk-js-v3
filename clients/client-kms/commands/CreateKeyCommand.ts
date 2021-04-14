@@ -19,8 +19,7 @@ export type CreateKeyCommandOutput = CreateKeyResponse & __MetadataBearer;
 
 /**
  * <p>Creates a unique customer managed <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master-keys">customer master key</a> (CMK) in your AWS
- *       account and Region. You cannot use this operation to create a CMK in a different AWS
- *       account.</p>
+ *       account and Region.</p>
  *
  *          <p>You can use the <code>CreateKey</code> operation to create symmetric or asymmetric
  *       CMKs.</p>
@@ -94,6 +93,35 @@ export type CreateKeyCommandOutput = CreateKeyResponse & __MetadataBearer;
  *                   </i>.</p>
  *             </dd>
  *          </dl>
+ *          <p>
+ *             <b>Cross-account use</b>:  No. You cannot use this operation to
+ *       create a CMK in a different AWS account.</p>
+ *
+ *          <p>
+ *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:CreateKey</a> (IAM policy). To use the
+ *         <code>Tags</code> parameter, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:TagResource</a> (IAM policy). For examples and information about related
+ *       permissions, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/iam-policies.html#iam-policy-example-create-key">Allow a user to create
+ *         CMKs</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ *          <p>
+ *             <b>Related operations:</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>DescribeKey</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListKeys</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ScheduleKeyDeletion</a>
+ *                </p>
+ *             </li>
+ *          </ul>
  */
 export class CreateKeyCommand extends $Command<CreateKeyCommandInput, CreateKeyCommandOutput, KMSClientResolvedConfig> {
   // Start section: command_properties

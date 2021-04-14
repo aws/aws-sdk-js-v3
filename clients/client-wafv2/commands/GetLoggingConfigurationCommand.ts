@@ -21,10 +21,7 @@ export type GetLoggingConfigurationCommandInput = GetLoggingConfigurationRequest
 export type GetLoggingConfigurationCommandOutput = GetLoggingConfigurationResponse & __MetadataBearer;
 
 /**
- * <note>
- *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
- *          </note>
- *          <p>Returns the <a>LoggingConfiguration</a> for the specified web ACL.</p>
+ * <p>Returns the <a>LoggingConfiguration</a> for the specified web ACL.</p>
  */
 export class GetLoggingConfigurationCommand extends $Command<
   GetLoggingConfigurationCommandInput,

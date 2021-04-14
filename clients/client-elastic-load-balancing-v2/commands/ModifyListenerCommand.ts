@@ -25,14 +25,14 @@ export type ModifyListenerCommandInput = ModifyListenerInput;
 export type ModifyListenerCommandOutput = ModifyListenerOutput & __MetadataBearer;
 
 /**
- * <p>Replaces the specified properties of the specified listener. Any properties that you do not
- *       specify remain unchanged.</p>
+ * <p>Replaces the specified properties of the specified listener. Any properties that you do
+ *       not specify remain unchanged.</p>
  *          <p>Changing the protocol from HTTPS to HTTP, or from TLS to TCP, removes the security policy
- *       and default certificate properties. If you change the protocol from HTTP to HTTPS, or from
- *       TCP to TLS, you must add the security policy and default certificate properties.</p>
- *          <p>To add an item to a list, remove an item from a list, or update an item in a list,
- *       you must provide the entire list. For example, to add an action, specify a list with the
- *       current actions plus the new action.</p>
+ *       and default certificate properties. If you change the protocol from HTTP to HTTPS, or from TCP
+ *       to TLS, you must add the security policy and default certificate properties.</p>
+ *          <p>To add an item to a list, remove an item from a list, or update an item in a list, you
+ *       must provide the entire list. For example, to add an action, specify a list with the current
+ *       actions plus the new action.</p>
  */
 export class ModifyListenerCommand extends $Command<
   ModifyListenerCommandInput,

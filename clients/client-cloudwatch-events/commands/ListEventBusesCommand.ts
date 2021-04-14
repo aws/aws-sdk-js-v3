@@ -21,8 +21,8 @@ export type ListEventBusesCommandInput = ListEventBusesRequest;
 export type ListEventBusesCommandOutput = ListEventBusesResponse & __MetadataBearer;
 
 /**
- * <p>Lists all the event buses in your account, including the default event bus, custom
- *             event buses, and partner event buses.</p>
+ * <p>Lists all the event buses in your account, including the default event bus, custom event
+ *       buses, and partner event buses.</p>
  */
 export class ListEventBusesCommand extends $Command<
   ListEventBusesCommandInput,

@@ -22,8 +22,8 @@ export type DescribeRuleCommandOutput = DescribeRuleResponse & __MetadataBearer;
 
 /**
  * <p>Describes the specified rule.</p>
- *         <p>DescribeRule does not list the targets of a rule. To see the targets associated
- *             with a rule, use <a>ListTargetsByRule</a>.</p>
+ *          <p>DescribeRule does not list the targets of a rule. To see the targets associated with a
+ *       rule, use <a>ListTargetsByRule</a>.</p>
  */
 export class DescribeRuleCommand extends $Command<
   DescribeRuleCommandInput,

@@ -183,6 +183,7 @@ export enum Locale {
   FR_CA = "fr-CA",
   FR_FR = "fr-FR",
   IT_IT = "it-IT",
+  JA_JP = "ja-JP",
 }
 
 export enum Status {

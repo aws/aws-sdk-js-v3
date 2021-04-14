@@ -23,7 +23,7 @@ export type DeleteCacheSubnetGroupCommandOutput = __MetadataBearer;
 /**
  * <p>Deletes a cache subnet group.</p>
  *         <note>
- *             <p>You cannot delete a cache subnet group if it is associated with any clusters.</p>
+ *             <p>You cannot delete a default cache subnet group or one that is associated with any clusters.</p>
  *          </note>
  */
 export class DeleteCacheSubnetGroupCommand extends $Command<

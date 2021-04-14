@@ -39,7 +39,7 @@ export type DetectStackSetDriftCommandOutput = DetectStackSetDriftOutput & __Met
  *             <li>
  *                <p>Use <code>
  *                      <a>DescribeStackSet</a>
- *                   </code> to return detailed informaiton
+ *                   </code> to return detailed information
  *                about the stack set, including detailed information about the last
  *                <i>completed</i> drift operation performed on the stack set.
  *                (Information about drift operations that are in progress is not included.)</p>

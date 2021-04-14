@@ -27,7 +27,7 @@ export type CreateBGPPeerCommandOutput = CreateBGPPeerResponse & __MetadataBeare
  *       be in the same address family as an existing BGP peer on the virtual interface.</p>
  *          <p>When creating a IPv6 BGP peer, omit the Amazon address and customer address. IPv6 addresses are automatically assigned from
  *       the Amazon pool of IPv6 addresses; you cannot specify custom IPv6 addresses.</p>
- *          <p>For a public virtual interface, the Autonomous System Number (ASN) must be private or already whitelisted for the virtual interface.</p>
+ *          <p>For a public virtual interface, the Autonomous System Number (ASN) must be private or already on the allow list for the virtual interface.</p>
  */
 export class CreateBGPPeerCommand extends $Command<
   CreateBGPPeerCommandInput,

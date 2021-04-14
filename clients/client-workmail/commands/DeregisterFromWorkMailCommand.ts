@@ -22,8 +22,8 @@ export type DeregisterFromWorkMailCommandOutput = DeregisterFromWorkMailResponse
 
 /**
  * <p>Mark a user, group, or resource as no longer used in Amazon WorkMail. This action
- *          disassociates the mailbox and schedules it for clean-up. WorkMail keeps mailboxes
- *          for 30 days before they are permanently removed. The functionality in the console is
+ *          disassociates the mailbox and schedules it for clean-up. WorkMail keeps mailboxes for 30 days
+ *          before they are permanently removed. The functionality in the console is
  *             <i>Disable</i>.</p>
  */
 export class DeregisterFromWorkMailCommand extends $Command<

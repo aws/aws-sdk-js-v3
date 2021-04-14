@@ -21,11 +21,7 @@ export type GetStudioSessionMappingCommandInput = GetStudioSessionMappingInput;
 export type GetStudioSessionMappingCommandOutput = GetStudioSessionMappingOutput & __MetadataBearer;
 
 /**
- * <note>
- *             <p>The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject to
- *             change.</p>
- *          </note>
- *          <p>Fetches mapping details for the specified Amazon EMR Studio and identity (user or
+ * <p>Fetches mapping details for the specified Amazon EMR Studio and identity (user or
  *          group).</p>
  */
 export class GetStudioSessionMappingCommand extends $Command<

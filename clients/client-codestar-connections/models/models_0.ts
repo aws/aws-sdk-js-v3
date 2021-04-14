@@ -185,6 +185,8 @@ export interface CreateHostInput {
    *       infrastructure to be represented by the host must already be connected to the VPC.</p>
    */
   VpcConfiguration?: VpcConfiguration;
+
+  Tags?: Tag[];
 }
 
 export namespace CreateHostInput {
@@ -198,6 +200,8 @@ export interface CreateHostOutput {
    * <p>The Amazon Resource Name (ARN) of the host to be created.</p>
    */
   HostArn?: string;
+
+  Tags?: Tag[];
 }
 
 export namespace CreateHostOutput {

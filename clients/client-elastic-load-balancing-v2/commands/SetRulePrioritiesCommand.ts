@@ -26,8 +26,8 @@ export type SetRulePrioritiesCommandOutput = SetRulePrioritiesOutput & __Metadat
 
 /**
  * <p>Sets the priorities of the specified rules.</p>
- *          <p>You can reorder the rules as long as there are no priority conflicts in the new order.
- *       Any existing rules that you do not specify retain their current priority.</p>
+ *          <p>You can reorder the rules as long as there are no priority conflicts in the new order. Any
+ *       existing rules that you do not specify retain their current priority.</p>
  */
 export class SetRulePrioritiesCommand extends $Command<
   SetRulePrioritiesCommandInput,

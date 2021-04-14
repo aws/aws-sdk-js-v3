@@ -21,16 +21,41 @@ export type TagResourceCommandInput = TagResourceRequest;
 export type TagResourceCommandOutput = __MetadataBearer;
 
 /**
- * <p>Adds or edits tags for a customer master key (CMK). You cannot perform this operation on a CMK in a different AWS account.</p>
- *          <p>Each tag consists of a tag key and a tag value. Tag keys and tag values are both required,
- *       but tag values can be empty (null) strings.</p>
- *          <p>You can only use a tag key once for each CMK. If you use the tag key again, AWS KMS replaces
- *       the current tag value with the specified value.</p>
- *          <p>For information about the rules that apply to tag keys and tag values, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">User-Defined Tag Restrictions</a> in the <i>AWS Billing and Cost Management User
- *         Guide</i>.</p>
+ * <p>Adds or edits tags on a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer managed CMK</a>.</p>
+ *          <p>Each tag consists of a tag key and a tag value, both of which are case-sensitive strings.
+ *       The tag value can be an empty (null) string. </p>
+ *          <p>To add a tag, specify a new tag key and a tag value. To edit a tag, specify an existing
+ *       tag key and a new tag value.</p>
+ *          <p>You can use this operation to tag a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer managed CMK</a>, but you cannot
+ *       tag an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">AWS
+ *         managed CMK</a>, an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk">AWS owned CMK</a>, or an alias.</p>
+ *          <p>For general information about tags, including the format and syntax, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS resources</a> in
+ *       the <i>Amazon Web Services General Reference</i>. For information about using
+ *       tags in AWS KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">Tagging
+ *         keys</a>.</p>
  *          <p>The CMK that you use for this operation must be in a compatible key state. For
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
  * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ *          <p>
+ *             <b>Cross-account use</b>: No.  You cannot perform this operation on a CMK in a different AWS account. </p>
+ *
+ *          <p>
+ *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:TagResource</a> (key policy)</p>
+ *          <p>
+ *             <b>Related operations</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>UntagResource</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListResourceTags</a>
+ *                </p>
+ *             </li>
+ *          </ul>
  */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,

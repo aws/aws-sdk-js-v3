@@ -25,9 +25,9 @@ export type SetSubnetsCommandOutput = SetSubnetsOutput & __MetadataBearer;
  * <p>Enables the Availability Zones for the specified public subnets for the specified
  *       Application Load Balancer or Network Load Balancer. The specified subnets replace the
  *       previously enabled subnets.</p>
- *          <p>When you specify subnets for a Network Load Balancer, you must include all
- *       subnets that were enabled previously, with their existing configurations, plus any
- *       additional subnets.</p>
+ *          <p>When you specify subnets for a Network Load Balancer, you must include all subnets that
+ *       were enabled previously, with their existing configurations, plus any additional
+ *       subnets.</p>
  */
 export class SetSubnetsCommand extends $Command<
   SetSubnetsCommandInput,

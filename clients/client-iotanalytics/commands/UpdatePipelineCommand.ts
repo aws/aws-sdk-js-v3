@@ -21,9 +21,9 @@ export type UpdatePipelineCommandInput = UpdatePipelineRequest;
 export type UpdatePipelineCommandOutput = __MetadataBearer;
 
 /**
- * <p>Updates the settings of a pipeline. You must specify both a
- *           <code>channel</code> and a <code>datastore</code> activity and, optionally, as many
- *           as 23 additional activities in the <code>pipelineActivities</code> array.</p>
+ * <p>Updates the settings of a pipeline. You must specify both a <code>channel</code> and a
+ *         <code>datastore</code> activity and, optionally, as many as 23 additional activities in the
+ *         <code>pipelineActivities</code> array.</p>
  */
 export class UpdatePipelineCommand extends $Command<
   UpdatePipelineCommandInput,

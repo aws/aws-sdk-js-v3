@@ -235,14 +235,14 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 /**
  * <fullname>AWS CodeDeploy</fullname>
  *         <p>AWS CodeDeploy is a deployment service that automates application deployments to
- *             Amazon EC2 instances, on-premises instances running in your own facility, serverless
- *             AWS Lambda functions, or applications in an Amazon ECS service.</p>
+ *             Amazon EC2 instances, on-premises instances running in your own facility, serverless AWS
+ *             Lambda functions, or applications in an Amazon ECS service.</p>
  *         <p>You can deploy a nearly unlimited variety of application content, such as an updated
- *             Lambda function, updated applications in an Amazon ECS service, code, web and configuration
- *             files, executables, packages, scripts,
- *             multimedia files, and so on. AWS CodeDeploy can deploy application content stored in
- *             Amazon S3 buckets, GitHub repositories, or Bitbucket repositories. You do not need to
- *             make changes to your existing code before you can use AWS CodeDeploy.</p>
+ *             Lambda function, updated applications in an Amazon ECS service, code, web and
+ *             configuration files, executables, packages, scripts, multimedia files, and so on. AWS
+ *             CodeDeploy can deploy application content stored in Amazon S3 buckets, GitHub
+ *             repositories, or Bitbucket repositories. You do not need to make changes to your
+ *             existing code before you can use AWS CodeDeploy.</p>
  *         <p>AWS CodeDeploy makes it easier for you to rapidly release new features, helps you
  *             avoid downtime during application deployment, and handles the complexity of updating
  *             your applications, without many of the risks associated with error-prone manual
@@ -368,7 +368,8 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   * <p>Gets information about one or more application revisions. The maximum number of application revisions that can be returned is 25.</p>
+   * <p>Gets information about one or more application revisions. The maximum number of
+   *             application revisions that can be returned is 25.</p>
    */
   public batchGetApplicationRevisions(
     args: BatchGetApplicationRevisionsCommandInput,
@@ -400,7 +401,8 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   * <p>Gets information about one or more applications. The maximum number of applications that can be returned is 100.</p>
+   * <p>Gets information about one or more applications. The maximum number of applications
+   *             that can be returned is 100.</p>
    */
   public batchGetApplications(
     args: BatchGetApplicationsCommandInput,
@@ -470,10 +472,10 @@ export class CodeDeploy extends CodeDeployClient {
    *             <p> This method works, but is deprecated. Use <code>BatchGetDeploymentTargets</code>
    *                 instead. </p>
    *         </note>
-   *         <p> Returns an array of one or more instances associated with a deployment. This method works with
-   *             EC2/On-premises and AWS Lambda compute platforms. The newer
-   *                 <code>BatchGetDeploymentTargets</code> works with all compute platforms.
-   *             The maximum number of instances that can be returned is 25.</p>
+   *         <p> Returns an array of one or more instances associated with a deployment. This method
+   *             works with EC2/On-premises and AWS Lambda compute platforms. The newer
+   *                 <code>BatchGetDeploymentTargets</code> works with all compute platforms. The maximum
+   *             number of instances that can be returned is 25.</p>
    */
   public batchGetDeploymentInstances(
     args: BatchGetDeploymentInstancesCommandInput,
@@ -505,7 +507,8 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   * <p>Gets information about one or more deployments. The maximum number of deployments that can be returned is 25.</p>
+   * <p>Gets information about one or more deployments. The maximum number of deployments that
+   *             can be returned is 25.</p>
    */
   public batchGetDeployments(
     args: BatchGetDeploymentsCommandInput,
@@ -537,11 +540,12 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   * <p> Returns an array of one or more targets associated with a deployment. This method works with all
-   *             compute types and should be used instead of the deprecated
-   *             <code>BatchGetDeploymentInstances</code>.
-   *             The maximum number of targets that can be returned is 25.</p>
-   *         <p> The type of targets returned depends on the deployment's compute platform or deployment method: </p>
+   * <p> Returns an array of one or more targets associated with a deployment. This method
+   *             works with all compute types and should be used instead of the deprecated
+   *                 <code>BatchGetDeploymentInstances</code>. The maximum number of targets that can be
+   *             returned is 25.</p>
+   *         <p> The type of targets returned depends on the deployment's compute platform or
+   *             deployment method: </p>
    *         <ul>
    *             <li>
    *                 <p>
@@ -595,7 +599,8 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   * <p>Gets information about one or more on-premises instances. The maximum number of on-premises instances that can be returned is 25.</p>
+   * <p>Gets information about one or more on-premises instances. The maximum number of
+   *             on-premises instances that can be returned is 25.</p>
    */
   public batchGetOnPremisesInstances(
     args: BatchGetOnPremisesInstancesCommandInput,
@@ -1053,11 +1058,10 @@ export class CodeDeploy extends CodeDeployClient {
   /**
    * <p>Gets information about a deployment.</p>
    *         <note>
-   *             <p>
-   *                 The <code>content</code> property of the <code>appSpecContent</code> object in the returned revision is always null.
-   *                 Use <code>GetApplicationRevision</code> and the <code>sha256</code> property of the returned <code>appSpecContent</code>
-   *                 object to get the content of the deployment’s AppSpec file.
-   *             </p>
+   *             <p> The <code>content</code> property of the <code>appSpecContent</code> object in
+   *                 the returned revision is always null. Use <code>GetApplicationRevision</code> and
+   *                 the <code>sha256</code> property of the returned <code>appSpecContent</code> object
+   *                 to get the content of the deployment’s AppSpec file. </p>
    *         </note>
    */
   public getDeployment(
@@ -1586,16 +1590,15 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   * <p> Sets the result of a Lambda validation function. The function validates
-   *             lifecycle hooks during a deployment that uses the AWS Lambda or Amazon ECS compute platform. For AWS
-   *             Lambda deployments, the available lifecycle hooks are <code>BeforeAllowTraffic</code> and <code>AfterAllowTraffic</code>.
-   *             For Amazon ECS deployments, the available lifecycle hooks are <code>BeforeInstall</code>, <code>AfterInstall</code>,
-   *             <code>AfterAllowTestTraffic</code>, <code>BeforeAllowTraffic</code>, and <code>AfterAllowTraffic</code>. Lambda
-   *             validation functions return <code>Succeeded</code> or <code>Failed</code>. For more information,
-   *             see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-lambda">AppSpec 'hooks'
-   *                 Section for an AWS Lambda Deployment
-   *             </a> and <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-ecs">AppSpec
-   *                 'hooks' Section for an Amazon ECS Deployment</a>.</p>
+   * <p> Sets the result of a Lambda validation function. The function validates lifecycle
+   *             hooks during a deployment that uses the AWS Lambda or Amazon ECS compute platform. For
+   *             AWS Lambda deployments, the available lifecycle hooks are
+   *                 <code>BeforeAllowTraffic</code> and <code>AfterAllowTraffic</code>. For Amazon ECS
+   *             deployments, the available lifecycle hooks are <code>BeforeInstall</code>,
+   *                 <code>AfterInstall</code>, <code>AfterAllowTestTraffic</code>,
+   *                 <code>BeforeAllowTraffic</code>, and <code>AfterAllowTraffic</code>. Lambda
+   *             validation functions return <code>Succeeded</code> or <code>Failed</code>. For more
+   *             information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-lambda">AppSpec 'hooks' Section for an AWS Lambda Deployment </a> and <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-ecs">AppSpec 'hooks' Section for an Amazon ECS Deployment</a>.</p>
    */
   public putLifecycleEventHookExecutionStatus(
     args: PutLifecycleEventHookExecutionStatusCommandInput,
@@ -1794,9 +1797,8 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
-   * <p>
-   *             Associates the list of tags in the input <code>Tags</code> parameter with the resource identified by the <code>ResourceArn</code> input parameter.
-   *         </p>
+   * <p> Associates the list of tags in the input <code>Tags</code> parameter with the
+   *             resource identified by the <code>ResourceArn</code> input parameter. </p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;

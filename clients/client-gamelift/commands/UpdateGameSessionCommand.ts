@@ -21,64 +21,25 @@ export type UpdateGameSessionCommandInput = UpdateGameSessionInput;
 export type UpdateGameSessionCommandOutput = UpdateGameSessionOutput & __MetadataBearer;
 
 /**
- * <p>Updates game session properties. This includes the session name, maximum player
- *             count, protection policy, which controls whether or not an active game session can be
- *             terminated during a scale-down event, and the player session creation policy, which
- *             controls whether or not new players can join the session. To update a game session,
- *             specify the game session ID and the values you want to change. If successful, an updated
- *                 <a>GameSession</a> object is returned. </p>
- *         <ul>
- *             <li>
- *                <p>
- *                   <a>CreateGameSession</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DescribeGameSessions</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DescribeGameSessionDetails</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>SearchGameSessions</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateGameSession</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>GetGameSessionLogUrl</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>Game session placements</p>
- *                         <ul>
- *                   <li>
- *                      <p>
- *                         <a>StartGameSessionPlacement</a>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <a>DescribeGameSessionPlacement</a>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <a>StopGameSessionPlacement</a>
- *                      </p>
- *                   </li>
- *                </ul>
- *             </li>
- *          </ul>
+ * <p>Updates the mutable properties of a game session. </p>
+ *         <p>To update a game session, specify the game session ID and the values you want to
+ *             change. </p>
+ *         <p>If successful, the updated <code>GameSession</code> object is returned. </p>
+ *         <p>
+ *             <b>Related actions</b>
+ *          </p>
+ *                     <p>
+ *             <a>CreateGameSession</a> |
+ *                     <a>DescribeGameSessions</a> |
+ *                     <a>DescribeGameSessionDetails</a> |
+ *                     <a>SearchGameSessions</a> |
+ *                     <a>UpdateGameSession</a> |
+ *                     <a>GetGameSessionLogUrl</a> |
+ *                     <a>StartGameSessionPlacement</a> |
+ *                     <a>DescribeGameSessionPlacement</a> |
+ *                     <a>StopGameSessionPlacement</a> |
+ *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          </p>
  */
 export class UpdateGameSessionCommand extends $Command<
   UpdateGameSessionCommandInput,

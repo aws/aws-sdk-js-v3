@@ -21,7 +21,8 @@ export type UpdateMailboxQuotaCommandInput = UpdateMailboxQuotaRequest;
 export type UpdateMailboxQuotaCommandOutput = UpdateMailboxQuotaResponse & __MetadataBearer;
 
 /**
- * <p>Updates a user's current mailbox quota for a specified organization and user.</p>
+ * <p>Updates a user's current mailbox quota for a specified organization and
+ *          user.</p>
  */
 export class UpdateMailboxQuotaCommand extends $Command<
   UpdateMailboxQuotaCommandInput,

@@ -21,8 +21,8 @@ export type ListBuildsForProjectCommandInput = ListBuildsForProjectInput;
 export type ListBuildsForProjectCommandOutput = ListBuildsForProjectOutput & __MetadataBearer;
 
 /**
- * <p>Gets a list of build IDs for the specified build project, with each build ID
- *             representing a single build.</p>
+ * <p>Gets a list of build identifiers for the specified build project, with each build
+ *             identifier representing a single build.</p>
  */
 export class ListBuildsForProjectCommand extends $Command<
   ListBuildsForProjectCommandInput,

@@ -21,7 +21,7 @@ export type DeletePlaybackConfigurationCommandInput = DeletePlaybackConfiguratio
 export type DeletePlaybackConfigurationCommandOutput = DeletePlaybackConfigurationResponse & __MetadataBearer;
 
 /**
- * <p>Deletes the playback configuration for the specified name. </p>
+ * <p>Deletes the playback configuration for the specified name.</p>
  */
 export class DeletePlaybackConfigurationCommand extends $Command<
   DeletePlaybackConfigurationCommandInput,

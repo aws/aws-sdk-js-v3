@@ -21,7 +21,8 @@ export type AssociateSecurityKeyCommandInput = AssociateSecurityKeyRequest;
 export type AssociateSecurityKeyCommandOutput = AssociateSecurityKeyResponse & __MetadataBearer;
 
 /**
- * <p>Associates a security key to the instance.</p>
+ * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+ *          <p>Associates a security key to the instance.</p>
  */
 export class AssociateSecurityKeyCommand extends $Command<
   AssociateSecurityKeyCommandInput,

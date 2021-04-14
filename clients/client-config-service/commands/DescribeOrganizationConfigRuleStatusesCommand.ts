@@ -26,9 +26,7 @@ export type DescribeOrganizationConfigRuleStatusesCommandOutput = DescribeOrgani
 
 /**
  * <p>Provides organization config rule deployment status for an organization.</p>
- * 		       <p>Only a master account and a delegated administrator account can call this API.
- * 			When calling this API with a delegated administrator, you must ensure AWS Organizations
- * 			<code>ListDelegatedAdministrator</code> permissions are added.</p>
+ *
  * 		       <note>
  *             <p>The status is not considered successful until organization config rule is successfully deployed in all the member
  * 			accounts with an exception of excluded accounts.</p>

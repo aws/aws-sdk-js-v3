@@ -21,7 +21,12 @@ export type DescribeProfilingGroupCommandInput = DescribeProfilingGroupRequest;
 export type DescribeProfilingGroupCommandOutput = DescribeProfilingGroupResponse & __MetadataBearer;
 
 /**
- * <p>Describes a profiling group.</p>
+ * <p>
+ *          Returns a <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html">
+ *                <code>ProfilingGroupDescription</code>
+ *             </a>
+ *          object that contains information about the requested profiling group.
+ *       </p>
  */
 export class DescribeProfilingGroupCommand extends $Command<
   DescribeProfilingGroupCommandInput,

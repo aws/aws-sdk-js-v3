@@ -48,10 +48,21 @@ import {
   ListProposalsCommandOutput,
 } from "./commands/ListProposalsCommand";
 import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   RejectInvitationCommand,
   RejectInvitationCommandInput,
   RejectInvitationCommandOutput,
 } from "./commands/RejectInvitationCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
+} from "./commands/UntagResourceCommand";
 import {
   UpdateMemberCommand,
   UpdateMemberCommandInput,
@@ -67,11 +78,14 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <p></p>
- *          <p>Amazon Managed Blockchain is a fully managed service for creating and managing blockchain networks using open source frameworks. Blockchain allows you to build applications where multiple parties can securely and transparently run transactions and share data without the need for a trusted, central authority. Currently, Managed Blockchain supports the Hyperledger Fabric open source framework. </p>
+ *          <p>Amazon Managed Blockchain is a fully managed service for creating and managing blockchain networks using open-source frameworks. Blockchain allows you to build applications where multiple parties can securely and transparently run transactions and share data without the need for a trusted, central authority.</p>
+ *         <p>Managed Blockchain supports the Hyperledger Fabric and Ethereum open-source frameworks. Because of fundamental differences between the frameworks, some API actions or data types may only apply in the context of one framework and not the other. For example, actions related to Hyperledger Fabric network members such as <code>CreateMember</code> and <code>DeleteMember</code> do not apply to Ethereum.</p>
+ *         <p>The description for each action indicates the framework or frameworks to which it applies. Data types and properties that apply only in the context of a particular framework are similarly indicated.</p>
  */
 export class ManagedBlockchain extends ManagedBlockchainClient {
   /**
    * <p>Creates a member within a Managed Blockchain network.</p>
+   *          <p>Applies only to Hyperledger Fabric.</p>
    */
   public createMember(
     args: CreateMemberCommandInput,
@@ -101,6 +115,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
 
   /**
    * <p>Creates a new blockchain network using Amazon Managed Blockchain.</p>
+   *          <p>Applies only to Hyperledger Fabric.</p>
    */
   public createNetwork(
     args: CreateNetworkCommandInput,
@@ -132,7 +147,8 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
-   * <p>Creates a peer node in a member.</p>
+   * <p>Creates a node on the specified blockchain network.</p>
+   *          <p>Applies to Hyperledger Fabric and Ethereum.</p>
    */
   public createNode(args: CreateNodeCommandInput, options?: __HttpHandlerOptions): Promise<CreateNodeCommandOutput>;
   public createNode(args: CreateNodeCommandInput, cb: (err: any, data?: CreateNodeCommandOutput) => void): void;
@@ -159,6 +175,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
 
   /**
    * <p>Creates a proposal for a change to the network that other members of the network can vote on, for example, a proposal to add a new member to the network. Any member can create a proposal.</p>
+   *          <p>Applies only to Hyperledger Fabric.</p>
    */
   public createProposal(
     args: CreateProposalCommandInput,
@@ -191,6 +208,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
 
   /**
    * <p>Deletes a member. Deleting a member removes the member and all associated resources from the network. <code>DeleteMember</code> can only be called for a specified <code>MemberId</code> if the principal performing the action is associated with the AWS account that owns the member. In all other cases, the <code>DeleteMember</code> action is carried out as the result of an approved proposal to remove a member. If <code>MemberId</code> is the last member in a network specified by the last AWS account, the network is deleted also.</p>
+   *          <p>Applies only to Hyperledger Fabric.</p>
    */
   public deleteMember(
     args: DeleteMemberCommandInput,
@@ -219,7 +237,8 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
-   * <p>Deletes a peer node from a member that your AWS account owns. All data on the node is lost and cannot be recovered.</p>
+   * <p>Deletes a node that your AWS account owns. All data on the node is lost and cannot be recovered.</p>
+   *          <p>Applies to Hyperledger Fabric and Ethereum.</p>
    */
   public deleteNode(args: DeleteNodeCommandInput, options?: __HttpHandlerOptions): Promise<DeleteNodeCommandOutput>;
   public deleteNode(args: DeleteNodeCommandInput, cb: (err: any, data?: DeleteNodeCommandOutput) => void): void;
@@ -246,6 +265,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
 
   /**
    * <p>Returns detailed information about a member.</p>
+   *          <p>Applies only to Hyperledger Fabric.</p>
    */
   public getMember(args: GetMemberCommandInput, options?: __HttpHandlerOptions): Promise<GetMemberCommandOutput>;
   public getMember(args: GetMemberCommandInput, cb: (err: any, data?: GetMemberCommandOutput) => void): void;
@@ -272,6 +292,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
 
   /**
    * <p>Returns detailed information about a network.</p>
+   *          <p>Applies to Hyperledger Fabric and Ethereum.</p>
    */
   public getNetwork(args: GetNetworkCommandInput, options?: __HttpHandlerOptions): Promise<GetNetworkCommandOutput>;
   public getNetwork(args: GetNetworkCommandInput, cb: (err: any, data?: GetNetworkCommandOutput) => void): void;
@@ -297,7 +318,8 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
-   * <p>Returns detailed information about a peer node.</p>
+   * <p>Returns detailed information about a node.</p>
+   *          <p>Applies to Hyperledger Fabric and Ethereum.</p>
    */
   public getNode(args: GetNodeCommandInput, options?: __HttpHandlerOptions): Promise<GetNodeCommandOutput>;
   public getNode(args: GetNodeCommandInput, cb: (err: any, data?: GetNodeCommandOutput) => void): void;
@@ -324,6 +346,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
 
   /**
    * <p>Returns detailed information about a proposal.</p>
+   *          <p>Applies only to Hyperledger Fabric.</p>
    */
   public getProposal(args: GetProposalCommandInput, options?: __HttpHandlerOptions): Promise<GetProposalCommandOutput>;
   public getProposal(args: GetProposalCommandInput, cb: (err: any, data?: GetProposalCommandOutput) => void): void;
@@ -349,7 +372,8 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
-   * <p>Returns a listing of all invitations for the current AWS account.</p>
+   * <p>Returns a list of all invitations for the current AWS account.</p>
+   *          <p>Applies only to Hyperledger Fabric.</p>
    */
   public listInvitations(
     args: ListInvitationsCommandInput,
@@ -381,7 +405,8 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
-   * <p>Returns a listing of the members in a network and properties of their configurations.</p>
+   * <p>Returns a list of the members in a network and properties of their configurations.</p>
+   *          <p>Applies only to Hyperledger Fabric.</p>
    */
   public listMembers(args: ListMembersCommandInput, options?: __HttpHandlerOptions): Promise<ListMembersCommandOutput>;
   public listMembers(args: ListMembersCommandInput, cb: (err: any, data?: ListMembersCommandOutput) => void): void;
@@ -407,7 +432,8 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
-   * <p>Returns information about the networks in which the current AWS account has members.</p>
+   * <p>Returns information about the networks in which the current AWS account participates.</p>
+   *          <p>Applies to Hyperledger Fabric and Ethereum.</p>
    */
   public listNetworks(
     args: ListNetworksCommandInput,
@@ -437,6 +463,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
 
   /**
    * <p>Returns information about the nodes within a network.</p>
+   *          <p>Applies to Hyperledger Fabric and Ethereum.</p>
    */
   public listNodes(args: ListNodesCommandInput, options?: __HttpHandlerOptions): Promise<ListNodesCommandOutput>;
   public listNodes(args: ListNodesCommandInput, cb: (err: any, data?: ListNodesCommandOutput) => void): void;
@@ -462,7 +489,8 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
-   * <p>Returns a listing of proposals for the network.</p>
+   * <p>Returns a list of proposals for the network.</p>
+   *          <p>Applies only to Hyperledger Fabric.</p>
    */
   public listProposals(
     args: ListProposalsCommandInput,
@@ -494,7 +522,8 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
-   * <p>Returns the listing of votes for a specified proposal, including the value of each vote and the unique identifier of the member that cast the vote.</p>
+   * <p>Returns the list of votes for a specified proposal, including the value of each vote and the unique identifier of the member that cast the vote.</p>
+   *          <p>Applies only to Hyperledger Fabric.</p>
    */
   public listProposalVotes(
     args: ListProposalVotesCommandInput,
@@ -526,7 +555,41 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
+   * <p>Returns a list of tags for the specified resource. Each tag consists of a key and optional value.</p>
+   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
+   */
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): Promise<ListTagsForResourceCommandOutput> | void {
+    const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Rejects an invitation to join a network. This action can be called by a principal in an AWS account that has received an invitation to create a member and join a network.</p>
+   *          <p>Applies only to Hyperledger Fabric.</p>
    */
   public rejectInvitation(
     args: RejectInvitationCommandInput,
@@ -558,7 +621,70 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
+   * <p>Adds or overwrites the specified tags for the specified Amazon Managed Blockchain resource. Each tag consists of a key and optional value.</p>
+   *          <p>When you specify a tag key that already exists, the tag value is overwritten with the new value. Use <code>UntagResource</code> to remove tag keys.</p>
+   *          <p>A resource can have up to 50 tags. If you try to create more than 50 tags for a resource, your request fails and returns an error.</p>
+   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
+   */
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
+    cb?: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<TagResourceCommandOutput> | void {
+    const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes the specified tags from the Amazon Managed Blockchain resource.</p>
+   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
+   */
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
+    cb?: (err: any, data?: UntagResourceCommandOutput) => void
+  ): Promise<UntagResourceCommandOutput> | void {
+    const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates a member configuration with new parameters.</p>
+   *          <p>Applies only to Hyperledger Fabric.</p>
    */
   public updateMember(
     args: UpdateMemberCommandInput,
@@ -588,6 +714,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
 
   /**
    * <p>Updates a node configuration with new parameters.</p>
+   *          <p>Applies only to Hyperledger Fabric.</p>
    */
   public updateNode(args: UpdateNodeCommandInput, options?: __HttpHandlerOptions): Promise<UpdateNodeCommandOutput>;
   public updateNode(args: UpdateNodeCommandInput, cb: (err: any, data?: UpdateNodeCommandOutput) => void): void;
@@ -614,6 +741,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
 
   /**
    * <p>Casts a vote for a specified <code>ProposalId</code> on behalf of a member. The member to vote as, specified by <code>VoterMemberId</code>, must be in the same AWS account as the principal that calls the action.</p>
+   *          <p>Applies only to Hyperledger Fabric.</p>
    */
   public voteOnProposal(
     args: VoteOnProposalCommandInput,

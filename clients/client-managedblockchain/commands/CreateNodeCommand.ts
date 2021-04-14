@@ -25,7 +25,8 @@ export type CreateNodeCommandInput = CreateNodeInput;
 export type CreateNodeCommandOutput = CreateNodeOutput & __MetadataBearer;
 
 /**
- * <p>Creates a peer node in a member.</p>
+ * <p>Creates a node on the specified blockchain network.</p>
+ *          <p>Applies to Hyperledger Fabric and Ethereum.</p>
  */
 export class CreateNodeCommand extends $Command<
   CreateNodeCommandInput,

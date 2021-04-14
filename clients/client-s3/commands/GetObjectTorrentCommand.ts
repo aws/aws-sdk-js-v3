@@ -31,7 +31,7 @@ export type GetObjectTorrentCommandOutput = GetObjectTorrentOutput & __MetadataB
  *          </note>
  *          <p>To use GET, you must have READ access to the object.</p>
  *          <p>This action is not supported by Amazon S3 on Outposts.</p>
- *          <p>The following operation is related to <code>GetObjectTorrent</code>:</p>
+ *          <p>The following action is related to <code>GetObjectTorrent</code>:</p>
  *          <ul>
  *             <li>
  *                <p>

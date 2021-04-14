@@ -21,7 +21,8 @@ export type DescribeLocationFsxWindowsCommandInput = DescribeLocationFsxWindowsR
 export type DescribeLocationFsxWindowsCommandOutput = DescribeLocationFsxWindowsResponse & __MetadataBearer;
 
 /**
- * <p>Returns metadata, such as the path information about an Amazon FSx for Windows location.</p>
+ * <p>Returns metadata, such as the path information about an Amazon FSx for Windows File Server
+ *       location.</p>
  */
 export class DescribeLocationFsxWindowsCommand extends $Command<
   DescribeLocationFsxWindowsCommandInput,

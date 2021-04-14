@@ -23,7 +23,7 @@ export type DeleteCacheParameterGroupCommandOutput = __MetadataBearer;
 /**
  * <p>Deletes the specified cache parameter
  *             group. You cannot delete a cache parameter group if it is associated with any cache
- *             clusters.</p>
+ *             clusters. You cannot delete the default cache parameter groups in your account.</p>
  */
 export class DeleteCacheParameterGroupCommand extends $Command<
   DeleteCacheParameterGroupCommandInput,

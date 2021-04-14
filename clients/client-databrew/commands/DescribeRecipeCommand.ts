@@ -21,8 +21,8 @@ export type DescribeRecipeCommandInput = DescribeRecipeRequest;
 export type DescribeRecipeCommandOutput = DescribeRecipeResponse & __MetadataBearer;
 
 /**
- * <p>Returns the definition of a specific AWS Glue DataBrew recipe that is in the current
- *             AWS account.</p>
+ * <p>Returns the definition of a specific DataBrew recipe corresponding to a particular
+ *             version.</p>
  */
 export class DescribeRecipeCommand extends $Command<
   DescribeRecipeCommandInput,

@@ -21,8 +21,9 @@ export type PutEventsConfigurationCommandInput = PutEventsConfigurationRequest;
 export type PutEventsConfigurationCommandOutput = PutEventsConfigurationResponse & __MetadataBearer;
 
 /**
- * <p>Creates an events configuration that allows a bot to receive outgoing events sent by Amazon Chime.
- *       Choose either an HTTPS endpoint or a Lambda function ARN. For more information, see <a>Bot</a>.</p>
+ * <p>Creates an events configuration that allows a bot to receive outgoing events sent by Amazon
+ *             Chime. Choose either an HTTPS endpoint or a Lambda function ARN. For more information,
+ *             see <a>Bot</a>.</p>
  */
 export class PutEventsConfigurationCommand extends $Command<
   PutEventsConfigurationCommandInput,

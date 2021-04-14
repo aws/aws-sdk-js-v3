@@ -267,6 +267,7 @@ import {
   DomainNotWhitelistedException,
   ErrorInfo,
   ExportToCSVOption,
+  FieldFolder,
   FilterOperation,
   GeoSpatialColumnGroup,
   Group,
@@ -600,6 +601,10 @@ export const serializeAws_restJson1CreateDataSetCommand = async (
         ),
       }),
     ...(input.DataSetId !== undefined && input.DataSetId !== null && { DataSetId: input.DataSetId }),
+    ...(input.FieldFolders !== undefined &&
+      input.FieldFolders !== null && {
+        FieldFolders: serializeAws_restJson1FieldFolderMap(input.FieldFolders, context),
+      }),
     ...(input.ImportMode !== undefined && input.ImportMode !== null && { ImportMode: input.ImportMode }),
     ...(input.LogicalTableMap !== undefined &&
       input.LogicalTableMap !== null && {
@@ -4083,6 +4088,10 @@ export const serializeAws_restJson1UpdateDataSetCommand = async (
           input.ColumnLevelPermissionRules,
           context
         ),
+      }),
+    ...(input.FieldFolders !== undefined &&
+      input.FieldFolders !== null && {
+        FieldFolders: serializeAws_restJson1FieldFolderMap(input.FieldFolders, context),
       }),
     ...(input.ImportMode !== undefined && input.ImportMode !== null && { ImportMode: input.ImportMode }),
     ...(input.LogicalTableMap !== undefined &&
@@ -16696,11 +16705,42 @@ const serializeAws_restJson1ExportToCSVOption = (input: ExportToCSVOption, conte
   };
 };
 
+const serializeAws_restJson1FieldFolder = (input: FieldFolder, context: __SerdeContext): any => {
+  return {
+    ...(input.columns !== undefined &&
+      input.columns !== null && { columns: serializeAws_restJson1FolderColumnList(input.columns, context) }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+  };
+};
+
+const serializeAws_restJson1FieldFolderMap = (input: { [key: string]: FieldFolder }, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: FieldFolder }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_restJson1FieldFolder(value, context),
+    };
+  }, {});
+};
+
 const serializeAws_restJson1FilterOperation = (input: FilterOperation, context: __SerdeContext): any => {
   return {
     ...(input.ConditionExpression !== undefined &&
       input.ConditionExpression !== null && { ConditionExpression: input.ConditionExpression }),
   };
+};
+
+const serializeAws_restJson1FolderColumnList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1GeoSpatialColumnGroup = (input: GeoSpatialColumnGroup, context: __SerdeContext): any => {
@@ -17003,6 +17043,7 @@ const serializeAws_restJson1RedshiftParameters = (input: RedshiftParameters, con
 
 const serializeAws_restJson1RelationalTable = (input: RelationalTable, context: __SerdeContext): any => {
   return {
+    ...(input.Catalog !== undefined && input.Catalog !== null && { Catalog: input.Catalog }),
     ...(input.DataSourceArn !== undefined && input.DataSourceArn !== null && { DataSourceArn: input.DataSourceArn }),
     ...(input.InputColumns !== undefined &&
       input.InputColumns !== null && {
@@ -17949,6 +17990,10 @@ const deserializeAws_restJson1DataSet = (output: any, context: __SerdeContext): 
         ? new Date(Math.round(output.CreatedTime * 1000))
         : undefined,
     DataSetId: output.DataSetId !== undefined && output.DataSetId !== null ? output.DataSetId : undefined,
+    FieldFolders:
+      output.FieldFolders !== undefined && output.FieldFolders !== null
+        ? deserializeAws_restJson1FieldFolderMap(output.FieldFolders, context)
+        : undefined,
     ImportMode: output.ImportMode !== undefined && output.ImportMode !== null ? output.ImportMode : undefined,
     LastUpdatedTime:
       output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
@@ -18248,6 +18293,31 @@ const deserializeAws_restJson1ErrorInfo = (output: any, context: __SerdeContext)
   } as any;
 };
 
+const deserializeAws_restJson1FieldFolder = (output: any, context: __SerdeContext): FieldFolder => {
+  return {
+    columns:
+      output.columns !== undefined && output.columns !== null
+        ? deserializeAws_restJson1FolderColumnList(output.columns, context)
+        : undefined,
+    description: output.description !== undefined && output.description !== null ? output.description : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1FieldFolderMap = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: FieldFolder } => {
+  return Object.entries(output).reduce((acc: { [key: string]: FieldFolder }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: deserializeAws_restJson1FieldFolder(value, context),
+    };
+  }, {});
+};
+
 const deserializeAws_restJson1FilterOperation = (output: any, context: __SerdeContext): FilterOperation => {
   return {
     ConditionExpression:
@@ -18255,6 +18325,17 @@ const deserializeAws_restJson1FilterOperation = (output: any, context: __SerdeCo
         ? output.ConditionExpression
         : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1FolderColumnList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1GeoSpatialColumnGroup = (output: any, context: __SerdeContext): GeoSpatialColumnGroup => {
@@ -18712,6 +18793,7 @@ const deserializeAws_restJson1RedshiftParameters = (output: any, context: __Serd
 
 const deserializeAws_restJson1RelationalTable = (output: any, context: __SerdeContext): RelationalTable => {
   return {
+    Catalog: output.Catalog !== undefined && output.Catalog !== null ? output.Catalog : undefined,
     DataSourceArn:
       output.DataSourceArn !== undefined && output.DataSourceArn !== null ? output.DataSourceArn : undefined,
     InputColumns:

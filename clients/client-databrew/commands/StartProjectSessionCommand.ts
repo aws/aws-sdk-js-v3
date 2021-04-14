@@ -21,7 +21,7 @@ export type StartProjectSessionCommandInput = StartProjectSessionRequest;
 export type StartProjectSessionCommandOutput = StartProjectSessionResponse & __MetadataBearer;
 
 /**
- * <p>Creates an interactive session, enabling you to manipulate an AWS Glue DataBrew
+ * <p>Creates an interactive session, enabling you to manipulate data in a DataBrew
  *             project.</p>
  */
 export class StartProjectSessionCommand extends $Command<

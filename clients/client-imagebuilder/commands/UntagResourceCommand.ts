@@ -21,7 +21,7 @@ export type UntagResourceCommandInput = UntagResourceRequest;
 export type UntagResourceCommandOutput = UntagResourceResponse & __MetadataBearer;
 
 /**
- * <p> Removes a tag from a resource. </p>
+ * <p> Removes a tag from a resource.</p>
  */
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,

@@ -22,8 +22,8 @@ export type InviteUsersCommandOutput = InviteUsersResponse & __MetadataBearer;
 
 /**
  * <p>Sends email to a maximum of 50 users, inviting them to the specified Amazon Chime
- *         <code>Team</code> account. Only <code>Team</code> account types are currently supported for
- *       this action. </p>
+ *                 <code>Team</code> account. Only <code>Team</code> account types are currently
+ *             supported for this action.</p>
  */
 export class InviteUsersCommand extends $Command<
   InviteUsersCommandInput,

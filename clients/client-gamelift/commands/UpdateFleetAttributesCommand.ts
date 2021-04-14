@@ -21,70 +21,34 @@ export type UpdateFleetAttributesCommandInput = UpdateFleetAttributesInput;
 export type UpdateFleetAttributesCommandOutput = UpdateFleetAttributesOutput & __MetadataBearer;
 
 /**
- * <p>Updates fleet properties, including name and description, for a fleet. To update
- *             metadata, specify the fleet ID and the property values that you want to change. If
- *             successful, the fleet ID for the updated fleet is returned.</p>
+ * <p>Updates a fleet's mutable attributes, including game session protection and resource
+ *             creation limits.</p>
+ *         <p>To update fleet attributes, specify the fleet ID and the property values that you want
+ *             to change. </p>
+ *         <p>If successful, an updated <code>FleetAttributes</code> object is returned.</p>
  *         <p>
  *             <b>Learn more</b>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift Fleets</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift fleets</a>
  *          </p>
  *         <p>
- *             <b>Related operations</b>
+ *             <b>Related actions</b>
  *          </p>
- *         <ul>
- *             <li>
- *                <p>
- *                   <a>CreateFleet</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListFleets</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteFleet</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DescribeFleetAttributes</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>Update fleets:</p>
- *                         <ul>
- *                   <li>
- *                      <p>
- *                         <a>UpdateFleetAttributes</a>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <a>UpdateFleetCapacity</a>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <a>UpdateFleetPortSettings</a>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <a>UpdateRuntimeConfiguration</a>
- *                      </p>
- *                   </li>
- *                </ul>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>StartFleetActions</a> or <a>StopFleetActions</a>
- *                </p>
- *             </li>
- *          </ul>
+ *                     <p>
+ *             <a>CreateFleetLocations</a> |
+ *                     <a>UpdateFleetAttributes</a> |
+ *                     <a>UpdateFleetCapacity</a> |
+ *                     <a>UpdateFleetPortSettings</a> |
+ *                     <a>UpdateRuntimeConfiguration</a> |
+ *                     <a>StopFleetActions</a> |
+ *                     <a>StartFleetActions</a> |
+ *                     <a>PutScalingPolicy</a> |
+ *                     <a>DeleteFleet</a> |
+ *                     <a>DeleteFleetLocations</a> |
+ *                     <a>DeleteScalingPolicy</a> |
+ *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          </p>
  */
 export class UpdateFleetAttributesCommand extends $Command<
   UpdateFleetAttributesCommandInput,

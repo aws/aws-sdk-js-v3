@@ -624,6 +624,10 @@ export interface MutableClusterInfo {
   KafkaVersion?: string;
 
   LoggingInfo?: LoggingInfo;
+  /**
+   * <p>Information about the Amazon MSK broker type.</p>
+   */
+  InstanceType?: string;
 }
 
 export namespace MutableClusterInfo {
@@ -2201,6 +2205,47 @@ export interface UpdateBrokerStorageResponse {
 
 export namespace UpdateBrokerStorageResponse {
   export const filterSensitiveLog = (obj: UpdateBrokerStorageResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateBrokerTypeRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p>The cluster version that you want to change. After this operation completes successfully, the cluster will have a new version.</p>
+   */
+  CurrentVersion: string | undefined;
+
+  /**
+   * <p>The Amazon MSK broker type that you want all of the brokers in this cluster to be.</p>
+   */
+  TargetInstanceType: string | undefined;
+}
+
+export namespace UpdateBrokerTypeRequest {
+  export const filterSensitiveLog = (obj: UpdateBrokerTypeRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateBrokerTypeResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   */
+  ClusterArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
+   */
+  ClusterOperationArn?: string;
+}
+
+export namespace UpdateBrokerTypeResponse {
+  export const filterSensitiveLog = (obj: UpdateBrokerTypeResponse): any => ({
     ...obj,
   });
 }

@@ -29,16 +29,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ConnectParticipantClient` and
-the commands you need, for example `CreateParticipantConnectionCommand`:
+the commands you need, for example `CompleteAttachmentUploadCommand`:
 
 ```js
 // ES5 example
-const { ConnectParticipantClient, CreateParticipantConnectionCommand } = require("@aws-sdk/client-connectparticipant");
+const { ConnectParticipantClient, CompleteAttachmentUploadCommand } = require("@aws-sdk/client-connectparticipant");
 ```
 
 ```ts
 // ES6+ example
-import { ConnectParticipantClient, CreateParticipantConnectionCommand } from "@aws-sdk/client-connectparticipant";
+import { ConnectParticipantClient, CompleteAttachmentUploadCommand } from "@aws-sdk/client-connectparticipant";
 ```
 
 ### Usage
@@ -57,7 +57,7 @@ const client = new ConnectParticipantClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateParticipantConnectionCommand(params);
+const command = new CompleteAttachmentUploadCommand(params);
 ```
 
 #### Async/await
@@ -136,7 +136,7 @@ const client = new AWS.ConnectParticipant({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createParticipantConnection(params);
+  const data = await client.completeAttachmentUpload(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -144,7 +144,7 @@ try {
 
 // Promises.
 client
-  .createParticipantConnection(params)
+  .completeAttachmentUpload(params)
   .then((data) => {
     // process data.
   })
@@ -153,7 +153,7 @@ client
   });
 
 // callbacks.
-client.createParticipantConnection(params, (err, data) => {
+client.completeAttachmentUpload(params, (err, data) => {
   // proccess err and data.
 });
 ```

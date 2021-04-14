@@ -28,23 +28,23 @@ export type TagResourcesCommandOutput = TagResourcesOutput & __MetadataBearer;
  * <p>Applies one or more tags to the specified resources. Note the following:</p>
  *         <ul>
  *             <li>
- *                 <p>Not all resources can have tags. For a list of services that support tagging,
- *                     see <a href="http://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/Welcome.html">this list</a>.</p>
+ *                 <p>Not all resources can have tags. For a list of services with resources that
+ *                     support tagging using this operation, see <a href="https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/supported-services.html">Services that support the
+ *                         Resource Groups Tagging API</a>.</p>
  *             </li>
  *             <li>
- *                 <p>Each resource can have up to 50 tags. For other limits, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_tagging.html#tag-conventions">Tag Naming and Usage
- *                         Conventions</a> in the <i>AWS General
- *                     Reference.</i>
+ *                 <p>Each resource can have up to 50 tags. For other limits, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html#tag-conventions">Tag Naming and Usage Conventions</a> in the <i>AWS General
+ *                         Reference.</i>
  *                </p>
  *             </li>
  *             <li>
- *                 <p>You can only tag resources that are located in the specified Region for the
- *                     AWS account.</p>
+ *                 <p>You can only tag resources that are located in the specified AWS Region for
+ *                     the AWS account.</p>
  *             </li>
  *             <li>
  *                 <p>To add tags to a resource, you need the necessary permissions for the service
  *                     that the resource belongs to as well as permissions for adding tags. For more
- *                     information, see <a href="http://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/Welcome.html">this list</a>.</p>
+ *                     information, see the documentation for each service.</p>
  *             </li>
  *          </ul>
  *         <important>

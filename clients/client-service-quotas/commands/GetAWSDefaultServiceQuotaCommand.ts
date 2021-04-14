@@ -21,8 +21,8 @@ export type GetAWSDefaultServiceQuotaCommandInput = GetAWSDefaultServiceQuotaReq
 export type GetAWSDefaultServiceQuotaCommandOutput = GetAWSDefaultServiceQuotaResponse & __MetadataBearer;
 
 /**
- * <p>Retrieves the default service quotas values. The Value returned for each quota is the AWS
- *       default value, even if the quotas have been increased.. </p>
+ * <p>Retrieves the default value for the specified quota. The default value does not reflect
+ *       any quota increases.</p>
  */
 export class GetAWSDefaultServiceQuotaCommand extends $Command<
   GetAWSDefaultServiceQuotaCommandInput,

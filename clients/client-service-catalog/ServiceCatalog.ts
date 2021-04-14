@@ -141,6 +141,11 @@ import {
   DescribePortfolioShareStatusCommandOutput,
 } from "./commands/DescribePortfolioShareStatusCommand";
 import {
+  DescribePortfolioSharesCommand,
+  DescribePortfolioSharesCommandInput,
+  DescribePortfolioSharesCommandOutput,
+} from "./commands/DescribePortfolioSharesCommand";
+import {
   DescribeProductAsAdminCommand,
   DescribeProductAsAdminCommandInput,
   DescribeProductAsAdminCommandOutput,
@@ -390,6 +395,11 @@ import {
   UpdatePortfolioCommandInput,
   UpdatePortfolioCommandOutput,
 } from "./commands/UpdatePortfolioCommand";
+import {
+  UpdatePortfolioShareCommand,
+  UpdatePortfolioShareCommandInput,
+  UpdatePortfolioShareCommandOutput,
+} from "./commands/UpdatePortfolioShareCommand";
 import {
   UpdateProductCommand,
   UpdateProductCommandInput,
@@ -799,7 +809,8 @@ export class ServiceCatalog extends ServiceCatalogClient {
    *          <p>Note that if a delegated admin is de-registered, they can no longer create portfolio shares.</p>
    *         <p>
    *             <code>AWSOrganizationsAccess</code> must be enabled in order to create a portfolio share to an organization node.</p>
-   *          <p>You can't share a shared resource. This includes portfolios that contain a shared product.</p>
+   *          <p>You can't share a shared resource, including portfolios that contain a shared product.</p>
+   *          <p>If the portfolio share with the specified account or organization node already exists, this action will have no effect and will not return an error. To update an existing share, you must use the <code> UpdatePortfolioShare</code> API instead.</p>
    */
   public createPortfolioShare(
     args: CreatePortfolioShareCommandInput,
@@ -833,6 +844,11 @@ export class ServiceCatalog extends ServiceCatalogClient {
   /**
    * <p>Creates a product.</p>
    *          <p>A delegated admin is authorized to invoke this command.</p>
+   *
+   *          <p>The user or role that performs this operation must have the
+   *             <code>cloudformation:GetTemplate</code> IAM policy permission. This policy permission is
+   *          required when using the <code>ImportFromPhysicalId</code> template source in the
+   *          information data section.</p>
    */
   public createProduct(
     args: CreateProductCommandInput,
@@ -904,6 +920,10 @@ export class ServiceCatalog extends ServiceCatalogClient {
   /**
    * <p>Creates a provisioning artifact (also known as a version) for the specified product.</p>
    *          <p>You cannot create a provisioning artifact for a product that was shared with you.</p>
+   *
+   *          <p>The user or role that performs this operation must have the <code>cloudformation:GetTemplate</code>
+   *          IAM policy permission. This policy permission is required when using the
+   *          <code>ImportFromPhysicalId</code> template source in the information data section.</p>
    */
   public createProvisioningArtifact(
     args: CreateProvisioningArtifactCommandInput,
@@ -1354,6 +1374,42 @@ export class ServiceCatalog extends ServiceCatalogClient {
     cb?: (err: any, data?: DescribePortfolioCommandOutput) => void
   ): Promise<DescribePortfolioCommandOutput> | void {
     const command = new DescribePortfolioCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a summary of each of the portfolio shares that were created for the specified portfolio.</p>
+   *          <p>You can use this API to determine which accounts or organizational nodes this
+   *          portfolio have been shared, whether the recipient entity has imported the share, and
+   *          whether TagOptions are included with the share.</p>
+   *          <p>The <code>PortfolioId</code> and <code>Type</code> parameters are both required.</p>
+   */
+  public describePortfolioShares(
+    args: DescribePortfolioSharesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribePortfolioSharesCommandOutput>;
+  public describePortfolioShares(
+    args: DescribePortfolioSharesCommandInput,
+    cb: (err: any, data?: DescribePortfolioSharesCommandOutput) => void
+  ): void;
+  public describePortfolioShares(
+    args: DescribePortfolioSharesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribePortfolioSharesCommandOutput) => void
+  ): void;
+  public describePortfolioShares(
+    args: DescribePortfolioSharesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePortfolioSharesCommandOutput) => void),
+    cb?: (err: any, data?: DescribePortfolioSharesCommandOutput) => void
+  ): Promise<DescribePortfolioSharesCommandOutput> | void {
+    const command = new DescribePortfolioSharesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2138,16 +2194,19 @@ export class ServiceCatalog extends ServiceCatalogClient {
 
   /**
    * <p>Requests the import of a resource as a Service Catalog provisioned product that is
-   *          associated to a Service Catalog product and provisioning artifact. Once imported all
+   *          associated to a Service Catalog product and provisioning artifact. Once imported, all
    *          supported Service Catalog governance actions are supported on the provisioned
    *          product.</p>
    *          <p>Resource import only supports CloudFormation stack ARNs. CloudFormation StackSets and
    *          non-root nested stacks are not supported.</p>
    *          <p>The CloudFormation stack must have one of the following statuses to be imported:
-   *          CREATE_COMPLETE, UPDATE_COMPLETE, UPDATE_ROLLBACK_COMPLETE, IMPORT_COMPLETE,
-   *          IMPORT_ROLLBACK_COMPLETE.</p>
+   *          <code>CREATE_COMPLETE</code>, <code>UPDATE_COMPLETE</code>, <code>UPDATE_ROLLBACK_COMPLETE</code>, <code>IMPORT_COMPLETE</code>,
+   *          <code>IMPORT_ROLLBACK_COMPLETE</code>.</p>
    *          <p>Import of the resource requires that the CloudFormation stack template matches the
    *          associated Service Catalog product provisioning artifact. </p>
+   *
+   *          <p>The user or role that performs this operation must have the <code>cloudformation:GetTemplate</code>
+   *          and <code>cloudformation:DescribeStacks</code> IAM policy permissions. </p>
    */
   public importAsProvisionedProduct(
     args: ImportAsProvisionedProductCommandInput,
@@ -3056,6 +3115,46 @@ export class ServiceCatalog extends ServiceCatalogClient {
     cb?: (err: any, data?: UpdatePortfolioCommandOutput) => void
   ): Promise<UpdatePortfolioCommandOutput> | void {
     const command = new UpdatePortfolioCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the specified portfolio share. You can use this API to enable or disable TagOptions sharing for an existing portfolio share. </p>
+   *
+   *          <p>The portfolio share cannot be updated if the <code> CreatePortfolioShare</code> operation is <code>IN_PROGRESS</code>, as the share is not available to recipient entities. In this case, you must wait for the portfolio share to be COMPLETED.</p>
+   *
+   *          <p>You must provide the <code>accountId</code> or organization node in the input, but not both.</p>
+   *
+   *          <p>If the portfolio is shared to both an external account and an organization node, and both shares need to be updated, you must invoke <code>UpdatePortfolioShare</code> separately for each share type. </p>
+   *
+   *          <p>This API cannot be used for removing the portfolio share. You must use <code>DeletePortfolioShare</code> API for that action. </p>
+   */
+  public updatePortfolioShare(
+    args: UpdatePortfolioShareCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePortfolioShareCommandOutput>;
+  public updatePortfolioShare(
+    args: UpdatePortfolioShareCommandInput,
+    cb: (err: any, data?: UpdatePortfolioShareCommandOutput) => void
+  ): void;
+  public updatePortfolioShare(
+    args: UpdatePortfolioShareCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePortfolioShareCommandOutput) => void
+  ): void;
+  public updatePortfolioShare(
+    args: UpdatePortfolioShareCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePortfolioShareCommandOutput) => void),
+    cb?: (err: any, data?: UpdatePortfolioShareCommandOutput) => void
+  ): Promise<UpdatePortfolioShareCommandOutput> | void {
+    const command = new UpdatePortfolioShareCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

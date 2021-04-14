@@ -28,8 +28,8 @@ export type StartTaskExecutionCommandOutput = StartTaskExecutionResponse & __Met
  *             <code>TaskExecution</code> has the following transition phases: INITIALIZING |
  *       PREPARING | TRANSFERRING | VERIFYING | SUCCESS/FAILURE. </p>
  *
- *          <p>For detailed information, see the Task Execution section in the Components
- *       and Terminology topic in the <i>AWS DataSync User Guide</i>.</p>
+ *          <p>For detailed information, see the Task Execution section in the Components and
+ *       Terminology topic in the <i>AWS DataSync User Guide</i>.</p>
  */
 export class StartTaskExecutionCommand extends $Command<
   StartTaskExecutionCommandInput,

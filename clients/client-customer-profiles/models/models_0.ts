@@ -184,6 +184,149 @@ export namespace Address {
   });
 }
 
+export enum MarketoConnectorOperator {
+  ADDITION = "ADDITION",
+  BETWEEN = "BETWEEN",
+  DIVISION = "DIVISION",
+  GREATER_THAN = "GREATER_THAN",
+  LESS_THAN = "LESS_THAN",
+  MASK_ALL = "MASK_ALL",
+  MASK_FIRST_N = "MASK_FIRST_N",
+  MASK_LAST_N = "MASK_LAST_N",
+  MULTIPLICATION = "MULTIPLICATION",
+  NO_OP = "NO_OP",
+  PROJECTION = "PROJECTION",
+  SUBTRACTION = "SUBTRACTION",
+  VALIDATE_NON_NEGATIVE = "VALIDATE_NON_NEGATIVE",
+  VALIDATE_NON_NULL = "VALIDATE_NON_NULL",
+  VALIDATE_NON_ZERO = "VALIDATE_NON_ZERO",
+  VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
+}
+
+export enum S3ConnectorOperator {
+  ADDITION = "ADDITION",
+  BETWEEN = "BETWEEN",
+  DIVISION = "DIVISION",
+  EQUAL_TO = "EQUAL_TO",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  MASK_ALL = "MASK_ALL",
+  MASK_FIRST_N = "MASK_FIRST_N",
+  MASK_LAST_N = "MASK_LAST_N",
+  MULTIPLICATION = "MULTIPLICATION",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NO_OP = "NO_OP",
+  PROJECTION = "PROJECTION",
+  SUBTRACTION = "SUBTRACTION",
+  VALIDATE_NON_NEGATIVE = "VALIDATE_NON_NEGATIVE",
+  VALIDATE_NON_NULL = "VALIDATE_NON_NULL",
+  VALIDATE_NON_ZERO = "VALIDATE_NON_ZERO",
+  VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
+}
+
+export enum SalesforceConnectorOperator {
+  ADDITION = "ADDITION",
+  BETWEEN = "BETWEEN",
+  CONTAINS = "CONTAINS",
+  DIVISION = "DIVISION",
+  EQUAL_TO = "EQUAL_TO",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  MASK_ALL = "MASK_ALL",
+  MASK_FIRST_N = "MASK_FIRST_N",
+  MASK_LAST_N = "MASK_LAST_N",
+  MULTIPLICATION = "MULTIPLICATION",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NO_OP = "NO_OP",
+  PROJECTION = "PROJECTION",
+  SUBTRACTION = "SUBTRACTION",
+  VALIDATE_NON_NEGATIVE = "VALIDATE_NON_NEGATIVE",
+  VALIDATE_NON_NULL = "VALIDATE_NON_NULL",
+  VALIDATE_NON_ZERO = "VALIDATE_NON_ZERO",
+  VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
+}
+
+export enum ServiceNowConnectorOperator {
+  ADDITION = "ADDITION",
+  BETWEEN = "BETWEEN",
+  CONTAINS = "CONTAINS",
+  DIVISION = "DIVISION",
+  EQUAL_TO = "EQUAL_TO",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  MASK_ALL = "MASK_ALL",
+  MASK_FIRST_N = "MASK_FIRST_N",
+  MASK_LAST_N = "MASK_LAST_N",
+  MULTIPLICATION = "MULTIPLICATION",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NO_OP = "NO_OP",
+  PROJECTION = "PROJECTION",
+  SUBTRACTION = "SUBTRACTION",
+  VALIDATE_NON_NEGATIVE = "VALIDATE_NON_NEGATIVE",
+  VALIDATE_NON_NULL = "VALIDATE_NON_NULL",
+  VALIDATE_NON_ZERO = "VALIDATE_NON_ZERO",
+  VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
+}
+
+export enum ZendeskConnectorOperator {
+  ADDITION = "ADDITION",
+  DIVISION = "DIVISION",
+  GREATER_THAN = "GREATER_THAN",
+  MASK_ALL = "MASK_ALL",
+  MASK_FIRST_N = "MASK_FIRST_N",
+  MASK_LAST_N = "MASK_LAST_N",
+  MULTIPLICATION = "MULTIPLICATION",
+  NO_OP = "NO_OP",
+  PROJECTION = "PROJECTION",
+  SUBTRACTION = "SUBTRACTION",
+  VALIDATE_NON_NEGATIVE = "VALIDATE_NON_NEGATIVE",
+  VALIDATE_NON_NULL = "VALIDATE_NON_NULL",
+  VALIDATE_NON_ZERO = "VALIDATE_NON_ZERO",
+  VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
+}
+
+/**
+ * <p>The operation to be performed on the provided source fields.</p>
+ */
+export interface ConnectorOperator {
+  /**
+   * <p>The operation to be performed on the provided Marketo source fields.</p>
+   */
+  Marketo?: MarketoConnectorOperator | string;
+
+  /**
+   * <p>The operation to be performed on the provided Amazon S3 source fields.</p>
+   */
+  S3?: S3ConnectorOperator | string;
+
+  /**
+   * <p>The operation to be performed on the provided Salesforce source fields.</p>
+   */
+  Salesforce?: SalesforceConnectorOperator | string;
+
+  /**
+   * <p>The operation to be performed on the provided ServiceNow source fields.</p>
+   */
+  ServiceNow?: ServiceNowConnectorOperator | string;
+
+  /**
+   * <p>The operation to be performed on the provided Zendesk source fields.</p>
+   */
+  Zendesk?: ZendeskConnectorOperator | string;
+}
+
+export namespace ConnectorOperator {
+  export const filterSensitiveLog = (obj: ConnectorOperator): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateDomainRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -205,8 +348,8 @@ export interface CreateDomainRequest {
   /**
    * <p>The URL of the SQS dead letter queue, which is used for reporting errors associated with
    *          ingesting data from third party applications. You must set up a policy on the
-   *          DeadLetterQueue for the SendMessage operation to enable Amazon Connect Customer Profiles to
-   *          send messages to the DeadLetterQueue.</p>
+   *          DeadLetterQueue for the SendMessage operation to enable Amazon Connect Customer Profiles to send
+   *          messages to the DeadLetterQueue.</p>
    */
   DeadLetterQueueUrl?: string;
 
@@ -449,7 +592,7 @@ export interface DeleteIntegrationRequest {
   /**
    * <p>The URI of the S3 bucket or any other type of data source.</p>
    */
-  Uri?: string;
+  Uri: string | undefined;
 }
 
 export namespace DeleteIntegrationRequest {
@@ -721,7 +864,7 @@ export interface GetIntegrationRequest {
   /**
    * <p>The URI of the S3 bucket or any other type of data source.</p>
    */
-  Uri?: string;
+  Uri: string | undefined;
 }
 
 export namespace GetIntegrationRequest {
@@ -1415,6 +1558,416 @@ export namespace ListTagsForResourceResponse {
   });
 }
 
+export enum SourceConnectorType {
+  MARKETO = "Marketo",
+  S3 = "S3",
+  SALESFORCE = "Salesforce",
+  SERVICENOW = "Servicenow",
+  ZENDESK = "Zendesk",
+}
+
+/**
+ * <p>Specifies the configuration used when importing incremental records from the
+ *          source.</p>
+ */
+export interface IncrementalPullConfig {
+  /**
+   * <p>A field that specifies the date time or timestamp field as the criteria to use when
+   *          importing incremental records from the source.</p>
+   */
+  DatetimeTypeFieldName?: string;
+}
+
+export namespace IncrementalPullConfig {
+  export const filterSensitiveLog = (obj: IncrementalPullConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The properties that are applied when Marketo is being used as a source.</p>
+ */
+export interface MarketoSourceProperties {
+  /**
+   * <p>The object specified in the Marketo flow source.</p>
+   */
+  Object: string | undefined;
+}
+
+export namespace MarketoSourceProperties {
+  export const filterSensitiveLog = (obj: MarketoSourceProperties): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The properties that are applied when Amazon S3 is being used as the flow source.</p>
+ */
+export interface S3SourceProperties {
+  /**
+   * <p>The Amazon S3 bucket name where the source files are stored.</p>
+   */
+  BucketName: string | undefined;
+
+  /**
+   * <p>The object key for the Amazon S3 bucket in which the source files are stored.</p>
+   */
+  BucketPrefix?: string;
+}
+
+export namespace S3SourceProperties {
+  export const filterSensitiveLog = (obj: S3SourceProperties): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The properties that are applied when Salesforce is being used as a source.</p>
+ */
+export interface SalesforceSourceProperties {
+  /**
+   * <p>The object specified in the Salesforce flow source.</p>
+   */
+  Object: string | undefined;
+
+  /**
+   * <p>The flag that enables dynamic fetching of new (recently added) fields in the Salesforce
+   *          objects while running a flow.</p>
+   */
+  EnableDynamicFieldUpdate?: boolean;
+
+  /**
+   * <p>Indicates whether Amazon AppFlow includes deleted files in the flow run.</p>
+   */
+  IncludeDeletedRecords?: boolean;
+}
+
+export namespace SalesforceSourceProperties {
+  export const filterSensitiveLog = (obj: SalesforceSourceProperties): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The properties that are applied when ServiceNow is being used as a source.</p>
+ */
+export interface ServiceNowSourceProperties {
+  /**
+   * <p>The object specified in the ServiceNow flow source.</p>
+   */
+  Object: string | undefined;
+}
+
+export namespace ServiceNowSourceProperties {
+  export const filterSensitiveLog = (obj: ServiceNowSourceProperties): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The properties that are applied when using Zendesk as a flow source.</p>
+ */
+export interface ZendeskSourceProperties {
+  /**
+   * <p>The object specified in the Zendesk flow source.</p>
+   */
+  Object: string | undefined;
+}
+
+export namespace ZendeskSourceProperties {
+  export const filterSensitiveLog = (obj: ZendeskSourceProperties): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the information that is required to query a particular Amazon AppFlow connector.
+ *          Customer Profiles supports Salesforce, Zendesk, Marketo, ServiceNow and Amazon S3.</p>
+ */
+export interface SourceConnectorProperties {
+  /**
+   * <p>The properties that are applied when Marketo is being used as a source.</p>
+   */
+  Marketo?: MarketoSourceProperties;
+
+  /**
+   * <p>The properties that are applied when Amazon S3 is being used as the flow source.</p>
+   */
+  S3?: S3SourceProperties;
+
+  /**
+   * <p>The properties that are applied when Salesforce is being used as a source.</p>
+   */
+  Salesforce?: SalesforceSourceProperties;
+
+  /**
+   * <p>The properties that are applied when ServiceNow is being used as a source.</p>
+   */
+  ServiceNow?: ServiceNowSourceProperties;
+
+  /**
+   * <p>The properties that are applied when using Zendesk as a flow source.</p>
+   */
+  Zendesk?: ZendeskSourceProperties;
+}
+
+export namespace SourceConnectorProperties {
+  export const filterSensitiveLog = (obj: SourceConnectorProperties): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information about the configuration of the source connector used in the
+ *          flow.</p>
+ */
+export interface SourceFlowConfig {
+  /**
+   * <p>The name of the AppFlow connector profile. This name must be unique for each connector
+   *          profile in the AWS account.</p>
+   */
+  ConnectorProfileName?: string;
+
+  /**
+   * <p>The type of connector, such as Salesforce, Marketo, and so on.</p>
+   */
+  ConnectorType: SourceConnectorType | string | undefined;
+
+  /**
+   * <p>Defines the configuration for a scheduled incremental data pull. If a valid
+   *          configuration is provided, the fields specified in the configuration are used when querying
+   *          for the incremental data pull.</p>
+   */
+  IncrementalPullConfig?: IncrementalPullConfig;
+
+  /**
+   * <p>Specifies the information that is required to query a particular source
+   *          connector.</p>
+   */
+  SourceConnectorProperties: SourceConnectorProperties | undefined;
+}
+
+export namespace SourceFlowConfig {
+  export const filterSensitiveLog = (obj: SourceFlowConfig): any => ({
+    ...obj,
+  });
+}
+
+export enum OperatorPropertiesKeys {
+  CONCAT_FORMAT = "CONCAT_FORMAT",
+  DATA_TYPE = "DATA_TYPE",
+  DESTINATION_DATA_TYPE = "DESTINATION_DATA_TYPE",
+  LOWER_BOUND = "LOWER_BOUND",
+  MASK_LENGTH = "MASK_LENGTH",
+  MASK_VALUE = "MASK_VALUE",
+  MATH_OPERATION_FIELDS_ORDER = "MATH_OPERATION_FIELDS_ORDER",
+  SOURCE_DATA_TYPE = "SOURCE_DATA_TYPE",
+  SUBFIELD_CATEGORY_MAP = "SUBFIELD_CATEGORY_MAP",
+  TRUNCATE_LENGTH = "TRUNCATE_LENGTH",
+  UPPER_BOUND = "UPPER_BOUND",
+  VALIDATION_ACTION = "VALIDATION_ACTION",
+  VALUE = "VALUE",
+  VALUES = "VALUES",
+}
+
+export enum TaskType {
+  ARITHMETIC = "Arithmetic",
+  FILTER = "Filter",
+  MAP = "Map",
+  MASK = "Mask",
+  MERGE = "Merge",
+  TRUNCATE = "Truncate",
+  VALIDATE = "Validate",
+}
+
+/**
+ * <p>A class for modeling different type of tasks. Task implementation varies based on the
+ *          TaskType.</p>
+ */
+export interface Task {
+  /**
+   * <p>The operation to be performed on the provided source fields.</p>
+   */
+  ConnectorOperator?: ConnectorOperator;
+
+  /**
+   * <p>A field in a destination connector, or a field value against which Amazon AppFlow validates a
+   *          source field.</p>
+   */
+  DestinationField?: string;
+
+  /**
+   * <p>The source fields to which a particular task is applied.</p>
+   */
+  SourceFields: string[] | undefined;
+
+  /**
+   * <p>A map used to store task-related information. The service looks for particular
+   *          information based on the TaskType.</p>
+   */
+  TaskProperties?: { [key: string]: string };
+
+  /**
+   * <p>Specifies the particular task implementation that Amazon AppFlow performs.</p>
+   */
+  TaskType: TaskType | string | undefined;
+}
+
+export namespace Task {
+  export const filterSensitiveLog = (obj: Task): any => ({
+    ...obj,
+  });
+}
+
+export enum DataPullMode {
+  COMPLETE = "Complete",
+  INCREMENTAL = "Incremental",
+}
+
+/**
+ * <p>Specifies the configuration details of a scheduled-trigger flow that you define.
+ *          Currently, these settings only apply to the scheduled-trigger type.</p>
+ */
+export interface ScheduledTriggerProperties {
+  /**
+   * <p>The scheduling expression that determines the rate at which the schedule will run, for
+   *          example rate (5 minutes).</p>
+   */
+  ScheduleExpression: string | undefined;
+
+  /**
+   * <p>Specifies whether a scheduled flow has an incremental data transfer or a complete data
+   *          transfer for each flow run.</p>
+   */
+  DataPullMode?: DataPullMode | string;
+
+  /**
+   * <p>Specifies the scheduled start time for a scheduled-trigger flow.</p>
+   */
+  ScheduleStartTime?: Date;
+
+  /**
+   * <p>Specifies the scheduled end time for a scheduled-trigger flow.</p>
+   */
+  ScheduleEndTime?: Date;
+
+  /**
+   * <p>Specifies the time zone used when referring to the date and time of a
+   *          scheduled-triggered flow, such as America/New_York.</p>
+   */
+  Timezone?: string;
+
+  /**
+   * <p>Specifies the optional offset that is added to the time interval for a
+   *          schedule-triggered flow.</p>
+   */
+  ScheduleOffset?: number;
+
+  /**
+   * <p>Specifies the date range for the records to import from the connector in the first flow
+   *          run.</p>
+   */
+  FirstExecutionFrom?: Date;
+}
+
+export namespace ScheduledTriggerProperties {
+  export const filterSensitiveLog = (obj: ScheduledTriggerProperties): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the configuration details that control the trigger for a flow. Currently,
+ *          these settings only apply to the Scheduled trigger type.</p>
+ */
+export interface TriggerProperties {
+  /**
+   * <p>Specifies the configuration details of a schedule-triggered flow that you define.</p>
+   */
+  Scheduled?: ScheduledTriggerProperties;
+}
+
+export namespace TriggerProperties {
+  export const filterSensitiveLog = (obj: TriggerProperties): any => ({
+    ...obj,
+  });
+}
+
+export enum TriggerType {
+  EVENT = "Event",
+  ONDEMAND = "OnDemand",
+  SCHEDULED = "Scheduled",
+}
+
+/**
+ * <p>The trigger settings that determine how and when Amazon AppFlow runs the specified
+ *          flow.</p>
+ */
+export interface TriggerConfig {
+  /**
+   * <p>Specifies the type of flow trigger. It can be OnDemand, Scheduled, or Event.</p>
+   */
+  TriggerType: TriggerType | string | undefined;
+
+  /**
+   * <p>Specifies the configuration details of a schedule-triggered flow that you define.
+   *          Currently, these settings only apply to the Scheduled trigger type.</p>
+   */
+  TriggerProperties?: TriggerProperties;
+}
+
+export namespace TriggerConfig {
+  export const filterSensitiveLog = (obj: TriggerConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The configurations that control how Customer Profiles retrieves data from the source,
+ *          Amazon AppFlow. Customer Profiles uses this information to create an AppFlow flow on behalf
+ *          of customers.</p>
+ */
+export interface FlowDefinition {
+  /**
+   * <p>A description of the flow you want to create.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The specified name of the flow. Use underscores (_) or hyphens (-) only. Spaces are not
+   *          allowed.</p>
+   */
+  FlowName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name of the AWS Key Management Service (KMS) key you provide for encryption.</p>
+   */
+  KmsArn: string | undefined;
+
+  /**
+   * <p>The configuration that controls how Customer Profiles retrieves data from the
+   *          source.</p>
+   */
+  SourceFlowConfig: SourceFlowConfig | undefined;
+
+  /**
+   * <p>A list of tasks that Customer Profiles performs while transferring the data in the flow
+   *          run.</p>
+   */
+  Tasks: Task[] | undefined;
+
+  /**
+   * <p>The trigger settings that determine how and when the flow runs.</p>
+   */
+  TriggerConfig: TriggerConfig | undefined;
+}
+
+export namespace FlowDefinition {
+  export const filterSensitiveLog = (obj: FlowDefinition): any => ({
+    ...obj,
+  });
+}
+
 export interface PutIntegrationRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -1424,7 +1977,7 @@ export interface PutIntegrationRequest {
   /**
    * <p>The URI of the S3 bucket or any other type of data source.</p>
    */
-  Uri: string | undefined;
+  Uri?: string;
 
   /**
    * <p>The name of the profile object type.</p>
@@ -1435,6 +1988,12 @@ export interface PutIntegrationRequest {
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>The configuration that controls how Customer Profiles retrieves data from the
+   *          source.</p>
+   */
+  FlowDefinition?: FlowDefinition;
 }
 
 export namespace PutIntegrationRequest {

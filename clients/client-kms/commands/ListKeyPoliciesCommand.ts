@@ -23,8 +23,27 @@ export type ListKeyPoliciesCommandOutput = ListKeyPoliciesResponse & __MetadataB
 /**
  * <p>Gets the names of the key policies that are attached to a customer master key (CMK). This
  *       operation is designed to get policy names that you can use in a <a>GetKeyPolicy</a>
- *       operation. However, the only valid policy name is <code>default</code>.
- *       You cannot perform this operation on a CMK in a different AWS account.</p>
+ *       operation. However, the only valid policy name is <code>default</code>. </p>
+ *          <p>
+ *             <b>Cross-account use</b>: No. You cannot perform this operation on a CMK in a different AWS account.</p>
+ *
+ *          <p>
+ *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ListKeyPolicies</a> (key policy)</p>
+ *          <p>
+ *             <b>Related operations:</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>GetKeyPolicy</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>PutKeyPolicy</a>
+ *                </p>
+ *             </li>
+ *          </ul>
  */
 export class ListKeyPoliciesCommand extends $Command<
   ListKeyPoliciesCommandInput,

@@ -80,6 +80,42 @@ export type GenerateDataKeyCommandOutput = GenerateDataKeyResponse & __MetadataB
  *           data key from memory.</p>
  *             </li>
  *          </ol>
+ *          <p>
+ *             <b>Cross-account use</b>: Yes. To perform this operation with a CMK in a different AWS account, specify
+ *   the key ARN or alias ARN in the value of the <code>KeyId</code> parameter.</p>
+ *
+ *          <p>
+ *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:GenerateDataKey</a> (key policy)</p>
+ *          <p>
+ *             <b>Related operations:</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>Decrypt</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>Encrypt</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GenerateDataKeyPair</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GenerateDataKeyPairWithoutPlaintext</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GenerateDataKeyWithoutPlaintext</a>
+ *                </p>
+ *             </li>
+ *          </ul>
  */
 export class GenerateDataKeyCommand extends $Command<
   GenerateDataKeyCommandInput,

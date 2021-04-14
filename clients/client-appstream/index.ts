@@ -10,6 +10,7 @@ export * from "./commands/CreateImageBuilderCommand";
 export * from "./commands/CreateImageBuilderStreamingURLCommand";
 export * from "./commands/CreateStackCommand";
 export * from "./commands/CreateStreamingURLCommand";
+export * from "./commands/CreateUpdatedImageCommand";
 export * from "./commands/CreateUsageReportSubscriptionCommand";
 export * from "./commands/CreateUserCommand";
 export * from "./commands/DeleteDirectoryConfigCommand";

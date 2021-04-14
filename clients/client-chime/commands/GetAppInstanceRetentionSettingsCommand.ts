@@ -21,7 +21,7 @@ export type GetAppInstanceRetentionSettingsCommandInput = GetAppInstanceRetentio
 export type GetAppInstanceRetentionSettingsCommandOutput = GetAppInstanceRetentionSettingsResponse & __MetadataBearer;
 
 /**
- * <p>Gets the retention settings for an app instance.</p>
+ * <p>Gets the retention settings for an <code>AppInstance</code>.</p>
  */
 export class GetAppInstanceRetentionSettingsCommand extends $Command<
   GetAppInstanceRetentionSettingsCommandInput,

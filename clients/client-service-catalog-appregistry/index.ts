@@ -19,6 +19,7 @@ export * from "./pagination/ListAssociatedResourcesPaginator";
 export * from "./commands/ListAttributeGroupsCommand";
 export * from "./pagination/ListAttributeGroupsPaginator";
 export * from "./commands/ListTagsForResourceCommand";
+export * from "./commands/SyncResourceCommand";
 export * from "./commands/TagResourceCommand";
 export * from "./commands/UntagResourceCommand";
 export * from "./commands/UpdateApplicationCommand";

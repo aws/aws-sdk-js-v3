@@ -408,9 +408,8 @@ export namespace AppSpecContent {
 }
 
 /**
- * <p>
- *             The specified ARN is not supported. For example, it might be an ARN for a resource that is not expected.
- *         </p>
+ * <p> The specified ARN is not supported. For example, it might be an ARN for a resource
+ *             that is not expected. </p>
  */
 export interface ArnNotSupportedException extends __SmithyException, $MetadataBearer {
   name: "ArnNotSupportedException";
@@ -618,9 +617,9 @@ export interface RevisionLocation {
    *                     only).</p>
    *             </li>
    *             <li>
-   *                 <p>AppSpecContent: An <code>AppSpecContent</code> object that contains the contents of an AppSpec file for
-   *                     an AWS Lambda or Amazon ECS deployment. The content is formatted as JSON or YAML
-   *                     stored as a RawString.</p>
+   *                 <p>AppSpecContent: An <code>AppSpecContent</code> object that contains the
+   *                     contents of an AppSpec file for an AWS Lambda or Amazon ECS deployment. The
+   *                     content is formatted as JSON or YAML stored as a RawString.</p>
    *             </li>
    *          </ul>
    */
@@ -668,8 +667,9 @@ export interface BatchGetApplicationRevisionsInput {
   applicationName: string | undefined;
 
   /**
-   * <p>An array of <code>RevisionLocation</code> objects that specify information to get about the application revisions, including type and
-   *             location. The maximum number of <code>RevisionLocation</code> objects you can specify is 25.</p>
+   * <p>An array of <code>RevisionLocation</code> objects that specify information to get
+   *             about the application revisions, including type and location. The maximum number of
+   *                 <code>RevisionLocation</code> objects you can specify is 25.</p>
    */
   revisions: RevisionLocation[] | undefined;
 }
@@ -841,7 +841,8 @@ export namespace RevisionRequiredException {
  */
 export interface BatchGetApplicationsInput {
   /**
-   * <p>A list of application names separated by spaces. The maximum number of application names you can specify is 100.</p>
+   * <p>A list of application names separated by spaces. The maximum number of application
+   *             names you can specify is 100.</p>
    */
   applicationNames: string[] | undefined;
 }
@@ -975,8 +976,7 @@ export enum InstanceAction {
 /**
  * <p>Information about whether instances in the original environment are terminated when a
  *             blue/green deployment is successful. <code>BlueInstanceTerminationOption</code> does not
- *             apply to Lambda deployments.
- *         </p>
+ *             apply to Lambda deployments. </p>
  */
 export interface BlueInstanceTerminationOption {
   /**
@@ -999,17 +999,14 @@ export interface BlueInstanceTerminationOption {
   action?: InstanceAction | string;
 
   /**
-   * <p>For an Amazon EC2 deployment, the number of minutes to wait after a successful blue/green deployment before
-   *             terminating instances from the original environment.</p>
+   * <p>For an Amazon EC2 deployment, the number of minutes to wait after a successful
+   *             blue/green deployment before terminating instances from the original environment.</p>
    *
-   *         <p>
-   *             For an Amazon ECS deployment, the number of minutes before deleting the original (blue) task set. During an Amazon ECS deployment,
-   *             CodeDeploy shifts traffic from the original (blue) task set to a replacement (green) task set.
-   *         </p>
+   *         <p> For an Amazon ECS deployment, the number of minutes before deleting the original
+   *             (blue) task set. During an Amazon ECS deployment, CodeDeploy shifts traffic from the
+   *             original (blue) task set to a replacement (green) task set. </p>
    *
-   *         <p>
-   *             The maximum setting is 2880 minutes (2 days).
-   *         </p>
+   *         <p> The maximum setting is 2880 minutes (2 days). </p>
    */
   terminationWaitTimeInMinutes?: number;
 }
@@ -1282,7 +1279,8 @@ export namespace TrafficRoute {
 export interface TargetGroupPairInfo {
   /**
    * <p> One pair of target groups. One is associated with the original task set. The second
-   *             is associated with the task set that serves traffic after the deployment is complete. </p>
+   *             is associated with the task set that serves traffic after the deployment is complete.
+   *         </p>
    */
   targetGroups?: TargetGroupInfo[];
 
@@ -1294,7 +1292,8 @@ export interface TargetGroupPairInfo {
 
   /**
    * <p> An optional path used by a load balancer to route test traffic after an Amazon ECS
-   *             deployment. Validation can occur while test traffic is served during a deployment. </p>
+   *             deployment. Validation can occur while test traffic is served during a deployment.
+   *         </p>
    */
   testTrafficRoute?: TrafficRoute;
 }
@@ -1332,7 +1331,7 @@ export interface LoadBalancerInfo {
 
   /**
    * <p> The target group pair information. This is an array of
-   *             <code>TargeGroupPairInfo</code> objects with a maximum size of one. </p>
+   *                 <code>TargeGroupPairInfo</code> objects with a maximum size of one. </p>
    */
   targetGroupPairInfoList?: TargetGroupPairInfo[];
 }
@@ -1402,6 +1401,11 @@ export namespace OnPremisesTagSet {
   export const filterSensitiveLog = (obj: OnPremisesTagSet): any => ({
     ...obj,
   });
+}
+
+export enum OutdatedInstancesStrategy {
+  Ignore = "IGNORE",
+  Update = "UPDATE",
 }
 
 export enum TriggerEventType {
@@ -1486,9 +1490,10 @@ export interface DeploymentGroupInfo {
   autoScalingGroups?: AutoScalingGroup[];
 
   /**
-   * <p>A service role Amazon Resource Name (ARN) that grants CodeDeploy permission to make calls to AWS services on your behalf.
-   *             For more information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/getting-started-create-service-role.html">Create a Service Role for AWS CodeDeploy</a> in
-   *             the <i>AWS CodeDeploy User Guide</i>.</p>
+   * <p>A service role Amazon Resource Name (ARN) that grants CodeDeploy permission to make
+   *             calls to AWS services on your behalf. For more information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/getting-started-create-service-role.html">Create a
+   *                 Service Role for AWS CodeDeploy</a> in the <i>AWS CodeDeploy User
+   *                 Guide</i>.</p>
    */
   serviceRoleArn?: string;
 
@@ -1519,6 +1524,18 @@ export interface DeploymentGroupInfo {
    *             run and whether to route deployment traffic behind a load balancer.</p>
    */
   deploymentStyle?: DeploymentStyle;
+
+  /**
+   * <p>Indicates what happens when new EC2 instances are launched mid-deployment and do not
+   *             receive the deployed application revision.</p>
+   *         <p>If this option is set to <code>UPDATE</code> or is unspecified, CodeDeploy initiates
+   *             one or more 'auto-update outdated instances' deployments to apply the deployed
+   *             application revision to the new EC2 instances.</p>
+   *         <p>If this option is set to <code>IGNORE</code>, CodeDeploy does not initiate a
+   *             deployment to update the new EC2 instances. This may result in instances having
+   *             different revisions.</p>
+   */
+  outdatedInstancesStrategy?: OutdatedInstancesStrategy | string;
 
   /**
    * <p>Information about blue/green deployment options for a deployment group.</p>
@@ -1556,7 +1573,8 @@ export interface DeploymentGroupInfo {
   onPremisesTagSet?: OnPremisesTagSet;
 
   /**
-   * <p>The destination platform type for the deployment (<code>Lambda</code>, <code>Server</code>, or <code>ECS</code>).</p>
+   * <p>The destination platform type for the deployment (<code>Lambda</code>,
+   *                 <code>Server</code>, or <code>ECS</code>).</p>
    */
   computePlatform?: ComputePlatform | string;
 
@@ -1564,7 +1582,7 @@ export interface DeploymentGroupInfo {
    * <p> The target Amazon ECS services in the deployment group. This applies only to
    *             deployment groups that use the Amazon ECS compute platform. A target Amazon ECS service
    *             is specified as an Amazon ECS cluster and service name pair using the format
-   *             <code><clustername>:<servicename></code>. </p>
+   *                 <code><clustername>:<servicename></code>. </p>
    */
   ecsServices?: ECSService[];
 }
@@ -1660,7 +1678,8 @@ export interface BatchGetDeploymentInstancesInput {
   deploymentId: string | undefined;
 
   /**
-   * <p>The unique IDs of instances used in the deployment. The maximum number of instance IDs you can specify is 25.</p>
+   * <p>The unique IDs of instances used in the deployment. The maximum number of instance IDs
+   *             you can specify is 25.</p>
    */
   instanceIds: string[] | undefined;
 }
@@ -2019,7 +2038,8 @@ export namespace InvalidDeploymentIdException {
  */
 export interface BatchGetDeploymentsInput {
   /**
-   * <p> A list of deployment IDs, separated by spaces. The maximum number of deployment IDs you can specify is 25.</p>
+   * <p> A list of deployment IDs, separated by spaces. The maximum number of deployment IDs
+   *             you can specify is 25.</p>
    */
   deploymentIds: string[] | undefined;
 }
@@ -2035,6 +2055,7 @@ export enum DeploymentCreator {
   CloudFormation = "CloudFormation",
   CloudFormationRollback = "CloudFormationRollback",
   CodeDeploy = "CodeDeploy",
+  CodeDeployAutoUpdate = "CodeDeployAutoUpdate",
   CodeDeployRollback = "codeDeployRollback",
   User = "user",
 }
@@ -2202,6 +2223,28 @@ export enum FileExistsBehavior {
 }
 
 /**
+ * <p>Information about deployments related to the specified deployment.</p>
+ */
+export interface RelatedDeployments {
+  /**
+   * <p>The deployment ID of the root deployment that triggered this deployment.</p>
+   */
+  autoUpdateOutdatedInstancesRootDeploymentId?: string;
+
+  /**
+   * <p>The deployment IDs of 'auto-update outdated instances' deployments triggered by this
+   *             deployment.</p>
+   */
+  autoUpdateOutdatedInstancesDeploymentIds?: string[];
+}
+
+export namespace RelatedDeployments {
+  export const filterSensitiveLog = (obj: RelatedDeployments): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Information about a deployment rollback.</p>
  */
 export interface RollbackInfo {
@@ -2353,6 +2396,11 @@ export interface DeploymentInfo {
    *                   <code>codeDeployRollback</code>: A rollback process created the
    *                     deployment.</p>
    *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>CodeDeployAutoUpdate</code>: An auto-update process created the
+   *                     deployment when it detected outdated EC2 instances.</p>
+   *             </li>
    *          </ul>
    */
   creator?: DeploymentCreator | string;
@@ -2366,11 +2414,10 @@ export interface DeploymentInfo {
    *                 <code>BlockTraffic</code>. If <code>AfterBlockTraffic</code> fails, the deployment
    *             continues with <code>ApplicationStop</code>. </p>
    *
-   *         <p>
-   *             If false or not specified, then if a lifecycle event fails during a deployment to an instance, that deployment fails.
-   *             If deployment to that instance is part of an overall deployment and the number of healthy hosts is not less than the minimum number of healthy hosts,
-   *             then a deployment to the next instance is attempted.
-   *         </p>
+   *         <p> If false or not specified, then if a lifecycle event fails during a deployment to an
+   *             instance, that deployment fails. If deployment to that instance is part of an overall
+   *             deployment and the number of healthy hosts is not less than the minimum number of
+   *             healthy hosts, then a deployment to the next instance is attempted. </p>
    *
    *         <p> During a deployment, the AWS CodeDeploy agent runs the scripts specified for
    *                 <code>ApplicationStop</code>, <code>BeforeBlockTraffic</code>, and
@@ -2470,7 +2517,8 @@ export interface DeploymentInfo {
   deploymentStatusMessages?: string[];
 
   /**
-   * <p>The destination platform type for the deployment (<code>Lambda</code>, <code>Server</code>, or <code>ECS</code>).</p>
+   * <p>The destination platform type for the deployment (<code>Lambda</code>,
+   *                 <code>Server</code>, or <code>ECS</code>).</p>
    */
   computePlatform?: ComputePlatform | string;
 
@@ -2479,6 +2527,11 @@ export interface DeploymentInfo {
    *             is linked to this deployment.</p>
    */
   externalId?: string;
+
+  /**
+   * <p>Information about deployments related to the specified deployment.</p>
+   */
+  relatedDeployments?: RelatedDeployments;
 }
 
 export namespace DeploymentInfo {
@@ -2511,23 +2564,24 @@ export interface BatchGetDeploymentTargetsInput {
 
   /**
    * <p> The unique IDs of the deployment targets. The compute platform of the deployment
-   *             determines the type of the targets and their formats. The maximum number of deployment target IDs you can specify is 25.</p>
+   *             determines the type of the targets and their formats. The maximum number of deployment
+   *             target IDs you can specify is 25.</p>
    *         <ul>
    *             <li>
    *                 <p> For deployments that use the EC2/On-premises compute platform, the target IDs
    *                     are EC2 or on-premises instances IDs, and their target type is
-   *                     <code>instanceTarget</code>. </p>
+   *                         <code>instanceTarget</code>. </p>
    *             </li>
    *             <li>
    *                 <p> For deployments that use the AWS Lambda compute platform, the target IDs are
    *                     the names of Lambda functions, and their target type is
-   *                     <code>instanceTarget</code>. </p>
+   *                         <code>instanceTarget</code>. </p>
    *             </li>
    *             <li>
    *                 <p> For deployments that use the Amazon ECS compute platform, the target IDs are
    *                     pairs of Amazon ECS clusters and services specified using the format
-   *                     <code><clustername>:<servicename></code>. Their target type is
-   *                     <code>ecsTarget</code>. </p>
+   *                         <code><clustername>:<servicename></code>. Their target type is
+   *                         <code>ecsTarget</code>. </p>
    *             </li>
    *             <li>
    *                 <p> For deployments that are deployed with AWS CloudFormation, the target IDs are
@@ -2585,7 +2639,8 @@ export interface CloudFormationTarget {
   lifecycleEvents?: LifecycleEvent[];
 
   /**
-   * <p> The status of an AWS CloudFormation blue/green deployment's target application. </p>
+   * <p> The status of an AWS CloudFormation blue/green deployment's target application.
+   *         </p>
    */
   status?: TargetStatus | string;
 
@@ -2645,7 +2700,7 @@ export interface ECSTaskSet {
    *             during an Amazon ECS deployment. A task in the <code>PENDING</code> state is preparing
    *             to enter the <code>RUNNING</code> state. A task set enters the <code>PENDING</code>
    *             status when it launches for the first time, or when it is restarted after being in the
-   *             <code>STOPPED</code> state. </p>
+   *                 <code>STOPPED</code> state. </p>
    */
   pendingCount?: number;
 
@@ -2661,16 +2716,19 @@ export interface ECSTaskSet {
    *         <ul>
    *             <li>
    *                 <p>
-   *                     <code>PRIMARY</code>: Indicates the task set is serving production traffic. </p>
+   *                     <code>PRIMARY</code>: Indicates the task set is serving production traffic.
+   *                 </p>
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>ACTIVE</code>: Indicates the task set is not serving production traffic. </p>
+   *                     <code>ACTIVE</code>: Indicates the task set is not serving production traffic.
+   *                 </p>
    *             </li>
    *             <li>
    *                 <p>
    *                     <code>DRAINING</code>: Indicates the tasks in the task set are being stopped and
-   *                     their corresponding targets are being deregistered from their target group. </p>
+   *                     their corresponding targets are being deregistered from their target group.
+   *                 </p>
    *             </li>
    *          </ul>
    */
@@ -2689,7 +2747,7 @@ export interface ECSTaskSet {
 
   /**
    * <p> A label that identifies whether the ECS task set is an original target
-   *             (<code>BLUE</code>) or a replacement target (<code>GREEN</code>). </p>
+   *                 (<code>BLUE</code>) or a replacement target (<code>GREEN</code>). </p>
    */
   taskSetLabel?: TargetLabel | string;
 }
@@ -2798,15 +2856,11 @@ export namespace InstanceTarget {
 }
 
 /**
- * <p>
- *             Information about a Lambda function specified in a deployment.
- *         </p>
+ * <p> Information about a Lambda function specified in a deployment. </p>
  */
 export interface LambdaFunctionInfo {
   /**
-   * <p>
-   *             The name of a Lambda function.
-   *         </p>
+   * <p> The name of a Lambda function. </p>
    */
   functionName?: string;
 
@@ -2817,23 +2871,19 @@ export interface LambdaFunctionInfo {
   functionAlias?: string;
 
   /**
-   * <p>
-   *             The version of a Lambda function that production traffic points to.
-   *         </p>
+   * <p> The version of a Lambda function that production traffic points to. </p>
    */
   currentVersion?: string;
 
   /**
-   * <p>
-   *             The version of a Lambda function that production traffic points to after the Lambda function is deployed.
-   *         </p>
+   * <p> The version of a Lambda function that production traffic points to after the Lambda
+   *             function is deployed. </p>
    */
   targetVersion?: string;
 
   /**
-   * <p>
-   *             The percentage of production traffic that the target version of a Lambda function receives.
-   *         </p>
+   * <p> The percentage of production traffic that the target version of a Lambda function
+   *             receives. </p>
    */
   targetVersionWeight?: number;
 }
@@ -2882,8 +2932,7 @@ export interface LambdaTarget {
   lifecycleEvents?: LifecycleEvent[];
 
   /**
-   * <p>
-   *             A <code>LambdaFunctionInfo</code> object that describes a target Lambda function.
+   * <p> A <code>LambdaFunctionInfo</code> object that describes a target Lambda function.
    *         </p>
    */
   lambdaFunctionInfo?: LambdaFunctionInfo;
@@ -2900,7 +2949,8 @@ export namespace LambdaTarget {
  */
 export interface DeploymentTarget {
   /**
-   * <p>The deployment type that is specific to the deployment's compute platform or deployments initiated by a CloudFormation stack update.</p>
+   * <p>The deployment type that is specific to the deployment's compute platform or
+   *             deployments initiated by a CloudFormation stack update.</p>
    */
   deploymentTargetType?: DeploymentTargetType | string;
 
@@ -3090,7 +3140,8 @@ export namespace InvalidDeploymentTargetIdException {
  */
 export interface BatchGetOnPremisesInstancesInput {
   /**
-   * <p>The names of the on-premises instances about which to get information. The maximum number of instance names you can specify is 25.</p>
+   * <p>The names of the on-premises instances about which to get information. The maximum
+   *             number of instance names you can specify is 25.</p>
    */
   instanceNames: string[] | undefined;
 }
@@ -3197,7 +3248,8 @@ export interface ContinueDeploymentInput {
   /**
    * <p> The status of the deployment's waiting period. <code>READY_WAIT</code> indicates that
    *             the deployment is ready to start shifting traffic. <code>TERMINATION_WAIT</code>
-   *             indicates that the traffic is shifted, but the original target is not terminated. </p>
+   *             indicates that the traffic is shifted, but the original target is not terminated.
+   *         </p>
    */
   deploymentWaitType?: DeploymentWaitType | string;
 }
@@ -3315,10 +3367,9 @@ export interface CreateApplicationInput {
   computePlatform?: ComputePlatform | string;
 
   /**
-   * <p>
-   *             The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag
-   *             consists of a key and an optional value, both of which you define.
-   *         </p>
+   * <p> The metadata that you apply to CodeDeploy applications to help you organize and
+   *             categorize them. Each tag consists of a key and an optional value, both of which you
+   *             define. </p>
    */
   tags?: Tag[];
 }
@@ -3346,9 +3397,7 @@ export namespace CreateApplicationOutput {
 }
 
 /**
- * <p>
- *             The specified tags are not valid.
- *         </p>
+ * <p> The specified tags are not valid. </p>
  */
 export interface InvalidTagsToAddException extends __SmithyException, $MetadataBearer {
   name: "InvalidTagsToAddException";
@@ -3408,11 +3457,10 @@ export interface CreateDeploymentInput {
    *             deployment continues with <code>BlockTraffic</code>. If <code>AfterBlockTraffic</code>
    *             fails, the deployment continues with <code>ApplicationStop</code>. </p>
    *
-   *         <p>
-   *             If false or not specified, then if a lifecycle event fails during a deployment to an instance, that deployment fails.
-   *             If deployment to that instance is part of an overall deployment and the number of healthy hosts is not less than the minimum number of healthy hosts,
-   *             then a deployment to the next instance is attempted.
-   *         </p>
+   *         <p> If false or not specified, then if a lifecycle event fails during a deployment to an
+   *             instance, that deployment fails. If deployment to that instance is part of an overall
+   *             deployment and the number of healthy hosts is not less than the minimum number of
+   *             healthy hosts, then a deployment to the next instance is attempted. </p>
    *
    *         <p> During a deployment, the AWS CodeDeploy agent runs the scripts specified for
    *                 <code>ApplicationStop</code>, <code>BeforeBlockTraffic</code>, and
@@ -3814,11 +3862,6 @@ export type MinimumHealthyHostsType = "FLEET_PERCENT" | "HOST_COUNT";
  */
 export interface MinimumHealthyHosts {
   /**
-   * <p>The minimum healthy instance value.</p>
-   */
-  value?: number;
-
-  /**
    * <p>The minimum healthy instance type:</p>
    *         <ul>
    *             <li>
@@ -3839,20 +3882,25 @@ export interface MinimumHealthyHosts {
    *             four or more instances are deployed to successfully. Otherwise, the deployment
    *             fails.</p>
    *         <note>
-   *             <p>In a call to the <code>GetDeploymentConfig</code>,
-   *                 CodeDeployDefault.OneAtATime returns a minimum healthy instance type of
-   *                 MOST_CONCURRENCY and a value of 1. This means a deployment to only one instance at a
-   *                 time. (You cannot set the type to MOST_CONCURRENCY, only to HOST_COUNT or
-   *                 FLEET_PERCENT.) In addition, with CodeDeployDefault.OneAtATime, AWS CodeDeploy
-   *                 attempts to ensure that all instances but one are kept in a healthy state during the
-   *                 deployment. Although this allows one instance at a time to be taken offline for a
-   *                 new deployment, it also means that if the deployment to the last instance fails, the
-   *                 overall deployment is still successful.</p>
+   *             <p>In a call to the <code>GetDeploymentConfig</code>, CodeDeployDefault.OneAtATime
+   *                 returns a minimum healthy instance type of MOST_CONCURRENCY and a value of 1. This
+   *                 means a deployment to only one instance at a time. (You cannot set the type to
+   *                 MOST_CONCURRENCY, only to HOST_COUNT or FLEET_PERCENT.) In addition, with
+   *                 CodeDeployDefault.OneAtATime, AWS CodeDeploy attempts to ensure that all instances
+   *                 but one are kept in a healthy state during the deployment. Although this allows one
+   *                 instance at a time to be taken offline for a new deployment, it also means that if
+   *                 the deployment to the last instance fails, the overall deployment is still
+   *                 successful.</p>
    *         </note>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-health.html">AWS CodeDeploy Instance
    *                 Health</a> in the <i>AWS CodeDeploy User Guide</i>.</p>
    */
   type?: MinimumHealthyHostsType | string;
+
+  /**
+   * <p>The minimum healthy instance value.</p>
+   */
+  value?: number;
 }
 
 export namespace MinimumHealthyHosts {
@@ -3862,9 +3910,9 @@ export namespace MinimumHealthyHosts {
 }
 
 /**
- * <p>A configuration that shifts traffic from one version of a Lambda function or ECS task set to another
- *             in two increments. The original and target Lambda function versions or ECS task sets are specified in the
- *             deployment's AppSpec file.</p>
+ * <p>A configuration that shifts traffic from one version of a Lambda function or ECS task
+ *             set to another in two increments. The original and target Lambda function versions or
+ *             ECS task sets are specified in the deployment's AppSpec file.</p>
  */
 export interface TimeBasedCanary {
   /**
@@ -3887,10 +3935,10 @@ export namespace TimeBasedCanary {
 }
 
 /**
- * <p>A configuration that shifts traffic from one version of a Lambda function or ECS task set to another
- *             in equal increments, with an equal number of minutes between each increment. The
- *             original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec
- *             file.</p>
+ * <p>A configuration that shifts traffic from one version of a Lambda function or ECS task
+ *             set to another in equal increments, with an equal number of minutes between each
+ *             increment. The original and target Lambda function versions or ECS task sets are
+ *             specified in the deployment's AppSpec file.</p>
  */
 export interface TimeBasedLinear {
   /**
@@ -3931,17 +3979,17 @@ export interface TrafficRoutingConfig {
   type?: TrafficRoutingType | string;
 
   /**
-   * <p>A configuration that shifts traffic from one version of a Lambda function or ECS task set to another
-   *             in two increments. The original and target Lambda function versions or ECS task sets are specified in the
-   *             deployment's AppSpec file.</p>
+   * <p>A configuration that shifts traffic from one version of a Lambda function or ECS task
+   *             set to another in two increments. The original and target Lambda function versions or
+   *             ECS task sets are specified in the deployment's AppSpec file.</p>
    */
   timeBasedCanary?: TimeBasedCanary;
 
   /**
-   * <p>A configuration that shifts traffic from one version of a Lambda function or ECS task set to another
-   *             in equal increments, with an equal number of minutes between each increment. The
-   *             original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec
-   *             file.</p>
+   * <p>A configuration that shifts traffic from one version of a Lambda function or ECS task
+   *             set to another in equal increments, with an equal number of minutes between each
+   *             increment. The original and target Lambda function versions or ECS task sets are
+   *             specified in the deployment's AppSpec file.</p>
    */
   timeBasedLinear?: TimeBasedLinear;
 }
@@ -3990,7 +4038,8 @@ export interface CreateDeploymentConfigInput {
   trafficRoutingConfig?: TrafficRoutingConfig;
 
   /**
-   * <p>The destination platform type for the deployment (<code>Lambda</code>, <code>Server</code>, or <code>ECS</code>).</p>
+   * <p>The destination platform type for the deployment (<code>Lambda</code>,
+   *                 <code>Server</code>, or <code>ECS</code>).</p>
    */
   computePlatform?: ComputePlatform | string;
 }
@@ -4165,6 +4214,18 @@ export interface CreateDeploymentGroupInput {
   autoRollbackConfiguration?: AutoRollbackConfiguration;
 
   /**
+   * <p>Indicates what happens when new EC2 instances are launched mid-deployment and do not
+   *             receive the deployed application revision.</p>
+   *         <p>If this option is set to <code>UPDATE</code> or is unspecified, CodeDeploy initiates
+   *             one or more 'auto-update outdated instances' deployments to apply the deployed
+   *             application revision to the new EC2 instances.</p>
+   *         <p>If this option is set to <code>IGNORE</code>, CodeDeploy does not initiate a
+   *             deployment to update the new EC2 instances. This may result in instances having
+   *             different revisions.</p>
+   */
+  outdatedInstancesStrategy?: OutdatedInstancesStrategy | string;
+
+  /**
    * <p>Information about the type of deployment, in-place or blue/green, that you want to run
    *             and whether to route deployment traffic behind a load balancer.</p>
    */
@@ -4191,7 +4252,7 @@ export interface CreateDeploymentGroupInput {
    * <p> The target Amazon ECS services in the deployment group. This applies only to
    *             deployment groups that use the Amazon ECS compute platform. A target Amazon ECS service
    *             is specified as an Amazon ECS cluster and service name pair using the format
-   *             <code><clustername>:<servicename></code>. </p>
+   *                 <code><clustername>:<servicename></code>. </p>
    */
   ecsServices?: ECSService[];
 
@@ -4203,10 +4264,9 @@ export interface CreateDeploymentGroupInput {
   onPremisesTagSet?: OnPremisesTagSet;
 
   /**
-   * <p>
-   *             The metadata that you apply to CodeDeploy deployment groups to help you organize and categorize them. Each tag
-   *             consists of a key and an optional value, both of which you define.
-   *         </p>
+   * <p> The metadata that you apply to CodeDeploy deployment groups to help you organize and
+   *             categorize them. Each tag consists of a key and an optional value, both of which you
+   *             define. </p>
    */
   tags?: Tag[];
 }
@@ -4990,13 +5050,14 @@ export interface DeploymentConfigInfo {
   createTime?: Date;
 
   /**
-   * <p>The destination platform type for the deployment (<code>Lambda</code>, <code>Server</code>, or <code>ECS</code>).</p>
+   * <p>The destination platform type for the deployment (<code>Lambda</code>,
+   *                 <code>Server</code>, or <code>ECS</code>).</p>
    */
   computePlatform?: ComputePlatform | string;
 
   /**
    * <p>The configuration that specifies how the deployment traffic is routed. Used for
-   *         deployments with a Lambda or ECS compute platform only.</p>
+   *             deployments with a Lambda or ECS compute platform only.</p>
    */
   trafficRoutingConfig?: TrafficRoutingConfig;
 }
@@ -5316,7 +5377,8 @@ export interface ListApplicationRevisionsInput {
    *                     deployment.</p>
    *             </li>
    *          </ul>
-   *         <p> If not specified or set to null, the results are returned in an arbitrary order. </p>
+   *         <p> If not specified or set to null, the results are returned in an arbitrary order.
+   *         </p>
    */
   sortBy?: ApplicationRevisionSortBy | string;
 
@@ -5771,10 +5833,9 @@ export interface ListDeploymentsInput {
    * <p>The name of an AWS CodeDeploy application associated with the IAM user or AWS
    *             account.</p>
    *         <note>
-   *             <p>If <code>applicationName</code> is specified, then <code>deploymentGroupName</code> must
-   *                 be specified. If it is not specified, then <code>deploymentGroupName</code> must not
-   *                 be specified.
-   *             </p>
+   *             <p>If <code>applicationName</code> is specified, then
+   *                     <code>deploymentGroupName</code> must be specified. If it is not specified, then
+   *                     <code>deploymentGroupName</code> must not be specified. </p>
    *         </note>
    */
   applicationName?: string;
@@ -5782,16 +5843,16 @@ export interface ListDeploymentsInput {
   /**
    * <p>The name of a deployment group for the specified application.</p>
    *         <note>
-   *             <p>If <code>deploymentGroupName</code> is specified, then <code>applicationName</code> must
-   *                 be specified. If it is not specified, then <code>applicationName</code> must not
-   *                 be specified.
-   *             </p>
+   *             <p>If <code>deploymentGroupName</code> is specified, then
+   *                     <code>applicationName</code> must be specified. If it is not specified, then
+   *                     <code>applicationName</code> must not be specified. </p>
    *         </note>
    */
   deploymentGroupName?: string;
 
   /**
-   * <p>The unique ID of an external resource for returning deployments linked to the external resource.</p>
+   * <p>The unique ID of an external resource for returning deployments linked to the external
+   *             resource.</p>
    */
   externalId?: string;
 
@@ -5893,14 +5954,15 @@ export interface ListDeploymentTargetsInput {
    *         <ul>
    *             <li>
    *                 <p>
-   *                     <code>TargetStatus</code> - A <code>TargetStatus</code> filter string can be <code>Failed</code>, <code>InProgress</code>, <code>Pending</code>,
-   *                     <code>Ready</code>, <code>Skipped</code>, <code>Succeeded</code>, or <code>Unknown</code>.
-   *                 </p>
+   *                     <code>TargetStatus</code> - A <code>TargetStatus</code> filter string can be
+   *                         <code>Failed</code>, <code>InProgress</code>, <code>Pending</code>,
+   *                         <code>Ready</code>, <code>Skipped</code>, <code>Succeeded</code>, or
+   *                         <code>Unknown</code>. </p>
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>ServerInstanceLabel</code> - A <code>ServerInstanceLabel</code> filter string can be <code>Blue</code> or <code>Green</code>.
-   *                 </p>
+   *                     <code>ServerInstanceLabel</code> - A <code>ServerInstanceLabel</code> filter
+   *                     string can be <code>Blue</code> or <code>Green</code>. </p>
    *             </li>
    *          </ul>
    */
@@ -5920,9 +5982,9 @@ export interface ListDeploymentTargetsOutput {
   targetIds?: string[];
 
   /**
-   * <p> If a large amount of information is returned, a token identifier is also  returned.
-   *             It can be used in a subsequent <code>ListDeploymentTargets</code> call to return the
-   *             next set of deployment targets in the list. </p>
+   * <p> If a large amount of information is returned, a token identifier is also returned. It
+   *             can be used in a subsequent <code>ListDeploymentTargets</code> call to return the next
+   *             set of deployment targets in the list. </p>
    */
   nextToken?: string;
 }
@@ -6036,8 +6098,8 @@ export interface ListOnPremisesInstancesInput {
   registrationStatus?: RegistrationStatus | string;
 
   /**
-   * <p>The on-premises instance tags that are used to restrict the  on-premises instance
-   *             names returned.</p>
+   * <p>The on-premises instance tags that are used to restrict the on-premises instance names
+   *             returned.</p>
    */
   tagFilters?: TagFilter[];
 
@@ -6078,9 +6140,7 @@ export namespace ListOnPremisesInstancesOutput {
 }
 
 /**
- * <p>
- *             The specified ARN is not in a valid format.
- *         </p>
+ * <p> The specified ARN is not in a valid format. </p>
  */
 export interface InvalidArnException extends __SmithyException, $MetadataBearer {
   name: "InvalidArnException";
@@ -6099,16 +6159,15 @@ export namespace InvalidArnException {
 
 export interface ListTagsForResourceInput {
   /**
-   * <p>
-   *             The ARN of a CodeDeploy resource. <code>ListTagsForResource</code> returns all the tags associated with the
-   *             resource that is identified by the <code>ResourceArn</code>.
+   * <p> The ARN of a CodeDeploy resource. <code>ListTagsForResource</code> returns all the
+   *             tags associated with the resource that is identified by the <code>ResourceArn</code>.
    *         </p>
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>An identifier returned from the previous <code>ListTagsForResource</code> call.
-   *                 It can be used to return the next set of applications in the list.</p>
+   * <p>An identifier returned from the previous <code>ListTagsForResource</code> call. It can
+   *             be used to return the next set of applications in the list.</p>
    */
   NextToken?: string;
 }
@@ -6121,10 +6180,8 @@ export namespace ListTagsForResourceInput {
 
 export interface ListTagsForResourceOutput {
   /**
-   * <p>
-   *             A list of tags returned by <code>ListTagsForResource</code>. The tags are associated with the resource
-   *             identified by the input <code>ResourceArn</code> parameter.
-   *         </p>
+   * <p> A list of tags returned by <code>ListTagsForResource</code>. The tags are associated
+   *             with the resource identified by the input <code>ResourceArn</code> parameter. </p>
    */
   Tags?: Tag[];
 
@@ -6143,9 +6200,7 @@ export namespace ListTagsForResourceOutput {
 }
 
 /**
- * <p>
- *             The ARN of a resource is required, but was not found.
- *         </p>
+ * <p> The ARN of a resource is required, but was not found. </p>
  */
 export interface ResourceArnRequiredException extends __SmithyException, $MetadataBearer {
   name: "ResourceArnRequiredException";
@@ -6234,8 +6289,9 @@ export interface PutLifecycleEventHookExecutionStatusInput {
   lifecycleEventHookExecutionId?: string;
 
   /**
-   * <p>The result of a Lambda function that validates a deployment lifecycle event
-   *                 (<code>Succeeded</code> or <code>Failed</code>).</p>
+   * <p>The result of a Lambda function that validates a deployment lifecycle event.
+   *                 <code>Succeeded</code> and <code>Failed</code> are the only valid values for
+   *                 <code>status</code>.</p>
    */
   status?: LifecycleEventStatus | string;
 }
@@ -6555,16 +6611,13 @@ export namespace StopDeploymentOutput {
 
 export interface TagResourceInput {
   /**
-   * <p>
-   *             The ARN of a resource, such as a CodeDeploy application or deployment group.
-   *         </p>
+   * <p> The ARN of a resource, such as a CodeDeploy application or deployment group. </p>
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>
-   *             A list of tags that <code>TagResource</code> associates with a resource. The resource is identified by the <code>ResourceArn</code> input parameter.
-   *         </p>
+   * <p> A list of tags that <code>TagResource</code> associates with a resource. The resource
+   *             is identified by the <code>ResourceArn</code> input parameter. </p>
    */
   Tags: Tag[] | undefined;
 }
@@ -6591,10 +6644,9 @@ export interface UntagResourceInput {
   ResourceArn: string | undefined;
 
   /**
-   * <p>
-   *             A list of keys of <code>Tag</code> objects. The <code>Tag</code> objects identified by the keys are disassociated from the resource
-   *             specified by the <code>ResourceArn</code> input parameter.
-   *         </p>
+   * <p> A list of keys of <code>Tag</code> objects. The <code>Tag</code> objects identified
+   *             by the keys are disassociated from the resource specified by the
+   *                 <code>ResourceArn</code> input parameter. </p>
    */
   TagKeys: string[] | undefined;
 }
@@ -6705,6 +6757,18 @@ export interface UpdateDeploymentGroupInput {
   autoRollbackConfiguration?: AutoRollbackConfiguration;
 
   /**
+   * <p>Indicates what happens when new EC2 instances are launched mid-deployment and do not
+   *             receive the deployed application revision.</p>
+   *         <p>If this option is set to <code>UPDATE</code> or is unspecified, CodeDeploy initiates
+   *             one or more 'auto-update outdated instances' deployments to apply the deployed
+   *             application revision to the new EC2 instances.</p>
+   *         <p>If this option is set to <code>IGNORE</code>, CodeDeploy does not initiate a
+   *             deployment to update the new EC2 instances. This may result in instances having
+   *             different revisions.</p>
+   */
+  outdatedInstancesStrategy?: OutdatedInstancesStrategy | string;
+
+  /**
    * <p>Information about the type of deployment, either in-place or blue/green, you want to
    *             run and whether to route deployment traffic behind a load balancer.</p>
    */
@@ -6730,7 +6794,7 @@ export interface UpdateDeploymentGroupInput {
    * <p> The target Amazon ECS services in the deployment group. This applies only to
    *             deployment groups that use the Amazon ECS compute platform. A target Amazon ECS service
    *             is specified as an Amazon ECS cluster and service name pair using the format
-   *             <code><clustername>:<servicename></code>. </p>
+   *                 <code><clustername>:<servicename></code>. </p>
    */
   ecsServices?: ECSService[];
 

@@ -20,6 +20,11 @@ import {
 export type DescribeInsightCommandInput = DescribeInsightRequest;
 export type DescribeInsightCommandOutput = DescribeInsightResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *    		Returns details about an insight that you specify using its ID.
+ *    	</p>
+ */
 export class DescribeInsightCommand extends $Command<
   DescribeInsightCommandInput,
   DescribeInsightCommandOutput,

@@ -3681,6 +3681,14 @@ const deserializeAws_json1_1ListGrantsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InvalidGrantIdException":
+    case "com.amazonaws.kms#InvalidGrantIdException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidGrantIdExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidMarkerException":
     case "com.amazonaws.kms#InvalidMarkerException":
       response = {
@@ -6112,6 +6120,9 @@ const serializeAws_json1_1ListAliasesRequest = (input: ListAliasesRequest, conte
 
 const serializeAws_json1_1ListGrantsRequest = (input: ListGrantsRequest, context: __SerdeContext): any => {
   return {
+    ...(input.GrantId !== undefined && input.GrantId !== null && { GrantId: input.GrantId }),
+    ...(input.GranteePrincipal !== undefined &&
+      input.GranteePrincipal !== null && { GranteePrincipal: input.GranteePrincipal }),
     ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
     ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
     ...(input.Marker !== undefined && input.Marker !== null && { Marker: input.Marker }),
@@ -6338,6 +6349,14 @@ const deserializeAws_json1_1AliasListEntry = (output: any, context: __SerdeConte
   return {
     AliasArn: output.AliasArn !== undefined && output.AliasArn !== null ? output.AliasArn : undefined,
     AliasName: output.AliasName !== undefined && output.AliasName !== null ? output.AliasName : undefined,
+    CreationDate:
+      output.CreationDate !== undefined && output.CreationDate !== null
+        ? new Date(Math.round(output.CreationDate * 1000))
+        : undefined,
+    LastUpdatedDate:
+      output.LastUpdatedDate !== undefined && output.LastUpdatedDate !== null
+        ? new Date(Math.round(output.LastUpdatedDate * 1000))
+        : undefined,
     TargetKeyId: output.TargetKeyId !== undefined && output.TargetKeyId !== null ? output.TargetKeyId : undefined,
   } as any;
 };

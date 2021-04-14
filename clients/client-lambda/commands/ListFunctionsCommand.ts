@@ -24,7 +24,12 @@ export type ListFunctionsCommandOutput = ListFunctionsResponse & __MetadataBeare
  * <p>Returns a list of Lambda functions, with the version-specific configuration of each. Lambda returns up to 50
  *       functions per call.</p>
  *          <p>Set <code>FunctionVersion</code> to <code>ALL</code> to include all published versions of each function in
- *       addition to the unpublished version. To get more information about a function or version, use <a>GetFunction</a>.</p>
+ *       addition to the unpublished version. </p>
+ *          <note>
+ *             <p>The <code>ListFunctions</code> action returns a subset of the <a>FunctionConfiguration</a> fields.
+ *       To get the additional fields (State, StateReasonCode, StateReason, LastUpdateStatus, LastUpdateStatusReason, LastUpdateStatusReasonCode)
+ *       for a function or version, use <a>GetFunction</a>.</p>
+ *          </note>
  */
 export class ListFunctionsCommand extends $Command<
   ListFunctionsCommandInput,

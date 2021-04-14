@@ -2,6 +2,10 @@ import {
   GetRawMessageContentCommandInput,
   GetRawMessageContentCommandOutput,
 } from "./commands/GetRawMessageContentCommand";
+import {
+  PutRawMessageContentCommandInput,
+  PutRawMessageContentCommandOutput,
+} from "./commands/PutRawMessageContentCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -53,9 +57,9 @@ import {
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
 
-export type ServiceInputTypes = GetRawMessageContentCommandInput;
+export type ServiceInputTypes = GetRawMessageContentCommandInput | PutRawMessageContentCommandInput;
 
-export type ServiceOutputTypes = GetRawMessageContentCommandOutput;
+export type ServiceOutputTypes = GetRawMessageContentCommandOutput | PutRawMessageContentCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

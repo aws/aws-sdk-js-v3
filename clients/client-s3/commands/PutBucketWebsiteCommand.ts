@@ -27,7 +27,7 @@ export type PutBucketWebsiteCommandOutput = __MetadataBearer;
  *          with website configuration information such as the file name of the index document and any
  *          redirect rules. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html">Hosting Websites on Amazon S3</a>.</p>
  *
- *          <p>This PUT operation requires the <code>S3:PutBucketWebsite</code> permission. By default,
+ *          <p>This PUT action requires the <code>S3:PutBucketWebsite</code> permission. By default,
  *          only the bucket owner can configure the website attached to a bucket; however, bucket
  *          owners can allow other users to set the website configuration by writing a bucket policy
  *          that grants them the <code>S3:PutBucketWebsite</code> permission.</p>
@@ -147,7 +147,7 @@ export type PutBucketWebsiteCommandOutput = __MetadataBearer;
  *
  *          <p>Amazon S3 has a limitation of 50 routing rules per website configuration. If you require more
  *          than 50 routing rules, you can use object redirect. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html">Configuring an
- *             Object Redirect</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+ *             Object Redirect</a> in the <i>Amazon S3 User Guide</i>.</p>
  */
 export class PutBucketWebsiteCommand extends $Command<
   PutBucketWebsiteCommandInput,

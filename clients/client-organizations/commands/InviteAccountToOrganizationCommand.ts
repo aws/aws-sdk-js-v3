@@ -28,12 +28,12 @@ export type InviteAccountToOrganizationCommandOutput = InviteAccountToOrganizati
  *         <important>
  *             <ul>
  *                <li>
- *                     <p>You can invite AWS accounts only from the same seller as the
- *                         management account. For example, if your organization's management account was
- *                         created by Amazon Internet Services Pvt. Ltd (AISPL), an AWS seller in
- *                         India, you can invite only other AISPL accounts to your organization. You
- *                         can't combine accounts from AISPL and AWS or from any other AWS seller.
- *                         For more information, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/useconsolidatedbilliing-India.html">Consolidated
+ *                     <p>You can invite AWS accounts only from the same seller as the management
+ *                         account. For example, if your organization's management account was created
+ *                         by Amazon Internet Services Pvt. Ltd (AISPL), an AWS seller in India, you
+ *                         can invite only other AISPL accounts to your organization. You can't combine
+ *                         accounts from AISPL and AWS or from any other AWS seller. For more
+ *                         information, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/useconsolidatedbilliing-India.html">Consolidated
  *                             Billing in India</a>.</p>
  *                 </li>
  *                <li>

@@ -21,11 +21,7 @@ export type DescribeStudioCommandInput = DescribeStudioInput;
 export type DescribeStudioCommandOutput = DescribeStudioOutput & __MetadataBearer;
 
 /**
- * <note>
- *             <p>The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject to
- *             change.</p>
- *          </note>
- *          <p>Returns details for the specified Amazon EMR Studio including ID, Name, VPC, Studio
+ * <p>Returns details for the specified Amazon EMR Studio including ID, Name, VPC, Studio
  *          access URL, and so on.</p>
  */
 export class DescribeStudioCommand extends $Command<

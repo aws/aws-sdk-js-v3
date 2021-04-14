@@ -22,15 +22,22 @@ export type DeleteAccountCommandOutput = DeleteAccountResponse & __MetadataBeare
 
 /**
  * <p>Deletes the specified Amazon Chime account. You must suspend all users before deleting
- *        a <code>Team</code> account. You can use the <a>BatchSuspendUser</a> action to do
- *        so.</p>
- *          <p>For <code>EnterpriseLWA</code> and <code>EnterpriseAD</code> accounts, you must
- *       release the claimed domains for your Amazon Chime account before deletion. As soon as you
- *       release the domain, all users under that account are suspended.</p>
- *          <p>Deleted accounts appear in your <code>Disabled</code> accounts list for 90 days. To restore a
- *      deleted account from your <code>Disabled</code> accounts list, you must contact AWS Support.</p>
- *          <p>After 90 days, deleted accounts are permanently removed from your
- *        <code>Disabled</code> accounts list.</p>
+ *                 <code>Team</code> account. You can use the <a>BatchSuspendUser</a> action
+ *             to dodo.</p>
+ *
+ *          <p>For <code>EnterpriseLWA</code> and <code>EnterpriseAD</code> accounts, you must release the
+ *             claimed domains for your Amazon Chime account before deletion. As soon as you release
+ *             the domain, all users under that account are suspended.</p>
+ *
+ *          <p>Deleted accounts appear in your <code>Disabled</code> accounts list for 90 days. To restore
+ *             deleted account from your <code>Disabled</code> accounts list, you must contact AWS
+ *             Support.</p>
+ *
+ *          <p>
+ * After 90 days, deleted accounts are permanently removed from your
+ * <code>Disabled</code>
+ * accounts list.
+ * </p>
  */
 export class DeleteAccountCommand extends $Command<
   DeleteAccountCommandInput,

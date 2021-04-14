@@ -6,7 +6,661 @@ import {
   NoteUpdate,
   RecordState,
   Result,
+  StandardsSubscription,
 } from "./models_0";
+
+export interface DescribeHubResponse {
+  /**
+   * <p>The ARN of the Hub resource that was retrieved.</p>
+   */
+  HubArn?: string;
+
+  /**
+   * <p>The date and time when Security Hub was enabled in the account.</p>
+   */
+  SubscribedAt?: string;
+
+  /**
+   * <p>Whether to automatically enable new controls when they are added to standards that are
+   *          enabled.</p>
+   *          <p>If set to <code>true</code>, then new controls for enabled standards are enabled
+   *          automatically. If set to <code>false</code>, then new controls are not enabled.</p>
+   */
+  AutoEnableControls?: boolean;
+}
+
+export namespace DescribeHubResponse {
+  export const filterSensitiveLog = (obj: DescribeHubResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeOrganizationConfigurationRequest {}
+
+export namespace DescribeOrganizationConfigurationRequest {
+  export const filterSensitiveLog = (obj: DescribeOrganizationConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeOrganizationConfigurationResponse {
+  /**
+   * <p>Whether to automatically enable Security Hub for new accounts in the organization.</p>
+   *          <p>If set to <code>true</code>, then Security Hub is enabled for new accounts. If set to false,
+   *          then new accounts are not added automatically.</p>
+   */
+  AutoEnable?: boolean;
+
+  /**
+   * <p>Whether the maximum number of allowed member accounts are already associated with the
+   *          Security Hub administrator account.</p>
+   */
+  MemberAccountLimitReached?: boolean;
+}
+
+export namespace DescribeOrganizationConfigurationResponse {
+  export const filterSensitiveLog = (obj: DescribeOrganizationConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeProductsRequest {
+  /**
+   * <p>The token that is required for pagination. On your first call to the
+   *             <code>DescribeProducts</code> operation, set the value of this parameter to
+   *             <code>NULL</code>.</p>
+   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
+   *          parameter to the value returned from the previous response.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The ARN of the integration to return.</p>
+   */
+  ProductArn?: string;
+}
+
+export namespace DescribeProductsRequest {
+  export const filterSensitiveLog = (obj: DescribeProductsRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum IntegrationType {
+  RECEIVE_FINDINGS_FROM_SECURITY_HUB = "RECEIVE_FINDINGS_FROM_SECURITY_HUB",
+  SEND_FINDINGS_TO_SECURITY_HUB = "SEND_FINDINGS_TO_SECURITY_HUB",
+}
+
+/**
+ * <p>Contains details about a product.</p>
+ */
+export interface Product {
+  /**
+   * <p>The ARN assigned to the product.</p>
+   */
+  ProductArn: string | undefined;
+
+  /**
+   * <p>The name of the product.</p>
+   */
+  ProductName?: string;
+
+  /**
+   * <p>The name of the company that provides the product.</p>
+   */
+  CompanyName?: string;
+
+  /**
+   * <p>A description of the product.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The categories assigned to the product.</p>
+   */
+  Categories?: string[];
+
+  /**
+   * <p>The types of integration that the product supports. Available values are the
+   *          following.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SEND_FINDINGS_TO_SECURITY_HUB</code> - Indicates that the integration sends
+   *                findings to Security Hub.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RECEIVE_FINDINGS_FROM_SECURITY_HUB</code> - Indicates that the integration
+   *                receives findings from Security Hub.</p>
+   *             </li>
+   *          </ul>
+   */
+  IntegrationTypes?: (IntegrationType | string)[];
+
+  /**
+   * <p>The URL for the page that contains more information about the product.</p>
+   */
+  MarketplaceUrl?: string;
+
+  /**
+   * <p>The URL used to activate the product.</p>
+   */
+  ActivationUrl?: string;
+
+  /**
+   * <p>The resource policy associated with the product.</p>
+   */
+  ProductSubscriptionResourcePolicy?: string;
+}
+
+export namespace Product {
+  export const filterSensitiveLog = (obj: Product): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeProductsResponse {
+  /**
+   * <p>A list of products, including details for each product.</p>
+   */
+  Products: Product[] | undefined;
+
+  /**
+   * <p>The pagination token to use to request the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeProductsResponse {
+  export const filterSensitiveLog = (obj: DescribeProductsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeStandardsRequest {
+  /**
+   * <p>The token that is required for pagination. On your first call to the
+   *             <code>DescribeStandards</code> operation, set the value of this parameter to
+   *             <code>NULL</code>.</p>
+   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
+   *          parameter to the value returned from the previous response.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of standards to return.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace DescribeStandardsRequest {
+  export const filterSensitiveLog = (obj: DescribeStandardsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about a specific standard.</p>
+ */
+export interface Standard {
+  /**
+   * <p>The ARN of a standard.</p>
+   */
+  StandardsArn?: string;
+
+  /**
+   * <p>The name of the standard.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A description of the standard.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Whether the standard is enabled by default. When Security Hub is enabled from the console, if a
+   *          standard is enabled by default, the check box for that standard is selected by
+   *          default.</p>
+   *          <p>When Security Hub is enabled using the <code>EnableSecurityHub</code> API operation, the
+   *          standard is enabled by default unless <code>EnableDefaultStandards</code> is set to
+   *             <code>false</code>.</p>
+   */
+  EnabledByDefault?: boolean;
+}
+
+export namespace Standard {
+  export const filterSensitiveLog = (obj: Standard): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeStandardsResponse {
+  /**
+   * <p>A list of available standards.</p>
+   */
+  Standards?: Standard[];
+
+  /**
+   * <p>The pagination token to use to request the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeStandardsResponse {
+  export const filterSensitiveLog = (obj: DescribeStandardsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeStandardsControlsRequest {
+  /**
+   * <p>The ARN of a resource that represents your subscription to a supported standard. To get
+   *          the subscription ARNs of the standards you have enabled, use the <code>
+   *                <a>GetEnabledStandards</a>
+   *             </code> operation.</p>
+   */
+  StandardsSubscriptionArn: string | undefined;
+
+  /**
+   * <p>The token that is required for pagination. On your first call to the
+   *             <code>DescribeStandardsControls</code> operation, set the value of this parameter to
+   *             <code>NULL</code>.</p>
+   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
+   *          parameter to the value returned from the previous response.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of security standard controls to return.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace DescribeStandardsControlsRequest {
+  export const filterSensitiveLog = (obj: DescribeStandardsControlsRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum SeverityRating {
+  CRITICAL = "CRITICAL",
+  HIGH = "HIGH",
+  LOW = "LOW",
+  MEDIUM = "MEDIUM",
+}
+
+/**
+ * <p>Details for an individual security standard control.</p>
+ */
+export interface StandardsControl {
+  /**
+   * <p>The ARN of the security standard control.</p>
+   */
+  StandardsControlArn?: string;
+
+  /**
+   * <p>The current status of the security standard control. Indicates whether the control is
+   *          enabled or disabled. Security Hub does not check against disabled controls.</p>
+   */
+  ControlStatus?: ControlStatus | string;
+
+  /**
+   * <p>The reason provided for the most recent change in status for the control.</p>
+   */
+  DisabledReason?: string;
+
+  /**
+   * <p>The date and time that the status of the security standard control was most recently
+   *          updated.</p>
+   */
+  ControlStatusUpdatedAt?: Date;
+
+  /**
+   * <p>The identifier of the security standard control.</p>
+   */
+  ControlId?: string;
+
+  /**
+   * <p>The title of the security standard control.</p>
+   */
+  Title?: string;
+
+  /**
+   * <p>The longer description of the security standard control. Provides information about what
+   *          the control is checking for.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>A link to remediation information for the control in the Security Hub user
+   *          documentation.</p>
+   */
+  RemediationUrl?: string;
+
+  /**
+   * <p>The severity of findings generated from this security standard control.</p>
+   *          <p>The finding severity is based on an assessment of how easy it would be to compromise AWS
+   *          resources if the issue is detected.</p>
+   */
+  SeverityRating?: SeverityRating | string;
+
+  /**
+   * <p>The list of requirements that are related to this control.</p>
+   */
+  RelatedRequirements?: string[];
+}
+
+export namespace StandardsControl {
+  export const filterSensitiveLog = (obj: StandardsControl): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeStandardsControlsResponse {
+  /**
+   * <p>A list of security standards controls.</p>
+   */
+  Controls?: StandardsControl[];
+
+  /**
+   * <p>The pagination token to use to request the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeStandardsControlsResponse {
+  export const filterSensitiveLog = (obj: DescribeStandardsControlsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DisableImportFindingsForProductRequest {
+  /**
+   * <p>The ARN of the integrated product to disable the integration for.</p>
+   */
+  ProductSubscriptionArn: string | undefined;
+}
+
+export namespace DisableImportFindingsForProductRequest {
+  export const filterSensitiveLog = (obj: DisableImportFindingsForProductRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisableImportFindingsForProductResponse {}
+
+export namespace DisableImportFindingsForProductResponse {
+  export const filterSensitiveLog = (obj: DisableImportFindingsForProductResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DisableOrganizationAdminAccountRequest {
+  /**
+   * <p>The AWS account identifier of the Security Hub administrator account.</p>
+   */
+  AdminAccountId: string | undefined;
+}
+
+export namespace DisableOrganizationAdminAccountRequest {
+  export const filterSensitiveLog = (obj: DisableOrganizationAdminAccountRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisableOrganizationAdminAccountResponse {}
+
+export namespace DisableOrganizationAdminAccountResponse {
+  export const filterSensitiveLog = (obj: DisableOrganizationAdminAccountResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DisableSecurityHubRequest {}
+
+export namespace DisableSecurityHubRequest {
+  export const filterSensitiveLog = (obj: DisableSecurityHubRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisableSecurityHubResponse {}
+
+export namespace DisableSecurityHubResponse {
+  export const filterSensitiveLog = (obj: DisableSecurityHubResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateFromMasterAccountRequest {}
+
+export namespace DisassociateFromMasterAccountRequest {
+  export const filterSensitiveLog = (obj: DisassociateFromMasterAccountRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateFromMasterAccountResponse {}
+
+export namespace DisassociateFromMasterAccountResponse {
+  export const filterSensitiveLog = (obj: DisassociateFromMasterAccountResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateMembersRequest {
+  /**
+   * <p>The account IDs of the member accounts to disassociate from the master account.</p>
+   */
+  AccountIds: string[] | undefined;
+}
+
+export namespace DisassociateMembersRequest {
+  export const filterSensitiveLog = (obj: DisassociateMembersRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateMembersResponse {}
+
+export namespace DisassociateMembersResponse {
+  export const filterSensitiveLog = (obj: DisassociateMembersResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface EnableImportFindingsForProductRequest {
+  /**
+   * <p>The ARN of the product to enable the integration for.</p>
+   */
+  ProductArn: string | undefined;
+}
+
+export namespace EnableImportFindingsForProductRequest {
+  export const filterSensitiveLog = (obj: EnableImportFindingsForProductRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface EnableImportFindingsForProductResponse {
+  /**
+   * <p>The ARN of your subscription to the product to enable integrations for.</p>
+   */
+  ProductSubscriptionArn?: string;
+}
+
+export namespace EnableImportFindingsForProductResponse {
+  export const filterSensitiveLog = (obj: EnableImportFindingsForProductResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface EnableOrganizationAdminAccountRequest {
+  /**
+   * <p>The AWS account identifier of the account to designate as the Security Hub administrator
+   *          account.</p>
+   */
+  AdminAccountId: string | undefined;
+}
+
+export namespace EnableOrganizationAdminAccountRequest {
+  export const filterSensitiveLog = (obj: EnableOrganizationAdminAccountRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface EnableOrganizationAdminAccountResponse {}
+
+export namespace EnableOrganizationAdminAccountResponse {
+  export const filterSensitiveLog = (obj: EnableOrganizationAdminAccountResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface EnableSecurityHubRequest {
+  /**
+   * <p>The tags to add to the hub resource when you enable Security Hub.</p>
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   * <p>Whether to enable the security standards that Security Hub has designated as automatically
+   *          enabled. If you do not provide a value for <code>EnableDefaultStandards</code>, it is set
+   *          to <code>true</code>. To not enable the automatically enabled standards, set
+   *             <code>EnableDefaultStandards</code> to <code>false</code>.</p>
+   */
+  EnableDefaultStandards?: boolean;
+}
+
+export namespace EnableSecurityHubRequest {
+  export const filterSensitiveLog = (obj: EnableSecurityHubRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface EnableSecurityHubResponse {}
+
+export namespace EnableSecurityHubResponse {
+  export const filterSensitiveLog = (obj: EnableSecurityHubResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetEnabledStandardsRequest {
+  /**
+   * <p>The list of the standards subscription ARNs for the standards to retrieve.</p>
+   */
+  StandardsSubscriptionArns?: string[];
+
+  /**
+   * <p>The token that is required for pagination. On your first call to the
+   *             <code>GetEnabledStandards</code> operation, set the value of this parameter to
+   *             <code>NULL</code>.</p>
+   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
+   *          parameter to the value returned from the previous response.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in the response.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace GetEnabledStandardsRequest {
+  export const filterSensitiveLog = (obj: GetEnabledStandardsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetEnabledStandardsResponse {
+  /**
+   * <p>The list of <code>StandardsSubscriptions</code> objects that include information about
+   *          the enabled standards.</p>
+   */
+  StandardsSubscriptions?: StandardsSubscription[];
+
+  /**
+   * <p>The pagination token to use to request the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetEnabledStandardsResponse {
+  export const filterSensitiveLog = (obj: GetEnabledStandardsResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum SortOrder {
+  ASCENDING = "asc",
+  DESCENDING = "desc",
+}
+
+/**
+ * <p>A collection of finding attributes used to sort findings.</p>
+ */
+export interface SortCriterion {
+  /**
+   * <p>The finding attribute used to sort findings.</p>
+   */
+  Field?: string;
+
+  /**
+   * <p>The order used to sort findings.</p>
+   */
+  SortOrder?: SortOrder | string;
+}
+
+export namespace SortCriterion {
+  export const filterSensitiveLog = (obj: SortCriterion): any => ({
+    ...obj,
+  });
+}
+
+export interface GetFindingsRequest {
+  /**
+   * <p>The finding attributes used to define a condition to filter the returned
+   *          findings.</p>
+   *          <p>You can filter by up to 10 finding attributes. For each attribute, you can provide up to
+   *          20 filter values.</p>
+   *          <p>Note that in the available filter fields, <code>WorkflowState</code> is deprecated. To
+   *          search for a finding based on its workflow status, use <code>WorkflowStatus</code>.</p>
+   */
+  Filters?: AwsSecurityFindingFilters;
+
+  /**
+   * <p>The finding attributes used to sort the list of returned findings.</p>
+   */
+  SortCriteria?: SortCriterion[];
+
+  /**
+   * <p>The token that is required for pagination. On your first call to the
+   *             <code>GetFindings</code> operation, set the value of this parameter to
+   *          <code>NULL</code>.</p>
+   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
+   *          parameter to the value returned from the previous response.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of findings to return.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace GetFindingsRequest {
+  export const filterSensitiveLog = (obj: GetFindingsRequest): any => ({
+    ...obj,
+  });
+}
 
 export interface GetFindingsResponse {
   /**

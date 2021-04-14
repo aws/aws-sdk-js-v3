@@ -22,7 +22,8 @@ export type DeleteVoiceConnectorCommandOutput = __MetadataBearer;
 
 /**
  * <p>Deletes the specified Amazon Chime Voice Connector. Any phone numbers associated with the
- *       Amazon Chime Voice Connector must be disassociated from it before it can be deleted.</p>
+ *             Amazon Chime Voice Connector must be disassociated from it before it can be
+ *             deleted.</p>
  */
 export class DeleteVoiceConnectorCommand extends $Command<
   DeleteVoiceConnectorCommandInput,

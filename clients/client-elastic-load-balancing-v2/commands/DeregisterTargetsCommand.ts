@@ -25,8 +25,8 @@ export type DeregisterTargetsCommandInput = DeregisterTargetsInput;
 export type DeregisterTargetsCommandOutput = DeregisterTargetsOutput & __MetadataBearer;
 
 /**
- * <p>Deregisters the specified targets from the specified target group. After the targets
- *       are deregistered, they no longer receive traffic from the load balancer.</p>
+ * <p>Deregisters the specified targets from the specified target group. After the targets are
+ *       deregistered, they no longer receive traffic from the load balancer.</p>
  */
 export class DeregisterTargetsCommand extends $Command<
   DeregisterTargetsCommandInput,

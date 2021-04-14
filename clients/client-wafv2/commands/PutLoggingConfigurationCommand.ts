@@ -21,10 +21,7 @@ export type PutLoggingConfigurationCommandInput = PutLoggingConfigurationRequest
 export type PutLoggingConfigurationCommandOutput = PutLoggingConfigurationResponse & __MetadataBearer;
 
 /**
- * <note>
- *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
- *          </note>
- *          <p>Enables the specified <a>LoggingConfiguration</a>, to start logging from a web ACL, according to the configuration provided.</p>
+ * <p>Enables the specified <a>LoggingConfiguration</a>, to start logging from a web ACL, according to the configuration provided.</p>
  *          <p>You can access information about all traffic that AWS WAF inspects using the following
  *          steps:</p>
  *          <ol>

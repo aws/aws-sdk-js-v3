@@ -40,6 +40,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { SyncResourceCommandInput, SyncResourceCommandOutput } from "./commands/SyncResourceCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand";
@@ -120,6 +121,7 @@ export type ServiceInputTypes =
   | ListAssociatedResourcesCommandInput
   | ListAttributeGroupsCommandInput
   | ListTagsForResourceCommandInput
+  | SyncResourceCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateApplicationCommandInput
@@ -141,6 +143,7 @@ export type ServiceOutputTypes =
   | ListAssociatedResourcesCommandOutput
   | ListAttributeGroupsCommandOutput
   | ListTagsForResourceCommandOutput
+  | SyncResourceCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateApplicationCommandOutput

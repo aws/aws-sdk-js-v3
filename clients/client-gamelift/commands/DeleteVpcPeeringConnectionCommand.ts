@@ -28,38 +28,18 @@ export type DeleteVpcPeeringConnectionCommandOutput = DeleteVpcPeeringConnection
  *         <p>Once a valid authorization exists, call this operation from the AWS account that is
  *             used to manage the Amazon GameLift fleets. Identify the connection to delete by the connection
  *             ID and fleet ID. If successful, the connection is removed. </p>
- *         <ul>
- *             <li>
- *                <p>
- *                   <a>CreateVpcPeeringAuthorization</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DescribeVpcPeeringAuthorizations</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteVpcPeeringAuthorization</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>CreateVpcPeeringConnection</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DescribeVpcPeeringConnections</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteVpcPeeringConnection</a>
- *                </p>
- *             </li>
- *          </ul>
+ *         <p>
+ *             <b>Related actions</b>
+ *          </p>
+ *                     <p>
+ *             <a>CreateVpcPeeringAuthorization</a> |
+ *                     <a>DescribeVpcPeeringAuthorizations</a> |
+ *                     <a>DeleteVpcPeeringAuthorization</a> |
+ *                     <a>CreateVpcPeeringConnection</a> |
+ *                     <a>DescribeVpcPeeringConnections</a> |
+ *                     <a>DeleteVpcPeeringConnection</a> |
+ *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          </p>
  */
 export class DeleteVpcPeeringConnectionCommand extends $Command<
   DeleteVpcPeeringConnectionCommandInput,

@@ -21,8 +21,11 @@ export type GetVoiceConnectorGroupCommandInput = GetVoiceConnectorGroupRequest;
 export type GetVoiceConnectorGroupCommandOutput = GetVoiceConnectorGroupResponse & __MetadataBearer;
 
 /**
- * <p>Retrieves details for the specified Amazon Chime Voice Connector group, such as timestamps,
- *       name, and associated <code>VoiceConnectorItems</code>.</p>
+ * <p>
+ * Retrieves details for the specified Amazon Chime Voice Connector group, such as timestamps,name, and associated
+ * <code>VoiceConnectorItems</code>
+ * .
+ * </p>
  */
 export class GetVoiceConnectorGroupCommand extends $Command<
   GetVoiceConnectorGroupCommandInput,

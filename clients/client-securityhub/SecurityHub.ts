@@ -386,7 +386,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   * <p>Imports security findings generated from an integrated third-party product into Security Hub.
+   * <p>Imports security findings generated from an integrated product into Security Hub.
    *          This action is requested by the integrated product to import its findings into
    *          Security Hub.</p>
    *          <p>The maximum allowed size for a finding is 240 Kb. An error is returned for any finding
@@ -397,32 +397,7 @@ export class SecurityHub extends SecurityHubClient {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>Confidence</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Criticality</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>Note</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RelatedFindings</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Severity</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Types</code>
    *                </p>
    *             </li>
    *             <li>
@@ -441,6 +416,35 @@ export class SecurityHub extends SecurityHubClient {
    *                </p>
    *             </li>
    *          </ul>
+   *          <p>Finding providers also should not use <code>BatchImportFindings</code> to update the following attributes.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Confidence</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Criticality</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RelatedFindings</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Severity</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Types</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>Instead, finding providers use <code>FindingProviderFields</code> to provide values for these attributes.</p>
    */
   public batchImportFindings(
     args: BatchImportFindingsCommandInput,
@@ -960,8 +964,11 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   * <p>Returns information about the available products that you can subscribe to and integrate
-   *          with Security Hub in order to consolidate findings.</p>
+   * <p>Returns information about product integrations in Security Hub.</p>
+   *          <p>You can optionally provide an integration ARN. If you provide an integration ARN, then
+   *          the results only include that integration.</p>
+   *          <p>If you do not provide an integration ARN, then the results include all of the available
+   *          product integrations. </p>
    */
   public describeProducts(
     args: DescribeProductsCommandInput,

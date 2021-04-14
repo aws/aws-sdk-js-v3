@@ -21,8 +21,9 @@ export type StopStreamCommandInput = StopStreamRequest;
 export type StopStreamCommandOutput = StopStreamResponse & __MetadataBearer;
 
 /**
- * <p>Disconnects the incoming RTMPS stream for the specified channel. Can be used in conjunction with <a>DeleteStreamKey</a> to
- *       prevent further streaming to a channel.</p>
+ * <p>Disconnects the incoming RTMPS stream for the specified channel. Can be used in
+ *       conjunction with <a>DeleteStreamKey</a> to prevent further streaming to a
+ *       channel.</p>
  *          <note>
  *             <p>Many streaming client-software libraries automatically reconnect a dropped RTMPS
  *         session, so to stop the stream permanently, you may want to first revoke the

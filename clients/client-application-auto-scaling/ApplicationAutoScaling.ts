@@ -89,7 +89,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *                <p>Amazon Keyspaces (for Apache Cassandra) tables</p>
  *             </li>
  *             <li>
- *                <p>Amazon Managed Streaming for Apache Kafka cluster storage</p>
+ *                <p>Amazon Managed Streaming for Apache Kafka broker storage</p>
  *             </li>
  *          </ul>
  *          <p>
@@ -127,7 +127,7 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
    *          <p>Deleting a step scaling policy deletes the underlying alarm action, but does not delete
    *          the CloudWatch alarm associated with the scaling policy, even if it no longer has an associated
    *          action.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html#delete-step-scaling-policy">Delete a Step Scaling Policy</a> and <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html#delete-target-tracking-policy">Delete a Target Tracking Scaling Policy</a> in the
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html#delete-step-scaling-policy">Delete a step scaling policy</a> and <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html#delete-target-tracking-policy">Delete a target tracking scaling policy</a> in the
    *             <i>Application Auto Scaling User Guide</i>.</p>
    */
   public deleteScalingPolicy(
@@ -161,7 +161,7 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
 
   /**
    * <p>Deletes the specified scheduled action for an Application Auto Scaling scalable target.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html#delete-scheduled-action">Delete a Scheduled Action</a> in the <i>Application Auto Scaling User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/scheduled-scaling-additional-cli-commands.html#delete-scheduled-action">Delete a scheduled action</a> in the <i>Application Auto Scaling User Guide</i>.</p>
    */
   public deleteScheduledAction(
     args: DeleteScheduledActionCommandInput,
@@ -302,7 +302,7 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
    * <p>Describes the Application Auto Scaling scaling policies for the specified service namespace.</p>
    *          <p>You can filter the results using <code>ResourceId</code>,
    *          <code>ScalableDimension</code>, and <code>PolicyNames</code>.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html">Target Tracking Scaling Policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html">Step Scaling Policies</a> in the <i>Application Auto Scaling User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html">Target tracking scaling policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html">Step scaling policies</a> in the <i>Application Auto Scaling User Guide</i>.</p>
    */
   public describeScalingPolicies(
     args: DescribeScalingPoliciesCommandInput,
@@ -337,7 +337,8 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
    * <p>Describes the Application Auto Scaling scheduled actions for the specified service namespace.</p>
    *          <p>You can filter the results using the <code>ResourceId</code>,
    *             <code>ScalableDimension</code>, and <code>ScheduledActionNames</code> parameters.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html">Scheduled Scaling</a> in the <i>Application Auto Scaling User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html">Scheduled scaling</a> and <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/scheduled-scaling-additional-cli-commands.html">Managing scheduled scaling</a> in the
+   *          <i>Application Auto Scaling User Guide</i>.</p>
    */
   public describeScheduledActions(
     args: DescribeScheduledActionsCommandInput,
@@ -388,7 +389,7 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
    *          tracking policy is ready to scale in, the scale-in activity will not be blocked. After the
    *          scale-in activity completes, the target tracking policy could instruct the scalable target
    *          to scale out again. </p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html">Target Tracking Scaling Policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html">Step Scaling Policies</a> in the <i>Application Auto Scaling User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html">Target tracking scaling policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html">Step scaling policies</a> in the <i>Application Auto Scaling User Guide</i>.</p>
    *          <note>
    *             <p>If a scalable target is deregistered, the scalable target is no longer available to
    *             execute scaling policies. Any scaling policies that were specified for the scalable
@@ -425,16 +426,16 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
   }
 
   /**
-   * <p>Creates or updates a scheduled action for an Application Auto Scaling scalable target.</p>
+   * <p>Creates or updates a scheduled action for an Application Auto Scaling scalable target. </p>
    *          <p>Each scalable target is identified by a service namespace, resource ID, and scalable
    *          dimension. A scheduled action applies to the scalable target identified by those three
    *          attributes. You cannot create a scheduled action until you have registered the resource as
    *          a scalable target.</p>
    *          <p>When start and end times are specified with a recurring schedule using a cron expression
-   *          or rates, they form the boundaries of when the recurring action starts and stops.</p>
+   *          or rates, they form the boundaries for when the recurring action starts and stops.</p>
    *          <p>To update a scheduled action, specify the parameters that you want to change. If you
    *          don't specify start and end times, the old values are deleted.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html">Scheduled Scaling</a> in the <i>Application Auto Scaling User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html">Scheduled scaling</a> in the <i>Application Auto Scaling User Guide</i>.</p>
    *          <note>
    *             <p>If a scalable target is deregistered, the scalable target is no longer available to
    *             run scheduled actions. Any scheduled actions that were specified for the scalable target

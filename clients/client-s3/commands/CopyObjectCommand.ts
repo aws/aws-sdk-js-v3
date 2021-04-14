@@ -27,7 +27,7 @@ export type CopyObjectCommandOutput = CopyObjectOutput & __MetadataBearer;
  * <p>Creates a copy of an object that is already stored in Amazon S3.</p>
  *          <note>
  *             <p>You can store individual objects of up to 5 TB in Amazon S3. You create a copy of your
- *             object up to 5 GB in size in a single atomic operation using this API. However, to copy
+ *             object up to 5 GB in size in a single atomic action using this API. However, to copy
  *             an object greater than 5 GB, you must use the multipart upload Upload Part - Copy API.
  *             For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjctsUsingRESTMPUapi.html">Copy Object Using the REST Multipart Upload API</a>.</p>
  *          </note>
@@ -37,7 +37,7 @@ export type CopyObjectCommandOutput = CopyObjectOutput & __MetadataBearer;
  *          that you want to copy the object from and the Region that you want to copy the object to
  *          must be enabled for your account.</p>
  *          <p>A copy request might return an error when Amazon S3 receives the copy request or while Amazon S3
- *          is copying the files. If the error occurs before the copy operation starts, you receive a
+ *          is copying the files. If the error occurs before the copy action starts, you receive a
  *          standard Amazon S3 error. If the error occurs during the copy operation, the error response is
  *          embedded in the <code>200 OK</code> response. This means that a <code>200 OK</code>
  *          response can contain either a success or an error. Design your application to parse the
@@ -50,7 +50,7 @@ export type CopyObjectCommandOutput = CopyObjectOutput & __MetadataBearer;
  *             body.</p>
  *          </note>
  *          <p>The copy request charge is based on the storage class and Region that you specify for
- *          the destination object. For pricing information, see <a href="https://aws.amazon.com/s3/pricing/">Amazon S3 pricing</a>.</p>
+ *          the destination object. For pricing information, see <a href="http://aws.amazon.com/s3/pricing/">Amazon S3 pricing</a>.</p>
  *          <important>
  *             <p>Amazon S3 transfer acceleration does not support cross-Region copies. If you request a
  *             cross-Region copy using a transfer acceleration endpoint, you get a 400 <code>Bad
@@ -138,10 +138,14 @@ export type CopyObjectCommandOutput = CopyObjectOutput & __MetadataBearer;
  *          <p>
  *             <b>Server-side encryption</b>
  *          </p>
- *          <p>When you perform a CopyObject operation, you can optionally use the appropriate encryption-related headers to encrypt the object using server-side encryption with AWS managed encryption keys (SSE-S3 or SSE-KMS) or a customer-provided encryption key. With server-side encryption, Amazon S3 encrypts your data as it writes it to disks in its data centers and decrypts the data when you access it. For more information about server-side encryption, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">Using
+ *          <p>When you perform a CopyObject operation, you can optionally use the appropriate encryption-related
+ *          headers to encrypt the object using server-side encryption with AWS managed encryption keys
+ *          (SSE-S3 or SSE-KMS) or a customer-provided encryption key. With server-side encryption, Amazon S3
+ *          encrypts your data as it writes it to disks in its data centers and decrypts the data when
+ *          you access it. For more information about server-side encryption, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">Using
  *          Server-Side Encryption</a>.</p>
  *          <p>If a target object uses SSE-KMS, you can enable an S3 Bucket Key for the object. For more
- *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html">Amazon S3 Bucket Keys</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+ *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html">Amazon S3 Bucket Keys</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <p>
  *             <b>Access Control List (ACL)-Specific Request
  *          Headers</b>
@@ -156,7 +160,7 @@ export type CopyObjectCommandOutput = CopyObjectOutput & __MetadataBearer;
  *          <p>
  *             <b>Storage Class Options</b>
  *          </p>
- *          <p>You can use the <code>CopyObject</code> operation to change the storage class of an
+ *          <p>You can use the <code>CopyObject</code> action to change the storage class of an
  *          object that is already stored in Amazon S3 using the <code>StorageClass</code> parameter. For
  *          more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage
  *             Classes</a> in the <i>Amazon S3 Service Developer Guide</i>.</p>

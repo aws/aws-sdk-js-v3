@@ -878,6 +878,52 @@ export namespace ListTagsForResourceResponse {
   });
 }
 
+export interface SyncResourceRequest {
+  /**
+   * <p>The type of resource of which the application will be associated.</p>
+   */
+  resourceType: ResourceType | string | undefined;
+
+  /**
+   * <p>An entity you can work with and specify with a name or ID. Examples include an Amazon EC2 instance, an AWS CloudFormation stack, or an Amazon S3 bucket.</p>
+   */
+  resource: string | undefined;
+}
+
+export namespace SyncResourceRequest {
+  export const filterSensitiveLog = (obj: SyncResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum SyncAction {
+  NO_ACTION = "NO_ACTION",
+  START_SYNC = "START_SYNC",
+}
+
+export interface SyncResourceResponse {
+  /**
+   * <p>The Amazon resource name (ARN) that specifies the application.</p>
+   */
+  applicationArn?: string;
+
+  /**
+   * <p>The Amazon resource name (ARN) that specifies the resource.</p>
+   */
+  resourceArn?: string;
+
+  /**
+   * <p>The results of the output if an application is associated with an ARN value, which could be <code>syncStarted</code> or None.</p>
+   */
+  actionTaken?: SyncAction | string;
+}
+
+export namespace SyncResourceResponse {
+  export const filterSensitiveLog = (obj: SyncResourceResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface TagResourceRequest {
   /**
    * <p>The Amazon resource name (ARN) that specifies the resource.</p>

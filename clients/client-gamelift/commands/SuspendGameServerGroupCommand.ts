@@ -22,7 +22,7 @@ export type SuspendGameServerGroupCommandOutput = SuspendGameServerGroupOutput &
 
 /**
  * <p>
- *             <b>This operation is used with the Amazon GameLift FleetIQ solution and game server groups.</b>
+ *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
  *          </p>
  *         <p>Temporarily stops activity on a game server group without terminating instances or the
  *             game server group. You can restart activity by calling <a>ResumeGameServerGroup</a>. You can suspend the following activity:</p>
@@ -50,50 +50,19 @@ export type SuspendGameServerGroupCommandOutput = SuspendGameServerGroupOutput &
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift FleetIQ Guide</a>
  *         </p>
  *         <p>
- *             <b>Related operations</b>
+ *             <b>Related actions</b>
  *          </p>
- *         <ul>
- *             <li>
- *                <p>
- *                   <a>CreateGameServerGroup</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListGameServerGroups</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DescribeGameServerGroup</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateGameServerGroup</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteGameServerGroup</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ResumeGameServerGroup</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>SuspendGameServerGroup</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DescribeGameServerInstances</a>
- *                </p>
- *             </li>
- *          </ul>
+ *                     <p>
+ *             <a>CreateGameServerGroup</a> |
+ *                     <a>ListGameServerGroups</a> |
+ *                     <a>DescribeGameServerGroup</a> |
+ *                     <a>UpdateGameServerGroup</a> |
+ *                     <a>DeleteGameServerGroup</a> |
+ *                     <a>ResumeGameServerGroup</a> |
+ *                     <a>SuspendGameServerGroup</a> |
+ *                     <a>DescribeGameServerInstances</a> |
+ *                     <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html">All APIs by task</a>
+ *          </p>
  */
 export class SuspendGameServerGroupCommand extends $Command<
   SuspendGameServerGroupCommandInput,

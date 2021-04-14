@@ -21,9 +21,9 @@ export type CreatePhoneNumberOrderCommandInput = CreatePhoneNumberOrderRequest;
 export type CreatePhoneNumberOrderCommandOutput = CreatePhoneNumberOrderResponse & __MetadataBearer;
 
 /**
- * <p>Creates an order for phone numbers to be provisioned. Choose from Amazon Chime Business
- *       Calling and Amazon Chime Voice Connector product types. For toll-free numbers, you must use
- *       the Amazon Chime Voice Connector product type.</p>
+ * <p>Creates an order for phone numbers to be provisioned. Choose from Amazon Chime Business Calling
+ *             and Amazon Chime Voice Connector product types. For toll-free numbers, you must use the
+ *             Amazon Chime Voice Connector product type.</p>
  */
 export class CreatePhoneNumberOrderCommand extends $Command<
   CreatePhoneNumberOrderCommandInput,

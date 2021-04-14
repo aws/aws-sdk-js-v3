@@ -492,10 +492,11 @@ export enum ActionExecutionStatus {
  */
 export interface ActionExecution {
   /**
-   * <p>ID of the workflow action execution in the current stage. Use the <a>GetPipelineState</a> action to retrieve the current action execution details of
-   *             the current stage.</p>
+   * <p>ID of the workflow action execution in the current stage. Use the <a>GetPipelineState</a> action to retrieve the current action execution details
+   *             of the current stage.</p>
    *         <note>
-   *             <p>For older executions, this field might be empty. The action execution ID is available for executions run on or after March 2020.</p>
+   *             <p>For older executions, this field might be empty. The action execution ID is
+   *                 available for executions run on or after March 2020.</p>
    *         </note>
    */
   actionExecutionId?: string;
@@ -968,6 +969,369 @@ export namespace ActionType {
 }
 
 /**
+ * <p>Information about parameters for artifacts associated with the action type, such as
+ *             the minimum and maximum artifacts allowed.</p>
+ */
+export interface ActionTypeArtifactDetails {
+  /**
+   * <p>The minimum number of artifacts that can be used with the action type. For example,
+   *             you should specify a minimum and maximum of zero input artifacts for an action type with
+   *             a category of <code>source</code>.</p>
+   */
+  minimumCount: number | undefined;
+
+  /**
+   * <p>The maximum number of artifacts that can be used with the actiontype. For example, you
+   *             should specify a minimum and maximum of zero input artifacts for an action type with a
+   *             category of <code>source</code>.</p>
+   */
+  maximumCount: number | undefined;
+}
+
+export namespace ActionTypeArtifactDetails {
+  export const filterSensitiveLog = (obj: ActionTypeArtifactDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about the polling configuration for the <code>JobWorker</code> action engine,
+ *             or executor.</p>
+ */
+export interface JobWorkerExecutorConfiguration {
+  /**
+   * <p>The accounts in which the job worker is configured and might poll for jobs as part of
+   *             the action execution.</p>
+   */
+  pollingAccounts?: string[];
+
+  /**
+   * <p>The service Principals in which the job worker is configured and might poll for jobs
+   *             as part of the action execution.</p>
+   */
+  pollingServicePrincipals?: string[];
+}
+
+export namespace JobWorkerExecutorConfiguration {
+  export const filterSensitiveLog = (obj: JobWorkerExecutorConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about the configuration for the <code>Lambda</code> action engine, or
+ *             executor.</p>
+ */
+export interface LambdaExecutorConfiguration {
+  /**
+   * <p>The ARN of the Lambda function used by the action engine.</p>
+   */
+  lambdaFunctionArn: string | undefined;
+}
+
+export namespace LambdaExecutorConfiguration {
+  export const filterSensitiveLog = (obj: LambdaExecutorConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The action engine, or executor, related to the supported integration model used to
+ *             create and update the action type. The available executor types are <code>Lambda</code>
+ *             and <code>JobWorker</code>.</p>
+ */
+export interface ExecutorConfiguration {
+  /**
+   * <p>Details about the <code>Lambda</code> executor of the action type.</p>
+   */
+  lambdaExecutorConfiguration?: LambdaExecutorConfiguration;
+
+  /**
+   * <p>Details about the <code>JobWorker</code> executor of the action type.</p>
+   */
+  jobWorkerExecutorConfiguration?: JobWorkerExecutorConfiguration;
+}
+
+export namespace ExecutorConfiguration {
+  export const filterSensitiveLog = (obj: ExecutorConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export enum ExecutorType {
+  JobWorker = "JobWorker",
+  Lambda = "Lambda",
+}
+
+/**
+ * <p>The action engine, or executor, for an action type created for a provider, where the
+ *             action is to be used by customers of the provider. The action engine is associated with
+ *             the model used to create and update the action, such as the Lambda integration
+ *             model.</p>
+ */
+export interface ActionTypeExecutor {
+  /**
+   * <p>The action configuration properties for the action type. These properties are
+   *             specified in the action definition when the action type is created.</p>
+   */
+  configuration: ExecutorConfiguration | undefined;
+
+  /**
+   * <p>The integration model used to create and update the action type, <code>Lambda</code>
+   *             or <code>JobWorker</code>. </p>
+   */
+  type: ExecutorType | string | undefined;
+
+  /**
+   * <p>The policy statement that specifies the permissions in the CodePipeline customer’s
+   *             account that are needed to successfully run an action.</p>
+   *         <p>To grant permission to another account, specify the account ID as the Principal, a
+   *             domain-style identifier defined by the service, for example
+   *                 <code>codepipeline.amazonaws.com</code>.</p>
+   *         <note>
+   *             <p>The size of the passed JSON policy document cannot exceed 2048 characters.</p>
+   *         </note>
+   */
+  policyStatementsTemplate?: string;
+
+  /**
+   * <p>The timeout in seconds for the job. An action execution can have multiple jobs. This
+   *             is the timeout for a single job, not the entire action execution.</p>
+   */
+  jobTimeout?: number;
+}
+
+export namespace ActionTypeExecutor {
+  export const filterSensitiveLog = (obj: ActionTypeExecutor): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the category, owner, provider, and version of the action type.</p>
+ */
+export interface ActionTypeIdentifier {
+  /**
+   * <p>Defines what kind of action can be taken in the stage, one of the following:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>Source</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Build</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Test</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Deploy</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Approval</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Invoke</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  category: ActionCategory | string | undefined;
+
+  /**
+   * <p>The creator of the action type being called: <code>AWS</code> or
+   *                 <code>ThirdParty</code>.</p>
+   */
+  owner: string | undefined;
+
+  /**
+   * <p>The provider of the action type being called. The provider name is supplied when the
+   *             action type is created.</p>
+   */
+  provider: string | undefined;
+
+  /**
+   * <p>A string that describes the action type version.</p>
+   */
+  version: string | undefined;
+}
+
+export namespace ActionTypeIdentifier {
+  export const filterSensitiveLog = (obj: ActionTypeIdentifier): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details identifying the users with permissions to use the action type.</p>
+ */
+export interface ActionTypePermissions {
+  /**
+   * <p>A list of AWS account IDs with access to use the action type in their
+   *             pipelines.</p>
+   */
+  allowedAccounts: string[] | undefined;
+}
+
+export namespace ActionTypePermissions {
+  export const filterSensitiveLog = (obj: ActionTypePermissions): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Represents information about each property specified in the action configuration, such
+ *             as the description and key name that display for the customer using the action
+ *             type.</p>
+ */
+export interface ActionTypeProperty {
+  /**
+   * <p>The property name that is displayed to users.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Whether the configuration property is an optional value.</p>
+   */
+  optional: boolean | undefined;
+
+  /**
+   * <p>Whether the configuration property is a key.</p>
+   */
+  key: boolean | undefined;
+
+  /**
+   * <p>Whether to omit the field value entered by the customer in the log. If
+   *                 <code>true</code>, the value is not saved in CloudTrail logs for the action
+   *             execution.</p>
+   */
+  noEcho: boolean | undefined;
+
+  /**
+   * <p>Indicates that the property is used with polling. An action type can have up to one
+   *             queryable property. If it has one, that property must be both required and not
+   *             secret.</p>
+   */
+  queryable?: boolean;
+
+  /**
+   * <p>The description of the property that is displayed to users.</p>
+   */
+  description?: string;
+}
+
+export namespace ActionTypeProperty {
+  export const filterSensitiveLog = (obj: ActionTypeProperty): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Returns information about URLs for web pages that display to customers as links on the
+ *             pipeline view, such as an external configuration page for the action type.</p>
+ */
+export interface ActionTypeUrls {
+  /**
+   * <p>The URL returned to the CodePipeline console that contains a link to the page where
+   *             customers can configure the external action.</p>
+   */
+  configurationUrl?: string;
+
+  /**
+   * <p>The URL returned to the CodePipeline console that provides a deep link to the
+   *             resources of the external system, such as a status page. This link is provided as part
+   *             of the action display in the pipeline.</p>
+   */
+  entityUrlTemplate?: string;
+
+  /**
+   * <p>The link to an execution page for the action type in progress. For example, for a
+   *             CodeDeploy action, this link is shown on the pipeline view page in the CodePipeline
+   *             console, and it links to a CodeDeploy status page.</p>
+   */
+  executionUrlTemplate?: string;
+
+  /**
+   * <p>The URL returned to the CodePipeline console that contains a link to the page where
+   *             customers can update or change the configuration of the external action.</p>
+   */
+  revisionUrlTemplate?: string;
+}
+
+export namespace ActionTypeUrls {
+  export const filterSensitiveLog = (obj: ActionTypeUrls): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The parameters for the action type definition that are provided when the action type
+ *             is created or updated.</p>
+ */
+export interface ActionTypeDeclaration {
+  /**
+   * <p>The description for the action type to be updated.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>Information about the executor for an action type that was created with any supported
+   *             integration model.</p>
+   */
+  executor: ActionTypeExecutor | undefined;
+
+  /**
+   * <p>The action category, owner, provider, and version of the action type to be
+   *             updated.</p>
+   */
+  id: ActionTypeIdentifier | undefined;
+
+  /**
+   * <p>Details for the artifacts, such as application files, to be worked on by the action.
+   *             For example, the minimum and maximum number of input artifacts allowed.</p>
+   */
+  inputArtifactDetails: ActionTypeArtifactDetails | undefined;
+
+  /**
+   * <p>Details for the output artifacts, such as a built application, that are the result of
+   *             the action. For example, the minimum and maximum number of output artifacts
+   *             allowed.</p>
+   */
+  outputArtifactDetails: ActionTypeArtifactDetails | undefined;
+
+  /**
+   * <p>Details identifying the accounts with permissions to use the action type.</p>
+   */
+  permissions?: ActionTypePermissions;
+
+  /**
+   * <p>The properties of the action type to be updated.</p>
+   */
+  properties?: ActionTypeProperty[];
+
+  /**
+   * <p>The links associated with the action type to be updated.</p>
+   */
+  urls?: ActionTypeUrls;
+}
+
+export namespace ActionTypeDeclaration {
+  export const filterSensitiveLog = (obj: ActionTypeDeclaration): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>The specified action type cannot be found.</p>
  */
 export interface ActionTypeNotFoundException extends __SmithyException, $MetadataBearer {
@@ -1254,6 +1618,9 @@ export interface AWSSessionCredentials {
 export namespace AWSSessionCredentials {
   export const filterSensitiveLog = (obj: AWSSessionCredentials): any => ({
     ...obj,
+    ...(obj.accessKeyId && { accessKeyId: SENSITIVE_STRING }),
+    ...(obj.secretAccessKey && { secretAccessKey: SENSITIVE_STRING }),
+    ...(obj.sessionToken && { sessionToken: SENSITIVE_STRING }),
   });
 }
 
@@ -1879,6 +2246,83 @@ export namespace EnableStageTransitionInput {
   });
 }
 
+export interface GetActionTypeInput {
+  /**
+   * <p>Defines what kind of action can be taken in the stage. The following are the valid
+   *             values:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>Source</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Build</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Test</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Deploy</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Approval</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Invoke</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  category: ActionCategory | string | undefined;
+
+  /**
+   * <p>The creator of an action type that was created with any supported integration model.
+   *             There are two valid values: <code>AWS</code> and <code>ThirdParty</code>.</p>
+   */
+  owner: string | undefined;
+
+  /**
+   * <p>The provider of the action type being called. The provider name is specified when the
+   *             action type is created.</p>
+   */
+  provider: string | undefined;
+
+  /**
+   * <p>A string that describes the action type version.</p>
+   */
+  version: string | undefined;
+}
+
+export namespace GetActionTypeInput {
+  export const filterSensitiveLog = (obj: GetActionTypeInput): any => ({
+    ...obj,
+  });
+}
+
+export interface GetActionTypeOutput {
+  /**
+   * <p>The action type information for the requested action type, such as the action type
+   *             ID.</p>
+   */
+  actionType?: ActionTypeDeclaration;
+}
+
+export namespace GetActionTypeOutput {
+  export const filterSensitiveLog = (obj: GetActionTypeOutput): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Represents the input of a <code>GetJobDetails</code> action.</p>
  */
@@ -2179,6 +2623,7 @@ export namespace GetPipelineExecutionInput {
 }
 
 export enum PipelineExecutionStatus {
+  Cancelled = "Cancelled",
   Failed = "Failed",
   InProgress = "InProgress",
   Stopped = "Stopped",
@@ -2210,6 +2655,10 @@ export interface PipelineExecution {
    * <p>The status of the pipeline execution.</p>
    *         <ul>
    *             <li>
+   *                 <p>Cancelled: The pipeline’s definition was updated before the pipeline
+   *                     execution could be completed.</p>
+   *             </li>
+   *             <li>
    *                 <p>InProgress: The pipeline execution is currently running.</p>
    *             </li>
    *             <li>
@@ -2235,6 +2684,11 @@ export interface PipelineExecution {
    *          </ul>
    */
   status?: PipelineExecutionStatus | string;
+
+  /**
+   * <p>A summary that contains a description of the pipeline execution status.</p>
+   */
+  statusSummary?: string;
 
   /**
    * <p>A list of <code>ArtifactRevision</code> objects included in a pipeline
@@ -2301,6 +2755,7 @@ export namespace GetPipelineStateInput {
 }
 
 export enum StageExecutionStatus {
+  Cancelled = "Cancelled",
   Failed = "Failed",
   InProgress = "InProgress",
   Stopped = "Stopped",
@@ -2320,6 +2775,10 @@ export interface StageExecution {
   /**
    * <p>The status of the stage, or for a completed stage, the last status of the
    *             stage.</p>
+   *         <note>
+   *             <p>A status of cancelled means that the pipeline’s definition was updated before the
+   *                 stage execution could be completed.</p>
+   *         </note>
    */
   status: StageExecutionStatus | string | undefined;
 }
@@ -2685,6 +3144,11 @@ export interface ListActionTypesInput {
    *             be used to return the next set of action types in the list.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The Region to filter on for the list of action types.</p>
+   */
+  regionFilter?: string;
 }
 
 export namespace ListActionTypesInput {
@@ -2941,6 +3405,13 @@ export interface ListPipelinesInput {
    *             used to return the next set of pipelines in the list.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The maximum number of pipelines to return in a single call. To retrieve the remaining
+   *             pipelines, make another call with the returned nextToken value. The minimum value you
+   *             can specify is 1. The maximum accepted value is 1000.</p>
+   */
+  maxResults?: number;
 }
 
 export namespace ListPipelinesInput {
@@ -3932,7 +4403,8 @@ export namespace RegisterWebhookWithThirdPartyOutput {
 }
 
 /**
- * <p>Your request cannot be handled because the pipeline is busy handling ongoing activities. Try again later.</p>
+ * <p>Your request cannot be handled because the pipeline is busy handling ongoing
+ *             activities. Try again later.</p>
  */
 export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
@@ -4207,6 +4679,34 @@ export interface UntagResourceOutput {}
 
 export namespace UntagResourceOutput {
   export const filterSensitiveLog = (obj: UntagResourceOutput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The request failed because of an unknown error, exception, or failure.</p>
+ */
+export interface RequestFailedException extends __SmithyException, $MetadataBearer {
+  name: "RequestFailedException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace RequestFailedException {
+  export const filterSensitiveLog = (obj: RequestFailedException): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateActionTypeInput {
+  /**
+   * <p>The action type definition for the action type to be updated.</p>
+   */
+  actionType: ActionTypeDeclaration | undefined;
+}
+
+export namespace UpdateActionTypeInput {
+  export const filterSensitiveLog = (obj: UpdateActionTypeInput): any => ({
     ...obj,
   });
 }

@@ -18,6 +18,7 @@ import {
 import { DeleteScheduleCommandInput, DeleteScheduleCommandOutput } from "./commands/DeleteScheduleCommand";
 import { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "./commands/DescribeDatasetCommand";
 import { DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand";
+import { DescribeJobRunCommandInput, DescribeJobRunCommandOutput } from "./commands/DescribeJobRunCommand";
 import { DescribeProjectCommandInput, DescribeProjectCommandOutput } from "./commands/DescribeProjectCommand";
 import { DescribeRecipeCommandInput, DescribeRecipeCommandOutput } from "./commands/DescribeRecipeCommand";
 import { DescribeScheduleCommandInput, DescribeScheduleCommandOutput } from "./commands/DescribeScheduleCommand";
@@ -117,6 +118,7 @@ export type ServiceInputTypes =
   | DeleteScheduleCommandInput
   | DescribeDatasetCommandInput
   | DescribeJobCommandInput
+  | DescribeJobRunCommandInput
   | DescribeProjectCommandInput
   | DescribeRecipeCommandInput
   | DescribeScheduleCommandInput
@@ -157,6 +159,7 @@ export type ServiceOutputTypes =
   | DeleteScheduleCommandOutput
   | DescribeDatasetCommandOutput
   | DescribeJobCommandOutput
+  | DescribeJobRunCommandOutput
   | DescribeProjectCommandOutput
   | DescribeRecipeCommandOutput
   | DescribeScheduleCommandOutput

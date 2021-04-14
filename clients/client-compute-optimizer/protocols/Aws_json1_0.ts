@@ -31,6 +31,10 @@ import {
   GetEnrollmentStatusCommandOutput,
 } from "../commands/GetEnrollmentStatusCommand";
 import {
+  GetLambdaFunctionRecommendationsCommandInput,
+  GetLambdaFunctionRecommendationsCommandOutput,
+} from "../commands/GetLambdaFunctionRecommendationsCommand";
+import {
   GetRecommendationSummariesCommandInput,
   GetRecommendationSummariesCommandOutput,
 } from "../commands/GetRecommendationSummariesCommand";
@@ -65,6 +69,8 @@ import {
   GetEC2RecommendationProjectedMetricsResponse,
   GetEnrollmentStatusRequest,
   GetEnrollmentStatusResponse,
+  GetLambdaFunctionRecommendationsRequest,
+  GetLambdaFunctionRecommendationsResponse,
   GetRecommendationError,
   GetRecommendationSummariesRequest,
   GetRecommendationSummariesResponse,
@@ -73,10 +79,17 @@ import {
   InternalServerException,
   InvalidParameterValueException,
   JobFilter,
+  LambdaFunctionMemoryProjectedMetric,
+  LambdaFunctionMemoryRecommendationOption,
+  LambdaFunctionRecommendation,
+  LambdaFunctionRecommendationFilter,
+  LambdaFunctionRecommendationFindingReasonCode,
+  LambdaFunctionUtilizationMetric,
   LimitExceededException,
   MissingAuthenticationToken,
   OptInRequiredException,
   ProjectedMetric,
+  ReasonCodeSummary,
   RecommendationExportJob,
   RecommendationSource,
   RecommendationSummary,
@@ -205,6 +218,19 @@ export const serializeAws_json1_0GetEnrollmentStatusCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0GetEnrollmentStatusRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0GetLambdaFunctionRecommendationsCommand = async (
+  input: GetLambdaFunctionRecommendationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "ComputeOptimizerService.GetLambdaFunctionRecommendations",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0GetLambdaFunctionRecommendationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1098,6 +1124,116 @@ const deserializeAws_json1_0GetEnrollmentStatusCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_0GetLambdaFunctionRecommendationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLambdaFunctionRecommendationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0GetLambdaFunctionRecommendationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0GetLambdaFunctionRecommendationsResponse(data, context);
+  const response: GetLambdaFunctionRecommendationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0GetLambdaFunctionRecommendationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLambdaFunctionRecommendationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.computeoptimizer#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.computeoptimizer#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.computeoptimizer#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.computeoptimizer#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "MissingAuthenticationToken":
+    case "com.amazonaws.computeoptimizer#MissingAuthenticationToken":
+      response = {
+        ...(await deserializeAws_json1_0MissingAuthenticationTokenResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OptInRequiredException":
+    case "com.amazonaws.computeoptimizer#OptInRequiredException":
+      response = {
+        ...(await deserializeAws_json1_0OptInRequiredExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.computeoptimizer#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_0ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.computeoptimizer#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_0GetRecommendationSummariesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1588,6 +1724,17 @@ const serializeAws_json1_0FilterValues = (input: string[], context: __SerdeConte
     });
 };
 
+const serializeAws_json1_0FunctionArns = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_json1_0GetAutoScalingGroupRecommendationsRequest = (
   input: GetAutoScalingGroupRecommendationsRequest,
   context: __SerdeContext
@@ -1660,6 +1807,24 @@ const serializeAws_json1_0GetEnrollmentStatusRequest = (
   return {};
 };
 
+const serializeAws_json1_0GetLambdaFunctionRecommendationsRequest = (
+  input: GetLambdaFunctionRecommendationsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.accountIds !== undefined &&
+      input.accountIds !== null && { accountIds: serializeAws_json1_0AccountIds(input.accountIds, context) }),
+    ...(input.filters !== undefined &&
+      input.filters !== null && {
+        filters: serializeAws_json1_0LambdaFunctionRecommendationFilters(input.filters, context),
+      }),
+    ...(input.functionArns !== undefined &&
+      input.functionArns !== null && { functionArns: serializeAws_json1_0FunctionArns(input.functionArns, context) }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+  };
+};
+
 const serializeAws_json1_0GetRecommendationSummariesRequest = (
   input: GetRecommendationSummariesRequest,
   context: __SerdeContext
@@ -1710,6 +1875,31 @@ const serializeAws_json1_0JobIds = (input: string[], context: __SerdeContext): a
         return null as any;
       }
       return entry;
+    });
+};
+
+const serializeAws_json1_0LambdaFunctionRecommendationFilter = (
+  input: LambdaFunctionRecommendationFilter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.values !== undefined &&
+      input.values !== null && { values: serializeAws_json1_0FilterValues(input.values, context) }),
+  };
+};
+
+const serializeAws_json1_0LambdaFunctionRecommendationFilters = (
+  input: LambdaFunctionRecommendationFilter[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_0LambdaFunctionRecommendationFilter(entry, context);
     });
 };
 
@@ -1990,6 +2180,19 @@ const deserializeAws_json1_0GetEnrollmentStatusResponse = (
   } as any;
 };
 
+const deserializeAws_json1_0GetLambdaFunctionRecommendationsResponse = (
+  output: any,
+  context: __SerdeContext
+): GetLambdaFunctionRecommendationsResponse => {
+  return {
+    lambdaFunctionRecommendations:
+      output.lambdaFunctionRecommendations !== undefined && output.lambdaFunctionRecommendations !== null
+        ? deserializeAws_json1_0LambdaFunctionRecommendations(output.lambdaFunctionRecommendations, context)
+        : undefined,
+    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0GetRecommendationError = (output: any, context: __SerdeContext): GetRecommendationError => {
   return {
     code: output.code !== undefined && output.code !== null ? output.code : undefined,
@@ -2106,6 +2309,156 @@ const deserializeAws_json1_0InvalidParameterValueException = (
   } as any;
 };
 
+const deserializeAws_json1_0LambdaFunctionMemoryProjectedMetric = (
+  output: any,
+  context: __SerdeContext
+): LambdaFunctionMemoryProjectedMetric => {
+  return {
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    statistic: output.statistic !== undefined && output.statistic !== null ? output.statistic : undefined,
+    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0LambdaFunctionMemoryProjectedMetrics = (
+  output: any,
+  context: __SerdeContext
+): LambdaFunctionMemoryProjectedMetric[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0LambdaFunctionMemoryProjectedMetric(entry, context);
+    });
+};
+
+const deserializeAws_json1_0LambdaFunctionMemoryRecommendationOption = (
+  output: any,
+  context: __SerdeContext
+): LambdaFunctionMemoryRecommendationOption => {
+  return {
+    memorySize: output.memorySize !== undefined && output.memorySize !== null ? output.memorySize : undefined,
+    projectedUtilizationMetrics:
+      output.projectedUtilizationMetrics !== undefined && output.projectedUtilizationMetrics !== null
+        ? deserializeAws_json1_0LambdaFunctionMemoryProjectedMetrics(output.projectedUtilizationMetrics, context)
+        : undefined,
+    rank: output.rank !== undefined && output.rank !== null ? output.rank : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0LambdaFunctionMemoryRecommendationOptions = (
+  output: any,
+  context: __SerdeContext
+): LambdaFunctionMemoryRecommendationOption[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0LambdaFunctionMemoryRecommendationOption(entry, context);
+    });
+};
+
+const deserializeAws_json1_0LambdaFunctionRecommendation = (
+  output: any,
+  context: __SerdeContext
+): LambdaFunctionRecommendation => {
+  return {
+    accountId: output.accountId !== undefined && output.accountId !== null ? output.accountId : undefined,
+    currentMemorySize:
+      output.currentMemorySize !== undefined && output.currentMemorySize !== null
+        ? output.currentMemorySize
+        : undefined,
+    finding: output.finding !== undefined && output.finding !== null ? output.finding : undefined,
+    findingReasonCodes:
+      output.findingReasonCodes !== undefined && output.findingReasonCodes !== null
+        ? deserializeAws_json1_0LambdaFunctionRecommendationFindingReasonCodes(output.findingReasonCodes, context)
+        : undefined,
+    functionArn: output.functionArn !== undefined && output.functionArn !== null ? output.functionArn : undefined,
+    functionVersion:
+      output.functionVersion !== undefined && output.functionVersion !== null ? output.functionVersion : undefined,
+    lastRefreshTimestamp:
+      output.lastRefreshTimestamp !== undefined && output.lastRefreshTimestamp !== null
+        ? new Date(Math.round(output.lastRefreshTimestamp * 1000))
+        : undefined,
+    lookbackPeriodInDays:
+      output.lookbackPeriodInDays !== undefined && output.lookbackPeriodInDays !== null
+        ? output.lookbackPeriodInDays
+        : undefined,
+    memorySizeRecommendationOptions:
+      output.memorySizeRecommendationOptions !== undefined && output.memorySizeRecommendationOptions !== null
+        ? deserializeAws_json1_0LambdaFunctionMemoryRecommendationOptions(
+            output.memorySizeRecommendationOptions,
+            context
+          )
+        : undefined,
+    numberOfInvocations:
+      output.numberOfInvocations !== undefined && output.numberOfInvocations !== null
+        ? output.numberOfInvocations
+        : undefined,
+    utilizationMetrics:
+      output.utilizationMetrics !== undefined && output.utilizationMetrics !== null
+        ? deserializeAws_json1_0LambdaFunctionUtilizationMetrics(output.utilizationMetrics, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0LambdaFunctionRecommendationFindingReasonCodes = (
+  output: any,
+  context: __SerdeContext
+): (LambdaFunctionRecommendationFindingReasonCode | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const deserializeAws_json1_0LambdaFunctionRecommendations = (
+  output: any,
+  context: __SerdeContext
+): LambdaFunctionRecommendation[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0LambdaFunctionRecommendation(entry, context);
+    });
+};
+
+const deserializeAws_json1_0LambdaFunctionUtilizationMetric = (
+  output: any,
+  context: __SerdeContext
+): LambdaFunctionUtilizationMetric => {
+  return {
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    statistic: output.statistic !== undefined && output.statistic !== null ? output.statistic : undefined,
+    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0LambdaFunctionUtilizationMetrics = (
+  output: any,
+  context: __SerdeContext
+): LambdaFunctionUtilizationMetric[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0LambdaFunctionUtilizationMetric(entry, context);
+    });
+};
+
 const deserializeAws_json1_0LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
@@ -2175,6 +2528,24 @@ const deserializeAws_json1_0ProjectedUtilizationMetrics = (
       }
       return deserializeAws_json1_0UtilizationMetric(entry, context);
     });
+};
+
+const deserializeAws_json1_0ReasonCodeSummaries = (output: any, context: __SerdeContext): ReasonCodeSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0ReasonCodeSummary(entry, context);
+    });
+};
+
+const deserializeAws_json1_0ReasonCodeSummary = (output: any, context: __SerdeContext): ReasonCodeSummary => {
+  return {
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_0RecommendationExportJob = (
@@ -2353,6 +2724,10 @@ const deserializeAws_json1_0Summaries = (output: any, context: __SerdeContext): 
 const deserializeAws_json1_0Summary = (output: any, context: __SerdeContext): Summary => {
   return {
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    reasonCodeSummaries:
+      output.reasonCodeSummaries !== undefined && output.reasonCodeSummaries !== null
+        ? deserializeAws_json1_0ReasonCodeSummaries(output.reasonCodeSummaries, context)
+        : undefined,
     value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;
 };

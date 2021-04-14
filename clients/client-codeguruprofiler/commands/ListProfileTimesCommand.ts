@@ -21,7 +21,7 @@ export type ListProfileTimesCommandInput = ListProfileTimesRequest;
 export type ListProfileTimesCommandOutput = ListProfileTimesResponse & __MetadataBearer;
 
 /**
- * <p>List the start times of the available aggregated profiles of a profiling group
+ * <p>Lists the start times of the available aggregated profiles of a profiling group
  *         for an aggregation period within the specified time range.</p>
  */
 export class ListProfileTimesCommand extends $Command<

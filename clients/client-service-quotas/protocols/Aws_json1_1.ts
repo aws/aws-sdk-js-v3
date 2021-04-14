@@ -46,6 +46,10 @@ import {
 import { ListServiceQuotasCommandInput, ListServiceQuotasCommandOutput } from "../commands/ListServiceQuotasCommand";
 import { ListServicesCommandInput, ListServicesCommandOutput } from "../commands/ListServicesCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
+import {
   PutServiceQuotaIncreaseRequestIntoTemplateCommandInput,
   PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput,
 } from "../commands/PutServiceQuotaIncreaseRequestIntoTemplateCommand";
@@ -53,6 +57,8 @@ import {
   RequestServiceQuotaIncreaseCommandInput,
   RequestServiceQuotaIncreaseCommandOutput,
 } from "../commands/RequestServiceQuotaIncreaseCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
   AWSServiceAccessNotEnabledException,
   AccessDeniedException,
@@ -89,6 +95,8 @@ import {
   ListServiceQuotasResponse,
   ListServicesRequest,
   ListServicesResponse,
+  ListTagsForResourceRequest,
+  ListTagsForResourceResponse,
   MetricInfo,
   NoAvailableOrganizationException,
   NoSuchResourceException,
@@ -106,8 +114,15 @@ import {
   ServiceQuota,
   ServiceQuotaIncreaseRequestInTemplate,
   ServiceQuotaTemplateNotInUseException,
+  Tag,
+  TagPolicyViolationException,
+  TagResourceRequest,
+  TagResourceResponse,
   TemplatesNotAvailableInRegionException,
   TooManyRequestsException,
+  TooManyTagsException,
+  UntagResourceRequest,
+  UntagResourceResponse,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
@@ -301,6 +316,19 @@ export const serializeAws_json1_1ListServicesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "ServiceQuotasV20190624.ListTagsForResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateCommand = async (
   input: PutServiceQuotaIncreaseRequestIntoTemplateCommandInput,
   context: __SerdeContext
@@ -324,6 +352,32 @@ export const serializeAws_json1_1RequestServiceQuotaIncreaseCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RequestServiceQuotaIncreaseRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "ServiceQuotasV20190624.TagResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "ServiceQuotasV20190624.UntagResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1723,6 +1777,92 @@ const deserializeAws_json1_1ListServicesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListTagsForResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.servicequotas#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "IllegalArgumentException":
+    case "com.amazonaws.servicequotas#IllegalArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1IllegalArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NoSuchResourceException":
+    case "com.amazonaws.servicequotas#NoSuchResourceException":
+      response = {
+        ...(await deserializeAws_json1_1NoSuchResourceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.servicequotas#ServiceException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.servicequotas#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1967,6 +2107,194 @@ const deserializeAws_json1_1RequestServiceQuotaIncreaseCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1TagResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1TagResourceResponse(data, context);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1TagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.servicequotas#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "IllegalArgumentException":
+    case "com.amazonaws.servicequotas#IllegalArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1IllegalArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NoSuchResourceException":
+    case "com.amazonaws.servicequotas#NoSuchResourceException":
+      response = {
+        ...(await deserializeAws_json1_1NoSuchResourceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.servicequotas#ServiceException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TagPolicyViolationException":
+    case "com.amazonaws.servicequotas#TagPolicyViolationException":
+      response = {
+        ...(await deserializeAws_json1_1TagPolicyViolationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.servicequotas#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyTagsException":
+    case "com.amazonaws.servicequotas#TooManyTagsException":
+      response = {
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UntagResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UntagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.servicequotas#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "IllegalArgumentException":
+    case "com.amazonaws.servicequotas#IllegalArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1IllegalArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NoSuchResourceException":
+    case "com.amazonaws.servicequotas#NoSuchResourceException":
+      response = {
+        ...(await deserializeAws_json1_1NoSuchResourceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.servicequotas#ServiceException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.servicequotas#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -2162,6 +2490,21 @@ const deserializeAws_json1_1ServiceQuotaTemplateNotInUseExceptionResponse = asyn
   return contents;
 };
 
+const deserializeAws_json1_1TagPolicyViolationExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TagPolicyViolationException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1TagPolicyViolationException(body, context);
+  const contents: TagPolicyViolationException = {
+    name: "TagPolicyViolationException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1TemplatesNotAvailableInRegionExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -2185,6 +2528,21 @@ const deserializeAws_json1_1TooManyRequestsExceptionResponse = async (
   const deserialized: any = deserializeAws_json1_1TooManyRequestsException(body, context);
   const contents: TooManyRequestsException = {
     name: "TooManyRequestsException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TooManyTagsException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1TooManyTagsException(body, context);
+  const contents: TooManyTagsException = {
+    name: "TooManyTagsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -2261,6 +2619,28 @@ const serializeAws_json1_1GetServiceQuotaRequest = (input: GetServiceQuotaReques
   };
 };
 
+const serializeAws_json1_1InputTagKeys = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1InputTags = (input: Tag[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Tag(entry, context);
+    });
+};
+
 const serializeAws_json1_1ListAWSDefaultServiceQuotasRequest = (
   input: ListAWSDefaultServiceQuotasRequest,
   context: __SerdeContext
@@ -2327,6 +2707,15 @@ const serializeAws_json1_1ListServicesRequest = (input: ListServicesRequest, con
   };
 };
 
+const serializeAws_json1_1ListTagsForResourceRequest = (
+  input: ListTagsForResourceRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
+  };
+};
+
 const serializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateRequest = (
   input: PutServiceQuotaIncreaseRequestIntoTemplateRequest,
   context: __SerdeContext
@@ -2347,6 +2736,29 @@ const serializeAws_json1_1RequestServiceQuotaIncreaseRequest = (
     ...(input.DesiredValue !== undefined && input.DesiredValue !== null && { DesiredValue: input.DesiredValue }),
     ...(input.QuotaCode !== undefined && input.QuotaCode !== null && { QuotaCode: input.QuotaCode }),
     ...(input.ServiceCode !== undefined && input.ServiceCode !== null && { ServiceCode: input.ServiceCode }),
+  };
+};
+
+const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
+  return {
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+  };
+};
+
+const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_json1_1InputTags(input.Tags, context) }),
+  };
+};
+
+const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
+    ...(input.TagKeys !== undefined &&
+      input.TagKeys !== null && { TagKeys: serializeAws_json1_1InputTagKeys(input.TagKeys, context) }),
   };
 };
 
@@ -2573,6 +2985,18 @@ const deserializeAws_json1_1ListServicesResponse = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_json1_1ListTagsForResourceResponse = (
+  output: any,
+  context: __SerdeContext
+): ListTagsForResourceResponse => {
+  return {
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_json1_1OutputTags(output.Tags, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1MetricDimensionsMapDefinition = (
   output: any,
   context: __SerdeContext
@@ -2629,6 +3053,17 @@ const deserializeAws_json1_1OrganizationNotInAllFeaturesModeException = (
   return {
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1OutputTags = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateResponse = (
@@ -2821,6 +3256,26 @@ const deserializeAws_json1_1ServiceQuotaTemplateNotInUseException = (
   } as any;
 };
 
+const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
+  return {
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1TagPolicyViolationException = (
+  output: any,
+  context: __SerdeContext
+): TagPolicyViolationException => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1TemplatesNotAvailableInRegionException = (
   output: any,
   context: __SerdeContext
@@ -2837,6 +3292,16 @@ const deserializeAws_json1_1TooManyRequestsException = (
   return {
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
+  return {} as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

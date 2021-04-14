@@ -1,3 +1,4 @@
+import { ConfigureLogsCommandInput, ConfigureLogsCommandOutput } from "../commands/ConfigureLogsCommand";
 import { CreateAssetCommandInput, CreateAssetCommandOutput } from "../commands/CreateAssetCommand";
 import {
   CreatePackagingConfigurationCommandInput,
@@ -52,6 +53,7 @@ import {
   DashEncryption,
   DashManifest,
   DashPackage,
+  EgressAccessLogs,
   EgressEndpoint,
   ForbiddenException,
   HlsEncryption,
@@ -82,6 +84,42 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+export const serializeAws_restJson1ConfigureLogsCommand = async (
+  input: ConfigureLogsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = "/packaging_groups/{Id}/configure_logs";
+  if (input.Id !== undefined) {
+    const labelValue: string = input.Id;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Id.");
+    }
+    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Id.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.EgressAccessLogs !== undefined &&
+      input.EgressAccessLogs !== null && {
+        egressAccessLogs: serializeAws_restJson1EgressAccessLogs(input.EgressAccessLogs, context),
+      }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
 
 export const serializeAws_restJson1CreateAssetCommand = async (
   input: CreateAssetCommandInput,
@@ -161,6 +199,10 @@ export const serializeAws_restJson1CreatePackagingGroupCommand = async (
     ...(input.Authorization !== undefined &&
       input.Authorization !== null && {
         authorization: serializeAws_restJson1Authorization(input.Authorization, context),
+      }),
+    ...(input.EgressAccessLogs !== undefined &&
+      input.EgressAccessLogs !== null && {
+        egressAccessLogs: serializeAws_restJson1EgressAccessLogs(input.EgressAccessLogs, context),
       }),
     ...(input.Id !== undefined && input.Id !== null && { id: input.Id }),
     ...(input.Tags !== undefined && input.Tags !== null && { tags: serializeAws_restJson1Tags(input.Tags, context) }),
@@ -549,6 +591,121 @@ export const serializeAws_restJson1UpdatePackagingGroupCommand = async (
   });
 };
 
+export const deserializeAws_restJson1ConfigureLogsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ConfigureLogsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ConfigureLogsCommandError(output, context);
+  }
+  const contents: ConfigureLogsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Arn: undefined,
+    Authorization: undefined,
+    DomainName: undefined,
+    EgressAccessLogs: undefined,
+    Id: undefined,
+    Tags: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.arn !== undefined && data.arn !== null) {
+    contents.Arn = data.arn;
+  }
+  if (data.authorization !== undefined && data.authorization !== null) {
+    contents.Authorization = deserializeAws_restJson1Authorization(data.authorization, context);
+  }
+  if (data.domainName !== undefined && data.domainName !== null) {
+    contents.DomainName = data.domainName;
+  }
+  if (data.egressAccessLogs !== undefined && data.egressAccessLogs !== null) {
+    contents.EgressAccessLogs = deserializeAws_restJson1EgressAccessLogs(data.egressAccessLogs, context);
+  }
+  if (data.id !== undefined && data.id !== null) {
+    contents.Id = data.id;
+  }
+  if (data.tags !== undefined && data.tags !== null) {
+    contents.Tags = deserializeAws_restJson1Tags(data.tags, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ConfigureLogsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ConfigureLogsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ForbiddenException":
+    case "com.amazonaws.mediapackagevod#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.mediapackagevod#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.mediapackagevod#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.mediapackagevod#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.mediapackagevod#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnprocessableEntityException":
+    case "com.amazonaws.mediapackagevod#UnprocessableEntityException":
+      response = {
+        ...(await deserializeAws_restJson1UnprocessableEntityExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1CreateAssetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -811,6 +968,7 @@ export const deserializeAws_restJson1CreatePackagingGroupCommand = async (
     Arn: undefined,
     Authorization: undefined,
     DomainName: undefined,
+    EgressAccessLogs: undefined,
     Id: undefined,
     Tags: undefined,
   };
@@ -823,6 +981,9 @@ export const deserializeAws_restJson1CreatePackagingGroupCommand = async (
   }
   if (data.domainName !== undefined && data.domainName !== null) {
     contents.DomainName = data.domainName;
+  }
+  if (data.egressAccessLogs !== undefined && data.egressAccessLogs !== null) {
+    contents.EgressAccessLogs = deserializeAws_restJson1EgressAccessLogs(data.egressAccessLogs, context);
   }
   if (data.id !== undefined && data.id !== null) {
     contents.Id = data.id;
@@ -1445,6 +1606,7 @@ export const deserializeAws_restJson1DescribePackagingGroupCommand = async (
     Arn: undefined,
     Authorization: undefined,
     DomainName: undefined,
+    EgressAccessLogs: undefined,
     Id: undefined,
     Tags: undefined,
   };
@@ -1457,6 +1619,9 @@ export const deserializeAws_restJson1DescribePackagingGroupCommand = async (
   }
   if (data.domainName !== undefined && data.domainName !== null) {
     contents.DomainName = data.domainName;
+  }
+  if (data.egressAccessLogs !== undefined && data.egressAccessLogs !== null) {
+    contents.EgressAccessLogs = deserializeAws_restJson1EgressAccessLogs(data.egressAccessLogs, context);
   }
   if (data.id !== undefined && data.id !== null) {
     contents.Id = data.id;
@@ -1989,6 +2154,7 @@ export const deserializeAws_restJson1UpdatePackagingGroupCommand = async (
     Arn: undefined,
     Authorization: undefined,
     DomainName: undefined,
+    EgressAccessLogs: undefined,
     Id: undefined,
     Tags: undefined,
   };
@@ -2001,6 +2167,9 @@ export const deserializeAws_restJson1UpdatePackagingGroupCommand = async (
   }
   if (data.domainName !== undefined && data.domainName !== null) {
     contents.DomainName = data.domainName;
+  }
+  if (data.egressAccessLogs !== undefined && data.egressAccessLogs !== null) {
+    contents.EgressAccessLogs = deserializeAws_restJson1EgressAccessLogs(data.egressAccessLogs, context);
   }
   if (data.id !== undefined && data.id !== null) {
     contents.Id = data.id;
@@ -2331,6 +2500,12 @@ const serializeAws_restJson1DashPackage = (input: DashPackage, context: __SerdeC
       input.SegmentDurationSeconds !== null && { segmentDurationSeconds: input.SegmentDurationSeconds }),
     ...(input.SegmentTemplateFormat !== undefined &&
       input.SegmentTemplateFormat !== null && { segmentTemplateFormat: input.SegmentTemplateFormat }),
+  };
+};
+
+const serializeAws_restJson1EgressAccessLogs = (input: EgressAccessLogs, context: __SerdeContext): any => {
+  return {
+    ...(input.LogGroupName !== undefined && input.LogGroupName !== null && { logGroupName: input.LogGroupName }),
   };
 };
 
@@ -2668,6 +2843,12 @@ const deserializeAws_restJson1DashPackage = (output: any, context: __SerdeContex
   } as any;
 };
 
+const deserializeAws_restJson1EgressAccessLogs = (output: any, context: __SerdeContext): EgressAccessLogs => {
+  return {
+    LogGroupName: output.logGroupName !== undefined && output.logGroupName !== null ? output.logGroupName : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1EgressEndpoint = (output: any, context: __SerdeContext): EgressEndpoint => {
   return {
     PackagingConfigurationId:
@@ -2811,6 +2992,10 @@ const deserializeAws_restJson1PackagingGroup = (output: any, context: __SerdeCon
         ? deserializeAws_restJson1Authorization(output.authorization, context)
         : undefined,
     DomainName: output.domainName !== undefined && output.domainName !== null ? output.domainName : undefined,
+    EgressAccessLogs:
+      output.egressAccessLogs !== undefined && output.egressAccessLogs !== null
+        ? deserializeAws_restJson1EgressAccessLogs(output.egressAccessLogs, context)
+        : undefined,
     Id: output.id !== undefined && output.id !== null ? output.id : undefined,
     Tags:
       output.tags !== undefined && output.tags !== null

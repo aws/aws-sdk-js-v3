@@ -54,6 +54,11 @@ import {
   CancelCertificateTransferCommandInput,
   CancelCertificateTransferCommandOutput,
 } from "./commands/CancelCertificateTransferCommand";
+import {
+  CancelDetectMitigationActionsTaskCommand,
+  CancelDetectMitigationActionsTaskCommandInput,
+  CancelDetectMitigationActionsTaskCommandOutput,
+} from "./commands/CancelDetectMitigationActionsTaskCommand";
 import { CancelJobCommand, CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand";
 import {
   CancelJobExecutionCommand,
@@ -90,6 +95,11 @@ import {
   CreateCertificateFromCsrCommandInput,
   CreateCertificateFromCsrCommandOutput,
 } from "./commands/CreateCertificateFromCsrCommand";
+import {
+  CreateCustomMetricCommand,
+  CreateCustomMetricCommandInput,
+  CreateCustomMetricCommandOutput,
+} from "./commands/CreateCustomMetricCommand";
 import {
   CreateDimensionCommand,
   CreateDimensionCommandInput,
@@ -217,6 +227,11 @@ import {
   DeleteCertificateCommandInput,
   DeleteCertificateCommandOutput,
 } from "./commands/DeleteCertificateCommand";
+import {
+  DeleteCustomMetricCommand,
+  DeleteCustomMetricCommandInput,
+  DeleteCustomMetricCommandOutput,
+} from "./commands/DeleteCustomMetricCommand";
 import {
   DeleteDimensionCommand,
   DeleteDimensionCommandInput,
@@ -370,10 +385,20 @@ import {
   DescribeCertificateCommandOutput,
 } from "./commands/DescribeCertificateCommand";
 import {
+  DescribeCustomMetricCommand,
+  DescribeCustomMetricCommandInput,
+  DescribeCustomMetricCommandOutput,
+} from "./commands/DescribeCustomMetricCommand";
+import {
   DescribeDefaultAuthorizerCommand,
   DescribeDefaultAuthorizerCommandInput,
   DescribeDefaultAuthorizerCommandOutput,
 } from "./commands/DescribeDefaultAuthorizerCommand";
+import {
+  DescribeDetectMitigationActionsTaskCommand,
+  DescribeDetectMitigationActionsTaskCommandInput,
+  DescribeDetectMitigationActionsTaskCommandOutput,
+} from "./commands/DescribeDetectMitigationActionsTaskCommand";
 import {
   DescribeDimensionCommand,
   DescribeDimensionCommandInput,
@@ -490,6 +515,11 @@ import {
   EnableTopicRuleCommandInput,
   EnableTopicRuleCommandOutput,
 } from "./commands/EnableTopicRuleCommand";
+import {
+  GetBehaviorModelTrainingSummariesCommand,
+  GetBehaviorModelTrainingSummariesCommandInput,
+  GetBehaviorModelTrainingSummariesCommandOutput,
+} from "./commands/GetBehaviorModelTrainingSummariesCommand";
 import {
   GetCardinalityCommand,
   GetCardinalityCommandInput,
@@ -616,6 +646,21 @@ import {
   ListCertificatesCommandInput,
   ListCertificatesCommandOutput,
 } from "./commands/ListCertificatesCommand";
+import {
+  ListCustomMetricsCommand,
+  ListCustomMetricsCommandInput,
+  ListCustomMetricsCommandOutput,
+} from "./commands/ListCustomMetricsCommand";
+import {
+  ListDetectMitigationActionsExecutionsCommand,
+  ListDetectMitigationActionsExecutionsCommandInput,
+  ListDetectMitigationActionsExecutionsCommandOutput,
+} from "./commands/ListDetectMitigationActionsExecutionsCommand";
+import {
+  ListDetectMitigationActionsTasksCommand,
+  ListDetectMitigationActionsTasksCommandInput,
+  ListDetectMitigationActionsTasksCommandOutput,
+} from "./commands/ListDetectMitigationActionsTasksCommand";
 import {
   ListDimensionsCommand,
   ListDimensionsCommandInput,
@@ -857,6 +902,11 @@ import {
   StartAuditMitigationActionsTaskCommandOutput,
 } from "./commands/StartAuditMitigationActionsTaskCommand";
 import {
+  StartDetectMitigationActionsTaskCommand,
+  StartDetectMitigationActionsTaskCommandInput,
+  StartDetectMitigationActionsTaskCommandOutput,
+} from "./commands/StartDetectMitigationActionsTaskCommand";
+import {
   StartOnDemandAuditTaskCommand,
   StartOnDemandAuditTaskCommandInput,
   StartOnDemandAuditTaskCommandOutput,
@@ -922,6 +972,11 @@ import {
   UpdateCertificateCommandInput,
   UpdateCertificateCommandOutput,
 } from "./commands/UpdateCertificateCommand";
+import {
+  UpdateCustomMetricCommand,
+  UpdateCustomMetricCommandInput,
+  UpdateCustomMetricCommandOutput,
+} from "./commands/UpdateCustomMetricCommand";
 import {
   UpdateDimensionCommand,
   UpdateDimensionCommandInput,
@@ -1297,7 +1352,9 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Cancels a mitigation action task that is in progress. If the task is not in progress, an InvalidRequestException occurs.</p>
+   * <p>Cancels a mitigation action task that is in progress. If the task
+   *       is not
+   *       in progress, an InvalidRequestException occurs.</p>
    */
   public cancelAuditMitigationActionsTask(
     args: CancelAuditMitigationActionsTaskCommandInput,
@@ -1329,8 +1386,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Cancels an audit that is in progress. The audit can be either scheduled or on-demand.
-   *           If the audit is not in progress, an "InvalidRequestException" occurs.</p>
+   * <p>Cancels an audit that is in progress. The audit can be either scheduled or on demand. If the audit isn't in progress, an "InvalidRequestException" occurs.</p>
    */
   public cancelAuditTask(
     args: CancelAuditTaskCommandInput,
@@ -1390,6 +1446,40 @@ export class IoT extends IoTClient {
     cb?: (err: any, data?: CancelCertificateTransferCommandOutput) => void
   ): Promise<CancelCertificateTransferCommandOutput> | void {
     const command = new CancelCertificateTransferCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *         Cancels a Device Defender ML Detect mitigation action.
+   *       </p>
+   */
+  public cancelDetectMitigationActionsTask(
+    args: CancelDetectMitigationActionsTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelDetectMitigationActionsTaskCommandOutput>;
+  public cancelDetectMitigationActionsTask(
+    args: CancelDetectMitigationActionsTaskCommandInput,
+    cb: (err: any, data?: CancelDetectMitigationActionsTaskCommandOutput) => void
+  ): void;
+  public cancelDetectMitigationActionsTask(
+    args: CancelDetectMitigationActionsTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelDetectMitigationActionsTaskCommandOutput) => void
+  ): void;
+  public cancelDetectMitigationActionsTask(
+    args: CancelDetectMitigationActionsTaskCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelDetectMitigationActionsTaskCommandOutput) => void),
+    cb?: (err: any, data?: CancelDetectMitigationActionsTaskCommandOutput) => void
+  ): Promise<CancelDetectMitigationActionsTaskCommandOutput> | void {
+    const command = new CancelDetectMitigationActionsTaskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1679,6 +1769,41 @@ export class IoT extends IoTClient {
     cb?: (err: any, data?: CreateCertificateFromCsrCommandOutput) => void
   ): Promise<CreateCertificateFromCsrCommandOutput> | void {
     const command = new CreateCertificateFromCsrCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p> Use this API to define a
+   *       Custom
+   *       Metric
+   *       published by your devices to Device Defender. </p>
+   */
+  public createCustomMetric(
+    args: CreateCustomMetricCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCustomMetricCommandOutput>;
+  public createCustomMetric(
+    args: CreateCustomMetricCommandInput,
+    cb: (err: any, data?: CreateCustomMetricCommandOutput) => void
+  ): void;
+  public createCustomMetric(
+    args: CreateCustomMetricCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCustomMetricCommandOutput) => void
+  ): void;
+  public createCustomMetric(
+    args: CreateCustomMetricCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCustomMetricCommandOutput) => void),
+    cb?: (err: any, data?: CreateCustomMetricCommandOutput) => void
+  ): Promise<CreateCustomMetricCommandOutput> | void {
+    const command = new CreateCustomMetricCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2575,6 +2700,48 @@ export class IoT extends IoTClient {
   }
 
   /**
+   * <note>
+   *             <p>Before you can delete a custom metric, you must first remove the custom metric from all
+   *         security profiles it's a part of.
+   *         The
+   *         security
+   *         profile associated with the custom metric can be found using the <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_ListSecurityProfiles.html">ListSecurityProfiles</a>
+   *         API with <code>metricName</code> set to your custom metric name.</p>
+   *          </note>
+   *          <p>
+   *       Deletes a Device Defender detect custom metric.
+   *     </p>
+   */
+  public deleteCustomMetric(
+    args: DeleteCustomMetricCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCustomMetricCommandOutput>;
+  public deleteCustomMetric(
+    args: DeleteCustomMetricCommandInput,
+    cb: (err: any, data?: DeleteCustomMetricCommandOutput) => void
+  ): void;
+  public deleteCustomMetric(
+    args: DeleteCustomMetricCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCustomMetricCommandOutput) => void
+  ): void;
+  public deleteCustomMetric(
+    args: DeleteCustomMetricCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCustomMetricCommandOutput) => void),
+    cb?: (err: any, data?: DeleteCustomMetricCommandOutput) => void
+  ): Promise<DeleteCustomMetricCommandOutput> | void {
+    const command = new DeleteCustomMetricCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Removes the specified dimension from your AWS account.</p>
    */
   public deleteDimension(
@@ -3350,7 +3517,11 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Gets information about a single audit finding. Properties include the reason for noncompliance, the severity of the issue, and when the audit that returned the finding was started.</p>
+   * <p>Gets information about a single audit finding. Properties include the reason for
+   *       noncompliance, the severity of the issue,
+   *       and the start time
+   *       when the audit that returned the
+   *       finding.</p>
    */
   public describeAuditFinding(
     args: DescribeAuditFindingCommandInput,
@@ -3608,6 +3779,40 @@ export class IoT extends IoTClient {
   }
 
   /**
+   * <p>
+   *       Gets information about a Device Defender detect custom metric.
+   *     </p>
+   */
+  public describeCustomMetric(
+    args: DescribeCustomMetricCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeCustomMetricCommandOutput>;
+  public describeCustomMetric(
+    args: DescribeCustomMetricCommandInput,
+    cb: (err: any, data?: DescribeCustomMetricCommandOutput) => void
+  ): void;
+  public describeCustomMetric(
+    args: DescribeCustomMetricCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeCustomMetricCommandOutput) => void
+  ): void;
+  public describeCustomMetric(
+    args: DescribeCustomMetricCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCustomMetricCommandOutput) => void),
+    cb?: (err: any, data?: DescribeCustomMetricCommandOutput) => void
+  ): Promise<DescribeCustomMetricCommandOutput> | void {
+    const command = new DescribeCustomMetricCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Describes the default authorizer.</p>
    */
   public describeDefaultAuthorizer(
@@ -3629,6 +3834,40 @@ export class IoT extends IoTClient {
     cb?: (err: any, data?: DescribeDefaultAuthorizerCommandOutput) => void
   ): Promise<DescribeDefaultAuthorizerCommandOutput> | void {
     const command = new DescribeDefaultAuthorizerCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *       Gets information about a Device Defender ML Detect mitigation action.
+   *     </p>
+   */
+  public describeDetectMitigationActionsTask(
+    args: DescribeDetectMitigationActionsTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDetectMitigationActionsTaskCommandOutput>;
+  public describeDetectMitigationActionsTask(
+    args: DescribeDetectMitigationActionsTaskCommandInput,
+    cb: (err: any, data?: DescribeDetectMitigationActionsTaskCommandOutput) => void
+  ): void;
+  public describeDetectMitigationActionsTask(
+    args: DescribeDetectMitigationActionsTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDetectMitigationActionsTaskCommandOutput) => void
+  ): void;
+  public describeDetectMitigationActionsTask(
+    args: DescribeDetectMitigationActionsTaskCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDetectMitigationActionsTaskCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDetectMitigationActionsTaskCommandOutput) => void
+  ): Promise<DescribeDetectMitigationActionsTaskCommandOutput> | void {
+    const command = new DescribeDetectMitigationActionsTaskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -4412,6 +4651,40 @@ export class IoT extends IoTClient {
   }
 
   /**
+   * <p>
+   *       Returns a Device Defender's ML Detect Security Profile training model's status.
+   *     </p>
+   */
+  public getBehaviorModelTrainingSummaries(
+    args: GetBehaviorModelTrainingSummariesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBehaviorModelTrainingSummariesCommandOutput>;
+  public getBehaviorModelTrainingSummaries(
+    args: GetBehaviorModelTrainingSummariesCommandInput,
+    cb: (err: any, data?: GetBehaviorModelTrainingSummariesCommandOutput) => void
+  ): void;
+  public getBehaviorModelTrainingSummaries(
+    args: GetBehaviorModelTrainingSummariesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetBehaviorModelTrainingSummariesCommandOutput) => void
+  ): void;
+  public getBehaviorModelTrainingSummaries(
+    args: GetBehaviorModelTrainingSummariesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBehaviorModelTrainingSummariesCommandOutput) => void),
+    cb?: (err: any, data?: GetBehaviorModelTrainingSummariesCommandOutput) => void
+  ): Promise<GetBehaviorModelTrainingSummariesCommandOutput> | void {
+    const command = new GetBehaviorModelTrainingSummariesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns the approximate count of unique values that match the query.</p>
    */
   public getCardinality(
@@ -4959,7 +5232,8 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Gets the status of audit mitigation action tasks that were executed.</p>
+   * <p>Gets the status of audit mitigation action tasks that were
+   *       executed.</p>
    */
   public listAuditMitigationActionsExecutions(
     args: ListAuditMitigationActionsExecutionsCommandInput,
@@ -5243,6 +5517,110 @@ export class IoT extends IoTClient {
     cb?: (err: any, data?: ListCertificatesByCACommandOutput) => void
   ): Promise<ListCertificatesByCACommandOutput> | void {
     const command = new ListCertificatesByCACommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *       Lists your Device Defender detect custom metrics.
+   *     </p>
+   */
+  public listCustomMetrics(
+    args: ListCustomMetricsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCustomMetricsCommandOutput>;
+  public listCustomMetrics(
+    args: ListCustomMetricsCommandInput,
+    cb: (err: any, data?: ListCustomMetricsCommandOutput) => void
+  ): void;
+  public listCustomMetrics(
+    args: ListCustomMetricsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCustomMetricsCommandOutput) => void
+  ): void;
+  public listCustomMetrics(
+    args: ListCustomMetricsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCustomMetricsCommandOutput) => void),
+    cb?: (err: any, data?: ListCustomMetricsCommandOutput) => void
+  ): Promise<ListCustomMetricsCommandOutput> | void {
+    const command = new ListCustomMetricsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *       Lists mitigation actions executions for a Device Defender ML Detect Security Profile.
+   *     </p>
+   */
+  public listDetectMitigationActionsExecutions(
+    args: ListDetectMitigationActionsExecutionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDetectMitigationActionsExecutionsCommandOutput>;
+  public listDetectMitigationActionsExecutions(
+    args: ListDetectMitigationActionsExecutionsCommandInput,
+    cb: (err: any, data?: ListDetectMitigationActionsExecutionsCommandOutput) => void
+  ): void;
+  public listDetectMitigationActionsExecutions(
+    args: ListDetectMitigationActionsExecutionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDetectMitigationActionsExecutionsCommandOutput) => void
+  ): void;
+  public listDetectMitigationActionsExecutions(
+    args: ListDetectMitigationActionsExecutionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListDetectMitigationActionsExecutionsCommandOutput) => void),
+    cb?: (err: any, data?: ListDetectMitigationActionsExecutionsCommandOutput) => void
+  ): Promise<ListDetectMitigationActionsExecutionsCommandOutput> | void {
+    const command = new ListDetectMitigationActionsExecutionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *       List of Device Defender ML Detect mitigation actions tasks.
+   *     </p>
+   */
+  public listDetectMitigationActionsTasks(
+    args: ListDetectMitigationActionsTasksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDetectMitigationActionsTasksCommandOutput>;
+  public listDetectMitigationActionsTasks(
+    args: ListDetectMitigationActionsTasksCommandInput,
+    cb: (err: any, data?: ListDetectMitigationActionsTasksCommandOutput) => void
+  ): void;
+  public listDetectMitigationActionsTasks(
+    args: ListDetectMitigationActionsTasksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDetectMitigationActionsTasksCommandOutput) => void
+  ): void;
+  public listDetectMitigationActionsTasks(
+    args: ListDetectMitigationActionsTasksCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDetectMitigationActionsTasksCommandOutput) => void),
+    cb?: (err: any, data?: ListDetectMitigationActionsTasksCommandOutput) => void
+  ): Promise<ListDetectMitigationActionsTasksCommandOutput> | void {
+    const command = new ListDetectMitigationActionsTasksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -5830,8 +6208,13 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Lists the Device Defender security profiles you have created. You can use filters to list only those security
-   *       profiles associated with a thing group or only those associated with your account.</p>
+   * <p>Lists the Device Defender security profiles
+   *       you've
+   *       created. You can filter security profiles by dimension or custom metric.</p>
+   *          <note>
+   *             <p>
+   *                <code>dimensionName</code> and <code>metricName</code> cannot be used in the same request.</p>
+   *          </note>
    */
   public listSecurityProfiles(
     args: ListSecurityProfilesCommandInput,
@@ -6941,6 +7324,40 @@ export class IoT extends IoTClient {
   }
 
   /**
+   * <p>
+   *       Starts a Device Defender ML Detect mitigation actions task.
+   *     </p>
+   */
+  public startDetectMitigationActionsTask(
+    args: StartDetectMitigationActionsTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartDetectMitigationActionsTaskCommandOutput>;
+  public startDetectMitigationActionsTask(
+    args: StartDetectMitigationActionsTaskCommandInput,
+    cb: (err: any, data?: StartDetectMitigationActionsTaskCommandOutput) => void
+  ): void;
+  public startDetectMitigationActionsTask(
+    args: StartDetectMitigationActionsTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartDetectMitigationActionsTaskCommandOutput) => void
+  ): void;
+  public startDetectMitigationActionsTask(
+    args: StartDetectMitigationActionsTaskCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartDetectMitigationActionsTaskCommandOutput) => void),
+    cb?: (err: any, data?: StartDetectMitigationActionsTaskCommandOutput) => void
+  ): Promise<StartDetectMitigationActionsTaskCommandOutput> | void {
+    const command = new StartDetectMitigationActionsTaskCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Starts an on-demand Device Defender audit.</p>
    */
   public startOnDemandAuditTask(
@@ -7405,7 +7822,45 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Updates the definition for a dimension. You cannot change the type of a dimension after it is created (you can delete it and re-create it).</p>
+   * <p>Updates a
+   *       Device Defender detect custom metric. </p>
+   */
+  public updateCustomMetric(
+    args: UpdateCustomMetricCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCustomMetricCommandOutput>;
+  public updateCustomMetric(
+    args: UpdateCustomMetricCommandInput,
+    cb: (err: any, data?: UpdateCustomMetricCommandOutput) => void
+  ): void;
+  public updateCustomMetric(
+    args: UpdateCustomMetricCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCustomMetricCommandOutput) => void
+  ): void;
+  public updateCustomMetric(
+    args: UpdateCustomMetricCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateCustomMetricCommandOutput) => void),
+    cb?: (err: any, data?: UpdateCustomMetricCommandOutput) => void
+  ): Promise<UpdateCustomMetricCommandOutput> | void {
+    const command = new UpdateCustomMetricCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the definition for a dimension. You
+   *       cannot
+   *       change the type of a dimension after
+   *       it is created (you can delete it and
+   *       recreate
+   *       it).</p>
    */
   public updateDimension(
     args: UpdateDimensionCommandInput,

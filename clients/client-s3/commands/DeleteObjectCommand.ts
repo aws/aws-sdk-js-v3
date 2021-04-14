@@ -24,7 +24,7 @@ export type DeleteObjectCommandOutput = DeleteObjectOutput & __MetadataBearer;
 /**
  * <p>Removes the null version (if there is one) of an object and inserts a delete marker,
  *          which becomes the latest version of the object. If there isn't a null version, Amazon S3 does
- *          not remove any objects.</p>
+ *          not remove any objects but will still respond that the command was successful.</p>
  *
  *          <p>To remove a specific version, you must be the bucket owner and you must use the version
  *          Id subresource. Using this subresource permanently deletes the version. If the object
@@ -38,14 +38,14 @@ export type DeleteObjectCommandOutput = DeleteObjectOutput & __MetadataBearer;
  *
  *          <p> For more information about MFA Delete, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMFADelete.html">Using MFA Delete</a>. To see sample requests that use versioning, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectDELETE.html#ExampleVersionObjectDelete">Sample Request</a>. </p>
  *
- *          <p>You can delete objects by explicitly calling the DELETE Object API or configure its
+ *          <p>You can delete objects by explicitly calling DELETE Object or configure its
  *          lifecycle (<a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycle.html">PutBucketLifecycle</a>) to
  *          enable Amazon S3 to remove them for you. If you want to block users or accounts from removing or
  *          deleting objects from your bucket, you must deny them the <code>s3:DeleteObject</code>,
  *             <code>s3:DeleteObjectVersion</code>, and <code>s3:PutLifeCycleConfiguration</code>
  *          actions. </p>
  *
- *          <p>The following operation is related to <code>DeleteObject</code>:</p>
+ *          <p>The following action is related to <code>DeleteObject</code>:</p>
  *          <ul>
  *             <li>
  *                <p>

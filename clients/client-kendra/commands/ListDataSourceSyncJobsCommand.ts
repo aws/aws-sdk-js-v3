@@ -21,7 +21,8 @@ export type ListDataSourceSyncJobsCommandInput = ListDataSourceSyncJobsRequest;
 export type ListDataSourceSyncJobsCommandOutput = ListDataSourceSyncJobsResponse & __MetadataBearer;
 
 /**
- * <p>Gets statistics about synchronizing Amazon Kendra with a data source.</p>
+ * <p>Gets statistics about synchronizing Amazon Kendra with a data
+ *       source.</p>
  */
 export class ListDataSourceSyncJobsCommand extends $Command<
   ListDataSourceSyncJobsCommandInput,

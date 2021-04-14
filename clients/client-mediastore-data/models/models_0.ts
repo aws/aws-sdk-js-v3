@@ -143,7 +143,7 @@ export interface GetObjectRequest {
 
   /**
    * <p>The range bytes of an object to retrieve. For more information about the
-   *             <code>Range</code> header, go to <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35</a>.</p>
+   *           <code>Range</code> header, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35</a>. AWS Elemental MediaStore ignores this header for partially uploaded objects that have streaming upload availability.</p>
    */
   Range?: string;
 }
@@ -328,6 +328,11 @@ export enum StorageClass {
   TEMPORAL = "TEMPORAL",
 }
 
+export enum UploadAvailability {
+  STANDARD = "STANDARD",
+  STREAMING = "STREAMING",
+}
+
 export interface PutObjectRequest {
   /**
    * <p>The bytes to be stored. </p>
@@ -374,6 +379,14 @@ export interface PutObjectRequest {
    *          shortly after being received.</p>
    */
   StorageClass?: StorageClass | string;
+
+  /**
+   * <p>Indicates the availability of an object while it is still uploading. If the value is set to <code>streaming</code>, the object is available for
+   *             downloading after some initial buffering but before the object is uploaded completely. If the value is set to <code>standard</code>, the object is
+   *             available for downloading only when it is uploaded completely. The default value for this header is <code>standard</code>.</p>
+   *         <p>To use this header, you must also set the HTTP <code>Transfer-Encoding</code> header to <code>chunked</code>.</p>
+   */
+  UploadAvailability?: UploadAvailability | string;
 }
 
 export namespace PutObjectRequest {

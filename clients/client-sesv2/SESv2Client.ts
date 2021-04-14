@@ -197,6 +197,10 @@ import {
   PutDeliverabilityDashboardOptionCommandOutput,
 } from "./commands/PutDeliverabilityDashboardOptionCommand";
 import {
+  PutEmailIdentityConfigurationSetAttributesCommandInput,
+  PutEmailIdentityConfigurationSetAttributesCommandOutput,
+} from "./commands/PutEmailIdentityConfigurationSetAttributesCommand";
+import {
   PutEmailIdentityDkimAttributesCommandInput,
   PutEmailIdentityDkimAttributesCommandOutput,
 } from "./commands/PutEmailIdentityDkimAttributesCommand";
@@ -361,6 +365,7 @@ export type ServiceInputTypes =
   | PutDedicatedIpInPoolCommandInput
   | PutDedicatedIpWarmupAttributesCommandInput
   | PutDeliverabilityDashboardOptionCommandInput
+  | PutEmailIdentityConfigurationSetAttributesCommandInput
   | PutEmailIdentityDkimAttributesCommandInput
   | PutEmailIdentityDkimSigningAttributesCommandInput
   | PutEmailIdentityFeedbackAttributesCommandInput
@@ -443,6 +448,7 @@ export type ServiceOutputTypes =
   | PutDedicatedIpInPoolCommandOutput
   | PutDedicatedIpWarmupAttributesCommandOutput
   | PutDeliverabilityDashboardOptionCommandOutput
+  | PutEmailIdentityConfigurationSetAttributesCommandOutput
   | PutEmailIdentityDkimAttributesCommandOutput
   | PutEmailIdentityDkimSigningAttributesCommandOutput
   | PutEmailIdentityFeedbackAttributesCommandOutput

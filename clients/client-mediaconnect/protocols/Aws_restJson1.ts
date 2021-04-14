@@ -938,6 +938,7 @@ export const serializeAws_restJson1UpdateFlowOutputCommand = async (
     ...(input.Encryption !== undefined &&
       input.Encryption !== null && { encryption: serializeAws_restJson1UpdateEncryption(input.Encryption, context) }),
     ...(input.MaxLatency !== undefined && input.MaxLatency !== null && { maxLatency: input.MaxLatency }),
+    ...(input.MinLatency !== undefined && input.MinLatency !== null && { minLatency: input.MinLatency }),
     ...(input.Port !== undefined && input.Port !== null && { port: input.Port }),
     ...(input.Protocol !== undefined && input.Protocol !== null && { protocol: input.Protocol }),
     ...(input.RemoteId !== undefined && input.RemoteId !== null && { remoteId: input.RemoteId }),
@@ -997,6 +998,7 @@ export const serializeAws_restJson1UpdateFlowSourceCommand = async (
     ...(input.IngestPort !== undefined && input.IngestPort !== null && { ingestPort: input.IngestPort }),
     ...(input.MaxBitrate !== undefined && input.MaxBitrate !== null && { maxBitrate: input.MaxBitrate }),
     ...(input.MaxLatency !== undefined && input.MaxLatency !== null && { maxLatency: input.MaxLatency }),
+    ...(input.MinLatency !== undefined && input.MinLatency !== null && { minLatency: input.MinLatency }),
     ...(input.Protocol !== undefined && input.Protocol !== null && { protocol: input.Protocol }),
     ...(input.StreamId !== undefined && input.StreamId !== null && { streamId: input.StreamId }),
     ...(input.VpcInterfaceName !== undefined &&
@@ -3756,6 +3758,7 @@ const serializeAws_restJson1AddOutputRequest = (input: AddOutputRequest, context
     ...(input.Encryption !== undefined &&
       input.Encryption !== null && { encryption: serializeAws_restJson1Encryption(input.Encryption, context) }),
     ...(input.MaxLatency !== undefined && input.MaxLatency !== null && { maxLatency: input.MaxLatency }),
+    ...(input.MinLatency !== undefined && input.MinLatency !== null && { minLatency: input.MinLatency }),
     ...(input.Name !== undefined && input.Name !== null && { name: input.Name }),
     ...(input.Port !== undefined && input.Port !== null && { port: input.Port }),
     ...(input.Protocol !== undefined && input.Protocol !== null && { protocol: input.Protocol }),
@@ -3827,6 +3830,7 @@ const serializeAws_restJson1SetSourceRequest = (input: SetSourceRequest, context
     ...(input.IngestPort !== undefined && input.IngestPort !== null && { ingestPort: input.IngestPort }),
     ...(input.MaxBitrate !== undefined && input.MaxBitrate !== null && { maxBitrate: input.MaxBitrate }),
     ...(input.MaxLatency !== undefined && input.MaxLatency !== null && { maxLatency: input.MaxLatency }),
+    ...(input.MinLatency !== undefined && input.MinLatency !== null && { minLatency: input.MinLatency }),
     ...(input.Name !== undefined && input.Name !== null && { name: input.Name }),
     ...(input.Protocol !== undefined && input.Protocol !== null && { protocol: input.Protocol }),
     ...(input.StreamId !== undefined && input.StreamId !== null && { streamId: input.StreamId }),
@@ -4148,6 +4152,8 @@ const deserializeAws_restJson1Output = (output: any, context: __SerdeContext): O
         : undefined,
     EntitlementArn:
       output.entitlementArn !== undefined && output.entitlementArn !== null ? output.entitlementArn : undefined,
+    ListenerAddress:
+      output.listenerAddress !== undefined && output.listenerAddress !== null ? output.listenerAddress : undefined,
     MediaLiveInputArn:
       output.mediaLiveInputArn !== undefined && output.mediaLiveInputArn !== null
         ? output.mediaLiveInputArn
@@ -4238,6 +4244,7 @@ const deserializeAws_restJson1Transport = (output: any, context: __SerdeContext)
         : undefined,
     MaxBitrate: output.maxBitrate !== undefined && output.maxBitrate !== null ? output.maxBitrate : undefined,
     MaxLatency: output.maxLatency !== undefined && output.maxLatency !== null ? output.maxLatency : undefined,
+    MinLatency: output.minLatency !== undefined && output.minLatency !== null ? output.minLatency : undefined,
     Protocol: output.protocol !== undefined && output.protocol !== null ? output.protocol : undefined,
     RemoteId: output.remoteId !== undefined && output.remoteId !== null ? output.remoteId : undefined,
     SmoothingLatency:

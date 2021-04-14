@@ -1533,10 +1533,58 @@ const deserializeAws_queryAddTagsToResourceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "CacheParameterGroupNotFoundFault":
+    case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "CacheSecurityGroupNotFoundFault":
+    case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "CacheSubnetGroupNotFoundFault":
+    case "com.amazonaws.elasticache#CacheSubnetGroupNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidARNFault":
     case "com.amazonaws.elasticache#InvalidARNFault":
       response = {
         ...(await deserializeAws_queryInvalidARNFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidReplicationGroupStateFault":
+    case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ReplicationGroupNotFoundFault":
+    case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ReservedCacheNodeNotFoundFault":
+    case "com.amazonaws.elasticache#ReservedCacheNodeNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryReservedCacheNodeNotFoundFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1553,6 +1601,22 @@ const deserializeAws_queryAddTagsToResourceCommandError = async (
     case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
       response = {
         ...(await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UserGroupNotFoundFault":
+    case "com.amazonaws.elasticache#UserGroupNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryUserGroupNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UserNotFoundFault":
+    case "com.amazonaws.elasticache#UserNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryUserNotFoundFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1934,6 +1998,14 @@ const deserializeAws_queryCopySnapshotCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "TagQuotaPerResourceExceeded":
+    case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
+      response = {
+        ...(await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
@@ -2178,6 +2250,14 @@ const deserializeAws_queryCreateCacheParameterGroupCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "TagQuotaPerResourceExceeded":
+    case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
+      response = {
+        ...(await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
@@ -2252,6 +2332,14 @@ const deserializeAws_queryCreateCacheSecurityGroupCommandError = async (
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TagQuotaPerResourceExceeded":
+    case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
+      response = {
+        ...(await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2338,6 +2426,14 @@ const deserializeAws_queryCreateCacheSubnetGroupCommandError = async (
     case "com.amazonaws.elasticache#SubnetNotAllowedFault":
       response = {
         ...(await deserializeAws_querySubnetNotAllowedFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TagQuotaPerResourceExceeded":
+    case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
+      response = {
+        ...(await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2744,6 +2840,14 @@ const deserializeAws_queryCreateSnapshotCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "TagQuotaPerResourceExceeded":
+    case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
+      response = {
+        ...(await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
@@ -2810,6 +2914,14 @@ const deserializeAws_queryCreateUserCommandError = async (
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TagQuotaPerResourceExceeded":
+    case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
+      response = {
+        ...(await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2896,6 +3008,14 @@ const deserializeAws_queryCreateUserGroupCommandError = async (
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TagQuotaPerResourceExceeded":
+    case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
+      response = {
+        ...(await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5495,6 +5615,30 @@ const deserializeAws_queryListTagsForResourceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "CacheParameterGroupNotFoundFault":
+    case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "CacheSecurityGroupNotFoundFault":
+    case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "CacheSubnetGroupNotFoundFault":
+    case "com.amazonaws.elasticache#CacheSubnetGroupNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidARNFault":
     case "com.amazonaws.elasticache#InvalidARNFault":
       response = {
@@ -5503,10 +5647,50 @@ const deserializeAws_queryListTagsForResourceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InvalidReplicationGroupStateFault":
+    case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ReplicationGroupNotFoundFault":
+    case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ReservedCacheNodeNotFoundFault":
+    case "com.amazonaws.elasticache#ReservedCacheNodeNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryReservedCacheNodeNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "SnapshotNotFoundFault":
     case "com.amazonaws.elasticache#SnapshotNotFoundFault":
       response = {
         ...(await deserializeAws_querySnapshotNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UserGroupNotFoundFault":
+    case "com.amazonaws.elasticache#UserGroupNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryUserGroupNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UserNotFoundFault":
+    case "com.amazonaws.elasticache#UserNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryUserNotFoundFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -6459,6 +6643,14 @@ const deserializeAws_queryPurchaseReservedCacheNodesOfferingCommandError = async
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "TagQuotaPerResourceExceeded":
+    case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
+      response = {
+        ...(await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
@@ -6648,10 +6840,58 @@ const deserializeAws_queryRemoveTagsFromResourceCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "CacheParameterGroupNotFoundFault":
+    case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "CacheSecurityGroupNotFoundFault":
+    case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "CacheSubnetGroupNotFoundFault":
+    case "com.amazonaws.elasticache#CacheSubnetGroupNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidARNFault":
     case "com.amazonaws.elasticache#InvalidARNFault":
       response = {
         ...(await deserializeAws_queryInvalidARNFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidReplicationGroupStateFault":
+    case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ReplicationGroupNotFoundFault":
+    case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ReservedCacheNodeNotFoundFault":
+    case "com.amazonaws.elasticache#ReservedCacheNodeNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryReservedCacheNodeNotFoundFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -6668,6 +6908,22 @@ const deserializeAws_queryRemoveTagsFromResourceCommandError = async (
     case "com.amazonaws.elasticache#TagNotFoundFault":
       response = {
         ...(await deserializeAws_queryTagNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UserGroupNotFoundFault":
+    case "com.amazonaws.elasticache#UserGroupNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryUserGroupNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UserNotFoundFault":
+    case "com.amazonaws.elasticache#UserNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryUserNotFoundFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -8249,6 +8505,13 @@ const serializeAws_queryCopySnapshotMessage = (input: CopySnapshotMessage, conte
   if (input.KmsKeyId !== undefined && input.KmsKeyId !== null) {
     entries["KmsKeyId"] = input.KmsKeyId;
   }
+  if (input.Tags !== undefined && input.Tags !== null) {
+    const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -8376,6 +8639,13 @@ const serializeAws_queryCreateCacheParameterGroupMessage = (
   if (input.Description !== undefined && input.Description !== null) {
     entries["Description"] = input.Description;
   }
+  if (input.Tags !== undefined && input.Tags !== null) {
+    const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -8389,6 +8659,13 @@ const serializeAws_queryCreateCacheSecurityGroupMessage = (
   }
   if (input.Description !== undefined && input.Description !== null) {
     entries["Description"] = input.Description;
+  }
+  if (input.Tags !== undefined && input.Tags !== null) {
+    const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -8408,6 +8685,13 @@ const serializeAws_queryCreateCacheSubnetGroupMessage = (
     const memberEntries = serializeAws_querySubnetIdentifierList(input.SubnetIds, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SubnetIds.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Tags !== undefined && input.Tags !== null) {
+    const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
       entries[loc] = value;
     });
   }
@@ -8577,6 +8861,13 @@ const serializeAws_queryCreateSnapshotMessage = (input: CreateSnapshotMessage, c
   if (input.KmsKeyId !== undefined && input.KmsKeyId !== null) {
     entries["KmsKeyId"] = input.KmsKeyId;
   }
+  if (input.Tags !== undefined && input.Tags !== null) {
+    const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -8592,6 +8883,13 @@ const serializeAws_queryCreateUserGroupMessage = (input: CreateUserGroupMessage,
     const memberEntries = serializeAws_queryUserIdListInput(input.UserIds, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `UserIds.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Tags !== undefined && input.Tags !== null) {
+    const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
       entries[loc] = value;
     });
   }
@@ -8621,6 +8919,13 @@ const serializeAws_queryCreateUserMessage = (input: CreateUserMessage, context: 
   }
   if (input.NoPasswordRequired !== undefined && input.NoPasswordRequired !== null) {
     entries["NoPasswordRequired"] = input.NoPasswordRequired;
+  }
+  if (input.Tags !== undefined && input.Tags !== null) {
+    const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -9543,6 +9848,9 @@ const serializeAws_queryModifyGlobalReplicationGroupMessage = (
   if (input.EngineVersion !== undefined && input.EngineVersion !== null) {
     entries["EngineVersion"] = input.EngineVersion;
   }
+  if (input.CacheParameterGroupName !== undefined && input.CacheParameterGroupName !== null) {
+    entries["CacheParameterGroupName"] = input.CacheParameterGroupName;
+  }
   if (input.GlobalReplicationGroupDescription !== undefined && input.GlobalReplicationGroupDescription !== null) {
     entries["GlobalReplicationGroupDescription"] = input.GlobalReplicationGroupDescription;
   }
@@ -9903,6 +10211,13 @@ const serializeAws_queryPurchaseReservedCacheNodesOfferingMessage = (
   }
   if (input.CacheNodeCount !== undefined && input.CacheNodeCount !== null) {
     entries["CacheNodeCount"] = input.CacheNodeCount;
+  }
+  if (input.Tags !== undefined && input.Tags !== null) {
+    const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };

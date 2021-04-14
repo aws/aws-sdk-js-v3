@@ -24,7 +24,7 @@ export type ImportKeyMaterialCommandOutput = ImportKeyMaterialResponse & __Metad
  * <p>Imports key material into an existing symmetric AWS KMS customer master key (CMK) that was
  *       created without key material. After you successfully import key material into a CMK, you can
  *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#reimport-key-material">reimport the same key material</a> into that CMK, but you cannot import different key
- *       material.</p>
+ *       material. </p>
  *          <p>You cannot perform this operation on an asymmetric CMK or on any CMK in a different AWS account. For more information about creating CMKs with no key material and
  *       then importing key material, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing Key Material</a> in the
  *       <i>AWS Key Management Service Developer Guide</i>.</p>
@@ -66,6 +66,26 @@ export type ImportKeyMaterialCommandOutput = ImportKeyMaterialResponse & __Metad
  *          <p>The CMK that you use for this operation must be in a compatible key state. For
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
  * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ *          <p>
+ *             <b>Cross-account use</b>: No. You cannot perform this operation on a CMK in a different AWS account.</p>
+ *
+ *          <p>
+ *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ImportKeyMaterial</a> (key policy)</p>
+ *          <p>
+ *             <b>Related operations:</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteImportedKeyMaterial</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GetParametersForImport</a>
+ *                </p>
+ *             </li>
+ *          </ul>
  */
 export class ImportKeyMaterialCommand extends $Command<
   ImportKeyMaterialCommandInput,

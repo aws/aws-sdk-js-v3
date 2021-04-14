@@ -26,25 +26,26 @@ export type PutBucketTaggingCommandOutput = __MetadataBearer;
  *             <p>This action puts tags on an Amazon S3 on Outposts bucket. To put tags on an S3 bucket, see
  *                <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketTagging.html">PutBucketTagging</a> in the <i>Amazon Simple Storage Service API</i>. </p>
  *          </note>
- *          <p>Sets the tags for an Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the
- *             <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+ *          <p>Sets the tags for an S3 on Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the
+ *             <i>Amazon Simple Storage Service User Guide</i>.</p>
  *          <p>Use tags to organize your AWS bill to reflect your own cost structure. To do this, sign up to get your
  *          AWS account bill with tag key values included. Then, to see the cost of combined resources, organize your
  *          billing information according to resources with the same tag key values. For example, you can tag several
  *          resources with a specific application name, and then organize your billing information to see the total cost
  *          of that application across several services. For more information, see
- *          <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Cost Allocation and Tagging</a>.</p>
+ *          <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Cost
+ *             allocation and tagging</a>.</p>
  *
  *          <note>
  *             <p>Within a bucket, if you add a tag that has the same key as an existing tag, the new value overwrites
- *          the old value. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CostAllocTagging.html">Using Cost Allocation in Amazon S3
- *             Bucket Tags</a>.</p>
+ *          the old value. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CostAllocTagging.html">
+ *             Using cost allocation in Amazon S3 bucket tags</a>.</p>
  *          </note>
- *          <p>To use this operation, you must have permissions to perform the
+ *          <p>To use this action, you must have permissions to perform the
  *             <code>s3-outposts:PutBucketTagging</code> action. The Outposts bucket owner has this
  *          permission by default and can grant this permission to others. For more information about
- *          permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources"> Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing Access Permissions to Your Amazon S3
- *             Resources</a>.</p>
+ *          permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources"> Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing access permissions to your Amazon S3
+ *             resources</a>.</p>
  *
  *          <p>
  *             <code>PutBucketTagging</code> has the following special errors:</p>
@@ -75,7 +76,7 @@ export type PutBucketTaggingCommandOutput = __MetadataBearer;
  *                </p>
  *                <ul>
  *                   <li>
- *                      <p>Description: A conflicting conditional operation is currently in progress against this
+ *                      <p>Description: A conflicting conditional action is currently in progress against this
  *                      resource. Try again.</p>
  *                   </li>
  *                </ul>

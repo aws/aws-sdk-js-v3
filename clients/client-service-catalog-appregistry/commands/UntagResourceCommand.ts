@@ -26,6 +26,7 @@ export type UntagResourceCommandOutput = UntagResourceResponse & __MetadataBeare
 
 /**
  * <p>Removes tags from a resource.</p>
+ *          <p>This operation returns an empty response if the call was successful.</p>
  */
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,

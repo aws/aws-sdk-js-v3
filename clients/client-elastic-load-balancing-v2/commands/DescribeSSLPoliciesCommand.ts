@@ -27,7 +27,7 @@ export type DescribeSSLPoliciesCommandOutput = DescribeSSLPoliciesOutput & __Met
 /**
  * <p>Describes the specified policies or all policies used for SSL negotiation.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies">Security policies</a> in the <i>Application Load Balancers Guide</i> or
- *       <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies">Security policies</a> in the <i>Network Load Balancers Guide</i>.</p>
+ *         <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies">Security policies</a> in the <i>Network Load Balancers Guide</i>.</p>
  */
 export class DescribeSSLPoliciesCommand extends $Command<
   DescribeSSLPoliciesCommandInput,

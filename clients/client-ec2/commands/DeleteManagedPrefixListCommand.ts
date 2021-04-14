@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteManagedPrefixListRequest, DeleteManagedPrefixListResult } from "../models/models_1";
+import { DeleteManagedPrefixListRequest, DeleteManagedPrefixListResult } from "../models/models_2";
 import {
   deserializeAws_ec2DeleteManagedPrefixListCommand,
   serializeAws_ec2DeleteManagedPrefixListCommand,

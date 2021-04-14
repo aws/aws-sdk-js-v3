@@ -25,7 +25,8 @@ export type PutEventsCommandInput = PutEventsRequest;
 export type PutEventsCommandOutput = __MetadataBearer;
 
 /**
- * <p>Records user interaction event data. For more information see <a>event-record-api</a>.</p>
+ * <p>Records user interaction event data. For more information see
+ *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/recording-events.html">Recording Events</a>.</p>
  */
 export class PutEventsCommand extends $Command<
   PutEventsCommandInput,

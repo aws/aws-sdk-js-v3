@@ -25,7 +25,7 @@ export type IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput = IncreaseNo
   __MetadataBearer;
 
 /**
- * <p>Increase the number of node groups in the Global Datastore</p>
+ * <p>Increase the number of node groups in the Global datastore</p>
  */
 export class IncreaseNodeGroupsInGlobalReplicationGroupCommand extends $Command<
   IncreaseNodeGroupsInGlobalReplicationGroupCommandInput,

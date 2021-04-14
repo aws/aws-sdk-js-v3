@@ -21,9 +21,9 @@ export type UpdatePhoneNumberSettingsCommandInput = UpdatePhoneNumberSettingsReq
 export type UpdatePhoneNumberSettingsCommandOutput = __MetadataBearer;
 
 /**
- * <p>Updates the phone number settings for the administrator's AWS account, such as the
- *       default outbound calling name. You can update the default outbound calling name once every
- *       seven days. Outbound calling names can take up to 72 hours to update.</p>
+ * <p>Updates the phone number settings for the administrator's AWS account, such as the default
+ *             outbound calling name. You can update the default outbound calling name once every seven
+ *             days. Outbound calling names can take up to 72 hours to update.</p>
  */
 export class UpdatePhoneNumberSettingsCommand extends $Command<
   UpdatePhoneNumberSettingsCommandInput,

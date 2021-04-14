@@ -56,7 +56,6 @@
     "@aws-sdk/util-user-agent-node": "3.12.0",
     "@aws-sdk/util-utf8-browser": "3.12.0",
     "@aws-sdk/util-utf8-node": "3.12.0",
-    "@aws-sdk/util-waiter": "3.12.0",
     "fast-xml-parser": "3.19.0",
     "tslib": "^2.0.0"
   },

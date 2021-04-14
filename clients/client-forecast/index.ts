@@ -37,6 +37,7 @@ export * from "./pagination/ListPredictorBacktestExportJobsPaginator";
 export * from "./commands/ListPredictorsCommand";
 export * from "./pagination/ListPredictorsPaginator";
 export * from "./commands/ListTagsForResourceCommand";
+export * from "./commands/StopResourceCommand";
 export * from "./commands/TagResourceCommand";
 export * from "./commands/UntagResourceCommand";
 export * from "./commands/UpdateDatasetGroupCommand";

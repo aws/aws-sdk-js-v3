@@ -23,8 +23,8 @@ export type CancelJobCommandOutput = CancelJobResponse & __MetadataBearer;
 /**
  * <p>Cancels a job in an AWS Batch job queue. Jobs that are in the <code>SUBMITTED</code>, <code>PENDING</code>, or
  *     <code>RUNNABLE</code> state are canceled. Jobs that have progressed to <code>STARTING</code> or <code>RUNNING</code>
- *    are not canceled (but the API operation still succeeds, even if no job is canceled); these jobs must be terminated
- *    with the <a>TerminateJob</a> operation.</p>
+ *    aren't canceled, but the API operation still succeeds, even if no job is canceled. These jobs must be terminated with
+ *    the <a>TerminateJob</a> operation.</p>
  */
 export class CancelJobCommand extends $Command<
   CancelJobCommandInput,

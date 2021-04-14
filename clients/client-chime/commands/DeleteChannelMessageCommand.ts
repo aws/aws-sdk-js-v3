@@ -21,8 +21,14 @@ export type DeleteChannelMessageCommandInput = DeleteChannelMessageRequest;
 export type DeleteChannelMessageCommandOutput = __MetadataBearer;
 
 /**
- * <p>Deletes a channel message. Only admins can perform this action. Deletion makes messages inaccessible immediately. A
- *            background process deletes any revisions created by <code>UpdateChannelMessage</code>.</p>
+ * <p>Deletes a channel message. Only admins can perform this action. Deletion makes messages
+ *             inaccessible immediately. A background process deletes any revisions created by
+ *                 <code>UpdateChannelMessage</code>.</p>
+ *
+ *          <note>
+ *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
+ *         the API call as the value in the header.</p>
+ *          </note>
  */
 export class DeleteChannelMessageCommand extends $Command<
   DeleteChannelMessageCommandInput,

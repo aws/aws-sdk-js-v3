@@ -78,7 +78,7 @@ export namespace GetDeviceResponse {
 }
 
 /**
- * <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ * <p>The request processing has failed because of an unknown error, exception, or failure.</p>
  */
 export interface InternalServiceException extends __SmithyException, $MetadataBearer {
   name: "InternalServiceException";
@@ -235,6 +235,32 @@ export namespace SearchDevicesResponse {
   });
 }
 
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>Specify the <code>resourceArn</code> for the resource whose tags to display.</p>
+   */
+  resourceArn: string | undefined;
+}
+
+export namespace ListTagsForResourceRequest {
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>Displays the key, value pairs of tags associated with this resource.</p>
+   */
+  tags?: { [key: string]: string };
+}
+
+export namespace ListTagsForResourceResponse {
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface CancelQuantumTaskRequest {
   /**
    * <p>The ARN of the task to cancel.</p>
@@ -326,6 +352,11 @@ export interface CreateQuantumTaskRequest {
    * <p>The action associated with the task.</p>
    */
   action: __LazyJsonString | string | undefined;
+
+  /**
+   * <p>Tags to be added to the quantum task you're creating.</p>
+   */
+  tags?: { [key: string]: string };
 }
 
 export namespace CreateQuantumTaskRequest {
@@ -363,7 +394,7 @@ export namespace DeviceOfflineException {
 }
 
 /**
- * <p>The request failed because a service quota is met.</p>
+ * <p>The request failed because a service quota is exceeded.</p>
  */
 export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
   name: "ServiceQuotaExceededException";
@@ -450,6 +481,11 @@ export interface GetQuantumTaskResponse {
    * <p>The time at which the task ended.</p>
    */
   endedAt?: Date;
+
+  /**
+   * <p>The tags that belong to this task.</p>
+   */
+  tags?: { [key: string]: string };
 }
 
 export namespace GetQuantumTaskResponse {
@@ -559,6 +595,11 @@ export interface QuantumTaskSummary {
    * <p>The time at which the task finished.</p>
    */
   endedAt?: Date;
+
+  /**
+   * <p>Displays the key, value pairs of tags associated with this quantum task.</p>
+   */
+  tags?: { [key: string]: string };
 }
 
 export namespace QuantumTaskSummary {
@@ -581,6 +622,58 @@ export interface SearchQuantumTasksResponse {
 
 export namespace SearchQuantumTasksResponse {
   export const filterSensitiveLog = (obj: SearchQuantumTasksResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface TagResourceRequest {
+  /**
+   * <p>Specify the <code>resourceArn</code> of the resource to which a tag will be added.</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>Specify the tags to add to the resource.</p>
+   */
+  tags: { [key: string]: string } | undefined;
+}
+
+export namespace TagResourceRequest {
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface TagResourceResponse {}
+
+export namespace TagResourceResponse {
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceRequest {
+  /**
+   * <p>Specify the <code>resourceArn</code> for the resource from which to remove the tags.</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>pecify the keys for the tags to remove from the resource.</p>
+   */
+  tagKeys: string[] | undefined;
+}
+
+export namespace UntagResourceRequest {
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceResponse {}
+
+export namespace UntagResourceResponse {
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
 }

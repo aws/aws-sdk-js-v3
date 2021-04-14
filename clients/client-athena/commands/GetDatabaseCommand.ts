@@ -21,7 +21,7 @@ export type GetDatabaseCommandInput = GetDatabaseInput;
 export type GetDatabaseCommandOutput = GetDatabaseOutput & __MetadataBearer;
 
 /**
- * <p>Returns a database object for the specfied database and data catalog.</p>
+ * <p>Returns a database object for the specified database and data catalog.</p>
  */
 export class GetDatabaseCommand extends $Command<
   GetDatabaseCommandInput,

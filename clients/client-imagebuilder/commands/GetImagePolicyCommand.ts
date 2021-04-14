@@ -21,7 +21,7 @@ export type GetImagePolicyCommandInput = GetImagePolicyRequest;
 export type GetImagePolicyCommandOutput = GetImagePolicyResponse & __MetadataBearer;
 
 /**
- * <p> Gets an image policy. </p>
+ * <p> Gets an image policy.</p>
  */
 export class GetImagePolicyCommand extends $Command<
   GetImagePolicyCommandInput,

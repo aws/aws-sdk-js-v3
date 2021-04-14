@@ -23,6 +23,17 @@ export type ListGroupResourcesCommandOutput = ListGroupResourcesOutput & __Metad
 /**
  * <p>Returns a list of ARNs of the resources that are members of a specified resource
  *             group.</p>
+ *          <p>
+ *             <b>Minimum permissions</b>
+ *          </p>
+ *          <p>To run this command, you must have the following permissions:</p>
+ *          <ul>
+ *             <li>
+ *                 <p>
+ *                   <code>resource-groups:ListGroupResources</code>
+ *                </p>
+ *             </li>
+ *          </ul>
  */
 export class ListGroupResourcesCommand extends $Command<
   ListGroupResourcesCommandInput,

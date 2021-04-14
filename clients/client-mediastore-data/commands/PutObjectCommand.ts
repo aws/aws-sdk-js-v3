@@ -23,7 +23,7 @@ export type PutObjectCommandInput = Omit<PutObjectRequest, "Body"> & {
 export type PutObjectCommandOutput = PutObjectResponse & __MetadataBearer;
 
 /**
- * <p>Uploads an object to the specified path. Object sizes are limited to 25 MB.</p>
+ * <p>Uploads an object to the specified path. Object sizes are limited to 25 MB for standard upload availability and 10 MB for streaming upload availability.</p>
  */
 export class PutObjectCommand extends $Command<
   PutObjectCommandInput,

@@ -22,6 +22,7 @@ export * from "./commands/DeregisterOnPremisesInstanceCommand";
 export * from "./commands/GetApplicationCommand";
 export * from "./commands/GetApplicationRevisionCommand";
 export * from "./commands/GetDeploymentCommand";
+export * from "./waiters/waitForDeploymentSuccessful";
 export * from "./commands/GetDeploymentConfigCommand";
 export * from "./commands/GetDeploymentGroupCommand";
 export * from "./commands/GetDeploymentInstanceCommand";

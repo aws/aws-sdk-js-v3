@@ -21,10 +21,7 @@ export type CheckCapacityCommandInput = CheckCapacityRequest;
 export type CheckCapacityCommandOutput = CheckCapacityResponse & __MetadataBearer;
 
 /**
- * <note>
- *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
- *          </note>
- *          <p>Returns the web ACL capacity unit (WCU) requirements for a specified scope and set of rules.
+ * <p>Returns the web ACL capacity unit (WCU) requirements for a specified scope and set of rules.
  *          You can use this to check the capacity requirements for the rules you want to use in a
  *          <a>RuleGroup</a> or <a>WebACL</a>.
  *          </p>

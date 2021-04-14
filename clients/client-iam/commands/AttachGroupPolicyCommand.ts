@@ -22,10 +22,13 @@ export type AttachGroupPolicyCommandOutput = __MetadataBearer;
 
 /**
  * <p>Attaches the specified managed policy to the specified IAM group.</p>
- *          <p>You use this API to attach a managed policy to a group. To embed an inline policy in a
- *          group, use <a>PutGroupPolicy</a>.</p>
- *          <p>For more information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline
- *             Policies</a> in the <i>IAM User Guide</i>.</p>
+ *         <p>You use this operation to attach a managed policy to a group. To embed an inline
+ *             policy in a group, use <a>PutGroupPolicy</a>.</p>
+ *         <p>As a best practice, you can validate your IAM policies.
+ *      To learn more, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_policy-validator.html">Validating IAM policies</a>
+ *             in the <i>IAM User Guide</i>.</p>
+ *         <p>For more information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
+ *                 policies</a> in the <i>IAM User Guide</i>.</p>
  */
 export class AttachGroupPolicyCommand extends $Command<
   AttachGroupPolicyCommandInput,

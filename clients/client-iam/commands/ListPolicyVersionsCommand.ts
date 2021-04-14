@@ -22,9 +22,9 @@ export type ListPolicyVersionsCommandOutput = ListPolicyVersionsResponse & __Met
 
 /**
  * <p>Lists information about the versions of the specified managed policy, including the
- *          version that is currently set as the policy's default version.</p>
- *          <p>For more information about managed policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline
- *             Policies</a> in the <i>IAM User Guide</i>.</p>
+ *             version that is currently set as the policy's default version.</p>
+ *         <p>For more information about managed policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
+ *                 policies</a> in the <i>IAM User Guide</i>.</p>
  */
 export class ListPolicyVersionsCommand extends $Command<
   ListPolicyVersionsCommandInput,

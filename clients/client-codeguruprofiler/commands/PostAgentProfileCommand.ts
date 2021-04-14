@@ -21,7 +21,13 @@ export type PostAgentProfileCommandInput = PostAgentProfileRequest;
 export type PostAgentProfileCommandOutput = PostAgentProfileResponse & __MetadataBearer;
 
 /**
- * <p/>
+ * <p>
+ *          Submits profiling data to an aggregated profile of a profiling group. To get an
+ *          aggregated profile that is created with this profiling data, use
+ *          <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_GetProfile.html">
+ *                <code>GetProfile</code>
+ *             </a>.
+ *       </p>
  */
 export class PostAgentProfileCommand extends $Command<
   PostAgentProfileCommandInput,

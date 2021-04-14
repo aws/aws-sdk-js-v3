@@ -20,6 +20,11 @@ import {
 export type ListRecommendationsCommandInput = ListRecommendationsRequest;
 export type ListRecommendationsCommandOutput = ListRecommendationsResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *    		Returns a list of a specified insight's recommendations. Each recommendation includes a list of related metrics and a list of related events.
+ *    	</p>
+ */
 export class ListRecommendationsCommand extends $Command<
   ListRecommendationsCommandInput,
   ListRecommendationsCommandOutput,

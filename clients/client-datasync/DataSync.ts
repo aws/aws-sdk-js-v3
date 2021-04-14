@@ -117,6 +117,21 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { UpdateAgentCommand, UpdateAgentCommandInput, UpdateAgentCommandOutput } from "./commands/UpdateAgentCommand";
+import {
+  UpdateLocationNfsCommand,
+  UpdateLocationNfsCommandInput,
+  UpdateLocationNfsCommandOutput,
+} from "./commands/UpdateLocationNfsCommand";
+import {
+  UpdateLocationObjectStorageCommand,
+  UpdateLocationObjectStorageCommandInput,
+  UpdateLocationObjectStorageCommandOutput,
+} from "./commands/UpdateLocationObjectStorageCommand";
+import {
+  UpdateLocationSmbCommand,
+  UpdateLocationSmbCommandInput,
+  UpdateLocationSmbCommandOutput,
+} from "./commands/UpdateLocationSmbCommand";
 import { UpdateTaskCommand, UpdateTaskCommandInput, UpdateTaskCommandOutput } from "./commands/UpdateTaskCommand";
 import {
   UpdateTaskExecutionCommand,
@@ -247,7 +262,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   * <p>Creates an endpoint for an Amazon FSx for Windows file system.</p>
+   * <p>Creates an endpoint for an Amazon FSx for Windows File Server file system.</p>
    */
   public createLocationFsxWindows(
     args: CreateLocationFsxWindowsCommandInput,
@@ -416,18 +431,25 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   * <p>Creates a task. A task is a set of two locations (source and destination) and a set of
-   *       Options that you use to control the behavior of a task. If you don't specify Options when you
-   *       create a task, AWS DataSync populates them with service defaults.</p>
-   *          <p>When you create a task, it first enters the CREATING state. During CREATING
-   *       AWS DataSync attempts to mount the on-premises Network File System (NFS) location. The task
-   *       transitions to the AVAILABLE state without waiting for the AWS location to become mounted. If
-   *       required, AWS DataSync mounts the AWS location before each task execution.</p>
-   *          <p>If an agent that is associated with a source (NFS) location goes offline, the task
-   *       transitions to the UNAVAILABLE status. If the status of the task remains in the CREATING
-   *       status for more than a few minutes, it means that your agent might be having trouble mounting
-   *       the source NFS file system. Check the task's ErrorCode and ErrorDetail. Mount issues are often
-   *       caused by either a misconfigured firewall or a mistyped NFS server hostname.</p>
+   * <p>Creates a task.</p>
+   *          <p>A task includes a source location and a destination location, and a configuration
+   *       that specifies how data is transferred. A task always transfers data from the source
+   *       location to the destination location. The configuration specifies options such as
+   *       task scheduling, bandwidth limits, etc. A task is the complete definition of a data
+   *       transfer.</p>
+   *          <p>When you create a task that transfers data between AWS services in different AWS Regions,
+   *       one of the two locations that you specify must reside in the Region where DataSync is being
+   *       used. The other location must be specified in a different Region.</p>
+   *          <p>You can transfer data between commercial AWS Regions except for China, or between AWS
+   *       GovCloud (US-East and US-West) Regions.</p>
+   *
+   *          <important>
+   *             <p>When you use DataSync to copy files or objects between AWS Regions,
+   *       you pay for data transfer between Regions. This is billed as data transfer OUT
+   *       from your source Region to your destination Region. For more information,
+   *       see <a href="http://aws.amazon.com/ec2/pricing/on-demand/#Data_Transfer">Data Transfer pricing</a>.
+   *     </p>
+   *          </important>
    */
   public createTask(args: CreateTaskCommandInput, options?: __HttpHandlerOptions): Promise<CreateTaskCommandOutput>;
   public createTask(args: CreateTaskCommandInput, cb: (err: any, data?: CreateTaskCommandOutput) => void): void;
@@ -606,7 +628,8 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   * <p>Returns metadata, such as the path information about an Amazon FSx for Windows location.</p>
+   * <p>Returns metadata, such as the path information about an Amazon FSx for Windows File Server
+   *       location.</p>
    */
   public describeLocationFsxWindows(
     args: DescribeLocationFsxWindowsCommandInput,
@@ -993,8 +1016,8 @@ export class DataSync extends DataSyncClient {
    *             <code>TaskExecution</code> has the following transition phases: INITIALIZING |
    *       PREPARING | TRANSFERRING | VERIFYING | SUCCESS/FAILURE. </p>
    *
-   *          <p>For detailed information, see the Task Execution section in the Components
-   *       and Terminology topic in the <i>AWS DataSync User Guide</i>.</p>
+   *          <p>For detailed information, see the Task Execution section in the Components and
+   *       Terminology topic in the <i>AWS DataSync User Guide</i>.</p>
    */
   public startTaskExecution(
     args: StartTaskExecutionCommandInput,
@@ -1110,6 +1133,106 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
+   * <p>Updates some of the parameters of a previously created location for Network File System (NFS) access.
+   *       For information about creating an NFS location, see <a>create-nfs-location</a>.</p>
+   */
+  public updateLocationNfs(
+    args: UpdateLocationNfsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLocationNfsCommandOutput>;
+  public updateLocationNfs(
+    args: UpdateLocationNfsCommandInput,
+    cb: (err: any, data?: UpdateLocationNfsCommandOutput) => void
+  ): void;
+  public updateLocationNfs(
+    args: UpdateLocationNfsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLocationNfsCommandOutput) => void
+  ): void;
+  public updateLocationNfs(
+    args: UpdateLocationNfsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateLocationNfsCommandOutput) => void),
+    cb?: (err: any, data?: UpdateLocationNfsCommandOutput) => void
+  ): Promise<UpdateLocationNfsCommandOutput> | void {
+    const command = new UpdateLocationNfsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates some of the parameters of a previously created location for self-managed object
+   *       storage server access. For information about creating a self-managed object storage location,
+   *       see <a>create-object-location</a>.</p>
+   */
+  public updateLocationObjectStorage(
+    args: UpdateLocationObjectStorageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLocationObjectStorageCommandOutput>;
+  public updateLocationObjectStorage(
+    args: UpdateLocationObjectStorageCommandInput,
+    cb: (err: any, data?: UpdateLocationObjectStorageCommandOutput) => void
+  ): void;
+  public updateLocationObjectStorage(
+    args: UpdateLocationObjectStorageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLocationObjectStorageCommandOutput) => void
+  ): void;
+  public updateLocationObjectStorage(
+    args: UpdateLocationObjectStorageCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateLocationObjectStorageCommandOutput) => void),
+    cb?: (err: any, data?: UpdateLocationObjectStorageCommandOutput) => void
+  ): Promise<UpdateLocationObjectStorageCommandOutput> | void {
+    const command = new UpdateLocationObjectStorageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates some of the parameters of a previously created location for Server Message Block
+   *       (SMB) file system access. For information about creating an SMB location, see <a>create-smb-location</a>.</p>
+   */
+  public updateLocationSmb(
+    args: UpdateLocationSmbCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLocationSmbCommandOutput>;
+  public updateLocationSmb(
+    args: UpdateLocationSmbCommandInput,
+    cb: (err: any, data?: UpdateLocationSmbCommandOutput) => void
+  ): void;
+  public updateLocationSmb(
+    args: UpdateLocationSmbCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLocationSmbCommandOutput) => void
+  ): void;
+  public updateLocationSmb(
+    args: UpdateLocationSmbCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateLocationSmbCommandOutput) => void),
+    cb?: (err: any, data?: UpdateLocationSmbCommandOutput) => void
+  ): Promise<UpdateLocationSmbCommandOutput> | void {
+    const command = new UpdateLocationSmbCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates the metadata associated with a task.</p>
    */
   public updateTask(args: UpdateTaskCommandInput, options?: __HttpHandlerOptions): Promise<UpdateTaskCommandOutput>;
@@ -1138,7 +1261,7 @@ export class DataSync extends DataSyncClient {
   /**
    * <p>Updates execution of a task.</p>
    *          <p>You can modify bandwidth throttling for a task execution that is running or queued.
-   *       For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/working-with-task-executions.html#adjust-bandwidth-throttling">Adjusting Bandwidth Throttling for a Task Execution</a>.</p>
+   *       For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/working-with-task-executions.html#adjust-bandwidth-throttling">Adjusting Bandwidth Throttling for a Task Execution</a>.</p>
    *
    *          <note>
    *             <p>The only <code>Option</code> that can be modified by <code>UpdateTaskExecution</code>

@@ -4,6 +4,10 @@ import { CreateAliasCommandInput, CreateAliasCommandOutput } from "../commands/C
 import { CreateBuildCommandInput, CreateBuildCommandOutput } from "../commands/CreateBuildCommand";
 import { CreateFleetCommandInput, CreateFleetCommandOutput } from "../commands/CreateFleetCommand";
 import {
+  CreateFleetLocationsCommandInput,
+  CreateFleetLocationsCommandOutput,
+} from "../commands/CreateFleetLocationsCommand";
+import {
   CreateGameServerGroupCommandInput,
   CreateGameServerGroupCommandOutput,
 } from "../commands/CreateGameServerGroupCommand";
@@ -40,6 +44,10 @@ import {
 import { DeleteAliasCommandInput, DeleteAliasCommandOutput } from "../commands/DeleteAliasCommand";
 import { DeleteBuildCommandInput, DeleteBuildCommandOutput } from "../commands/DeleteBuildCommand";
 import { DeleteFleetCommandInput, DeleteFleetCommandOutput } from "../commands/DeleteFleetCommand";
+import {
+  DeleteFleetLocationsCommandInput,
+  DeleteFleetLocationsCommandOutput,
+} from "../commands/DeleteFleetLocationsCommand";
 import {
   DeleteGameServerGroupCommandInput,
   DeleteGameServerGroupCommandOutput,
@@ -91,6 +99,18 @@ import {
   DescribeFleetEventsCommandInput,
   DescribeFleetEventsCommandOutput,
 } from "../commands/DescribeFleetEventsCommand";
+import {
+  DescribeFleetLocationAttributesCommandInput,
+  DescribeFleetLocationAttributesCommandOutput,
+} from "../commands/DescribeFleetLocationAttributesCommand";
+import {
+  DescribeFleetLocationCapacityCommandInput,
+  DescribeFleetLocationCapacityCommandOutput,
+} from "../commands/DescribeFleetLocationCapacityCommand";
+import {
+  DescribeFleetLocationUtilizationCommandInput,
+  DescribeFleetLocationUtilizationCommandOutput,
+} from "../commands/DescribeFleetLocationUtilizationCommand";
 import {
   DescribeFleetPortSettingsCommandInput,
   DescribeFleetPortSettingsCommandOutput,
@@ -260,6 +280,8 @@ import {
   CreateBuildInput,
   CreateBuildOutput,
   CreateFleetInput,
+  CreateFleetLocationsInput,
+  CreateFleetLocationsOutput,
   CreateFleetOutput,
   CreateGameServerGroupInput,
   CreateGameServerGroupOutput,
@@ -284,6 +306,8 @@ import {
   DeleteAliasInput,
   DeleteBuildInput,
   DeleteFleetInput,
+  DeleteFleetLocationsInput,
+  DeleteFleetLocationsOutput,
   DeleteGameServerGroupInput,
   DeleteGameServerGroupOutput,
   DeleteGameSessionQueueInput,
@@ -311,6 +335,12 @@ import {
   DescribeFleetCapacityOutput,
   DescribeFleetEventsInput,
   DescribeFleetEventsOutput,
+  DescribeFleetLocationAttributesInput,
+  DescribeFleetLocationAttributesOutput,
+  DescribeFleetLocationCapacityInput,
+  DescribeFleetLocationCapacityOutput,
+  DescribeFleetLocationUtilizationInput,
+  DescribeFleetLocationUtilizationOutput,
   DescribeFleetPortSettingsInput,
   DescribeFleetPortSettingsOutput,
   DescribeFleetUtilizationInput,
@@ -353,6 +383,7 @@ import {
   EC2InstanceCounts,
   EC2InstanceLimit,
   Event,
+  FilterConfiguration,
   FleetAction,
   FleetAttributes,
   FleetCapacity,
@@ -401,6 +432,9 @@ import {
   ListScriptsOutput,
   ListTagsForResourceRequest,
   ListTagsForResourceResponse,
+  LocationAttributes,
+  LocationConfiguration,
+  LocationState,
   MatchedPlayerSession,
   MatchmakingConfiguration,
   MatchmakingRuleSet,
@@ -412,6 +446,8 @@ import {
   PlayerLatency,
   PlayerLatencyPolicy,
   PlayerSession,
+  PriorityConfiguration,
+  PriorityType,
   PutScalingPolicyInput,
   PutScalingPolicyOutput,
   RegisterGameServerInput,
@@ -560,6 +596,19 @@ export const serializeAws_json1_1CreateFleetCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateFleetInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateFleetLocationsCommand = async (
+  input: CreateFleetLocationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "GameLift.CreateFleetLocations",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateFleetLocationsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -729,6 +778,19 @@ export const serializeAws_json1_1DeleteFleetCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteFleetInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteFleetLocationsCommand = async (
+  input: DeleteFleetLocationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "GameLift.DeleteFleetLocations",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteFleetLocationsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -924,6 +986,45 @@ export const serializeAws_json1_1DescribeFleetEventsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeFleetEventsInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeFleetLocationAttributesCommand = async (
+  input: DescribeFleetLocationAttributesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "GameLift.DescribeFleetLocationAttributes",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeFleetLocationAttributesInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeFleetLocationCapacityCommand = async (
+  input: DescribeFleetLocationCapacityCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "GameLift.DescribeFleetLocationCapacity",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeFleetLocationCapacityInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeFleetLocationUtilizationCommand = async (
+  input: DescribeFleetLocationUtilizationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "GameLift.DescribeFleetLocationUtilization",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeFleetLocationUtilizationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2122,6 +2223,92 @@ const deserializeAws_json1_1CreateFleetCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1CreateFleetLocationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateFleetLocationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateFleetLocationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateFleetLocationsOutput(data, context);
+  const response: CreateFleetLocationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateFleetLocationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateFleetLocationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidFleetStatusException":
+    case "com.amazonaws.gamelift#InvalidFleetStatusException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidFleetStatusExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1CreateGameServerGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2383,6 +2570,14 @@ const deserializeAws_json1_1CreateGameSessionQueueCommandError = async (
     case "com.amazonaws.gamelift#LimitExceededException":
       response = {
         ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3266,6 +3461,84 @@ const deserializeAws_json1_1DeleteFleetCommandError = async (
     case "com.amazonaws.gamelift#TaggingFailedException":
       response = {
         ...(await deserializeAws_json1_1TaggingFailedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteFleetLocationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteFleetLocationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteFleetLocationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteFleetLocationsOutput(data, context);
+  const response: DeleteFleetLocationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteFleetLocationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteFleetLocationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4423,6 +4696,240 @@ const deserializeAws_json1_1DescribeFleetEventsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFleetEventsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeFleetLocationAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFleetLocationAttributesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeFleetLocationAttributesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeFleetLocationAttributesOutput(data, context);
+  const response: DescribeFleetLocationAttributesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeFleetLocationAttributesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFleetLocationAttributesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeFleetLocationCapacityCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFleetLocationCapacityCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeFleetLocationCapacityCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeFleetLocationCapacityOutput(data, context);
+  const response: DescribeFleetLocationCapacityCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeFleetLocationCapacityCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFleetLocationCapacityCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeFleetLocationUtilizationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFleetLocationUtilizationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeFleetLocationUtilizationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeFleetLocationUtilizationOutput(data, context);
+  const response: DescribeFleetLocationUtilizationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeFleetLocationUtilizationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFleetLocationUtilizationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -9298,6 +9805,10 @@ const serializeAws_json1_1CreateFleetInput = (input: CreateFleetInput, context: 
     ...(input.FleetType !== undefined && input.FleetType !== null && { FleetType: input.FleetType }),
     ...(input.InstanceRoleArn !== undefined &&
       input.InstanceRoleArn !== null && { InstanceRoleArn: input.InstanceRoleArn }),
+    ...(input.Locations !== undefined &&
+      input.Locations !== null && {
+        Locations: serializeAws_json1_1LocationConfigurationList(input.Locations, context),
+      }),
     ...(input.LogPaths !== undefined &&
       input.LogPaths !== null && { LogPaths: serializeAws_json1_1StringList(input.LogPaths, context) }),
     ...(input.MetricGroups !== undefined &&
@@ -9329,6 +9840,19 @@ const serializeAws_json1_1CreateFleetInput = (input: CreateFleetInput, context: 
     ...(input.ServerLaunchPath !== undefined &&
       input.ServerLaunchPath !== null && { ServerLaunchPath: input.ServerLaunchPath }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+  };
+};
+
+const serializeAws_json1_1CreateFleetLocationsInput = (
+  input: CreateFleetLocationsInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FleetId !== undefined && input.FleetId !== null && { FleetId: input.FleetId }),
+    ...(input.Locations !== undefined &&
+      input.Locations !== null && {
+        Locations: serializeAws_json1_1LocationConfigurationList(input.Locations, context),
+      }),
   };
 };
 
@@ -9378,6 +9902,7 @@ const serializeAws_json1_1CreateGameSessionInput = (input: CreateGameSessionInpu
     ...(input.GameSessionId !== undefined && input.GameSessionId !== null && { GameSessionId: input.GameSessionId }),
     ...(input.IdempotencyToken !== undefined &&
       input.IdempotencyToken !== null && { IdempotencyToken: input.IdempotencyToken }),
+    ...(input.Location !== undefined && input.Location !== null && { Location: input.Location }),
     ...(input.MaximumPlayerSessionCount !== undefined &&
       input.MaximumPlayerSessionCount !== null && { MaximumPlayerSessionCount: input.MaximumPlayerSessionCount }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
@@ -9389,14 +9914,26 @@ const serializeAws_json1_1CreateGameSessionQueueInput = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.CustomEventData !== undefined &&
+      input.CustomEventData !== null && { CustomEventData: input.CustomEventData }),
     ...(input.Destinations !== undefined &&
       input.Destinations !== null && {
         Destinations: serializeAws_json1_1GameSessionQueueDestinationList(input.Destinations, context),
       }),
+    ...(input.FilterConfiguration !== undefined &&
+      input.FilterConfiguration !== null && {
+        FilterConfiguration: serializeAws_json1_1FilterConfiguration(input.FilterConfiguration, context),
+      }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.NotificationTarget !== undefined &&
+      input.NotificationTarget !== null && { NotificationTarget: input.NotificationTarget }),
     ...(input.PlayerLatencyPolicies !== undefined &&
       input.PlayerLatencyPolicies !== null && {
         PlayerLatencyPolicies: serializeAws_json1_1PlayerLatencyPolicyList(input.PlayerLatencyPolicies, context),
+      }),
+    ...(input.PriorityConfiguration !== undefined &&
+      input.PriorityConfiguration !== null && {
+        PriorityConfiguration: serializeAws_json1_1PriorityConfiguration(input.PriorityConfiguration, context),
       }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
     ...(input.TimeoutInSeconds !== undefined &&
@@ -9531,6 +10068,17 @@ const serializeAws_json1_1DeleteFleetInput = (input: DeleteFleetInput, context: 
   };
 };
 
+const serializeAws_json1_1DeleteFleetLocationsInput = (
+  input: DeleteFleetLocationsInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FleetId !== undefined && input.FleetId !== null && { FleetId: input.FleetId }),
+    ...(input.Locations !== undefined &&
+      input.Locations !== null && { Locations: serializeAws_json1_1LocationList(input.Locations, context) }),
+  };
+};
+
 const serializeAws_json1_1DeleteGameServerGroupInput = (
   input: DeleteGameServerGroupInput,
   context: __SerdeContext
@@ -9637,6 +10185,7 @@ const serializeAws_json1_1DescribeEC2InstanceLimitsInput = (
   return {
     ...(input.EC2InstanceType !== undefined &&
       input.EC2InstanceType !== null && { EC2InstanceType: input.EC2InstanceType }),
+    ...(input.Location !== undefined && input.Location !== null && { Location: input.Location }),
   };
 };
 
@@ -9679,12 +10228,46 @@ const serializeAws_json1_1DescribeFleetEventsInput = (
   };
 };
 
+const serializeAws_json1_1DescribeFleetLocationAttributesInput = (
+  input: DescribeFleetLocationAttributesInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FleetId !== undefined && input.FleetId !== null && { FleetId: input.FleetId }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.Locations !== undefined &&
+      input.Locations !== null && { Locations: serializeAws_json1_1LocationList(input.Locations, context) }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1DescribeFleetLocationCapacityInput = (
+  input: DescribeFleetLocationCapacityInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FleetId !== undefined && input.FleetId !== null && { FleetId: input.FleetId }),
+    ...(input.Location !== undefined && input.Location !== null && { Location: input.Location }),
+  };
+};
+
+const serializeAws_json1_1DescribeFleetLocationUtilizationInput = (
+  input: DescribeFleetLocationUtilizationInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FleetId !== undefined && input.FleetId !== null && { FleetId: input.FleetId }),
+    ...(input.Location !== undefined && input.Location !== null && { Location: input.Location }),
+  };
+};
+
 const serializeAws_json1_1DescribeFleetPortSettingsInput = (
   input: DescribeFleetPortSettingsInput,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.FleetId !== undefined && input.FleetId !== null && { FleetId: input.FleetId }),
+    ...(input.Location !== undefined && input.Location !== null && { Location: input.Location }),
   };
 };
 
@@ -9743,6 +10326,7 @@ const serializeAws_json1_1DescribeGameSessionDetailsInput = (
     ...(input.FleetId !== undefined && input.FleetId !== null && { FleetId: input.FleetId }),
     ...(input.GameSessionId !== undefined && input.GameSessionId !== null && { GameSessionId: input.GameSessionId }),
     ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.Location !== undefined && input.Location !== null && { Location: input.Location }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
     ...(input.StatusFilter !== undefined && input.StatusFilter !== null && { StatusFilter: input.StatusFilter }),
   };
@@ -9778,6 +10362,7 @@ const serializeAws_json1_1DescribeGameSessionsInput = (
     ...(input.FleetId !== undefined && input.FleetId !== null && { FleetId: input.FleetId }),
     ...(input.GameSessionId !== undefined && input.GameSessionId !== null && { GameSessionId: input.GameSessionId }),
     ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.Location !== undefined && input.Location !== null && { Location: input.Location }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
     ...(input.StatusFilter !== undefined && input.StatusFilter !== null && { StatusFilter: input.StatusFilter }),
   };
@@ -9788,6 +10373,7 @@ const serializeAws_json1_1DescribeInstancesInput = (input: DescribeInstancesInpu
     ...(input.FleetId !== undefined && input.FleetId !== null && { FleetId: input.FleetId }),
     ...(input.InstanceId !== undefined && input.InstanceId !== null && { InstanceId: input.InstanceId }),
     ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.Location !== undefined && input.Location !== null && { Location: input.Location }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
@@ -9859,6 +10445,7 @@ const serializeAws_json1_1DescribeScalingPoliciesInput = (
   return {
     ...(input.FleetId !== undefined && input.FleetId !== null && { FleetId: input.FleetId }),
     ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.Location !== undefined && input.Location !== null && { Location: input.Location }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
     ...(input.StatusFilter !== undefined && input.StatusFilter !== null && { StatusFilter: input.StatusFilter }),
   };
@@ -9902,6 +10489,15 @@ const serializeAws_json1_1DesiredPlayerSessionList = (input: DesiredPlayerSessio
       }
       return serializeAws_json1_1DesiredPlayerSession(entry, context);
     });
+};
+
+const serializeAws_json1_1FilterConfiguration = (input: FilterConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.AllowedLocations !== undefined &&
+      input.AllowedLocations !== null && {
+        AllowedLocations: serializeAws_json1_1LocationList(input.AllowedLocations, context),
+      }),
+  };
 };
 
 const serializeAws_json1_1FleetActionList = (input: (FleetAction | string)[], context: __SerdeContext): any => {
@@ -10164,6 +10760,37 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   };
 };
 
+const serializeAws_json1_1LocationConfiguration = (input: LocationConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.Location !== undefined && input.Location !== null && { Location: input.Location }),
+  };
+};
+
+const serializeAws_json1_1LocationConfigurationList = (
+  input: LocationConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1LocationConfiguration(entry, context);
+    });
+};
+
+const serializeAws_json1_1LocationList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_json1_1MatchmakingConfigurationNameList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -10313,6 +10940,30 @@ const serializeAws_json1_1PlayerList = (input: Player[], context: __SerdeContext
     });
 };
 
+const serializeAws_json1_1PriorityConfiguration = (input: PriorityConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.LocationOrder !== undefined &&
+      input.LocationOrder !== null && {
+        LocationOrder: serializeAws_json1_1LocationList(input.LocationOrder, context),
+      }),
+    ...(input.PriorityOrder !== undefined &&
+      input.PriorityOrder !== null && {
+        PriorityOrder: serializeAws_json1_1PriorityTypeList(input.PriorityOrder, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1PriorityTypeList = (input: (PriorityType | string)[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_json1_1PutScalingPolicyInput = (input: PutScalingPolicyInput, context: __SerdeContext): any => {
   return {
     ...(input.ComparisonOperator !== undefined &&
@@ -10441,6 +11092,7 @@ const serializeAws_json1_1SearchGameSessionsInput = (input: SearchGameSessionsIn
       input.FilterExpression !== null && { FilterExpression: input.FilterExpression }),
     ...(input.FleetId !== undefined && input.FleetId !== null && { FleetId: input.FleetId }),
     ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.Location !== undefined && input.Location !== null && { Location: input.Location }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
     ...(input.SortExpression !== undefined &&
       input.SortExpression !== null && { SortExpression: input.SortExpression }),
@@ -10472,6 +11124,7 @@ const serializeAws_json1_1StartFleetActionsInput = (input: StartFleetActionsInpu
     ...(input.Actions !== undefined &&
       input.Actions !== null && { Actions: serializeAws_json1_1FleetActionList(input.Actions, context) }),
     ...(input.FleetId !== undefined && input.FleetId !== null && { FleetId: input.FleetId }),
+    ...(input.Location !== undefined && input.Location !== null && { Location: input.Location }),
   };
 };
 
@@ -10531,6 +11184,7 @@ const serializeAws_json1_1StopFleetActionsInput = (input: StopFleetActionsInput,
     ...(input.Actions !== undefined &&
       input.Actions !== null && { Actions: serializeAws_json1_1FleetActionList(input.Actions, context) }),
     ...(input.FleetId !== undefined && input.FleetId !== null && { FleetId: input.FleetId }),
+    ...(input.Location !== undefined && input.Location !== null && { Location: input.Location }),
   };
 };
 
@@ -10699,6 +11353,7 @@ const serializeAws_json1_1UpdateFleetCapacityInput = (
     ...(input.DesiredInstances !== undefined &&
       input.DesiredInstances !== null && { DesiredInstances: input.DesiredInstances }),
     ...(input.FleetId !== undefined && input.FleetId !== null && { FleetId: input.FleetId }),
+    ...(input.Location !== undefined && input.Location !== null && { Location: input.Location }),
     ...(input.MaxSize !== undefined && input.MaxSize !== null && { MaxSize: input.MaxSize }),
     ...(input.MinSize !== undefined && input.MinSize !== null && { MinSize: input.MinSize }),
   };
@@ -10777,14 +11432,26 @@ const serializeAws_json1_1UpdateGameSessionQueueInput = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.CustomEventData !== undefined &&
+      input.CustomEventData !== null && { CustomEventData: input.CustomEventData }),
     ...(input.Destinations !== undefined &&
       input.Destinations !== null && {
         Destinations: serializeAws_json1_1GameSessionQueueDestinationList(input.Destinations, context),
       }),
+    ...(input.FilterConfiguration !== undefined &&
+      input.FilterConfiguration !== null && {
+        FilterConfiguration: serializeAws_json1_1FilterConfiguration(input.FilterConfiguration, context),
+      }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.NotificationTarget !== undefined &&
+      input.NotificationTarget !== null && { NotificationTarget: input.NotificationTarget }),
     ...(input.PlayerLatencyPolicies !== undefined &&
       input.PlayerLatencyPolicies !== null && {
         PlayerLatencyPolicies: serializeAws_json1_1PlayerLatencyPolicyList(input.PlayerLatencyPolicies, context),
+      }),
+    ...(input.PriorityConfiguration !== undefined &&
+      input.PriorityConfiguration !== null && {
+        PriorityConfiguration: serializeAws_json1_1PriorityConfiguration(input.PriorityConfiguration, context),
       }),
     ...(input.TimeoutInSeconds !== undefined &&
       input.TimeoutInSeconds !== null && { TimeoutInSeconds: input.TimeoutInSeconds }),
@@ -11009,11 +11676,29 @@ const deserializeAws_json1_1CreateBuildOutput = (output: any, context: __SerdeCo
   } as any;
 };
 
+const deserializeAws_json1_1CreateFleetLocationsOutput = (
+  output: any,
+  context: __SerdeContext
+): CreateFleetLocationsOutput => {
+  return {
+    FleetArn: output.FleetArn !== undefined && output.FleetArn !== null ? output.FleetArn : undefined,
+    FleetId: output.FleetId !== undefined && output.FleetId !== null ? output.FleetId : undefined,
+    LocationStates:
+      output.LocationStates !== undefined && output.LocationStates !== null
+        ? deserializeAws_json1_1LocationStateList(output.LocationStates, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1CreateFleetOutput = (output: any, context: __SerdeContext): CreateFleetOutput => {
   return {
     FleetAttributes:
       output.FleetAttributes !== undefined && output.FleetAttributes !== null
         ? deserializeAws_json1_1FleetAttributes(output.FleetAttributes, context)
+        : undefined,
+    LocationStates:
+      output.LocationStates !== undefined && output.LocationStates !== null
+        ? deserializeAws_json1_1LocationStateList(output.LocationStates, context)
         : undefined,
   } as any;
 };
@@ -11128,6 +11813,20 @@ const deserializeAws_json1_1CreateVpcPeeringConnectionOutput = (
   context: __SerdeContext
 ): CreateVpcPeeringConnectionOutput => {
   return {} as any;
+};
+
+const deserializeAws_json1_1DeleteFleetLocationsOutput = (
+  output: any,
+  context: __SerdeContext
+): DeleteFleetLocationsOutput => {
+  return {
+    FleetArn: output.FleetArn !== undefined && output.FleetArn !== null ? output.FleetArn : undefined,
+    FleetId: output.FleetId !== undefined && output.FleetId !== null ? output.FleetId : undefined,
+    LocationStates:
+      output.LocationStates !== undefined && output.LocationStates !== null
+        ? deserializeAws_json1_1LocationStateList(output.LocationStates, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteGameServerGroupOutput = (
@@ -11246,15 +11945,58 @@ const deserializeAws_json1_1DescribeFleetEventsOutput = (
   } as any;
 };
 
+const deserializeAws_json1_1DescribeFleetLocationAttributesOutput = (
+  output: any,
+  context: __SerdeContext
+): DescribeFleetLocationAttributesOutput => {
+  return {
+    FleetArn: output.FleetArn !== undefined && output.FleetArn !== null ? output.FleetArn : undefined,
+    FleetId: output.FleetId !== undefined && output.FleetId !== null ? output.FleetId : undefined,
+    LocationAttributes:
+      output.LocationAttributes !== undefined && output.LocationAttributes !== null
+        ? deserializeAws_json1_1LocationAttributesList(output.LocationAttributes, context)
+        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeFleetLocationCapacityOutput = (
+  output: any,
+  context: __SerdeContext
+): DescribeFleetLocationCapacityOutput => {
+  return {
+    FleetCapacity:
+      output.FleetCapacity !== undefined && output.FleetCapacity !== null
+        ? deserializeAws_json1_1FleetCapacity(output.FleetCapacity, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeFleetLocationUtilizationOutput = (
+  output: any,
+  context: __SerdeContext
+): DescribeFleetLocationUtilizationOutput => {
+  return {
+    FleetUtilization:
+      output.FleetUtilization !== undefined && output.FleetUtilization !== null
+        ? deserializeAws_json1_1FleetUtilization(output.FleetUtilization, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DescribeFleetPortSettingsOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeFleetPortSettingsOutput => {
   return {
+    FleetArn: output.FleetArn !== undefined && output.FleetArn !== null ? output.FleetArn : undefined,
+    FleetId: output.FleetId !== undefined && output.FleetId !== null ? output.FleetId : undefined,
     InboundPermissions:
       output.InboundPermissions !== undefined && output.InboundPermissions !== null
         ? deserializeAws_json1_1IpPermissionsList(output.InboundPermissions, context)
         : undefined,
+    Location: output.Location !== undefined && output.Location !== null ? output.Location : undefined,
+    UpdateStatus: output.UpdateStatus !== undefined && output.UpdateStatus !== null ? output.UpdateStatus : undefined,
   } as any;
 };
 
@@ -11501,6 +12243,7 @@ const deserializeAws_json1_1EC2InstanceLimit = (output: any, context: __SerdeCon
       output.EC2InstanceType !== undefined && output.EC2InstanceType !== null ? output.EC2InstanceType : undefined,
     InstanceLimit:
       output.InstanceLimit !== undefined && output.InstanceLimit !== null ? output.InstanceLimit : undefined,
+    Location: output.Location !== undefined && output.Location !== null ? output.Location : undefined,
   } as any;
 };
 
@@ -11539,6 +12282,15 @@ const deserializeAws_json1_1EventList = (output: any, context: __SerdeContext): 
       }
       return deserializeAws_json1_1Event(entry, context);
     });
+};
+
+const deserializeAws_json1_1FilterConfiguration = (output: any, context: __SerdeContext): FilterConfiguration => {
+  return {
+    AllowedLocations:
+      output.AllowedLocations !== undefined && output.AllowedLocations !== null
+        ? deserializeAws_json1_1LocationList(output.AllowedLocations, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1FleetActionList = (output: any, context: __SerdeContext): (FleetAction | string)[] => {
@@ -11623,12 +12375,14 @@ const deserializeAws_json1_1FleetAttributesList = (output: any, context: __Serde
 
 const deserializeAws_json1_1FleetCapacity = (output: any, context: __SerdeContext): FleetCapacity => {
   return {
+    FleetArn: output.FleetArn !== undefined && output.FleetArn !== null ? output.FleetArn : undefined,
     FleetId: output.FleetId !== undefined && output.FleetId !== null ? output.FleetId : undefined,
     InstanceCounts:
       output.InstanceCounts !== undefined && output.InstanceCounts !== null
         ? deserializeAws_json1_1EC2InstanceCounts(output.InstanceCounts, context)
         : undefined,
     InstanceType: output.InstanceType !== undefined && output.InstanceType !== null ? output.InstanceType : undefined,
+    Location: output.Location !== undefined && output.Location !== null ? output.Location : undefined,
   } as any;
 };
 
@@ -11677,7 +12431,9 @@ const deserializeAws_json1_1FleetUtilization = (output: any, context: __SerdeCon
       output.CurrentPlayerSessionCount !== undefined && output.CurrentPlayerSessionCount !== null
         ? output.CurrentPlayerSessionCount
         : undefined,
+    FleetArn: output.FleetArn !== undefined && output.FleetArn !== null ? output.FleetArn : undefined,
     FleetId: output.FleetId !== undefined && output.FleetId !== null ? output.FleetId : undefined,
+    Location: output.Location !== undefined && output.Location !== null ? output.Location : undefined,
     MaximumPlayerSessionCount:
       output.MaximumPlayerSessionCount !== undefined && output.MaximumPlayerSessionCount !== null
         ? output.MaximumPlayerSessionCount
@@ -11880,6 +12636,7 @@ const deserializeAws_json1_1GameSession = (output: any, context: __SerdeContext)
     GameSessionId:
       output.GameSessionId !== undefined && output.GameSessionId !== null ? output.GameSessionId : undefined,
     IpAddress: output.IpAddress !== undefined && output.IpAddress !== null ? output.IpAddress : undefined,
+    Location: output.Location !== undefined && output.Location !== null ? output.Location : undefined,
     MatchmakerData:
       output.MatchmakerData !== undefined && output.MatchmakerData !== null ? output.MatchmakerData : undefined,
     MaximumPlayerSessionCount:
@@ -12012,18 +12769,32 @@ const deserializeAws_json1_1GameSessionPlacement = (output: any, context: __Serd
 
 const deserializeAws_json1_1GameSessionQueue = (output: any, context: __SerdeContext): GameSessionQueue => {
   return {
+    CustomEventData:
+      output.CustomEventData !== undefined && output.CustomEventData !== null ? output.CustomEventData : undefined,
     Destinations:
       output.Destinations !== undefined && output.Destinations !== null
         ? deserializeAws_json1_1GameSessionQueueDestinationList(output.Destinations, context)
+        : undefined,
+    FilterConfiguration:
+      output.FilterConfiguration !== undefined && output.FilterConfiguration !== null
+        ? deserializeAws_json1_1FilterConfiguration(output.FilterConfiguration, context)
         : undefined,
     GameSessionQueueArn:
       output.GameSessionQueueArn !== undefined && output.GameSessionQueueArn !== null
         ? output.GameSessionQueueArn
         : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    NotificationTarget:
+      output.NotificationTarget !== undefined && output.NotificationTarget !== null
+        ? output.NotificationTarget
+        : undefined,
     PlayerLatencyPolicies:
       output.PlayerLatencyPolicies !== undefined && output.PlayerLatencyPolicies !== null
         ? deserializeAws_json1_1PlayerLatencyPolicyList(output.PlayerLatencyPolicies, context)
+        : undefined,
+    PriorityConfiguration:
+      output.PriorityConfiguration !== undefined && output.PriorityConfiguration !== null
+        ? deserializeAws_json1_1PriorityConfiguration(output.PriorityConfiguration, context)
         : undefined,
     TimeoutInSeconds:
       output.TimeoutInSeconds !== undefined && output.TimeoutInSeconds !== null ? output.TimeoutInSeconds : undefined,
@@ -12102,9 +12873,11 @@ const deserializeAws_json1_1Instance = (output: any, context: __SerdeContext): I
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
     DnsName: output.DnsName !== undefined && output.DnsName !== null ? output.DnsName : undefined,
+    FleetArn: output.FleetArn !== undefined && output.FleetArn !== null ? output.FleetArn : undefined,
     FleetId: output.FleetId !== undefined && output.FleetId !== null ? output.FleetId : undefined,
     InstanceId: output.InstanceId !== undefined && output.InstanceId !== null ? output.InstanceId : undefined,
     IpAddress: output.IpAddress !== undefined && output.IpAddress !== null ? output.IpAddress : undefined,
+    Location: output.Location !== undefined && output.Location !== null ? output.Location : undefined,
     OperatingSystem:
       output.OperatingSystem !== undefined && output.OperatingSystem !== null ? output.OperatingSystem : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
@@ -12310,6 +13083,60 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
         ? deserializeAws_json1_1TagList(output.Tags, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1LocationAttributes = (output: any, context: __SerdeContext): LocationAttributes => {
+  return {
+    LocationState:
+      output.LocationState !== undefined && output.LocationState !== null
+        ? deserializeAws_json1_1LocationState(output.LocationState, context)
+        : undefined,
+    StoppedActions:
+      output.StoppedActions !== undefined && output.StoppedActions !== null
+        ? deserializeAws_json1_1FleetActionList(output.StoppedActions, context)
+        : undefined,
+    UpdateStatus: output.UpdateStatus !== undefined && output.UpdateStatus !== null ? output.UpdateStatus : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1LocationAttributesList = (output: any, context: __SerdeContext): LocationAttributes[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1LocationAttributes(entry, context);
+    });
+};
+
+const deserializeAws_json1_1LocationList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const deserializeAws_json1_1LocationState = (output: any, context: __SerdeContext): LocationState => {
+  return {
+    Location: output.Location !== undefined && output.Location !== null ? output.Location : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1LocationStateList = (output: any, context: __SerdeContext): LocationState[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1LocationState(entry, context);
+    });
 };
 
 const deserializeAws_json1_1MatchedPlayerSession = (output: any, context: __SerdeContext): MatchedPlayerSession => {
@@ -12636,6 +13463,30 @@ const deserializeAws_json1_1PlayerSessionList = (output: any, context: __SerdeCo
     });
 };
 
+const deserializeAws_json1_1PriorityConfiguration = (output: any, context: __SerdeContext): PriorityConfiguration => {
+  return {
+    LocationOrder:
+      output.LocationOrder !== undefined && output.LocationOrder !== null
+        ? deserializeAws_json1_1LocationList(output.LocationOrder, context)
+        : undefined,
+    PriorityOrder:
+      output.PriorityOrder !== undefined && output.PriorityOrder !== null
+        ? deserializeAws_json1_1PriorityTypeList(output.PriorityOrder, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1PriorityTypeList = (output: any, context: __SerdeContext): (PriorityType | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const deserializeAws_json1_1PutScalingPolicyOutput = (output: any, context: __SerdeContext): PutScalingPolicyOutput => {
   return {
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
@@ -12761,7 +13612,9 @@ const deserializeAws_json1_1ScalingPolicy = (output: any, context: __SerdeContex
       output.EvaluationPeriods !== undefined && output.EvaluationPeriods !== null
         ? output.EvaluationPeriods
         : undefined,
+    FleetArn: output.FleetArn !== undefined && output.FleetArn !== null ? output.FleetArn : undefined,
     FleetId: output.FleetId !== undefined && output.FleetId !== null ? output.FleetId : undefined,
+    Location: output.Location !== undefined && output.Location !== null ? output.Location : undefined,
     MetricName: output.MetricName !== undefined && output.MetricName !== null ? output.MetricName : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     PolicyType: output.PolicyType !== undefined && output.PolicyType !== null ? output.PolicyType : undefined,
@@ -12779,6 +13632,7 @@ const deserializeAws_json1_1ScalingPolicy = (output: any, context: __SerdeContex
         ? deserializeAws_json1_1TargetConfiguration(output.TargetConfiguration, context)
         : undefined,
     Threshold: output.Threshold !== undefined && output.Threshold !== null ? output.Threshold : undefined,
+    UpdateStatus: output.UpdateStatus !== undefined && output.UpdateStatus !== null ? output.UpdateStatus : undefined,
   } as any;
 };
 
@@ -12861,7 +13715,10 @@ const deserializeAws_json1_1StartFleetActionsOutput = (
   output: any,
   context: __SerdeContext
 ): StartFleetActionsOutput => {
-  return {} as any;
+  return {
+    FleetArn: output.FleetArn !== undefined && output.FleetArn !== null ? output.FleetArn : undefined,
+    FleetId: output.FleetId !== undefined && output.FleetId !== null ? output.FleetId : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1StartGameSessionPlacementOutput = (
@@ -12898,7 +13755,10 @@ const deserializeAws_json1_1StartMatchmakingOutput = (output: any, context: __Se
 };
 
 const deserializeAws_json1_1StopFleetActionsOutput = (output: any, context: __SerdeContext): StopFleetActionsOutput => {
-  return {} as any;
+  return {
+    FleetArn: output.FleetArn !== undefined && output.FleetArn !== null ? output.FleetArn : undefined,
+    FleetId: output.FleetId !== undefined && output.FleetId !== null ? output.FleetId : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1StopGameSessionPlacementOutput = (
@@ -13046,7 +13906,9 @@ const deserializeAws_json1_1UpdateFleetCapacityOutput = (
   context: __SerdeContext
 ): UpdateFleetCapacityOutput => {
   return {
+    FleetArn: output.FleetArn !== undefined && output.FleetArn !== null ? output.FleetArn : undefined,
     FleetId: output.FleetId !== undefined && output.FleetId !== null ? output.FleetId : undefined,
+    Location: output.Location !== undefined && output.Location !== null ? output.Location : undefined,
   } as any;
 };
 

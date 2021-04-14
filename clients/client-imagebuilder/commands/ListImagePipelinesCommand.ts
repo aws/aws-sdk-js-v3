@@ -21,7 +21,7 @@ export type ListImagePipelinesCommandInput = ListImagePipelinesRequest;
 export type ListImagePipelinesCommandOutput = ListImagePipelinesResponse & __MetadataBearer;
 
 /**
- * <p>Returns a list of image pipelines. </p>
+ * <p>Returns a list of image pipelines.</p>
  */
 export class ListImagePipelinesCommand extends $Command<
   ListImagePipelinesCommandInput,

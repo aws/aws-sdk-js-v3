@@ -21,7 +21,7 @@ export type DescribeTypeRegistrationCommandInput = DescribeTypeRegistrationInput
 export type DescribeTypeRegistrationCommandOutput = DescribeTypeRegistrationOutput & __MetadataBearer;
 
 /**
- * <p>Returns information about a type's registration, including its current status and type and version identifiers.</p>
+ * <p>Returns information about an extension's registration, including its current status and type and version identifiers.</p>
  *          <p>When you initiate a registration request using <code>
  *                <a>RegisterType</a>
  *             </code>, you can then use <code>
@@ -29,7 +29,7 @@ export type DescribeTypeRegistrationCommandOutput = DescribeTypeRegistrationOutp
  *             </code> to monitor the progress of that registration request.</p>
  *          <p>Once the registration request has completed, use <code>
  *                <a>DescribeType</a>
- *             </code> to return detailed informaiton about a type.</p>
+ *             </code> to return detailed information about an extension.</p>
  */
 export class DescribeTypeRegistrationCommand extends $Command<
   DescribeTypeRegistrationCommandInput,

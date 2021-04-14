@@ -21,8 +21,8 @@ export type DescribeSourceRegionsCommandInput = DescribeSourceRegionsMessage;
 export type DescribeSourceRegionsCommandOutput = SourceRegionMessage & __MetadataBearer;
 
 /**
- * <p>Returns a list of the source AWS Regions where the current AWS Region can create a
- *             read replica or copy a DB snapshot from. This API action supports pagination.</p>
+ * <p>Returns a list of the source AWS Regions where the current AWS Region can create a read replica,
+ *          copy a DB snapshot from, or replicate automated backups from. This API action supports pagination.</p>
  */
 export class DescribeSourceRegionsCommand extends $Command<
   DescribeSourceRegionsCommandInput,

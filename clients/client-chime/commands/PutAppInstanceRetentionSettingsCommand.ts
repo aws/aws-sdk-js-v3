@@ -21,7 +21,7 @@ export type PutAppInstanceRetentionSettingsCommandInput = PutAppInstanceRetentio
 export type PutAppInstanceRetentionSettingsCommandOutput = PutAppInstanceRetentionSettingsResponse & __MetadataBearer;
 
 /**
- * <p>Sets the amount of time in days that a given app instance retains data.</p>
+ * <p>Sets the amount of time in days that a given <code>AppInstance</code> retains data.</p>
  */
 export class PutAppInstanceRetentionSettingsCommand extends $Command<
   PutAppInstanceRetentionSettingsCommandInput,

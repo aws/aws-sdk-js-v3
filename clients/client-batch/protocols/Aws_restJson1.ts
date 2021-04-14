@@ -58,6 +58,8 @@ import {
   ContainerSummary,
   Device,
   DeviceCgroupPermission,
+  EFSAuthorizationConfig,
+  EFSVolumeConfiguration,
   Ec2Configuration,
   EvaluateOnExit,
   FargatePlatformConfiguration,
@@ -2153,6 +2155,28 @@ const serializeAws_restJson1Ec2ConfigurationList = (input: Ec2Configuration[], c
     });
 };
 
+const serializeAws_restJson1EFSAuthorizationConfig = (input: EFSAuthorizationConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.accessPointId !== undefined && input.accessPointId !== null && { accessPointId: input.accessPointId }),
+    ...(input.iam !== undefined && input.iam !== null && { iam: input.iam }),
+  };
+};
+
+const serializeAws_restJson1EFSVolumeConfiguration = (input: EFSVolumeConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.authorizationConfig !== undefined &&
+      input.authorizationConfig !== null && {
+        authorizationConfig: serializeAws_restJson1EFSAuthorizationConfig(input.authorizationConfig, context),
+      }),
+    ...(input.fileSystemId !== undefined && input.fileSystemId !== null && { fileSystemId: input.fileSystemId }),
+    ...(input.rootDirectory !== undefined && input.rootDirectory !== null && { rootDirectory: input.rootDirectory }),
+    ...(input.transitEncryption !== undefined &&
+      input.transitEncryption !== null && { transitEncryption: input.transitEncryption }),
+    ...(input.transitEncryptionPort !== undefined &&
+      input.transitEncryptionPort !== null && { transitEncryptionPort: input.transitEncryptionPort }),
+  };
+};
+
 const serializeAws_restJson1EnvironmentVariables = (input: KeyValuePair[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -2523,6 +2547,10 @@ const serializeAws_restJson1Ulimits = (input: Ulimit[], context: __SerdeContext)
 
 const serializeAws_restJson1Volume = (input: Volume, context: __SerdeContext): any => {
   return {
+    ...(input.efsVolumeConfiguration !== undefined &&
+      input.efsVolumeConfiguration !== null && {
+        efsVolumeConfiguration: serializeAws_restJson1EFSVolumeConfiguration(input.efsVolumeConfiguration, context),
+      }),
     ...(input.host !== undefined && input.host !== null && { host: serializeAws_restJson1Host(input.host, context) }),
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
   };
@@ -2935,6 +2963,40 @@ const deserializeAws_restJson1Ec2ConfigurationList = (output: any, context: __Se
       }
       return deserializeAws_restJson1Ec2Configuration(entry, context);
     });
+};
+
+const deserializeAws_restJson1EFSAuthorizationConfig = (
+  output: any,
+  context: __SerdeContext
+): EFSAuthorizationConfig => {
+  return {
+    accessPointId:
+      output.accessPointId !== undefined && output.accessPointId !== null ? output.accessPointId : undefined,
+    iam: output.iam !== undefined && output.iam !== null ? output.iam : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1EFSVolumeConfiguration = (
+  output: any,
+  context: __SerdeContext
+): EFSVolumeConfiguration => {
+  return {
+    authorizationConfig:
+      output.authorizationConfig !== undefined && output.authorizationConfig !== null
+        ? deserializeAws_restJson1EFSAuthorizationConfig(output.authorizationConfig, context)
+        : undefined,
+    fileSystemId: output.fileSystemId !== undefined && output.fileSystemId !== null ? output.fileSystemId : undefined,
+    rootDirectory:
+      output.rootDirectory !== undefined && output.rootDirectory !== null ? output.rootDirectory : undefined,
+    transitEncryption:
+      output.transitEncryption !== undefined && output.transitEncryption !== null
+        ? output.transitEncryption
+        : undefined,
+    transitEncryptionPort:
+      output.transitEncryptionPort !== undefined && output.transitEncryptionPort !== null
+        ? output.transitEncryptionPort
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1EnvironmentVariables = (output: any, context: __SerdeContext): KeyValuePair[] => {
@@ -3525,6 +3587,10 @@ const deserializeAws_restJson1Ulimits = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1Volume = (output: any, context: __SerdeContext): Volume => {
   return {
+    efsVolumeConfiguration:
+      output.efsVolumeConfiguration !== undefined && output.efsVolumeConfiguration !== null
+        ? deserializeAws_restJson1EFSVolumeConfiguration(output.efsVolumeConfiguration, context)
+        : undefined,
     host:
       output.host !== undefined && output.host !== null
         ? deserializeAws_restJson1Host(output.host, context)

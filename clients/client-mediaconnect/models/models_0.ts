@@ -9,6 +9,7 @@ export enum Algorithm {
 
 export enum KeyType {
   speke = "speke",
+  srt_password = "srt-password",
   static_key = "static-key",
 }
 
@@ -19,7 +20,7 @@ export interface Encryption {
   /**
    * The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
    */
-  Algorithm: Algorithm | string | undefined;
+  Algorithm?: Algorithm | string;
 
   /**
    * A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
@@ -72,6 +73,7 @@ export enum Protocol {
   rist = "rist",
   rtp = "rtp",
   rtp_fec = "rtp-fec",
+  srt_listener = "srt-listener",
   zixi_pull = "zixi-pull",
   zixi_push = "zixi-push",
 }
@@ -120,6 +122,11 @@ export interface AddOutputRequest {
    * The maximum latency in milliseconds for Zixi-based streams.
    */
   MaxLatency?: number;
+
+  /**
+   * The minimum latency in milliseconds for SRT-based streams. In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.
+   */
+  MinLatency?: number;
 
   /**
    * The name of the output. This value must be unique within the current flow.
@@ -441,6 +448,11 @@ export interface Transport {
   MaxLatency?: number;
 
   /**
+   * The minimum latency in milliseconds for SRT-based streams. In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.
+   */
+  MinLatency?: number;
+
+  /**
    * The protocol that is used by the source or output.
    */
   Protocol: Protocol | string | undefined;
@@ -495,6 +507,11 @@ export interface Output {
    * The ARN of the entitlement on the originator''s flow. This value is relevant only on entitled flows.
    */
   EntitlementArn?: string;
+
+  /**
+   * The IP address that the receiver requires in order to establish a connection with the flow. For public networking, the ListenerAddress is represented by the elastic IP address of the flow. For private networking, the ListenerAddress is represented by the elastic network interface IP address of the VPC. This field applies only to outputs that use the Zixi pull or SRT listener protocol.
+   */
+  ListenerAddress?: string;
 
   /**
    * The input ARN of the AWS Elemental MediaLive channel. This parameter is relevant only for outputs that were added by creating a MediaLive input.
@@ -649,6 +666,11 @@ export interface SetSourceRequest {
    * The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
    */
   MaxLatency?: number;
+
+  /**
+   * The minimum latency in milliseconds for SRT-based streams. In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.
+   */
+  MinLatency?: number;
 
   /**
    * The name of the source.
@@ -2074,6 +2096,11 @@ export interface UpdateFlowOutputRequest {
   MaxLatency?: number;
 
   /**
+   * The minimum latency in milliseconds for SRT-based streams. In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.
+   */
+  MinLatency?: number;
+
+  /**
    * The ARN of the output that you want to update.
    */
   OutputArn: string | undefined;
@@ -2171,6 +2198,11 @@ export interface UpdateFlowSourceRequest {
    * The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
    */
   MaxLatency?: number;
+
+  /**
+   * The minimum latency in milliseconds for SRT-based streams. In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.
+   */
+  MinLatency?: number;
 
   /**
    * The protocol that is used by the source.

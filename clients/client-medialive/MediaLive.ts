@@ -38,6 +38,11 @@ import {
   CreateMultiplexProgramCommandInput,
   CreateMultiplexProgramCommandOutput,
 } from "./commands/CreateMultiplexProgramCommand";
+import {
+  CreatePartnerInputCommand,
+  CreatePartnerInputCommandInput,
+  CreatePartnerInputCommandOutput,
+} from "./commands/CreatePartnerInputCommand";
 import { CreateTagsCommand, CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
 import {
   DeleteChannelCommand,
@@ -558,6 +563,38 @@ export class MediaLive extends MediaLiveClient {
     cb?: (err: any, data?: CreateMultiplexProgramCommandOutput) => void
   ): Promise<CreateMultiplexProgramCommandOutput> | void {
     const command = new CreateMultiplexProgramCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Create a partner input
+   */
+  public createPartnerInput(
+    args: CreatePartnerInputCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePartnerInputCommandOutput>;
+  public createPartnerInput(
+    args: CreatePartnerInputCommandInput,
+    cb: (err: any, data?: CreatePartnerInputCommandOutput) => void
+  ): void;
+  public createPartnerInput(
+    args: CreatePartnerInputCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePartnerInputCommandOutput) => void
+  ): void;
+  public createPartnerInput(
+    args: CreatePartnerInputCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePartnerInputCommandOutput) => void),
+    cb?: (err: any, data?: CreatePartnerInputCommandOutput) => void
+  ): Promise<CreatePartnerInputCommandOutput> | void {
+    const command = new CreatePartnerInputCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

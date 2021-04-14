@@ -696,6 +696,14 @@ const deserializeAws_json1_0AssociateSubnetsCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InsufficientCapacityException":
+    case "com.amazonaws.networkfirewall#InsufficientCapacityException":
+      response = {
+        ...(await deserializeAws_json1_0InsufficientCapacityExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InternalServerError":
     case "com.amazonaws.networkfirewall#InternalServerError":
       response = {
@@ -1252,6 +1260,14 @@ const deserializeAws_json1_0DeleteResourcePolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InvalidRequestException":
+    case "com.amazonaws.networkfirewall#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceNotFoundException":
     case "com.amazonaws.networkfirewall#ResourceNotFoundException":
       response = {
@@ -1646,6 +1662,14 @@ const deserializeAws_json1_0DescribeResourcePolicyCommandError = async (
     case "com.amazonaws.networkfirewall#InternalServerError":
       response = {
         ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.networkfirewall#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2094,6 +2118,14 @@ const deserializeAws_json1_0ListTagsForResourceCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InvalidRequestException":
+    case "com.amazonaws.networkfirewall#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceNotFoundException":
     case "com.amazonaws.networkfirewall#ResourceNotFoundException":
       response = {
@@ -4713,6 +4745,7 @@ const deserializeAws_json1_0MatchAttributes = (output: any, context: __SerdeCont
 const deserializeAws_json1_0PerObjectStatus = (output: any, context: __SerdeContext): PerObjectStatus => {
   return {
     SyncStatus: output.SyncStatus !== undefined && output.SyncStatus !== null ? output.SyncStatus : undefined,
+    UpdateToken: output.UpdateToken !== undefined && output.UpdateToken !== null ? output.UpdateToken : undefined,
   } as any;
 };
 

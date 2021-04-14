@@ -24,7 +24,8 @@ export type CreateBackupPlanCommandOutput = CreateBackupPlanOutput & __MetadataB
  * <p>Creates a backup plan using a backup plan name and backup rules. A backup plan is a
  *          document that contains information that AWS Backup uses to schedule tasks that create
  *          recovery points for resources.</p>
- *          <p>If you call <code>CreateBackupPlan</code> with a plan that already exists, an <code>AlreadyExistsException</code> is returned.</p>
+ *          <p>If you call <code>CreateBackupPlan</code> with a plan that already exists, an
+ *             <code>AlreadyExistsException</code> is returned.</p>
  */
 export class CreateBackupPlanCommand extends $Command<
   CreateBackupPlanCommandInput,

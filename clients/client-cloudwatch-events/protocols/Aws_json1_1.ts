@@ -3,7 +3,12 @@ import {
   ActivateEventSourceCommandOutput,
 } from "../commands/ActivateEventSourceCommand";
 import { CancelReplayCommandInput, CancelReplayCommandOutput } from "../commands/CancelReplayCommand";
+import {
+  CreateApiDestinationCommandInput,
+  CreateApiDestinationCommandOutput,
+} from "../commands/CreateApiDestinationCommand";
 import { CreateArchiveCommandInput, CreateArchiveCommandOutput } from "../commands/CreateArchiveCommand";
+import { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "../commands/CreateConnectionCommand";
 import { CreateEventBusCommandInput, CreateEventBusCommandOutput } from "../commands/CreateEventBusCommand";
 import {
   CreatePartnerEventSourceCommandInput,
@@ -13,14 +18,28 @@ import {
   DeactivateEventSourceCommandInput,
   DeactivateEventSourceCommandOutput,
 } from "../commands/DeactivateEventSourceCommand";
+import {
+  DeauthorizeConnectionCommandInput,
+  DeauthorizeConnectionCommandOutput,
+} from "../commands/DeauthorizeConnectionCommand";
+import {
+  DeleteApiDestinationCommandInput,
+  DeleteApiDestinationCommandOutput,
+} from "../commands/DeleteApiDestinationCommand";
 import { DeleteArchiveCommandInput, DeleteArchiveCommandOutput } from "../commands/DeleteArchiveCommand";
+import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "../commands/DeleteConnectionCommand";
 import { DeleteEventBusCommandInput, DeleteEventBusCommandOutput } from "../commands/DeleteEventBusCommand";
 import {
   DeletePartnerEventSourceCommandInput,
   DeletePartnerEventSourceCommandOutput,
 } from "../commands/DeletePartnerEventSourceCommand";
 import { DeleteRuleCommandInput, DeleteRuleCommandOutput } from "../commands/DeleteRuleCommand";
+import {
+  DescribeApiDestinationCommandInput,
+  DescribeApiDestinationCommandOutput,
+} from "../commands/DescribeApiDestinationCommand";
 import { DescribeArchiveCommandInput, DescribeArchiveCommandOutput } from "../commands/DescribeArchiveCommand";
+import { DescribeConnectionCommandInput, DescribeConnectionCommandOutput } from "../commands/DescribeConnectionCommand";
 import { DescribeEventBusCommandInput, DescribeEventBusCommandOutput } from "../commands/DescribeEventBusCommand";
 import {
   DescribeEventSourceCommandInput,
@@ -34,7 +53,12 @@ import { DescribeReplayCommandInput, DescribeReplayCommandOutput } from "../comm
 import { DescribeRuleCommandInput, DescribeRuleCommandOutput } from "../commands/DescribeRuleCommand";
 import { DisableRuleCommandInput, DisableRuleCommandOutput } from "../commands/DisableRuleCommand";
 import { EnableRuleCommandInput, EnableRuleCommandOutput } from "../commands/EnableRuleCommand";
+import {
+  ListApiDestinationsCommandInput,
+  ListApiDestinationsCommandOutput,
+} from "../commands/ListApiDestinationsCommand";
 import { ListArchivesCommandInput, ListArchivesCommandOutput } from "../commands/ListArchivesCommand";
+import { ListConnectionsCommandInput, ListConnectionsCommandOutput } from "../commands/ListConnectionsCommand";
 import { ListEventBusesCommandInput, ListEventBusesCommandOutput } from "../commands/ListEventBusesCommand";
 import { ListEventSourcesCommandInput, ListEventSourcesCommandOutput } from "../commands/ListEventSourcesCommand";
 import {
@@ -67,9 +91,15 @@ import { StartReplayCommandInput, StartReplayCommandOutput } from "../commands/S
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { TestEventPatternCommandInput, TestEventPatternCommandOutput } from "../commands/TestEventPatternCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import {
+  UpdateApiDestinationCommandInput,
+  UpdateApiDestinationCommandOutput,
+} from "../commands/UpdateApiDestinationCommand";
 import { UpdateArchiveCommandInput, UpdateArchiveCommandOutput } from "../commands/UpdateArchiveCommand";
+import { UpdateConnectionCommandInput, UpdateConnectionCommandOutput } from "../commands/UpdateConnectionCommand";
 import {
   ActivateEventSourceRequest,
+  ApiDestination,
   Archive,
   AwsVpcConfiguration,
   BatchArrayProperties,
@@ -79,21 +109,50 @@ import {
   CancelReplayResponse,
   ConcurrentModificationException,
   Condition,
+  Connection,
+  ConnectionApiKeyAuthResponseParameters,
+  ConnectionAuthResponseParameters,
+  ConnectionBasicAuthResponseParameters,
+  ConnectionBodyParameter,
+  ConnectionHeaderParameter,
+  ConnectionHttpParameters,
+  ConnectionOAuthClientResponseParameters,
+  ConnectionOAuthResponseParameters,
+  ConnectionQueryStringParameter,
+  CreateApiDestinationRequest,
+  CreateApiDestinationResponse,
   CreateArchiveRequest,
   CreateArchiveResponse,
+  CreateConnectionApiKeyAuthRequestParameters,
+  CreateConnectionAuthRequestParameters,
+  CreateConnectionBasicAuthRequestParameters,
+  CreateConnectionOAuthClientRequestParameters,
+  CreateConnectionOAuthRequestParameters,
+  CreateConnectionRequest,
+  CreateConnectionResponse,
   CreateEventBusRequest,
   CreateEventBusResponse,
   CreatePartnerEventSourceRequest,
   CreatePartnerEventSourceResponse,
   DeactivateEventSourceRequest,
   DeadLetterConfig,
+  DeauthorizeConnectionRequest,
+  DeauthorizeConnectionResponse,
+  DeleteApiDestinationRequest,
+  DeleteApiDestinationResponse,
   DeleteArchiveRequest,
   DeleteArchiveResponse,
+  DeleteConnectionRequest,
+  DeleteConnectionResponse,
   DeleteEventBusRequest,
   DeletePartnerEventSourceRequest,
   DeleteRuleRequest,
+  DescribeApiDestinationRequest,
+  DescribeApiDestinationResponse,
   DescribeArchiveRequest,
   DescribeArchiveResponse,
+  DescribeConnectionRequest,
+  DescribeConnectionResponse,
   DescribeEventBusRequest,
   DescribeEventBusResponse,
   DescribeEventSourceRequest,
@@ -117,8 +176,12 @@ import {
   InvalidStateException,
   KinesisParameters,
   LimitExceededException,
+  ListApiDestinationsRequest,
+  ListApiDestinationsResponse,
   ListArchivesRequest,
   ListArchivesResponse,
+  ListConnectionsRequest,
+  ListConnectionsResponse,
   ListEventBusesRequest,
   ListEventBusesResponse,
   ListEventSourcesRequest,
@@ -170,6 +233,8 @@ import {
   Rule,
   RunCommandParameters,
   RunCommandTarget,
+  SageMakerPipelineParameter,
+  SageMakerPipelineParameters,
   SqsParameters,
   StartReplayRequest,
   StartReplayResponse,
@@ -181,8 +246,17 @@ import {
   TestEventPatternResponse,
   UntagResourceRequest,
   UntagResourceResponse,
+  UpdateApiDestinationRequest,
+  UpdateApiDestinationResponse,
   UpdateArchiveRequest,
   UpdateArchiveResponse,
+  UpdateConnectionApiKeyAuthRequestParameters,
+  UpdateConnectionAuthRequestParameters,
+  UpdateConnectionBasicAuthRequestParameters,
+  UpdateConnectionOAuthClientRequestParameters,
+  UpdateConnectionOAuthRequestParameters,
+  UpdateConnectionRequest,
+  UpdateConnectionResponse,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
@@ -220,6 +294,19 @@ export const serializeAws_json1_1CancelReplayCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1CreateApiDestinationCommand = async (
+  input: CreateApiDestinationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSEvents.CreateApiDestination",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateApiDestinationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1CreateArchiveCommand = async (
   input: CreateArchiveCommandInput,
   context: __SerdeContext
@@ -230,6 +317,19 @@ export const serializeAws_json1_1CreateArchiveCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateArchiveRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateConnectionCommand = async (
+  input: CreateConnectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSEvents.CreateConnection",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateConnectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -272,6 +372,32 @@ export const serializeAws_json1_1DeactivateEventSourceCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DeauthorizeConnectionCommand = async (
+  input: DeauthorizeConnectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSEvents.DeauthorizeConnection",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeauthorizeConnectionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteApiDestinationCommand = async (
+  input: DeleteApiDestinationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSEvents.DeleteApiDestination",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteApiDestinationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DeleteArchiveCommand = async (
   input: DeleteArchiveCommandInput,
   context: __SerdeContext
@@ -282,6 +408,19 @@ export const serializeAws_json1_1DeleteArchiveCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteArchiveRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteConnectionCommand = async (
+  input: DeleteConnectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSEvents.DeleteConnection",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteConnectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -324,6 +463,19 @@ export const serializeAws_json1_1DeleteRuleCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DescribeApiDestinationCommand = async (
+  input: DescribeApiDestinationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSEvents.DescribeApiDestination",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeApiDestinationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DescribeArchiveCommand = async (
   input: DescribeArchiveCommandInput,
   context: __SerdeContext
@@ -334,6 +486,19 @@ export const serializeAws_json1_1DescribeArchiveCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeArchiveRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeConnectionCommand = async (
+  input: DescribeConnectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSEvents.DescribeConnection",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeConnectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -428,6 +593,19 @@ export const serializeAws_json1_1EnableRuleCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListApiDestinationsCommand = async (
+  input: ListApiDestinationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSEvents.ListApiDestinations",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListApiDestinationsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListArchivesCommand = async (
   input: ListArchivesCommandInput,
   context: __SerdeContext
@@ -438,6 +616,19 @@ export const serializeAws_json1_1ListArchivesCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListArchivesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListConnectionsCommand = async (
+  input: ListConnectionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSEvents.ListConnections",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListConnectionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -701,6 +892,19 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1UpdateApiDestinationCommand = async (
+  input: UpdateApiDestinationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSEvents.UpdateApiDestination",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateApiDestinationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1UpdateArchiveCommand = async (
   input: UpdateArchiveCommandInput,
   context: __SerdeContext
@@ -711,6 +915,19 @@ export const serializeAws_json1_1UpdateArchiveCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateArchiveRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateConnectionCommand = async (
+  input: UpdateConnectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSEvents.UpdateConnection",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateConnectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -875,6 +1092,84 @@ const deserializeAws_json1_1CancelReplayCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1CreateApiDestinationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateApiDestinationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateApiDestinationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateApiDestinationResponse(data, context);
+  const response: CreateApiDestinationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateApiDestinationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateApiDestinationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.cloudwatchevents#InternalException":
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.cloudwatchevents#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.cloudwatchevents#ResourceAlreadyExistsException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchevents#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1CreateArchiveCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -948,6 +1243,76 @@ const deserializeAws_json1_1CreateArchiveCommandError = async (
     case "com.amazonaws.cloudwatchevents#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1CreateConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateConnectionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateConnectionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateConnectionResponse(data, context);
+  const response: CreateConnectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateConnectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateConnectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.cloudwatchevents#InternalException":
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.cloudwatchevents#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.cloudwatchevents#ResourceAlreadyExistsException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1240,6 +1605,146 @@ const deserializeAws_json1_1DeactivateEventSourceCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DeauthorizeConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeauthorizeConnectionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeauthorizeConnectionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeauthorizeConnectionResponse(data, context);
+  const response: DeauthorizeConnectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeauthorizeConnectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeauthorizeConnectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.cloudwatchevents#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalException":
+    case "com.amazonaws.cloudwatchevents#InternalException":
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchevents#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteApiDestinationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteApiDestinationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteApiDestinationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteApiDestinationResponse(data, context);
+  const response: DeleteApiDestinationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteApiDestinationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteApiDestinationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.cloudwatchevents#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalException":
+    case "com.amazonaws.cloudwatchevents#InternalException":
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchevents#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DeleteArchiveCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1261,6 +1766,76 @@ const deserializeAws_json1_1DeleteArchiveCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteArchiveCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.cloudwatchevents#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalException":
+    case "com.amazonaws.cloudwatchevents#InternalException":
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchevents#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteConnectionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteConnectionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteConnectionResponse(data, context);
+  const response: DeleteConnectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteConnectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteConnectionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -1511,6 +2086,68 @@ const deserializeAws_json1_1DeleteRuleCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DescribeApiDestinationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeApiDestinationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeApiDestinationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeApiDestinationResponse(data, context);
+  const response: DescribeApiDestinationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeApiDestinationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeApiDestinationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.cloudwatchevents#InternalException":
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchevents#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DescribeArchiveCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1552,6 +2189,68 @@ const deserializeAws_json1_1DescribeArchiveCommandError = async (
     case "com.amazonaws.cloudwatchevents#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchevents#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeConnectionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeConnectionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeConnectionResponse(data, context);
+  const response: DescribeConnectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeConnectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeConnectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.cloudwatchevents#InternalException":
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2057,6 +2756,60 @@ const deserializeAws_json1_1EnableRuleCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1ListApiDestinationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListApiDestinationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListApiDestinationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListApiDestinationsResponse(data, context);
+  const response: ListApiDestinationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListApiDestinationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListApiDestinationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.cloudwatchevents#InternalException":
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1ListArchivesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2098,6 +2851,60 @@ const deserializeAws_json1_1ListArchivesCommandError = async (
     case "com.amazonaws.cloudwatchevents#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListConnectionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListConnectionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListConnectionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListConnectionsResponse(data, context);
+  const response: ListConnectionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListConnectionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListConnectionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.cloudwatchevents#InternalException":
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3505,6 +4312,84 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1UpdateApiDestinationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateApiDestinationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateApiDestinationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateApiDestinationResponse(data, context);
+  const response: UpdateApiDestinationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateApiDestinationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateApiDestinationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.cloudwatchevents#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalException":
+    case "com.amazonaws.cloudwatchevents#InternalException":
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.cloudwatchevents#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchevents#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1UpdateArchiveCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3554,6 +4439,84 @@ const deserializeAws_json1_1UpdateArchiveCommandError = async (
     case "com.amazonaws.cloudwatchevents#InvalidEventPatternException":
       response = {
         ...(await deserializeAws_json1_1InvalidEventPatternExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.cloudwatchevents#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudwatchevents#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1UpdateConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateConnectionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateConnectionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateConnectionResponse(data, context);
+  const response: UpdateConnectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateConnectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateConnectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.cloudwatchevents#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalException":
+    case "com.amazonaws.cloudwatchevents#InternalException":
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3819,6 +4782,119 @@ const serializeAws_json1_1Condition = (input: Condition, context: __SerdeContext
   };
 };
 
+const serializeAws_json1_1ConnectionBodyParameter = (input: ConnectionBodyParameter, context: __SerdeContext): any => {
+  return {
+    ...(input.IsValueSecret !== undefined && input.IsValueSecret !== null && { IsValueSecret: input.IsValueSecret }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+  };
+};
+
+const serializeAws_json1_1ConnectionBodyParametersList = (
+  input: ConnectionBodyParameter[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1ConnectionBodyParameter(entry, context);
+    });
+};
+
+const serializeAws_json1_1ConnectionHeaderParameter = (
+  input: ConnectionHeaderParameter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.IsValueSecret !== undefined && input.IsValueSecret !== null && { IsValueSecret: input.IsValueSecret }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+  };
+};
+
+const serializeAws_json1_1ConnectionHeaderParametersList = (
+  input: ConnectionHeaderParameter[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1ConnectionHeaderParameter(entry, context);
+    });
+};
+
+const serializeAws_json1_1ConnectionHttpParameters = (
+  input: ConnectionHttpParameters,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.BodyParameters !== undefined &&
+      input.BodyParameters !== null && {
+        BodyParameters: serializeAws_json1_1ConnectionBodyParametersList(input.BodyParameters, context),
+      }),
+    ...(input.HeaderParameters !== undefined &&
+      input.HeaderParameters !== null && {
+        HeaderParameters: serializeAws_json1_1ConnectionHeaderParametersList(input.HeaderParameters, context),
+      }),
+    ...(input.QueryStringParameters !== undefined &&
+      input.QueryStringParameters !== null && {
+        QueryStringParameters: serializeAws_json1_1ConnectionQueryStringParametersList(
+          input.QueryStringParameters,
+          context
+        ),
+      }),
+  };
+};
+
+const serializeAws_json1_1ConnectionQueryStringParameter = (
+  input: ConnectionQueryStringParameter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.IsValueSecret !== undefined && input.IsValueSecret !== null && { IsValueSecret: input.IsValueSecret }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+  };
+};
+
+const serializeAws_json1_1ConnectionQueryStringParametersList = (
+  input: ConnectionQueryStringParameter[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1ConnectionQueryStringParameter(entry, context);
+    });
+};
+
+const serializeAws_json1_1CreateApiDestinationRequest = (
+  input: CreateApiDestinationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ConnectionArn !== undefined && input.ConnectionArn !== null && { ConnectionArn: input.ConnectionArn }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.HttpMethod !== undefined && input.HttpMethod !== null && { HttpMethod: input.HttpMethod }),
+    ...(input.InvocationEndpoint !== undefined &&
+      input.InvocationEndpoint !== null && { InvocationEndpoint: input.InvocationEndpoint }),
+    ...(input.InvocationRateLimitPerSecond !== undefined &&
+      input.InvocationRateLimitPerSecond !== null && {
+        InvocationRateLimitPerSecond: input.InvocationRateLimitPerSecond,
+      }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+  };
+};
+
 const serializeAws_json1_1CreateArchiveRequest = (input: CreateArchiveRequest, context: __SerdeContext): any => {
   return {
     ...(input.ArchiveName !== undefined && input.ArchiveName !== null && { ArchiveName: input.ArchiveName }),
@@ -3827,6 +4903,101 @@ const serializeAws_json1_1CreateArchiveRequest = (input: CreateArchiveRequest, c
     ...(input.EventSourceArn !== undefined &&
       input.EventSourceArn !== null && { EventSourceArn: input.EventSourceArn }),
     ...(input.RetentionDays !== undefined && input.RetentionDays !== null && { RetentionDays: input.RetentionDays }),
+  };
+};
+
+const serializeAws_json1_1CreateConnectionApiKeyAuthRequestParameters = (
+  input: CreateConnectionApiKeyAuthRequestParameters,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ApiKeyName !== undefined && input.ApiKeyName !== null && { ApiKeyName: input.ApiKeyName }),
+    ...(input.ApiKeyValue !== undefined && input.ApiKeyValue !== null && { ApiKeyValue: input.ApiKeyValue }),
+  };
+};
+
+const serializeAws_json1_1CreateConnectionAuthRequestParameters = (
+  input: CreateConnectionAuthRequestParameters,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ApiKeyAuthParameters !== undefined &&
+      input.ApiKeyAuthParameters !== null && {
+        ApiKeyAuthParameters: serializeAws_json1_1CreateConnectionApiKeyAuthRequestParameters(
+          input.ApiKeyAuthParameters,
+          context
+        ),
+      }),
+    ...(input.BasicAuthParameters !== undefined &&
+      input.BasicAuthParameters !== null && {
+        BasicAuthParameters: serializeAws_json1_1CreateConnectionBasicAuthRequestParameters(
+          input.BasicAuthParameters,
+          context
+        ),
+      }),
+    ...(input.InvocationHttpParameters !== undefined &&
+      input.InvocationHttpParameters !== null && {
+        InvocationHttpParameters: serializeAws_json1_1ConnectionHttpParameters(input.InvocationHttpParameters, context),
+      }),
+    ...(input.OAuthParameters !== undefined &&
+      input.OAuthParameters !== null && {
+        OAuthParameters: serializeAws_json1_1CreateConnectionOAuthRequestParameters(input.OAuthParameters, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1CreateConnectionBasicAuthRequestParameters = (
+  input: CreateConnectionBasicAuthRequestParameters,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
+    ...(input.Username !== undefined && input.Username !== null && { Username: input.Username }),
+  };
+};
+
+const serializeAws_json1_1CreateConnectionOAuthClientRequestParameters = (
+  input: CreateConnectionOAuthClientRequestParameters,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ClientID !== undefined && input.ClientID !== null && { ClientID: input.ClientID }),
+    ...(input.ClientSecret !== undefined && input.ClientSecret !== null && { ClientSecret: input.ClientSecret }),
+  };
+};
+
+const serializeAws_json1_1CreateConnectionOAuthRequestParameters = (
+  input: CreateConnectionOAuthRequestParameters,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AuthorizationEndpoint !== undefined &&
+      input.AuthorizationEndpoint !== null && { AuthorizationEndpoint: input.AuthorizationEndpoint }),
+    ...(input.ClientParameters !== undefined &&
+      input.ClientParameters !== null && {
+        ClientParameters: serializeAws_json1_1CreateConnectionOAuthClientRequestParameters(
+          input.ClientParameters,
+          context
+        ),
+      }),
+    ...(input.HttpMethod !== undefined && input.HttpMethod !== null && { HttpMethod: input.HttpMethod }),
+    ...(input.OAuthHttpParameters !== undefined &&
+      input.OAuthHttpParameters !== null && {
+        OAuthHttpParameters: serializeAws_json1_1ConnectionHttpParameters(input.OAuthHttpParameters, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1CreateConnectionRequest = (input: CreateConnectionRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.AuthParameters !== undefined &&
+      input.AuthParameters !== null && {
+        AuthParameters: serializeAws_json1_1CreateConnectionAuthRequestParameters(input.AuthParameters, context),
+      }),
+    ...(input.AuthorizationType !== undefined &&
+      input.AuthorizationType !== null && { AuthorizationType: input.AuthorizationType }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   };
 };
 
@@ -3864,9 +5035,33 @@ const serializeAws_json1_1DeadLetterConfig = (input: DeadLetterConfig, context: 
   };
 };
 
+const serializeAws_json1_1DeauthorizeConnectionRequest = (
+  input: DeauthorizeConnectionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+  };
+};
+
+const serializeAws_json1_1DeleteApiDestinationRequest = (
+  input: DeleteApiDestinationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+  };
+};
+
 const serializeAws_json1_1DeleteArchiveRequest = (input: DeleteArchiveRequest, context: __SerdeContext): any => {
   return {
     ...(input.ArchiveName !== undefined && input.ArchiveName !== null && { ArchiveName: input.ArchiveName }),
+  };
+};
+
+const serializeAws_json1_1DeleteConnectionRequest = (input: DeleteConnectionRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   };
 };
 
@@ -3894,9 +5089,27 @@ const serializeAws_json1_1DeleteRuleRequest = (input: DeleteRuleRequest, context
   };
 };
 
+const serializeAws_json1_1DescribeApiDestinationRequest = (
+  input: DescribeApiDestinationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+  };
+};
+
 const serializeAws_json1_1DescribeArchiveRequest = (input: DescribeArchiveRequest, context: __SerdeContext): any => {
   return {
     ...(input.ArchiveName !== undefined && input.ArchiveName !== null && { ArchiveName: input.ArchiveName }),
+  };
+};
+
+const serializeAws_json1_1DescribeConnectionRequest = (
+  input: DescribeConnectionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   };
 };
 
@@ -4024,6 +5237,18 @@ const serializeAws_json1_1KinesisParameters = (input: KinesisParameters, context
   };
 };
 
+const serializeAws_json1_1ListApiDestinationsRequest = (
+  input: ListApiDestinationsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ConnectionArn !== undefined && input.ConnectionArn !== null && { ConnectionArn: input.ConnectionArn }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.NamePrefix !== undefined && input.NamePrefix !== null && { NamePrefix: input.NamePrefix }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+  };
+};
+
 const serializeAws_json1_1ListArchivesRequest = (input: ListArchivesRequest, context: __SerdeContext): any => {
   return {
     ...(input.EventSourceArn !== undefined &&
@@ -4032,6 +5257,16 @@ const serializeAws_json1_1ListArchivesRequest = (input: ListArchivesRequest, con
     ...(input.NamePrefix !== undefined && input.NamePrefix !== null && { NamePrefix: input.NamePrefix }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
     ...(input.State !== undefined && input.State !== null && { State: input.State }),
+  };
+};
+
+const serializeAws_json1_1ListConnectionsRequest = (input: ListConnectionsRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.ConnectionState !== undefined &&
+      input.ConnectionState !== null && { ConnectionState: input.ConnectionState }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.NamePrefix !== undefined && input.NamePrefix !== null && { NamePrefix: input.NamePrefix }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -4163,6 +5398,7 @@ const serializeAws_json1_1PutEventsRequestEntry = (input: PutEventsRequestEntry,
       input.Resources !== null && { Resources: serializeAws_json1_1EventResourceList(input.Resources, context) }),
     ...(input.Source !== undefined && input.Source !== null && { Source: input.Source }),
     ...(input.Time !== undefined && input.Time !== null && { Time: Math.round(input.Time.getTime() / 1000) }),
+    ...(input.TraceHeader !== undefined && input.TraceHeader !== null && { TraceHeader: input.TraceHeader }),
   };
 };
 
@@ -4366,6 +5602,42 @@ const serializeAws_json1_1RunCommandTargetValues = (input: string[], context: __
     });
 };
 
+const serializeAws_json1_1SageMakerPipelineParameter = (
+  input: SageMakerPipelineParameter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+  };
+};
+
+const serializeAws_json1_1SageMakerPipelineParameterList = (
+  input: SageMakerPipelineParameter[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1SageMakerPipelineParameter(entry, context);
+    });
+};
+
+const serializeAws_json1_1SageMakerPipelineParameters = (
+  input: SageMakerPipelineParameters,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.PipelineParameterList !== undefined &&
+      input.PipelineParameterList !== null && {
+        PipelineParameterList: serializeAws_json1_1SageMakerPipelineParameterList(input.PipelineParameterList, context),
+      }),
+  };
+};
+
 const serializeAws_json1_1SqsParameters = (input: SqsParameters, context: __SerdeContext): any => {
   return {
     ...(input.MessageGroupId !== undefined &&
@@ -4476,6 +5748,13 @@ const serializeAws_json1_1Target = (input: Target, context: __SerdeContext): any
       input.RunCommandParameters !== null && {
         RunCommandParameters: serializeAws_json1_1RunCommandParameters(input.RunCommandParameters, context),
       }),
+    ...(input.SageMakerPipelineParameters !== undefined &&
+      input.SageMakerPipelineParameters !== null && {
+        SageMakerPipelineParameters: serializeAws_json1_1SageMakerPipelineParameters(
+          input.SageMakerPipelineParameters,
+          context
+        ),
+      }),
     ...(input.SqsParameters !== undefined &&
       input.SqsParameters !== null && {
         SqsParameters: serializeAws_json1_1SqsParameters(input.SqsParameters, context),
@@ -4532,6 +5811,24 @@ const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, c
   };
 };
 
+const serializeAws_json1_1UpdateApiDestinationRequest = (
+  input: UpdateApiDestinationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ConnectionArn !== undefined && input.ConnectionArn !== null && { ConnectionArn: input.ConnectionArn }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.HttpMethod !== undefined && input.HttpMethod !== null && { HttpMethod: input.HttpMethod }),
+    ...(input.InvocationEndpoint !== undefined &&
+      input.InvocationEndpoint !== null && { InvocationEndpoint: input.InvocationEndpoint }),
+    ...(input.InvocationRateLimitPerSecond !== undefined &&
+      input.InvocationRateLimitPerSecond !== null && {
+        InvocationRateLimitPerSecond: input.InvocationRateLimitPerSecond,
+      }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+  };
+};
+
 const serializeAws_json1_1UpdateArchiveRequest = (input: UpdateArchiveRequest, context: __SerdeContext): any => {
   return {
     ...(input.ArchiveName !== undefined && input.ArchiveName !== null && { ArchiveName: input.ArchiveName }),
@@ -4539,6 +5836,145 @@ const serializeAws_json1_1UpdateArchiveRequest = (input: UpdateArchiveRequest, c
     ...(input.EventPattern !== undefined && input.EventPattern !== null && { EventPattern: input.EventPattern }),
     ...(input.RetentionDays !== undefined && input.RetentionDays !== null && { RetentionDays: input.RetentionDays }),
   };
+};
+
+const serializeAws_json1_1UpdateConnectionApiKeyAuthRequestParameters = (
+  input: UpdateConnectionApiKeyAuthRequestParameters,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ApiKeyName !== undefined && input.ApiKeyName !== null && { ApiKeyName: input.ApiKeyName }),
+    ...(input.ApiKeyValue !== undefined && input.ApiKeyValue !== null && { ApiKeyValue: input.ApiKeyValue }),
+  };
+};
+
+const serializeAws_json1_1UpdateConnectionAuthRequestParameters = (
+  input: UpdateConnectionAuthRequestParameters,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ApiKeyAuthParameters !== undefined &&
+      input.ApiKeyAuthParameters !== null && {
+        ApiKeyAuthParameters: serializeAws_json1_1UpdateConnectionApiKeyAuthRequestParameters(
+          input.ApiKeyAuthParameters,
+          context
+        ),
+      }),
+    ...(input.BasicAuthParameters !== undefined &&
+      input.BasicAuthParameters !== null && {
+        BasicAuthParameters: serializeAws_json1_1UpdateConnectionBasicAuthRequestParameters(
+          input.BasicAuthParameters,
+          context
+        ),
+      }),
+    ...(input.InvocationHttpParameters !== undefined &&
+      input.InvocationHttpParameters !== null && {
+        InvocationHttpParameters: serializeAws_json1_1ConnectionHttpParameters(input.InvocationHttpParameters, context),
+      }),
+    ...(input.OAuthParameters !== undefined &&
+      input.OAuthParameters !== null && {
+        OAuthParameters: serializeAws_json1_1UpdateConnectionOAuthRequestParameters(input.OAuthParameters, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1UpdateConnectionBasicAuthRequestParameters = (
+  input: UpdateConnectionBasicAuthRequestParameters,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
+    ...(input.Username !== undefined && input.Username !== null && { Username: input.Username }),
+  };
+};
+
+const serializeAws_json1_1UpdateConnectionOAuthClientRequestParameters = (
+  input: UpdateConnectionOAuthClientRequestParameters,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ClientID !== undefined && input.ClientID !== null && { ClientID: input.ClientID }),
+    ...(input.ClientSecret !== undefined && input.ClientSecret !== null && { ClientSecret: input.ClientSecret }),
+  };
+};
+
+const serializeAws_json1_1UpdateConnectionOAuthRequestParameters = (
+  input: UpdateConnectionOAuthRequestParameters,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AuthorizationEndpoint !== undefined &&
+      input.AuthorizationEndpoint !== null && { AuthorizationEndpoint: input.AuthorizationEndpoint }),
+    ...(input.ClientParameters !== undefined &&
+      input.ClientParameters !== null && {
+        ClientParameters: serializeAws_json1_1UpdateConnectionOAuthClientRequestParameters(
+          input.ClientParameters,
+          context
+        ),
+      }),
+    ...(input.HttpMethod !== undefined && input.HttpMethod !== null && { HttpMethod: input.HttpMethod }),
+    ...(input.OAuthHttpParameters !== undefined &&
+      input.OAuthHttpParameters !== null && {
+        OAuthHttpParameters: serializeAws_json1_1ConnectionHttpParameters(input.OAuthHttpParameters, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1UpdateConnectionRequest = (input: UpdateConnectionRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.AuthParameters !== undefined &&
+      input.AuthParameters !== null && {
+        AuthParameters: serializeAws_json1_1UpdateConnectionAuthRequestParameters(input.AuthParameters, context),
+      }),
+    ...(input.AuthorizationType !== undefined &&
+      input.AuthorizationType !== null && { AuthorizationType: input.AuthorizationType }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+  };
+};
+
+const deserializeAws_json1_1ApiDestination = (output: any, context: __SerdeContext): ApiDestination => {
+  return {
+    ApiDestinationArn:
+      output.ApiDestinationArn !== undefined && output.ApiDestinationArn !== null
+        ? output.ApiDestinationArn
+        : undefined,
+    ApiDestinationState:
+      output.ApiDestinationState !== undefined && output.ApiDestinationState !== null
+        ? output.ApiDestinationState
+        : undefined,
+    ConnectionArn:
+      output.ConnectionArn !== undefined && output.ConnectionArn !== null ? output.ConnectionArn : undefined,
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? new Date(Math.round(output.CreationTime * 1000))
+        : undefined,
+    HttpMethod: output.HttpMethod !== undefined && output.HttpMethod !== null ? output.HttpMethod : undefined,
+    InvocationEndpoint:
+      output.InvocationEndpoint !== undefined && output.InvocationEndpoint !== null
+        ? output.InvocationEndpoint
+        : undefined,
+    InvocationRateLimitPerSecond:
+      output.InvocationRateLimitPerSecond !== undefined && output.InvocationRateLimitPerSecond !== null
+        ? output.InvocationRateLimitPerSecond
+        : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ApiDestinationResponseList = (output: any, context: __SerdeContext): ApiDestination[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ApiDestination(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Archive = (output: any, context: __SerdeContext): Archive => {
@@ -4630,6 +6066,238 @@ const deserializeAws_json1_1ConcurrentModificationException = (
   } as any;
 };
 
+const deserializeAws_json1_1Connection = (output: any, context: __SerdeContext): Connection => {
+  return {
+    AuthorizationType:
+      output.AuthorizationType !== undefined && output.AuthorizationType !== null
+        ? output.AuthorizationType
+        : undefined,
+    ConnectionArn:
+      output.ConnectionArn !== undefined && output.ConnectionArn !== null ? output.ConnectionArn : undefined,
+    ConnectionState:
+      output.ConnectionState !== undefined && output.ConnectionState !== null ? output.ConnectionState : undefined,
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? new Date(Math.round(output.CreationTime * 1000))
+        : undefined,
+    LastAuthorizedTime:
+      output.LastAuthorizedTime !== undefined && output.LastAuthorizedTime !== null
+        ? new Date(Math.round(output.LastAuthorizedTime * 1000))
+        : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    StateReason: output.StateReason !== undefined && output.StateReason !== null ? output.StateReason : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ConnectionApiKeyAuthResponseParameters = (
+  output: any,
+  context: __SerdeContext
+): ConnectionApiKeyAuthResponseParameters => {
+  return {
+    ApiKeyName: output.ApiKeyName !== undefined && output.ApiKeyName !== null ? output.ApiKeyName : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ConnectionAuthResponseParameters = (
+  output: any,
+  context: __SerdeContext
+): ConnectionAuthResponseParameters => {
+  return {
+    ApiKeyAuthParameters:
+      output.ApiKeyAuthParameters !== undefined && output.ApiKeyAuthParameters !== null
+        ? deserializeAws_json1_1ConnectionApiKeyAuthResponseParameters(output.ApiKeyAuthParameters, context)
+        : undefined,
+    BasicAuthParameters:
+      output.BasicAuthParameters !== undefined && output.BasicAuthParameters !== null
+        ? deserializeAws_json1_1ConnectionBasicAuthResponseParameters(output.BasicAuthParameters, context)
+        : undefined,
+    InvocationHttpParameters:
+      output.InvocationHttpParameters !== undefined && output.InvocationHttpParameters !== null
+        ? deserializeAws_json1_1ConnectionHttpParameters(output.InvocationHttpParameters, context)
+        : undefined,
+    OAuthParameters:
+      output.OAuthParameters !== undefined && output.OAuthParameters !== null
+        ? deserializeAws_json1_1ConnectionOAuthResponseParameters(output.OAuthParameters, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ConnectionBasicAuthResponseParameters = (
+  output: any,
+  context: __SerdeContext
+): ConnectionBasicAuthResponseParameters => {
+  return {
+    Username: output.Username !== undefined && output.Username !== null ? output.Username : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ConnectionBodyParameter = (
+  output: any,
+  context: __SerdeContext
+): ConnectionBodyParameter => {
+  return {
+    IsValueSecret:
+      output.IsValueSecret !== undefined && output.IsValueSecret !== null ? output.IsValueSecret : undefined,
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ConnectionBodyParametersList = (
+  output: any,
+  context: __SerdeContext
+): ConnectionBodyParameter[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ConnectionBodyParameter(entry, context);
+    });
+};
+
+const deserializeAws_json1_1ConnectionHeaderParameter = (
+  output: any,
+  context: __SerdeContext
+): ConnectionHeaderParameter => {
+  return {
+    IsValueSecret:
+      output.IsValueSecret !== undefined && output.IsValueSecret !== null ? output.IsValueSecret : undefined,
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ConnectionHeaderParametersList = (
+  output: any,
+  context: __SerdeContext
+): ConnectionHeaderParameter[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ConnectionHeaderParameter(entry, context);
+    });
+};
+
+const deserializeAws_json1_1ConnectionHttpParameters = (
+  output: any,
+  context: __SerdeContext
+): ConnectionHttpParameters => {
+  return {
+    BodyParameters:
+      output.BodyParameters !== undefined && output.BodyParameters !== null
+        ? deserializeAws_json1_1ConnectionBodyParametersList(output.BodyParameters, context)
+        : undefined,
+    HeaderParameters:
+      output.HeaderParameters !== undefined && output.HeaderParameters !== null
+        ? deserializeAws_json1_1ConnectionHeaderParametersList(output.HeaderParameters, context)
+        : undefined,
+    QueryStringParameters:
+      output.QueryStringParameters !== undefined && output.QueryStringParameters !== null
+        ? deserializeAws_json1_1ConnectionQueryStringParametersList(output.QueryStringParameters, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ConnectionOAuthClientResponseParameters = (
+  output: any,
+  context: __SerdeContext
+): ConnectionOAuthClientResponseParameters => {
+  return {
+    ClientID: output.ClientID !== undefined && output.ClientID !== null ? output.ClientID : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ConnectionOAuthResponseParameters = (
+  output: any,
+  context: __SerdeContext
+): ConnectionOAuthResponseParameters => {
+  return {
+    AuthorizationEndpoint:
+      output.AuthorizationEndpoint !== undefined && output.AuthorizationEndpoint !== null
+        ? output.AuthorizationEndpoint
+        : undefined,
+    ClientParameters:
+      output.ClientParameters !== undefined && output.ClientParameters !== null
+        ? deserializeAws_json1_1ConnectionOAuthClientResponseParameters(output.ClientParameters, context)
+        : undefined,
+    HttpMethod: output.HttpMethod !== undefined && output.HttpMethod !== null ? output.HttpMethod : undefined,
+    OAuthHttpParameters:
+      output.OAuthHttpParameters !== undefined && output.OAuthHttpParameters !== null
+        ? deserializeAws_json1_1ConnectionHttpParameters(output.OAuthHttpParameters, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ConnectionQueryStringParameter = (
+  output: any,
+  context: __SerdeContext
+): ConnectionQueryStringParameter => {
+  return {
+    IsValueSecret:
+      output.IsValueSecret !== undefined && output.IsValueSecret !== null ? output.IsValueSecret : undefined,
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ConnectionQueryStringParametersList = (
+  output: any,
+  context: __SerdeContext
+): ConnectionQueryStringParameter[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ConnectionQueryStringParameter(entry, context);
+    });
+};
+
+const deserializeAws_json1_1ConnectionResponseList = (output: any, context: __SerdeContext): Connection[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Connection(entry, context);
+    });
+};
+
+const deserializeAws_json1_1CreateApiDestinationResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateApiDestinationResponse => {
+  return {
+    ApiDestinationArn:
+      output.ApiDestinationArn !== undefined && output.ApiDestinationArn !== null
+        ? output.ApiDestinationArn
+        : undefined,
+    ApiDestinationState:
+      output.ApiDestinationState !== undefined && output.ApiDestinationState !== null
+        ? output.ApiDestinationState
+        : undefined,
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? new Date(Math.round(output.CreationTime * 1000))
+        : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1CreateArchiveResponse = (output: any, context: __SerdeContext): CreateArchiveResponse => {
   return {
     ArchiveArn: output.ArchiveArn !== undefined && output.ArchiveArn !== null ? output.ArchiveArn : undefined,
@@ -4639,6 +6307,26 @@ const deserializeAws_json1_1CreateArchiveResponse = (output: any, context: __Ser
         : undefined,
     State: output.State !== undefined && output.State !== null ? output.State : undefined,
     StateReason: output.StateReason !== undefined && output.StateReason !== null ? output.StateReason : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CreateConnectionResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateConnectionResponse => {
+  return {
+    ConnectionArn:
+      output.ConnectionArn !== undefined && output.ConnectionArn !== null ? output.ConnectionArn : undefined,
+    ConnectionState:
+      output.ConnectionState !== undefined && output.ConnectionState !== null ? output.ConnectionState : undefined,
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? new Date(Math.round(output.CreationTime * 1000))
+        : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        : undefined,
   } as any;
 };
 
@@ -4664,8 +6352,100 @@ const deserializeAws_json1_1DeadLetterConfig = (output: any, context: __SerdeCon
   } as any;
 };
 
+const deserializeAws_json1_1DeauthorizeConnectionResponse = (
+  output: any,
+  context: __SerdeContext
+): DeauthorizeConnectionResponse => {
+  return {
+    ConnectionArn:
+      output.ConnectionArn !== undefined && output.ConnectionArn !== null ? output.ConnectionArn : undefined,
+    ConnectionState:
+      output.ConnectionState !== undefined && output.ConnectionState !== null ? output.ConnectionState : undefined,
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? new Date(Math.round(output.CreationTime * 1000))
+        : undefined,
+    LastAuthorizedTime:
+      output.LastAuthorizedTime !== undefined && output.LastAuthorizedTime !== null
+        ? new Date(Math.round(output.LastAuthorizedTime * 1000))
+        : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DeleteApiDestinationResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteApiDestinationResponse => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1DeleteArchiveResponse = (output: any, context: __SerdeContext): DeleteArchiveResponse => {
   return {} as any;
+};
+
+const deserializeAws_json1_1DeleteConnectionResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteConnectionResponse => {
+  return {
+    ConnectionArn:
+      output.ConnectionArn !== undefined && output.ConnectionArn !== null ? output.ConnectionArn : undefined,
+    ConnectionState:
+      output.ConnectionState !== undefined && output.ConnectionState !== null ? output.ConnectionState : undefined,
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? new Date(Math.round(output.CreationTime * 1000))
+        : undefined,
+    LastAuthorizedTime:
+      output.LastAuthorizedTime !== undefined && output.LastAuthorizedTime !== null
+        ? new Date(Math.round(output.LastAuthorizedTime * 1000))
+        : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeApiDestinationResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeApiDestinationResponse => {
+  return {
+    ApiDestinationArn:
+      output.ApiDestinationArn !== undefined && output.ApiDestinationArn !== null
+        ? output.ApiDestinationArn
+        : undefined,
+    ApiDestinationState:
+      output.ApiDestinationState !== undefined && output.ApiDestinationState !== null
+        ? output.ApiDestinationState
+        : undefined,
+    ConnectionArn:
+      output.ConnectionArn !== undefined && output.ConnectionArn !== null ? output.ConnectionArn : undefined,
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? new Date(Math.round(output.CreationTime * 1000))
+        : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    HttpMethod: output.HttpMethod !== undefined && output.HttpMethod !== null ? output.HttpMethod : undefined,
+    InvocationEndpoint:
+      output.InvocationEndpoint !== undefined && output.InvocationEndpoint !== null
+        ? output.InvocationEndpoint
+        : undefined,
+    InvocationRateLimitPerSecond:
+      output.InvocationRateLimitPerSecond !== undefined && output.InvocationRateLimitPerSecond !== null
+        ? output.InvocationRateLimitPerSecond
+        : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeArchiveResponse = (
@@ -4688,6 +6468,42 @@ const deserializeAws_json1_1DescribeArchiveResponse = (
       output.RetentionDays !== undefined && output.RetentionDays !== null ? output.RetentionDays : undefined,
     SizeBytes: output.SizeBytes !== undefined && output.SizeBytes !== null ? output.SizeBytes : undefined,
     State: output.State !== undefined && output.State !== null ? output.State : undefined,
+    StateReason: output.StateReason !== undefined && output.StateReason !== null ? output.StateReason : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeConnectionResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeConnectionResponse => {
+  return {
+    AuthParameters:
+      output.AuthParameters !== undefined && output.AuthParameters !== null
+        ? deserializeAws_json1_1ConnectionAuthResponseParameters(output.AuthParameters, context)
+        : undefined,
+    AuthorizationType:
+      output.AuthorizationType !== undefined && output.AuthorizationType !== null
+        ? output.AuthorizationType
+        : undefined,
+    ConnectionArn:
+      output.ConnectionArn !== undefined && output.ConnectionArn !== null ? output.ConnectionArn : undefined,
+    ConnectionState:
+      output.ConnectionState !== undefined && output.ConnectionState !== null ? output.ConnectionState : undefined,
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? new Date(Math.round(output.CreationTime * 1000))
+        : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    LastAuthorizedTime:
+      output.LastAuthorizedTime !== undefined && output.LastAuthorizedTime !== null
+        ? new Date(Math.round(output.LastAuthorizedTime * 1000))
+        : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    SecretArn: output.SecretArn !== undefined && output.SecretArn !== null ? output.SecretArn : undefined,
     StateReason: output.StateReason !== undefined && output.StateReason !== null ? output.StateReason : undefined,
   } as any;
 };
@@ -4932,11 +6748,37 @@ const deserializeAws_json1_1LimitExceededException = (output: any, context: __Se
   } as any;
 };
 
+const deserializeAws_json1_1ListApiDestinationsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListApiDestinationsResponse => {
+  return {
+    ApiDestinations:
+      output.ApiDestinations !== undefined && output.ApiDestinations !== null
+        ? deserializeAws_json1_1ApiDestinationResponseList(output.ApiDestinations, context)
+        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ListArchivesResponse = (output: any, context: __SerdeContext): ListArchivesResponse => {
   return {
     Archives:
       output.Archives !== undefined && output.Archives !== null
         ? deserializeAws_json1_1ArchiveResponseList(output.Archives, context)
+        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ListConnectionsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListConnectionsResponse => {
+  return {
+    Connections:
+      output.Connections !== undefined && output.Connections !== null
+        ? deserializeAws_json1_1ConnectionResponseList(output.Connections, context)
         : undefined,
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
   } as any;
@@ -5491,6 +7333,42 @@ const deserializeAws_json1_1RunCommandTargetValues = (output: any, context: __Se
     });
 };
 
+const deserializeAws_json1_1SageMakerPipelineParameter = (
+  output: any,
+  context: __SerdeContext
+): SageMakerPipelineParameter => {
+  return {
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SageMakerPipelineParameterList = (
+  output: any,
+  context: __SerdeContext
+): SageMakerPipelineParameter[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1SageMakerPipelineParameter(entry, context);
+    });
+};
+
+const deserializeAws_json1_1SageMakerPipelineParameters = (
+  output: any,
+  context: __SerdeContext
+): SageMakerPipelineParameters => {
+  return {
+    PipelineParameterList:
+      output.PipelineParameterList !== undefined && output.PipelineParameterList !== null
+        ? deserializeAws_json1_1SageMakerPipelineParameterList(output.PipelineParameterList, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1SqsParameters = (output: any, context: __SerdeContext): SqsParameters => {
   return {
     MessageGroupId:
@@ -5586,6 +7464,10 @@ const deserializeAws_json1_1Target = (output: any, context: __SerdeContext): Tar
       output.RunCommandParameters !== undefined && output.RunCommandParameters !== null
         ? deserializeAws_json1_1RunCommandParameters(output.RunCommandParameters, context)
         : undefined,
+    SageMakerPipelineParameters:
+      output.SageMakerPipelineParameters !== undefined && output.SageMakerPipelineParameters !== null
+        ? deserializeAws_json1_1SageMakerPipelineParameters(output.SageMakerPipelineParameters, context)
+        : undefined,
     SqsParameters:
       output.SqsParameters !== undefined && output.SqsParameters !== null
         ? deserializeAws_json1_1SqsParameters(output.SqsParameters, context)
@@ -5629,6 +7511,30 @@ const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __Ser
   return {} as any;
 };
 
+const deserializeAws_json1_1UpdateApiDestinationResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateApiDestinationResponse => {
+  return {
+    ApiDestinationArn:
+      output.ApiDestinationArn !== undefined && output.ApiDestinationArn !== null
+        ? output.ApiDestinationArn
+        : undefined,
+    ApiDestinationState:
+      output.ApiDestinationState !== undefined && output.ApiDestinationState !== null
+        ? output.ApiDestinationState
+        : undefined,
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? new Date(Math.round(output.CreationTime * 1000))
+        : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1UpdateArchiveResponse = (output: any, context: __SerdeContext): UpdateArchiveResponse => {
   return {
     ArchiveArn: output.ArchiveArn !== undefined && output.ArchiveArn !== null ? output.ArchiveArn : undefined,
@@ -5638,6 +7544,30 @@ const deserializeAws_json1_1UpdateArchiveResponse = (output: any, context: __Ser
         : undefined,
     State: output.State !== undefined && output.State !== null ? output.State : undefined,
     StateReason: output.StateReason !== undefined && output.StateReason !== null ? output.StateReason : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateConnectionResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateConnectionResponse => {
+  return {
+    ConnectionArn:
+      output.ConnectionArn !== undefined && output.ConnectionArn !== null ? output.ConnectionArn : undefined,
+    ConnectionState:
+      output.ConnectionState !== undefined && output.ConnectionState !== null ? output.ConnectionState : undefined,
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? new Date(Math.round(output.CreationTime * 1000))
+        : undefined,
+    LastAuthorizedTime:
+      output.LastAuthorizedTime !== undefined && output.LastAuthorizedTime !== null
+        ? new Date(Math.round(output.LastAuthorizedTime * 1000))
+        : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        : undefined,
   } as any;
 };
 

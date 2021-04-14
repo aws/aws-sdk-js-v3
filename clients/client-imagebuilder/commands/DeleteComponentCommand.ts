@@ -21,7 +21,7 @@ export type DeleteComponentCommandInput = DeleteComponentRequest;
 export type DeleteComponentCommandOutput = DeleteComponentResponse & __MetadataBearer;
 
 /**
- * <p> Deletes a component build version. </p>
+ * <p> Deletes a component build version.</p>
  */
 export class DeleteComponentCommand extends $Command<
   DeleteComponentCommandInput,

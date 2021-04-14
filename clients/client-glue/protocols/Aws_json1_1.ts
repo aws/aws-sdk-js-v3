@@ -566,6 +566,7 @@ import {
 import {
   BackfillError,
   CatalogEntry,
+  ColumnImportance,
   ColumnStatisticsError,
   ConcurrentRunsExceededException,
   ConfusionMatrix,
@@ -678,6 +679,7 @@ import {
   MetadataInfo,
   MetadataKeyValuePair,
   NoScheduleException,
+  OtherMetadataValueListItem,
   PartitionIndexDescriptor,
   PropertyPredicate,
   PutDataCatalogEncryptionSettingsRequest,
@@ -17592,6 +17594,8 @@ const serializeAws_json1_1GetPartitionsRequest = (input: GetPartitionsRequest, c
   return {
     ...(input.CatalogId !== undefined && input.CatalogId !== null && { CatalogId: input.CatalogId }),
     ...(input.DatabaseName !== undefined && input.DatabaseName !== null && { DatabaseName: input.DatabaseName }),
+    ...(input.ExcludeColumnSchema !== undefined &&
+      input.ExcludeColumnSchema !== null && { ExcludeColumnSchema: input.ExcludeColumnSchema }),
     ...(input.Expression !== undefined && input.Expression !== null && { Expression: input.Expression }),
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
@@ -20036,6 +20040,24 @@ const deserializeAws_json1_1ColumnErrors = (output: any, context: __SerdeContext
     });
 };
 
+const deserializeAws_json1_1ColumnImportance = (output: any, context: __SerdeContext): ColumnImportance => {
+  return {
+    ColumnName: output.ColumnName !== undefined && output.ColumnName !== null ? output.ColumnName : undefined,
+    Importance: output.Importance !== undefined && output.Importance !== null ? output.Importance : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ColumnImportanceList = (output: any, context: __SerdeContext): ColumnImportance[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ColumnImportance(entry, context);
+    });
+};
+
 const deserializeAws_json1_1ColumnList = (output: any, context: __SerdeContext): Column[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -21275,6 +21297,10 @@ const deserializeAws_json1_1FindMatchesMetrics = (output: any, context: __SerdeC
   return {
     AreaUnderPRCurve:
       output.AreaUnderPRCurve !== undefined && output.AreaUnderPRCurve !== null ? output.AreaUnderPRCurve : undefined,
+    ColumnImportances:
+      output.ColumnImportances !== undefined && output.ColumnImportances !== null
+        ? deserializeAws_json1_1ColumnImportanceList(output.ColumnImportances, context)
+        : undefined,
     ConfusionMatrix:
       output.ConfusionMatrix !== undefined && output.ConfusionMatrix !== null
         ? deserializeAws_json1_1ConfusionMatrix(output.ConfusionMatrix, context)
@@ -22564,6 +22590,10 @@ const deserializeAws_json1_1MetadataInfo = (output: any, context: __SerdeContext
     CreatedTime: output.CreatedTime !== undefined && output.CreatedTime !== null ? output.CreatedTime : undefined,
     MetadataValue:
       output.MetadataValue !== undefined && output.MetadataValue !== null ? output.MetadataValue : undefined,
+    OtherMetadataValueList:
+      output.OtherMetadataValueList !== undefined && output.OtherMetadataValueList !== null
+        ? deserializeAws_json1_1OtherMetadataValueList(output.OtherMetadataValueList, context)
+        : undefined,
   } as any;
 };
 
@@ -22769,6 +22799,31 @@ const deserializeAws_json1_1OrderList = (output: any, context: __SerdeContext): 
       }
       return deserializeAws_json1_1Order(entry, context);
     });
+};
+
+const deserializeAws_json1_1OtherMetadataValueList = (
+  output: any,
+  context: __SerdeContext
+): OtherMetadataValueListItem[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1OtherMetadataValueListItem(entry, context);
+    });
+};
+
+const deserializeAws_json1_1OtherMetadataValueListItem = (
+  output: any,
+  context: __SerdeContext
+): OtherMetadataValueListItem => {
+  return {
+    CreatedTime: output.CreatedTime !== undefined && output.CreatedTime !== null ? output.CreatedTime : undefined,
+    MetadataValue:
+      output.MetadataValue !== undefined && output.MetadataValue !== null ? output.MetadataValue : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1ParametersMap = (output: any, context: __SerdeContext): { [key: string]: string } => {

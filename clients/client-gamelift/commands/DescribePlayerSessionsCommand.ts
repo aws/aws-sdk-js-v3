@@ -21,57 +21,41 @@ export type DescribePlayerSessionsCommandInput = DescribePlayerSessionsInput;
 export type DescribePlayerSessionsCommandOutput = DescribePlayerSessionsOutput & __MetadataBearer;
 
 /**
- * <p>Retrieves properties for one or more player sessions. This operation can be used in
- *         several ways: (1) provide a <code>PlayerSessionId</code> to request properties for a
- *         specific player session; (2) provide a <code>GameSessionId</code> to request properties
- *         for all player sessions in the specified game session; (3) provide a
- *         <code>PlayerId</code> to request properties for all player sessions of a specified
- *         player. </p>
- *          <p>To get game session record(s), specify only one of the following: a player session
- *         ID, a game session ID, or a player ID. You can filter this request by player session
- *         status. Use the pagination parameters to retrieve results as a set of sequential pages.
- *         If successful, a <a>PlayerSession</a> object is returned for each session
- *         matching the request.</p>
+ * <p>Retrieves properties for one or more player sessions. </p>
+ *         <p>This action can be used in the following ways: </p>
+ *         <ul>
+ *             <li>
+ *                 <p>To retrieve a specific player session, provide the player session ID
+ *                     only.</p>
+ *             </li>
+ *             <li>
+ *                 <p>To retrieve all player sessions in a game session, provide the game session ID
+ *                     only.</p>
+ *             </li>
+ *             <li>
+ *                 <p>To retrieve all player sessions for a specific player, provide a player ID
+ *                     only.</p>
+ *             </li>
+ *          </ul>
+ *          <p>To request player sessions, specify either a player session ID, game session ID, or player
+ *             ID. You can filter this request by player session status. Use the pagination parameters
+ *             to retrieve results as a set of sequential pages. </p>
+ *         <p>If successful, a <code>PlayerSession</code> object is returned for each session that
+ *             matches the request.</p>
  *          <p>
  *             <i>Available in Amazon GameLift Local.</i>
  *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>CreatePlayerSession</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>CreatePlayerSessions</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DescribePlayerSessions</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>Game session placements</p>
- *                <ul>
- *                   <li>
- *                      <p>
- *                         <a>StartGameSessionPlacement</a>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <a>DescribeGameSessionPlacement</a>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <a>StopGameSessionPlacement</a>
- *                      </p>
- *                   </li>
- *                </ul>
- *             </li>
- *          </ul>
+ *          <p>
+ *             <b>Related actions</b>
+ *          </p>
+ *                     <p>
+ *             <a>CreatePlayerSession</a> |
+ *                     <a>CreatePlayerSessions</a> |
+ *                     <a>DescribePlayerSessions</a> |
+ *                     <a>StartGameSessionPlacement</a> |
+ *                     <a>DescribeGameSessionPlacement</a> |
+ *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          </p>
  */
 export class DescribePlayerSessionsCommand extends $Command<
   DescribePlayerSessionsCommandInput,

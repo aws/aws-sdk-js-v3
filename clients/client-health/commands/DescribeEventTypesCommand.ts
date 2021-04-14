@@ -21,9 +21,11 @@ export type DescribeEventTypesCommandInput = DescribeEventTypesRequest;
 export type DescribeEventTypesCommandOutput = DescribeEventTypesResponse & __MetadataBearer;
 
 /**
- * <p>Returns the event types that meet the specified filter criteria. If no filter criteria
- *          are specified, all event types are returned, in no particular order.</p>
- *
+ * <p>Returns the event types that meet the specified filter criteria. You can use this API
+ *          operation to find information about the AWS Health event, such as the category, AWS
+ *          service, and event code. The metadata for each event appears in the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventType.html">EventType</a> object. </p>
+ *          <p>If you don't specify a filter criteria, the API operation returns all event types, in no
+ *          particular order.  </p>
  *          <note>
  *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the next request to return more results.</p>
  *          </note>

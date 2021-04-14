@@ -31,6 +31,8 @@ export type DetectAnomaliesCommandOutput = DetectAnomaliesResponse & __MetadataB
  *          You are charged for the amount of time, in minutes, that a model runs and for the number of anomaly detection units that your
  *          model uses. If you are not using a model, use the <a>StopModel</a> operation to stop your model. </p>
  *          </note>
+ *          <p>This operation requires permissions to perform the
+ *          <code>lookoutvision:DetectAnomalies</code> operation.</p>
  */
 export class DetectAnomaliesCommand extends $Command<
   DetectAnomaliesCommandInput,

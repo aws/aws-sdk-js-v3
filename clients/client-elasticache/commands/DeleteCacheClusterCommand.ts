@@ -32,7 +32,14 @@ export type DeleteCacheClusterCommandOutput = DeleteCacheClusterResult & __Metad
  *                 <p>Redis (cluster mode enabled) clusters</p>
  *             </li>
  *             <li>
+ *                 <p>Redis (cluster mode disabled) clusters</p>
+ *             </li>
+ *             <li>
+ *
  *                 <p>A cluster that is the last read replica of a replication group</p>
+ *             </li>
+ *             <li>
+ *                 <p>A cluster that is the primary node of a replication group</p>
  *             </li>
  *             <li>
  *                 <p>A node group (shard) that has Multi-AZ mode enabled</p>

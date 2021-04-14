@@ -413,14 +413,14 @@ export type CodeDeployClientResolvedConfig = __SmithyResolvedConfiguration<__Htt
 /**
  * <fullname>AWS CodeDeploy</fullname>
  *         <p>AWS CodeDeploy is a deployment service that automates application deployments to
- *             Amazon EC2 instances, on-premises instances running in your own facility, serverless
- *             AWS Lambda functions, or applications in an Amazon ECS service.</p>
+ *             Amazon EC2 instances, on-premises instances running in your own facility, serverless AWS
+ *             Lambda functions, or applications in an Amazon ECS service.</p>
  *         <p>You can deploy a nearly unlimited variety of application content, such as an updated
- *             Lambda function, updated applications in an Amazon ECS service, code, web and configuration
- *             files, executables, packages, scripts,
- *             multimedia files, and so on. AWS CodeDeploy can deploy application content stored in
- *             Amazon S3 buckets, GitHub repositories, or Bitbucket repositories. You do not need to
- *             make changes to your existing code before you can use AWS CodeDeploy.</p>
+ *             Lambda function, updated applications in an Amazon ECS service, code, web and
+ *             configuration files, executables, packages, scripts, multimedia files, and so on. AWS
+ *             CodeDeploy can deploy application content stored in Amazon S3 buckets, GitHub
+ *             repositories, or Bitbucket repositories. You do not need to make changes to your
+ *             existing code before you can use AWS CodeDeploy.</p>
  *         <p>AWS CodeDeploy makes it easier for you to rapidly release new features, helps you
  *             avoid downtime during application deployment, and handles the complexity of updating
  *             your applications, without many of the risks associated with error-prone manual

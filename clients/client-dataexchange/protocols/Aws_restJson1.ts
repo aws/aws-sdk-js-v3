@@ -39,6 +39,8 @@ import {
   ExportAssetToSignedUrlResponseDetails,
   ExportAssetsToS3RequestDetails,
   ExportAssetsToS3ResponseDetails,
+  ExportRevisionsToS3RequestDetails,
+  ExportRevisionsToS3ResponseDetails,
   ExportServerSideEncryption,
   ImportAssetFromSignedUrlJobErrorDetails,
   ImportAssetFromSignedUrlRequestDetails,
@@ -52,6 +54,7 @@ import {
   RequestDetails,
   ResourceNotFoundException,
   ResponseDetails,
+  RevisionDestinationEntry,
   RevisionEntry,
   S3SnapshotAsset,
   ServiceLimitExceededException,
@@ -3102,6 +3105,23 @@ const serializeAws_restJson1ExportAssetToSignedUrlRequestDetails = (
   };
 };
 
+const serializeAws_restJson1ExportRevisionsToS3RequestDetails = (
+  input: ExportRevisionsToS3RequestDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DataSetId !== undefined && input.DataSetId !== null && { DataSetId: input.DataSetId }),
+    ...(input.Encryption !== undefined &&
+      input.Encryption !== null && {
+        Encryption: serializeAws_restJson1ExportServerSideEncryption(input.Encryption, context),
+      }),
+    ...(input.RevisionDestinations !== undefined &&
+      input.RevisionDestinations !== null && {
+        RevisionDestinations: serializeAws_restJson1ListOfRevisionDestinationEntry(input.RevisionDestinations, context),
+      }),
+  };
+};
+
 const serializeAws_restJson1ExportServerSideEncryption = (
   input: ExportServerSideEncryption,
   context: __SerdeContext
@@ -3163,6 +3183,20 @@ const serializeAws_restJson1ListOfAssetSourceEntry = (input: AssetSourceEntry[],
     });
 };
 
+const serializeAws_restJson1ListOfRevisionDestinationEntry = (
+  input: RevisionDestinationEntry[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1RevisionDestinationEntry(entry, context);
+    });
+};
+
 const serializeAws_restJson1MapOf__string = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
     if (value === null) {
@@ -3188,6 +3222,13 @@ const serializeAws_restJson1RequestDetails = (input: RequestDetails, context: __
       input.ExportAssetsToS3 !== null && {
         ExportAssetsToS3: serializeAws_restJson1ExportAssetsToS3RequestDetails(input.ExportAssetsToS3, context),
       }),
+    ...(input.ExportRevisionsToS3 !== undefined &&
+      input.ExportRevisionsToS3 !== null && {
+        ExportRevisionsToS3: serializeAws_restJson1ExportRevisionsToS3RequestDetails(
+          input.ExportRevisionsToS3,
+          context
+        ),
+      }),
     ...(input.ImportAssetFromSignedUrl !== undefined &&
       input.ImportAssetFromSignedUrl !== null && {
         ImportAssetFromSignedUrl: serializeAws_restJson1ImportAssetFromSignedUrlRequestDetails(
@@ -3199,6 +3240,17 @@ const serializeAws_restJson1RequestDetails = (input: RequestDetails, context: __
       input.ImportAssetsFromS3 !== null && {
         ImportAssetsFromS3: serializeAws_restJson1ImportAssetsFromS3RequestDetails(input.ImportAssetsFromS3, context),
       }),
+  };
+};
+
+const serializeAws_restJson1RevisionDestinationEntry = (
+  input: RevisionDestinationEntry,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Bucket !== undefined && input.Bucket !== null && { Bucket: input.Bucket }),
+    ...(input.KeyPattern !== undefined && input.KeyPattern !== null && { KeyPattern: input.KeyPattern }),
+    ...(input.RevisionId !== undefined && input.RevisionId !== null && { RevisionId: input.RevisionId }),
   };
 };
 
@@ -3309,6 +3361,23 @@ const deserializeAws_restJson1ExportAssetToSignedUrlResponseDetails = (
     SignedUrlExpiresAt:
       output.SignedUrlExpiresAt !== undefined && output.SignedUrlExpiresAt !== null
         ? new Date(output.SignedUrlExpiresAt)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ExportRevisionsToS3ResponseDetails = (
+  output: any,
+  context: __SerdeContext
+): ExportRevisionsToS3ResponseDetails => {
+  return {
+    DataSetId: output.DataSetId !== undefined && output.DataSetId !== null ? output.DataSetId : undefined,
+    Encryption:
+      output.Encryption !== undefined && output.Encryption !== null
+        ? deserializeAws_restJson1ExportServerSideEncryption(output.Encryption, context)
+        : undefined,
+    RevisionDestinations:
+      output.RevisionDestinations !== undefined && output.RevisionDestinations !== null
+        ? deserializeAws_restJson1ListOfRevisionDestinationEntry(output.RevisionDestinations, context)
         : undefined,
   } as any;
 };
@@ -3466,6 +3535,20 @@ const deserializeAws_restJson1ListOfJobError = (output: any, context: __SerdeCon
     });
 };
 
+const deserializeAws_restJson1ListOfRevisionDestinationEntry = (
+  output: any,
+  context: __SerdeContext
+): RevisionDestinationEntry[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1RevisionDestinationEntry(entry, context);
+    });
+};
+
 const deserializeAws_restJson1ListOfRevisionEntry = (output: any, context: __SerdeContext): RevisionEntry[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -3505,6 +3588,10 @@ const deserializeAws_restJson1ResponseDetails = (output: any, context: __SerdeCo
       output.ExportAssetsToS3 !== undefined && output.ExportAssetsToS3 !== null
         ? deserializeAws_restJson1ExportAssetsToS3ResponseDetails(output.ExportAssetsToS3, context)
         : undefined,
+    ExportRevisionsToS3:
+      output.ExportRevisionsToS3 !== undefined && output.ExportRevisionsToS3 !== null
+        ? deserializeAws_restJson1ExportRevisionsToS3ResponseDetails(output.ExportRevisionsToS3, context)
+        : undefined,
     ImportAssetFromSignedUrl:
       output.ImportAssetFromSignedUrl !== undefined && output.ImportAssetFromSignedUrl !== null
         ? deserializeAws_restJson1ImportAssetFromSignedUrlResponseDetails(output.ImportAssetFromSignedUrl, context)
@@ -3513,6 +3600,17 @@ const deserializeAws_restJson1ResponseDetails = (output: any, context: __SerdeCo
       output.ImportAssetsFromS3 !== undefined && output.ImportAssetsFromS3 !== null
         ? deserializeAws_restJson1ImportAssetsFromS3ResponseDetails(output.ImportAssetsFromS3, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RevisionDestinationEntry = (
+  output: any,
+  context: __SerdeContext
+): RevisionDestinationEntry => {
+  return {
+    Bucket: output.Bucket !== undefined && output.Bucket !== null ? output.Bucket : undefined,
+    KeyPattern: output.KeyPattern !== undefined && output.KeyPattern !== null ? output.KeyPattern : undefined,
+    RevisionId: output.RevisionId !== undefined && output.RevisionId !== null ? output.RevisionId : undefined,
   } as any;
 };
 

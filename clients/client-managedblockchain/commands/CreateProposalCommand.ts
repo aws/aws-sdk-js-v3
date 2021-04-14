@@ -26,6 +26,7 @@ export type CreateProposalCommandOutput = CreateProposalOutput & __MetadataBeare
 
 /**
  * <p>Creates a proposal for a change to the network that other members of the network can vote on, for example, a proposal to add a new member to the network. Any member can create a proposal.</p>
+ *          <p>Applies only to Hyperledger Fabric.</p>
  */
 export class CreateProposalCommand extends $Command<
   CreateProposalCommandInput,

@@ -40,6 +40,11 @@ import {
   AssociateHostedConnectionCommandOutput,
 } from "./commands/AssociateHostedConnectionCommand";
 import {
+  AssociateMacSecKeyCommand,
+  AssociateMacSecKeyCommandInput,
+  AssociateMacSecKeyCommandOutput,
+} from "./commands/AssociateMacSecKeyCommand";
+import {
   AssociateVirtualInterfaceCommand,
   AssociateVirtualInterfaceCommandInput,
   AssociateVirtualInterfaceCommandOutput,
@@ -228,6 +233,11 @@ import {
   DisassociateConnectionFromLagCommandOutput,
 } from "./commands/DisassociateConnectionFromLagCommand";
 import {
+  DisassociateMacSecKeyCommand,
+  DisassociateMacSecKeyCommandInput,
+  DisassociateMacSecKeyCommandOutput,
+} from "./commands/DisassociateMacSecKeyCommand";
+import {
   ListVirtualInterfaceTestHistoryCommand,
   ListVirtualInterfaceTestHistoryCommandInput,
   ListVirtualInterfaceTestHistoryCommandOutput,
@@ -248,6 +258,11 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateConnectionCommand,
+  UpdateConnectionCommandInput,
+  UpdateConnectionCommandOutput,
+} from "./commands/UpdateConnectionCommand";
 import {
   UpdateDirectConnectGatewayAssociationCommand,
   UpdateDirectConnectGatewayAssociationCommandInput,
@@ -569,6 +584,40 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * <p>Associates a MAC Security (MACsec) Connection Key Name (CKN)/ Connectivity Association Key (CAK) pair with an  AWS Direct Connect dedicated connection.</p>
+   *          <p>You must supply either the <code>secretARN,</code> or the CKN/CAK (<code>ckn</code> and <code>cak</code>) pair in the request.</p>
+   *          <p>For information about MAC Security (MACsec) key considerations, see  <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-key-consideration">MACsec pre-shared CKN/CAK key considerations </a> in the <i>AWS Direct Connect User Guide</i>.</p>
+   */
+  public associateMacSecKey(
+    args: AssociateMacSecKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateMacSecKeyCommandOutput>;
+  public associateMacSecKey(
+    args: AssociateMacSecKeyCommandInput,
+    cb: (err: any, data?: AssociateMacSecKeyCommandOutput) => void
+  ): void;
+  public associateMacSecKey(
+    args: AssociateMacSecKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateMacSecKeyCommandOutput) => void
+  ): void;
+  public associateMacSecKey(
+    args: AssociateMacSecKeyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateMacSecKeyCommandOutput) => void),
+    cb?: (err: any, data?: AssociateMacSecKeyCommandOutput) => void
+  ): Promise<AssociateMacSecKeyCommandOutput> | void {
+    const command = new AssociateMacSecKeyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Associates a virtual interface with a specified link aggregation group (LAG) or
    *       connection. Connectivity to AWS is temporarily interrupted as the virtual interface is
    *       being migrated. If the target connection or LAG has an associated virtual interface with
@@ -753,7 +802,7 @@ export class DirectConnect extends DirectConnectClient {
    *       be in the same address family as an existing BGP peer on the virtual interface.</p>
    *          <p>When creating a IPv6 BGP peer, omit the Amazon address and customer address. IPv6 addresses are automatically assigned from
    *       the Amazon pool of IPv6 addresses; you cannot specify custom IPv6 addresses.</p>
-   *          <p>For a public virtual interface, the Autonomous System Number (ASN) must be private or already whitelisted for the virtual interface.</p>
+   *          <p>For a public virtual interface, the Autonomous System Number (ASN) must be private or already on the allow list for the virtual interface.</p>
    */
   public createBGPPeer(
     args: CreateBGPPeerCommandInput,
@@ -1549,13 +1598,29 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
-   * <p>Lists the associations between your Direct Connect gateways and virtual private gateways.
-   *       You must specify a Direct Connect gateway, a virtual private gateway, or both. If you specify
-   *       a Direct Connect gateway, the response contains all virtual private gateways associated with
-   *       the Direct Connect gateway. If you specify a virtual private gateway, the response contains
-   *       all Direct Connect gateways associated with the virtual private gateway. If you specify both,
-   *       the response contains the association between the Direct Connect gateway and the virtual
-   *       private gateway.</p>
+   * <p>Lists the associations between your Direct Connect gateways and virtual private gateways and transit gateways. You must specify one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>A Direct Connect gateway</p>
+   *                <p>The response contains all virtual private gateways and transit gateways associated with the Direct Connect gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>A virtual private gateway</p>
+   *                <p>The response contains the Direct Connect gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>A transit gateway</p>
+   *                <p>The response contains the Direct Connect gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>A Direct Connect gateway and a virtual private gateway</p>
+   *                <p>The response contains the association between the Direct Connect gateway and virtual private gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>A Direct Connect gateway and a transit gateway</p>
+   *                <p>The response contains the association between the Direct Connect gateway and transit gateway.</p>
+   *             </li>
+   *          </ul>
    */
   public describeDirectConnectGatewayAssociations(
     args: DescribeDirectConnectGatewayAssociationsCommandInput,
@@ -1995,6 +2060,38 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * <p>Removes the association between a MAC Security (MACsec) security key and an AWS Direct Connect dedicated connection.</p>
+   */
+  public disassociateMacSecKey(
+    args: DisassociateMacSecKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateMacSecKeyCommandOutput>;
+  public disassociateMacSecKey(
+    args: DisassociateMacSecKeyCommandInput,
+    cb: (err: any, data?: DisassociateMacSecKeyCommandOutput) => void
+  ): void;
+  public disassociateMacSecKey(
+    args: DisassociateMacSecKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateMacSecKeyCommandOutput) => void
+  ): void;
+  public disassociateMacSecKey(
+    args: DisassociateMacSecKeyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateMacSecKeyCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateMacSecKeyCommandOutput) => void
+  ): Promise<DisassociateMacSecKeyCommandOutput> | void {
+    const command = new DisassociateMacSecKeyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists the virtual interface failover test history.</p>
    */
   public listVirtualInterfaceTestHistory(
@@ -2153,6 +2250,47 @@ export class DirectConnect extends DirectConnectClient {
   }
 
   /**
+   * <p>Updates the AWS Direct Connect dedicated connection configuration.</p>
+   *          <p>You can update the following parameters for a connection:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The connection name</p>
+   *             </li>
+   *             <li>
+   *                <p>The connection's MAC Security (MACsec) encryption mode.</p>
+   *             </li>
+   *          </ul>
+   */
+  public updateConnection(
+    args: UpdateConnectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateConnectionCommandOutput>;
+  public updateConnection(
+    args: UpdateConnectionCommandInput,
+    cb: (err: any, data?: UpdateConnectionCommandOutput) => void
+  ): void;
+  public updateConnection(
+    args: UpdateConnectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateConnectionCommandOutput) => void
+  ): void;
+  public updateConnection(
+    args: UpdateConnectionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateConnectionCommandOutput) => void),
+    cb?: (err: any, data?: UpdateConnectionCommandOutput) => void
+  ): Promise<UpdateConnectionCommandOutput> | void {
+    const command = new UpdateConnectionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates the specified attributes of the Direct Connect gateway association.</p>
    *          <p>Add or remove prefixes from the association.</p>
    */
@@ -2189,7 +2327,7 @@ export class DirectConnect extends DirectConnectClient {
 
   /**
    * <p>Updates the attributes of the specified link aggregation group (LAG).</p>
-   *          <p>You can update the following attributes:</p>
+   *          <p>You can update the following LAG attributes:</p>
    *          <ul>
    *             <li>
    *                <p>The name of the LAG.</p>
@@ -2198,13 +2336,19 @@ export class DirectConnect extends DirectConnectClient {
    *                <p>The value for the minimum number of connections that must be operational
    *           for the LAG itself to be operational. </p>
    *             </li>
+   *             <li>
+   *                <p>The LAG's MACsec encryption mode.</p>
+   *                <p>AWS assigns this value to each connection which is part of the LAG.</p>
+   *             </li>
+   *             <li>
+   *                <p>The tags</p>
+   *             </li>
    *          </ul>
-   *          <p>When you create a LAG, the default value for the minimum number of operational
-   *       connections is zero (0). If you update this value and the number of operational
-   *       connections falls below the specified value, the LAG automatically goes down to avoid
-   *       over-utilization of the remaining connections. Adjust this value with care, as it
-   *       could force the LAG down if it is set higher than the current number of operational
-   *       connections.</p>
+   *          <note>
+   *             <p>If you adjust the threshold value for the minimum number of operational connections, ensure
+   *       that the new value does not cause the LAG to fall below the threshold and become
+   *       non-operational.</p>
+   *          </note>
    */
   public updateLag(args: UpdateLagCommandInput, options?: __HttpHandlerOptions): Promise<UpdateLagCommandOutput>;
   public updateLag(args: UpdateLagCommandInput, cb: (err: any, data?: UpdateLagCommandOutput) => void): void;

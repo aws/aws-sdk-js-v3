@@ -121,8 +121,9 @@ export interface Attribute {
   RelationshipScore?: number;
 
   /**
-   * <p>The type of relationship between the entity and attribute. Type for the relationship is <code>OVERLAP</code>, indicating that the entity occurred at the same time as the <code>Date_Expression</code>.
-   *     </p>
+   * <p>The type of relationship between the entity and attribute. Type for the relationship is
+   *         <code>OVERLAP</code>, indicating that the entity occurred at the same time as the
+   *         <code>Date_Expression</code>. </p>
    */
   RelationshipType?: RelationshipType | string;
 
@@ -182,7 +183,8 @@ export namespace DescribeEntitiesDetectionV2JobRequest {
 }
 
 /**
- * <p>The input properties for an entities detection job. This includes the name of the S3 bucket and the path to the files to be analyzed. See <a>batch-manifest</a> for more information. </p>
+ * <p>The input properties for an entities detection job. This includes the name of the S3
+ *       bucket and the path to the files to be analyzed. </p>
  */
 export interface InputDataConfig {
   /**
@@ -411,7 +413,8 @@ export namespace TooManyRequestsException {
 
 export interface DescribeICD10CMInferenceJobRequest {
   /**
-   * <p>The identifier that Amazon Comprehend Medical generated for the job. <code>The StartICD10CMInferenceJob</code> operation returns this identifier in its response.</p>
+   * <p>The identifier that Amazon Comprehend Medical generated for the job. <code>The
+   *         StartICD10CMInferenceJob</code> operation returns this identifier in its response.</p>
    */
   JobId: string | undefined;
 }
@@ -464,7 +467,8 @@ export namespace DescribePHIDetectionJobResponse {
 
 export interface DescribeRxNormInferenceJobRequest {
   /**
-   * <p>The identifier that Amazon Comprehend Medical generated for the job. The StartRxNormInferenceJob operation returns this identifier in its response.</p>
+   * <p>The identifier that Amazon Comprehend Medical generated for the job. The
+   *       StartRxNormInferenceJob operation returns this identifier in its response.</p>
    */
   JobId: string | undefined;
 }
@@ -772,6 +776,16 @@ export namespace InferICD10CMRequest {
   });
 }
 
+export enum ICD10CMEntityType {
+  DX_NAME = "DX_NAME",
+  TIME_EXPRESSION = "TIME_EXPRESSION",
+}
+
+export enum ICD10CMRelationshipType {
+  OVERLAP = "OVERLAP",
+  SYSTEM_ORGAN_SITE = "SYSTEM_ORGAN_SITE",
+}
+
 export enum ICD10CMTraitName {
   DIAGNOSIS = "DIAGNOSIS",
   NEGATION = "NEGATION",
@@ -809,6 +823,8 @@ export enum ICD10CMAttributeType {
   QUALITY = "QUALITY",
   QUANTITY = "QUANTITY",
   SYSTEM_ORGAN_SITE = "SYSTEM_ORGAN_SITE",
+  TIME_EXPRESSION = "TIME_EXPRESSION",
+  TIME_TO_DX_NAME = "TIME_TO_DX_NAME",
 }
 
 /**
@@ -865,6 +881,17 @@ export interface ICD10CMAttribute {
    *       <code>NEGATION</code>.</p>
    */
   Traits?: ICD10CMTrait[];
+
+  /**
+   * <p>The category of attribute. Can be either of <code>DX_NAME</code> or <code>TIME_EXPRESSION</code>.</p>
+   */
+  Category?: ICD10CMEntityType | string;
+
+  /**
+   * <p>The type of relationship between the entity and attribute. Type for the relationship can
+   *         be either of <code>OVERLAP</code> or <code>SYSTEM_ORGAN_SITE</code>.</p>
+   */
+  RelationshipType?: ICD10CMRelationshipType | string;
 }
 
 export namespace ICD10CMAttribute {
@@ -906,10 +933,6 @@ export namespace ICD10CMConcept {
   });
 }
 
-export enum ICD10CMEntityType {
-  DX_NAME = "DX_NAME",
-}
-
 /**
  * <p>The collection of medical entities extracted from the input text and their associated
  *       information. For each entity, the response provides the entity text, the entity category,
@@ -937,7 +960,7 @@ export interface ICD10CMEntity {
 
   /**
    * <p>Describes the specific type of entity with category of entities. InferICD10CM detects
-   *       entities of the type <code>DX_NAME</code>.</p>
+   *       entities of the type <code>DX_NAME</code> and <code>TIME_EXPRESSION</code>.</p>
    */
   Type?: ICD10CMEntityType | string;
 
@@ -1364,7 +1387,8 @@ export namespace ValidationException {
 
 export interface ListICD10CMInferenceJobsRequest {
   /**
-   * <p>Filters the jobs that are returned. You can filter jobs based on their names, status, or the date and time that they were submitted. You can only set one filter at a time.</p>
+   * <p>Filters the jobs that are returned. You can filter jobs based on their names, status, or
+   *       the date and time that they were submitted. You can only set one filter at a time.</p>
    */
   Filter?: ComprehendMedicalAsyncJobFilter;
 
@@ -1447,7 +1471,8 @@ export namespace ListPHIDetectionJobsResponse {
 
 export interface ListRxNormInferenceJobsRequest {
   /**
-   * <p>Filters the jobs that are returned. You can filter jobs based on their names, status, or the date and time that they were submitted. You can only set one filter at a time.</p>
+   * <p>Filters the jobs that are returned. You can filter jobs based on their names, status, or
+   *       the date and time that they were submitted. You can only set one filter at a time.</p>
    */
   Filter?: ComprehendMedicalAsyncJobFilter;
 
@@ -1766,7 +1791,8 @@ export namespace StopICD10CMInferenceJobRequest {
 
 export interface StopICD10CMInferenceJobResponse {
   /**
-   * <p>The identifier generated for the job. To get the status of job, use this identifier with the <code>DescribeICD10CMInferenceJob</code> operation.</p>
+   * <p>The identifier generated for the job. To get the status of job, use this identifier with
+   *       the <code>DescribeICD10CMInferenceJob</code> operation.</p>
    */
   JobId?: string;
 }
@@ -1818,7 +1844,8 @@ export namespace StopRxNormInferenceJobRequest {
 
 export interface StopRxNormInferenceJobResponse {
   /**
-   * <p>The identifier generated for the job. To get the status of job, use this identifier with the <code>DescribeRxNormInferenceJob</code> operation.</p>
+   * <p>The identifier generated for the job. To get the status of job, use this identifier with
+   *       the <code>DescribeRxNormInferenceJob</code> operation.</p>
    */
   JobId?: string;
 }

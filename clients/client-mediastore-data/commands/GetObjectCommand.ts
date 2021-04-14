@@ -21,7 +21,7 @@ export type GetObjectCommandInput = GetObjectRequest;
 export type GetObjectCommandOutput = GetObjectResponse & __MetadataBearer;
 
 /**
- * <p>Downloads the object at the specified path.</p>
+ * <p>Downloads the object at the specified path. If the object’s upload availability is set to <code>streaming</code>, AWS Elemental MediaStore downloads the object even if it’s still uploading the object.</p>
  */
 export class GetObjectCommand extends $Command<
   GetObjectCommandInput,

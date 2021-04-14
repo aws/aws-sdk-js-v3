@@ -332,37 +332,16 @@ export namespace ValidationException {
 }
 
 /**
- * <p>The S3 location where Amazon Lookout for Vision saves training output.</p>
- */
-export interface OutputS3Object {
-  /**
-   * <p>The bucket that contains the training output.</p>
-   */
-  Bucket: string | undefined;
-
-  /**
-   * <p>The location of the training output in the bucket.</p>
-   */
-  Key: string | undefined;
-}
-
-export namespace OutputS3Object {
-  export const filterSensitiveLog = (obj: OutputS3Object): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about the location of a manifest file.</p>
+ * <p>Information about the location training output.</p>
  */
 export interface S3Location {
   /**
-   * <p>The S3 bucket that contain the manifest file.</p>
+   * <p>The S3 bucket that contains the training output.</p>
    */
   Bucket: string | undefined;
 
   /**
-   * <p>The path and name of the manifest file with the S3 bucket.</p>
+   * <p>The path of the folder, within the S3 bucket, that contains the training output.</p>
    */
   Prefix?: string;
 }
@@ -385,6 +364,75 @@ export interface OutputConfig {
 
 export namespace OutputConfig {
   export const filterSensitiveLog = (obj: OutputConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A key and value pair that is attached to the specified Amazon Lookout for Vision model.</p>
+ */
+export interface Tag {
+  /**
+   * <p>The key of the tag that is attached to the specified model.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The value of the tag that is attached to the specified model.</p>
+   */
+  Value: string | undefined;
+}
+
+export namespace Tag {
+  export const filterSensitiveLog = (obj: Tag): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateModelRequest {
+  /**
+   * <p>The name of the project in which you want to create a model version.</p>
+   */
+  ProjectName: string | undefined;
+
+  /**
+   * <p>A description for the version of the model.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>ClientToken is an idempotency token that ensures a call to <code>CreateModel</code>
+   *       completes only once.  You choose the value to pass. For example, An issue,
+   *       such as an network outage, might prevent you from getting a response from <code>CreateModel</code>.
+   *       In this case, safely retry your call
+   *        to <code>CreateModel</code> by using the same <code>ClientToken</code> parameter value. An error occurs
+   *        if the other input parameters are not the same as in the first request. Using a different
+   *        value for <code>ClientToken</code> is considered a new call to <code>CreateModel</code>. An idempotency
+   *        token is active for 8 hours.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The location where Amazon Lookout for Vision saves the training results.</p>
+   */
+  OutputConfig: OutputConfig | undefined;
+
+  /**
+   * <p>The identifier for your AWS Key Management Service (AWS KMS) customer master key (CMK).
+   *          The key is used to encrypt training and test images copied into the service for model training. Your
+   *          source images are unaffected.
+   *          If this parameter is not specified, the copied images are encrypted by a key that AWS owns and manages.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>A set of tags (key-value pairs) that you want to attach to the model.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace CreateModelRequest {
+  export const filterSensitiveLog = (obj: CreateModelRequest): any => ({
     ...obj,
   });
 }
@@ -430,121 +478,6 @@ export enum ModelStatus {
 /**
  * <p>Describes an Amazon Lookout for Vision model.</p>
  */
-export interface ModelDescription {
-  /**
-   * <p>The version of the model</p>
-   */
-  ModelVersion?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model.</p>
-   */
-  ModelArn?: string;
-
-  /**
-   * <p>The unix timestamp for the date and time that the model was created. </p>
-   */
-  CreationTimestamp?: Date;
-
-  /**
-   * <p>The description for the model.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The status of the model.</p>
-   */
-  Status?: ModelStatus | string;
-
-  /**
-   * <p>The status message for the model.</p>
-   */
-  StatusMessage?: string;
-
-  /**
-   * <p>Performance metrics for the model. Created during training.</p>
-   */
-  Performance?: ModelPerformance;
-
-  /**
-   * <p>The S3 location where Amazon Lookout for Vision saves model training files.</p>
-   */
-  OutputConfig?: OutputConfig;
-
-  /**
-   * <p>The S3 location where Amazon Lookout for Vision saves the manifest file
-   *          that was used to test the trained model and generate the performance scores.</p>
-   */
-  EvaluationManifest?: OutputS3Object;
-
-  /**
-   * <p>The S3 location where Amazon Lookout for Vision saves the performance metrics.</p>
-   */
-  EvaluationResult?: OutputS3Object;
-
-  /**
-   * <p>The unix timestamp for the date and time that the evaluation ended. </p>
-   */
-  EvaluationEndTimestamp?: Date;
-
-  /**
-   * <p>The identifer for the AWS Key Management Service (AWS KMS) key that was used to encrypt the model
-   *          during training.</p>
-   */
-  KmsKeyId?: string;
-}
-
-export namespace ModelDescription {
-  export const filterSensitiveLog = (obj: ModelDescription): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateModelRequest {
-  /**
-   * <p>The name of the project in which you want to create a model version.</p>
-   */
-  ProjectName: string | undefined;
-
-  /**
-   * <p>A description for the version of the model.</p>
-   */
-  Description?: ModelDescription;
-
-  /**
-   * <p>ClientToken is an idempotency token that ensures a call to <code>CreateModel</code>
-   *       completes only once.  You choose the value to pass. For example, An issue,
-   *       such as an network outage, might prevent you from getting a response from <code>CreateModel</code>.
-   *       In this case, safely retry your call
-   *        to <code>CreateModel</code> by using the same <code>ClientToken</code> parameter value. An error occurs
-   *        if the other input parameters are not the same as in the first request. Using a different
-   *        value for <code>ClientToken</code> is considered a new call to <code>CreateModel</code>. An idempotency
-   *        token is active for 8 hours.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>The location where Amazon Lookout for Vision saves the training results.</p>
-   */
-  OutputConfig: OutputConfig | undefined;
-
-  /**
-   * <p>The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK)
-   *        to use for encypting the model. If this parameter is not specified, the
-   *        model is encrypted by a key that AWS owns and manages.</p>
-   */
-  KmsKeyId?: string;
-}
-
-export namespace CreateModelRequest {
-  export const filterSensitiveLog = (obj: CreateModelRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes an Amazon Lookout for Vision model.</p>
- */
 export interface ModelMetadata {
   /**
    * <p>The unix timestamp for the date and time that the model was created. </p>
@@ -577,7 +510,7 @@ export interface ModelMetadata {
   StatusMessage?: string;
 
   /**
-   * <p>Performance metrics for the model. Created during training.</p>
+   * <p>Performance metrics for the model. Not available until training has successfully completed.</p>
    */
   Performance?: ModelPerformance;
 }
@@ -603,7 +536,7 @@ export namespace CreateModelResponse {
 
 export interface CreateProjectRequest {
   /**
-   * <p>S nsme for the project.</p>
+   * <p>The name for the project.</p>
    */
   ProjectName: string | undefined;
 
@@ -912,6 +845,100 @@ export interface DescribeModelRequest {
 
 export namespace DescribeModelRequest {
   export const filterSensitiveLog = (obj: DescribeModelRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The S3 location where Amazon Lookout for Vision saves training output.</p>
+ */
+export interface OutputS3Object {
+  /**
+   * <p>The bucket that contains the training output.</p>
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>The location of the training output in the bucket.</p>
+   */
+  Key: string | undefined;
+}
+
+export namespace OutputS3Object {
+  export const filterSensitiveLog = (obj: OutputS3Object): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an Amazon Lookout for Vision model.</p>
+ */
+export interface ModelDescription {
+  /**
+   * <p>The version of the model</p>
+   */
+  ModelVersion?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model.</p>
+   */
+  ModelArn?: string;
+
+  /**
+   * <p>The unix timestamp for the date and time that the model was created. </p>
+   */
+  CreationTimestamp?: Date;
+
+  /**
+   * <p>The description for the model.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The status of the model.</p>
+   */
+  Status?: ModelStatus | string;
+
+  /**
+   * <p>The status message for the model.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>Performance metrics for the model. Created during training.</p>
+   */
+  Performance?: ModelPerformance;
+
+  /**
+   * <p>The S3 location where Amazon Lookout for Vision saves model training files.</p>
+   */
+  OutputConfig?: OutputConfig;
+
+  /**
+   * <p>The S3 location where Amazon Lookout for Vision saves the manifest file
+   *          that was used to test the trained model and generate the performance scores.</p>
+   */
+  EvaluationManifest?: OutputS3Object;
+
+  /**
+   * <p>The S3 location where Amazon Lookout for Vision saves the performance metrics.</p>
+   */
+  EvaluationResult?: OutputS3Object;
+
+  /**
+   * <p>The unix timestamp for the date and time that the evaluation ended. </p>
+   */
+  EvaluationEndTimestamp?: Date;
+
+  /**
+   * <p>The identifer for the AWS Key Management Service (AWS KMS) key that was used to encrypt the model
+   *          during training.</p>
+   */
+  KmsKeyId?: string;
+}
+
+export namespace ModelDescription {
+  export const filterSensitiveLog = (obj: ModelDescription): any => ({
     ...obj,
   });
 }
@@ -1239,6 +1266,32 @@ export namespace ListProjectsResponse {
   });
 }
 
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model for which you want to list tags. </p>
+   */
+  ResourceArn: string | undefined;
+}
+
+export namespace ListTagsForResourceRequest {
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>A map of tag keys and values attached to the specified model.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace ListTagsForResourceResponse {
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface StartModelRequest {
   /**
    * <p>The name of the project that contains the model that you want to start.</p>
@@ -1280,10 +1333,11 @@ export namespace StartModelRequest {
 }
 
 export enum ModelHostingStatus {
-  FAILED = "FAILED",
-  RUNNING = "RUNNING",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
+  HOSTED = "HOSTED",
+  HOSTING_FAILED = "HOSTING_FAILED",
+  STARTING_HOSTING = "STARTING_HOSTING",
+  STOPPING_HOSTING = "STOPPING_HOSTING",
+  SYSTEM_UPDATING = "SYSTEM_UPDATING",
 }
 
 export interface StartModelResponse {
@@ -1341,6 +1395,58 @@ export interface StopModelResponse {
 
 export namespace StopModelResponse {
   export const filterSensitiveLog = (obj: StopModelResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface TagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model to assign the tags.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The key-value tags to assign to the model.</p>
+   */
+  Tags: Tag[] | undefined;
+}
+
+export namespace TagResourceRequest {
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface TagResourceResponse {}
+
+export namespace TagResourceResponse {
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model from which you want to remove tags. </p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>A list of the keys of the tags that you want to remove.</p>
+   */
+  TagKeys: string[] | undefined;
+}
+
+export namespace UntagResourceRequest {
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceResponse {}
+
+export namespace UntagResourceResponse {
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
 }

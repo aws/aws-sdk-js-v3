@@ -23,8 +23,8 @@ export type CreateSimulationJobCommandOutput = CreateSimulationJobResponse & __M
 /**
  * <p>Creates a simulation job.</p>
  *          <note>
- *             <p>After 90 days, simulation jobs expire and will be deleted. They will no longer be accessible.
- *          </p>
+ *             <p>After 90 days, simulation jobs expire and will be deleted. They will no longer be
+ *             accessible. </p>
  *          </note>
  */
 export class CreateSimulationJobCommand extends $Command<

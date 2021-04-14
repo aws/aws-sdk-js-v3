@@ -21,7 +21,8 @@ export type CreateComponentCommandInput = CreateComponentRequest;
 export type CreateComponentCommandOutput = CreateComponentResponse & __MetadataBearer;
 
 /**
- * <p>Creates a new component that can be used to build, validate, test, and assess your image.</p>
+ * <p>Creates a new component that can be used to build, validate, test, and assess your
+ *       image.</p>
  */
 export class CreateComponentCommand extends $Command<
   CreateComponentCommandInput,

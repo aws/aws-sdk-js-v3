@@ -75,6 +75,7 @@ export * from "./commands/PutConfigurationSetTrackingOptionsCommand";
 export * from "./commands/PutDedicatedIpInPoolCommand";
 export * from "./commands/PutDedicatedIpWarmupAttributesCommand";
 export * from "./commands/PutDeliverabilityDashboardOptionCommand";
+export * from "./commands/PutEmailIdentityConfigurationSetAttributesCommand";
 export * from "./commands/PutEmailIdentityDkimAttributesCommand";
 export * from "./commands/PutEmailIdentityDkimSigningAttributesCommand";
 export * from "./commands/PutEmailIdentityFeedbackAttributesCommand";

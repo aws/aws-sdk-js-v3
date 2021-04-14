@@ -25,7 +25,8 @@ export type DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput = DeleteS
   __MetadataBearer;
 
 /**
- * <p>Removes a service quota increase request from the Service Quotas template. </p>
+ * <p>Deletes the quota increase request for the specified quota from your quota request
+ *       template.</p>
  */
 export class DeleteServiceQuotaIncreaseRequestFromTemplateCommand extends $Command<
   DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput,

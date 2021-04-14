@@ -21,7 +21,7 @@ export type ListImagePipelineImagesCommandInput = ListImagePipelineImagesRequest
 export type ListImagePipelineImagesCommandOutput = ListImagePipelineImagesResponse & __MetadataBearer;
 
 /**
- * <p> Returns a list of images created by the specified pipeline. </p>
+ * <p> Returns a list of images created by the specified pipeline.</p>
  */
 export class ListImagePipelineImagesCommand extends $Command<
   ListImagePipelineImagesCommandInput,

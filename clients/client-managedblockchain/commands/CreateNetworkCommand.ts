@@ -26,6 +26,7 @@ export type CreateNetworkCommandOutput = CreateNetworkOutput & __MetadataBearer;
 
 /**
  * <p>Creates a new blockchain network using Amazon Managed Blockchain.</p>
+ *          <p>Applies only to Hyperledger Fabric.</p>
  */
 export class CreateNetworkCommand extends $Command<
   CreateNetworkCommandInput,

@@ -111,11 +111,11 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  */
 export class Kendra extends KendraClient {
   /**
-   * <p>Removes one or more documents from an index. The documents must have been added with the
-   *         <a>BatchPutDocument</a> operation.</p>
-   *          <p>The documents are deleted asynchronously. You can see the progress of the deletion by
-   *       using AWS CloudWatch. Any error messages releated to the processing of the batch are sent to
-   *       you CloudWatch log.</p>
+   * <p>Removes one or more documents from an index. The documents must have
+   *       been added with the <code>BatchPutDocument</code> operation.</p>
+   *          <p>The documents are deleted asynchronously. You can see the progress of
+   *       the deletion by using AWS CloudWatch. Any error messages related to the
+   *       processing of the batch are sent to you CloudWatch log.</p>
    */
   public batchDeleteDocument(
     args: BatchDeleteDocumentCommandInput,
@@ -148,13 +148,14 @@ export class Kendra extends KendraClient {
 
   /**
    * <p>Adds one or more documents to an index.</p>
-   *          <p>The <code>BatchPutDocument</code> operation enables you to ingest inline documents or a
-   *       set of documents stored in an Amazon S3 bucket. Use this operation to ingest your text and
-   *       unstructured text into an index, add custom attributes to the documents, and to attach an
-   *       access control list to the documents added to the index.</p>
-   *          <p>The documents are indexed asynchronously. You can see the progress of the batch using AWS
-   *       CloudWatch. Any error messages related to processing the batch are sent to your AWS CloudWatch
-   *       log.</p>
+   *          <p>The <code>BatchPutDocument</code> operation enables you to ingest
+   *       inline documents or a set of documents stored in an Amazon S3 bucket. Use
+   *       this operation to ingest your text and unstructured text into an index,
+   *       add custom attributes to the documents, and to attach an access control
+   *       list to the documents added to the index.</p>
+   *          <p>The documents are indexed asynchronously. You can see the progress of
+   *       the batch using AWS CloudWatch. Any error messages related to processing
+   *       the batch are sent to your AWS CloudWatch log.</p>
    */
   public batchPutDocument(
     args: BatchPutDocumentCommandInput,
@@ -187,12 +188,14 @@ export class Kendra extends KendraClient {
 
   /**
    * <p>Creates a data source that you use to with an Amazon Kendra index. </p>
-   *          <p>You specify a name, data source connector type and description for your data source. You
-   *       also specify configuration information such as document metadata (author, source URI, and so
-   *       on) and user context information.</p>
+   *          <p>You specify a name, data source connector type and description for
+   *       your data source. You also specify configuration information such as
+   *       document metadata (author, source URI, and so on) and user context
+   *       information.</p>
    *          <p>
-   *             <code>CreateDataSource</code> is a synchronous operation. The operation returns 200 if the
-   *       data source was successfully created. Otherwise, an exception is raised.</p>
+   *             <code>CreateDataSource</code> is a synchronous operation. The
+   *       operation returns 200 if the data source was successfully created.
+   *       Otherwise, an exception is raised.</p>
    */
   public createDataSource(
     args: CreateDataSourceCommandInput,
@@ -250,12 +253,14 @@ export class Kendra extends KendraClient {
   }
 
   /**
-   * <p>Creates a new Amazon Kendra index. Index creation is an asynchronous operation. To
-   *       determine if index creation has completed, check the <code>Status</code> field returned from a
-   *       call to . The <code>Status</code> field is set to
+   * <p>Creates a new Amazon Kendra index. Index creation is an asynchronous
+   *       operation. To determine if index creation has completed, check the
+   *         <code>Status</code> field returned from a call to
+   *         <code>DescribeIndex</code>. The <code>Status</code> field is set to
    *         <code>ACTIVE</code> when the index is ready to use.</p>
-   *          <p>Once the index is active you can index your documents using the  operation or using one of the supported data sources.
-   *     </p>
+   *          <p>Once the index is active you can index your documents using the
+   *         <code>BatchPutDocument</code> operation or using one of the supported
+   *       data sources. </p>
    */
   public createIndex(args: CreateIndexCommandInput, options?: __HttpHandlerOptions): Promise<CreateIndexCommandOutput>;
   public createIndex(args: CreateIndexCommandInput, cb: (err: any, data?: CreateIndexCommandOutput) => void): void;
@@ -314,9 +319,10 @@ export class Kendra extends KendraClient {
   }
 
   /**
-   * <p>Deletes an Amazon Kendra data source. An exception is not thrown if the data source is
-   *       already being deleted. While the data source is being deleted, the <code>Status</code> field
-   *       returned by a call to the  operation is set to
+   * <p>Deletes an Amazon Kendra data source. An exception is not thrown if the
+   *       data source is already being deleted. While the data source is being
+   *       deleted, the <code>Status</code> field returned by a call to the
+   *         <code>DescribeDataSource</code> operation is set to
    *         <code>DELETING</code>. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/delete-data-source.html">Deleting Data Sources</a>.</p>
    */
   public deleteDataSource(
@@ -375,9 +381,11 @@ export class Kendra extends KendraClient {
   }
 
   /**
-   * <p>Deletes an existing Amazon Kendra index. An exception is not thrown if the index is already
-   *       being deleted. While the index is being deleted, the <code>Status</code> field returned by a
-   *       call to the <a>DescribeIndex</a> operation is set to <code>DELETING</code>.</p>
+   * <p>Deletes an existing Amazon Kendra index. An exception is not thrown if
+   *       the index is already being deleted. While the index is being deleted, the
+   *         <code>Status</code> field returned by a call to the
+   *         <code>DescribeIndex</code> operation is set to
+   *       <code>DELETING</code>.</p>
    */
   public deleteIndex(args: DeleteIndexCommandInput, options?: __HttpHandlerOptions): Promise<DeleteIndexCommandOutput>;
   public deleteIndex(args: DeleteIndexCommandInput, cb: (err: any, data?: DeleteIndexCommandOutput) => void): void;
@@ -590,7 +598,8 @@ export class Kendra extends KendraClient {
   }
 
   /**
-   * <p>Gets statistics about synchronizing Amazon Kendra with a data source.</p>
+   * <p>Gets statistics about synchronizing Amazon Kendra with a data
+   *       source.</p>
    */
   public listDataSourceSyncJobs(
     args: ListDataSourceSyncJobsCommandInput,
@@ -674,8 +683,8 @@ export class Kendra extends KendraClient {
   }
 
   /**
-   * <p>Gets a list of tags associated with a specified resource. Indexes, FAQs, and data sources
-   *       can have tags associated with them.</p>
+   * <p>Gets a list of tags associated with a specified resource. Indexes,
+   *       FAQs, and data sources can have tags associated with them.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -736,13 +745,14 @@ export class Kendra extends KendraClient {
   }
 
   /**
-   * <p>Searches an active index. Use this API to search your documents using query. The
-   *             <code>Query</code> operation enables to do faceted search and to filter results based on
-   *          document attributes.</p>
-   *          <p>It also enables you to provide user context that Amazon Kendra uses to enforce document
-   *          access control in the search results. </p>
-   *          <p>Amazon Kendra searches your index for text content and question and answer (FAQ) content.
-   *          By default the response contains three types of results.</p>
+   * <p>Searches an active index. Use this API to search your documents
+   *          using query. The <code>Query</code> operation enables to do faceted
+   *          search and to filter results based on document attributes.</p>
+   *          <p>It also enables you to provide user context that Amazon Kendra uses
+   *          to enforce document access control in the search results. </p>
+   *          <p>Amazon Kendra searches your index for text content and question and
+   *          answer (FAQ) content. By default the response contains three types of
+   *          results.</p>
    *          <ul>
    *             <li>
    *                <p>Relevant passages</p>
@@ -754,8 +764,8 @@ export class Kendra extends KendraClient {
    *                <p>Relevant documents</p>
    *             </li>
    *          </ul>
-   *          <p>You can specify that the query return only one type of result using the
-   *             <code>QueryResultTypeConfig</code> parameter.</p>
+   *          <p>You can specify that the query return only one type of result using
+   *          the <code>QueryResultTypeConfig</code> parameter.</p>
    *          <p>Each query returns the 100 most relevant results. </p>
    */
   public query(args: QueryCommandInput, options?: __HttpHandlerOptions): Promise<QueryCommandOutput>;
@@ -782,8 +792,9 @@ export class Kendra extends KendraClient {
   }
 
   /**
-   * <p>Starts a synchronization job for a data source. If a synchronization job is already in
-   *       progress, Amazon Kendra returns a <code>ResourceInUseException</code> exception.</p>
+   * <p>Starts a synchronization job for a data source. If a synchronization
+   *       job is already in progress, Amazon Kendra returns a
+   *         <code>ResourceInUseException</code> exception.</p>
    */
   public startDataSourceSyncJob(
     args: StartDataSourceSyncJobCommandInput,
@@ -815,8 +826,8 @@ export class Kendra extends KendraClient {
   }
 
   /**
-   * <p>Stops a running synchronization job. You can't stop a scheduled synchronization
-   *       job.</p>
+   * <p>Stops a running synchronization job. You can't stop a scheduled
+   *       synchronization job.</p>
    */
   public stopDataSourceSyncJob(
     args: StopDataSourceSyncJobCommandInput,
@@ -848,8 +859,8 @@ export class Kendra extends KendraClient {
   }
 
   /**
-   * <p>Enables you to provide feedback to Amazon Kendra to improve the performance
-   *         of the service. </p>
+   * <p>Enables you to provide feedback to Amazon Kendra to improve the
+   *             performance of the service. </p>
    */
   public submitFeedback(
     args: SubmitFeedbackCommandInput,
@@ -881,8 +892,9 @@ export class Kendra extends KendraClient {
   }
 
   /**
-   * <p>Adds the specified tag to the specified index, FAQ, or data source resource. If the tag
-   *       already exists, the existing value is replaced with the new value.</p>
+   * <p>Adds the specified tag to the specified index, FAQ, or data source
+   *       resource. If the tag already exists, the existing value is replaced with
+   *       the new value.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;

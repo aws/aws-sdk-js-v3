@@ -64,12 +64,13 @@ export type CreateGovCloudAccountCommandOutput = CreateGovCloudAccountResponse &
  *             commercial account associated with the GovCloud account, rather than the GovCloud
  *             account itself. To add tags to the GovCloud account, call the <a>TagResource</a> operation in the GovCloud Region after the new GovCloud
  *             account exists.</p>
- *         <p>You call this action from the management account of your organization in the commercial
- *             Region to create a standalone AWS account in the AWS GovCloud (US) Region. After the
- *             account is created, the management account of an organization in the AWS GovCloud (US)
- *             Region can invite it to that organization. For more information on inviting standalone
- *             accounts in the AWS GovCloud (US) to join an organization, see <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS Organizations</a> in the
- *                 <i>AWS GovCloud User Guide.</i>
+ *         <p>You call this action from the management account of your organization in the
+ *             commercial Region to create a standalone AWS account in the AWS GovCloud (US)
+ *             Region. After the account is created, the management account of an organization in the
+ *             AWS GovCloud (US) Region can invite it to that organization. For more information on
+ *             inviting standalone accounts in the AWS GovCloud (US) to join an organization, see
+ *                 <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS Organizations</a> in
+ *             the <i>AWS GovCloud User Guide.</i>
  *          </p>
  *         <p>Calling <code>CreateGovCloudAccount</code> is an asynchronous request that AWS
  *             performs in the background. Because <code>CreateGovCloudAccount</code> operates
@@ -100,9 +101,9 @@ export type CreateGovCloudAccountCommandOutput = CreateGovCloudAccountResponse &
  *             management account in the organization in the commercial Region to assume it. An AWS
  *             GovCloud (US) account is then created and associated with the commercial account that
  *             you just created. A role is also created in the new AWS GovCloud (US) account that can
- *             be assumed by the AWS GovCloud (US) account that is associated with the
- *             management account of the commercial organization. For more information and to view a
- *             diagram that explains how account access works, see <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS Organizations</a> in the
+ *             be assumed by the AWS GovCloud (US) account that is associated with the management
+ *             account of the commercial organization. For more information and to view a diagram that
+ *             explains how account access works, see <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS Organizations</a> in the
  *                 <i>AWS GovCloud User Guide.</i>
  *          </p>
  *

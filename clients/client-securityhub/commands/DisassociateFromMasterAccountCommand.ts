@@ -1,5 +1,5 @@
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
-import { DisassociateFromMasterAccountRequest, DisassociateFromMasterAccountResponse } from "../models/models_0";
+import { DisassociateFromMasterAccountRequest, DisassociateFromMasterAccountResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DisassociateFromMasterAccountCommand,
   serializeAws_restJson1DisassociateFromMasterAccountCommand,

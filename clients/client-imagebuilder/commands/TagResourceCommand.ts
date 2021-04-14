@@ -21,7 +21,7 @@ export type TagResourceCommandInput = TagResourceRequest;
 export type TagResourceCommandOutput = TagResourceResponse & __MetadataBearer;
 
 /**
- * <p> Adds a tag to a resource. </p>
+ * <p> Adds a tag to a resource.</p>
  */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,

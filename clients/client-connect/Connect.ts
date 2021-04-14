@@ -20,6 +20,11 @@ import {
   AssociateLexBotCommandOutput,
 } from "./commands/AssociateLexBotCommand";
 import {
+  AssociateQueueQuickConnectsCommand,
+  AssociateQueueQuickConnectsCommandInput,
+  AssociateQueueQuickConnectsCommandOutput,
+} from "./commands/AssociateQueueQuickConnectsCommand";
+import {
   AssociateRoutingProfileQueuesCommand,
   AssociateRoutingProfileQueuesCommandInput,
   AssociateRoutingProfileQueuesCommandOutput,
@@ -44,6 +49,12 @@ import {
   CreateIntegrationAssociationCommandInput,
   CreateIntegrationAssociationCommandOutput,
 } from "./commands/CreateIntegrationAssociationCommand";
+import { CreateQueueCommand, CreateQueueCommandInput, CreateQueueCommandOutput } from "./commands/CreateQueueCommand";
+import {
+  CreateQuickConnectCommand,
+  CreateQuickConnectCommandInput,
+  CreateQuickConnectCommandOutput,
+} from "./commands/CreateQuickConnectCommand";
 import {
   CreateRoutingProfileCommand,
   CreateRoutingProfileCommandInput,
@@ -71,6 +82,11 @@ import {
   DeleteIntegrationAssociationCommandOutput,
 } from "./commands/DeleteIntegrationAssociationCommand";
 import {
+  DeleteQuickConnectCommand,
+  DeleteQuickConnectCommandInput,
+  DeleteQuickConnectCommandOutput,
+} from "./commands/DeleteQuickConnectCommand";
+import {
   DeleteUseCaseCommand,
   DeleteUseCaseCommandInput,
   DeleteUseCaseCommandOutput,
@@ -87,6 +103,11 @@ import {
   DescribeContactFlowCommandOutput,
 } from "./commands/DescribeContactFlowCommand";
 import {
+  DescribeHoursOfOperationCommand,
+  DescribeHoursOfOperationCommandInput,
+  DescribeHoursOfOperationCommandOutput,
+} from "./commands/DescribeHoursOfOperationCommand";
+import {
   DescribeInstanceAttributeCommand,
   DescribeInstanceAttributeCommandInput,
   DescribeInstanceAttributeCommandOutput,
@@ -101,6 +122,16 @@ import {
   DescribeInstanceStorageConfigCommandInput,
   DescribeInstanceStorageConfigCommandOutput,
 } from "./commands/DescribeInstanceStorageConfigCommand";
+import {
+  DescribeQueueCommand,
+  DescribeQueueCommandInput,
+  DescribeQueueCommandOutput,
+} from "./commands/DescribeQueueCommand";
+import {
+  DescribeQuickConnectCommand,
+  DescribeQuickConnectCommandInput,
+  DescribeQuickConnectCommandOutput,
+} from "./commands/DescribeQuickConnectCommand";
 import {
   DescribeRoutingProfileCommand,
   DescribeRoutingProfileCommandInput,
@@ -141,6 +172,11 @@ import {
   DisassociateLexBotCommandInput,
   DisassociateLexBotCommandOutput,
 } from "./commands/DisassociateLexBotCommand";
+import {
+  DisassociateQueueQuickConnectsCommand,
+  DisassociateQueueQuickConnectsCommandInput,
+  DisassociateQueueQuickConnectsCommandOutput,
+} from "./commands/DisassociateQueueQuickConnectsCommand";
 import {
   DisassociateRoutingProfileQueuesCommand,
   DisassociateRoutingProfileQueuesCommandInput,
@@ -218,7 +254,17 @@ import {
   ListPhoneNumbersCommandOutput,
 } from "./commands/ListPhoneNumbersCommand";
 import { ListPromptsCommand, ListPromptsCommandInput, ListPromptsCommandOutput } from "./commands/ListPromptsCommand";
+import {
+  ListQueueQuickConnectsCommand,
+  ListQueueQuickConnectsCommandInput,
+  ListQueueQuickConnectsCommandOutput,
+} from "./commands/ListQueueQuickConnectsCommand";
 import { ListQueuesCommand, ListQueuesCommandInput, ListQueuesCommandOutput } from "./commands/ListQueuesCommand";
+import {
+  ListQuickConnectsCommand,
+  ListQuickConnectsCommandInput,
+  ListQuickConnectsCommandOutput,
+} from "./commands/ListQuickConnectsCommand";
 import {
   ListRoutingProfileQueuesCommand,
   ListRoutingProfileQueuesCommandInput,
@@ -323,6 +369,41 @@ import {
   UpdateInstanceStorageConfigCommandOutput,
 } from "./commands/UpdateInstanceStorageConfigCommand";
 import {
+  UpdateQueueHoursOfOperationCommand,
+  UpdateQueueHoursOfOperationCommandInput,
+  UpdateQueueHoursOfOperationCommandOutput,
+} from "./commands/UpdateQueueHoursOfOperationCommand";
+import {
+  UpdateQueueMaxContactsCommand,
+  UpdateQueueMaxContactsCommandInput,
+  UpdateQueueMaxContactsCommandOutput,
+} from "./commands/UpdateQueueMaxContactsCommand";
+import {
+  UpdateQueueNameCommand,
+  UpdateQueueNameCommandInput,
+  UpdateQueueNameCommandOutput,
+} from "./commands/UpdateQueueNameCommand";
+import {
+  UpdateQueueOutboundCallerConfigCommand,
+  UpdateQueueOutboundCallerConfigCommandInput,
+  UpdateQueueOutboundCallerConfigCommandOutput,
+} from "./commands/UpdateQueueOutboundCallerConfigCommand";
+import {
+  UpdateQueueStatusCommand,
+  UpdateQueueStatusCommandInput,
+  UpdateQueueStatusCommandOutput,
+} from "./commands/UpdateQueueStatusCommand";
+import {
+  UpdateQuickConnectConfigCommand,
+  UpdateQuickConnectConfigCommandInput,
+  UpdateQuickConnectConfigCommandOutput,
+} from "./commands/UpdateQuickConnectConfigCommand";
+import {
+  UpdateQuickConnectNameCommand,
+  UpdateQuickConnectNameCommandInput,
+  UpdateQuickConnectNameCommandOutput,
+} from "./commands/UpdateQuickConnectNameCommand";
+import {
   UpdateRoutingProfileConcurrencyCommand,
   UpdateRoutingProfileConcurrencyCommandInput,
   UpdateRoutingProfileConcurrencyCommandOutput,
@@ -380,24 +461,27 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * <p>Amazon Connect is a cloud-based contact center solution that makes it easy to set up and manage a
- *    customer contact center and provide reliable customer engagement at any scale.</p>
- *          <p>Amazon Connect provides rich metrics and real-time reporting that allow you to optimize contact
- *    routing. You can also resolve customer issues more efficiently by putting customers in touch with
- *    the right agents.</p>
- *          <p>There are limits to the number of Amazon Connect resources that you can create and limits to the
- *    number of requests that you can make per second. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect
+ * <p>Amazon Connect is a cloud-based contact center solution that you use to set up and manage a customer
+ *    contact center and provide reliable customer engagement at any scale.</p>
+ *          <p>Amazon Connect provides metrics and real-time reporting that enable you to optimize contact routing.
+ *    You can also resolve customer issues more efficiently by getting customers in touch with the
+ *    appropriate agents.</p>
+ *          <p>There are limits to the number of Amazon Connect resources that you can create. There are also limits
+ *    to the number of requests that you can make per second. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect
  *     Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
- *          <p>To connect programmatically to an AWS service, you use an endpoint. For a list of Amazon Connect
- *    endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect
- *     Endpoints</a>.</p>
+ *          <p>You can
+ *    connect
+ *    programmatically to an AWS service by using an endpoint. For a list of Amazon Connect endpoints, see
+ *     <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect
+ *    Endpoints</a>.</p>
  *          <note>
  *             <p>Working with contact flows? Check out the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect Flow language</a>.</p>
  *          </note>
  */
 export class Connect extends ConnectClient {
   /**
-   * <p>Associates an approved origin to an Amazon Connect instance.</p>
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Associates an approved origin to an Amazon Connect instance.</p>
    */
   public associateApprovedOrigin(
     args: AssociateApprovedOriginCommandInput,
@@ -429,12 +513,13 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Associates a storage resource type for the first time. You can only associate one type of
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Associates a storage resource type for the first time. You can only associate one type of
    *    storage configuration in a single call. This means, for example, that you can't define an
    *    instance with multiple S3 buckets for storing chat transcripts.</p>
    *          <p>This API does not create a resource that doesn't exist. It only associates it to the
-   *    instance. Ensure that the resource being specified in the storage configuration, like an Amazon
-   *    S3 bucket, exists when being used for association.</p>
+   *    instance. Ensure that the resource being specified in the storage configuration, like an S3
+   *    bucket, exists when being used for association.</p>
    */
   public associateInstanceStorageConfig(
     args: AssociateInstanceStorageConfigCommandInput,
@@ -466,7 +551,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Allows the specified Amazon Connect instance to access the specified Lambda function.</p>
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Allows the specified Amazon Connect instance to access the specified Lambda function.</p>
    */
   public associateLambdaFunction(
     args: AssociateLambdaFunctionCommandInput,
@@ -498,7 +584,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Allows the specified Amazon Connect instance to access the specified Amazon Lex bot.</p>
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Allows the specified Amazon Connect instance to access the specified Amazon Lex bot.</p>
    */
   public associateLexBot(
     args: AssociateLexBotCommandInput,
@@ -519,6 +606,39 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: AssociateLexBotCommandOutput) => void
   ): Promise<AssociateLexBotCommandOutput> | void {
     const command = new AssociateLexBotCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Associates a set of quick connects with a queue.</p>
+   */
+  public associateQueueQuickConnects(
+    args: AssociateQueueQuickConnectsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateQueueQuickConnectsCommandOutput>;
+  public associateQueueQuickConnects(
+    args: AssociateQueueQuickConnectsCommandInput,
+    cb: (err: any, data?: AssociateQueueQuickConnectsCommandOutput) => void
+  ): void;
+  public associateQueueQuickConnects(
+    args: AssociateQueueQuickConnectsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateQueueQuickConnectsCommandOutput) => void
+  ): void;
+  public associateQueueQuickConnects(
+    args: AssociateQueueQuickConnectsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateQueueQuickConnectsCommandOutput) => void),
+    cb?: (err: any, data?: AssociateQueueQuickConnectsCommandOutput) => void
+  ): Promise<AssociateQueueQuickConnectsCommandOutput> | void {
+    const command = new AssociateQueueQuickConnectsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -562,7 +682,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Associates a security key to the instance.</p>
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Associates a security key to the instance.</p>
    */
   public associateSecurityKey(
     args: AssociateSecurityKeyCommandInput,
@@ -630,8 +751,8 @@ export class Connect extends ConnectClient {
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Initiates an Amazon Connect instance with all the supported channels enabled. It does not attach any
-   *    storage (such as Amazon S3, or Kinesis) or allow for any configurations on features such as
-   *    Contact Lens for Amazon Connect. </p>
+   *    storage, such as Amazon Simple Storage Service (Amazon S3) or Amazon Kinesis. It also does not
+   *    allow for any configurations on features, such as Contact Lens for Amazon Connect. </p>
    */
   public createInstance(
     args: CreateInstanceCommandInput,
@@ -664,7 +785,7 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Create an AppIntegration association with anAmazon Connect instance.</p>
+   *          <p>Create an AppIntegration association with an Amazon Connect instance.</p>
    */
   public createIntegrationAssociation(
     args: CreateIntegrationAssociationCommandInput,
@@ -685,6 +806,66 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: CreateIntegrationAssociationCommandOutput) => void
   ): Promise<CreateIntegrationAssociationCommandOutput> | void {
     const command = new CreateIntegrationAssociationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Creates a new queue for the specified Amazon Connect instance.</p>
+   */
+  public createQueue(args: CreateQueueCommandInput, options?: __HttpHandlerOptions): Promise<CreateQueueCommandOutput>;
+  public createQueue(args: CreateQueueCommandInput, cb: (err: any, data?: CreateQueueCommandOutput) => void): void;
+  public createQueue(
+    args: CreateQueueCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateQueueCommandOutput) => void
+  ): void;
+  public createQueue(
+    args: CreateQueueCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateQueueCommandOutput) => void),
+    cb?: (err: any, data?: CreateQueueCommandOutput) => void
+  ): Promise<CreateQueueCommandOutput> | void {
+    const command = new CreateQueueCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Creates a quick connect for the specified Amazon Connect instance.</p>
+   */
+  public createQuickConnect(
+    args: CreateQuickConnectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateQuickConnectCommandOutput>;
+  public createQuickConnect(
+    args: CreateQuickConnectCommandInput,
+    cb: (err: any, data?: CreateQuickConnectCommandOutput) => void
+  ): void;
+  public createQuickConnect(
+    args: CreateQuickConnectCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateQuickConnectCommandOutput) => void
+  ): void;
+  public createQuickConnect(
+    args: CreateQuickConnectCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateQuickConnectCommandOutput) => void),
+    cb?: (err: any, data?: CreateQuickConnectCommandOutput) => void
+  ): Promise<CreateQuickConnectCommandOutput> | void {
+    const command = new CreateQuickConnectCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -889,6 +1070,39 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Deletes a quick connect.</p>
+   */
+  public deleteQuickConnect(
+    args: DeleteQuickConnectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteQuickConnectCommandOutput>;
+  public deleteQuickConnect(
+    args: DeleteQuickConnectCommandInput,
+    cb: (err: any, data?: DeleteQuickConnectCommandOutput) => void
+  ): void;
+  public deleteQuickConnect(
+    args: DeleteQuickConnectCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteQuickConnectCommandOutput) => void
+  ): void;
+  public deleteQuickConnect(
+    args: DeleteQuickConnectCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteQuickConnectCommandOutput) => void),
+    cb?: (err: any, data?: DeleteQuickConnectCommandOutput) => void
+  ): Promise<DeleteQuickConnectCommandOutput> | void {
+    const command = new DeleteQuickConnectCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Deletes a use case from an AppIntegration association.</p>
    */
   public deleteUseCase(
@@ -1017,8 +1231,42 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Returns the current state of the specified instance identifier. It tracks the instance while
-   *    it is being created and returns an error status if applicable. </p>
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Describes the hours of operation.</p>
+   */
+  public describeHoursOfOperation(
+    args: DescribeHoursOfOperationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeHoursOfOperationCommandOutput>;
+  public describeHoursOfOperation(
+    args: DescribeHoursOfOperationCommandInput,
+    cb: (err: any, data?: DescribeHoursOfOperationCommandOutput) => void
+  ): void;
+  public describeHoursOfOperation(
+    args: DescribeHoursOfOperationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeHoursOfOperationCommandOutput) => void
+  ): void;
+  public describeHoursOfOperation(
+    args: DescribeHoursOfOperationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeHoursOfOperationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeHoursOfOperationCommandOutput) => void
+  ): Promise<DescribeHoursOfOperationCommandOutput> | void {
+    const command = new DescribeHoursOfOperationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Returns the current state of the specified instance identifier. It tracks the instance while
+   *    it is being created and returns an error status, if applicable. </p>
    *          <p>If an instance is not created successfully, the instance status reason field returns details
    *    relevant to the reason. The instance in a failed state is returned only for 24 hours after the
    *    CreateInstance API was invoked.</p>
@@ -1053,7 +1301,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Describes the specified instance attribute.</p>
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Describes the specified instance attribute.</p>
    */
   public describeInstanceAttribute(
     args: DescribeInstanceAttributeCommandInput,
@@ -1085,7 +1334,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Retrieves the current storage configurations for the specified resource type, association
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Retrieves the current storage configurations for the specified resource type, association
    *    ID, and instance ID.</p>
    */
   public describeInstanceStorageConfig(
@@ -1107,6 +1357,72 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: DescribeInstanceStorageConfigCommandOutput) => void
   ): Promise<DescribeInstanceStorageConfigCommandOutput> | void {
     const command = new DescribeInstanceStorageConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Describes the specified queue.</p>
+   */
+  public describeQueue(
+    args: DescribeQueueCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeQueueCommandOutput>;
+  public describeQueue(
+    args: DescribeQueueCommandInput,
+    cb: (err: any, data?: DescribeQueueCommandOutput) => void
+  ): void;
+  public describeQueue(
+    args: DescribeQueueCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeQueueCommandOutput) => void
+  ): void;
+  public describeQueue(
+    args: DescribeQueueCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeQueueCommandOutput) => void),
+    cb?: (err: any, data?: DescribeQueueCommandOutput) => void
+  ): Promise<DescribeQueueCommandOutput> | void {
+    const command = new DescribeQueueCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Describes the quick connect.</p>
+   */
+  public describeQuickConnect(
+    args: DescribeQuickConnectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeQuickConnectCommandOutput>;
+  public describeQuickConnect(
+    args: DescribeQuickConnectCommandInput,
+    cb: (err: any, data?: DescribeQuickConnectCommandOutput) => void
+  ): void;
+  public describeQuickConnect(
+    args: DescribeQuickConnectCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeQuickConnectCommandOutput) => void
+  ): void;
+  public describeQuickConnect(
+    args: DescribeQuickConnectCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeQuickConnectCommandOutput) => void),
+    cb?: (err: any, data?: DescribeQuickConnectCommandOutput) => void
+  ): Promise<DescribeQuickConnectCommandOutput> | void {
+    const command = new DescribeQuickConnectCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1245,7 +1561,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Revokes access to integrated applications from Amazon Connect.</p>
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Revokes access to integrated applications from Amazon Connect.</p>
    */
   public disassociateApprovedOrigin(
     args: DisassociateApprovedOriginCommandInput,
@@ -1277,7 +1594,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Removes the storage type configurations for the specified resource type and association
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Removes the storage type configurations for the specified resource type and association
    *    ID.</p>
    */
   public disassociateInstanceStorageConfig(
@@ -1310,7 +1628,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Remove the Lambda function from the drop-down options available in the relevant contact flow
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Remove the Lambda function from the dropdown options available in the relevant contact flow
    *    blocks.</p>
    */
   public disassociateLambdaFunction(
@@ -1343,7 +1662,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Revokes authorization from the specified instance to access the specified Amazon Lex bot.</p>
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Revokes authorization from the specified instance to access the specified Amazon Lex bot.</p>
    */
   public disassociateLexBot(
     args: DisassociateLexBotCommandInput,
@@ -1364,6 +1684,39 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: DisassociateLexBotCommandOutput) => void
   ): Promise<DisassociateLexBotCommandOutput> | void {
     const command = new DisassociateLexBotCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Disassociates a set of quick connects from a queue.</p>
+   */
+  public disassociateQueueQuickConnects(
+    args: DisassociateQueueQuickConnectsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateQueueQuickConnectsCommandOutput>;
+  public disassociateQueueQuickConnects(
+    args: DisassociateQueueQuickConnectsCommandInput,
+    cb: (err: any, data?: DisassociateQueueQuickConnectsCommandOutput) => void
+  ): void;
+  public disassociateQueueQuickConnects(
+    args: DisassociateQueueQuickConnectsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateQueueQuickConnectsCommandOutput) => void
+  ): void;
+  public disassociateQueueQuickConnects(
+    args: DisassociateQueueQuickConnectsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateQueueQuickConnectsCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateQueueQuickConnectsCommandOutput) => void
+  ): Promise<DisassociateQueueQuickConnectsCommandOutput> | void {
+    const command = new DisassociateQueueQuickConnectsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1407,7 +1760,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Deletes the specified security key.</p>
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Deletes the specified security key.</p>
    */
   public disassociateSecurityKey(
     args: DisassociateSecurityKeyCommandInput,
@@ -1571,7 +1925,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Returns a paginated list of all approved origins associated with the instance.</p>
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Returns a paginated list of all approved origins associated with the instance.</p>
    */
   public listApprovedOrigins(
     args: ListApprovedOriginsCommandInput,
@@ -1810,8 +2165,9 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Returns a paginated list of all the Lambda functions that show up in the drop-down options
-   *    in the relevant contact flow blocks.</p>
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Returns a paginated list of all Lambda functions that display in the dropdown options in the
+   *    relevant contact flow blocks.</p>
    */
   public listLambdaFunctions(
     args: ListLambdaFunctionsCommandInput,
@@ -1843,7 +2199,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Returns a paginated list of all the Amazon Lex bots currently associated with the
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Returns a paginated list of all the Amazon Lex bots currently associated with the
    *    instance.</p>
    */
   public listLexBots(args: ListLexBotsCommandInput, options?: __HttpHandlerOptions): Promise<ListLexBotsCommandOutput>;
@@ -1930,6 +2287,39 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Lists the quick connects associated with a queue.</p>
+   */
+  public listQueueQuickConnects(
+    args: ListQueueQuickConnectsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListQueueQuickConnectsCommandOutput>;
+  public listQueueQuickConnects(
+    args: ListQueueQuickConnectsCommandInput,
+    cb: (err: any, data?: ListQueueQuickConnectsCommandOutput) => void
+  ): void;
+  public listQueueQuickConnects(
+    args: ListQueueQuickConnectsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListQueueQuickConnectsCommandOutput) => void
+  ): void;
+  public listQueueQuickConnects(
+    args: ListQueueQuickConnectsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListQueueQuickConnectsCommandOutput) => void),
+    cb?: (err: any, data?: ListQueueQuickConnectsCommandOutput) => void
+  ): Promise<ListQueueQuickConnectsCommandOutput> | void {
+    const command = new ListQueueQuickConnectsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Provides information about the queues for the specified Amazon Connect instance.</p>
    *          <p>For more information about queues, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-queues-standard-and-agent.html">Queues: Standard and
    *     Agent</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
@@ -1958,7 +2348,40 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>List the queues associated with a routing profile.</p>
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Provides information about the quick connects for the specified Amazon Connect instance. </p>
+   */
+  public listQuickConnects(
+    args: ListQuickConnectsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListQuickConnectsCommandOutput>;
+  public listQuickConnects(
+    args: ListQuickConnectsCommandInput,
+    cb: (err: any, data?: ListQuickConnectsCommandOutput) => void
+  ): void;
+  public listQuickConnects(
+    args: ListQuickConnectsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListQuickConnectsCommandOutput) => void
+  ): void;
+  public listQuickConnects(
+    args: ListQuickConnectsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListQuickConnectsCommandOutput) => void),
+    cb?: (err: any, data?: ListQuickConnectsCommandOutput) => void
+  ): Promise<ListQuickConnectsCommandOutput> | void {
+    const command = new ListQuickConnectsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the queues associated with a routing profile.</p>
    */
   public listRoutingProfileQueues(
     args: ListRoutingProfileQueuesCommandInput,
@@ -2025,7 +2448,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Returns a paginated list of all security keys associated with the instance.</p>
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Returns a paginated list of all security keys associated with the instance.</p>
    */
   public listSecurityKeys(
     args: ListSecurityKeysCommandInput,
@@ -2127,7 +2551,7 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>List the use cases. </p>
+   *          <p>Lists the use cases. </p>
    */
   public listUseCases(
     args: ListUseCasesCommandInput,
@@ -2255,9 +2679,8 @@ export class Connect extends ConnectClient {
    * <p>Initiates a contact flow to start a new chat for the customer. Response of this API provides
    *    a token required to obtain credentials from the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> API in the Amazon Connect Participant Service.</p>
    *
-   *          <p>When a new chat contact is successfully created, clients need to subscribe to the
-   *    participant’s connection for the created chat within 5 minutes. This is achieved by invoking
-   *     <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> with WEBSOCKET and CONNECTION_CREDENTIALS. </p>
+   *          <p>When a new chat contact is successfully created, clients must subscribe to the participant’s
+   *    connection for the created chat within 5 minutes. This is achieved by invoking <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> with WEBSOCKET and CONNECTION_CREDENTIALS. </p>
    *
    *          <p>A 429 error occurs in two situations:</p>
    *          <ul>
@@ -2272,7 +2695,7 @@ export class Connect extends ConnectClient {
    *             </li>
    *          </ul>
    *
-   *          <p>For more information about how chat works, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat.html">Chat</a> in the <i>Amazon Connect Administrator
+   *          <p>For more information about chat, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat.html">Chat</a> in the <i>Amazon Connect Administrator
    *     Guide</i>.</p>
    */
   public startChatContact(
@@ -2305,10 +2728,10 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>This API starts recording the contact when the agent joins the call. StartContactRecording
-   *    is a one-time action. For example, if you use StopContactRecording to stop recording an ongoing
-   *    call, you can't use StartContactRecording to restart it. For scenarios where the recording has
-   *    started and you want to suspend and resume it, such as when collecting sensitive information (for
+   * <p>Starts recording the contact when the agent joins the call. StartContactRecording is a
+   *    one-time action. For example, if you use StopContactRecording to stop recording an ongoing call,
+   *    you can't use StartContactRecording to restart it. For scenarios where the recording has started
+   *    and you want to suspend and resume it, such as when collecting sensitive information (for
    *    example, a credit card number), use SuspendContactRecording and ResumeContactRecording.</p>
    *          <p>You can use this API to override the recording behavior configured in the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-recording-behavior.html">Set recording
    *     behavior</a> block.</p>
@@ -2344,14 +2767,14 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>This API places an outbound call to a contact, and then initiates the contact flow. It
-   *    performs the actions in the contact flow that's specified (in <code>ContactFlowId</code>).</p>
+   * <p>Places an outbound call to a contact, and then initiates the contact flow. It performs the
+   *    actions in the contact flow that's specified (in <code>ContactFlowId</code>).</p>
    *
-   *          <p>Agents are not involved in initiating the outbound API (that is, dialing the contact). If
-   *    the contact flow places an outbound call to a contact, and then puts the contact in queue, that's
-   *    when the call is routed to the agent, like any other inbound case.</p>
+   *          <p>Agents do not initiate the outbound API, which means that they do not dial the contact. If
+   *    the contact flow places an outbound call to a contact, and then puts the contact in queue,  the
+   *    call is then routed to the agent, like any other inbound case.</p>
    *
-   *          <p>There is a 60 second dialing timeout for this operation. If the call is not connected after
+   *          <p>There is a 60-second dialing timeout for this operation. If the call is not connected after
    *    60 seconds, it fails.</p>
    *          <note>
    *             <p>UK numbers with a 447 prefix are not allowed by default. Before you can dial these UK
@@ -2447,11 +2870,11 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>When a contact is being recorded, this API stops recording the call. StopContactRecording is
-   *    a one-time action. If you use StopContactRecording to stop recording an ongoing call, you can't
-   *    use StartContactRecording to restart it. For scenarios where the recording has started and you
-   *    want to suspend it for sensitive information (for example, to collect a credit card number), and
-   *    then restart it, use SuspendContactRecording and ResumeContactRecording.</p>
+   * <p>Stops recording a call when a contact is being recorded. StopContactRecording is a one-time
+   *    action. If you use StopContactRecording to stop recording an ongoing call, you can't use
+   *    StartContactRecording to restart it. For scenarios where the recording has started and you want
+   *    to suspend it for sensitive information (for example, to collect a credit card number), and then
+   *    restart it, use SuspendContactRecording and ResumeContactRecording.</p>
    *
    *          <p>Only voice recordings are supported at this time.</p>
    */
@@ -2523,7 +2946,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Adds the specified tags to the specified resource.</p>
-   *          <p>The supported resource types are users, routing profiles, and contact flows.</p>
+   *          <p>The supported resource types are users, routing profiles, queues, quick connects, and contact
+   *    flows.</p>
    *          <p>For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon Connect Identity-Based
    *     Policy Examples</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    */
@@ -2584,21 +3008,21 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Creates or updates the contact attributes associated with the specified contact.</p>
-   *          <p>You can add or update attributes for both ongoing and completed contacts. For example, you
-   *    can update the customer's name or the reason the customer called while the call is active, or add
-   *    notes about steps that the agent took during the call that are displayed to the next agent that
+   *          <p>You can add or update attributes for both ongoing and completed contacts. For example, while
+   *    the call is active, you can update the customer's name or the reason the customer called. You can
+   *    add notes about steps that the agent took during the call that display to the next agent that
    *    takes the call. You can also update attributes for a contact using data from your CRM application
    *    and save the data with the contact in Amazon Connect. You could also flag calls for additional analysis,
-   *    such as legal review or identifying abusive callers.</p>
+   *    such as legal review or to identify abusive callers.</p>
    *          <p>Contact attributes are available in Amazon Connect for 24 months, and are then deleted.</p>
    *
    *          <p>
    *             <b>Important:</b> You cannot use the operation to update
-   *    attributes for contacts that occurred prior to the release of the API, September 12, 2018. You
-   *    can update attributes only for contacts that started after the release of the API. If you attempt
-   *    to update attributes for a contact that occurred prior to the release of the API, a 400 error is
-   *    returned. This applies also to queued callbacks that were initiated prior to the release of the
-   *    API but are still active in your instance.</p>
+   *    attributes for contacts that occurred prior to the release of the API, which was September 12,
+   *    2018. You can update attributes only for contacts that started after the release of the API. If
+   *    you attempt to update attributes for a contact that occurred prior to the release of the API, a
+   *    400 error is returned. This applies also to queued callbacks that were initiated prior to the
+   *    release of the API but are still active in your instance.</p>
    */
   public updateContactAttributes(
     args: UpdateContactAttributesCommandInput,
@@ -2764,6 +3188,239 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Updates the hours of operation for the specified queue.</p>
+   */
+  public updateQueueHoursOfOperation(
+    args: UpdateQueueHoursOfOperationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateQueueHoursOfOperationCommandOutput>;
+  public updateQueueHoursOfOperation(
+    args: UpdateQueueHoursOfOperationCommandInput,
+    cb: (err: any, data?: UpdateQueueHoursOfOperationCommandOutput) => void
+  ): void;
+  public updateQueueHoursOfOperation(
+    args: UpdateQueueHoursOfOperationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateQueueHoursOfOperationCommandOutput) => void
+  ): void;
+  public updateQueueHoursOfOperation(
+    args: UpdateQueueHoursOfOperationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateQueueHoursOfOperationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateQueueHoursOfOperationCommandOutput) => void
+  ): Promise<UpdateQueueHoursOfOperationCommandOutput> | void {
+    const command = new UpdateQueueHoursOfOperationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Updates the maximum number of contacts allowed in a queue before it is
+   *    considered full.</p>
+   */
+  public updateQueueMaxContacts(
+    args: UpdateQueueMaxContactsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateQueueMaxContactsCommandOutput>;
+  public updateQueueMaxContacts(
+    args: UpdateQueueMaxContactsCommandInput,
+    cb: (err: any, data?: UpdateQueueMaxContactsCommandOutput) => void
+  ): void;
+  public updateQueueMaxContacts(
+    args: UpdateQueueMaxContactsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateQueueMaxContactsCommandOutput) => void
+  ): void;
+  public updateQueueMaxContacts(
+    args: UpdateQueueMaxContactsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateQueueMaxContactsCommandOutput) => void),
+    cb?: (err: any, data?: UpdateQueueMaxContactsCommandOutput) => void
+  ): Promise<UpdateQueueMaxContactsCommandOutput> | void {
+    const command = new UpdateQueueMaxContactsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Updates the name and description of a queue.  At least <code>Name</code> or <code>Description</code> must be provided.</p>
+   */
+  public updateQueueName(
+    args: UpdateQueueNameCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateQueueNameCommandOutput>;
+  public updateQueueName(
+    args: UpdateQueueNameCommandInput,
+    cb: (err: any, data?: UpdateQueueNameCommandOutput) => void
+  ): void;
+  public updateQueueName(
+    args: UpdateQueueNameCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateQueueNameCommandOutput) => void
+  ): void;
+  public updateQueueName(
+    args: UpdateQueueNameCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateQueueNameCommandOutput) => void),
+    cb?: (err: any, data?: UpdateQueueNameCommandOutput) => void
+  ): Promise<UpdateQueueNameCommandOutput> | void {
+    const command = new UpdateQueueNameCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Updates the outbound caller ID name, number, and outbound whisper flow for a specified
+   *    queue.</p>
+   */
+  public updateQueueOutboundCallerConfig(
+    args: UpdateQueueOutboundCallerConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateQueueOutboundCallerConfigCommandOutput>;
+  public updateQueueOutboundCallerConfig(
+    args: UpdateQueueOutboundCallerConfigCommandInput,
+    cb: (err: any, data?: UpdateQueueOutboundCallerConfigCommandOutput) => void
+  ): void;
+  public updateQueueOutboundCallerConfig(
+    args: UpdateQueueOutboundCallerConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateQueueOutboundCallerConfigCommandOutput) => void
+  ): void;
+  public updateQueueOutboundCallerConfig(
+    args: UpdateQueueOutboundCallerConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateQueueOutboundCallerConfigCommandOutput) => void),
+    cb?: (err: any, data?: UpdateQueueOutboundCallerConfigCommandOutput) => void
+  ): Promise<UpdateQueueOutboundCallerConfigCommandOutput> | void {
+    const command = new UpdateQueueOutboundCallerConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Updates the status of the queue.</p>
+   */
+  public updateQueueStatus(
+    args: UpdateQueueStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateQueueStatusCommandOutput>;
+  public updateQueueStatus(
+    args: UpdateQueueStatusCommandInput,
+    cb: (err: any, data?: UpdateQueueStatusCommandOutput) => void
+  ): void;
+  public updateQueueStatus(
+    args: UpdateQueueStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateQueueStatusCommandOutput) => void
+  ): void;
+  public updateQueueStatus(
+    args: UpdateQueueStatusCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateQueueStatusCommandOutput) => void),
+    cb?: (err: any, data?: UpdateQueueStatusCommandOutput) => void
+  ): Promise<UpdateQueueStatusCommandOutput> | void {
+    const command = new UpdateQueueStatusCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Updates the configuration settings for the specified quick connect.</p>
+   */
+  public updateQuickConnectConfig(
+    args: UpdateQuickConnectConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateQuickConnectConfigCommandOutput>;
+  public updateQuickConnectConfig(
+    args: UpdateQuickConnectConfigCommandInput,
+    cb: (err: any, data?: UpdateQuickConnectConfigCommandOutput) => void
+  ): void;
+  public updateQuickConnectConfig(
+    args: UpdateQuickConnectConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateQuickConnectConfigCommandOutput) => void
+  ): void;
+  public updateQuickConnectConfig(
+    args: UpdateQuickConnectConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateQuickConnectConfigCommandOutput) => void),
+    cb?: (err: any, data?: UpdateQuickConnectConfigCommandOutput) => void
+  ): Promise<UpdateQuickConnectConfigCommandOutput> | void {
+    const command = new UpdateQuickConnectConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Updates the name and description of a quick connect. The request accepts the following data in JSON format. At least <code>Name</code> or <code>Description</code> must be provided.</p>
+   */
+  public updateQuickConnectName(
+    args: UpdateQuickConnectNameCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateQuickConnectNameCommandOutput>;
+  public updateQuickConnectName(
+    args: UpdateQuickConnectNameCommandInput,
+    cb: (err: any, data?: UpdateQuickConnectNameCommandOutput) => void
+  ): void;
+  public updateQuickConnectName(
+    args: UpdateQuickConnectNameCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateQuickConnectNameCommandOutput) => void
+  ): void;
+  public updateQuickConnectName(
+    args: UpdateQuickConnectNameCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateQuickConnectNameCommandOutput) => void),
+    cb?: (err: any, data?: UpdateQuickConnectNameCommandOutput) => void
+  ): Promise<UpdateQuickConnectNameCommandOutput> | void {
+    const command = new UpdateQuickConnectNameCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates the channels that agents can handle in the Contact Control Panel (CCP) for a routing
    *    profile.</p>
    */
@@ -2831,9 +3488,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Updates the name and description of a routing profile. The request accepts the following
-   *    data in JSON format. At least <code>Name</code> or <code>Description</code> must be
-   *    provided.</p>
+   * <p>Updates the name and description of a routing profile. The request accepts the following data in JSON format. At least <code>Name</code> or <code>Description</code> must be provided.</p>
    */
   public updateRoutingProfileName(
     args: UpdateRoutingProfileNameCommandInput,
@@ -2995,13 +3650,12 @@ export class Connect extends ConnectClient {
   /**
    * <p>Updates the identity information for the specified user.</p>
    *          <important>
-   *             <p>Someone with the ability to invoke <code>UpdateUserIndentityInfo</code> can change the
-   *     login credentials of other users by changing their email address. This poses a security risk to
-   *     your organization. They can change the email address of a user to the attacker's email address,
-   *     and then reset the password through email. We strongly recommend limiting who has the ability to
-   *     invoke <code>UpdateUserIndentityInfo</code>. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html">Best
-   *      Practices for Security Profiles</a> in the <i>Amazon Connect Administrator
-   *     Guide</i>.</p>
+   *             <p>We strongly recommend limiting who has the ability to invoke
+   *      <code>UpdateUserIdentityInfo</code>. Someone with that ability can change the login credentials
+   *     of other users by changing their email address. This poses a security risk to your organization.
+   *     They can change the email address of a user to the attacker's email address, and then reset the
+   *     password through email. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html">Best Practices for
+   *      Security Profiles</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    *          </important>
    */
   public updateUserIdentityInfo(

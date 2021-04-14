@@ -22,6 +22,7 @@ export type PutVoiceConnectorTerminationCommandOutput = PutVoiceConnectorTermina
 
 /**
  * <p>Adds termination settings for the specified Amazon Chime Voice Connector.</p>
+ *
  *          <note>
  *             <p>If emergency calling is configured for the Amazon Chime Voice Connector, it must be deleted prior to turning off termination settings.</p>
  *          </note>

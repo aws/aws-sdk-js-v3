@@ -24,16 +24,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `DocDBClient` and
-the commands you need, for example `AddTagsToResourceCommand`:
+the commands you need, for example `AddSourceIdentifierToSubscriptionCommand`:
 
 ```js
 // ES5 example
-const { DocDBClient, AddTagsToResourceCommand } = require("@aws-sdk/client-docdb");
+const { DocDBClient, AddSourceIdentifierToSubscriptionCommand } = require("@aws-sdk/client-docdb");
 ```
 
 ```ts
 // ES6+ example
-import { DocDBClient, AddTagsToResourceCommand } from "@aws-sdk/client-docdb";
+import { DocDBClient, AddSourceIdentifierToSubscriptionCommand } from "@aws-sdk/client-docdb";
 ```
 
 ### Usage
@@ -52,7 +52,7 @@ const client = new DocDBClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AddTagsToResourceCommand(params);
+const command = new AddSourceIdentifierToSubscriptionCommand(params);
 ```
 
 #### Async/await
@@ -131,7 +131,7 @@ const client = new AWS.DocDB({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.addTagsToResource(params);
+  const data = await client.addSourceIdentifierToSubscription(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -139,7 +139,7 @@ try {
 
 // Promises.
 client
-  .addTagsToResource(params)
+  .addSourceIdentifierToSubscription(params)
   .then((data) => {
     // process data.
   })
@@ -148,7 +148,7 @@ client
   });
 
 // callbacks.
-client.addTagsToResource(params, (err, data) => {
+client.addSourceIdentifierToSubscription(params, (err, data) => {
   // proccess err and data.
 });
 ```

@@ -22,8 +22,7 @@ export type DeleteEventBusCommandOutput = __MetadataBearer;
 
 /**
  * <p>Deletes the specified custom event bus or partner event bus. All rules associated with
- *             this event bus need to be deleted. You can't delete your account's default event
- *             bus.</p>
+ *       this event bus need to be deleted. You can't delete your account's default event bus.</p>
  */
 export class DeleteEventBusCommand extends $Command<
   DeleteEventBusCommandInput,

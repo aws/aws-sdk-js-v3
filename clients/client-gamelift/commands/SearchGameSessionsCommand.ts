@@ -21,9 +21,30 @@ export type SearchGameSessionsCommandInput = SearchGameSessionsInput;
 export type SearchGameSessionsCommandOutput = SearchGameSessionsOutput & __MetadataBearer;
 
 /**
- * <p>Retrieves all active game sessions that match a set of search criteria and sorts
- *             them in a specified order. You can search or sort by the following game session
- *             attributes:</p>
+ * <p>Retrieves all active game sessions that match a set of search criteria and sorts them
+ *             into a specified order. </p>
+ *         <p>When searching for game sessions, you specify exactly where you want to search and
+ *             provide a search filter expression, a sort expression, or both. A search request can
+ *             search only one fleet, but it can search all of a fleet's locations.  </p>
+ *         <p>This operation can be used in the following ways: </p>
+ *         <ul>
+ *             <li>
+ *                 <p>To search all game sessions that are currently running on all locations in a
+ *                     fleet, provide a fleet or alias ID. This approach returns game sessions in the
+ *                     fleet's home Region and all remote locations that fit the search
+ *                     criteria.</p>
+ *             </li>
+ *             <li>
+ *                 <p>To search all game sessions that are currently running on a specific fleet
+ *                     location, provide a fleet or alias ID and a location name. For location, you can
+ *                     specify a fleet's home Region or any remote location.</p>
+ *             </li>
+ *          </ul>
+ *         <p>Use the pagination parameters to retrieve results as a set of sequential pages. </p>
+ *         <p>If successful, a <code>GameSession</code> object is returned for each game session
+ *             that matches the request. Search finds game sessions that are in <code>ACTIVE</code>
+ *             status only. To retrieve information on game sessions in other statuses, use <a>DescribeGameSessions</a>.</p>
+ *         <p>You can search or sort by the following game session attributes:</p>
  *         <ul>
  *             <li>
  *                 <p>
@@ -82,65 +103,21 @@ export type SearchGameSessionsCommandOutput = SearchGameSessionsOutput & __Metad
  *                 refresh search results often, and handle sessions that fill up before a player can
  *                 join. </p>
  *         </note>
- *         <p>To search or sort, specify either a fleet ID or an alias ID, and provide a search
- *             filter expression, a sort expression, or both. If successful, a collection of <a>GameSession</a> objects matching the request is returned. Use the pagination
- *             parameters to retrieve results as a set of sequential pages. </p>
- *         <p>You can search for game sessions one fleet at a time only. To find game sessions
- *             across multiple fleets, you must search each fleet separately and combine the results.
- *             This search feature finds only game sessions that are in <code>ACTIVE</code> status. To
- *             locate games in statuses other than active, use <a>DescribeGameSessionDetails</a>.</p>
- *         <ul>
- *             <li>
- *                <p>
- *                   <a>CreateGameSession</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DescribeGameSessions</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DescribeGameSessionDetails</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>SearchGameSessions</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateGameSession</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>GetGameSessionLogUrl</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>Game session placements</p>
- *                         <ul>
- *                   <li>
- *                      <p>
- *                         <a>StartGameSessionPlacement</a>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <a>DescribeGameSessionPlacement</a>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <a>StopGameSessionPlacement</a>
- *                      </p>
- *                   </li>
- *                </ul>
- *             </li>
- *          </ul>
+ *         <p>
+ *             <b>Related actions</b>
+ *          </p>
+ *                     <p>
+ *             <a>CreateGameSession</a> |
+ *                     <a>DescribeGameSessions</a> |
+ *                     <a>DescribeGameSessionDetails</a> |
+ *                     <a>SearchGameSessions</a> |
+ *                     <a>UpdateGameSession</a> |
+ *                     <a>GetGameSessionLogUrl</a> |
+ *                     <a>StartGameSessionPlacement</a> |
+ *                     <a>DescribeGameSessionPlacement</a> |
+ *                     <a>StopGameSessionPlacement</a> |
+ *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          </p>
  */
 export class SearchGameSessionsCommand extends $Command<
   SearchGameSessionsCommandInput,

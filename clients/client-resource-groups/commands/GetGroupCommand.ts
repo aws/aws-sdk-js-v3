@@ -22,6 +22,17 @@ export type GetGroupCommandOutput = GetGroupOutput & __MetadataBearer;
 
 /**
  * <p>Returns information about a specified resource group.</p>
+ *          <p>
+ *             <b>Minimum permissions</b>
+ *          </p>
+ *          <p>To run this command, you must have the following permissions:</p>
+ *          <ul>
+ *             <li>
+ *                 <p>
+ *                   <code>resource-groups:GetGroup</code>
+ *                </p>
+ *             </li>
+ *          </ul>
  */
 export class GetGroupCommand extends $Command<
   GetGroupCommandInput,

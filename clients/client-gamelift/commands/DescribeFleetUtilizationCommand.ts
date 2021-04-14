@@ -21,13 +21,27 @@ export type DescribeFleetUtilizationCommandInput = DescribeFleetUtilizationInput
 export type DescribeFleetUtilizationCommandOutput = DescribeFleetUtilizationOutput & __MetadataBearer;
 
 /**
- * <p>Retrieves utilization statistics for one or more fleets. These statistics provide
- *             insight into how available hosting resources are currently being used. To get statistics
- *             on available hosting resources, see <a>DescribeFleetCapacity</a>.</p>
- *         <p>You can request utilization data for all fleets, or specify a list of one or more
- *             fleet IDs. When requesting multiple fleets, use the pagination parameters to retrieve
- *             results as a set of sequential pages. If successful, a <a>FleetUtilization</a> object is returned for each requested fleet ID, unless the fleet identifier is not
- *             found.  </p>
+ * <p>Retrieves utilization statistics for one or more fleets. Utilization data provides a
+ *             snapshot of how the fleet's hosting resources are currently being used. For fleets with
+ *             remote locations, this operation retrieves data for the fleet's home Region only. See <a>DescribeFleetLocationUtilization</a> to get utilization statistics for a
+ *             fleet's remote locations.</p>
+ *         <p>This operation can be used in the following ways: </p>
+ *         <ul>
+ *             <li>
+ *                 <p>To get utilization data for one or more specific fleets, provide a list of
+ *                     fleet IDs or fleet ARNs. </p>
+ *             </li>
+ *             <li>
+ *                 <p>To get utilization data for all fleets, do not provide a fleet identifier.
+ *                 </p>
+ *             </li>
+ *          </ul>
+ *         <p>When requesting multiple fleets, use the pagination parameters to retrieve results as
+ *             a set of sequential pages. </p>
+ *         <p>If successful, a <a>FleetUtilization</a> object is returned for each
+ *             requested fleet ID, unless the fleet identifier is not found. Each fleet utilization
+ *             object includes a <code>Location</code> property, which is set to the fleet's home
+ *             Region. </p>
  *         <note>
  *             <p>Some API operations may limit the number of fleet IDs allowed in one request. If a
  *                 request exceeds this limit, the request fails and the error message includes the
@@ -43,75 +57,21 @@ export type DescribeFleetUtilizationCommandOutput = DescribeFleetUtilizationOutp
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html#gamelift-metrics-fleet">GameLift Metrics for Fleets</a>
  *          </p>
  *         <p>
- *             <b>Related operations</b>
+ *             <b>Related actions</b>
  *          </p>
- *         <ul>
- *             <li>
- *                <p>
- *                   <a>CreateFleet</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListFleets</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteFleet</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>Describe fleets:</p>
- *                         <ul>
- *                   <li>
- *                      <p>
- *                         <a>DescribeFleetAttributes</a>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <a>DescribeFleetCapacity</a>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <a>DescribeFleetPortSettings</a>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <a>DescribeFleetUtilization</a>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <a>DescribeRuntimeConfiguration</a>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <a>DescribeEC2InstanceLimits</a>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <a>DescribeFleetEvents</a>
- *                      </p>
- *                   </li>
- *                </ul>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateFleetAttributes</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>StartFleetActions</a> or <a>StopFleetActions</a>
- *                </p>
- *             </li>
- *          </ul>
+ *                     <p>
+ *             <a>ListFleets</a> |
+ *                     <a>DescribeEC2InstanceLimits</a> |
+ *                     <a>DescribeFleetAttributes</a> |
+ *                     <a>DescribeFleetCapacity</a> |
+ *                     <a>DescribeFleetEvents</a> |
+ *                     <a>DescribeFleetLocationAttributes</a> |
+ *                     <a>DescribeFleetPortSettings</a> |
+ *                     <a>DescribeFleetUtilization</a> |
+ *                     <a>DescribeRuntimeConfiguration</a> |
+ *                     <a>DescribeScalingPolicies</a> |
+ *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          </p>
  */
 export class DescribeFleetUtilizationCommand extends $Command<
   DescribeFleetUtilizationCommandInput,

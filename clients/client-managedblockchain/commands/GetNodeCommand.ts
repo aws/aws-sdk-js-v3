@@ -25,7 +25,8 @@ export type GetNodeCommandInput = GetNodeInput;
 export type GetNodeCommandOutput = GetNodeOutput & __MetadataBearer;
 
 /**
- * <p>Returns detailed information about a peer node.</p>
+ * <p>Returns detailed information about a node.</p>
+ *          <p>Applies to Hyperledger Fabric and Ethereum.</p>
  */
 export class GetNodeCommand extends $Command<
   GetNodeCommandInput,

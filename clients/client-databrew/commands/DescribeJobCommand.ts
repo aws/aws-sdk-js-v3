@@ -21,8 +21,7 @@ export type DescribeJobCommandInput = DescribeJobRequest;
 export type DescribeJobCommandOutput = DescribeJobResponse & __MetadataBearer;
 
 /**
- * <p>Returns the definition of a specific AWS Glue DataBrew job that is in the current AWS
- *             account.</p>
+ * <p>Returns the definition of a specific DataBrew job.</p>
  */
 export class DescribeJobCommand extends $Command<
   DescribeJobCommandInput,

@@ -21,11 +21,10 @@ export type CreateAccountCommandInput = CreateAccountRequest;
 export type CreateAccountCommandOutput = CreateAccountResponse & __MetadataBearer;
 
 /**
- * <p>Creates an Amazon Chime account under the administrator's AWS account. Only
- *        <code>Team</code> account types are currently supported for this action. For more information
- *        about different account types, see <a href="https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html">Managing Your Amazon Chime Accounts</a> in the
- *        <i>Amazon
- *          Chime Administration Guide</i>.</p>
+ * <p>Creates an Amazon Chime account under the administrator's AWS account. Only <code>Team</code>
+ *             account types are currently supported for this action. For more information about
+ *             different account types, see <a href="https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html">Managing Your Amazon Chime Accounts</a> in the
+ *                 <i>Amazon Chime Administration Guide</i>.</p>
  */
 export class CreateAccountCommand extends $Command<
   CreateAccountCommandInput,

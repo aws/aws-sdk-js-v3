@@ -21,7 +21,7 @@ export type DeleteFHIRDatastoreCommandInput = DeleteFHIRDatastoreRequest;
 export type DeleteFHIRDatastoreCommandOutput = DeleteFHIRDatastoreResponse & __MetadataBearer;
 
 /**
- * <p>Deletes a datastore. </p>
+ * <p>Deletes a Data Store. </p>
  */
 export class DeleteFHIRDatastoreCommand extends $Command<
   DeleteFHIRDatastoreCommandInput,

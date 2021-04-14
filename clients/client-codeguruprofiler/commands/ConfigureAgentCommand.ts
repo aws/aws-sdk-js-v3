@@ -21,7 +21,11 @@ export type ConfigureAgentCommandInput = ConfigureAgentRequest;
 export type ConfigureAgentCommandOutput = ConfigureAgentResponse & __MetadataBearer;
 
 /**
- * <p/>
+ * <p>
+ *           Used by profiler agents to report their current state and to receive remote
+ *           configuration updates. For example, <code>ConfigureAgent</code> can be used
+ *          to tell an agent whether to profile or not and for how long to return profiling data.
+ *       </p>
  */
 export class ConfigureAgentCommand extends $Command<
   ConfigureAgentCommandInput,

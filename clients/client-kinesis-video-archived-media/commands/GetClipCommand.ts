@@ -25,12 +25,12 @@ export type GetClipCommandInput = GetClipInput;
 export type GetClipCommandOutput = GetClipOutput & __MetadataBearer;
 
 /**
- * <p>Downloads an MP4 file (clip) containing the archived, on-demand media from the specified video
- *             stream over the specified time range. </p>
+ * <p>Downloads an MP4 file (clip) containing the archived, on-demand media from the
+ *             specified video stream over the specified time range. </p>
  *         <p>Both the StreamName and the StreamARN parameters are optional, but you must specify
  *             either the StreamName or the StreamARN when invoking this API operation. </p>
  *
- *         <p>As a prerequsite to using GetCLip API, you must obtain an endpoint using
+ *         <p>As a prerequisite to using GetCLip API, you must obtain an endpoint using
  *                 <code>GetDataEndpoint</code>, specifying GET_CLIP for<code></code> the
  *                 <code>APIName</code> parameter. </p>
  *         <p>An Amazon Kinesis video stream has the following requirements for providing data
@@ -51,8 +51,7 @@ export type GetClipCommandOutput = GetClipOutput & __MetadataBearer;
  *                     Advanced Video Coding (AVC) for H.264 format and HEVC for H.265 format. For more
  *                     information, see <a href="https://www.iso.org/standard/55980.html">MPEG-4
  *                         specification ISO/IEC 14496-15</a>. For information about adapting
- *                     stream data to a given format, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/producer-reference-nal.html">NAL Adaptation
- *                     Flags</a>.</p>
+ *                     stream data to a given format, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/producer-reference-nal.html">NAL Adaptation Flags</a>.</p>
  *             </li>
  *             <li>
  *                 <p>The audio track (if present) of each fragment must contain codec private data
@@ -64,8 +63,7 @@ export type GetClipCommandOutput = GetClipOutput & __MetadataBearer;
  *
  *         <p>You can monitor the amount of outgoing data by monitoring the
  *                 <code>GetClip.OutgoingBytes</code> Amazon CloudWatch metric. For information about
- *             using CloudWatch to monitor Kinesis Video Streams, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/monitoring.html">Monitoring
- *                 Kinesis Video Streams</a>. For pricing information, see <a href="https://aws.amazon.com/kinesis/video-streams/pricing/">Amazon Kinesis Video
+ *             using CloudWatch to monitor Kinesis Video Streams, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/monitoring.html">Monitoring Kinesis Video Streams</a>. For pricing information, see <a href="https://aws.amazon.com/kinesis/video-streams/pricing/">Amazon Kinesis Video
  *                 Streams Pricing</a> and <a href="https://aws.amazon.com/pricing/">AWS
  *                 Pricing</a>. Charges for outgoing AWS data apply.</p>
  */

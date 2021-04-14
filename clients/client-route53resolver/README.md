@@ -53,16 +53,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `Route53ResolverClient` and
-the commands you need, for example `AssociateResolverEndpointIpAddressCommand`:
+the commands you need, for example `AssociateFirewallRuleGroupCommand`:
 
 ```js
 // ES5 example
-const { Route53ResolverClient, AssociateResolverEndpointIpAddressCommand } = require("@aws-sdk/client-route53resolver");
+const { Route53ResolverClient, AssociateFirewallRuleGroupCommand } = require("@aws-sdk/client-route53resolver");
 ```
 
 ```ts
 // ES6+ example
-import { Route53ResolverClient, AssociateResolverEndpointIpAddressCommand } from "@aws-sdk/client-route53resolver";
+import { Route53ResolverClient, AssociateFirewallRuleGroupCommand } from "@aws-sdk/client-route53resolver";
 ```
 
 ### Usage
@@ -81,7 +81,7 @@ const client = new Route53ResolverClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateResolverEndpointIpAddressCommand(params);
+const command = new AssociateFirewallRuleGroupCommand(params);
 ```
 
 #### Async/await
@@ -160,7 +160,7 @@ const client = new AWS.Route53Resolver({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateResolverEndpointIpAddress(params);
+  const data = await client.associateFirewallRuleGroup(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -168,7 +168,7 @@ try {
 
 // Promises.
 client
-  .associateResolverEndpointIpAddress(params)
+  .associateFirewallRuleGroup(params)
   .then((data) => {
     // process data.
   })
@@ -177,7 +177,7 @@ client
   });
 
 // callbacks.
-client.associateResolverEndpointIpAddress(params, (err, data) => {
+client.associateFirewallRuleGroup(params, (err, data) => {
   // proccess err and data.
 });
 ```

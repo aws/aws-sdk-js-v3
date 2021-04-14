@@ -26,6 +26,7 @@ export type CreateMemberCommandOutput = CreateMemberOutput & __MetadataBearer;
 
 /**
  * <p>Creates a member within a Managed Blockchain network.</p>
+ *          <p>Applies only to Hyperledger Fabric.</p>
  */
 export class CreateMemberCommand extends $Command<
   CreateMemberCommandInput,

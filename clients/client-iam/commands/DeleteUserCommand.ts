@@ -19,37 +19,36 @@ export type DeleteUserCommandOutput = __MetadataBearer;
 
 /**
  * <p>Deletes the specified IAM user. Unlike the AWS Management Console, when you delete a user
- *          programmatically, you must delete the items attached to the user manually, or the deletion
- *          fails. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_deleting_cli">Deleting an IAM
- *             User</a>. Before attempting to delete a user, remove the following items:</p>
- *          <ul>
+ *             programmatically, you must delete the items attached to the user manually, or the
+ *             deletion fails. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_deleting_cli">Deleting an IAM
+ *                 user</a>. Before attempting to delete a user, remove the following items:</p>
+ *         <ul>
  *             <li>
- *                <p>Password (<a>DeleteLoginProfile</a>)</p>
+ *                 <p>Password (<a>DeleteLoginProfile</a>)</p>
  *             </li>
  *             <li>
- *                <p>Access keys (<a>DeleteAccessKey</a>)</p>
+ *                 <p>Access keys (<a>DeleteAccessKey</a>)</p>
  *             </li>
  *             <li>
- *                <p>Signing certificate (<a>DeleteSigningCertificate</a>)</p>
+ *                 <p>Signing certificate (<a>DeleteSigningCertificate</a>)</p>
  *             </li>
  *             <li>
- *                <p>SSH public key (<a>DeleteSSHPublicKey</a>)</p>
+ *                 <p>SSH public key (<a>DeleteSSHPublicKey</a>)</p>
  *             </li>
  *             <li>
- *                <p>Git credentials (<a>DeleteServiceSpecificCredential</a>)</p>
+ *                 <p>Git credentials (<a>DeleteServiceSpecificCredential</a>)</p>
  *             </li>
  *             <li>
- *                <p>Multi-factor authentication (MFA) device (<a>DeactivateMFADevice</a>,
- *                   <a>DeleteVirtualMFADevice</a>)</p>
+ *                 <p>Multi-factor authentication (MFA) device (<a>DeactivateMFADevice</a>, <a>DeleteVirtualMFADevice</a>)</p>
  *             </li>
  *             <li>
- *                <p>Inline policies (<a>DeleteUserPolicy</a>)</p>
+ *                 <p>Inline policies (<a>DeleteUserPolicy</a>)</p>
  *             </li>
  *             <li>
- *                <p>Attached managed policies (<a>DetachUserPolicy</a>)</p>
+ *                 <p>Attached managed policies (<a>DetachUserPolicy</a>)</p>
  *             </li>
  *             <li>
- *                <p>Group memberships (<a>RemoveUserFromGroup</a>)</p>
+ *                 <p>Group memberships (<a>RemoveUserFromGroup</a>)</p>
  *             </li>
  *          </ul>
  */

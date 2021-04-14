@@ -21,7 +21,13 @@ export type ListProfilingGroupsCommandInput = ListProfilingGroupsRequest;
 export type ListProfilingGroupsCommandOutput = ListProfilingGroupsResponse & __MetadataBearer;
 
 /**
- * <p>Lists profiling groups.</p>
+ * <p>
+ *          Returns a list of profiling groups. The profiling groups are returned as
+ *          <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html">
+ *                <code>ProfilingGroupDescription</code>
+ *             </a>
+ *          objects.
+ *       </p>
  */
 export class ListProfilingGroupsCommand extends $Command<
   ListProfilingGroupsCommandInput,

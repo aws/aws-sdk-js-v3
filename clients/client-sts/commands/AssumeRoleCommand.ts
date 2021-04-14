@@ -20,38 +20,13 @@ export type AssumeRoleCommandOutput = AssumeRoleResponse & __MetadataBearer;
 
 /**
  * <p>Returns a set of temporary security credentials that you can use to access AWS
- *          resources that you might not normally have access to. These temporary credentials consist
- *          of an access key ID, a secret access key, and a security token. Typically, you use
- *             <code>AssumeRole</code> within your account or for cross-account access. For a
- *          comparison of <code>AssumeRole</code> with other API operations that produce temporary
- *          credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting Temporary Security
- *             Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison">Comparing the
- *             AWS STS API operations</a> in the <i>IAM User Guide</i>.</p>
- *          <important>
- *             <p>You cannot use AWS account root user credentials to call <code>AssumeRole</code>.
- *             You must use credentials for an IAM user or an IAM role to call
- *                <code>AssumeRole</code>.</p>
- *          </important>
- *          <p>For cross-account access, imagine that you own multiple accounts and need to access
- *          resources in each account. You could create long-term credentials in each account to access
- *          those resources. However, managing all those credentials and remembering which one can
- *          access which account can be time consuming. Instead, you can create one set of long-term
- *          credentials in one account. Then use temporary security credentials to access all the other
- *          accounts by assuming roles in those accounts. For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM Roles</a> in the
- *             <i>IAM User Guide</i>. </p>
- *          <p>
- *             <b>Session Duration</b>
- *          </p>
- *          <p>By default, the temporary security credentials created by <code>AssumeRole</code> last
- *          for one hour. However, you can use the optional <code>DurationSeconds</code> parameter to
- *          specify the duration of your session. You can provide a value from 900 seconds (15 minutes)
- *          up to the maximum session duration setting for the role. This setting can have a value from
- *          1 hour to 12 hours. To learn how to view the maximum value for your role, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session">View the
- *             Maximum Session Duration Setting for a Role</a> in the
- *             <i>IAM User Guide</i>. The maximum session duration limit applies when
- *          you use the <code>AssumeRole*</code> API operations or the <code>assume-role*</code> CLI
- *          commands. However the limit does not apply when you use those operations to create a
- *          console URL. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html">Using IAM Roles</a> in the
+ *             resources that you might not normally have access to. These temporary credentials
+ *             consist of an access key ID, a secret access key, and a security token. Typically, you
+ *             use <code>AssumeRole</code> within your account or for cross-account access. For a
+ *             comparison of <code>AssumeRole</code> with other API operations that produce temporary
+ *             credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting Temporary Security
+ *                 Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison">Comparing
+ *                 the AWS STS API operations</a> in the
  *             <i>IAM User Guide</i>.</p>
  *          <p>
  *             <b>Permissions</b>
@@ -63,7 +38,7 @@ export type AssumeRoleCommandOutput = AssumeRoleResponse & __MetadataBearer;
  *          <p>(Optional) You can pass inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session policies</a> to
  *          this operation. You can pass a single JSON policy document to use as an inline session
  *          policy. You can also specify up to 10 managed policies to use as managed session policies.
- *          The plain text that you use for both inline and managed session policies can't exceed 2,048
+ *          The plaintext that you use for both inline and managed session policies can't exceed 2,048
  *          characters. Passing policies to this operation returns new
  *          temporary credentials. The resulting session's permissions are the intersection of the
  *          role's identity-based policy and the session policies. You can use the role's temporary

@@ -1,4 +1,8 @@
 import { SendSSHPublicKeyCommandInput, SendSSHPublicKeyCommandOutput } from "./commands/SendSSHPublicKeyCommand";
+import {
+  SendSerialConsoleSSHPublicKeyCommandInput,
+  SendSerialConsoleSSHPublicKeyCommandOutput,
+} from "./commands/SendSerialConsoleSSHPublicKeyCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -50,9 +54,9 @@ import {
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
 
-export type ServiceInputTypes = SendSSHPublicKeyCommandInput;
+export type ServiceInputTypes = SendSSHPublicKeyCommandInput | SendSerialConsoleSSHPublicKeyCommandInput;
 
-export type ServiceOutputTypes = SendSSHPublicKeyCommandOutput;
+export type ServiceOutputTypes = SendSSHPublicKeyCommandOutput | SendSerialConsoleSSHPublicKeyCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -169,9 +173,9 @@ export type EC2InstanceConnectClientResolvedConfig = __SmithyResolvedConfigurati
   UserAgentResolvedConfig;
 
 /**
- * <p>AWS EC2 Connect Service is a service that enables system administrators to publish
- *             temporary SSH keys to their EC2 instances in order to establish connections to their
- *             instances without leaving a permanent authentication option.</p>
+ * <p>Amazon EC2 Instance Connect enables system administrators to publish one-time use SSH
+ *             public keys to EC2, providing users a simple and secure way to connect to their
+ *             instances.</p>
  */
 export class EC2InstanceConnectClient extends __Client<
   __HttpHandlerOptions,

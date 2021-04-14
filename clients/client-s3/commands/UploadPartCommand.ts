@@ -60,10 +60,10 @@ export type UploadPartCommandOutput = UploadPartOutput & __MetadataBearer;
  *          storage.</p>
  *
  *          <p>For more information on multipart uploads, go to <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html">Multipart Upload Overview</a> in the
- *             <i>Amazon Simple Storage Service Developer Guide </i>.</p>
+ *             <i>Amazon S3 User Guide </i>.</p>
  *          <p>For information on the permissions required to use the multipart upload API, go to
- *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload API and
- *             Permissions</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+ *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload and
+ *             Permissions</a> in the <i>Amazon S3 User Guide</i>.</p>
  *
  *          <p>You can optionally request server-side encryption where Amazon S3 encrypts your data as it
  *          writes it to disks in its data centers and decrypts it for you when you access it. You have
@@ -71,7 +71,7 @@ export type UploadPartCommandOutput = UploadPartOutput & __MetadataBearer;
  *          keys. If you choose to provide your own encryption key, the request headers you provide in
  *          the request must match the headers you used in the request to initiate the upload by using
  *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html">CreateMultipartUpload</a>. For more information, go to <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html">Using Server-Side Encryption</a> in
- *          the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+ *          the <i>Amazon S3 User Guide</i>.</p>
  *
  *          <p>Server-side encryption is supported by the S3 Multipart Upload actions. Unless you are
  *          using a customer-provided encryption key, you don't need to specify the encryption

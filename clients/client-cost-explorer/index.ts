@@ -12,6 +12,7 @@ export * from "./commands/GetAnomalyMonitorsCommand";
 export * from "./commands/GetAnomalySubscriptionsCommand";
 export * from "./commands/GetCostAndUsageCommand";
 export * from "./commands/GetCostAndUsageWithResourcesCommand";
+export * from "./commands/GetCostCategoriesCommand";
 export * from "./commands/GetCostForecastCommand";
 export * from "./commands/GetDimensionValuesCommand";
 export * from "./commands/GetReservationCoverageCommand";

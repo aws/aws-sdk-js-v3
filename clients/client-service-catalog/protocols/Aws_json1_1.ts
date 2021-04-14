@@ -82,6 +82,10 @@ import {
   DescribePortfolioShareStatusCommandOutput,
 } from "../commands/DescribePortfolioShareStatusCommand";
 import {
+  DescribePortfolioSharesCommandInput,
+  DescribePortfolioSharesCommandOutput,
+} from "../commands/DescribePortfolioSharesCommand";
+import {
   DescribeProductAsAdminCommandInput,
   DescribeProductAsAdminCommandOutput,
 } from "../commands/DescribeProductAsAdminCommand";
@@ -245,6 +249,10 @@ import {
 } from "../commands/TerminateProvisionedProductCommand";
 import { UpdateConstraintCommandInput, UpdateConstraintCommandOutput } from "../commands/UpdateConstraintCommand";
 import { UpdatePortfolioCommandInput, UpdatePortfolioCommandOutput } from "../commands/UpdatePortfolioCommand";
+import {
+  UpdatePortfolioShareCommandInput,
+  UpdatePortfolioShareCommandOutput,
+} from "../commands/UpdatePortfolioShareCommand";
 import { UpdateProductCommandInput, UpdateProductCommandOutput } from "../commands/UpdateProductCommand";
 import {
   UpdateProvisionedProductCommandInput,
@@ -328,6 +336,8 @@ import {
   DescribePortfolioOutput,
   DescribePortfolioShareStatusInput,
   DescribePortfolioShareStatusOutput,
+  DescribePortfolioSharesInput,
+  DescribePortfolioSharesOutput,
   DescribeProductAsAdminInput,
   DescribeProductAsAdminOutput,
   DescribeProductInput,
@@ -424,6 +434,7 @@ import {
   OrganizationNode,
   ParameterConstraints,
   PortfolioDetail,
+  PortfolioShareDetail,
   Principal,
   ProductViewAggregationValue,
   ProductViewDetail,
@@ -486,6 +497,8 @@ import {
   UpdateConstraintOutput,
   UpdatePortfolioInput,
   UpdatePortfolioOutput,
+  UpdatePortfolioShareInput,
+  UpdatePortfolioShareOutput,
   UpdateProductInput,
   UpdateProductOutput,
   UpdateProvisionedProductInput,
@@ -876,6 +889,19 @@ export const serializeAws_json1_1DescribePortfolioCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribePortfolioInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribePortfolioSharesCommand = async (
+  input: DescribePortfolioSharesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWS242ServiceCatalogService.DescribePortfolioShares",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribePortfolioSharesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1539,6 +1565,19 @@ export const serializeAws_json1_1UpdatePortfolioCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdatePortfolioInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdatePortfolioShareCommand = async (
+  input: UpdatePortfolioShareCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWS242ServiceCatalogService.UpdatePortfolioShare",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdatePortfolioShareInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3515,6 +3554,68 @@ const deserializeAws_json1_1DescribePortfolioCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribePortfolioSharesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribePortfolioSharesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribePortfolioSharesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribePortfolioSharesOutput(data, context);
+  const response: DescribePortfolioSharesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribePortfolioSharesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribePortfolioSharesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
@@ -6710,6 +6811,84 @@ const deserializeAws_json1_1UpdatePortfolioCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1UpdatePortfolioShareCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePortfolioShareCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdatePortfolioShareCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdatePortfolioShareOutput(data, context);
+  const response: UpdatePortfolioShareCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdatePortfolioShareCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePortfolioShareCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidStateException":
+    case "com.amazonaws.servicecatalog#InvalidStateException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationNotSupportedException":
+    case "com.amazonaws.servicecatalog#OperationNotSupportedException":
+      response = {
+        ...(await deserializeAws_json1_1OperationNotSupportedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1UpdateProductCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -7433,6 +7612,8 @@ const serializeAws_json1_1CreatePortfolioShareInput = (
         OrganizationNode: serializeAws_json1_1OrganizationNode(input.OrganizationNode, context),
       }),
     ...(input.PortfolioId !== undefined && input.PortfolioId !== null && { PortfolioId: input.PortfolioId }),
+    ...(input.ShareTagOptions !== undefined &&
+      input.ShareTagOptions !== null && { ShareTagOptions: input.ShareTagOptions }),
   };
 };
 
@@ -7641,6 +7822,18 @@ const serializeAws_json1_1DescribePortfolioInput = (input: DescribePortfolioInpu
   };
 };
 
+const serializeAws_json1_1DescribePortfolioSharesInput = (
+  input: DescribePortfolioSharesInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.PageSize !== undefined && input.PageSize !== null && { PageSize: input.PageSize }),
+    ...(input.PageToken !== undefined && input.PageToken !== null && { PageToken: input.PageToken }),
+    ...(input.PortfolioId !== undefined && input.PortfolioId !== null && { PortfolioId: input.PortfolioId }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+  };
+};
+
 const serializeAws_json1_1DescribePortfolioShareStatusInput = (
   input: DescribePortfolioShareStatusInput,
   context: __SerdeContext
@@ -7660,6 +7853,8 @@ const serializeAws_json1_1DescribeProductAsAdminInput = (
       input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.SourcePortfolioId !== undefined &&
+      input.SourcePortfolioId !== null && { SourcePortfolioId: input.SourcePortfolioId }),
   };
 };
 
@@ -8665,6 +8860,24 @@ const serializeAws_json1_1UpdatePortfolioInput = (input: UpdatePortfolioInput, c
   };
 };
 
+const serializeAws_json1_1UpdatePortfolioShareInput = (
+  input: UpdatePortfolioShareInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AcceptLanguage !== undefined &&
+      input.AcceptLanguage !== null && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
+    ...(input.OrganizationNode !== undefined &&
+      input.OrganizationNode !== null && {
+        OrganizationNode: serializeAws_json1_1OrganizationNode(input.OrganizationNode, context),
+      }),
+    ...(input.PortfolioId !== undefined && input.PortfolioId !== null && { PortfolioId: input.PortfolioId }),
+    ...(input.ShareTagOptions !== undefined &&
+      input.ShareTagOptions !== null && { ShareTagOptions: input.ShareTagOptions }),
+  };
+};
+
 const serializeAws_json1_1UpdateProductInput = (input: UpdateProductInput, context: __SerdeContext): any => {
   return {
     ...(input.AcceptLanguage !== undefined &&
@@ -9221,6 +9434,20 @@ const deserializeAws_json1_1DescribePortfolioOutput = (
         : undefined,
     Tags:
       output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribePortfolioSharesOutput = (
+  output: any,
+  context: __SerdeContext
+): DescribePortfolioSharesOutput => {
+  return {
+    NextPageToken:
+      output.NextPageToken !== undefined && output.NextPageToken !== null ? output.NextPageToken : undefined,
+    PortfolioShareDetails:
+      output.PortfolioShareDetails !== undefined && output.PortfolioShareDetails !== null
+        ? deserializeAws_json1_1PortfolioShareDetails(output.PortfolioShareDetails, context)
+        : undefined,
   } as any;
 };
 
@@ -9979,10 +10206,20 @@ const deserializeAws_json1_1OrganizationNodes = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1ParameterConstraints = (output: any, context: __SerdeContext): ParameterConstraints => {
   return {
+    AllowedPattern:
+      output.AllowedPattern !== undefined && output.AllowedPattern !== null ? output.AllowedPattern : undefined,
     AllowedValues:
       output.AllowedValues !== undefined && output.AllowedValues !== null
         ? deserializeAws_json1_1AllowedValues(output.AllowedValues, context)
         : undefined,
+    ConstraintDescription:
+      output.ConstraintDescription !== undefined && output.ConstraintDescription !== null
+        ? output.ConstraintDescription
+        : undefined,
+    MaxLength: output.MaxLength !== undefined && output.MaxLength !== null ? output.MaxLength : undefined,
+    MaxValue: output.MaxValue !== undefined && output.MaxValue !== null ? output.MaxValue : undefined,
+    MinLength: output.MinLength !== undefined && output.MinLength !== null ? output.MinLength : undefined,
+    MinValue: output.MinValue !== undefined && output.MinValue !== null ? output.MinValue : undefined,
   } as any;
 };
 
@@ -10008,6 +10245,27 @@ const deserializeAws_json1_1PortfolioDetails = (output: any, context: __SerdeCon
         return null as any;
       }
       return deserializeAws_json1_1PortfolioDetail(entry, context);
+    });
+};
+
+const deserializeAws_json1_1PortfolioShareDetail = (output: any, context: __SerdeContext): PortfolioShareDetail => {
+  return {
+    Accepted: output.Accepted !== undefined && output.Accepted !== null ? output.Accepted : undefined,
+    PrincipalId: output.PrincipalId !== undefined && output.PrincipalId !== null ? output.PrincipalId : undefined,
+    ShareTagOptions:
+      output.ShareTagOptions !== undefined && output.ShareTagOptions !== null ? output.ShareTagOptions : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1PortfolioShareDetails = (output: any, context: __SerdeContext): PortfolioShareDetail[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1PortfolioShareDetail(entry, context);
     });
 };
 
@@ -11009,6 +11267,7 @@ const deserializeAws_json1_1TagOptionDetail = (output: any, context: __SerdeCont
     Active: output.Active !== undefined && output.Active !== null ? output.Active : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Owner: output.Owner !== undefined && output.Owner !== null ? output.Owner : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
 };
@@ -11110,6 +11369,19 @@ const deserializeAws_json1_1UpdatePortfolioOutput = (output: any, context: __Ser
         : undefined,
     Tags:
       output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1UpdatePortfolioShareOutput = (
+  output: any,
+  context: __SerdeContext
+): UpdatePortfolioShareOutput => {
+  return {
+    PortfolioShareToken:
+      output.PortfolioShareToken !== undefined && output.PortfolioShareToken !== null
+        ? output.PortfolioShareToken
+        : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
   } as any;
 };
 

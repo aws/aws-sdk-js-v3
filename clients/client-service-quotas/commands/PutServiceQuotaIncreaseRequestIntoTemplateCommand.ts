@@ -25,10 +25,7 @@ export type PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput = PutService
   __MetadataBearer;
 
 /**
- * <p>Defines and adds a quota to the service quota template. To add a quota to the template,
- *       you must provide the <code>ServiceCode</code>, <code>QuotaCode</code>, <code>AwsRegion</code>,
- *       and <code>DesiredValue</code>. Once you add a quota to the template, use <a>ListServiceQuotaIncreaseRequestsInTemplate</a> to see the list of quotas in the
- *       template.</p>
+ * <p>Adds a quota increase request to your quota request template.</p>
  */
 export class PutServiceQuotaIncreaseRequestIntoTemplateCommand extends $Command<
   PutServiceQuotaIncreaseRequestIntoTemplateCommandInput,

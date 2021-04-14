@@ -25,7 +25,8 @@ export type UpdateInfrastructureConfigurationCommandOutput = UpdateInfrastructur
   __MetadataBearer;
 
 /**
- * <p> Updates a new infrastructure configuration. An infrastructure configuration defines the environment in which your image will be built and tested. </p>
+ * <p> Updates a new infrastructure configuration. An infrastructure configuration defines the
+ *       environment in which your image will be built and tested.</p>
  */
 export class UpdateInfrastructureConfigurationCommand extends $Command<
   UpdateInfrastructureConfigurationCommandInput,

@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { UpdateUserProfileRequest, UpdateUserProfileResponse } from "../models/models_2";
+import { UpdateUserProfileRequest, UpdateUserProfileResponse } from "../models/models_3";
 import {
   deserializeAws_json1_1UpdateUserProfileCommand,
   serializeAws_json1_1UpdateUserProfileCommand,

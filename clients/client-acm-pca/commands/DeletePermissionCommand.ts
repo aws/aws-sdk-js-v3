@@ -46,7 +46,7 @@ export type DeletePermissionCommandOutput = __MetadataBearer;
  * 			then permissions cannot be used to enable automatic renewals. Instead,
  * 			the ACM certificate owner must set up a resource-based policy to enable
  * 			cross-account issuance and renewals. For more information, see
- * 			<a href="acm-pca/latest/userguide/pca-rbp.html">Using a Resource
+ * 			<a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-rbp.html">Using a Resource
  * 			Based Policy with ACM Private CA</a>.</p>
  * 		          </li>
  *          </ul>

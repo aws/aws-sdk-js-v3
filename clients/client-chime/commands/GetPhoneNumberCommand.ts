@@ -21,8 +21,7 @@ export type GetPhoneNumberCommandInput = GetPhoneNumberRequest;
 export type GetPhoneNumberCommandOutput = GetPhoneNumberResponse & __MetadataBearer;
 
 /**
- * <p>Retrieves details for the specified phone number ID, such as associations,
- *       capabilities, and product type.</p>
+ * <p>Retrieves details for the specified phone number ID, such as associations, capabilities, and product type.</p>
  */
 export class GetPhoneNumberCommand extends $Command<
   GetPhoneNumberCommandInput,

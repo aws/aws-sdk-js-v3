@@ -649,43 +649,71 @@ export namespace DestinationConfig {
   });
 }
 
-export enum SourceAccessType {
-  BASIC_AUTH = "BASIC_AUTH",
+export enum FunctionResponseType {
+  ReportBatchItemFailures = "ReportBatchItemFailures",
+}
+
+export enum EndPointType {
+  KAFKA_BOOTSTRAP_SERVERS = "KAFKA_BOOTSTRAP_SERVERS",
 }
 
 /**
- * <p>
- *       (MQ) The Secrets Manager secret that stores your broker credentials. To store your secret, use the following format:
- *       <code>	  {
- *         "username": "your username",
- *         "password": "your password"
- *         }</code>
- *          </p>
+ * <p>The Self-Managed Apache Kafka cluster for your event source.</p>
+ */
+export interface SelfManagedEventSource {
+  /**
+   * <p>The list of bootstrap servers for your Kafka brokers in the following format: <code>"KAFKA_BOOTSTRAP_SERVERS": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]</code>.</p>
+   */
+  Endpoints?: { [key: string]: string[] };
+}
+
+export namespace SelfManagedEventSource {
+  export const filterSensitiveLog = (obj: SelfManagedEventSource): any => ({
+    ...obj,
+  });
+}
+
+export enum SourceAccessType {
+  BASIC_AUTH = "BASIC_AUTH",
+  SASL_SCRAM_256_AUTH = "SASL_SCRAM_256_AUTH",
+  SASL_SCRAM_512_AUTH = "SASL_SCRAM_512_AUTH",
+  VPC_SECURITY_GROUP = "VPC_SECURITY_GROUP",
+  VPC_SUBNET = "VPC_SUBNET",
+}
+
+/**
+ * <p>You can specify the authentication protocol, or the VPC components to secure access to your event source.</p>
  */
 export interface SourceAccessConfiguration {
   /**
-   * <p>To reference the secret, use the following format:
-   *       <code>[
-   *         {
-   *         "Type": "BASIC_AUTH",
-   *         "URI": "secretARN"
-   *         }
-   *         ]</code>
-   *          </p>
-   *          <p>The value of <code>Type</code> is always <code>BASIC_AUTH</code>. To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires <code>kms:Decrypt</code> permissions.</p>
+   * <p>The type of authentication protocol or the VPC components for your event source. For example: <code>"Type":"SASL_SCRAM_512_AUTH"</code>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BASIC_AUTH</code> - (MQ) The Secrets Manager secret that stores your broker credentials.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VPC_SUBNET</code> - The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your Self-Managed Apache Kafka cluster.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VPC_SECURITY_GROUP</code> - The VPC security group used to manage access to your Self-Managed Apache Kafka brokers.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SASL_SCRAM_256_AUTH</code> - The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your Self-Managed Apache Kafka brokers.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SASL_SCRAM_512_AUTH</code> - The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your Self-Managed Apache Kafka brokers.</p>
+   *             </li>
+   *          </ul>
    */
   Type?: SourceAccessType | string;
 
   /**
-   * <p>To reference the secret, use the following format:
-   *       <code>[
-   *         {
-   *         "Type": "BASIC_AUTH",
-   *         "URI": "secretARN"
-   *         }
-   *         ]</code>
-   *          </p>
-   *          <p>The value of <code>Type</code> is always <code>BASIC_AUTH</code>. To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires <code>kms:Decrypt</code> permissions.</p>
+   * <p>The value for your chosen configuration in <code>Type</code>. For example: <code>"URI": "arn:aws:secretsmanager:us-east-1:01234567890:secret:MyBrokerSecretName"</code>.</p>
    */
   URI?: string;
 }
@@ -724,7 +752,7 @@ export interface CreateEventSourceMappingRequest {
    *             </li>
    *          </ul>
    */
-  EventSourceArn: string | undefined;
+  EventSourceArn?: string;
 
   /**
    * <p>The name of the Lambda function.</p>
@@ -772,18 +800,22 @@ export interface CreateEventSourceMappingRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Amazon Simple Queue Service</b> - Default 10. Max 10.</p>
+   *                   <b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Self-Managed Apache Kafka</b> - Default 100. Max 10,000.</p>
    *             </li>
    *          </ul>
    */
   BatchSize?: number;
 
   /**
-   * <p>(Streams) The maximum amount of time to gather records before invoking the function, in seconds.</p>
+   * <p>(Streams and SQS standard queues) The maximum amount of time to gather records before invoking the function, in seconds.</p>
    */
   MaximumBatchingWindowInSeconds?: number;
 
@@ -825,9 +857,12 @@ export interface CreateEventSourceMappingRequest {
   MaximumRetryAttempts?: number;
 
   /**
-   * <p>
-   *       (MSK) The name of the Kafka topic.
-   *     </p>
+   * <p>(Streams) The duration in seconds of a processing window. The range is between 1 second up to 900 seconds.</p>
+   */
+  TumblingWindowInSeconds?: number;
+
+  /**
+   * <p>The name of the Kafka topic.</p>
    */
   Topics?: string[];
 
@@ -839,25 +874,19 @@ export interface CreateEventSourceMappingRequest {
   Queues?: string[];
 
   /**
-   * <p>
-   *       (MQ) The Secrets Manager secret that stores your broker credentials. To store your secret, use the following format:
-   *       <code>	  {
-   *         "username": "your username",
-   *         "password": "your password"
-   *         }</code>
-   *          </p>
-   *
-   *          <p>To reference the secret, use the following format:
-   *       <code>[
-   *         {
-   *         "Type": "BASIC_AUTH",
-   *         "URI": "secretARN"
-   *         }
-   *         ]</code>
-   *          </p>
-   *          <p>The value of <code>Type</code> is always <code>BASIC_AUTH</code>. To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires <code>kms:Decrypt</code> permissions.</p>
+   * <p>An array of the authentication protocol, or the VPC components to secure your event source.</p>
    */
   SourceAccessConfigurations?: SourceAccessConfiguration[];
+
+  /**
+   * <p>The Self-Managed Apache Kafka cluster to send records.</p>
+   */
+  SelfManagedEventSource?: SelfManagedEventSource;
+
+  /**
+   * <p>(Streams) A list of current response type enums applied to the event source mapping.</p>
+   */
+  FunctionResponseTypes?: (FunctionResponseType | string)[];
 }
 
 export namespace CreateEventSourceMappingRequest {
@@ -867,8 +896,7 @@ export namespace CreateEventSourceMappingRequest {
 }
 
 /**
- * <p>A mapping between an AWS resource and an AWS Lambda function. See <a>CreateEventSourceMapping</a>
- *       for details.</p>
+ * <p>A mapping between an AWS resource and an AWS Lambda function. See <a>CreateEventSourceMapping</a> for details.</p>
  */
 export interface EventSourceMappingConfiguration {
   /**
@@ -894,7 +922,7 @@ export interface EventSourceMappingConfiguration {
   BatchSize?: number;
 
   /**
-   * <p>(Streams) The maximum amount of time to gather records before invoking the function, in seconds. The default value is zero.</p>
+   * <p>(Streams and SQS standard queues) The maximum amount of time to gather records before invoking the function, in seconds. The default value is zero.</p>
    */
   MaximumBatchingWindowInSeconds?: number;
 
@@ -942,9 +970,7 @@ export interface EventSourceMappingConfiguration {
   DestinationConfig?: DestinationConfig;
 
   /**
-   * <p>
-   *       (MSK) The name of the Kafka topic to consume.
-   *     </p>
+   * <p>The name of the Kafka topic.</p>
    */
   Topics?: string[];
 
@@ -956,25 +982,14 @@ export interface EventSourceMappingConfiguration {
   Queues?: string[];
 
   /**
-   * <p>
-   *       (MQ) The Secrets Manager secret that stores your broker credentials. To store your secret, use the following format:
-   *       <code>	  {
-   *         "username": "your username",
-   *         "password": "your password"
-   *         }</code>
-   *          </p>
-   *
-   *          <p>To reference the secret, use the following format:
-   *       <code>[
-   *         {
-   *         "Type": "BASIC_AUTH",
-   *         "URI": "secretARN"
-   *         }
-   *         ]</code>
-   *          </p>
-   *          <p>The value of <code>Type</code> is always <code>BASIC_AUTH</code>. To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires <code>kms:Decrypt</code> permissions.</p>
+   * <p>An array of the authentication protocol, or the VPC components to secure your event source.</p>
    */
   SourceAccessConfigurations?: SourceAccessConfiguration[];
+
+  /**
+   * <p>The Self-Managed Apache Kafka cluster for your event source.</p>
+   */
+  SelfManagedEventSource?: SelfManagedEventSource;
 
   /**
    * <p>(Streams) Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
@@ -990,6 +1005,16 @@ export interface EventSourceMappingConfiguration {
    * <p>(Streams) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
    */
   MaximumRetryAttempts?: number;
+
+  /**
+   * <p>(Streams) The duration in seconds of a processing window. The range is between 1 second up to 900 seconds.</p>
+   */
+  TumblingWindowInSeconds?: number;
+
+  /**
+   * <p>(Streams) A list of current response type enums applied to the event source mapping.</p>
+   */
+  FunctionResponseTypes?: (FunctionResponseType | string)[];
 }
 
 export namespace EventSourceMappingConfiguration {
@@ -1147,8 +1172,8 @@ export namespace FileSystemConfig {
 }
 
 /**
- * <p>Configuration values that override the container image Dockerfile. See
- *       <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-images-settings.html">Override Container settings</a>. </p>
+ * <p>Configuration values that override the container image Dockerfile settings. See
+ *       <a href="https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms">Container settings</a>. </p>
  */
 export interface ImageConfig {
   /**
@@ -1191,6 +1216,7 @@ export enum Runtime {
   nodejs = "nodejs",
   nodejs10x = "nodejs10.x",
   nodejs12x = "nodejs12.x",
+  nodejs14x = "nodejs14.x",
   nodejs43 = "nodejs4.3",
   nodejs43edge = "nodejs4.3-edge",
   nodejs610 = "nodejs6.10",
@@ -1370,7 +1396,9 @@ export interface CreateFunctionRequest {
   FileSystemConfigs?: FileSystemConfig[];
 
   /**
-   * <p>Configuration values that override the container image Dockerfile.</p>
+   * <p>
+   *             <a href="https://docs.aws.amazon.com/lambda/latest/dg/images-parms.html">Container image configuration
+   *       values</a> that override the values in the container image Dockerfile.</p>
    */
   ImageConfig?: ImageConfig;
 
@@ -3640,7 +3668,8 @@ export interface ListFunctionsRequest {
   Marker?: string;
 
   /**
-   * <p>The maximum number of functions to return.</p>
+   * <p>The maximum number of functions to return in the response. Note that <code>ListFunctions</code> returns a maximum of 50 items in each response,
+   *       even if you set the number higher.</p>
    */
   MaxItems?: number;
 }
@@ -4773,18 +4802,22 @@ export interface UpdateEventSourceMappingRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Amazon Simple Queue Service</b> - Default 10. Max 10.</p>
+   *                   <b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Self-Managed Apache Kafka</b> - Default 100. Max 10,000.</p>
    *             </li>
    *          </ul>
    */
   BatchSize?: number;
 
   /**
-   * <p>(Streams) The maximum amount of time to gather records before invoking the function, in seconds.</p>
+   * <p>(Streams and SQS standard queues) The maximum amount of time to gather records before invoking the function, in seconds.</p>
    */
   MaximumBatchingWindowInSeconds?: number;
 
@@ -4814,25 +4847,19 @@ export interface UpdateEventSourceMappingRequest {
   ParallelizationFactor?: number;
 
   /**
-   * <p>
-   *       (MQ) The Secrets Manager secret that stores your broker credentials. To store your secret, use the following format:
-   *       <code>	  {
-   *         "username": "your username",
-   *         "password": "your password"
-   *         }</code>
-   *          </p>
-   *
-   *          <p>To reference the secret, use the following format:
-   *       <code>[
-   *         {
-   *         "Type": "BASIC_AUTH",
-   *         "URI": "secretARN"
-   *         }
-   *         ]</code>
-   *          </p>
-   *          <p>The value of <code>Type</code> is always <code>BASIC_AUTH</code>. To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires <code>kms:Decrypt</code> permissions.</p>
+   * <p>An array of the authentication protocol, or the VPC components to secure your event source.</p>
    */
   SourceAccessConfigurations?: SourceAccessConfiguration[];
+
+  /**
+   * <p>(Streams) The duration in seconds of a processing window. The range is between 1 second up to 900 seconds.</p>
+   */
+  TumblingWindowInSeconds?: number;
+
+  /**
+   * <p>(Streams) A list of current response type enums applied to the event source mapping.</p>
+   */
+  FunctionResponseTypes?: (FunctionResponseType | string)[];
 }
 
 export namespace UpdateEventSourceMappingRequest {
@@ -5025,7 +5052,9 @@ export interface UpdateFunctionConfigurationRequest {
   FileSystemConfigs?: FileSystemConfig[];
 
   /**
-   * <p>Configuration values that override the container image Dockerfile.</p>
+   * <p>
+   *             <a href="https://docs.aws.amazon.com/lambda/latest/dg/images-parms.html">Container image configuration
+   *         values</a> that override the values in the container image Dockerfile.</p>
    */
   ImageConfig?: ImageConfig;
 }

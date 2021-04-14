@@ -44,7 +44,7 @@ export type PutScalingPolicyCommandOutput = PutScalingPolicyResponse & __Metadat
  *          tracking policy is ready to scale in, the scale-in activity will not be blocked. After the
  *          scale-in activity completes, the target tracking policy could instruct the scalable target
  *          to scale out again. </p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html">Target Tracking Scaling Policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html">Step Scaling Policies</a> in the <i>Application Auto Scaling User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html">Target tracking scaling policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html">Step scaling policies</a> in the <i>Application Auto Scaling User Guide</i>.</p>
  *          <note>
  *             <p>If a scalable target is deregistered, the scalable target is no longer available to
  *             execute scaling policies. Any scaling policies that were specified for the scalable

@@ -21,7 +21,11 @@ export type CreateAutoScalingGroupCommandInput = CreateAutoScalingGroupType;
 export type CreateAutoScalingGroupCommandOutput = __MetadataBearer;
 
 /**
- * <p>Creates an Auto Scaling group with the specified name and attributes. </p>
+ * <p>
+ *             <b>We strongly recommend using a launch template when calling this operation to ensure full functionality for Amazon EC2 Auto Scaling and Amazon EC2.</b>
+ *          </p>
+ *          <p>Creates an Auto Scaling group with
+ *             the specified name and attributes. </p>
  *         <p>If you exceed your maximum limit of Auto Scaling groups, the call fails. To query this limit,
  *             call the <a>DescribeAccountLimits</a> API. For information about updating
  *             this limit, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html">Amazon EC2 Auto Scaling service

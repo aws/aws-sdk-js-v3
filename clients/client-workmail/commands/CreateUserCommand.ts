@@ -21,8 +21,7 @@ export type CreateUserCommandInput = CreateUserRequest;
 export type CreateUserCommandOutput = CreateUserResponse & __MetadataBearer;
 
 /**
- * <p>Creates a user who can be used in Amazon WorkMail by calling the
- *             <a>RegisterToWorkMail</a> operation.</p>
+ * <p>Creates a user who can be used in Amazon WorkMail by calling the <a>RegisterToWorkMail</a> operation.</p>
  */
 export class CreateUserCommand extends $Command<
   CreateUserCommandInput,

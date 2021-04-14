@@ -47,6 +47,10 @@ import {
   DisableOrganizationAdminAccountCommandOutput,
 } from "../commands/DisableOrganizationAdminAccountCommand";
 import {
+  DisassociateFromAdministratorAccountCommandInput,
+  DisassociateFromAdministratorAccountCommandOutput,
+} from "../commands/DisassociateFromAdministratorAccountCommand";
+import {
   DisassociateFromMasterAccountCommandInput,
   DisassociateFromMasterAccountCommandOutput,
 } from "../commands/DisassociateFromMasterAccountCommand";
@@ -56,6 +60,10 @@ import {
   EnableOrganizationAdminAccountCommandInput,
   EnableOrganizationAdminAccountCommandOutput,
 } from "../commands/EnableOrganizationAdminAccountCommand";
+import {
+  GetAdministratorAccountCommandInput,
+  GetAdministratorAccountCommandOutput,
+} from "../commands/GetAdministratorAccountCommand";
 import {
   GetBucketStatisticsCommandInput,
   GetBucketStatisticsCommandOutput,
@@ -74,6 +82,10 @@ import {
 } from "../commands/GetFindingStatisticsCommand";
 import { GetFindingsCommandInput, GetFindingsCommandOutput } from "../commands/GetFindingsCommand";
 import { GetFindingsFilterCommandInput, GetFindingsFilterCommandOutput } from "../commands/GetFindingsFilterCommand";
+import {
+  GetFindingsPublicationConfigurationCommandInput,
+  GetFindingsPublicationConfigurationCommandOutput,
+} from "../commands/GetFindingsPublicationConfigurationCommand";
 import {
   GetInvitationsCountCommandInput,
   GetInvitationsCountCommandOutput,
@@ -110,6 +122,10 @@ import {
   PutClassificationExportConfigurationCommandInput,
   PutClassificationExportConfigurationCommandOutput,
 } from "../commands/PutClassificationExportConfigurationCommand";
+import {
+  PutFindingsPublicationConfigurationCommandInput,
+  PutFindingsPublicationConfigurationCommandOutput,
+} from "../commands/PutFindingsPublicationConfigurationCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import {
   TestCustomDataIdentifierCommandInput,
@@ -154,6 +170,7 @@ import {
   BucketPermissionConfiguration,
   BucketPolicy,
   BucketPublicAccess,
+  BucketServerSideEncryption,
   BucketSortCriteria,
   Cell,
   ClassificationDetails,
@@ -213,6 +230,7 @@ import {
   S3JobDefinition,
   S3Object,
   Scoping,
+  SecurityHubConfiguration,
   SensitiveDataItem,
   ServerSideEncryption,
   ServiceLimit,
@@ -263,6 +281,8 @@ export const serializeAws_restJson1AcceptInvitationCommand = async (
   let resolvedPath = "/invitations/accept";
   let body: any;
   body = JSON.stringify({
+    ...(input.administratorAccountId !== undefined &&
+      input.administratorAccountId !== null && { administratorAccountId: input.administratorAccountId }),
     ...(input.invitationId !== undefined && input.invitationId !== null && { invitationId: input.invitationId }),
     ...(input.masterAccount !== undefined && input.masterAccount !== null && { masterAccount: input.masterAccount }),
   });
@@ -752,6 +772,26 @@ export const serializeAws_restJson1DisableOrganizationAdminAccountCommand = asyn
   });
 };
 
+export const serializeAws_restJson1DisassociateFromAdministratorAccountCommand = async (
+  input: DisassociateFromAdministratorAccountCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/administrator/disassociate";
+  let body: any;
+  body = "";
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DisassociateFromMasterAccountCommand = async (
   input: DisassociateFromMasterAccountCommandInput,
   context: __SerdeContext
@@ -847,6 +887,26 @@ export const serializeAws_restJson1EnableOrganizationAdminAccountCommand = async
     hostname,
     port,
     method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetAdministratorAccountCommand = async (
+  input: GetAdministratorAccountCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/administrator";
+  let body: any;
+  body = "";
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
     headers,
     path: resolvedPath,
     body,
@@ -968,6 +1028,26 @@ export const serializeAws_restJson1GetFindingsFilterCommand = async (
     throw new Error("No value provided for input HTTP label: id.");
   }
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetFindingsPublicationConfigurationCommand = async (
+  input: GetFindingsPublicationConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/findings-publication-configuration";
+  let body: any;
+  body = "";
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1119,6 +1199,7 @@ export const serializeAws_restJson1GetUsageStatisticsCommand = async (
     ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
     ...(input.sortBy !== undefined &&
       input.sortBy !== null && { sortBy: serializeAws_restJson1UsageStatisticsSortBy(input.sortBy, context) }),
+    ...(input.timeRange !== undefined && input.timeRange !== null && { timeRange: input.timeRange }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1138,8 +1219,10 @@ export const serializeAws_restJson1GetUsageTotalsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {};
   let resolvedPath = "/usage";
+  const query: any = {
+    ...(input.timeRange !== undefined && { timeRange: input.timeRange }),
+  };
   let body: any;
-  body = "";
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1148,6 +1231,7 @@ export const serializeAws_restJson1GetUsageTotalsCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    query,
     body,
   });
 };
@@ -1379,6 +1463,37 @@ export const serializeAws_restJson1PutClassificationExportConfigurationCommand =
     ...(input.configuration !== undefined &&
       input.configuration !== null && {
         configuration: serializeAws_restJson1ClassificationExportConfiguration(input.configuration, context),
+      }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1PutFindingsPublicationConfigurationCommand = async (
+  input: PutFindingsPublicationConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = "/findings-publication-configuration";
+  let body: any;
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.securityHubConfiguration !== undefined &&
+      input.securityHubConfiguration !== null && {
+        securityHubConfiguration: serializeAws_restJson1SecurityHubConfiguration(
+          input.securityHubConfiguration,
+          context
+        ),
       }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -3573,6 +3688,105 @@ const deserializeAws_restJson1DisableOrganizationAdminAccountCommandError = asyn
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DisassociateFromAdministratorAccountCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateFromAdministratorAccountCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DisassociateFromAdministratorAccountCommandError(output, context);
+  }
+  const contents: DisassociateFromAdministratorAccountCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DisassociateFromAdministratorAccountCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateFromAdministratorAccountCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.macie2#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.macie2#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.macie2#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.macie2#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.macie2#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.macie2#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.macie2#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DisassociateFromMasterAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3888,6 +4102,109 @@ const deserializeAws_restJson1EnableOrganizationAdminAccountCommandError = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableOrganizationAdminAccountCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.macie2#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.macie2#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.macie2#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.macie2#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.macie2#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.macie2#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.macie2#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1GetAdministratorAccountCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAdministratorAccountCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetAdministratorAccountCommandError(output, context);
+  }
+  const contents: GetAdministratorAccountCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    administrator: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.administrator !== undefined && data.administrator !== null) {
+    contents.administrator = deserializeAws_restJson1Invitation(data.administrator, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetAdministratorAccountCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAdministratorAccountCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -4611,6 +4928,112 @@ const deserializeAws_restJson1GetFindingsFilterCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1GetFindingsPublicationConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetFindingsPublicationConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetFindingsPublicationConfigurationCommandError(output, context);
+  }
+  const contents: GetFindingsPublicationConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    securityHubConfiguration: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.securityHubConfiguration !== undefined && data.securityHubConfiguration !== null) {
+    contents.securityHubConfiguration = deserializeAws_restJson1SecurityHubConfiguration(
+      data.securityHubConfiguration,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetFindingsPublicationConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetFindingsPublicationConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.macie2#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.macie2#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.macie2#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.macie2#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.macie2#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.macie2#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.macie2#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1GetFindingStatisticsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5049,6 +5472,7 @@ export const deserializeAws_restJson1GetMemberCommand = async (
   const contents: GetMemberCommandOutput = {
     $metadata: deserializeMetadata(output),
     accountId: undefined,
+    administratorAccountId: undefined,
     arn: undefined,
     email: undefined,
     invitedAt: undefined,
@@ -5060,6 +5484,9 @@ export const deserializeAws_restJson1GetMemberCommand = async (
   const data: any = await parseBody(output.body, context);
   if (data.accountId !== undefined && data.accountId !== null) {
     contents.accountId = data.accountId;
+  }
+  if (data.administratorAccountId !== undefined && data.administratorAccountId !== null) {
+    contents.administratorAccountId = data.administratorAccountId;
   }
   if (data.arn !== undefined && data.arn !== null) {
     contents.arn = data.arn;
@@ -5181,6 +5608,7 @@ export const deserializeAws_restJson1GetUsageStatisticsCommand = async (
     $metadata: deserializeMetadata(output),
     nextToken: undefined,
     records: undefined,
+    timeRange: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined && data.nextToken !== null) {
@@ -5188,6 +5616,9 @@ export const deserializeAws_restJson1GetUsageStatisticsCommand = async (
   }
   if (data.records !== undefined && data.records !== null) {
     contents.records = deserializeAws_restJson1__listOfUsageRecord(data.records, context);
+  }
+  if (data.timeRange !== undefined && data.timeRange !== null) {
+    contents.timeRange = data.timeRange;
   }
   return Promise.resolve(contents);
 };
@@ -5286,9 +5717,13 @@ export const deserializeAws_restJson1GetUsageTotalsCommand = async (
   }
   const contents: GetUsageTotalsCommandOutput = {
     $metadata: deserializeMetadata(output),
+    timeRange: undefined,
     usageTotals: undefined,
   };
   const data: any = await parseBody(output.body, context);
+  if (data.timeRange !== undefined && data.timeRange !== null) {
+    contents.timeRange = data.timeRange;
+  }
   if (data.usageTotals !== undefined && data.usageTotals !== null) {
     contents.usageTotals = deserializeAws_restJson1__listOfUsageTotal(data.usageTotals, context);
   }
@@ -6201,6 +6636,105 @@ const deserializeAws_restJson1PutClassificationExportConfigurationCommandError =
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutClassificationExportConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.macie2#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.macie2#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.macie2#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.macie2#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.macie2#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.macie2#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.macie2#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1PutFindingsPublicationConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutFindingsPublicationConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1PutFindingsPublicationConfigurationCommandError(output, context);
+  }
+  const contents: PutFindingsPublicationConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1PutFindingsPublicationConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutFindingsPublicationConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -7408,6 +7942,20 @@ const serializeAws_restJson1Scoping = (input: Scoping, context: __SerdeContext):
   };
 };
 
+const serializeAws_restJson1SecurityHubConfiguration = (
+  input: SecurityHubConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.publishClassificationFindings !== undefined &&
+      input.publishClassificationFindings !== null && {
+        publishClassificationFindings: input.publishClassificationFindings,
+      }),
+    ...(input.publishPolicyFindings !== undefined &&
+      input.publishPolicyFindings !== null && { publishPolicyFindings: input.publishPolicyFindings }),
+  };
+};
+
 const serializeAws_restJson1SimpleScopeTerm = (input: SimpleScopeTerm, context: __SerdeContext): any => {
   return {
     ...(input.comparator !== undefined && input.comparator !== null && { comparator: input.comparator }),
@@ -7895,6 +8443,10 @@ const deserializeAws_restJson1BucketMetadata = (output: any, context: __SerdeCon
       output.replicationDetails !== undefined && output.replicationDetails !== null
         ? deserializeAws_restJson1ReplicationDetails(output.replicationDetails, context)
         : undefined,
+    serverSideEncryption:
+      output.serverSideEncryption !== undefined && output.serverSideEncryption !== null
+        ? deserializeAws_restJson1BucketServerSideEncryption(output.serverSideEncryption, context)
+        : undefined,
     sharedAccess: output.sharedAccess !== undefined && output.sharedAccess !== null ? output.sharedAccess : undefined,
     sizeInBytes: output.sizeInBytes !== undefined && output.sizeInBytes !== null ? output.sizeInBytes : undefined,
     sizeInBytesCompressed:
@@ -7956,6 +8508,17 @@ const deserializeAws_restJson1BucketPublicAccess = (output: any, context: __Serd
       output.permissionConfiguration !== undefined && output.permissionConfiguration !== null
         ? deserializeAws_restJson1BucketPermissionConfiguration(output.permissionConfiguration, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1BucketServerSideEncryption = (
+  output: any,
+  context: __SerdeContext
+): BucketServerSideEncryption => {
+  return {
+    kmsMasterKeyId:
+      output.kmsMasterKeyId !== undefined && output.kmsMasterKeyId !== null ? output.kmsMasterKeyId : undefined,
+    type: output.type !== undefined && output.type !== null ? output.type : undefined,
   } as any;
 };
 
@@ -8443,6 +9006,10 @@ const deserializeAws_restJson1LastRunErrorStatus = (output: any, context: __Serd
 const deserializeAws_restJson1Member = (output: any, context: __SerdeContext): Member => {
   return {
     accountId: output.accountId !== undefined && output.accountId !== null ? output.accountId : undefined,
+    administratorAccountId:
+      output.administratorAccountId !== undefined && output.administratorAccountId !== null
+        ? output.administratorAccountId
+        : undefined,
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     email: output.email !== undefined && output.email !== null ? output.email : undefined,
     invitedAt: output.invitedAt !== undefined && output.invitedAt !== null ? new Date(output.invitedAt) : undefined,
@@ -8712,6 +9279,22 @@ const deserializeAws_restJson1Scoping = (output: any, context: __SerdeContext): 
     includes:
       output.includes !== undefined && output.includes !== null
         ? deserializeAws_restJson1JobScopingBlock(output.includes, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SecurityHubConfiguration = (
+  output: any,
+  context: __SerdeContext
+): SecurityHubConfiguration => {
+  return {
+    publishClassificationFindings:
+      output.publishClassificationFindings !== undefined && output.publishClassificationFindings !== null
+        ? output.publishClassificationFindings
+        : undefined,
+    publishPolicyFindings:
+      output.publishPolicyFindings !== undefined && output.publishPolicyFindings !== null
+        ? output.publishPolicyFindings
         : undefined,
   } as any;
 };

@@ -21,7 +21,7 @@ export type GetImagePipelineCommandInput = GetImagePipelineRequest;
 export type GetImagePipelineCommandOutput = GetImagePipelineResponse & __MetadataBearer;
 
 /**
- * <p> Gets an image pipeline. </p>
+ * <p> Gets an image pipeline.</p>
  */
 export class GetImagePipelineCommand extends $Command<
   GetImagePipelineCommandInput,

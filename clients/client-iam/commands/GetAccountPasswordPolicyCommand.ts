@@ -21,9 +21,10 @@ export type GetAccountPasswordPolicyCommandInput = {};
 export type GetAccountPasswordPolicyCommandOutput = GetAccountPasswordPolicyResponse & __MetadataBearer;
 
 /**
- * <p>Retrieves the password policy for the AWS account. For more information about using a
- *          password policy, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html">Managing an IAM Password
- *             Policy</a>.</p>
+ * <p>Retrieves the password policy for the AWS account. This tells you the complexity
+ *             requirements and mandatory rotation periods for the IAM user passwords in your account.
+ *             For more information about using a password policy, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html">Managing an IAM password
+ *                 policy</a>.</p>
  */
 export class GetAccountPasswordPolicyCommand extends $Command<
   GetAccountPasswordPolicyCommandInput,

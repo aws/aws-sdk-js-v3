@@ -22,6 +22,17 @@ export type ListGroupsCommandOutput = ListGroupsOutput & __MetadataBearer;
 
 /**
  * <p>Returns a list of existing resource groups in your account.</p>
+ *          <p>
+ *             <b>Minimum permissions</b>
+ *          </p>
+ *          <p>To run this command, you must have the following permissions:</p>
+ *          <ul>
+ *             <li>
+ *                 <p>
+ *                   <code>resource-groups:ListGroups</code>
+ *                </p>
+ *             </li>
+ *          </ul>
  */
 export class ListGroupsCommand extends $Command<
   ListGroupsCommandInput,

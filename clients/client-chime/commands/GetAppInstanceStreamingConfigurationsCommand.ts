@@ -25,7 +25,7 @@ export type GetAppInstanceStreamingConfigurationsCommandOutput = GetAppInstanceS
   __MetadataBearer;
 
 /**
- * <p>Gets the streaming settings for an app instance.</p>
+ * <p>Gets the streaming settings for an <code>AppInstance</code>.</p>
  */
 export class GetAppInstanceStreamingConfigurationsCommand extends $Command<
   GetAppInstanceStreamingConfigurationsCommandInput,

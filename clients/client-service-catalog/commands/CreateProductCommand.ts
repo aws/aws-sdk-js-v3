@@ -23,6 +23,11 @@ export type CreateProductCommandOutput = CreateProductOutput & __MetadataBearer;
 /**
  * <p>Creates a product.</p>
  *          <p>A delegated admin is authorized to invoke this command.</p>
+ *
+ *          <p>The user or role that performs this operation must have the
+ *             <code>cloudformation:GetTemplate</code> IAM policy permission. This policy permission is
+ *          required when using the <code>ImportFromPhysicalId</code> template source in the
+ *          information data section.</p>
  */
 export class CreateProductCommand extends $Command<
   CreateProductCommandInput,

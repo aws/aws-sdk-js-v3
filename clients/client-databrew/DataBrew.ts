@@ -62,6 +62,11 @@ import {
 } from "./commands/DescribeDatasetCommand";
 import { DescribeJobCommand, DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand";
 import {
+  DescribeJobRunCommand,
+  DescribeJobRunCommandInput,
+  DescribeJobRunCommandOutput,
+} from "./commands/DescribeJobRunCommand";
+import {
   DescribeProjectCommand,
   DescribeProjectCommandInput,
   DescribeProjectCommandOutput,
@@ -168,6 +173,46 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 export class DataBrew extends DataBrewClient {
   /**
    * <p>Deletes one or more versions of a recipe at a time.</p>
+   *
+   *         <p>The entire request will be rejected if:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>The recipe does not exist.</p>
+   *             </li>
+   *             <li>
+   *                 <p>There is an invalid version identifier in the list of versions.</p>
+   *             </li>
+   *             <li>
+   *                 <p>The version list is empty.</p>
+   *             </li>
+   *             <li>
+   *                 <p>The version list size exceeds 50.</p>
+   *             </li>
+   *             <li>
+   *                 <p>The version list contains duplicate entries.</p>
+   *             </li>
+   *          </ul>
+   *
+   *         <p>The request will complete successfully, but with partial failures, if:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>A version does not exist.</p>
+   *             </li>
+   *             <li>
+   *                 <p>A version is being used by a job.</p>
+   *             </li>
+   *             <li>
+   *                 <p>You specify <code>LATEST_WORKING</code>, but it's being used by a
+   *                     project.</p>
+   *             </li>
+   *             <li>
+   *                 <p>The version fails to be deleted.</p>
+   *             </li>
+   *          </ul>
+   *         <p>The <code>LATEST_WORKING</code> version will only be deleted if the recipe has no
+   *             other versions. If you try to delete <code>LATEST_WORKING</code> while other versions
+   *             exist (or if they can't be deleted), then <code>LATEST_WORKING</code> will be listed as
+   *             partial failure in the response.</p>
    */
   public batchDeleteRecipeVersion(
     args: BatchDeleteRecipeVersionCommandInput,
@@ -199,7 +244,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
-   * <p>Creates a new AWS Glue DataBrew dataset for this AWS account.</p>
+   * <p>Creates a new DataBrew dataset.</p>
    */
   public createDataset(
     args: CreateDatasetCommandInput,
@@ -231,8 +276,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
-   * <p>Creates a new job to profile an AWS Glue DataBrew dataset that exists in the current AWS
-   *             account.</p>
+   * <p>Creates a new job to analyze a dataset and create its data profile.</p>
    */
   public createProfileJob(
     args: CreateProfileJobCommandInput,
@@ -264,7 +308,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
-   * <p>Creates a new AWS Glue DataBrew project in the current AWS account.</p>
+   * <p>Creates a new DataBrew project.</p>
    */
   public createProject(
     args: CreateProjectCommandInput,
@@ -296,7 +340,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
-   * <p>Creates a new AWS Glue DataBrew recipe for the current AWS account.</p>
+   * <p>Creates a new DataBrew recipe.</p>
    */
   public createRecipe(
     args: CreateRecipeCommandInput,
@@ -325,9 +369,8 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
-   * <p>Creates a new job for an existing AWS Glue DataBrew recipe in the current AWS account.
-   *             You can create a standalone job using either a project, or a combination of a recipe and
-   *             a dataset.</p>
+   * <p>Creates a new job to transform input data, using steps defined in an existing AWS Glue
+   *             DataBrew recipe</p>
    */
   public createRecipeJob(
     args: CreateRecipeJobCommandInput,
@@ -359,8 +402,8 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
-   * <p>Creates a new schedule for one or more AWS Glue DataBrew jobs. Jobs can be run at a
-   *             specific date and time, or at regular intervals.</p>
+   * <p>Creates a new schedule for one or more DataBrew jobs. Jobs can be run at a specific
+   *             date and time, or at regular intervals.</p>
    */
   public createSchedule(
     args: CreateScheduleCommandInput,
@@ -392,7 +435,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
-   * <p>Deletes a dataset from AWS Glue DataBrew.</p>
+   * <p>Deletes a dataset from DataBrew.</p>
    */
   public deleteDataset(
     args: DeleteDatasetCommandInput,
@@ -424,8 +467,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
-   * <p>Deletes the specified AWS Glue DataBrew job from the current AWS account. The job can
-   *             be for a recipe or for a profile.</p>
+   * <p>Deletes the specified DataBrew job.</p>
    */
   public deleteJob(args: DeleteJobCommandInput, options?: __HttpHandlerOptions): Promise<DeleteJobCommandOutput>;
   public deleteJob(args: DeleteJobCommandInput, cb: (err: any, data?: DeleteJobCommandOutput) => void): void;
@@ -451,7 +493,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
-   * <p>Deletes an existing AWS Glue DataBrew project from the current AWS account.</p>
+   * <p>Deletes an existing DataBrew project.</p>
    */
   public deleteProject(
     args: DeleteProjectCommandInput,
@@ -483,7 +525,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
-   * <p>Deletes a single version of an AWS Glue DataBrew recipe.</p>
+   * <p>Deletes a single version of a DataBrew recipe.</p>
    */
   public deleteRecipeVersion(
     args: DeleteRecipeVersionCommandInput,
@@ -515,7 +557,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
-   * <p>Deletes the specified AWS Glue DataBrew schedule from the current AWS account.</p>
+   * <p>Deletes the specified DataBrew schedule.</p>
    */
   public deleteSchedule(
     args: DeleteScheduleCommandInput,
@@ -547,8 +589,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
-   * <p>Returns the definition of a specific AWS Glue DataBrew dataset that is in the current
-   *             AWS account.</p>
+   * <p>Returns the definition of a specific DataBrew dataset.</p>
    */
   public describeDataset(
     args: DescribeDatasetCommandInput,
@@ -580,8 +621,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
-   * <p>Returns the definition of a specific AWS Glue DataBrew job that is in the current AWS
-   *             account.</p>
+   * <p>Returns the definition of a specific DataBrew job.</p>
    */
   public describeJob(args: DescribeJobCommandInput, options?: __HttpHandlerOptions): Promise<DescribeJobCommandOutput>;
   public describeJob(args: DescribeJobCommandInput, cb: (err: any, data?: DescribeJobCommandOutput) => void): void;
@@ -607,8 +647,39 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
-   * <p>Returns the definition of a specific AWS Glue DataBrew project that is in the current
-   *             AWS account.</p>
+   * <p>Represents one run of a DataBrew job.</p>
+   */
+  public describeJobRun(
+    args: DescribeJobRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeJobRunCommandOutput>;
+  public describeJobRun(
+    args: DescribeJobRunCommandInput,
+    cb: (err: any, data?: DescribeJobRunCommandOutput) => void
+  ): void;
+  public describeJobRun(
+    args: DescribeJobRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeJobRunCommandOutput) => void
+  ): void;
+  public describeJobRun(
+    args: DescribeJobRunCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeJobRunCommandOutput) => void),
+    cb?: (err: any, data?: DescribeJobRunCommandOutput) => void
+  ): Promise<DescribeJobRunCommandOutput> | void {
+    const command = new DescribeJobRunCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the definition of a specific DataBrew project.</p>
    */
   public describeProject(
     args: DescribeProjectCommandInput,
@@ -640,8 +711,8 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
-   * <p>Returns the definition of a specific AWS Glue DataBrew recipe that is in the current
-   *             AWS account.</p>
+   * <p>Returns the definition of a specific DataBrew recipe corresponding to a particular
+   *             version.</p>
    */
   public describeRecipe(
     args: DescribeRecipeCommandInput,
@@ -673,8 +744,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
-   * <p>Returns the definition of a specific AWS Glue DataBrew schedule that is in the current
-   *             AWS account.</p>
+   * <p>Returns the definition of a specific DataBrew schedule.</p>
    */
   public describeSchedule(
     args: DescribeScheduleCommandInput,
@@ -706,7 +776,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
-   * <p>Lists all of the AWS Glue DataBrew datasets for the current AWS account.</p>
+   * <p>Lists all of the DataBrew datasets.</p>
    */
   public listDatasets(
     args: ListDatasetsCommandInput,
@@ -735,8 +805,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
-   * <p>Lists all of the previous runs of a particular AWS Glue DataBrew job in the current
-   *             AWS account.</p>
+   * <p>Lists all of the previous runs of a particular DataBrew job.</p>
    */
   public listJobRuns(args: ListJobRunsCommandInput, options?: __HttpHandlerOptions): Promise<ListJobRunsCommandOutput>;
   public listJobRuns(args: ListJobRunsCommandInput, cb: (err: any, data?: ListJobRunsCommandOutput) => void): void;
@@ -762,7 +831,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
-   * <p>Lists the AWS Glue DataBrew jobs in the current AWS account.</p>
+   * <p>Lists all of the DataBrew jobs that are defined.</p>
    */
   public listJobs(args: ListJobsCommandInput, options?: __HttpHandlerOptions): Promise<ListJobsCommandOutput>;
   public listJobs(args: ListJobsCommandInput, cb: (err: any, data?: ListJobsCommandOutput) => void): void;
@@ -788,7 +857,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
-   * <p>Lists all of the DataBrew projects in the current AWS account.</p>
+   * <p>Lists all of the DataBrew projects that are defined.</p>
    */
   public listProjects(
     args: ListProjectsCommandInput,
@@ -817,7 +886,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
-   * <p>Lists all of the AWS Glue DataBrew recipes in the current AWS account.</p>
+   * <p>Lists all of the DataBrew recipes that are defined.</p>
    */
   public listRecipes(args: ListRecipesCommandInput, options?: __HttpHandlerOptions): Promise<ListRecipesCommandOutput>;
   public listRecipes(args: ListRecipesCommandInput, cb: (err: any, data?: ListRecipesCommandOutput) => void): void;
@@ -843,8 +912,8 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
-   * <p>Lists all of the versions of a particular AWS Glue DataBrew recipe in the current AWS
-   *             account.</p>
+   * <p>Lists the versions of a particular DataBrew recipe, except for
+   *                 <code>LATEST_WORKING</code>.</p>
    */
   public listRecipeVersions(
     args: ListRecipeVersionsCommandInput,
@@ -876,7 +945,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
-   * <p>Lists the AWS Glue DataBrew schedules in the current AWS account.</p>
+   * <p>Lists the DataBrew schedules that are defined.</p>
    */
   public listSchedules(
     args: ListSchedulesCommandInput,
@@ -908,7 +977,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
-   * <p>Lists all the tags for an AWS Glue DataBrew resource. </p>
+   * <p>Lists all the tags for a DataBrew resource. </p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -940,8 +1009,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
-   * <p>Publishes a new major version of an AWS Glue DataBrew recipe that exists in the
-   *             current AWS account.</p>
+   * <p>Publishes a new version of a DataBrew recipe.</p>
    */
   public publishRecipe(
     args: PublishRecipeCommandInput,
@@ -973,8 +1041,8 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
-   * <p>Performs a recipe step within an interactive AWS Glue DataBrew session that's
-   *             currently open.</p>
+   * <p>Performs a recipe step within an interactive DataBrew session that's currently
+   *             open.</p>
    */
   public sendProjectSessionAction(
     args: SendProjectSessionActionCommandInput,
@@ -1006,7 +1074,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
-   * <p>Runs an AWS Glue DataBrew job that exists in the current AWS account.</p>
+   * <p>Runs a DataBrew job.</p>
    */
   public startJobRun(args: StartJobRunCommandInput, options?: __HttpHandlerOptions): Promise<StartJobRunCommandOutput>;
   public startJobRun(args: StartJobRunCommandInput, cb: (err: any, data?: StartJobRunCommandOutput) => void): void;
@@ -1032,7 +1100,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
-   * <p>Creates an interactive session, enabling you to manipulate an AWS Glue DataBrew
+   * <p>Creates an interactive session, enabling you to manipulate data in a DataBrew
    *             project.</p>
    */
   public startProjectSession(
@@ -1065,7 +1133,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
-   * <p>Stops the specified job from running in the current AWS account.</p>
+   * <p>Stops a particular run of a job.</p>
    */
   public stopJobRun(args: StopJobRunCommandInput, options?: __HttpHandlerOptions): Promise<StopJobRunCommandOutput>;
   public stopJobRun(args: StopJobRunCommandInput, cb: (err: any, data?: StopJobRunCommandOutput) => void): void;
@@ -1091,8 +1159,8 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
-   * <p>Adds metadata tags to an AWS Glue DataBrew resource, such as a dataset, job, project,
-   *             or recipe.</p>
+   * <p>Adds metadata tags to a DataBrew resource, such as a dataset, project, recipe, job, or
+   *             schedule.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -1118,7 +1186,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
-   * <p>Removes metadata tags from an AWS Glue DataBrew resource.</p>
+   * <p>Removes metadata tags from a DataBrew resource.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1150,8 +1218,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
-   * <p>Modifies the definition of an existing AWS Glue DataBrew dataset in the current AWS
-   *             account.</p>
+   * <p>Modifies the definition of an existing DataBrew dataset.</p>
    */
   public updateDataset(
     args: UpdateDatasetCommandInput,
@@ -1183,8 +1250,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
-   * <p>Modifies the definition of an existing AWS Glue DataBrew job in the current AWS
-   *             account.</p>
+   * <p>Modifies the definition of an existing profile job.</p>
    */
   public updateProfileJob(
     args: UpdateProfileJobCommandInput,
@@ -1216,8 +1282,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
-   * <p>Modifies the definition of an existing AWS Glue DataBrew project in the current AWS
-   *             account.</p>
+   * <p>Modifies the definition of an existing DataBrew project.</p>
    */
   public updateProject(
     args: UpdateProjectCommandInput,
@@ -1249,8 +1314,8 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
-   * <p>Modifies the definition of the latest working version of an AWS Glue DataBrew recipe
-   *             in the current AWS account.</p>
+   * <p>Modifies the definition of the <code>LATEST_WORKING</code> version of a DataBrew
+   *             recipe.</p>
    */
   public updateRecipe(
     args: UpdateRecipeCommandInput,
@@ -1279,8 +1344,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
-   * <p>Modifies the definition of an existing AWS Glue DataBrew recipe job in the current AWS
-   *             account.</p>
+   * <p>Modifies the definition of an existing DataBrew recipe job.</p>
    */
   public updateRecipeJob(
     args: UpdateRecipeJobCommandInput,
@@ -1312,8 +1376,7 @@ export class DataBrew extends DataBrewClient {
   }
 
   /**
-   * <p>Modifies the definition of an existing AWS Glue DataBrew schedule in the current AWS
-   *             account.</p>
+   * <p>Modifies the definition of an existing DataBrew schedule.</p>
    */
   public updateSchedule(
     args: UpdateScheduleCommandInput,

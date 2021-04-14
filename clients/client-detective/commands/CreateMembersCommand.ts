@@ -22,19 +22,20 @@ export type CreateMembersCommandOutput = CreateMembersResponse & __MetadataBeare
 
 /**
  * <p>Sends a request to invite the specified AWS accounts to be member accounts in the
- *          behavior graph. This operation can only be called by the master account for a behavior
- *          graph. </p>
+ *          behavior graph. This operation can only be called by the administrator account for a
+ *          behavior graph. </p>
  *          <p>
- *             <code>CreateMembers</code> verifies the accounts and then sends invitations to the
- *          verified accounts.</p>
+ *             <code>CreateMembers</code> verifies the accounts and then invites the verified accounts.
+ *          The administrator can optionally specify to not send invitation emails to the member
+ *          accounts. This would be used when the administrator manages their member accounts
+ *          centrally.</p>
  *          <p>The request provides the behavior graph ARN and the list of accounts to invite.</p>
  *          <p>The response separates the requested accounts into two lists:</p>
  *          <ul>
  *             <li>
  *                <p>The accounts that <code>CreateMembers</code> was able to start the verification
  *                for. This list includes member accounts that are being verified, that have passed
- *                verification and are being sent an invitation, and that have failed
- *                verification.</p>
+ *                verification and are to be invited, and that have failed verification.</p>
  *             </li>
  *             <li>
  *                <p>The accounts that <code>CreateMembers</code> was unable to process. This list

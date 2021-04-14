@@ -21,7 +21,8 @@ export type AssociateLambdaFunctionCommandInput = AssociateLambdaFunctionRequest
 export type AssociateLambdaFunctionCommandOutput = __MetadataBearer;
 
 /**
- * <p>Allows the specified Amazon Connect instance to access the specified Lambda function.</p>
+ * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+ *          <p>Allows the specified Amazon Connect instance to access the specified Lambda function.</p>
  */
 export class AssociateLambdaFunctionCommand extends $Command<
   AssociateLambdaFunctionCommandInput,

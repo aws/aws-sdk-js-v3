@@ -1747,6 +1747,13 @@ export interface CreateEmailIdentityRequest {
    *             address.</p>
    */
   DkimSigningAttributes?: DkimSigningAttributes;
+
+  /**
+   * <p>The configuration set to use by default when sending from this identity.
+   *             Note that any configuration set defined in the email sending request takes precedence.
+   *         </p>
+   */
+  ConfigurationSetName?: string;
 }
 
 export namespace CreateEmailIdentityRequest {
@@ -3916,6 +3923,11 @@ export interface GetEmailIdentityResponse {
    *             the email identity.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The configuration set used by default when sending from this identity.</p>
+   */
+  ConfigurationSetName?: string;
 }
 
 export namespace GetEmailIdentityResponse {
@@ -5479,6 +5491,38 @@ export interface PutDeliverabilityDashboardOptionResponse {}
 
 export namespace PutDeliverabilityDashboardOptionResponse {
   export const filterSensitiveLog = (obj: PutDeliverabilityDashboardOptionResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A request to associate a configuration set with an email identity.</p>
+ */
+export interface PutEmailIdentityConfigurationSetAttributesRequest {
+  /**
+   * <p>The email address or domain that you want to associate with a configuration set.</p>
+   */
+  EmailIdentity: string | undefined;
+
+  /**
+   * <p>The configuration set that you want to associate with an email identity.</p>
+   */
+  ConfigurationSetName?: string;
+}
+
+export namespace PutEmailIdentityConfigurationSetAttributesRequest {
+  export const filterSensitiveLog = (obj: PutEmailIdentityConfigurationSetAttributesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body.</p>
+ */
+export interface PutEmailIdentityConfigurationSetAttributesResponse {}
+
+export namespace PutEmailIdentityConfigurationSetAttributesResponse {
+  export const filterSensitiveLog = (obj: PutEmailIdentityConfigurationSetAttributesResponse): any => ({
     ...obj,
   });
 }

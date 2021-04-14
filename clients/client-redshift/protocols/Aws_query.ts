@@ -7,6 +7,10 @@ import {
   AuthorizeClusterSecurityGroupIngressCommandOutput,
 } from "../commands/AuthorizeClusterSecurityGroupIngressCommand";
 import {
+  AuthorizeEndpointAccessCommandInput,
+  AuthorizeEndpointAccessCommandOutput,
+} from "../commands/AuthorizeEndpointAccessCommand";
+import {
   AuthorizeSnapshotAccessCommandInput,
   AuthorizeSnapshotAccessCommandOutput,
 } from "../commands/AuthorizeSnapshotAccessCommand";
@@ -40,6 +44,10 @@ import {
   CreateClusterSubnetGroupCommandInput,
   CreateClusterSubnetGroupCommandOutput,
 } from "../commands/CreateClusterSubnetGroupCommand";
+import {
+  CreateEndpointAccessCommandInput,
+  CreateEndpointAccessCommandOutput,
+} from "../commands/CreateEndpointAccessCommand";
 import {
   CreateEventSubscriptionCommandInput,
   CreateEventSubscriptionCommandOutput,
@@ -83,6 +91,10 @@ import {
   DeleteClusterSubnetGroupCommandInput,
   DeleteClusterSubnetGroupCommandOutput,
 } from "../commands/DeleteClusterSubnetGroupCommand";
+import {
+  DeleteEndpointAccessCommandInput,
+  DeleteEndpointAccessCommandOutput,
+} from "../commands/DeleteEndpointAccessCommand";
 import {
   DeleteEventSubscriptionCommandInput,
   DeleteEventSubscriptionCommandOutput,
@@ -150,6 +162,14 @@ import {
   DescribeDefaultClusterParametersCommandInput,
   DescribeDefaultClusterParametersCommandOutput,
 } from "../commands/DescribeDefaultClusterParametersCommand";
+import {
+  DescribeEndpointAccessCommandInput,
+  DescribeEndpointAccessCommandOutput,
+} from "../commands/DescribeEndpointAccessCommand";
+import {
+  DescribeEndpointAuthorizationCommandInput,
+  DescribeEndpointAuthorizationCommandOutput,
+} from "../commands/DescribeEndpointAuthorizationCommand";
 import {
   DescribeEventCategoriesCommandInput,
   DescribeEventCategoriesCommandOutput,
@@ -225,6 +245,10 @@ import {
   GetReservedNodeExchangeOfferingsCommandInput,
   GetReservedNodeExchangeOfferingsCommandOutput,
 } from "../commands/GetReservedNodeExchangeOfferingsCommand";
+import {
+  ModifyAquaConfigurationCommandInput,
+  ModifyAquaConfigurationCommandOutput,
+} from "../commands/ModifyAquaConfigurationCommand";
 import { ModifyClusterCommandInput, ModifyClusterCommandOutput } from "../commands/ModifyClusterCommand";
 import {
   ModifyClusterDbRevisionCommandInput,
@@ -254,6 +278,10 @@ import {
   ModifyClusterSubnetGroupCommandInput,
   ModifyClusterSubnetGroupCommandOutput,
 } from "../commands/ModifyClusterSubnetGroupCommand";
+import {
+  ModifyEndpointAccessCommandInput,
+  ModifyEndpointAccessCommandOutput,
+} from "../commands/ModifyEndpointAccessCommand";
 import {
   ModifyEventSubscriptionCommandInput,
   ModifyEventSubscriptionCommandOutput,
@@ -296,6 +324,10 @@ import {
   RevokeClusterSecurityGroupIngressCommandOutput,
 } from "../commands/RevokeClusterSecurityGroupIngressCommand";
 import {
+  RevokeEndpointAccessCommandInput,
+  RevokeEndpointAccessCommandOutput,
+} from "../commands/RevokeEndpointAccessCommand";
+import {
   RevokeSnapshotAccessCommandInput,
   RevokeSnapshotAccessCommandOutput,
 } from "../commands/RevokeSnapshotAccessCommand";
@@ -306,16 +338,19 @@ import {
 import {
   AcceptReservedNodeExchangeInputMessage,
   AcceptReservedNodeExchangeOutputMessage,
+  AccessToClusterDeniedFault,
   AccessToSnapshotDeniedFault,
   AccountAttribute,
   AccountAttributeList,
   AccountWithRestoreAccess,
+  AquaConfiguration,
   AttributeValueTarget,
   AuthorizationAlreadyExistsFault,
   AuthorizationNotFoundFault,
   AuthorizationQuotaExceededFault,
   AuthorizeClusterSecurityGroupIngressMessage,
   AuthorizeClusterSecurityGroupIngressResult,
+  AuthorizeEndpointAccessMessage,
   AuthorizeSnapshotAccessMessage,
   AuthorizeSnapshotAccessResult,
   AvailabilityZone,
@@ -379,6 +414,7 @@ import {
   CreateClusterSnapshotResult,
   CreateClusterSubnetGroupMessage,
   CreateClusterSubnetGroupResult,
+  CreateEndpointAccessMessage,
   CreateEventSubscriptionMessage,
   CreateEventSubscriptionResult,
   CreateHsmClientCertificateMessage,
@@ -402,6 +438,7 @@ import {
   DeleteClusterSnapshotMessage,
   DeleteClusterSnapshotResult,
   DeleteClusterSubnetGroupMessage,
+  DeleteEndpointAccessMessage,
   DeleteEventSubscriptionMessage,
   DeleteHsmClientCertificateMessage,
   DeleteHsmConfigurationMessage,
@@ -424,6 +461,8 @@ import {
   DescribeClustersMessage,
   DescribeDefaultClusterParametersMessage,
   DescribeDefaultClusterParametersResult,
+  DescribeEndpointAccessMessage,
+  DescribeEndpointAuthorizationMessage,
   DescribeEventCategoriesMessage,
   DescribeEventSubscriptionsMessage,
   DescribeEventsMessage,
@@ -440,17 +479,19 @@ import {
   DescribeSnapshotSchedulesMessage,
   DescribeSnapshotSchedulesOutputMessage,
   DescribeTableRestoreStatusMessage,
-  DescribeTagsMessage,
-  DescribeUsageLimitsMessage,
-  DisableLoggingMessage,
-  DisableSnapshotCopyMessage,
-  DisableSnapshotCopyResult,
   EC2SecurityGroup,
   ElasticIpStatus,
-  EnableLoggingMessage,
-  EnableSnapshotCopyMessage,
-  EnableSnapshotCopyResult,
   Endpoint,
+  EndpointAccess,
+  EndpointAccessList,
+  EndpointAlreadyExistsFault,
+  EndpointAuthorization,
+  EndpointAuthorizationAlreadyExistsFault,
+  EndpointAuthorizationList,
+  EndpointAuthorizationsPerClusterLimitExceededFault,
+  EndpointNotFoundFault,
+  EndpointsPerAuthorizationLimitExceededFault,
+  EndpointsPerClusterLimitExceededFault,
   Event,
   EventCategoriesMap,
   EventCategoriesMessage,
@@ -459,9 +500,6 @@ import {
   EventSubscriptionQuotaExceededFault,
   EventSubscriptionsMessage,
   EventsMessage,
-  GetClusterCredentialsMessage,
-  GetReservedNodeExchangeOfferingsInputMessage,
-  GetReservedNodeExchangeOfferingsOutputMessage,
   HsmClientCertificate,
   HsmClientCertificateAlreadyExistsFault,
   HsmClientCertificateMessage,
@@ -474,10 +512,8 @@ import {
   HsmConfigurationQuotaExceededFault,
   HsmStatus,
   IPRange,
-  InProgressTableRestoreQuotaExceededFault,
-  IncompatibleOrderableOptions,
   InsufficientClusterCapacityFault,
-  InsufficientS3BucketPolicyFault,
+  InvalidAuthorizationStateFault,
   InvalidClusterParameterGroupStateFault,
   InvalidClusterSecurityGroupStateFault,
   InvalidClusterSnapshotScheduleStateFault,
@@ -487,13 +523,11 @@ import {
   InvalidClusterSubnetStateFault,
   InvalidClusterTrackFault,
   InvalidElasticIpFault,
+  InvalidEndpointStateFault,
   InvalidHsmClientCertificateStateFault,
   InvalidHsmConfigurationStateFault,
   InvalidReservedNodeStateFault,
-  InvalidRestoreFault,
   InvalidRetentionPeriodFault,
-  InvalidS3BucketNameFault,
-  InvalidS3KeyPrefixFault,
   InvalidScheduleFault,
   InvalidScheduledActionFault,
   InvalidSnapshotCopyGrantStateFault,
@@ -505,6 +539,7 @@ import {
   LimitExceededFault,
   LoggingStatus,
   MaintenanceTrack,
+  NetworkInterface,
   NodeConfigurationOption,
   NodeConfigurationOptionsFilter,
   NodeConfigurationOptionsMessage,
@@ -545,8 +580,6 @@ import {
   ScheduledActionTypeUnsupportedFault,
   ScheduledActionsMessage,
   Snapshot,
-  SnapshotCopyAlreadyDisabledFault,
-  SnapshotCopyAlreadyEnabledFault,
   SnapshotCopyGrant,
   SnapshotCopyGrantAlreadyExistsFault,
   SnapshotCopyGrantMessage,
@@ -560,7 +593,6 @@ import {
   SnapshotScheduleQuotaExceededFault,
   SnapshotSortingEntity,
   SourceNotFoundFault,
-  SpartaProxyVpcEndpoint,
   Subnet,
   SubscriptionAlreadyExistFault,
   SubscriptionCategoryNotFoundFault,
@@ -574,21 +606,38 @@ import {
   TableRestoreStatusMessage,
   Tag,
   TagLimitExceededFault,
-  TaggedResource,
-  TaggedResourceListMessage,
   TrackListMessage,
   UnauthorizedOperation,
-  UnknownSnapshotCopyRegionFault,
   UnsupportedOperationFault,
   UpdateTarget,
   UsageLimit,
   UsageLimitAlreadyExistsFault,
-  UsageLimitList,
   UsageLimitNotFoundFault,
+  VpcEndpoint,
   VpcSecurityGroupMembership,
 } from "../models/models_0";
 import {
+  DescribeTagsMessage,
+  DescribeUsageLimitsMessage,
+  DisableLoggingMessage,
+  DisableSnapshotCopyMessage,
+  DisableSnapshotCopyResult,
+  EnableLoggingMessage,
+  EnableSnapshotCopyMessage,
+  EnableSnapshotCopyResult,
+  EndpointAuthorizationNotFoundFault,
+  GetClusterCredentialsMessage,
+  GetReservedNodeExchangeOfferingsInputMessage,
+  GetReservedNodeExchangeOfferingsOutputMessage,
+  InProgressTableRestoreQuotaExceededFault,
+  IncompatibleOrderableOptions,
+  InsufficientS3BucketPolicyFault,
+  InvalidRestoreFault,
+  InvalidS3BucketNameFault,
+  InvalidS3KeyPrefixFault,
   InvalidTableRestoreArgumentFault,
+  ModifyAquaInputMessage,
+  ModifyAquaOutputMessage,
   ModifyClusterDbRevisionMessage,
   ModifyClusterDbRevisionResult,
   ModifyClusterIamRolesMessage,
@@ -603,6 +652,7 @@ import {
   ModifyClusterSnapshotScheduleMessage,
   ModifyClusterSubnetGroupMessage,
   ModifyClusterSubnetGroupResult,
+  ModifyEndpointAccessMessage,
   ModifyEventSubscriptionMessage,
   ModifyEventSubscriptionResult,
   ModifyScheduledActionMessage,
@@ -625,15 +675,22 @@ import {
   ResumeClusterResult,
   RevokeClusterSecurityGroupIngressMessage,
   RevokeClusterSecurityGroupIngressResult,
+  RevokeEndpointAccessMessage,
   RevokeSnapshotAccessMessage,
   RevokeSnapshotAccessResult,
   RotateEncryptionKeyMessage,
   RotateEncryptionKeyResult,
+  SnapshotCopyAlreadyDisabledFault,
+  SnapshotCopyAlreadyEnabledFault,
   SnapshotCopyDisabledFault,
   SnapshotScheduleUpdateInProgressFault,
   SubnetAlreadyInUse,
   TableLimitExceededFault,
+  TaggedResource,
+  TaggedResourceListMessage,
+  UnknownSnapshotCopyRegionFault,
   UnsupportedOptionFault,
+  UsageLimitList,
 } from "../models/models_1";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
@@ -678,6 +735,22 @@ export const serializeAws_queryAuthorizeClusterSecurityGroupIngressCommand = asy
   body = buildFormUrlencodedString({
     ...serializeAws_queryAuthorizeClusterSecurityGroupIngressMessage(input, context),
     Action: "AuthorizeClusterSecurityGroupIngress",
+    Version: "2012-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryAuthorizeEndpointAccessCommand = async (
+  input: AuthorizeEndpointAccessCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryAuthorizeEndpointAccessMessage(input, context),
+    Action: "AuthorizeEndpointAccess",
     Version: "2012-12-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -838,6 +911,22 @@ export const serializeAws_queryCreateClusterSubnetGroupCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryCreateClusterSubnetGroupMessage(input, context),
     Action: "CreateClusterSubnetGroup",
+    Version: "2012-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryCreateEndpointAccessCommand = async (
+  input: CreateEndpointAccessCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryCreateEndpointAccessMessage(input, context),
+    Action: "CreateEndpointAccess",
     Version: "2012-12-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1046,6 +1135,22 @@ export const serializeAws_queryDeleteClusterSubnetGroupCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryDeleteClusterSubnetGroupMessage(input, context),
     Action: "DeleteClusterSubnetGroup",
+    Version: "2012-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryDeleteEndpointAccessCommand = async (
+  input: DeleteEndpointAccessCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDeleteEndpointAccessMessage(input, context),
+    Action: "DeleteEndpointAccess",
     Version: "2012-12-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1350,6 +1455,38 @@ export const serializeAws_queryDescribeDefaultClusterParametersCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryDescribeDefaultClusterParametersMessage(input, context),
     Action: "DescribeDefaultClusterParameters",
+    Version: "2012-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryDescribeEndpointAccessCommand = async (
+  input: DescribeEndpointAccessCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDescribeEndpointAccessMessage(input, context),
+    Action: "DescribeEndpointAccess",
+    Version: "2012-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryDescribeEndpointAuthorizationCommand = async (
+  input: DescribeEndpointAuthorizationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDescribeEndpointAuthorizationMessage(input, context),
+    Action: "DescribeEndpointAuthorization",
     Version: "2012-12-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1737,6 +1874,22 @@ export const serializeAws_queryGetReservedNodeExchangeOfferingsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryModifyAquaConfigurationCommand = async (
+  input: ModifyAquaConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryModifyAquaInputMessage(input, context),
+    Action: "ModifyAquaConfiguration",
+    Version: "2012-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_queryModifyClusterCommand = async (
   input: ModifyClusterCommandInput,
   context: __SerdeContext
@@ -1860,6 +2013,22 @@ export const serializeAws_queryModifyClusterSubnetGroupCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryModifyClusterSubnetGroupMessage(input, context),
     Action: "ModifyClusterSubnetGroup",
+    Version: "2012-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryModifyEndpointAccessCommand = async (
+  input: ModifyEndpointAccessCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryModifyEndpointAccessMessage(input, context),
+    Action: "ModifyEndpointAccess",
     Version: "2012-12-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2089,6 +2258,22 @@ export const serializeAws_queryRevokeClusterSecurityGroupIngressCommand = async 
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryRevokeEndpointAccessCommand = async (
+  input: RevokeEndpointAccessCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryRevokeEndpointAccessMessage(input, context),
+    Action: "RevokeEndpointAccess",
+    Version: "2012-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_queryRevokeSnapshotAccessCommand = async (
   input: RevokeSnapshotAccessCommandInput,
   context: __SerdeContext
@@ -2286,6 +2471,103 @@ const deserializeAws_queryAuthorizeClusterSecurityGroupIngressCommandError = asy
     case "com.amazonaws.redshift#InvalidClusterSecurityGroupStateFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterSecurityGroupStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryAuthorizeEndpointAccessCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AuthorizeEndpointAccessCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryAuthorizeEndpointAccessCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryEndpointAuthorization(data.AuthorizeEndpointAccessResult, context);
+  const response: AuthorizeEndpointAccessCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryAuthorizeEndpointAccessCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AuthorizeEndpointAccessCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ClusterNotFoundFault":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EndpointAuthorizationAlreadyExistsFault":
+    case "com.amazonaws.redshift#EndpointAuthorizationAlreadyExistsFault":
+      response = {
+        ...(await deserializeAws_queryEndpointAuthorizationAlreadyExistsFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EndpointAuthorizationsPerClusterLimitExceededFault":
+    case "com.amazonaws.redshift#EndpointAuthorizationsPerClusterLimitExceededFault":
+      response = {
+        ...(await deserializeAws_queryEndpointAuthorizationsPerClusterLimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidAuthorizationStateFault":
+    case "com.amazonaws.redshift#InvalidAuthorizationStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidAuthorizationStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidClusterStateFault":
+    case "com.amazonaws.redshift#InvalidClusterStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedOperationFault":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
+      response = {
+        ...(await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3253,6 +3535,132 @@ const deserializeAws_queryCreateClusterSubnetGroupCommandError = async (
     case "com.amazonaws.redshift#UnauthorizedOperation":
       response = {
         ...(await deserializeAws_queryUnauthorizedOperationResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryCreateEndpointAccessCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateEndpointAccessCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryCreateEndpointAccessCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryEndpointAccess(data.CreateEndpointAccessResult, context);
+  const response: CreateEndpointAccessCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryCreateEndpointAccessCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateEndpointAccessCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessToClusterDeniedFault":
+    case "com.amazonaws.redshift#AccessToClusterDeniedFault":
+      response = {
+        ...(await deserializeAws_queryAccessToClusterDeniedFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ClusterNotFoundFault":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ClusterSubnetGroupNotFoundFault":
+    case "com.amazonaws.redshift#ClusterSubnetGroupNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryClusterSubnetGroupNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EndpointAlreadyExistsFault":
+    case "com.amazonaws.redshift#EndpointAlreadyExistsFault":
+      response = {
+        ...(await deserializeAws_queryEndpointAlreadyExistsFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EndpointsPerAuthorizationLimitExceededFault":
+    case "com.amazonaws.redshift#EndpointsPerAuthorizationLimitExceededFault":
+      response = {
+        ...(await deserializeAws_queryEndpointsPerAuthorizationLimitExceededFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EndpointsPerClusterLimitExceededFault":
+    case "com.amazonaws.redshift#EndpointsPerClusterLimitExceededFault":
+      response = {
+        ...(await deserializeAws_queryEndpointsPerClusterLimitExceededFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidClusterSecurityGroupStateFault":
+    case "com.amazonaws.redshift#InvalidClusterSecurityGroupStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidClusterSecurityGroupStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidClusterStateFault":
+    case "com.amazonaws.redshift#InvalidClusterStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedOperation":
+    case "com.amazonaws.redshift#UnauthorizedOperation":
+      response = {
+        ...(await deserializeAws_queryUnauthorizedOperationResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedOperationFault":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
+      response = {
+        ...(await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4335,6 +4743,92 @@ const deserializeAws_queryDeleteClusterSubnetGroupCommandError = async (
     case "com.amazonaws.redshift#InvalidClusterSubnetStateFault":
       response = {
         ...(await deserializeAws_queryInvalidClusterSubnetStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryDeleteEndpointAccessCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEndpointAccessCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDeleteEndpointAccessCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryEndpointAccess(data.DeleteEndpointAccessResult, context);
+  const response: DeleteEndpointAccessCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDeleteEndpointAccessCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEndpointAccessCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ClusterNotFoundFault":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EndpointNotFoundFault":
+    case "com.amazonaws.redshift#EndpointNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryEndpointNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidClusterSecurityGroupStateFault":
+    case "com.amazonaws.redshift#InvalidClusterSecurityGroupStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidClusterSecurityGroupStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidClusterStateFault":
+    case "com.amazonaws.redshift#InvalidClusterStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidEndpointStateFault":
+    case "com.amazonaws.redshift#InvalidEndpointStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidEndpointStateFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5448,6 +5942,138 @@ const deserializeAws_queryDescribeDefaultClusterParametersCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryDescribeEndpointAccessCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEndpointAccessCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDescribeEndpointAccessCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryEndpointAccessList(data.DescribeEndpointAccessResult, context);
+  const response: DescribeEndpointAccessCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDescribeEndpointAccessCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEndpointAccessCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ClusterNotFoundFault":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EndpointNotFoundFault":
+    case "com.amazonaws.redshift#EndpointNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryEndpointNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidClusterStateFault":
+    case "com.amazonaws.redshift#InvalidClusterStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryDescribeEndpointAuthorizationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEndpointAuthorizationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDescribeEndpointAuthorizationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryEndpointAuthorizationList(data.DescribeEndpointAuthorizationResult, context);
+  const response: DescribeEndpointAuthorizationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDescribeEndpointAuthorizationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEndpointAuthorizationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ClusterNotFoundFault":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedOperationFault":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
+      response = {
+        ...(await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
@@ -7036,6 +7662,68 @@ const deserializeAws_queryGetReservedNodeExchangeOfferingsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryModifyAquaConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyAquaConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryModifyAquaConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryModifyAquaOutputMessage(data.ModifyAquaConfigurationResult, context);
+  const response: ModifyAquaConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryModifyAquaConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyAquaConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ClusterNotFoundFault":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedOperationFault":
+    case "com.amazonaws.redshift#UnsupportedOperationFault":
+      response = {
+        ...(await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryModifyClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -7692,6 +8380,100 @@ const deserializeAws_queryModifyClusterSubnetGroupCommandError = async (
     case "com.amazonaws.redshift#SubnetAlreadyInUse":
       response = {
         ...(await deserializeAws_querySubnetAlreadyInUseResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedOperation":
+    case "com.amazonaws.redshift#UnauthorizedOperation":
+      response = {
+        ...(await deserializeAws_queryUnauthorizedOperationResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryModifyEndpointAccessCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyEndpointAccessCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryModifyEndpointAccessCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryEndpointAccess(data.ModifyEndpointAccessResult, context);
+  const response: ModifyEndpointAccessCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryModifyEndpointAccessCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyEndpointAccessCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ClusterNotFoundFault":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EndpointNotFoundFault":
+    case "com.amazonaws.redshift#EndpointNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryEndpointNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidClusterSecurityGroupStateFault":
+    case "com.amazonaws.redshift#InvalidClusterSecurityGroupStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidClusterSecurityGroupStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidClusterStateFault":
+    case "com.amazonaws.redshift#InvalidClusterStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidEndpointStateFault":
+    case "com.amazonaws.redshift#InvalidEndpointStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidEndpointStateFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -9030,6 +9812,108 @@ const deserializeAws_queryRevokeClusterSecurityGroupIngressCommandError = async 
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryRevokeEndpointAccessCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RevokeEndpointAccessCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryRevokeEndpointAccessCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryEndpointAuthorization(data.RevokeEndpointAccessResult, context);
+  const response: RevokeEndpointAccessCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryRevokeEndpointAccessCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RevokeEndpointAccessCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ClusterNotFoundFault":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EndpointAuthorizationNotFoundFault":
+    case "com.amazonaws.redshift#EndpointAuthorizationNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryEndpointAuthorizationNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EndpointNotFoundFault":
+    case "com.amazonaws.redshift#EndpointNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryEndpointNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidAuthorizationStateFault":
+    case "com.amazonaws.redshift#InvalidAuthorizationStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidAuthorizationStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidClusterSecurityGroupStateFault":
+    case "com.amazonaws.redshift#InvalidClusterSecurityGroupStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidClusterSecurityGroupStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidClusterStateFault":
+    case "com.amazonaws.redshift#InvalidClusterStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidEndpointStateFault":
+    case "com.amazonaws.redshift#InvalidEndpointStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidEndpointStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryRevokeSnapshotAccessCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -9168,6 +10052,21 @@ const deserializeAws_queryRotateEncryptionKeyCommandError = async (
   response.message = message;
   delete response.Message;
   return Promise.reject(Object.assign(new Error(message), response));
+};
+
+const deserializeAws_queryAccessToClusterDeniedFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AccessToClusterDeniedFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryAccessToClusterDeniedFault(body.Error, context);
+  const contents: AccessToClusterDeniedFault = {
+    name: "AccessToClusterDeniedFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
 };
 
 const deserializeAws_queryAccessToSnapshotDeniedFaultResponse = async (
@@ -9575,6 +10474,111 @@ const deserializeAws_queryDependentServiceUnavailableFaultResponse = async (
   return contents;
 };
 
+const deserializeAws_queryEndpointAlreadyExistsFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<EndpointAlreadyExistsFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryEndpointAlreadyExistsFault(body.Error, context);
+  const contents: EndpointAlreadyExistsFault = {
+    name: "EndpointAlreadyExistsFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_queryEndpointAuthorizationAlreadyExistsFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<EndpointAuthorizationAlreadyExistsFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryEndpointAuthorizationAlreadyExistsFault(body.Error, context);
+  const contents: EndpointAuthorizationAlreadyExistsFault = {
+    name: "EndpointAuthorizationAlreadyExistsFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_queryEndpointAuthorizationNotFoundFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<EndpointAuthorizationNotFoundFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryEndpointAuthorizationNotFoundFault(body.Error, context);
+  const contents: EndpointAuthorizationNotFoundFault = {
+    name: "EndpointAuthorizationNotFoundFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_queryEndpointAuthorizationsPerClusterLimitExceededFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<EndpointAuthorizationsPerClusterLimitExceededFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryEndpointAuthorizationsPerClusterLimitExceededFault(body.Error, context);
+  const contents: EndpointAuthorizationsPerClusterLimitExceededFault = {
+    name: "EndpointAuthorizationsPerClusterLimitExceededFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_queryEndpointNotFoundFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<EndpointNotFoundFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryEndpointNotFoundFault(body.Error, context);
+  const contents: EndpointNotFoundFault = {
+    name: "EndpointNotFoundFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_queryEndpointsPerAuthorizationLimitExceededFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<EndpointsPerAuthorizationLimitExceededFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryEndpointsPerAuthorizationLimitExceededFault(body.Error, context);
+  const contents: EndpointsPerAuthorizationLimitExceededFault = {
+    name: "EndpointsPerAuthorizationLimitExceededFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_queryEndpointsPerClusterLimitExceededFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<EndpointsPerClusterLimitExceededFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryEndpointsPerClusterLimitExceededFault(body.Error, context);
+  const contents: EndpointsPerClusterLimitExceededFault = {
+    name: "EndpointsPerClusterLimitExceededFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_queryEventSubscriptionQuotaExceededFaultResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -9740,6 +10744,21 @@ const deserializeAws_queryInsufficientS3BucketPolicyFaultResponse = async (
   return contents;
 };
 
+const deserializeAws_queryInvalidAuthorizationStateFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidAuthorizationStateFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryInvalidAuthorizationStateFault(body.Error, context);
+  const contents: InvalidAuthorizationStateFault = {
+    name: "InvalidAuthorizationStateFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_queryInvalidClusterParameterGroupStateFaultResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -9868,6 +10887,21 @@ const deserializeAws_queryInvalidElasticIpFaultResponse = async (
   const deserialized: any = deserializeAws_queryInvalidElasticIpFault(body.Error, context);
   const contents: InvalidElasticIpFault = {
     name: "InvalidElasticIpFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_queryInvalidEndpointStateFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidEndpointStateFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryInvalidEndpointStateFault(body.Error, context);
+  const contents: InvalidEndpointStateFault = {
+    name: "InvalidEndpointStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -10822,6 +11856,27 @@ const serializeAws_queryAuthorizeClusterSecurityGroupIngressMessage = (
   return entries;
 };
 
+const serializeAws_queryAuthorizeEndpointAccessMessage = (
+  input: AuthorizeEndpointAccessMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
+    entries["ClusterIdentifier"] = input.ClusterIdentifier;
+  }
+  if (input.Account !== undefined && input.Account !== null) {
+    entries["Account"] = input.Account;
+  }
+  if (input.VpcIds !== undefined && input.VpcIds !== null) {
+    const memberEntries = serializeAws_queryVpcIdentifierList(input.VpcIds, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `VpcIds.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
 const serializeAws_queryAuthorizeSnapshotAccessMessage = (
   input: AuthorizeSnapshotAccessMessage,
   context: __SerdeContext
@@ -11027,6 +12082,9 @@ const serializeAws_queryCreateClusterMessage = (input: CreateClusterMessage, con
   if (input.AvailabilityZoneRelocation !== undefined && input.AvailabilityZoneRelocation !== null) {
     entries["AvailabilityZoneRelocation"] = input.AvailabilityZoneRelocation;
   }
+  if (input.AquaConfigurationStatus !== undefined && input.AquaConfigurationStatus !== null) {
+    entries["AquaConfigurationStatus"] = input.AquaConfigurationStatus;
+  }
   return entries;
 };
 
@@ -11121,6 +12179,33 @@ const serializeAws_queryCreateClusterSubnetGroupMessage = (
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_queryCreateEndpointAccessMessage = (
+  input: CreateEndpointAccessMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
+    entries["ClusterIdentifier"] = input.ClusterIdentifier;
+  }
+  if (input.ResourceOwner !== undefined && input.ResourceOwner !== null) {
+    entries["ResourceOwner"] = input.ResourceOwner;
+  }
+  if (input.EndpointName !== undefined && input.EndpointName !== null) {
+    entries["EndpointName"] = input.EndpointName;
+  }
+  if (input.SubnetGroupName !== undefined && input.SubnetGroupName !== null) {
+    entries["SubnetGroupName"] = input.SubnetGroupName;
+  }
+  if (input.VpcSecurityGroupIds !== undefined && input.VpcSecurityGroupIds !== null) {
+    const memberEntries = serializeAws_queryVpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
     });
   }
@@ -11450,6 +12535,17 @@ const serializeAws_queryDeleteClusterSubnetGroupMessage = (
   const entries: any = {};
   if (input.ClusterSubnetGroupName !== undefined && input.ClusterSubnetGroupName !== null) {
     entries["ClusterSubnetGroupName"] = input.ClusterSubnetGroupName;
+  }
+  return entries;
+};
+
+const serializeAws_queryDeleteEndpointAccessMessage = (
+  input: DeleteEndpointAccessMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.EndpointName !== undefined && input.EndpointName !== null) {
+    entries["EndpointName"] = input.EndpointName;
   }
   return entries;
 };
@@ -11816,6 +12912,55 @@ const serializeAws_queryDescribeDefaultClusterParametersMessage = (
   const entries: any = {};
   if (input.ParameterGroupFamily !== undefined && input.ParameterGroupFamily !== null) {
     entries["ParameterGroupFamily"] = input.ParameterGroupFamily;
+  }
+  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
+    entries["MaxRecords"] = input.MaxRecords;
+  }
+  if (input.Marker !== undefined && input.Marker !== null) {
+    entries["Marker"] = input.Marker;
+  }
+  return entries;
+};
+
+const serializeAws_queryDescribeEndpointAccessMessage = (
+  input: DescribeEndpointAccessMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
+    entries["ClusterIdentifier"] = input.ClusterIdentifier;
+  }
+  if (input.ResourceOwner !== undefined && input.ResourceOwner !== null) {
+    entries["ResourceOwner"] = input.ResourceOwner;
+  }
+  if (input.EndpointName !== undefined && input.EndpointName !== null) {
+    entries["EndpointName"] = input.EndpointName;
+  }
+  if (input.VpcId !== undefined && input.VpcId !== null) {
+    entries["VpcId"] = input.VpcId;
+  }
+  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
+    entries["MaxRecords"] = input.MaxRecords;
+  }
+  if (input.Marker !== undefined && input.Marker !== null) {
+    entries["Marker"] = input.Marker;
+  }
+  return entries;
+};
+
+const serializeAws_queryDescribeEndpointAuthorizationMessage = (
+  input: DescribeEndpointAuthorizationMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
+    entries["ClusterIdentifier"] = input.ClusterIdentifier;
+  }
+  if (input.Account !== undefined && input.Account !== null) {
+    entries["Account"] = input.Account;
+  }
+  if (input.Grantee !== undefined && input.Grantee !== null) {
+    entries["Grantee"] = input.Grantee;
   }
   if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
     entries["MaxRecords"] = input.MaxRecords;
@@ -12380,6 +13525,17 @@ const serializeAws_queryIamRoleArnList = (input: string[], context: __SerdeConte
   return entries;
 };
 
+const serializeAws_queryModifyAquaInputMessage = (input: ModifyAquaInputMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
+    entries["ClusterIdentifier"] = input.ClusterIdentifier;
+  }
+  if (input.AquaConfigurationStatus !== undefined && input.AquaConfigurationStatus !== null) {
+    entries["AquaConfigurationStatus"] = input.AquaConfigurationStatus;
+  }
+  return entries;
+};
+
 const serializeAws_queryModifyClusterDbRevisionMessage = (
   input: ModifyClusterDbRevisionMessage,
   context: __SerdeContext
@@ -12600,6 +13756,24 @@ const serializeAws_queryModifyClusterSubnetGroupMessage = (
     const memberEntries = serializeAws_querySubnetIdentifierList(input.SubnetIds, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SubnetIds.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_queryModifyEndpointAccessMessage = (
+  input: ModifyEndpointAccessMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.EndpointName !== undefined && input.EndpointName !== null) {
+    entries["EndpointName"] = input.EndpointName;
+  }
+  if (input.VpcSecurityGroupIds !== undefined && input.VpcSecurityGroupIds !== null) {
+    const memberEntries = serializeAws_queryVpcSecurityGroupIdList(input.VpcSecurityGroupIds, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
     });
   }
@@ -12985,6 +14159,9 @@ const serializeAws_queryRestoreFromClusterSnapshotMessage = (
   if (input.AvailabilityZoneRelocation !== undefined && input.AvailabilityZoneRelocation !== null) {
     entries["AvailabilityZoneRelocation"] = input.AvailabilityZoneRelocation;
   }
+  if (input.AquaConfigurationStatus !== undefined && input.AquaConfigurationStatus !== null) {
+    entries["AquaConfigurationStatus"] = input.AquaConfigurationStatus;
+  }
   return entries;
 };
 
@@ -13017,6 +14194,9 @@ const serializeAws_queryRestoreTableFromClusterSnapshotMessage = (
   if (input.NewTableName !== undefined && input.NewTableName !== null) {
     entries["NewTableName"] = input.NewTableName;
   }
+  if (input.EnableCaseSensitiveIdentifier !== undefined && input.EnableCaseSensitiveIdentifier !== null) {
+    entries["EnableCaseSensitiveIdentifier"] = input.EnableCaseSensitiveIdentifier;
+  }
   return entries;
 };
 
@@ -13044,6 +14224,30 @@ const serializeAws_queryRevokeClusterSecurityGroupIngressMessage = (
   }
   if (input.EC2SecurityGroupOwnerId !== undefined && input.EC2SecurityGroupOwnerId !== null) {
     entries["EC2SecurityGroupOwnerId"] = input.EC2SecurityGroupOwnerId;
+  }
+  return entries;
+};
+
+const serializeAws_queryRevokeEndpointAccessMessage = (
+  input: RevokeEndpointAccessMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
+    entries["ClusterIdentifier"] = input.ClusterIdentifier;
+  }
+  if (input.Account !== undefined && input.Account !== null) {
+    entries["Account"] = input.Account;
+  }
+  if (input.VpcIds !== undefined && input.VpcIds !== null) {
+    const memberEntries = serializeAws_queryVpcIdentifierList(input.VpcIds, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `VpcIds.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Force !== undefined && input.Force !== null) {
+    entries["Force"] = input.Force;
   }
   return entries;
 };
@@ -13278,6 +14482,19 @@ const serializeAws_queryValueStringList = (input: string[], context: __SerdeCont
   return entries;
 };
 
+const serializeAws_queryVpcIdentifierList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`VpcIdentifier.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
 const serializeAws_queryVpcSecurityGroupIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
@@ -13300,6 +14517,19 @@ const deserializeAws_queryAcceptReservedNodeExchangeOutputMessage = (
   };
   if (output["ExchangedReservedNode"] !== undefined) {
     contents.ExchangedReservedNode = deserializeAws_queryReservedNode(output["ExchangedReservedNode"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_queryAccessToClusterDeniedFault = (
+  output: any,
+  context: __SerdeContext
+): AccessToClusterDeniedFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
   }
   return contents;
 };
@@ -13380,6 +14610,20 @@ const deserializeAws_queryAccountWithRestoreAccess = (
   }
   if (output["AccountAlias"] !== undefined) {
     contents.AccountAlias = output["AccountAlias"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryAquaConfiguration = (output: any, context: __SerdeContext): AquaConfiguration => {
+  let contents: any = {
+    AquaStatus: undefined,
+    AquaConfigurationStatus: undefined,
+  };
+  if (output["AquaStatus"] !== undefined) {
+    contents.AquaStatus = output["AquaStatus"];
+  }
+  if (output["AquaConfigurationStatus"] !== undefined) {
+    contents.AquaConfigurationStatus = output["AquaConfigurationStatus"];
   }
   return contents;
 };
@@ -13698,6 +14942,8 @@ const deserializeAws_queryCluster = (output: any, context: __SerdeContext): Clus
     ResizeInfo: undefined,
     AvailabilityZoneRelocationStatus: undefined,
     ClusterNamespaceArn: undefined,
+    TotalStorageCapacityInMegaBytes: undefined,
+    AquaConfiguration: undefined,
   };
   if (output["ClusterIdentifier"] !== undefined) {
     contents.ClusterIdentifier = output["ClusterIdentifier"];
@@ -13902,6 +15148,12 @@ const deserializeAws_queryCluster = (output: any, context: __SerdeContext): Clus
   }
   if (output["ClusterNamespaceArn"] !== undefined) {
     contents.ClusterNamespaceArn = output["ClusterNamespaceArn"];
+  }
+  if (output["TotalStorageCapacityInMegaBytes"] !== undefined) {
+    contents.TotalStorageCapacityInMegaBytes = parseInt(output["TotalStorageCapacityInMegaBytes"]);
+  }
+  if (output["AquaConfiguration"] !== undefined) {
+    contents.AquaConfiguration = deserializeAws_queryAquaConfiguration(output["AquaConfiguration"], context);
   }
   return contents;
 };
@@ -15159,11 +16411,267 @@ const deserializeAws_queryEndpoint = (output: any, context: __SerdeContext): End
   if (output.VpcEndpoints === "") {
     contents.VpcEndpoints = [];
   }
-  if (output["VpcEndpoints"] !== undefined && output["VpcEndpoints"]["SpartaProxyVpcEndpoint"] !== undefined) {
-    contents.VpcEndpoints = deserializeAws_querySpartaProxyVpcEndpointList(
-      __getArrayIfSingleItem(output["VpcEndpoints"]["SpartaProxyVpcEndpoint"]),
+  if (output["VpcEndpoints"] !== undefined && output["VpcEndpoints"]["VpcEndpoint"] !== undefined) {
+    contents.VpcEndpoints = deserializeAws_queryVpcEndpointsList(
+      __getArrayIfSingleItem(output["VpcEndpoints"]["VpcEndpoint"]),
       context
     );
+  }
+  return contents;
+};
+
+const deserializeAws_queryEndpointAccess = (output: any, context: __SerdeContext): EndpointAccess => {
+  let contents: any = {
+    ClusterIdentifier: undefined,
+    ResourceOwner: undefined,
+    SubnetGroupName: undefined,
+    EndpointStatus: undefined,
+    EndpointName: undefined,
+    EndpointCreateTime: undefined,
+    Port: undefined,
+    Address: undefined,
+    VpcSecurityGroups: undefined,
+    VpcEndpoint: undefined,
+  };
+  if (output["ClusterIdentifier"] !== undefined) {
+    contents.ClusterIdentifier = output["ClusterIdentifier"];
+  }
+  if (output["ResourceOwner"] !== undefined) {
+    contents.ResourceOwner = output["ResourceOwner"];
+  }
+  if (output["SubnetGroupName"] !== undefined) {
+    contents.SubnetGroupName = output["SubnetGroupName"];
+  }
+  if (output["EndpointStatus"] !== undefined) {
+    contents.EndpointStatus = output["EndpointStatus"];
+  }
+  if (output["EndpointName"] !== undefined) {
+    contents.EndpointName = output["EndpointName"];
+  }
+  if (output["EndpointCreateTime"] !== undefined) {
+    contents.EndpointCreateTime = new Date(output["EndpointCreateTime"]);
+  }
+  if (output["Port"] !== undefined) {
+    contents.Port = parseInt(output["Port"]);
+  }
+  if (output["Address"] !== undefined) {
+    contents.Address = output["Address"];
+  }
+  if (output.VpcSecurityGroups === "") {
+    contents.VpcSecurityGroups = [];
+  }
+  if (output["VpcSecurityGroups"] !== undefined && output["VpcSecurityGroups"]["VpcSecurityGroup"] !== undefined) {
+    contents.VpcSecurityGroups = deserializeAws_queryVpcSecurityGroupMembershipList(
+      __getArrayIfSingleItem(output["VpcSecurityGroups"]["VpcSecurityGroup"]),
+      context
+    );
+  }
+  if (output["VpcEndpoint"] !== undefined) {
+    contents.VpcEndpoint = deserializeAws_queryVpcEndpoint(output["VpcEndpoint"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_queryEndpointAccesses = (output: any, context: __SerdeContext): EndpointAccess[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryEndpointAccess(entry, context);
+    });
+};
+
+const deserializeAws_queryEndpointAccessList = (output: any, context: __SerdeContext): EndpointAccessList => {
+  let contents: any = {
+    EndpointAccessList: undefined,
+    Marker: undefined,
+  };
+  if (output.EndpointAccessList === "") {
+    contents.EndpointAccessList = [];
+  }
+  if (output["EndpointAccessList"] !== undefined && output["EndpointAccessList"]["member"] !== undefined) {
+    contents.EndpointAccessList = deserializeAws_queryEndpointAccesses(
+      __getArrayIfSingleItem(output["EndpointAccessList"]["member"]),
+      context
+    );
+  }
+  if (output["Marker"] !== undefined) {
+    contents.Marker = output["Marker"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryEndpointAlreadyExistsFault = (
+  output: any,
+  context: __SerdeContext
+): EndpointAlreadyExistsFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryEndpointAuthorization = (output: any, context: __SerdeContext): EndpointAuthorization => {
+  let contents: any = {
+    Grantor: undefined,
+    Grantee: undefined,
+    ClusterIdentifier: undefined,
+    AuthorizeTime: undefined,
+    ClusterStatus: undefined,
+    Status: undefined,
+    AllowedAllVPCs: undefined,
+    AllowedVPCs: undefined,
+    EndpointCount: undefined,
+  };
+  if (output["Grantor"] !== undefined) {
+    contents.Grantor = output["Grantor"];
+  }
+  if (output["Grantee"] !== undefined) {
+    contents.Grantee = output["Grantee"];
+  }
+  if (output["ClusterIdentifier"] !== undefined) {
+    contents.ClusterIdentifier = output["ClusterIdentifier"];
+  }
+  if (output["AuthorizeTime"] !== undefined) {
+    contents.AuthorizeTime = new Date(output["AuthorizeTime"]);
+  }
+  if (output["ClusterStatus"] !== undefined) {
+    contents.ClusterStatus = output["ClusterStatus"];
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = output["Status"];
+  }
+  if (output["AllowedAllVPCs"] !== undefined) {
+    contents.AllowedAllVPCs = output["AllowedAllVPCs"] == "true";
+  }
+  if (output.AllowedVPCs === "") {
+    contents.AllowedVPCs = [];
+  }
+  if (output["AllowedVPCs"] !== undefined && output["AllowedVPCs"]["VpcIdentifier"] !== undefined) {
+    contents.AllowedVPCs = deserializeAws_queryVpcIdentifierList(
+      __getArrayIfSingleItem(output["AllowedVPCs"]["VpcIdentifier"]),
+      context
+    );
+  }
+  if (output["EndpointCount"] !== undefined) {
+    contents.EndpointCount = parseInt(output["EndpointCount"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryEndpointAuthorizationAlreadyExistsFault = (
+  output: any,
+  context: __SerdeContext
+): EndpointAuthorizationAlreadyExistsFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryEndpointAuthorizationList = (
+  output: any,
+  context: __SerdeContext
+): EndpointAuthorizationList => {
+  let contents: any = {
+    EndpointAuthorizationList: undefined,
+    Marker: undefined,
+  };
+  if (output.EndpointAuthorizationList === "") {
+    contents.EndpointAuthorizationList = [];
+  }
+  if (
+    output["EndpointAuthorizationList"] !== undefined &&
+    output["EndpointAuthorizationList"]["member"] !== undefined
+  ) {
+    contents.EndpointAuthorizationList = deserializeAws_queryEndpointAuthorizations(
+      __getArrayIfSingleItem(output["EndpointAuthorizationList"]["member"]),
+      context
+    );
+  }
+  if (output["Marker"] !== undefined) {
+    contents.Marker = output["Marker"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryEndpointAuthorizationNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): EndpointAuthorizationNotFoundFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryEndpointAuthorizations = (output: any, context: __SerdeContext): EndpointAuthorization[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryEndpointAuthorization(entry, context);
+    });
+};
+
+const deserializeAws_queryEndpointAuthorizationsPerClusterLimitExceededFault = (
+  output: any,
+  context: __SerdeContext
+): EndpointAuthorizationsPerClusterLimitExceededFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryEndpointNotFoundFault = (output: any, context: __SerdeContext): EndpointNotFoundFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryEndpointsPerAuthorizationLimitExceededFault = (
+  output: any,
+  context: __SerdeContext
+): EndpointsPerAuthorizationLimitExceededFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryEndpointsPerClusterLimitExceededFault = (
+  output: any,
+  context: __SerdeContext
+): EndpointsPerClusterLimitExceededFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
   }
   return contents;
 };
@@ -15776,6 +17284,19 @@ const deserializeAws_queryInsufficientS3BucketPolicyFault = (
   return contents;
 };
 
+const deserializeAws_queryInvalidAuthorizationStateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidAuthorizationStateFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryInvalidClusterParameterGroupStateFault = (
   output: any,
   context: __SerdeContext
@@ -15881,6 +17402,19 @@ const deserializeAws_queryInvalidClusterTrackFault = (
 };
 
 const deserializeAws_queryInvalidElasticIpFault = (output: any, context: __SerdeContext): InvalidElasticIpFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidEndpointStateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidEndpointStateFault => {
   let contents: any = {
     message: undefined,
   };
@@ -16176,6 +17710,16 @@ const deserializeAws_queryMaintenanceTrack = (output: any, context: __SerdeConte
   return contents;
 };
 
+const deserializeAws_queryModifyAquaOutputMessage = (output: any, context: __SerdeContext): ModifyAquaOutputMessage => {
+  let contents: any = {
+    AquaConfiguration: undefined,
+  };
+  if (output["AquaConfiguration"] !== undefined) {
+    contents.AquaConfiguration = deserializeAws_queryAquaConfiguration(output["AquaConfiguration"], context);
+  }
+  return contents;
+};
+
 const deserializeAws_queryModifyClusterDbRevisionResult = (
   output: any,
   context: __SerdeContext
@@ -16275,6 +17819,39 @@ const deserializeAws_queryModifySnapshotCopyRetentionPeriodResult = (
     contents.Cluster = deserializeAws_queryCluster(output["Cluster"], context);
   }
   return contents;
+};
+
+const deserializeAws_queryNetworkInterface = (output: any, context: __SerdeContext): NetworkInterface => {
+  let contents: any = {
+    NetworkInterfaceId: undefined,
+    SubnetId: undefined,
+    PrivateIpAddress: undefined,
+    AvailabilityZone: undefined,
+  };
+  if (output["NetworkInterfaceId"] !== undefined) {
+    contents.NetworkInterfaceId = output["NetworkInterfaceId"];
+  }
+  if (output["SubnetId"] !== undefined) {
+    contents.SubnetId = output["SubnetId"];
+  }
+  if (output["PrivateIpAddress"] !== undefined) {
+    contents.PrivateIpAddress = output["PrivateIpAddress"];
+  }
+  if (output["AvailabilityZone"] !== undefined) {
+    contents.AvailabilityZone = output["AvailabilityZone"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryNetworkInterfaceList = (output: any, context: __SerdeContext): NetworkInterface[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryNetworkInterface(entry, context);
+    });
 };
 
 const deserializeAws_queryNodeConfigurationOption = (output: any, context: __SerdeContext): NodeConfigurationOption => {
@@ -17914,30 +19491,6 @@ const deserializeAws_querySourceNotFoundFault = (output: any, context: __SerdeCo
   return contents;
 };
 
-const deserializeAws_querySpartaProxyVpcEndpoint = (output: any, context: __SerdeContext): SpartaProxyVpcEndpoint => {
-  let contents: any = {
-    VpcEndpointId: undefined,
-  };
-  if (output["VpcEndpointId"] !== undefined) {
-    contents.VpcEndpointId = output["VpcEndpointId"];
-  }
-  return contents;
-};
-
-const deserializeAws_querySpartaProxyVpcEndpointList = (
-  output: any,
-  context: __SerdeContext
-): SpartaProxyVpcEndpoint[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_querySpartaProxyVpcEndpoint(entry, context);
-    });
-};
-
 const deserializeAws_querySubnet = (output: any, context: __SerdeContext): Subnet => {
   let contents: any = {
     SubnetIdentifier: undefined,
@@ -18489,6 +20042,52 @@ const deserializeAws_queryUsageLimits = (output: any, context: __SerdeContext): 
         return null as any;
       }
       return deserializeAws_queryUsageLimit(entry, context);
+    });
+};
+
+const deserializeAws_queryVpcEndpoint = (output: any, context: __SerdeContext): VpcEndpoint => {
+  let contents: any = {
+    VpcEndpointId: undefined,
+    VpcId: undefined,
+    NetworkInterfaces: undefined,
+  };
+  if (output["VpcEndpointId"] !== undefined) {
+    contents.VpcEndpointId = output["VpcEndpointId"];
+  }
+  if (output["VpcId"] !== undefined) {
+    contents.VpcId = output["VpcId"];
+  }
+  if (output.NetworkInterfaces === "") {
+    contents.NetworkInterfaces = [];
+  }
+  if (output["NetworkInterfaces"] !== undefined && output["NetworkInterfaces"]["NetworkInterface"] !== undefined) {
+    contents.NetworkInterfaces = deserializeAws_queryNetworkInterfaceList(
+      __getArrayIfSingleItem(output["NetworkInterfaces"]["NetworkInterface"]),
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryVpcEndpointsList = (output: any, context: __SerdeContext): VpcEndpoint[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryVpcEndpoint(entry, context);
+    });
+};
+
+const deserializeAws_queryVpcIdentifierList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
     });
 };
 

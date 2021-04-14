@@ -30,15 +30,22 @@ export type CreateCampaignCommandOutput = CreateCampaignResponse & __MetadataBea
  *          <p>
  *             <b>Minimum Provisioned TPS and Auto-Scaling</b>
  *          </p>
+ *
  *          <p>A transaction is a single <code>GetRecommendations</code> or
  *        <code>GetPersonalizedRanking</code> call. Transactions per second (TPS) is the throughput
  *        and unit of billing for Amazon Personalize. The minimum provisioned TPS
  *        (<code>minProvisionedTPS</code>) specifies the baseline throughput provisioned by
- *        Amazon Personalize, and thus, the minimum billing charge. If your TPS increases beyond
+ *        Amazon Personalize, and thus, the minimum billing charge.
+ *     </p>
+ *          <p>
+ *        If your TPS increases beyond
  *        <code>minProvisionedTPS</code>, Amazon Personalize auto-scales the provisioned capacity up and down,
- *        but never below <code>minProvisionedTPS</code>, to maintain a 70% utilization.
+ *        but never below <code>minProvisionedTPS</code>.
  *        There's a short time delay while the capacity is increased that might cause loss of
- *        transactions. It's recommended to start with a low <code>minProvisionedTPS</code>, track
+ *        transactions.</p>
+ *          <p>The actual TPS used is calculated as the average requests/second within a 5-minute window.
+ *       You pay for maximum of either the minimum provisioned TPS or the actual TPS.
+ *       We recommend starting with a low <code>minProvisionedTPS</code>, track
  *        your usage using Amazon CloudWatch metrics, and then increase the <code>minProvisionedTPS</code>
  *        as necessary.</p>
  *

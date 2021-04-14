@@ -1,5 +1,5 @@
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { DBSubnetGroupMessage, DescribeDBSubnetGroupsMessage } from "../models/models_0";
+import { DBSubnetGroupMessage, DescribeDBSubnetGroupsMessage } from "../models/models_1";
 import {
   deserializeAws_queryDescribeDBSubnetGroupsCommand,
   serializeAws_queryDescribeDBSubnetGroupsCommand,

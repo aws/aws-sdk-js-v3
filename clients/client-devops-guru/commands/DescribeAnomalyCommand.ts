@@ -20,6 +20,11 @@ import {
 export type DescribeAnomalyCommandInput = DescribeAnomalyRequest;
 export type DescribeAnomalyCommandOutput = DescribeAnomalyResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *    		Returns details about an anomaly that you specify using its ID.
+ *    	</p>
+ */
 export class DescribeAnomalyCommand extends $Command<
   DescribeAnomalyCommandInput,
   DescribeAnomalyCommandOutput,

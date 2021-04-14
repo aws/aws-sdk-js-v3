@@ -20,7 +20,7 @@ export namespace AssociateApprovedOriginRequest {
 }
 
 /**
- * <p>Request processing failed due to an error or failure with the service.</p>
+ * <p>Request processing failed because of an error or failure with the service.</p>
  */
 export interface InternalServiceException extends __SmithyException, $MetadataBearer {
   name: "InternalServiceException";
@@ -44,7 +44,7 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
   name: "InvalidParameterException";
   $fault: "client";
   /**
-   * <p>The message.</p>
+   * <p>The message about the parameters.</p>
    */
   Message?: string;
 }
@@ -62,7 +62,7 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
   name: "InvalidRequestException";
   $fault: "client";
   /**
-   * <p>The message.</p>
+   * <p>The message about the request.</p>
    */
   Message?: string;
 }
@@ -95,7 +95,7 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
-   * <p>The message.</p>
+   * <p>The message about the resource.</p>
    */
   Message?: string;
 }
@@ -146,7 +146,7 @@ export enum InstanceStorageResourceType {
 }
 
 /**
- * <p>Configuration information of a Kinesis Firehose delivery stream.</p>
+ * <p>Configuration information of a Kinesis Data Firehose delivery stream.</p>
  */
 export interface KinesisFirehoseConfig {
   /**
@@ -231,7 +231,7 @@ export namespace KinesisVideoStreamConfig {
 }
 
 /**
- * <p>Information about the S3 storage type.</p>
+ * <p>Information about the Amazon Simple Storage Service (Amazon S3) storage type.</p>
  */
 export interface S3Config {
   /**
@@ -245,7 +245,7 @@ export interface S3Config {
   BucketPrefix: string | undefined;
 
   /**
-   * <p>The S3 encryption configuration.</p>
+   * <p>The Amazon S3 encryption configuration.</p>
    */
   EncryptionConfig?: EncryptionConfig;
 }
@@ -278,7 +278,8 @@ export interface InstanceStorageConfig {
   StorageType: StorageType | string | undefined;
 
   /**
-   * <p>The S3 configuration.</p>
+   * <p>The S3 bucket
+   *    configuration.</p>
    */
   S3Config?: S3Config;
 
@@ -369,7 +370,7 @@ export interface LexBot {
   Name?: string;
 
   /**
-   * <p>The Region the Amazon Lex bot was created in.</p>
+   * <p>The Region that the Amazon Lex bot was created in.</p>
    */
   LexRegion?: string;
 }
@@ -398,6 +399,47 @@ export namespace AssociateLexBotRequest {
   });
 }
 
+export interface AssociateQueueQuickConnectsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the queue.</p>
+   */
+  QueueId: string | undefined;
+
+  /**
+   * <p>The quick connects to associate with this queue.</p>
+   */
+  QuickConnectIds: string[] | undefined;
+}
+
+export namespace AssociateQueueQuickConnectsRequest {
+  export const filterSensitiveLog = (obj: AssociateQueueQuickConnectsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The allowed limit for the resource has been exceeded.</p>
+ */
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
+  name: "LimitExceededException";
+  $fault: "client";
+  /**
+   * <p>The message about the limit.</p>
+   */
+  Message?: string;
+}
+
+export namespace LimitExceededException {
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
+    ...obj,
+  });
+}
+
 export enum Channel {
   CHAT = "CHAT",
   TASK = "TASK",
@@ -409,7 +451,7 @@ export enum Channel {
  */
 export interface RoutingProfileQueueReference {
   /**
-   * <p>The identifier of the queue.</p>
+   * <p>The identifier for the queue.</p>
    */
   QueueId: string | undefined;
 
@@ -629,24 +671,6 @@ export namespace InvalidContactFlowException {
   });
 }
 
-/**
- * <p>The allowed limit for the resource has been exceeded.</p>
- */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
-  /**
-   * <p>The message.</p>
-   */
-  Message?: string;
-}
-
-export namespace LimitExceededException {
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 export enum DirectoryType {
   CONNECT_MANAGED = "CONNECT_MANAGED",
   EXISTING_DIRECTORY = "EXISTING_DIRECTORY",
@@ -675,12 +699,12 @@ export interface CreateInstanceRequest {
   DirectoryId?: string;
 
   /**
-   * <p>Whether your contact center handles incoming contacts.</p>
+   * <p>Your contact center handles incoming contacts.</p>
    */
   InboundCallsEnabled: boolean | undefined;
 
   /**
-   * <p>Whether your contact center allows outbound calls.</p>
+   * <p>Your contact center allows outbound calls.</p>
    */
   OutboundCallsEnabled: boolean | undefined;
 }
@@ -776,6 +800,247 @@ export namespace CreateIntegrationAssociationResponse {
 }
 
 /**
+ * <p>The outbound caller ID name, number, and outbound whisper flow.</p>
+ */
+export interface OutboundCallerConfig {
+  /**
+   * <p>The caller ID name.</p>
+   */
+  OutboundCallerIdName?: string;
+
+  /**
+   * <p>The caller ID number.</p>
+   */
+  OutboundCallerIdNumberId?: string;
+
+  /**
+   * <p>The outbound whisper flow to be used during an outbound call.</p>
+   */
+  OutboundFlowId?: string;
+}
+
+export namespace OutboundCallerConfig {
+  export const filterSensitiveLog = (obj: OutboundCallerConfig): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateQueueRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The name of the queue.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description of the queue.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The outbound caller ID name, number, and outbound whisper flow.</p>
+   */
+  OutboundCallerConfig?: OutboundCallerConfig;
+
+  /**
+   * <p>The identifier for the hours of operation.</p>
+   */
+  HoursOfOperationId: string | undefined;
+
+  /**
+   * <p>The maximum number of contacts that can be in the queue before it is considered full.</p>
+   */
+  MaxContacts?: number;
+
+  /**
+   * <p>The quick connects available to agents who are working the queue.</p>
+   */
+  QuickConnectIds?: string[];
+
+  /**
+   * <p>One or more tags.</p>
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace CreateQueueRequest {
+  export const filterSensitiveLog = (obj: CreateQueueRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateQueueResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the queue.</p>
+   */
+  QueueArn?: string;
+
+  /**
+   * <p>The identifier for the queue.</p>
+   */
+  QueueId?: string;
+}
+
+export namespace CreateQueueResponse {
+  export const filterSensitiveLog = (obj: CreateQueueResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information about a phone number for a quick connect.</p>
+ */
+export interface PhoneNumberQuickConnectConfig {
+  /**
+   * <p>The phone number in E.164 format.</p>
+   */
+  PhoneNumber: string | undefined;
+}
+
+export namespace PhoneNumberQuickConnectConfig {
+  export const filterSensitiveLog = (obj: PhoneNumberQuickConnectConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information about a queue for a quick connect. The contact flow must be of type
+ *    Transfer to Queue.</p>
+ */
+export interface QueueQuickConnectConfig {
+  /**
+   * <p>The identifier for the queue.</p>
+   */
+  QueueId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact flow.</p>
+   */
+  ContactFlowId: string | undefined;
+}
+
+export namespace QueueQuickConnectConfig {
+  export const filterSensitiveLog = (obj: QueueQuickConnectConfig): any => ({
+    ...obj,
+  });
+}
+
+export enum QuickConnectType {
+  PHONE_NUMBER = "PHONE_NUMBER",
+  QUEUE = "QUEUE",
+  USER = "USER",
+}
+
+/**
+ * <p>Contains information about the quick connect configuration settings for a user. The contact
+ *    flow must be of type Transfer to Agent.</p>
+ */
+export interface UserQuickConnectConfig {
+  /**
+   * <p>The identifier of the user.</p>
+   */
+  UserId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact flow.</p>
+   */
+  ContactFlowId: string | undefined;
+}
+
+export namespace UserQuickConnectConfig {
+  export const filterSensitiveLog = (obj: UserQuickConnectConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains configuration settings for a quick connect.</p>
+ */
+export interface QuickConnectConfig {
+  /**
+   * <p>The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are
+   *    prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE). </p>
+   */
+  QuickConnectType: QuickConnectType | string | undefined;
+
+  /**
+   * <p>The user configuration. This is required only if QuickConnectType is USER.</p>
+   */
+  UserConfig?: UserQuickConnectConfig;
+
+  /**
+   * <p>The queue configuration. This is required only if QuickConnectType is QUEUE.</p>
+   */
+  QueueConfig?: QueueQuickConnectConfig;
+
+  /**
+   * <p>The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.</p>
+   */
+  PhoneConfig?: PhoneNumberQuickConnectConfig;
+}
+
+export namespace QuickConnectConfig {
+  export const filterSensitiveLog = (obj: QuickConnectConfig): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateQuickConnectRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The name of the quick connect.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description of the quick connect.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Configuration settings for the quick connect.</p>
+   */
+  QuickConnectConfig: QuickConnectConfig | undefined;
+
+  /**
+   * <p>One or more tags.</p>
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace CreateQuickConnectRequest {
+  export const filterSensitiveLog = (obj: CreateQuickConnectRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateQuickConnectResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the quick connect. </p>
+   */
+  QuickConnectARN?: string;
+
+  /**
+   * <p>The identifier for the quick connect.</p>
+   */
+  QuickConnectId?: string;
+}
+
+export namespace CreateQuickConnectResponse {
+  export const filterSensitiveLog = (obj: CreateQuickConnectResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Contains information about which channels are supported, and how many contacts an agent can
  *    have on a channel simultaneously.</p>
  */
@@ -820,12 +1085,12 @@ export interface CreateRoutingProfileRequest {
 
   /**
    * <p>The inbound queues associated with the routing profile. If no queue is added, the agent can
-   *    only make outbound calls.</p>
+   *    make only outbound calls.</p>
    */
   QueueConfigs?: RoutingProfileQueueConfig[];
 
   /**
-   * <p>The channels agents can handle in the Contact Control Panel (CCP) for this routing
+   * <p>The channels that agents can handle in the Contact Control Panel (CCP) for this routing
    *    profile.</p>
    */
   MediaConcurrencies: MediaConcurrency[] | undefined;
@@ -1129,6 +1394,24 @@ export namespace DeleteIntegrationAssociationRequest {
   });
 }
 
+export interface DeleteQuickConnectRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the quick connect.</p>
+   */
+  QuickConnectId: string | undefined;
+}
+
+export namespace DeleteQuickConnectRequest {
+  export const filterSensitiveLog = (obj: DeleteQuickConnectRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteUseCaseRequest {
   /**
    * <p>The identifier of the Amazon Connect instance.</p>
@@ -1315,6 +1598,141 @@ export namespace DescribeContactFlowResponse {
   });
 }
 
+export interface DescribeHoursOfOperationRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the hours of operation.</p>
+   */
+  HoursOfOperationId: string | undefined;
+}
+
+export namespace DescribeHoursOfOperationRequest {
+  export const filterSensitiveLog = (obj: DescribeHoursOfOperationRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum HoursOfOperationDays {
+  FRIDAY = "FRIDAY",
+  MONDAY = "MONDAY",
+  SATURDAY = "SATURDAY",
+  SUNDAY = "SUNDAY",
+  THURSDAY = "THURSDAY",
+  TUESDAY = "TUESDAY",
+  WEDNESDAY = "WEDNESDAY",
+}
+
+/**
+ * <p>The start time or end time for an hours of operation.</p>
+ */
+export interface HoursOfOperationTimeSlice {
+  /**
+   * <p>The hours.</p>
+   */
+  Hours?: number;
+
+  /**
+   * <p>The minutes.</p>
+   */
+  Minutes?: number;
+}
+
+export namespace HoursOfOperationTimeSlice {
+  export const filterSensitiveLog = (obj: HoursOfOperationTimeSlice): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information about the hours of operation.</p>
+ */
+export interface HoursOfOperationConfig {
+  /**
+   * <p>The
+   *   day that the hours of operation applies to.</p>
+   */
+  Day?: HoursOfOperationDays | string;
+
+  /**
+   * <p>The start time that your contact center is open.</p>
+   */
+  StartTime?: HoursOfOperationTimeSlice;
+
+  /**
+   * <p>The end time that your contact center is closes.</p>
+   */
+  EndTime?: HoursOfOperationTimeSlice;
+}
+
+export namespace HoursOfOperationConfig {
+  export const filterSensitiveLog = (obj: HoursOfOperationConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about of the hours of operation.</p>
+ */
+export interface HoursOfOperation {
+  /**
+   * <p>The identifier for the hours of operation.</p>
+   */
+  HoursOfOperationId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the hours of operation.</p>
+   */
+  HoursOfOperationArn?: string;
+
+  /**
+   * <p>The name for the hours of operation.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The description for the hours of operation.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The time zone for the hours of operation.</p>
+   */
+  TimeZone?: string;
+
+  /**
+   * <p>Configuration information for the hours of operation.</p>
+   */
+  Config?: HoursOfOperationConfig[];
+
+  /**
+   * <p>One or more tags.</p>
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace HoursOfOperation {
+  export const filterSensitiveLog = (obj: HoursOfOperation): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeHoursOfOperationResponse {
+  /**
+   * <p>The hours of operation.</p>
+   */
+  HoursOfOperation?: HoursOfOperation;
+}
+
+export namespace DescribeHoursOfOperationResponse {
+  export const filterSensitiveLog = (obj: DescribeHoursOfOperationResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeInstanceRequest {
   /**
    * <p>The identifier of the Amazon Connect instance.</p>
@@ -1335,7 +1753,8 @@ export enum InstanceStatus {
 }
 
 /**
- * <p>Relevant details why the instance was not successfully created.</p>
+ * <p>Relevant
+ *    details why the instance was not successfully created.</p>
  */
 export interface InstanceStatusReason {
   /**
@@ -1477,7 +1896,9 @@ export namespace Attribute {
 
 export interface DescribeInstanceAttributeResponse {
   /**
-   * <p>The type of attribute.</p>
+   * <p>The
+   *    type
+   *    of attribute.</p>
    */
   Attribute?: Attribute;
 }
@@ -1520,6 +1941,170 @@ export interface DescribeInstanceStorageConfigResponse {
 
 export namespace DescribeInstanceStorageConfigResponse {
   export const filterSensitiveLog = (obj: DescribeInstanceStorageConfigResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeQueueRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the queue.</p>
+   */
+  QueueId: string | undefined;
+}
+
+export namespace DescribeQueueRequest {
+  export const filterSensitiveLog = (obj: DescribeQueueRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum QueueStatus {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+/**
+ * <p>Contains information about a queue.</p>
+ */
+export interface Queue {
+  /**
+   * <p>The name of the queue.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the queue.</p>
+   */
+  QueueArn?: string;
+
+  /**
+   * <p>The identifier for the queue.</p>
+   */
+  QueueId?: string;
+
+  /**
+   * <p>The description of the queue.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The outbound caller ID name, number, and outbound whisper flow.</p>
+   */
+  OutboundCallerConfig?: OutboundCallerConfig;
+
+  /**
+   * <p>The identifier for the hours of operation.</p>
+   */
+  HoursOfOperationId?: string;
+
+  /**
+   * <p>The maximum number of contacts that can be in the queue before it is considered full.</p>
+   */
+  MaxContacts?: number;
+
+  /**
+   * <p>The status of the queue.</p>
+   */
+  Status?: QueueStatus | string;
+
+  /**
+   * <p>One or more tags.</p>
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace Queue {
+  export const filterSensitiveLog = (obj: Queue): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeQueueResponse {
+  /**
+   * <p>The name of the queue.</p>
+   */
+  Queue?: Queue;
+}
+
+export namespace DescribeQueueResponse {
+  export const filterSensitiveLog = (obj: DescribeQueueResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeQuickConnectRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the quick connect.</p>
+   */
+  QuickConnectId: string | undefined;
+}
+
+export namespace DescribeQuickConnectRequest {
+  export const filterSensitiveLog = (obj: DescribeQuickConnectRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information about a quick connect.</p>
+ */
+export interface QuickConnect {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the quick connect.</p>
+   */
+  QuickConnectARN?: string;
+
+  /**
+   * <p>The identifier for the quick connect.</p>
+   */
+  QuickConnectId?: string;
+
+  /**
+   * <p>The name of the quick connect.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The description.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Contains information about the quick connect.</p>
+   */
+  QuickConnectConfig?: QuickConnectConfig;
+
+  /**
+   * <p>One or more tags.</p>
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace QuickConnect {
+  export const filterSensitiveLog = (obj: QuickConnect): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeQuickConnectResponse {
+  /**
+   * <p>Information about the quick connect.</p>
+   */
+  QuickConnect?: QuickConnect;
+}
+
+export namespace DescribeQuickConnectResponse {
+  export const filterSensitiveLog = (obj: DescribeQuickConnectResponse): any => ({
     ...obj,
   });
 }
@@ -1675,7 +2260,8 @@ export interface User {
   HierarchyGroupId?: string;
 
   /**
-   * <p>The tags.</p>
+   * <p>The
+   *    tags.</p>
    */
   Tags?: { [key: string]: string };
 }
@@ -1998,6 +2584,29 @@ export namespace DisassociateLexBotRequest {
   });
 }
 
+export interface DisassociateQueueQuickConnectsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the queue.</p>
+   */
+  QueueId: string | undefined;
+
+  /**
+   * <p>The quick connects to disassociate from the queue.</p>
+   */
+  QuickConnectIds: string[] | undefined;
+}
+
+export namespace DisassociateQueueQuickConnectsRequest {
+  export const filterSensitiveLog = (obj: DisassociateQueueQuickConnectsRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface DisassociateRoutingProfileQueuesRequest {
   /**
    * <p>The identifier of the Amazon Connect instance.</p>
@@ -2271,7 +2880,7 @@ export interface GetCurrentMetricDataRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximimum number of results to return per page.</p>
+   * <p>The maximum number of results to return per page.</p>
    */
   MaxResults?: number;
 }
@@ -2740,7 +3349,7 @@ export interface GetMetricDataRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximimum number of results to return per page.</p>
+   * <p>The maximum number of results to return per page.</p>
    */
   MaxResults?: number;
 }
@@ -2827,7 +3436,7 @@ export interface ListApprovedOriginsRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximimum number of results to return per page.</p>
+   * <p>The maximum number of results to return per page.</p>
    */
   MaxResults?: number;
 }
@@ -2874,7 +3483,7 @@ export interface ListContactFlowsRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximimum number of results to return per page.</p>
+   * <p>The maximum number of results to return per page.</p>
    */
   MaxResults?: number;
 }
@@ -2949,7 +3558,7 @@ export interface ListHoursOfOperationsRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximimum number of results to return per page.</p>
+   * <p>The maximum number of results to return per page.</p>
    */
   MaxResults?: number;
 }
@@ -3017,7 +3626,7 @@ export interface ListInstanceAttributesRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximimum number of results to return per page.</p>
+   * <p>The maximum number of results to return per page.</p>
    */
   MaxResults?: number;
 }
@@ -3054,7 +3663,7 @@ export interface ListInstancesRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximimum number of results to return per page.</p>
+   * <p>The maximum number of results to return per page.</p>
    */
   MaxResults?: number;
 }
@@ -3161,7 +3770,7 @@ export interface ListInstanceStorageConfigsRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximimum number of results to return per page.</p>
+   * <p>The maximum number of results to return per page.</p>
    */
   MaxResults?: number;
 }
@@ -3203,7 +3812,7 @@ export interface ListIntegrationAssociationsRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximimum number of results to return per page.</p>
+   * <p>The maximum number of results to return per page.</p>
    */
   MaxResults?: number;
 }
@@ -3296,7 +3905,7 @@ export interface ListLambdaFunctionsRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximimum number of results to return per page.</p>
+   * <p>The maximum number of results to return per page.</p>
    */
   MaxResults?: number;
 }
@@ -3338,7 +3947,7 @@ export interface ListLexBotsRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximimum number of results to return per page.</p>
+   * <p>The maximum number of results to return per page.</p>
    */
   MaxResults?: number;
 }
@@ -3351,7 +3960,7 @@ export namespace ListLexBotsRequest {
 
 export interface ListLexBotsResponse {
   /**
-   * <p>The the names and regions of the Amazon Lex bots associated with the specified instance.</p>
+   * <p>The names and Regions of the Amazon Lex bots associated with the specified instance.</p>
    */
   LexBots?: LexBot[];
 
@@ -3635,7 +4244,7 @@ export interface ListPhoneNumbersRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximimum number of results to return per page.</p>
+   * <p>The maximum number of results to return per page.</p>
    */
   MaxResults?: number;
 }
@@ -3768,6 +4377,85 @@ export namespace ListPromptsResponse {
   });
 }
 
+export interface ListQueueQuickConnectsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the queue.</p>
+   */
+  QueueId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListQueueQuickConnectsRequest {
+  export const filterSensitiveLog = (obj: ListQueueQuickConnectsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains summary information about a quick connect.</p>
+ */
+export interface QuickConnectSummary {
+  /**
+   * <p>The identifier for the quick connect.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the quick connect.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The name of the quick connect.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are
+   *    prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).</p>
+   */
+  QuickConnectType?: QuickConnectType | string;
+}
+
+export namespace QuickConnectSummary {
+  export const filterSensitiveLog = (obj: QuickConnectSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListQueueQuickConnectsResponse {
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Information about the quick connects.</p>
+   */
+  QuickConnectSummaryList?: QuickConnectSummary[];
+}
+
+export namespace ListQueueQuickConnectsResponse {
+  export const filterSensitiveLog = (obj: ListQueueQuickConnectsResponse): any => ({
+    ...obj,
+  });
+}
+
 export enum QueueType {
   AGENT = "AGENT",
   STANDARD = "STANDARD",
@@ -3791,7 +4479,7 @@ export interface ListQueuesRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximimum number of results to return per page.</p>
+   * <p>The maximum number of results to return per page.</p>
    */
   MaxResults?: number;
 }
@@ -3851,6 +4539,54 @@ export namespace ListQueuesResponse {
   });
 }
 
+export interface ListQuickConnectsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are
+   *    prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).</p>
+   */
+  QuickConnectTypes?: (QuickConnectType | string)[];
+}
+
+export namespace ListQuickConnectsRequest {
+  export const filterSensitiveLog = (obj: ListQuickConnectsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListQuickConnectsResponse {
+  /**
+   * <p>Information about the quick connects.</p>
+   */
+  QuickConnectSummaryList?: QuickConnectSummary[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListQuickConnectsResponse {
+  export const filterSensitiveLog = (obj: ListQuickConnectsResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListRoutingProfileQueuesRequest {
   /**
    * <p>The identifier of the Amazon Connect instance.</p>
@@ -3869,7 +4605,7 @@ export interface ListRoutingProfileQueuesRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximimum number of results to return per page.</p>
+   * <p>The maximum number of results to return per page.</p>
    */
   MaxResults?: number;
 }
@@ -3885,7 +4621,7 @@ export namespace ListRoutingProfileQueuesRequest {
  */
 export interface RoutingProfileQueueConfigSummary {
   /**
-   * <p>The identifier of the queue.</p>
+   * <p>The identifier for the queue.</p>
    */
   QueueId: string | undefined;
 
@@ -3956,7 +4692,7 @@ export interface ListRoutingProfilesRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximimum number of results to return per page.</p>
+   * <p>The maximum number of results to return per page.</p>
    */
   MaxResults?: number;
 }
@@ -4024,7 +4760,7 @@ export interface ListSecurityKeysRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximimum number of results to return per page.</p>
+   * <p>The maximum number of results to return per page.</p>
    */
   MaxResults?: number;
 }
@@ -4092,7 +4828,7 @@ export interface ListSecurityProfilesRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximimum number of results to return per page.</p>
+   * <p>The maximum number of results to return per page.</p>
    */
   MaxResults?: number;
 }
@@ -4195,7 +4931,7 @@ export interface ListUseCasesRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximimum number of results to return per page.</p>
+   * <p>The maximum number of results to return per page.</p>
    */
   MaxResults?: number;
 }
@@ -4207,7 +4943,9 @@ export namespace ListUseCasesRequest {
 }
 
 /**
- * <p>Contains the use case.</p>
+ * <p>Contains the
+ *    use
+ *    case.</p>
  */
 export interface UseCase {
   /**
@@ -4264,7 +5002,7 @@ export interface ListUserHierarchyGroupsRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximimum number of results to return per page.</p>
+   * <p>The maximum number of results to return per page.</p>
    */
   MaxResults?: number;
 }
@@ -4306,7 +5044,7 @@ export interface ListUsersRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximimum number of results to return per page.</p>
+   * <p>The maximum number of results to return per page.</p>
    */
   MaxResults?: number;
 }
@@ -4398,7 +5136,7 @@ export namespace ResumeContactRecordingResponse {
  */
 export interface ChatMessage {
   /**
-   * <p>The type of the content. Supported types are text/plain.</p>
+   * <p>The type of the content. Supported types are text and plain.</p>
    */
   ContentType: string | undefined;
 
@@ -4437,8 +5175,9 @@ export interface StartChatContactRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The identifier of the contact flow for initiating the chat. To see the ContactFlowId in the
-   *    Amazon Connect console user interface, on the navigation menu go to <b>Routing</b>, <b>Contact Flows</b>. Choose the contact flow. On
+   * <p>The identifier of the contact flow for initiating the chat.
+   *    To
+   *    see the ContactFlowId in the Amazon Connect console user interface, on the navigation menu go to <b>Routing</b>, <b>Contact Flows</b>. Choose the contact flow. On
    *    the contact flow page, under the name of the contact flow, choose <b>Show
    *     additional flow information</b>. The ContactFlowId is the last part of the ARN, shown
    *    here in bold: </p>
@@ -4449,7 +5188,7 @@ export interface StartChatContactRequest {
 
   /**
    * <p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect
-   *    attributes, and can be accessed in contact flows just like any other contact attributes. </p>
+   *    attributes. They can be accessed in contact flows just like any other contact attributes. </p>
    *          <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys
    *    can include only alphanumeric, dash, and underscore characters.</p>
    */
@@ -4543,7 +5282,7 @@ export interface StartContactRecordingRequest {
   InitialContactId: string | undefined;
 
   /**
-   * <p>Who is being recorded.</p>
+   * <p>The person being recorded.</p>
    */
   VoiceRecordingConfiguration: VoiceRecordingConfiguration | undefined;
 }
@@ -4569,7 +5308,7 @@ export interface DestinationNotAllowedException extends __SmithyException, $Meta
   name: "DestinationNotAllowedException";
   $fault: "client";
   /**
-   * <p>The message.</p>
+   * <p>The message about the outbound calls.</p>
    */
   Message?: string;
 }
@@ -4587,7 +5326,7 @@ export interface OutboundContactNotPermittedException extends __SmithyException,
   name: "OutboundContactNotPermittedException";
   $fault: "client";
   /**
-   * <p>The message.</p>
+   * <p>The message about the contact.</p>
    */
   Message?: string;
 }
@@ -4605,8 +5344,8 @@ export interface StartOutboundVoiceContactRequest {
   DestinationPhoneNumber: string | undefined;
 
   /**
-   * <p>The identifier of the contact flow for the outbound call. To see the ContactFlowId in the
-   *    Amazon Connect console user interface, on the navigation menu go to <b>Routing</b>, <b>Contact Flows</b>. Choose the contact flow. On
+   * <p>The
+   *    identifier of the contact flow for the outbound call. To see the ContactFlowId in the Amazon Connect console user interface, on the navigation menu go to <b>Routing</b>, <b>Contact Flows</b>. Choose the contact flow. On
    *    the contact flow page, under the name of the contact flow, choose <b>Show
    *     additional flow information</b>. The ContactFlowId is the last part of the ARN, shown
    *    here in bold: </p>
@@ -4679,12 +5418,13 @@ export enum ReferenceType {
  */
 export interface Reference {
   /**
-   * <p>A formatted URL that will be shown to an agent in the Contact Control Panel (CCP)</p>
+   * <p>A formatted URL that displays to an agent in the Contact Control Panel (CCP)</p>
    */
   Value: string | undefined;
 
   /**
-   * <p>A valid URL.</p>
+   * <p>A valid
+   *    URL.</p>
    */
   Type: ReferenceType | string | undefined;
 }
@@ -5050,6 +5790,177 @@ export namespace UpdateInstanceStorageConfigRequest {
   });
 }
 
+export interface UpdateQueueHoursOfOperationRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the queue.</p>
+   */
+  QueueId: string | undefined;
+
+  /**
+   * <p>The identifier for the hours of operation.</p>
+   */
+  HoursOfOperationId: string | undefined;
+}
+
+export namespace UpdateQueueHoursOfOperationRequest {
+  export const filterSensitiveLog = (obj: UpdateQueueHoursOfOperationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateQueueMaxContactsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the queue.</p>
+   */
+  QueueId: string | undefined;
+
+  /**
+   * <p>The maximum number of contacts that can be in the queue before it is considered full.</p>
+   */
+  MaxContacts: number | undefined;
+}
+
+export namespace UpdateQueueMaxContactsRequest {
+  export const filterSensitiveLog = (obj: UpdateQueueMaxContactsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateQueueNameRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the queue.</p>
+   */
+  QueueId: string | undefined;
+
+  /**
+   * <p>The name of the queue.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The description of the queue.</p>
+   */
+  Description?: string;
+}
+
+export namespace UpdateQueueNameRequest {
+  export const filterSensitiveLog = (obj: UpdateQueueNameRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateQueueOutboundCallerConfigRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the queue.</p>
+   */
+  QueueId: string | undefined;
+
+  /**
+   * <p>The outbound caller ID name, number, and outbound whisper flow.</p>
+   */
+  OutboundCallerConfig: OutboundCallerConfig | undefined;
+}
+
+export namespace UpdateQueueOutboundCallerConfigRequest {
+  export const filterSensitiveLog = (obj: UpdateQueueOutboundCallerConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateQueueStatusRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the queue.</p>
+   */
+  QueueId: string | undefined;
+
+  /**
+   * <p>The status of the queue.</p>
+   */
+  Status: QueueStatus | string | undefined;
+}
+
+export namespace UpdateQueueStatusRequest {
+  export const filterSensitiveLog = (obj: UpdateQueueStatusRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateQuickConnectConfigRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the quick connect.</p>
+   */
+  QuickConnectId: string | undefined;
+
+  /**
+   * <p>Information about the configuration settings for the quick connect.</p>
+   */
+  QuickConnectConfig: QuickConnectConfig | undefined;
+}
+
+export namespace UpdateQuickConnectConfigRequest {
+  export const filterSensitiveLog = (obj: UpdateQuickConnectConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateQuickConnectNameRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the quick connect.</p>
+   */
+  QuickConnectId: string | undefined;
+
+  /**
+   * <p>The name of the quick connect.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The description of the quick connect.</p>
+   */
+  Description?: string;
+}
+
+export namespace UpdateQuickConnectNameRequest {
+  export const filterSensitiveLog = (obj: UpdateQuickConnectNameRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface UpdateRoutingProfileConcurrencyRequest {
   /**
    * <p>The identifier of the Amazon Connect instance.</p>
@@ -5062,7 +5973,7 @@ export interface UpdateRoutingProfileConcurrencyRequest {
   RoutingProfileId: string | undefined;
 
   /**
-   * <p>The channels agents can handle in the Contact Control Panel (CCP).</p>
+   * <p>The channels that agents can handle in the Contact Control Panel (CCP).</p>
    */
   MediaConcurrencies: MediaConcurrency[] | undefined;
 }
@@ -5215,7 +6126,9 @@ export namespace HierarchyLevelUpdate {
  */
 export interface HierarchyStructureUpdate {
   /**
-   * <p>The update for level one.</p>
+   * <p>The
+   *    update
+   *    for level one.</p>
    */
   LevelOne?: HierarchyLevelUpdate;
 

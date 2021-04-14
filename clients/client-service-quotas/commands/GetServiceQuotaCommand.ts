@@ -21,10 +21,9 @@ export type GetServiceQuotaCommandInput = GetServiceQuotaRequest;
 export type GetServiceQuotaCommandOutput = GetServiceQuotaResponse & __MetadataBearer;
 
 /**
- * <p>Returns the details for the specified service quota. This operation provides a different
- *       Value than the <code>GetAWSDefaultServiceQuota</code> operation. This operation returns the
- *       applied value for each quota. <code>GetAWSDefaultServiceQuota</code> returns the default AWS
- *       value for each quota. </p>
+ * <p>Retrieves the applied quota value for the specified quota. For some quotas, only the
+ *       default values are available. If the applied quota value is not available for a quota, the
+ *       quota is not retrieved.</p>
  */
 export class GetServiceQuotaCommand extends $Command<
   GetServiceQuotaCommandInput,

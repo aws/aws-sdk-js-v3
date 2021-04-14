@@ -180,6 +180,7 @@ import {
   EFSMountFailureException,
   EFSMountTimeoutException,
   ENILimitReachedException,
+  EndPointType,
   Environment,
   EnvironmentError,
   EnvironmentResponse,
@@ -189,6 +190,7 @@ import {
   FunctionCodeLocation,
   FunctionConfiguration,
   FunctionEventInvokeConfig,
+  FunctionResponseType,
   ImageConfig,
   ImageConfigError,
   ImageConfigResponse,
@@ -220,6 +222,7 @@ import {
   ResourceNotFoundException,
   ResourceNotReadyException,
   Runtime,
+  SelfManagedEventSource,
   ServiceException,
   SourceAccessConfiguration,
   SubnetIPAddressLimitReachedException,
@@ -429,6 +432,10 @@ export const serializeAws_restJson1CreateEventSourceMappingCommand = async (
     ...(input.EventSourceArn !== undefined &&
       input.EventSourceArn !== null && { EventSourceArn: input.EventSourceArn }),
     ...(input.FunctionName !== undefined && input.FunctionName !== null && { FunctionName: input.FunctionName }),
+    ...(input.FunctionResponseTypes !== undefined &&
+      input.FunctionResponseTypes !== null && {
+        FunctionResponseTypes: serializeAws_restJson1FunctionResponseTypeList(input.FunctionResponseTypes, context),
+      }),
     ...(input.MaximumBatchingWindowInSeconds !== undefined &&
       input.MaximumBatchingWindowInSeconds !== null && {
         MaximumBatchingWindowInSeconds: input.MaximumBatchingWindowInSeconds,
@@ -441,6 +448,10 @@ export const serializeAws_restJson1CreateEventSourceMappingCommand = async (
       input.ParallelizationFactor !== null && { ParallelizationFactor: input.ParallelizationFactor }),
     ...(input.Queues !== undefined &&
       input.Queues !== null && { Queues: serializeAws_restJson1Queues(input.Queues, context) }),
+    ...(input.SelfManagedEventSource !== undefined &&
+      input.SelfManagedEventSource !== null && {
+        SelfManagedEventSource: serializeAws_restJson1SelfManagedEventSource(input.SelfManagedEventSource, context),
+      }),
     ...(input.SourceAccessConfigurations !== undefined &&
       input.SourceAccessConfigurations !== null && {
         SourceAccessConfigurations: serializeAws_restJson1SourceAccessConfigurations(
@@ -456,6 +467,8 @@ export const serializeAws_restJson1CreateEventSourceMappingCommand = async (
       }),
     ...(input.Topics !== undefined &&
       input.Topics !== null && { Topics: serializeAws_restJson1Topics(input.Topics, context) }),
+    ...(input.TumblingWindowInSeconds !== undefined &&
+      input.TumblingWindowInSeconds !== null && { TumblingWindowInSeconds: input.TumblingWindowInSeconds }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2143,6 +2156,10 @@ export const serializeAws_restJson1UpdateEventSourceMappingCommand = async (
       }),
     ...(input.Enabled !== undefined && input.Enabled !== null && { Enabled: input.Enabled }),
     ...(input.FunctionName !== undefined && input.FunctionName !== null && { FunctionName: input.FunctionName }),
+    ...(input.FunctionResponseTypes !== undefined &&
+      input.FunctionResponseTypes !== null && {
+        FunctionResponseTypes: serializeAws_restJson1FunctionResponseTypeList(input.FunctionResponseTypes, context),
+      }),
     ...(input.MaximumBatchingWindowInSeconds !== undefined &&
       input.MaximumBatchingWindowInSeconds !== null && {
         MaximumBatchingWindowInSeconds: input.MaximumBatchingWindowInSeconds,
@@ -2160,6 +2177,8 @@ export const serializeAws_restJson1UpdateEventSourceMappingCommand = async (
           context
         ),
       }),
+    ...(input.TumblingWindowInSeconds !== undefined &&
+      input.TumblingWindowInSeconds !== null && { TumblingWindowInSeconds: input.TumblingWindowInSeconds }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2712,6 +2731,7 @@ export const deserializeAws_restJson1CreateEventSourceMappingCommand = async (
     DestinationConfig: undefined,
     EventSourceArn: undefined,
     FunctionArn: undefined,
+    FunctionResponseTypes: undefined,
     LastModified: undefined,
     LastProcessingResult: undefined,
     MaximumBatchingWindowInSeconds: undefined,
@@ -2719,12 +2739,14 @@ export const deserializeAws_restJson1CreateEventSourceMappingCommand = async (
     MaximumRetryAttempts: undefined,
     ParallelizationFactor: undefined,
     Queues: undefined,
+    SelfManagedEventSource: undefined,
     SourceAccessConfigurations: undefined,
     StartingPosition: undefined,
     StartingPositionTimestamp: undefined,
     State: undefined,
     StateTransitionReason: undefined,
     Topics: undefined,
+    TumblingWindowInSeconds: undefined,
     UUID: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2742,6 +2764,12 @@ export const deserializeAws_restJson1CreateEventSourceMappingCommand = async (
   }
   if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
     contents.FunctionArn = data.FunctionArn;
+  }
+  if (data.FunctionResponseTypes !== undefined && data.FunctionResponseTypes !== null) {
+    contents.FunctionResponseTypes = deserializeAws_restJson1FunctionResponseTypeList(
+      data.FunctionResponseTypes,
+      context
+    );
   }
   if (data.LastModified !== undefined && data.LastModified !== null) {
     contents.LastModified = new Date(Math.round(data.LastModified * 1000));
@@ -2764,6 +2792,12 @@ export const deserializeAws_restJson1CreateEventSourceMappingCommand = async (
   if (data.Queues !== undefined && data.Queues !== null) {
     contents.Queues = deserializeAws_restJson1Queues(data.Queues, context);
   }
+  if (data.SelfManagedEventSource !== undefined && data.SelfManagedEventSource !== null) {
+    contents.SelfManagedEventSource = deserializeAws_restJson1SelfManagedEventSource(
+      data.SelfManagedEventSource,
+      context
+    );
+  }
   if (data.SourceAccessConfigurations !== undefined && data.SourceAccessConfigurations !== null) {
     contents.SourceAccessConfigurations = deserializeAws_restJson1SourceAccessConfigurations(
       data.SourceAccessConfigurations,
@@ -2784,6 +2818,9 @@ export const deserializeAws_restJson1CreateEventSourceMappingCommand = async (
   }
   if (data.Topics !== undefined && data.Topics !== null) {
     contents.Topics = deserializeAws_restJson1Topics(data.Topics, context);
+  }
+  if (data.TumblingWindowInSeconds !== undefined && data.TumblingWindowInSeconds !== null) {
+    contents.TumblingWindowInSeconds = data.TumblingWindowInSeconds;
   }
   if (data.UUID !== undefined && data.UUID !== null) {
     contents.UUID = data.UUID;
@@ -3263,6 +3300,7 @@ export const deserializeAws_restJson1DeleteEventSourceMappingCommand = async (
     DestinationConfig: undefined,
     EventSourceArn: undefined,
     FunctionArn: undefined,
+    FunctionResponseTypes: undefined,
     LastModified: undefined,
     LastProcessingResult: undefined,
     MaximumBatchingWindowInSeconds: undefined,
@@ -3270,12 +3308,14 @@ export const deserializeAws_restJson1DeleteEventSourceMappingCommand = async (
     MaximumRetryAttempts: undefined,
     ParallelizationFactor: undefined,
     Queues: undefined,
+    SelfManagedEventSource: undefined,
     SourceAccessConfigurations: undefined,
     StartingPosition: undefined,
     StartingPositionTimestamp: undefined,
     State: undefined,
     StateTransitionReason: undefined,
     Topics: undefined,
+    TumblingWindowInSeconds: undefined,
     UUID: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3293,6 +3333,12 @@ export const deserializeAws_restJson1DeleteEventSourceMappingCommand = async (
   }
   if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
     contents.FunctionArn = data.FunctionArn;
+  }
+  if (data.FunctionResponseTypes !== undefined && data.FunctionResponseTypes !== null) {
+    contents.FunctionResponseTypes = deserializeAws_restJson1FunctionResponseTypeList(
+      data.FunctionResponseTypes,
+      context
+    );
   }
   if (data.LastModified !== undefined && data.LastModified !== null) {
     contents.LastModified = new Date(Math.round(data.LastModified * 1000));
@@ -3315,6 +3361,12 @@ export const deserializeAws_restJson1DeleteEventSourceMappingCommand = async (
   if (data.Queues !== undefined && data.Queues !== null) {
     contents.Queues = deserializeAws_restJson1Queues(data.Queues, context);
   }
+  if (data.SelfManagedEventSource !== undefined && data.SelfManagedEventSource !== null) {
+    contents.SelfManagedEventSource = deserializeAws_restJson1SelfManagedEventSource(
+      data.SelfManagedEventSource,
+      context
+    );
+  }
   if (data.SourceAccessConfigurations !== undefined && data.SourceAccessConfigurations !== null) {
     contents.SourceAccessConfigurations = deserializeAws_restJson1SourceAccessConfigurations(
       data.SourceAccessConfigurations,
@@ -3335,6 +3387,9 @@ export const deserializeAws_restJson1DeleteEventSourceMappingCommand = async (
   }
   if (data.Topics !== undefined && data.Topics !== null) {
     contents.Topics = deserializeAws_restJson1Topics(data.Topics, context);
+  }
+  if (data.TumblingWindowInSeconds !== undefined && data.TumblingWindowInSeconds !== null) {
+    contents.TumblingWindowInSeconds = data.TumblingWindowInSeconds;
   }
   if (data.UUID !== undefined && data.UUID !== null) {
     contents.UUID = data.UUID;
@@ -4136,6 +4191,7 @@ export const deserializeAws_restJson1GetEventSourceMappingCommand = async (
     DestinationConfig: undefined,
     EventSourceArn: undefined,
     FunctionArn: undefined,
+    FunctionResponseTypes: undefined,
     LastModified: undefined,
     LastProcessingResult: undefined,
     MaximumBatchingWindowInSeconds: undefined,
@@ -4143,12 +4199,14 @@ export const deserializeAws_restJson1GetEventSourceMappingCommand = async (
     MaximumRetryAttempts: undefined,
     ParallelizationFactor: undefined,
     Queues: undefined,
+    SelfManagedEventSource: undefined,
     SourceAccessConfigurations: undefined,
     StartingPosition: undefined,
     StartingPositionTimestamp: undefined,
     State: undefined,
     StateTransitionReason: undefined,
     Topics: undefined,
+    TumblingWindowInSeconds: undefined,
     UUID: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4166,6 +4224,12 @@ export const deserializeAws_restJson1GetEventSourceMappingCommand = async (
   }
   if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
     contents.FunctionArn = data.FunctionArn;
+  }
+  if (data.FunctionResponseTypes !== undefined && data.FunctionResponseTypes !== null) {
+    contents.FunctionResponseTypes = deserializeAws_restJson1FunctionResponseTypeList(
+      data.FunctionResponseTypes,
+      context
+    );
   }
   if (data.LastModified !== undefined && data.LastModified !== null) {
     contents.LastModified = new Date(Math.round(data.LastModified * 1000));
@@ -4188,6 +4252,12 @@ export const deserializeAws_restJson1GetEventSourceMappingCommand = async (
   if (data.Queues !== undefined && data.Queues !== null) {
     contents.Queues = deserializeAws_restJson1Queues(data.Queues, context);
   }
+  if (data.SelfManagedEventSource !== undefined && data.SelfManagedEventSource !== null) {
+    contents.SelfManagedEventSource = deserializeAws_restJson1SelfManagedEventSource(
+      data.SelfManagedEventSource,
+      context
+    );
+  }
   if (data.SourceAccessConfigurations !== undefined && data.SourceAccessConfigurations !== null) {
     contents.SourceAccessConfigurations = deserializeAws_restJson1SourceAccessConfigurations(
       data.SourceAccessConfigurations,
@@ -4208,6 +4278,9 @@ export const deserializeAws_restJson1GetEventSourceMappingCommand = async (
   }
   if (data.Topics !== undefined && data.Topics !== null) {
     contents.Topics = deserializeAws_restJson1Topics(data.Topics, context);
+  }
+  if (data.TumblingWindowInSeconds !== undefined && data.TumblingWindowInSeconds !== null) {
+    contents.TumblingWindowInSeconds = data.TumblingWindowInSeconds;
   }
   if (data.UUID !== undefined && data.UUID !== null) {
     contents.UUID = data.UUID;
@@ -7814,6 +7887,7 @@ export const deserializeAws_restJson1UpdateEventSourceMappingCommand = async (
     DestinationConfig: undefined,
     EventSourceArn: undefined,
     FunctionArn: undefined,
+    FunctionResponseTypes: undefined,
     LastModified: undefined,
     LastProcessingResult: undefined,
     MaximumBatchingWindowInSeconds: undefined,
@@ -7821,12 +7895,14 @@ export const deserializeAws_restJson1UpdateEventSourceMappingCommand = async (
     MaximumRetryAttempts: undefined,
     ParallelizationFactor: undefined,
     Queues: undefined,
+    SelfManagedEventSource: undefined,
     SourceAccessConfigurations: undefined,
     StartingPosition: undefined,
     StartingPositionTimestamp: undefined,
     State: undefined,
     StateTransitionReason: undefined,
     Topics: undefined,
+    TumblingWindowInSeconds: undefined,
     UUID: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -7844,6 +7920,12 @@ export const deserializeAws_restJson1UpdateEventSourceMappingCommand = async (
   }
   if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
     contents.FunctionArn = data.FunctionArn;
+  }
+  if (data.FunctionResponseTypes !== undefined && data.FunctionResponseTypes !== null) {
+    contents.FunctionResponseTypes = deserializeAws_restJson1FunctionResponseTypeList(
+      data.FunctionResponseTypes,
+      context
+    );
   }
   if (data.LastModified !== undefined && data.LastModified !== null) {
     contents.LastModified = new Date(Math.round(data.LastModified * 1000));
@@ -7866,6 +7948,12 @@ export const deserializeAws_restJson1UpdateEventSourceMappingCommand = async (
   if (data.Queues !== undefined && data.Queues !== null) {
     contents.Queues = deserializeAws_restJson1Queues(data.Queues, context);
   }
+  if (data.SelfManagedEventSource !== undefined && data.SelfManagedEventSource !== null) {
+    contents.SelfManagedEventSource = deserializeAws_restJson1SelfManagedEventSource(
+      data.SelfManagedEventSource,
+      context
+    );
+  }
   if (data.SourceAccessConfigurations !== undefined && data.SourceAccessConfigurations !== null) {
     contents.SourceAccessConfigurations = deserializeAws_restJson1SourceAccessConfigurations(
       data.SourceAccessConfigurations,
@@ -7886,6 +7974,9 @@ export const deserializeAws_restJson1UpdateEventSourceMappingCommand = async (
   }
   if (data.Topics !== undefined && data.Topics !== null) {
     contents.Topics = deserializeAws_restJson1Topics(data.Topics, context);
+  }
+  if (data.TumblingWindowInSeconds !== undefined && data.TumblingWindowInSeconds !== null) {
+    contents.TumblingWindowInSeconds = data.TumblingWindowInSeconds;
   }
   if (data.UUID !== undefined && data.UUID !== null) {
     contents.UUID = data.UUID;
@@ -9354,6 +9445,32 @@ const serializeAws_restJson1DestinationConfig = (input: DestinationConfig, conte
   };
 };
 
+const serializeAws_restJson1EndpointLists = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_restJson1Endpoints = (input: { [key: string]: string[] }, context: __SerdeContext): any => {
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string[] }, [key, value]: [EndPointType | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: serializeAws_restJson1EndpointLists(value, context),
+      };
+    },
+    {}
+  );
+};
+
 const serializeAws_restJson1Environment = (input: Environment, context: __SerdeContext): any => {
   return {
     ...(input.Variables !== undefined &&
@@ -9401,6 +9518,20 @@ const serializeAws_restJson1FunctionCode = (input: FunctionCode, context: __Serd
       input.S3ObjectVersion !== null && { S3ObjectVersion: input.S3ObjectVersion }),
     ...(input.ZipFile !== undefined && input.ZipFile !== null && { ZipFile: context.base64Encoder(input.ZipFile) }),
   };
+};
+
+const serializeAws_restJson1FunctionResponseTypeList = (
+  input: (FunctionResponseType | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1ImageConfig = (input: ImageConfig, context: __SerdeContext): any => {
@@ -9470,6 +9601,13 @@ const serializeAws_restJson1SecurityGroupIds = (input: string[], context: __Serd
       }
       return entry;
     });
+};
+
+const serializeAws_restJson1SelfManagedEventSource = (input: SelfManagedEventSource, context: __SerdeContext): any => {
+  return {
+    ...(input.Endpoints !== undefined &&
+      input.Endpoints !== null && { Endpoints: serializeAws_restJson1Endpoints(input.Endpoints, context) }),
+  };
 };
 
 const serializeAws_restJson1SigningProfileVersionArns = (input: string[], context: __SerdeContext): any => {
@@ -9741,6 +9879,32 @@ const deserializeAws_restJson1DestinationConfig = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_restJson1EndpointLists = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const deserializeAws_restJson1Endpoints = (output: any, context: __SerdeContext): { [key: string]: string[] } => {
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string[] }, [key, value]: [EndPointType | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: deserializeAws_restJson1EndpointLists(value, context),
+      };
+    },
+    {}
+  );
+};
+
 const deserializeAws_restJson1EnvironmentError = (output: any, context: __SerdeContext): EnvironmentError => {
   return {
     ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
@@ -9793,6 +9957,10 @@ const deserializeAws_restJson1EventSourceMappingConfiguration = (
     EventSourceArn:
       output.EventSourceArn !== undefined && output.EventSourceArn !== null ? output.EventSourceArn : undefined,
     FunctionArn: output.FunctionArn !== undefined && output.FunctionArn !== null ? output.FunctionArn : undefined,
+    FunctionResponseTypes:
+      output.FunctionResponseTypes !== undefined && output.FunctionResponseTypes !== null
+        ? deserializeAws_restJson1FunctionResponseTypeList(output.FunctionResponseTypes, context)
+        : undefined,
     LastModified:
       output.LastModified !== undefined && output.LastModified !== null
         ? new Date(Math.round(output.LastModified * 1000))
@@ -9821,6 +9989,10 @@ const deserializeAws_restJson1EventSourceMappingConfiguration = (
       output.Queues !== undefined && output.Queues !== null
         ? deserializeAws_restJson1Queues(output.Queues, context)
         : undefined,
+    SelfManagedEventSource:
+      output.SelfManagedEventSource !== undefined && output.SelfManagedEventSource !== null
+        ? deserializeAws_restJson1SelfManagedEventSource(output.SelfManagedEventSource, context)
+        : undefined,
     SourceAccessConfigurations:
       output.SourceAccessConfigurations !== undefined && output.SourceAccessConfigurations !== null
         ? deserializeAws_restJson1SourceAccessConfigurations(output.SourceAccessConfigurations, context)
@@ -9839,6 +10011,10 @@ const deserializeAws_restJson1EventSourceMappingConfiguration = (
     Topics:
       output.Topics !== undefined && output.Topics !== null
         ? deserializeAws_restJson1Topics(output.Topics, context)
+        : undefined,
+    TumblingWindowInSeconds:
+      output.TumblingWindowInSeconds !== undefined && output.TumblingWindowInSeconds !== null
+        ? output.TumblingWindowInSeconds
         : undefined,
     UUID: output.UUID !== undefined && output.UUID !== null ? output.UUID : undefined,
   } as any;
@@ -10015,6 +10191,20 @@ const deserializeAws_restJson1FunctionList = (output: any, context: __SerdeConte
         return null as any;
       }
       return deserializeAws_restJson1FunctionConfiguration(entry, context);
+    });
+};
+
+const deserializeAws_restJson1FunctionResponseTypeList = (
+  output: any,
+  context: __SerdeContext
+): (FunctionResponseType | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
     });
 };
 
@@ -10215,6 +10405,18 @@ const deserializeAws_restJson1SecurityGroupIds = (output: any, context: __SerdeC
       }
       return entry;
     });
+};
+
+const deserializeAws_restJson1SelfManagedEventSource = (
+  output: any,
+  context: __SerdeContext
+): SelfManagedEventSource => {
+  return {
+    Endpoints:
+      output.Endpoints !== undefined && output.Endpoints !== null
+        ? deserializeAws_restJson1Endpoints(output.Endpoints, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1SigningProfileVersionArns = (output: any, context: __SerdeContext): string[] => {

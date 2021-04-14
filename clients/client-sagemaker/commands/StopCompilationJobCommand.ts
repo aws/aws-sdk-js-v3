@@ -25,7 +25,7 @@ export type StopCompilationJobCommandOutput = __MetadataBearer;
  *         <p> To stop a job, Amazon SageMaker sends the algorithm the SIGTERM signal. This gracefully shuts the
  *             job down. If the job hasn't stopped, it sends the SIGKILL signal.</p>
  *         <p>When it receives a <code>StopCompilationJob</code> request, Amazon SageMaker changes the <a>CompilationJobSummary$CompilationJobStatus</a> of the job to
- *                 <code>Stopping</code>. After Amazon SageMaker stops the job, it sets the <a>CompilationJobSummary$CompilationJobStatus</a> to <code>Stopped</code>.
+ *             <code>Stopping</code>. After Amazon SageMaker stops the job, it sets the <a>CompilationJobSummary$CompilationJobStatus</a> to <code>Stopped</code>.
  *         </p>
  */
 export class StopCompilationJobCommand extends $Command<

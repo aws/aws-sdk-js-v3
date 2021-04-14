@@ -22,7 +22,7 @@ export type SampleChannelDataCommandOutput = SampleChannelDataResponse & __Metad
 
 /**
  * <p>Retrieves a sample of messages from the specified channel ingested during the specified
- *           timeframe. Up to 10 messages can be retrieved.</p>
+ *       timeframe. Up to 10 messages can be retrieved.</p>
  */
 export class SampleChannelDataCommand extends $Command<
   SampleChannelDataCommandInput,

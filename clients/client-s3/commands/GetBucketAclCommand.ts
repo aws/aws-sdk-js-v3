@@ -22,7 +22,7 @@ export type GetBucketAclCommandInput = GetBucketAclRequest;
 export type GetBucketAclCommandOutput = GetBucketAclOutput & __MetadataBearer;
 
 /**
- * <p>This implementation of the <code>GET</code> operation uses the <code>acl</code>
+ * <p>This implementation of the <code>GET</code> action uses the <code>acl</code>
  *          subresource to return the access control list (ACL) of a bucket. To use <code>GET</code> to
  *          return the ACL of the bucket, you must have <code>READ_ACP</code> access to the bucket. If
  *             <code>READ_ACP</code> permission is granted to the anonymous user, you can return the

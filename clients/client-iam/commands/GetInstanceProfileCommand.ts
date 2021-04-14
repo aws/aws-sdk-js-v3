@@ -22,9 +22,9 @@ export type GetInstanceProfileCommandOutput = GetInstanceProfileResponse & __Met
 
 /**
  * <p> Retrieves information about the specified instance profile, including the instance
- *          profile's path, GUID, ARN, and role. For more information about instance profiles, see
- *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About
- *             Instance Profiles</a> in the <i>IAM User Guide</i>.</p>
+ *             profile's path, GUID, ARN, and role. For more information about instance profiles, see
+ *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About
+ *                 instance profiles</a> in the <i>IAM User Guide</i>.</p>
  */
 export class GetInstanceProfileCommand extends $Command<
   GetInstanceProfileCommandInput,

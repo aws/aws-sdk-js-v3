@@ -22,11 +22,10 @@ export type DeleteVirtualMFADeviceCommandOutput = __MetadataBearer;
 
 /**
  * <p>Deletes a virtual MFA device.</p>
- *          <note>
+ *         <note>
  *             <p> You must deactivate a user's virtual MFA device before you can delete it. For
- *             information about deactivating MFA devices, see <a>DeactivateMFADevice</a>.
- *          </p>
- *          </note>
+ *                 information about deactivating MFA devices, see <a>DeactivateMFADevice</a>. </p>
+ *         </note>
  */
 export class DeleteVirtualMFADeviceCommand extends $Command<
   DeleteVirtualMFADeviceCommandInput,

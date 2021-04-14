@@ -92,8 +92,7 @@ export enum MetricStatistic {
  * <p>Represents a CloudWatch metric of your choosing that can be used for predictive scaling. </p>
  *          <p>For predictive scaling to work with a customized load metric specification, AWS Auto Scaling
  *          needs access to the <code>Sum</code> and <code>Average</code> statistics that CloudWatch computes
- *          from metric data. Statistics are calculations used to aggregate data over specified time
- *          periods.</p>
+ *          from metric data.</p>
  *          <p>When you choose a load metric, make sure that the required <code>Sum</code> and
  *             <code>Average</code> statistics for your metric are available in CloudWatch and that they
  *          provide relevant data for predictive scaling. The <code>Sum</code> statistic must represent
@@ -102,10 +101,18 @@ export enum MetricStatistic {
  *          the number of requests processed by your Auto Scaling group. If the <code>Sum</code> statistic
  *          represents the total request count processed by the group, then the <code>Average</code>
  *          statistic for the specified metric must represent the average request count processed by
- *          each instance of the group.</p>
+ *          each instance of the group. </p>
+ *          <p>If you publish your own metrics, you can aggregate the data points at a given interval
+ *          and then publish the aggregated data points to CloudWatch. Before AWS Auto Scaling generates the
+ *          forecast, it sums up all the metric data points that occurred within each hour to match the
+ *          granularity period that is used in the forecast (60 minutes).</p>
  *          <p>For information about terminology, available metrics, or how to publish new metrics, see
  *             <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html">Amazon CloudWatch
  *             Concepts</a> in the <i>Amazon CloudWatch User Guide</i>. </p>
+ *          <p>After creating your scaling plan, you can use the AWS Auto Scaling console to visualize
+ *          forecasts for the specified metric. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/plans/userguide/gs-create-scaling-plan.html#gs-view-resource">View
+ *             Scaling Information for a Resource</a> in the
+ *          <i>AWS Auto Scaling User Guide</i>.</p>
  */
 export interface CustomizedLoadMetricSpecification {
   /**
@@ -126,8 +133,7 @@ export interface CustomizedLoadMetricSpecification {
   Dimensions?: MetricDimension[];
 
   /**
-   * <p>The statistic of the metric. Currently, the value must always be <code>Sum</code>.
-   *       </p>
+   * <p>The statistic of the metric. The only valid value is <code>Sum</code>.</p>
    */
   Statistic: MetricStatistic | string | undefined;
 
@@ -151,7 +157,11 @@ export enum LoadMetricType {
 }
 
 /**
- * <p>Represents a predefined metric that can be used for predictive scaling. </p>
+ * <p>Represents a predefined metric that can be used for predictive scaling.</p>
+ *          <p>After creating your scaling plan, you can use the AWS Auto Scaling console to visualize
+ *          forecasts for the specified metric. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/plans/userguide/gs-create-scaling-plan.html#gs-view-resource">View
+ *             Scaling Information for a Resource</a> in the
+ *          <i>AWS Auto Scaling User Guide</i>.</p>
  */
 export interface PredefinedLoadMetricSpecification {
   /**
@@ -161,21 +171,27 @@ export interface PredefinedLoadMetricSpecification {
 
   /**
    * <p>Identifies the resource associated with the metric type. You can't specify a resource
-   *          label unless the metric type is <code>ALBRequestCountPerTarget</code> and there is a target
-   *          group for an Application Load Balancer attached to the Auto Scaling group.</p>
-   *          <p>The format is
+   *          label unless the metric type is <code>ALBTargetGroupRequestCount</code> and there is a
+   *          target group for an Application Load Balancer attached to the Auto Scaling group.</p>
+   *          <p>You create the resource label by appending the final portion of the load balancer ARN
+   *          and the final portion of the target group ARN into a single value, separated by a forward
+   *          slash (/). The format is
    *          app/<load-balancer-name>/<load-balancer-id>/targetgroup/<target-group-name>/<target-group-id>,
    *          where:</p>
    *          <ul>
    *             <li>
    *                <p>app/<load-balancer-name>/<load-balancer-id> is the final portion of
-   *                the load balancer ARN.</p>
+   *                the load balancer ARN</p>
    *             </li>
    *             <li>
    *                <p>targetgroup/<target-group-name>/<target-group-id> is the final portion
    *                of the target group ARN.</p>
    *             </li>
    *          </ul>
+   *          <p>This is an example:
+   *          app/EC2Co-EcsEl-1TKLTMITMM0EO/f37c06a68c1748aa/targetgroup/EC2Co-Defau-LDNM7Q3ZH1ZN/6d4ea56ca2d6a18d.</p>
+   *          <p>To find the ARN for an Application Load Balancer, use the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html">DescribeLoadBalancers</a> API operation. To find the ARN for the target group, use
+   *          the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html">DescribeTargetGroups</a> API operation.</p>
    */
   ResourceLabel?: string;
 }
@@ -238,8 +254,9 @@ export enum ServiceNamespace {
  *                That is, the value of the metric should decrease when capacity increases. </p>
  *             </li>
  *          </ul>
- *          <p>For more information about CloudWatch, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html">Amazon CloudWatch
- *             Concepts</a>. </p>
+ *          <p>For information about terminology, available metrics, or how to publish new metrics, see
+ *             <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html">Amazon CloudWatch
+ *             Concepts</a> in the <i>Amazon CloudWatch User Guide</i>. </p>
  */
 export interface CustomizedScalingMetricSpecification {
   /**
@@ -308,19 +325,25 @@ export interface PredefinedScalingMetricSpecification {
    *          label unless the metric type is <code>ALBRequestCountPerTarget</code> and there is a target
    *          group for an Application Load Balancer attached to the Auto Scaling group, Spot Fleet request, or
    *          ECS service.</p>
-   *          <p>The format is
+   *          <p>You create the resource label by appending the final portion of the load balancer ARN
+   *          and the final portion of the target group ARN into a single value, separated by a forward
+   *          slash (/). The format is
    *          app/<load-balancer-name>/<load-balancer-id>/targetgroup/<target-group-name>/<target-group-id>,
    *          where:</p>
    *          <ul>
    *             <li>
    *                <p>app/<load-balancer-name>/<load-balancer-id> is the final portion of
-   *                the load balancer ARN.</p>
+   *                the load balancer ARN</p>
    *             </li>
    *             <li>
    *                <p>targetgroup/<target-group-name>/<target-group-id> is the final portion
    *                of the target group ARN.</p>
    *             </li>
    *          </ul>
+   *          <p>This is an example:
+   *          app/EC2Co-EcsEl-1TKLTMITMM0EO/f37c06a68c1748aa/targetgroup/EC2Co-Defau-LDNM7Q3ZH1ZN/6d4ea56ca2d6a18d.</p>
+   *          <p>To find the ARN for an Application Load Balancer, use the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html">DescribeLoadBalancers</a> API operation. To find the ARN for the target group, use
+   *          the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html">DescribeTargetGroups</a> API operation.</p>
    */
   ResourceLabel?: string;
 }
@@ -348,8 +371,9 @@ export interface TargetTrackingConfiguration {
   CustomizedScalingMetricSpecification?: CustomizedScalingMetricSpecification;
 
   /**
-   * <p>The target value for the metric. The range is 8.515920e-109 to 1.174271e+108 (Base 10)
-   *          or 2e-360 to 2e360 (Base 2).</p>
+   * <p>The target value for the metric. Although this property accepts numbers of type Double,
+   *          it won't accept values that are either too small or too large. Values must be in the range
+   *          of -2^360 to 2^360.</p>
    */
   TargetValue: number | undefined;
 
@@ -363,24 +387,26 @@ export interface TargetTrackingConfiguration {
   DisableScaleIn?: boolean;
 
   /**
-   * <p>The amount of time, in seconds, after a scale-out activity completes before another
-   *          scale-out activity can start. This value is not used if the scalable resource is an Auto
-   *          Scaling group.</p>
-   *          <p>While the cooldown period is in effect, the capacity that has been added by the previous
-   *          scale-out event that initiated the cooldown is calculated as part of the desired capacity
-   *          for the next scale out. The intention is to continuously (but not excessively) scale
-   *          out.</p>
+   * <p>The amount of time, in seconds, to wait for a previous scale-out activity to take
+   *          effect. This property is not used if the scalable resource is an Auto Scaling
+   *          group.</p>
+   *          <p>With the <i>scale-out cooldown period</i>, the intention is to continuously
+   *          (but not excessively) scale out. After Auto Scaling successfully scales out using a target
+   *          tracking scaling policy, it starts to calculate the cooldown time. The scaling policy won't
+   *          increase the desired capacity again unless either a larger scale out is triggered or the
+   *          cooldown period ends.</p>
    */
   ScaleOutCooldown?: number;
 
   /**
-   * <p>The amount of time, in seconds, after a scale in activity completes before another scale
-   *          in activity can start. This value is not used if the scalable resource is an Auto Scaling
+   * <p>The amount of time, in seconds, after a scale-in activity completes before another
+   *          scale-in activity can start. This property is not used if the scalable resource is an Auto Scaling
    *          group.</p>
-   *          <p>The cooldown period is used to block subsequent scale in requests until it has expired.
-   *          The intention is to scale in conservatively to protect your application's availability.
-   *          However, if another alarm triggers a scale-out policy during the cooldown period after a
-   *          scale-in, AWS Auto Scaling scales out your scalable target immediately.</p>
+   *          <p>With the <i>scale-in cooldown period</i>, the intention is to scale in
+   *          conservatively to protect your application’s availability, so scale-in activities are blocked
+   *          until the cooldown period has expired. However, if another alarm triggers a scale-out activity
+   *          during the scale-in cooldown period, Auto Scaling scales out the target immediately. In this case,
+   *          the scale-in cooldown period stops and doesn't complete.</p>
    */
   ScaleInCooldown?: number;
 
@@ -398,10 +424,8 @@ export namespace TargetTrackingConfiguration {
 }
 
 /**
- * <p>Describes a scaling instruction for a scalable resource.</p>
- *          <p>The scaling instruction is used in combination with a scaling plan, which is a set of
- *          instructions for configuring dynamic scaling and predictive scaling for the scalable
- *          resources in your application. Each scaling instruction applies to one resource.</p>
+ * <p>Describes a scaling instruction for a scalable resource in a scaling plan. Each scaling
+ *          instruction applies to one resource.</p>
  *          <p>AWS Auto Scaling creates target tracking scaling policies based on the scaling instructions.
  *          Target tracking scaling policies adjust the capacity of your scalable resource as required
  *          to maintain resource utilization at the target value that you specified. </p>
@@ -412,11 +436,12 @@ export namespace TargetTrackingConfiguration {
  *          predictive scaling, AWS Auto Scaling generates forecasts with traffic predictions for the two days
  *          ahead and schedules scaling actions that proactively add and remove resource capacity to
  *          match the forecast. </p>
- *          <p>We recommend waiting a minimum of 24 hours after creating an Auto Scaling group to configure
- *          predictive scaling. At minimum, there must be 24 hours of historical data to generate a
- *          forecast.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/plans/userguide/auto-scaling-getting-started.html">Getting Started with
- *             AWS Auto Scaling</a>.</p>
+ *          <important>
+ *             <p>We recommend waiting a minimum of 24 hours after creating an Auto Scaling group to configure
+ *             predictive scaling. At minimum, there must be 24 hours of historical data to generate a
+ *             forecast. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/plans/userguide/gs-best-practices.html">Best Practices for
+ *                AWS Auto Scaling</a> in the <i>AWS Auto Scaling User Guide</i>.</p>
+ *          </important>
  */
 export interface ScalingInstruction {
   /**
@@ -507,13 +532,8 @@ export interface ScalingInstruction {
   MaxCapacity: number | undefined;
 
   /**
-   * <p>The structure that defines new target tracking configurations (up to 10). Each of these
-   *          structures includes a specific scaling metric and a target value for the metric, along with
-   *          various parameters to use with dynamic scaling. </p>
-   *          <p>With predictive scaling and dynamic scaling, the resource scales based on the target
-   *          tracking configuration that provides the largest capacity for both scale in and scale out. </p>
-   *          <p>Condition: The scaling metric must be unique across target tracking
-   *          configurations.</p>
+   * <p>The target tracking configurations (up to 10). Each of these structures must specify a
+   *          unique scaling metric and a target value for the metric. </p>
    */
   TargetTrackingConfigurations: TargetTrackingConfiguration[] | undefined;
 
@@ -629,11 +649,13 @@ export interface CreateScalingPlanRequest {
   /**
    * <p>A CloudFormation stack or set of tags. You can create one scaling plan per application
    *          source.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ApplicationSource.html">ApplicationSource</a> in the <i>AWS Auto Scaling API Reference</i>.</p>
    */
   ApplicationSource: ApplicationSource | undefined;
 
   /**
    * <p>The scaling instructions.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html">ScalingInstruction</a> in the <i>AWS Auto Scaling API Reference</i>.</p>
    */
   ScalingInstructions: ScalingInstruction[] | undefined;
 }
@@ -646,8 +668,8 @@ export namespace CreateScalingPlanRequest {
 
 export interface CreateScalingPlanResponse {
   /**
-   * <p>The version number of the scaling plan. This value is always 1.</p>
-   *          <p>Currently, you cannot specify multiple scaling plan versions.</p>
+   * <p>The version number of the scaling plan. This value is always <code>1</code>. Currently,
+   *          you cannot have multiple scaling plan versions.</p>
    */
   ScalingPlanVersion: number | undefined;
 }
@@ -711,7 +733,8 @@ export interface DeleteScalingPlanRequest {
   ScalingPlanName: string | undefined;
 
   /**
-   * <p>The version number of the scaling plan.</p>
+   * <p>The version number of the scaling plan. Currently, the only valid value is
+   *             <code>1</code>.</p>
    */
   ScalingPlanVersion: number | undefined;
 }
@@ -752,7 +775,8 @@ export interface DescribeScalingPlanResourcesRequest {
   ScalingPlanName: string | undefined;
 
   /**
-   * <p>The version number of the scaling plan.</p>
+   * <p>The version number of the scaling plan. Currently, the only valid value is
+   *             <code>1</code>.</p>
    */
   ScalingPlanVersion: number | undefined;
 
@@ -983,8 +1007,12 @@ export interface DescribeScalingPlansRequest {
   ScalingPlanNames?: string[];
 
   /**
-   * <p>The version number of the scaling plan. If you specify a scaling plan version, you must
-   *          also specify a scaling plan name.</p>
+   * <p>The version number of the scaling plan. Currently, the only valid value is
+   *             <code>1</code>.</p>
+   *          <note>
+   *             <p>If you specify a scaling plan version, you must also specify a scaling plan
+   *             name.</p>
+   *          </note>
    */
   ScalingPlanVersion?: number;
 
@@ -1038,7 +1066,8 @@ export interface ScalingPlan {
   ScalingPlanVersion: number | undefined;
 
   /**
-   * <p>The application source.</p>
+   * <p>A CloudFormation stack or a set of tags. You can create one scaling plan per application
+   *          source.</p>
    */
   ApplicationSource: ApplicationSource | undefined;
 
@@ -1142,49 +1171,27 @@ export interface GetScalingPlanResourceForecastDataRequest {
   ScalingPlanName: string | undefined;
 
   /**
-   * <p>The version number of the scaling plan.</p>
+   * <p>The version number of the scaling plan. Currently, the only valid value is
+   *             <code>1</code>.</p>
    */
   ScalingPlanVersion: number | undefined;
 
   /**
-   * <p>The namespace of the AWS service.</p>
+   * <p>The namespace of the AWS service. The only valid value is <code>autoscaling</code>.
+   *       </p>
    */
   ServiceNamespace: ServiceNamespace | string | undefined;
 
   /**
-   * <p>The ID of the resource. This string consists of the resource type and unique identifier.
-   *       </p>
-   *          <ul>
-   *             <li>
-   *                <p>Auto Scaling group - The resource type is <code>autoScalingGroup</code> and the unique identifier is the
-   *                name of the Auto Scaling group. Example: <code>autoScalingGroup/my-asg</code>.</p>
-   *            </li>
-   *             <li>
-   *                <p>ECS service - The resource type is <code>service</code> and the unique identifier is the cluster name
-   *                and service name. Example: <code>service/default/sample-webapp</code>.</p>
-   *            </li>
-   *             <li>
-   *                <p>Spot Fleet request - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
-   *                Spot Fleet request ID. Example: <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</p>
-   *            </li>
-   *             <li>
-   *                <p>DynamoDB table - The resource type is <code>table</code> and the unique identifier is the resource ID.
-   *                Example: <code>table/my-table</code>.</p>
-   *            </li>
-   *             <li>
-   *                <p>DynamoDB global secondary index - The resource type is <code>index</code> and the unique identifier is the resource ID.
-   *                Example: <code>table/my-table/index/my-table-index</code>.</p>
-   *            </li>
-   *             <li>
-   *                <p>Aurora DB cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name.
-   *                Example: <code>cluster:my-db-cluster</code>.</p>
-   *            </li>
-   *          </ul>
+   * <p>The ID of the resource. This string consists of a prefix (<code>autoScalingGroup</code>)
+   *          followed by the name of a specified Auto Scaling group (<code>my-asg</code>). Example:
+   *             <code>autoScalingGroup/my-asg</code>. </p>
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>The scalable dimension for the resource.</p>
+   * <p>The scalable dimension for the resource. The only valid value is
+   *             <code>autoscaling:autoScalingGroup:DesiredCapacity</code>. </p>
    */
   ScalableDimension: ScalableDimension | string | undefined;
 
@@ -1278,17 +1285,20 @@ export interface UpdateScalingPlanRequest {
   ScalingPlanName: string | undefined;
 
   /**
-   * <p>The version number of the scaling plan.</p>
+   * <p>The version number of the scaling plan. The only valid value is <code>1</code>.
+   *          Currently, you cannot have multiple scaling plan versions.</p>
    */
   ScalingPlanVersion: number | undefined;
 
   /**
    * <p>A CloudFormation stack or set of tags.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ApplicationSource.html">ApplicationSource</a> in the <i>AWS Auto Scaling API Reference</i>.</p>
    */
   ApplicationSource?: ApplicationSource;
 
   /**
    * <p>The scaling instructions.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html">ScalingInstruction</a> in the <i>AWS Auto Scaling API Reference</i>.</p>
    */
   ScalingInstructions?: ScalingInstruction[];
 }

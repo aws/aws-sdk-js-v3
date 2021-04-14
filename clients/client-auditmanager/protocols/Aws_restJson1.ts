@@ -485,6 +485,7 @@ export const serializeAws_restJson1CreateAssessmentFrameworkCommand = async (
       }),
     ...(input.description !== undefined && input.description !== null && { description: input.description }),
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3277,10 +3278,14 @@ export const deserializeAws_restJson1GetAssessmentCommand = async (
   const contents: GetAssessmentCommandOutput = {
     $metadata: deserializeMetadata(output),
     assessment: undefined,
+    userRole: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.assessment !== undefined && data.assessment !== null) {
     contents.assessment = deserializeAws_restJson1Assessment(data.assessment, context);
+  }
+  if (data.userRole !== undefined && data.userRole !== null) {
+    contents.userRole = deserializeAws_restJson1Role(data.userRole, context);
   }
   return Promise.resolve(contents);
 };
@@ -4261,6 +4266,14 @@ const deserializeAws_restJson1GetServicesInScopeCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.auditmanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InternalServerException":
     case "com.amazonaws.auditmanager#InternalServerException":
       response = {
@@ -6388,6 +6401,7 @@ const deserializeAws_restJson1AssessmentFrameworkMetadata = (
   context: __SerdeContext
 ): AssessmentFrameworkMetadata => {
   return {
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     complianceType:
       output.complianceType !== undefined && output.complianceType !== null ? output.complianceType : undefined,
     controlSetsCount:
@@ -7052,6 +7066,10 @@ const deserializeAws_restJson1Framework = (output: any, context: __SerdeContext)
       output.lastUpdatedBy !== undefined && output.lastUpdatedBy !== null ? output.lastUpdatedBy : undefined,
     logo: output.logo !== undefined && output.logo !== null ? output.logo : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_restJson1TagMap(output.tags, context)
+        : undefined,
     type: output.type !== undefined && output.type !== null ? output.type : undefined,
   } as any;
 };

@@ -22,7 +22,7 @@ export type CreateAppInstanceUserCommandOutput = CreateAppInstanceUserResponse &
 
 /**
  * <p>Creates a user under an Amazon Chime <code>AppInstance</code>. The request consists of a unique <code>appInstanceUserId</code> and
- *            <code>Name</code> for that user.</p>
+ * <code>Name</code> for that user.</p>
  */
 export class CreateAppInstanceUserCommand extends $Command<
   CreateAppInstanceUserCommandInput,

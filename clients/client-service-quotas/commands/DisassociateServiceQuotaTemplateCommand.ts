@@ -21,22 +21,9 @@ export type DisassociateServiceQuotaTemplateCommandInput = DisassociateServiceQu
 export type DisassociateServiceQuotaTemplateCommandOutput = DisassociateServiceQuotaTemplateResponse & __MetadataBearer;
 
 /**
- * <p>Disables the Service Quotas template. Once the template is disabled, it does not request
- *       quota increases for new accounts in your organization. Disabling the quota template does not
- *       apply the quota increase requests from the template. </p>
- *
- *          <p>
- *             <b>Related operations</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>To enable the quota template, call <a>AssociateServiceQuotaTemplate</a>.
- *         </p>
- *             </li>
- *             <li>
- *                <p>To delete a specific service quota from the template, use <a>DeleteServiceQuotaIncreaseRequestFromTemplate</a>.</p>
- *             </li>
- *          </ul>
+ * <p>Disables your quota request template. After a template is disabled, the quota increase
+ *       requests in the template are not applied to new accounts in your organization. Disabling a
+ *       quota request template does not apply its quota increase requests.</p>
  */
 export class DisassociateServiceQuotaTemplateCommand extends $Command<
   DisassociateServiceQuotaTemplateCommandInput,

@@ -2,6 +2,161 @@ import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
+ * <p>Represents the input to <a>AddSourceIdentifierToSubscription</a>.
+ *         </p>
+ */
+export interface AddSourceIdentifierToSubscriptionMessage {
+  /**
+   * <p>The name of the Amazon DocumentDB event notification subscription that you
+   *             want to add a source identifier to.</p>
+   */
+  SubscriptionName: string | undefined;
+
+  /**
+   * <p>The identifier of the event source to be added:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>If the source type is an instance, a
+   *                     <code>DBInstanceIdentifier</code> must be provided.</p>
+   *             </li>
+   *             <li>
+   *                 <p>If the source type is a security group, a
+   *                     <code>DBSecurityGroupName</code> must be provided.</p>
+   *             </li>
+   *             <li>
+   *                 <p>If the source type is a parameter group, a
+   *                     <code>DBParameterGroupName</code> must be provided.</p>
+   *             </li>
+   *             <li>
+   *                 <p>If the source type is a snapshot, a
+   *                     <code>DBSnapshotIdentifier</code> must be provided.</p>
+   *             </li>
+   *          </ul>
+   */
+  SourceIdentifier: string | undefined;
+}
+
+export namespace AddSourceIdentifierToSubscriptionMessage {
+  export const filterSensitiveLog = (obj: AddSourceIdentifierToSubscriptionMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Detailed information about an event to which you have subscribed.</p>
+ */
+export interface EventSubscription {
+  /**
+   * <p>The AWS customer account that is associated with the Amazon DocumentDB event notification
+   *             subscription.</p>
+   */
+  CustomerAwsId?: string;
+
+  /**
+   * <p>The Amazon DocumentDB event notification subscription ID.</p>
+   */
+  CustSubscriptionId?: string;
+
+  /**
+   * <p>The topic ARN of the Amazon DocumentDB event notification subscription.</p>
+   */
+  SnsTopicArn?: string;
+
+  /**
+   * <p>The status of the Amazon DocumentDB event notification subscription.</p>
+   *         <p>Constraints:</p>
+   *         <p>Can be one of the following: <code>creating</code>, <code>modifying</code>,
+   *                 <code>deleting</code>, <code>active</code>, <code>no-permission</code>,
+   *                 <code>topic-not-exist</code>
+   *          </p>
+   *         <p>The <code>no-permission</code> status indicates that Amazon DocumentDB no longer has permission
+   *             to post to the SNS topic. The <code>topic-not-exist</code> status indicates that the
+   *             topic was deleted after the subscription was created.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>The time at which the Amazon DocumentDB event notification subscription was created.</p>
+   */
+  SubscriptionCreationTime?: string;
+
+  /**
+   * <p>The source type for the Amazon DocumentDB event notification subscription.</p>
+   */
+  SourceType?: string;
+
+  /**
+   * <p>A list of source IDs for the Amazon DocumentDB event notification subscription.</p>
+   */
+  SourceIdsList?: string[];
+
+  /**
+   * <p>A list of event categories for the Amazon DocumentDB event notification subscription.</p>
+   */
+  EventCategoriesList?: string[];
+
+  /**
+   * <p>A Boolean value indicating whether the subscription is enabled. A value of
+   *                 <code>true</code> indicates that the subscription is enabled.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the event subscription.</p>
+   */
+  EventSubscriptionArn?: string;
+}
+
+export namespace EventSubscription {
+  export const filterSensitiveLog = (obj: EventSubscription): any => ({
+    ...obj,
+  });
+}
+
+export interface AddSourceIdentifierToSubscriptionResult {
+  /**
+   * <p>Detailed information about an event to which you have subscribed.</p>
+   */
+  EventSubscription?: EventSubscription;
+}
+
+export namespace AddSourceIdentifierToSubscriptionResult {
+  export const filterSensitiveLog = (obj: AddSourceIdentifierToSubscriptionResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The requested source could not be found. </p>
+ */
+export interface SourceNotFoundFault extends __SmithyException, $MetadataBearer {
+  name: "SourceNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SourceNotFoundFault {
+  export const filterSensitiveLog = (obj: SourceNotFoundFault): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The subscription name does not exist. </p>
+ */
+export interface SubscriptionNotFoundFault extends __SmithyException, $MetadataBearer {
+  name: "SubscriptionNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SubscriptionNotFoundFault {
+  export const filterSensitiveLog = (obj: SubscriptionNotFoundFault): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Metadata assigned to an Amazon DocumentDB resource consisting of a key-value pair.</p>
  */
 export interface Tag {
@@ -2283,6 +2438,192 @@ export namespace DBSubnetQuotaExceededFault {
 }
 
 /**
+ * <p>Represents the input to <a>CreateEventSubscription</a>.</p>
+ */
+export interface CreateEventSubscriptionMessage {
+  /**
+   * <p>The name of the subscription.</p>
+   *         <p>Constraints: The name must be fewer than 255 characters.</p>
+   */
+  SubscriptionName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the SNS topic created for event notification. Amazon
+   *             SNS creates the ARN when you create a topic and subscribe to it.</p>
+   */
+  SnsTopicArn: string | undefined;
+
+  /**
+   * <p>The type of source that is generating the events. For example, if you want to be
+   *             notified of events generated by an instance, you would set this parameter to
+   *                 <code>db-instance</code>. If this value is not specified, all events are
+   *             returned.</p>
+   *         <p>Valid values: <code>db-instance</code>, <code>db-cluster</code>,
+   *                 <code>db-parameter-group</code>, <code>db-security-group</code>,
+   *                 <code>db-snapshot</code>, <code>db-cluster-snapshot</code>
+   *         </p>
+   */
+  SourceType?: string;
+
+  /**
+   * <p> A list of event categories for a <code>SourceType</code> that you want to subscribe
+   *             to. </p>
+   */
+  EventCategories?: string[];
+
+  /**
+   * <p>The list of identifiers of the event sources for which events are returned. If not
+   *             specified, then all sources are included in the response. An identifier must begin with
+   *             a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a
+   *             hyphen or contain two consecutive hyphens.</p>
+   *         <p>Constraints:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>If <code>SourceIds</code> are provided, <code>SourceType</code> must also be
+   *                     provided.</p>
+   *             </li>
+   *             <li>
+   *                 <p>If the source type is an instance, a <code>DBInstanceIdentifier</code> must
+   *                     be provided.</p>
+   *             </li>
+   *             <li>
+   *                 <p>If the source type is a security group, a <code>DBSecurityGroupName</code>
+   *                     must be provided.</p>
+   *             </li>
+   *             <li>
+   *                 <p>If the source type is a parameter group, a
+   *                         <code>DBParameterGroupName</code> must be provided.</p>
+   *             </li>
+   *             <li>
+   *                 <p>If the source type is a snapshot, a <code>DBSnapshotIdentifier</code> must
+   *                     be provided.</p>
+   *             </li>
+   *          </ul>
+   */
+  SourceIds?: string[];
+
+  /**
+   * <p> A Boolean value; set to <code>true</code> to activate the subscription, set to
+   *                 <code>false</code> to create the subscription but not active it. </p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>The tags to be assigned to the event subscription.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace CreateEventSubscriptionMessage {
+  export const filterSensitiveLog = (obj: CreateEventSubscriptionMessage): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateEventSubscriptionResult {
+  /**
+   * <p>Detailed information about an event to which you have subscribed.</p>
+   */
+  EventSubscription?: EventSubscription;
+}
+
+export namespace CreateEventSubscriptionResult {
+  export const filterSensitiveLog = (obj: CreateEventSubscriptionResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>You have reached the maximum number of event subscriptions. </p>
+ */
+export interface EventSubscriptionQuotaExceededFault extends __SmithyException, $MetadataBearer {
+  name: "EventSubscriptionQuotaExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace EventSubscriptionQuotaExceededFault {
+  export const filterSensitiveLog = (obj: EventSubscriptionQuotaExceededFault): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Amazon SNS has responded that there is a problem with the specified topic. </p>
+ */
+export interface SNSInvalidTopicFault extends __SmithyException, $MetadataBearer {
+  name: "SNSInvalidTopicFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SNSInvalidTopicFault {
+  export const filterSensitiveLog = (obj: SNSInvalidTopicFault): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>You do not have permission to publish to the SNS topic Amazon Resource Name (ARN). </p>
+ */
+export interface SNSNoAuthorizationFault extends __SmithyException, $MetadataBearer {
+  name: "SNSNoAuthorizationFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SNSNoAuthorizationFault {
+  export const filterSensitiveLog = (obj: SNSNoAuthorizationFault): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The SNS topic Amazon Resource Name (ARN) does not exist. </p>
+ */
+export interface SNSTopicArnNotFoundFault extends __SmithyException, $MetadataBearer {
+  name: "SNSTopicArnNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SNSTopicArnNotFoundFault {
+  export const filterSensitiveLog = (obj: SNSTopicArnNotFoundFault): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The provided subscription name already exists. </p>
+ */
+export interface SubscriptionAlreadyExistFault extends __SmithyException, $MetadataBearer {
+  name: "SubscriptionAlreadyExistFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SubscriptionAlreadyExistFault {
+  export const filterSensitiveLog = (obj: SubscriptionAlreadyExistFault): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The provided category does not exist. </p>
+ */
+export interface SubscriptionCategoryNotFoundFault extends __SmithyException, $MetadataBearer {
+  name: "SubscriptionCategoryNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace SubscriptionCategoryNotFoundFault {
+  export const filterSensitiveLog = (obj: SubscriptionCategoryNotFoundFault): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Represents the input to <a>DeleteDBCluster</a>.</p>
  */
 export interface DeleteDBClusterMessage {
@@ -2517,6 +2858,52 @@ export interface InvalidDBSubnetStateFault extends __SmithyException, $MetadataB
 
 export namespace InvalidDBSubnetStateFault {
   export const filterSensitiveLog = (obj: InvalidDBSubnetStateFault): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Represents the input to <a>DeleteEventSubscription</a>.</p>
+ */
+export interface DeleteEventSubscriptionMessage {
+  /**
+   * <p>The name of the Amazon DocumentDB event notification subscription that you want to
+   *             delete.</p>
+   */
+  SubscriptionName: string | undefined;
+}
+
+export namespace DeleteEventSubscriptionMessage {
+  export const filterSensitiveLog = (obj: DeleteEventSubscriptionMessage): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteEventSubscriptionResult {
+  /**
+   * <p>Detailed information about an event to which you have subscribed.</p>
+   */
+  EventSubscription?: EventSubscription;
+}
+
+export namespace DeleteEventSubscriptionResult {
+  export const filterSensitiveLog = (obj: DeleteEventSubscriptionResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Someone else might be modifying a subscription. Wait a few seconds, and try
+ *             again.</p>
+ */
+export interface InvalidEventSubscriptionStateFault extends __SmithyException, $MetadataBearer {
+  name: "InvalidEventSubscriptionStateFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidEventSubscriptionStateFault {
+  export const filterSensitiveLog = (obj: InvalidEventSubscriptionStateFault): any => ({
     ...obj,
   });
 }
@@ -3837,6 +4224,67 @@ export namespace EventsMessage {
 }
 
 /**
+ * <p>Represents the input to <a>DescribeEventSubscriptions</a>.</p>
+ */
+export interface DescribeEventSubscriptionsMessage {
+  /**
+   * <p>The name of the Amazon DocumentDB event notification subscription that you want to
+   *             describe.</p>
+   */
+  SubscriptionName?: string;
+
+  /**
+   * <p>This parameter is not currently supported.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p> The maximum number of records to include in the response. If more records exist than
+   *          the specified <code>MaxRecords</code> value, a pagination token (marker) is included
+   *          in the response so that the remaining results can be retrieved.</p>
+   *          <p>Default: 100</p>
+   *         <p>Constraints: Minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response
+   *          includes only records beyond the marker, up to the value specified by
+   *          <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+}
+
+export namespace DescribeEventSubscriptionsMessage {
+  export const filterSensitiveLog = (obj: DescribeEventSubscriptionsMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Represents the output of <a>DescribeEventSubscriptions</a>.</p>
+ */
+export interface EventSubscriptionsMessage {
+  /**
+   * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response
+   *          includes only records beyond the marker, up to the value specified by
+   *          <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>A list of event subscriptions.</p>
+   */
+  EventSubscriptionsList?: EventSubscription[];
+}
+
+export namespace EventSubscriptionsMessage {
+  export const filterSensitiveLog = (obj: EventSubscriptionsMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Represents the input to <a>DescribeOrderableDBInstanceOptions</a>.</p>
  */
 export interface DescribeOrderableDBInstanceOptionsMessage {
@@ -4653,6 +5101,63 @@ export namespace SubnetAlreadyInUse {
 }
 
 /**
+ * <p>Represents the input to <a>ModifyEventSubscription</a>.</p>
+ */
+export interface ModifyEventSubscriptionMessage {
+  /**
+   * <p>The name of the Amazon DocumentDB event notification subscription.</p>
+   */
+  SubscriptionName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the SNS topic created for event notification. The
+   *             ARN is created by Amazon SNS when you create a topic and subscribe to it.</p>
+   */
+  SnsTopicArn?: string;
+
+  /**
+   * <p>The type of source that is generating the events. For example, if you want to be
+   *             notified of events generated by an instance, set this parameter to
+   *                 <code>db-instance</code>. If this value is not specified, all events are
+   *             returned.</p>
+   *         <p>Valid values: <code>db-instance</code>, <code>db-parameter-group</code>,
+   *                 <code>db-security-group</code>, <code>db-snapshot</code>
+   *          </p>
+   */
+  SourceType?: string;
+
+  /**
+   * <p> A list of event categories for a <code>SourceType</code> that you want to subscribe
+   *             to.</p>
+   */
+  EventCategories?: string[];
+
+  /**
+   * <p> A Boolean value; set to <code>true</code> to activate the subscription. </p>
+   */
+  Enabled?: boolean;
+}
+
+export namespace ModifyEventSubscriptionMessage {
+  export const filterSensitiveLog = (obj: ModifyEventSubscriptionMessage): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyEventSubscriptionResult {
+  /**
+   * <p>Detailed information about an event to which you have subscribed.</p>
+   */
+  EventSubscription?: EventSubscription;
+}
+
+export namespace ModifyEventSubscriptionResult {
+  export const filterSensitiveLog = (obj: ModifyEventSubscriptionResult): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Represents the input to <a>RebootDBInstance</a>.</p>
  */
 export interface RebootDBInstanceMessage {
@@ -4690,6 +5195,42 @@ export interface RebootDBInstanceResult {
 
 export namespace RebootDBInstanceResult {
   export const filterSensitiveLog = (obj: RebootDBInstanceResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Represents the input to <a>RemoveSourceIdentifierFromSubscription</a>.</p>
+ */
+export interface RemoveSourceIdentifierFromSubscriptionMessage {
+  /**
+   * <p>The name of the Amazon DocumentDB event notification subscription that you want to remove a
+   *             source identifier from.</p>
+   */
+  SubscriptionName: string | undefined;
+
+  /**
+   * <p> The source identifier to be removed from the subscription, such as the instance
+   *             identifier for an instance, or the name of a security group. </p>
+   */
+  SourceIdentifier: string | undefined;
+}
+
+export namespace RemoveSourceIdentifierFromSubscriptionMessage {
+  export const filterSensitiveLog = (obj: RemoveSourceIdentifierFromSubscriptionMessage): any => ({
+    ...obj,
+  });
+}
+
+export interface RemoveSourceIdentifierFromSubscriptionResult {
+  /**
+   * <p>Detailed information about an event to which you have subscribed.</p>
+   */
+  EventSubscription?: EventSubscription;
+}
+
+export namespace RemoveSourceIdentifierFromSubscriptionResult {
+  export const filterSensitiveLog = (obj: RemoveSourceIdentifierFromSubscriptionResult): any => ({
     ...obj,
   });
 }

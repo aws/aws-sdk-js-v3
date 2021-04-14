@@ -21,7 +21,7 @@ export type DeleteScheduleCommandInput = DeleteScheduleRequest;
 export type DeleteScheduleCommandOutput = DeleteScheduleResponse & __MetadataBearer;
 
 /**
- * <p>Deletes the specified AWS Glue DataBrew schedule from the current AWS account.</p>
+ * <p>Deletes the specified DataBrew schedule.</p>
  */
 export class DeleteScheduleCommand extends $Command<
   DeleteScheduleCommandInput,

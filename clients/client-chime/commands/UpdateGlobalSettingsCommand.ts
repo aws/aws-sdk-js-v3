@@ -21,8 +21,7 @@ export type UpdateGlobalSettingsCommandInput = UpdateGlobalSettingsRequest;
 export type UpdateGlobalSettingsCommandOutput = __MetadataBearer;
 
 /**
- * <p>Updates global settings for the administrator's AWS account, such as Amazon Chime Business
- *       Calling and Amazon Chime Voice Connector settings.</p>
+ * <p>Updates global settings for the administrator's AWS account, such as Amazon Chime Business Calling and Amazon Chime Voice Connector settings.</p>
  */
 export class UpdateGlobalSettingsCommand extends $Command<
   UpdateGlobalSettingsCommandInput,

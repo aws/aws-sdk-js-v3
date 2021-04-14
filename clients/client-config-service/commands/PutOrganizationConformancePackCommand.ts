@@ -40,7 +40,7 @@ export type PutOrganizationConformancePackCommandOutput = PutOrganizationConform
  * 			If you provide both AWS Config uses the <code>TemplateS3Uri</code> parameter and ignores the <code>TemplateBody</code> parameter.</p>
  * 			         <p>AWS Config sets the state of a conformance pack to CREATE_IN_PROGRESS and UPDATE_IN_PROGRESS until the conformance pack is created or updated.
  * 				You cannot update a conformance pack while it is in this state.</p>
- * 			         <p>You can create 6 conformance packs with 25 AWS Config rules in each pack and 3 delegated administrator per organization. </p>
+ * 			         <p>You can create 50 conformance packs with 25 AWS Config rules in each pack and 3 delegated administrator per organization. </p>
  *          </note>
  */
 export class PutOrganizationConformancePackCommand extends $Command<

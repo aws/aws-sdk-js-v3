@@ -80,6 +80,11 @@ import {
   DeleteRetentionConfigurationCommandOutput,
 } from "./commands/DeleteRetentionConfigurationCommand";
 import {
+  DeleteStoredQueryCommand,
+  DeleteStoredQueryCommandInput,
+  DeleteStoredQueryCommandOutput,
+} from "./commands/DeleteStoredQueryCommand";
+import {
   DeliverConfigSnapshotCommand,
   DeliverConfigSnapshotCommandInput,
   DeliverConfigSnapshotCommandOutput,
@@ -89,6 +94,11 @@ import {
   DescribeAggregateComplianceByConfigRulesCommandInput,
   DescribeAggregateComplianceByConfigRulesCommandOutput,
 } from "./commands/DescribeAggregateComplianceByConfigRulesCommand";
+import {
+  DescribeAggregateComplianceByConformancePacksCommand,
+  DescribeAggregateComplianceByConformancePacksCommandInput,
+  DescribeAggregateComplianceByConformancePacksCommandOutput,
+} from "./commands/DescribeAggregateComplianceByConformancePacksCommand";
 import {
   DescribeAggregationAuthorizationsCommand,
   DescribeAggregationAuthorizationsCommandInput,
@@ -215,6 +225,11 @@ import {
   GetAggregateConfigRuleComplianceSummaryCommandOutput,
 } from "./commands/GetAggregateConfigRuleComplianceSummaryCommand";
 import {
+  GetAggregateConformancePackComplianceSummaryCommand,
+  GetAggregateConformancePackComplianceSummaryCommandInput,
+  GetAggregateConformancePackComplianceSummaryCommandOutput,
+} from "./commands/GetAggregateConformancePackComplianceSummaryCommand";
+import {
   GetAggregateDiscoveredResourceCountsCommand,
   GetAggregateDiscoveredResourceCountsCommandInput,
   GetAggregateDiscoveredResourceCountsCommandOutput,
@@ -275,6 +290,11 @@ import {
   GetResourceConfigHistoryCommandOutput,
 } from "./commands/GetResourceConfigHistoryCommand";
 import {
+  GetStoredQueryCommand,
+  GetStoredQueryCommandInput,
+  GetStoredQueryCommandOutput,
+} from "./commands/GetStoredQueryCommand";
+import {
   ListAggregateDiscoveredResourcesCommand,
   ListAggregateDiscoveredResourcesCommandInput,
   ListAggregateDiscoveredResourcesCommandOutput,
@@ -284,6 +304,11 @@ import {
   ListDiscoveredResourcesCommandInput,
   ListDiscoveredResourcesCommandOutput,
 } from "./commands/ListDiscoveredResourcesCommand";
+import {
+  ListStoredQueriesCommand,
+  ListStoredQueriesCommandInput,
+  ListStoredQueriesCommandOutput,
+} from "./commands/ListStoredQueriesCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -325,6 +350,11 @@ import {
   PutEvaluationsCommandOutput,
 } from "./commands/PutEvaluationsCommand";
 import {
+  PutExternalEvaluationCommand,
+  PutExternalEvaluationCommandInput,
+  PutExternalEvaluationCommandOutput,
+} from "./commands/PutExternalEvaluationCommand";
+import {
   PutOrganizationConfigRuleCommand,
   PutOrganizationConfigRuleCommandInput,
   PutOrganizationConfigRuleCommandOutput,
@@ -354,6 +384,11 @@ import {
   PutRetentionConfigurationCommandInput,
   PutRetentionConfigurationCommandOutput,
 } from "./commands/PutRetentionConfigurationCommand";
+import {
+  PutStoredQueryCommand,
+  PutStoredQueryCommandInput,
+  PutStoredQueryCommandOutput,
+} from "./commands/PutStoredQueryCommand";
 import {
   SelectAggregateResourceConfigCommand,
   SelectAggregateResourceConfigCommandInput,
@@ -1006,6 +1041,38 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * <p>Deletes the stored query for a single AWS account and a single AWS Region.</p>
+   */
+  public deleteStoredQuery(
+    args: DeleteStoredQueryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteStoredQueryCommandOutput>;
+  public deleteStoredQuery(
+    args: DeleteStoredQueryCommandInput,
+    cb: (err: any, data?: DeleteStoredQueryCommandOutput) => void
+  ): void;
+  public deleteStoredQuery(
+    args: DeleteStoredQueryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteStoredQueryCommandOutput) => void
+  ): void;
+  public deleteStoredQuery(
+    args: DeleteStoredQueryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteStoredQueryCommandOutput) => void),
+    cb?: (err: any, data?: DeleteStoredQueryCommandOutput) => void
+  ): Promise<DeleteStoredQueryCommandOutput> | void {
+    const command = new DeleteStoredQueryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Schedules delivery of a configuration snapshot to the Amazon S3
    * 			bucket in the specified delivery channel. After the delivery has
    * 			started, AWS Config sends the following notifications using an
@@ -1084,6 +1151,44 @@ export class ConfigService extends ConfigServiceClient {
     cb?: (err: any, data?: DescribeAggregateComplianceByConfigRulesCommandOutput) => void
   ): Promise<DescribeAggregateComplianceByConfigRulesCommandOutput> | void {
     const command = new DescribeAggregateComplianceByConfigRulesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of the conformance packs and their associated compliance status with the count of compliant and noncompliant AWS Config rules within each conformance pack.
+   * 			Also returns the total rule count which includes compliant rules, noncompliant rules, and rules that cannot be evaluated due to insufficient data.</p>
+   * 		       <note>
+   *             <p>The results can return an empty result page, but if you have a <code>nextToken</code>, the results are displayed on the next page.</p>
+   *          </note>
+   */
+  public describeAggregateComplianceByConformancePacks(
+    args: DescribeAggregateComplianceByConformancePacksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAggregateComplianceByConformancePacksCommandOutput>;
+  public describeAggregateComplianceByConformancePacks(
+    args: DescribeAggregateComplianceByConformancePacksCommandInput,
+    cb: (err: any, data?: DescribeAggregateComplianceByConformancePacksCommandOutput) => void
+  ): void;
+  public describeAggregateComplianceByConformancePacks(
+    args: DescribeAggregateComplianceByConformancePacksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAggregateComplianceByConformancePacksCommandOutput) => void
+  ): void;
+  public describeAggregateComplianceByConformancePacks(
+    args: DescribeAggregateComplianceByConformancePacksCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeAggregateComplianceByConformancePacksCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAggregateComplianceByConformancePacksCommandOutput) => void
+  ): Promise<DescribeAggregateComplianceByConformancePacksCommandOutput> | void {
+    const command = new DescribeAggregateComplianceByConformancePacksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1652,9 +1757,7 @@ export class ConfigService extends ConfigServiceClient {
 
   /**
    * <p>Returns a list of organization config rules. </p>
-   * 			      <p>Only a master account and a delegated administrator account can call this API.
-   * 				When calling this API with a delegated administrator, you must ensure AWS Organizations
-   * 			<code>ListDelegatedAdministrator</code> permissions are added. </p>
+   *
    * 		       <note>
    *             <p>When you specify the limit and the next token, you receive a paginated response.
    * 			Limit and next token are not applicable if you specify organization config rule names.
@@ -1692,9 +1795,7 @@ export class ConfigService extends ConfigServiceClient {
 
   /**
    * <p>Provides organization config rule deployment status for an organization.</p>
-   * 		       <p>Only a master account and a delegated administrator account can call this API.
-   * 			When calling this API with a delegated administrator, you must ensure AWS Organizations
-   * 			<code>ListDelegatedAdministrator</code> permissions are added.</p>
+   *
    * 		       <note>
    *             <p>The status is not considered successful until organization config rule is successfully deployed in all the member
    * 			accounts with an exception of excluded accounts.</p>
@@ -1736,9 +1837,6 @@ export class ConfigService extends ConfigServiceClient {
 
   /**
    * <p>Returns a list of organization conformance packs. </p>
-   * 		       <p>Only a master account and a delegated administrator account can call this API.
-   * 			When calling this API with a delegated administrator, you must ensure AWS Organizations
-   * 				<code>ListDelegatedAdministrator</code> permissions are added.</p>
    * 		       <note>
    *             <p>When you specify the limit and the next token, you receive a paginated response. </p>
    * 			         <p>Limit and next token are not applicable if you specify organization conformance packs names. They are only applicable,
@@ -1776,9 +1874,6 @@ export class ConfigService extends ConfigServiceClient {
 
   /**
    * <p>Provides organization conformance pack deployment status for an organization. </p>
-   * 		       <p> Only a master account and a delegated administrator account can call this API.
-   * 			When calling this API with a delegated administrator, you must ensure AWS Organizations
-   * 				<code>ListDelegatedAdministrator</code> permissions are added.</p>
    * 		       <note>
    * 			         <p>The status is not considered successful until organization conformance pack is successfully
    * 				deployed in all the member accounts with an exception of excluded accounts.</p>
@@ -2065,6 +2160,43 @@ export class ConfigService extends ConfigServiceClient {
     cb?: (err: any, data?: GetAggregateConfigRuleComplianceSummaryCommandOutput) => void
   ): Promise<GetAggregateConfigRuleComplianceSummaryCommandOutput> | void {
     const command = new GetAggregateConfigRuleComplianceSummaryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the count of compliant and noncompliant conformance packs across all AWS Accounts and AWS Regions in an aggregator. You can filter based on AWS Account ID or AWS Region.</p>
+   * 		       <note>
+   *             <p>The results can return an empty result page, but if you have a nextToken, the results are displayed on the next page.</p>
+   *          </note>
+   */
+  public getAggregateConformancePackComplianceSummary(
+    args: GetAggregateConformancePackComplianceSummaryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAggregateConformancePackComplianceSummaryCommandOutput>;
+  public getAggregateConformancePackComplianceSummary(
+    args: GetAggregateConformancePackComplianceSummaryCommandInput,
+    cb: (err: any, data?: GetAggregateConformancePackComplianceSummaryCommandOutput) => void
+  ): void;
+  public getAggregateConformancePackComplianceSummary(
+    args: GetAggregateConformancePackComplianceSummaryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAggregateConformancePackComplianceSummaryCommandOutput) => void
+  ): void;
+  public getAggregateConformancePackComplianceSummary(
+    args: GetAggregateConformancePackComplianceSummaryCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetAggregateConformancePackComplianceSummaryCommandOutput) => void),
+    cb?: (err: any, data?: GetAggregateConformancePackComplianceSummaryCommandOutput) => void
+  ): Promise<GetAggregateConformancePackComplianceSummaryCommandOutput> | void {
+    const command = new GetAggregateConformancePackComplianceSummaryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2440,9 +2572,6 @@ export class ConfigService extends ConfigServiceClient {
 
   /**
    * <p>Returns detailed status for each member account within an organization for a given organization config rule.</p>
-   * 		       <p>Only a master account and a delegated administrator account can call this API.
-   * 			When calling this API with a delegated administrator, you must ensure AWS Organizations
-   * 			<code>ListDelegatedAdministrator</code> permissions are added.</p>
    */
   public getOrganizationConfigRuleDetailedStatus(
     args: GetOrganizationConfigRuleDetailedStatusCommandInput,
@@ -2477,9 +2606,6 @@ export class ConfigService extends ConfigServiceClient {
 
   /**
    * <p>Returns detailed status for each member account within an organization for a given organization conformance pack.</p>
-   * 		       <p>Only a master account and a delegated administrator account can call this API.
-   * 			When calling this API with a delegated administrator, you must ensure AWS Organizations
-   * 			<code>ListDelegatedAdministrator</code> permissions are added.</p>
    */
   public getOrganizationConformancePackDetailedStatus(
     args: GetOrganizationConformancePackDetailedStatusCommandInput,
@@ -2564,6 +2690,38 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * <p>Returns the details of a specific stored query.</p>
+   */
+  public getStoredQuery(
+    args: GetStoredQueryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetStoredQueryCommandOutput>;
+  public getStoredQuery(
+    args: GetStoredQueryCommandInput,
+    cb: (err: any, data?: GetStoredQueryCommandOutput) => void
+  ): void;
+  public getStoredQuery(
+    args: GetStoredQueryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetStoredQueryCommandOutput) => void
+  ): void;
+  public getStoredQuery(
+    args: GetStoredQueryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetStoredQueryCommandOutput) => void),
+    cb?: (err: any, data?: GetStoredQueryCommandOutput) => void
+  ): Promise<GetStoredQueryCommandOutput> | void {
+    const command = new GetStoredQueryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Accepts a resource type and returns a list of resource identifiers that are aggregated for a specific resource type across accounts and regions.
    * 			A resource identifier includes the resource type, ID, (if available) the custom resource name, source account, and source region.
    * 			You can narrow the results to include only resources that have specific resource IDs, or a resource name, or source account ID, or source region.</p>
@@ -2636,6 +2794,38 @@ export class ConfigService extends ConfigServiceClient {
     cb?: (err: any, data?: ListDiscoveredResourcesCommandOutput) => void
   ): Promise<ListDiscoveredResourcesCommandOutput> | void {
     const command = new ListDiscoveredResourcesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the stored queries for a single AWS account and a single AWS Region. The default is 100. </p>
+   */
+  public listStoredQueries(
+    args: ListStoredQueriesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStoredQueriesCommandOutput>;
+  public listStoredQueries(
+    args: ListStoredQueriesCommandInput,
+    cb: (err: any, data?: ListStoredQueriesCommandOutput) => void
+  ): void;
+  public listStoredQueries(
+    args: ListStoredQueriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListStoredQueriesCommandOutput) => void
+  ): void;
+  public listStoredQueries(
+    args: ListStoredQueriesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListStoredQueriesCommandOutput) => void),
+    cb?: (err: any, data?: ListStoredQueriesCommandOutput) => void
+  ): Promise<ListStoredQueriesCommandOutput> | void {
+    const command = new ListStoredQueriesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2782,14 +2972,18 @@ export class ConfigService extends ConfigServiceClient {
    * <p>Creates and updates the configuration aggregator with the
    * 			selected source accounts and regions. The source account can be
    * 			individual account(s) or an organization.</p>
+   *
+   * 		       <p>
+   *             <code>accountIds</code> that are passed will be replaced with existing accounts.
+   * 			If you want to add additional accounts into the aggregator, call <code>DescribeAggregator</code> to get the previous accounts and then append new ones.</p>
    * 		       <note>
    * 			         <p>AWS Config should be enabled in source accounts and regions
    * 				you want to aggregate.</p>
-   * 			         <p>If your source type is an organization, you must be signed
-   * 				in to the master account and all features must be enabled in
-   * 				your organization. AWS Config calls
-   * 					<code>EnableAwsServiceAccess</code> API to enable
-   * 				integration between AWS Config and AWS Organizations. </p>
+   *
+   * 			         <p>If your source type is an organization, you must be signed in to the management account or a registered delegated administrator and all the features must be enabled in your organization.
+   * 				If the caller is a management account, AWS Config calls <code>EnableAwsServiceAccess</code> API to enable integration between AWS Config and AWS Organizations.
+   * 				If the caller is a registered delegated administrator, AWS Config calls <code>ListDelegatedAdministrators</code> API to verify whether the caller is a valid delegated administrator.</p>
+   * 			         <p>To register a delegated administrator, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/set-up-aggregator-cli.html#register-a-delegated-administrator-cli">Register a Delegated Administrator</a> in the AWS Config developer guide. </p>
    * 		       </note>
    */
   public putConfigurationAggregator(
@@ -2987,6 +3181,39 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * <p>Add or updates the evaluations for process checks.
+   * 			This API checks if the rule is a process check when the name of the AWS Config rule is provided.</p>
+   */
+  public putExternalEvaluation(
+    args: PutExternalEvaluationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutExternalEvaluationCommandOutput>;
+  public putExternalEvaluation(
+    args: PutExternalEvaluationCommandInput,
+    cb: (err: any, data?: PutExternalEvaluationCommandOutput) => void
+  ): void;
+  public putExternalEvaluation(
+    args: PutExternalEvaluationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutExternalEvaluationCommandOutput) => void
+  ): void;
+  public putExternalEvaluation(
+    args: PutExternalEvaluationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutExternalEvaluationCommandOutput) => void),
+    cb?: (err: any, data?: PutExternalEvaluationCommandOutput) => void
+  ): Promise<PutExternalEvaluationCommandOutput> | void {
+    const command = new PutExternalEvaluationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Adds or updates organization config rule for your entire organization evaluating whether your AWS resources comply with your
    * 			desired configurations.</p>
    * 	        <p> Only a master account and a delegated administrator can create or update an organization config rule.
@@ -3059,7 +3286,7 @@ export class ConfigService extends ConfigServiceClient {
    * 			If you provide both AWS Config uses the <code>TemplateS3Uri</code> parameter and ignores the <code>TemplateBody</code> parameter.</p>
    * 			         <p>AWS Config sets the state of a conformance pack to CREATE_IN_PROGRESS and UPDATE_IN_PROGRESS until the conformance pack is created or updated.
    * 				You cannot update a conformance pack while it is in this state.</p>
-   * 			         <p>You can create 6 conformance packs with 25 AWS Config rules in each pack and 3 delegated administrator per organization. </p>
+   * 			         <p>You can create 50 conformance packs with 25 AWS Config rules in each pack and 3 delegated administrator per organization. </p>
    *          </note>
    */
   public putOrganizationConformancePack(
@@ -3100,6 +3327,8 @@ export class ConfigService extends ConfigServiceClient {
    * 		       <note>
    *             <p>If you make backward incompatible changes to the SSM document,
    * 			you must call this again to ensure the remediations can run.</p>
+   * 			         <p>This API does not support adding remediation configurations for service-linked AWS Config Rules such as Organization Config rules,
+   * 				the rules deployed by conformance packs, and rules deployed by AWS Security Hub.</p>
    *          </note>
    */
   public putRemediationConfigurations(
@@ -3133,7 +3362,7 @@ export class ConfigService extends ConfigServiceClient {
 
   /**
    * <p>A remediation exception is when a specific resource is no longer considered for auto-remediation.
-   * 			This API adds a new exception or updates an exisiting exception for a specific resource with a specific AWS Config rule. </p>
+   * 			This API adds a new exception or updates an existing exception for a specific resource with a specific AWS Config rule. </p>
    * 		       <note>
    *             <p>AWS Config generates a remediation exception when a problem occurs executing a remediation action to a specific resource.
    * 			Remediation exceptions blocks auto-remediation until the exception is cleared.</p>
@@ -3241,6 +3470,39 @@ export class ConfigService extends ConfigServiceClient {
     cb?: (err: any, data?: PutRetentionConfigurationCommandOutput) => void
   ): Promise<PutRetentionConfigurationCommandOutput> | void {
     const command = new PutRetentionConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Saves a new query or updates an existing saved query. The <code>QueryName</code> must be unique for a single AWS account and a single AWS Region.
+   * 			You can create upto 300 queries in a single AWS account and a single AWS Region.</p>
+   */
+  public putStoredQuery(
+    args: PutStoredQueryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutStoredQueryCommandOutput>;
+  public putStoredQuery(
+    args: PutStoredQueryCommandInput,
+    cb: (err: any, data?: PutStoredQueryCommandOutput) => void
+  ): void;
+  public putStoredQuery(
+    args: PutStoredQueryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutStoredQueryCommandOutput) => void
+  ): void;
+  public putStoredQuery(
+    args: PutStoredQueryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutStoredQueryCommandOutput) => void),
+    cb?: (err: any, data?: PutStoredQueryCommandOutput) => void
+  ): Promise<PutStoredQueryCommandOutput> | void {
+    const command = new PutStoredQueryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

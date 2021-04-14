@@ -21,7 +21,7 @@ export type CreateProjectCommandInput = CreateProjectRequest;
 export type CreateProjectCommandOutput = CreateProjectResponse & __MetadataBearer;
 
 /**
- * <p>Creates a new AWS Glue DataBrew project in the current AWS account.</p>
+ * <p>Creates a new DataBrew project.</p>
  */
 export class CreateProjectCommand extends $Command<
   CreateProjectCommandInput,

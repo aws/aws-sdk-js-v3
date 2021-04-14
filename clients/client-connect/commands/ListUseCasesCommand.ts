@@ -22,7 +22,7 @@ export type ListUseCasesCommandOutput = ListUseCasesResponse & __MetadataBearer;
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>List the use cases. </p>
+ *          <p>Lists the use cases. </p>
  */
 export class ListUseCasesCommand extends $Command<
   ListUseCasesCommandInput,

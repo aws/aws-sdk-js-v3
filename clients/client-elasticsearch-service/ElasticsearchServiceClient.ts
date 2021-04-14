@@ -35,6 +35,10 @@ import {
 } from "./commands/DeleteOutboundCrossClusterSearchConnectionCommand";
 import { DeletePackageCommandInput, DeletePackageCommandOutput } from "./commands/DeletePackageCommand";
 import {
+  DescribeDomainAutoTunesCommandInput,
+  DescribeDomainAutoTunesCommandOutput,
+} from "./commands/DescribeDomainAutoTunesCommand";
+import {
   DescribeElasticsearchDomainCommandInput,
   DescribeElasticsearchDomainCommandOutput,
 } from "./commands/DescribeElasticsearchDomainCommand";
@@ -182,6 +186,7 @@ export type ServiceInputTypes =
   | DeleteInboundCrossClusterSearchConnectionCommandInput
   | DeleteOutboundCrossClusterSearchConnectionCommandInput
   | DeletePackageCommandInput
+  | DescribeDomainAutoTunesCommandInput
   | DescribeElasticsearchDomainCommandInput
   | DescribeElasticsearchDomainConfigCommandInput
   | DescribeElasticsearchDomainsCommandInput
@@ -223,6 +228,7 @@ export type ServiceOutputTypes =
   | DeleteInboundCrossClusterSearchConnectionCommandOutput
   | DeleteOutboundCrossClusterSearchConnectionCommandOutput
   | DeletePackageCommandOutput
+  | DescribeDomainAutoTunesCommandOutput
   | DescribeElasticsearchDomainCommandOutput
   | DescribeElasticsearchDomainConfigCommandOutput
   | DescribeElasticsearchDomainsCommandOutput

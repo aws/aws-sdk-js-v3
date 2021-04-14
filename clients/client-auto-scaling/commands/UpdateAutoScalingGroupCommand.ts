@@ -21,7 +21,11 @@ export type UpdateAutoScalingGroupCommandInput = UpdateAutoScalingGroupType;
 export type UpdateAutoScalingGroupCommandOutput = __MetadataBearer;
 
 /**
- * <p>Updates the configuration for the specified Auto Scaling group.</p>
+ * <p>
+ *             <b>We strongly recommend that all Auto Scaling groups use launch templates to ensure full functionality for Amazon EC2 Auto Scaling and Amazon EC2.</b>
+ *          </p>
+ *          <p>Updates the configuration for
+ *             the specified Auto Scaling group.</p>
  *         <p>To update an Auto Scaling group, specify the name of the group and the parameter that you want
  *             to change. Any parameters that you don't specify are not changed by this update request.
  *             The new settings take effect on any scaling activities after this call returns.

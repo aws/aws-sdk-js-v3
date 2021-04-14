@@ -21,11 +21,11 @@ export type BatchDeleteDocumentCommandInput = BatchDeleteDocumentRequest;
 export type BatchDeleteDocumentCommandOutput = BatchDeleteDocumentResponse & __MetadataBearer;
 
 /**
- * <p>Removes one or more documents from an index. The documents must have been added with the
- *         <a>BatchPutDocument</a> operation.</p>
- *          <p>The documents are deleted asynchronously. You can see the progress of the deletion by
- *       using AWS CloudWatch. Any error messages releated to the processing of the batch are sent to
- *       you CloudWatch log.</p>
+ * <p>Removes one or more documents from an index. The documents must have
+ *       been added with the <code>BatchPutDocument</code> operation.</p>
+ *          <p>The documents are deleted asynchronously. You can see the progress of
+ *       the deletion by using AWS CloudWatch. Any error messages related to the
+ *       processing of the batch are sent to you CloudWatch log.</p>
  */
 export class BatchDeleteDocumentCommand extends $Command<
   BatchDeleteDocumentCommandInput,

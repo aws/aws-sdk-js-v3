@@ -23,6 +23,8 @@ export type CreateProjectCommandOutput = CreateProjectResponse & __MetadataBeare
 /**
  * <p>Creates an empty Amazon Lookout for Vision project. After you create the project, add a dataset by calling
  *          <a>CreateDataset</a>.</p>
+ *          <p>This operation requires permissions to perform the
+ *          <code>lookoutvision:CreateProject</code> operation.</p>
  */
 export class CreateProjectCommand extends $Command<
   CreateProjectCommandInput,

@@ -61,10 +61,12 @@ import {
   BatchPutMessageErrorEntry,
   Channel,
   ChannelActivity,
+  ChannelMessages,
   ChannelStatistics,
   ChannelStorage,
   ChannelStorageSummary,
   ChannelSummary,
+  Column,
   ContainerDatasetAction,
   CustomerManagedChannelS3Storage,
   CustomerManagedChannelS3StorageSummary,
@@ -92,11 +94,13 @@ import {
   DeviceRegistryEnrichActivity,
   DeviceShadowEnrichActivity,
   EstimatedResourceSize,
+  FileFormatConfiguration,
   FilterActivity,
   GlueConfiguration,
   InternalFailureException,
   InvalidRequestException,
   IotEventsDestinationConfiguration,
+  JsonConfiguration,
   LambdaActivity,
   LateDataRule,
   LateDataRuleConfiguration,
@@ -105,6 +109,7 @@ import {
   MathActivity,
   Message,
   OutputFileUriValue,
+  ParquetConfiguration,
   Pipeline,
   PipelineActivity,
   PipelineSummary,
@@ -117,6 +122,7 @@ import {
   RetentionPeriod,
   S3DestinationConfiguration,
   Schedule,
+  SchemaDefinition,
   SelectAttributesActivity,
   ServiceManagedChannelS3Storage,
   ServiceManagedChannelS3StorageSummary,
@@ -332,6 +338,10 @@ export const serializeAws_restJson1CreateDatastoreCommand = async (
     ...(input.datastoreStorage !== undefined &&
       input.datastoreStorage !== null && {
         datastoreStorage: serializeAws_restJson1DatastoreStorage(input.datastoreStorage, context),
+      }),
+    ...(input.fileFormatConfiguration !== undefined &&
+      input.fileFormatConfiguration !== null && {
+        fileFormatConfiguration: serializeAws_restJson1FileFormatConfiguration(input.fileFormatConfiguration, context),
       }),
     ...(input.retentionPeriod !== undefined &&
       input.retentionPeriod !== null && {
@@ -965,6 +975,10 @@ export const serializeAws_restJson1StartPipelineReprocessingCommand = async (
   }
   let body: any;
   body = JSON.stringify({
+    ...(input.channelMessages !== undefined &&
+      input.channelMessages !== null && {
+        channelMessages: serializeAws_restJson1ChannelMessages(input.channelMessages, context),
+      }),
     ...(input.endTime !== undefined &&
       input.endTime !== null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
     ...(input.startTime !== undefined &&
@@ -1149,6 +1163,10 @@ export const serializeAws_restJson1UpdateDatastoreCommand = async (
     ...(input.datastoreStorage !== undefined &&
       input.datastoreStorage !== null && {
         datastoreStorage: serializeAws_restJson1DatastoreStorage(input.datastoreStorage, context),
+      }),
+    ...(input.fileFormatConfiguration !== undefined &&
+      input.fileFormatConfiguration !== null && {
+        fileFormatConfiguration: serializeAws_restJson1FileFormatConfiguration(input.fileFormatConfiguration, context),
       }),
     ...(input.retentionPeriod !== undefined &&
       input.retentionPeriod !== null && {
@@ -4376,6 +4394,13 @@ const serializeAws_restJson1ChannelActivity = (input: ChannelActivity, context: 
   };
 };
 
+const serializeAws_restJson1ChannelMessages = (input: ChannelMessages, context: __SerdeContext): any => {
+  return {
+    ...(input.s3Paths !== undefined &&
+      input.s3Paths !== null && { s3Paths: serializeAws_restJson1S3PathChannelMessages(input.s3Paths, context) }),
+  };
+};
+
 const serializeAws_restJson1ChannelStorage = (input: ChannelStorage, context: __SerdeContext): any => {
   return {
     ...(input.customerManagedS3 !== undefined &&
@@ -4387,6 +4412,24 @@ const serializeAws_restJson1ChannelStorage = (input: ChannelStorage, context: __
         serviceManagedS3: serializeAws_restJson1ServiceManagedChannelS3Storage(input.serviceManagedS3, context),
       }),
   };
+};
+
+const serializeAws_restJson1Column = (input: Column, context: __SerdeContext): any => {
+  return {
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.type !== undefined && input.type !== null && { type: input.type }),
+  };
+};
+
+const serializeAws_restJson1Columns = (input: Column[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1Column(entry, context);
+    });
 };
 
 const serializeAws_restJson1ContainerDatasetAction = (input: ContainerDatasetAction, context: __SerdeContext): any => {
@@ -4591,6 +4634,22 @@ const serializeAws_restJson1DeviceShadowEnrichActivity = (
   };
 };
 
+const serializeAws_restJson1FileFormatConfiguration = (
+  input: FileFormatConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.jsonConfiguration !== undefined &&
+      input.jsonConfiguration !== null && {
+        jsonConfiguration: serializeAws_restJson1JsonConfiguration(input.jsonConfiguration, context),
+      }),
+    ...(input.parquetConfiguration !== undefined &&
+      input.parquetConfiguration !== null && {
+        parquetConfiguration: serializeAws_restJson1ParquetConfiguration(input.parquetConfiguration, context),
+      }),
+  };
+};
+
 const serializeAws_restJson1FilterActivity = (input: FilterActivity, context: __SerdeContext): any => {
   return {
     ...(input.filter !== undefined && input.filter !== null && { filter: input.filter }),
@@ -4614,6 +4673,10 @@ const serializeAws_restJson1IotEventsDestinationConfiguration = (
     ...(input.inputName !== undefined && input.inputName !== null && { inputName: input.inputName }),
     ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
   };
+};
+
+const serializeAws_restJson1JsonConfiguration = (input: JsonConfiguration, context: __SerdeContext): any => {
+  return {};
 };
 
 const serializeAws_restJson1LambdaActivity = (input: LambdaActivity, context: __SerdeContext): any => {
@@ -4710,6 +4773,15 @@ const serializeAws_restJson1Messages = (input: Message[], context: __SerdeContex
 const serializeAws_restJson1OutputFileUriValue = (input: OutputFileUriValue, context: __SerdeContext): any => {
   return {
     ...(input.fileName !== undefined && input.fileName !== null && { fileName: input.fileName }),
+  };
+};
+
+const serializeAws_restJson1ParquetConfiguration = (input: ParquetConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.schemaDefinition !== undefined &&
+      input.schemaDefinition !== null && {
+        schemaDefinition: serializeAws_restJson1SchemaDefinition(input.schemaDefinition, context),
+      }),
   };
 };
 
@@ -4819,9 +4891,27 @@ const serializeAws_restJson1S3DestinationConfiguration = (
   };
 };
 
+const serializeAws_restJson1S3PathChannelMessages = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_restJson1Schedule = (input: Schedule, context: __SerdeContext): any => {
   return {
     ...(input.expression !== undefined && input.expression !== null && { expression: input.expression }),
+  };
+};
+
+const serializeAws_restJson1SchemaDefinition = (input: SchemaDefinition, context: __SerdeContext): any => {
+  return {
+    ...(input.columns !== undefined &&
+      input.columns !== null && { columns: serializeAws_restJson1Columns(input.columns, context) }),
   };
 };
 
@@ -5088,6 +5178,24 @@ const deserializeAws_restJson1ChannelSummary = (output: any, context: __SerdeCon
         : undefined,
     status: output.status !== undefined && output.status !== null ? output.status : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1Column = (output: any, context: __SerdeContext): Column => {
+  return {
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Columns = (output: any, context: __SerdeContext): Column[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Column(entry, context);
+    });
 };
 
 const deserializeAws_restJson1ContainerDatasetAction = (
@@ -5417,6 +5525,10 @@ const deserializeAws_restJson1Datastore = (output: any, context: __SerdeContext)
       output.creationTime !== undefined && output.creationTime !== null
         ? new Date(Math.round(output.creationTime * 1000))
         : undefined,
+    fileFormatConfiguration:
+      output.fileFormatConfiguration !== undefined && output.fileFormatConfiguration !== null
+        ? deserializeAws_restJson1FileFormatConfiguration(output.fileFormatConfiguration, context)
+        : undefined,
     lastMessageArrivalTime:
       output.lastMessageArrivalTime !== undefined && output.lastMessageArrivalTime !== null
         ? new Date(Math.round(output.lastMessageArrivalTime * 1000))
@@ -5508,6 +5620,8 @@ const deserializeAws_restJson1DatastoreSummary = (output: any, context: __SerdeC
       output.datastoreStorage !== undefined && output.datastoreStorage !== null
         ? deserializeAws_restJson1DatastoreStorageSummary(output.datastoreStorage, context)
         : undefined,
+    fileFormatType:
+      output.fileFormatType !== undefined && output.fileFormatType !== null ? output.fileFormatType : undefined,
     lastMessageArrivalTime:
       output.lastMessageArrivalTime !== undefined && output.lastMessageArrivalTime !== null
         ? new Date(Math.round(output.lastMessageArrivalTime * 1000))
@@ -5578,6 +5692,22 @@ const deserializeAws_restJson1EstimatedResourceSize = (output: any, context: __S
   } as any;
 };
 
+const deserializeAws_restJson1FileFormatConfiguration = (
+  output: any,
+  context: __SerdeContext
+): FileFormatConfiguration => {
+  return {
+    jsonConfiguration:
+      output.jsonConfiguration !== undefined && output.jsonConfiguration !== null
+        ? deserializeAws_restJson1JsonConfiguration(output.jsonConfiguration, context)
+        : undefined,
+    parquetConfiguration:
+      output.parquetConfiguration !== undefined && output.parquetConfiguration !== null
+        ? deserializeAws_restJson1ParquetConfiguration(output.parquetConfiguration, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1FilterActivity = (output: any, context: __SerdeContext): FilterActivity => {
   return {
     filter: output.filter !== undefined && output.filter !== null ? output.filter : undefined,
@@ -5601,6 +5731,10 @@ const deserializeAws_restJson1IotEventsDestinationConfiguration = (
     inputName: output.inputName !== undefined && output.inputName !== null ? output.inputName : undefined,
     roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1JsonConfiguration = (output: any, context: __SerdeContext): JsonConfiguration => {
+  return {} as any;
 };
 
 const deserializeAws_restJson1LambdaActivity = (output: any, context: __SerdeContext): LambdaActivity => {
@@ -5679,6 +5813,15 @@ const deserializeAws_restJson1MessagePayloads = (output: any, context: __SerdeCo
 const deserializeAws_restJson1OutputFileUriValue = (output: any, context: __SerdeContext): OutputFileUriValue => {
   return {
     fileName: output.fileName !== undefined && output.fileName !== null ? output.fileName : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ParquetConfiguration = (output: any, context: __SerdeContext): ParquetConfiguration => {
+  return {
+    schemaDefinition:
+      output.schemaDefinition !== undefined && output.schemaDefinition !== null
+        ? deserializeAws_restJson1SchemaDefinition(output.schemaDefinition, context)
+        : undefined,
   } as any;
 };
 
@@ -5879,6 +6022,15 @@ const deserializeAws_restJson1S3DestinationConfiguration = (
 const deserializeAws_restJson1Schedule = (output: any, context: __SerdeContext): Schedule => {
   return {
     expression: output.expression !== undefined && output.expression !== null ? output.expression : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SchemaDefinition = (output: any, context: __SerdeContext): SchemaDefinition => {
+  return {
+    columns:
+      output.columns !== undefined && output.columns !== null
+        ? deserializeAws_restJson1Columns(output.columns, context)
+        : undefined,
   } as any;
 };
 

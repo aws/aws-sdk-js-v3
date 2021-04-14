@@ -23,6 +23,11 @@ export type DeleteModelCommandOutput = DeleteModelResponse & __MetadataBearer;
 /**
  * <p>Deletes an Amazon Lookout for Vision model. You can't delete a running model. To stop a running model,
  *       use the <a>StopModel</a> operation.</p>
+ *          <p>It might take a few seconds to delete a model. To determine if a model has been deleted, call
+ *          <a>ListProjects</a> and check if the version of the model (<code>ModelVersion</code>) is in the
+ *          <code>Models</code> array. </p>
+ *          <p>This operation requires permissions to perform the
+ *          <code>lookoutvision:DeleteModel</code> operation.</p>
  */
 export class DeleteModelCommand extends $Command<
   DeleteModelCommandInput,

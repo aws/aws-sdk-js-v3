@@ -21,8 +21,7 @@ export type CreateGroupCommandInput = CreateGroupRequest;
 export type CreateGroupCommandOutput = CreateGroupResponse & __MetadataBearer;
 
 /**
- * <p>Creates a group that can be used in Amazon WorkMail by calling the <a>RegisterToWorkMail</a>
- *          operation.</p>
+ * <p>Creates a group that can be used in Amazon WorkMail by calling the <a>RegisterToWorkMail</a> operation.</p>
  */
 export class CreateGroupCommand extends $Command<
   CreateGroupCommandInput,

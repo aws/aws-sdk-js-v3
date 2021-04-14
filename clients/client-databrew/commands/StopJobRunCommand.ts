@@ -21,7 +21,7 @@ export type StopJobRunCommandInput = StopJobRunRequest;
 export type StopJobRunCommandOutput = StopJobRunResponse & __MetadataBearer;
 
 /**
- * <p>Stops the specified job from running in the current AWS account.</p>
+ * <p>Stops a particular run of a job.</p>
  */
 export class StopJobRunCommand extends $Command<
   StopJobRunCommandInput,

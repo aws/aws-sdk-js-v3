@@ -23,6 +23,17 @@ export type UpdateGroupCommandOutput = UpdateGroupOutput & __MetadataBearer;
 /**
  * <p>Updates the description for an existing group. You cannot update the name of a
  *             resource group.</p>
+ *          <p>
+ *             <b>Minimum permissions</b>
+ *          </p>
+ *          <p>To run this command, you must have the following permissions:</p>
+ *          <ul>
+ *             <li>
+ *                 <p>
+ *                   <code>resource-groups:UpdateGroup</code>
+ *                </p>
+ *             </li>
+ *          </ul>
  */
 export class UpdateGroupCommand extends $Command<
   UpdateGroupCommandInput,

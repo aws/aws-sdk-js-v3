@@ -25,8 +25,7 @@ export type GetAssociationForServiceQuotaTemplateCommandOutput = GetAssociationF
   __MetadataBearer;
 
 /**
- * <p>Retrieves the <code>ServiceQuotaTemplateAssociationStatus</code> value from the service.
- *       Use this action to determine if the Service Quota template is associated, or enabled. </p>
+ * <p>Retrieves the status of the association for the quota request template.</p>
  */
 export class GetAssociationForServiceQuotaTemplateCommand extends $Command<
   GetAssociationForServiceQuotaTemplateCommandInput,

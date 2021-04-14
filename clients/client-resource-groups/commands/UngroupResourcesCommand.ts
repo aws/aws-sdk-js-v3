@@ -22,6 +22,17 @@ export type UngroupResourcesCommandOutput = UngroupResourcesOutput & __MetadataB
 
 /**
  * <p>Removes the specified resources from the specified group.</p>
+ *          <p>
+ *             <b>Minimum permissions</b>
+ *          </p>
+ *          <p>To run this command, you must have the following permissions:</p>
+ *          <ul>
+ *             <li>
+ *                 <p>
+ *                   <code>resource-groups:UngroupResources</code>
+ *                </p>
+ *             </li>
+ *          </ul>
  */
 export class UngroupResourcesCommand extends $Command<
   UngroupResourcesCommandInput,

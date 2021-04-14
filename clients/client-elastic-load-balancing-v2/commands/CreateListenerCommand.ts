@@ -25,7 +25,7 @@ export type CreateListenerCommandInput = CreateListenerInput;
 export type CreateListenerCommandOutput = CreateListenerOutput & __MetadataBearer;
 
 /**
- * <p>Creates a listener for the specified Application Load Balancer, Network Load Balancer. or
+ * <p>Creates a listener for the specified Application Load Balancer, Network Load Balancer, or
  *       Gateway Load Balancer.</p>
  *
  *
@@ -34,19 +34,19 @@ export type CreateListenerCommandOutput = CreateListenerOutput & __MetadataBeare
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html">Listeners for
- *           your Application Load Balancers</a>
+ *             your Application Load Balancers</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-listeners.html">Listeners for your
- *           Network Load Balancers</a>
+ *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-listeners.html">Listeners for
+ *             your Network Load Balancers</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/gateway-listeners.html">Listeners for your
- *           Gateway Load Balancers</a>
+ *             Gateway Load Balancers</a>
  *                </p>
  *             </li>
  *          </ul>

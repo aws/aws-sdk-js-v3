@@ -21,7 +21,7 @@ export type DescribeAutoMLJobCommandInput = DescribeAutoMLJobRequest;
 export type DescribeAutoMLJobCommandOutput = DescribeAutoMLJobResponse & __MetadataBearer;
 
 /**
- * <p>Returns information about an Amazon SageMaker job.</p>
+ * <p>Returns information about an Amazon SageMaker AutoML job.</p>
  */
 export class DescribeAutoMLJobCommand extends $Command<
   DescribeAutoMLJobCommandInput,

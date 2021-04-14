@@ -73,6 +73,9 @@ import {
   DeleteProtocolsListRequest,
   DependentServiceName,
   DisassociateAdminAccountRequest,
+  DnsDuplicateRuleGroupViolation,
+  DnsRuleGroupLimitExceededViolation,
+  DnsRuleGroupPriorityConflictViolation,
   EvaluationResult,
   GetAdminAccountRequest,
   GetAdminAccountResponse,
@@ -3144,6 +3147,75 @@ const deserializeAws_json1_1CustomerPolicyScopeMap = (
   );
 };
 
+const deserializeAws_json1_1DnsDuplicateRuleGroupViolation = (
+  output: any,
+  context: __SerdeContext
+): DnsDuplicateRuleGroupViolation => {
+  return {
+    ViolationTarget:
+      output.ViolationTarget !== undefined && output.ViolationTarget !== null ? output.ViolationTarget : undefined,
+    ViolationTargetDescription:
+      output.ViolationTargetDescription !== undefined && output.ViolationTargetDescription !== null
+        ? output.ViolationTargetDescription
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DnsRuleGroupLimitExceededViolation = (
+  output: any,
+  context: __SerdeContext
+): DnsRuleGroupLimitExceededViolation => {
+  return {
+    NumberOfRuleGroupsAlreadyAssociated:
+      output.NumberOfRuleGroupsAlreadyAssociated !== undefined && output.NumberOfRuleGroupsAlreadyAssociated !== null
+        ? output.NumberOfRuleGroupsAlreadyAssociated
+        : undefined,
+    ViolationTarget:
+      output.ViolationTarget !== undefined && output.ViolationTarget !== null ? output.ViolationTarget : undefined,
+    ViolationTargetDescription:
+      output.ViolationTargetDescription !== undefined && output.ViolationTargetDescription !== null
+        ? output.ViolationTargetDescription
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DnsRuleGroupPriorities = (output: any, context: __SerdeContext): number[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const deserializeAws_json1_1DnsRuleGroupPriorityConflictViolation = (
+  output: any,
+  context: __SerdeContext
+): DnsRuleGroupPriorityConflictViolation => {
+  return {
+    ConflictingPolicyId:
+      output.ConflictingPolicyId !== undefined && output.ConflictingPolicyId !== null
+        ? output.ConflictingPolicyId
+        : undefined,
+    ConflictingPriority:
+      output.ConflictingPriority !== undefined && output.ConflictingPriority !== null
+        ? output.ConflictingPriority
+        : undefined,
+    UnavailablePriorities:
+      output.UnavailablePriorities !== undefined && output.UnavailablePriorities !== null
+        ? deserializeAws_json1_1DnsRuleGroupPriorities(output.UnavailablePriorities, context)
+        : undefined,
+    ViolationTarget:
+      output.ViolationTarget !== undefined && output.ViolationTarget !== null ? output.ViolationTarget : undefined,
+    ViolationTargetDescription:
+      output.ViolationTargetDescription !== undefined && output.ViolationTargetDescription !== null
+        ? output.ViolationTargetDescription
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1EvaluationResult = (output: any, context: __SerdeContext): EvaluationResult => {
   return {
     ComplianceStatus:
@@ -3836,6 +3908,22 @@ const deserializeAws_json1_1ResourceViolation = (output: any, context: __SerdeCo
     AwsVPCSecurityGroupViolation:
       output.AwsVPCSecurityGroupViolation !== undefined && output.AwsVPCSecurityGroupViolation !== null
         ? deserializeAws_json1_1AwsVPCSecurityGroupViolation(output.AwsVPCSecurityGroupViolation, context)
+        : undefined,
+    DnsDuplicateRuleGroupViolation:
+      output.DnsDuplicateRuleGroupViolation !== undefined && output.DnsDuplicateRuleGroupViolation !== null
+        ? deserializeAws_json1_1DnsDuplicateRuleGroupViolation(output.DnsDuplicateRuleGroupViolation, context)
+        : undefined,
+    DnsRuleGroupLimitExceededViolation:
+      output.DnsRuleGroupLimitExceededViolation !== undefined && output.DnsRuleGroupLimitExceededViolation !== null
+        ? deserializeAws_json1_1DnsRuleGroupLimitExceededViolation(output.DnsRuleGroupLimitExceededViolation, context)
+        : undefined,
+    DnsRuleGroupPriorityConflictViolation:
+      output.DnsRuleGroupPriorityConflictViolation !== undefined &&
+      output.DnsRuleGroupPriorityConflictViolation !== null
+        ? deserializeAws_json1_1DnsRuleGroupPriorityConflictViolation(
+            output.DnsRuleGroupPriorityConflictViolation,
+            context
+          )
         : undefined,
     NetworkFirewallMissingExpectedRTViolation:
       output.NetworkFirewallMissingExpectedRTViolation !== undefined &&

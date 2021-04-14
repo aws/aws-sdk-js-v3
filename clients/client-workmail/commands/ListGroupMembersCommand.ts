@@ -21,8 +21,8 @@ export type ListGroupMembersCommandInput = ListGroupMembersRequest;
 export type ListGroupMembersCommandOutput = ListGroupMembersResponse & __MetadataBearer;
 
 /**
- * <p>Returns an overview of the members
- *          of a group. Users and groups can be members of a group.</p>
+ * <p>Returns an overview of the members of a group. Users and groups can be members of a
+ *          group.</p>
  */
 export class ListGroupMembersCommand extends $Command<
   ListGroupMembersCommandInput,

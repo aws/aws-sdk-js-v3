@@ -7,6 +7,10 @@ import {
   AuthorizeClusterSecurityGroupIngressCommandOutput,
 } from "./commands/AuthorizeClusterSecurityGroupIngressCommand";
 import {
+  AuthorizeEndpointAccessCommandInput,
+  AuthorizeEndpointAccessCommandOutput,
+} from "./commands/AuthorizeEndpointAccessCommand";
+import {
   AuthorizeSnapshotAccessCommandInput,
   AuthorizeSnapshotAccessCommandOutput,
 } from "./commands/AuthorizeSnapshotAccessCommand";
@@ -40,6 +44,10 @@ import {
   CreateClusterSubnetGroupCommandInput,
   CreateClusterSubnetGroupCommandOutput,
 } from "./commands/CreateClusterSubnetGroupCommand";
+import {
+  CreateEndpointAccessCommandInput,
+  CreateEndpointAccessCommandOutput,
+} from "./commands/CreateEndpointAccessCommand";
 import {
   CreateEventSubscriptionCommandInput,
   CreateEventSubscriptionCommandOutput,
@@ -83,6 +91,10 @@ import {
   DeleteClusterSubnetGroupCommandInput,
   DeleteClusterSubnetGroupCommandOutput,
 } from "./commands/DeleteClusterSubnetGroupCommand";
+import {
+  DeleteEndpointAccessCommandInput,
+  DeleteEndpointAccessCommandOutput,
+} from "./commands/DeleteEndpointAccessCommand";
 import {
   DeleteEventSubscriptionCommandInput,
   DeleteEventSubscriptionCommandOutput,
@@ -150,6 +162,14 @@ import {
   DescribeDefaultClusterParametersCommandInput,
   DescribeDefaultClusterParametersCommandOutput,
 } from "./commands/DescribeDefaultClusterParametersCommand";
+import {
+  DescribeEndpointAccessCommandInput,
+  DescribeEndpointAccessCommandOutput,
+} from "./commands/DescribeEndpointAccessCommand";
+import {
+  DescribeEndpointAuthorizationCommandInput,
+  DescribeEndpointAuthorizationCommandOutput,
+} from "./commands/DescribeEndpointAuthorizationCommand";
 import {
   DescribeEventCategoriesCommandInput,
   DescribeEventCategoriesCommandOutput,
@@ -225,6 +245,10 @@ import {
   GetReservedNodeExchangeOfferingsCommandInput,
   GetReservedNodeExchangeOfferingsCommandOutput,
 } from "./commands/GetReservedNodeExchangeOfferingsCommand";
+import {
+  ModifyAquaConfigurationCommandInput,
+  ModifyAquaConfigurationCommandOutput,
+} from "./commands/ModifyAquaConfigurationCommand";
 import { ModifyClusterCommandInput, ModifyClusterCommandOutput } from "./commands/ModifyClusterCommand";
 import {
   ModifyClusterDbRevisionCommandInput,
@@ -254,6 +278,10 @@ import {
   ModifyClusterSubnetGroupCommandInput,
   ModifyClusterSubnetGroupCommandOutput,
 } from "./commands/ModifyClusterSubnetGroupCommand";
+import {
+  ModifyEndpointAccessCommandInput,
+  ModifyEndpointAccessCommandOutput,
+} from "./commands/ModifyEndpointAccessCommand";
 import {
   ModifyEventSubscriptionCommandInput,
   ModifyEventSubscriptionCommandOutput,
@@ -295,6 +323,10 @@ import {
   RevokeClusterSecurityGroupIngressCommandInput,
   RevokeClusterSecurityGroupIngressCommandOutput,
 } from "./commands/RevokeClusterSecurityGroupIngressCommand";
+import {
+  RevokeEndpointAccessCommandInput,
+  RevokeEndpointAccessCommandOutput,
+} from "./commands/RevokeEndpointAccessCommand";
 import {
   RevokeSnapshotAccessCommandInput,
   RevokeSnapshotAccessCommandOutput,
@@ -357,6 +389,7 @@ import {
 export type ServiceInputTypes =
   | AcceptReservedNodeExchangeCommandInput
   | AuthorizeClusterSecurityGroupIngressCommandInput
+  | AuthorizeEndpointAccessCommandInput
   | AuthorizeSnapshotAccessCommandInput
   | BatchDeleteClusterSnapshotsCommandInput
   | BatchModifyClusterSnapshotsCommandInput
@@ -367,6 +400,7 @@ export type ServiceInputTypes =
   | CreateClusterSecurityGroupCommandInput
   | CreateClusterSnapshotCommandInput
   | CreateClusterSubnetGroupCommandInput
+  | CreateEndpointAccessCommandInput
   | CreateEventSubscriptionCommandInput
   | CreateHsmClientCertificateCommandInput
   | CreateHsmConfigurationCommandInput
@@ -380,6 +414,7 @@ export type ServiceInputTypes =
   | DeleteClusterSecurityGroupCommandInput
   | DeleteClusterSnapshotCommandInput
   | DeleteClusterSubnetGroupCommandInput
+  | DeleteEndpointAccessCommandInput
   | DeleteEventSubscriptionCommandInput
   | DeleteHsmClientCertificateCommandInput
   | DeleteHsmConfigurationCommandInput
@@ -399,6 +434,8 @@ export type ServiceInputTypes =
   | DescribeClusterVersionsCommandInput
   | DescribeClustersCommandInput
   | DescribeDefaultClusterParametersCommandInput
+  | DescribeEndpointAccessCommandInput
+  | DescribeEndpointAuthorizationCommandInput
   | DescribeEventCategoriesCommandInput
   | DescribeEventSubscriptionsCommandInput
   | DescribeEventsCommandInput
@@ -423,6 +460,7 @@ export type ServiceInputTypes =
   | EnableSnapshotCopyCommandInput
   | GetClusterCredentialsCommandInput
   | GetReservedNodeExchangeOfferingsCommandInput
+  | ModifyAquaConfigurationCommandInput
   | ModifyClusterCommandInput
   | ModifyClusterDbRevisionCommandInput
   | ModifyClusterIamRolesCommandInput
@@ -431,6 +469,7 @@ export type ServiceInputTypes =
   | ModifyClusterSnapshotCommandInput
   | ModifyClusterSnapshotScheduleCommandInput
   | ModifyClusterSubnetGroupCommandInput
+  | ModifyEndpointAccessCommandInput
   | ModifyEventSubscriptionCommandInput
   | ModifyScheduledActionCommandInput
   | ModifySnapshotCopyRetentionPeriodCommandInput
@@ -445,12 +484,14 @@ export type ServiceInputTypes =
   | RestoreTableFromClusterSnapshotCommandInput
   | ResumeClusterCommandInput
   | RevokeClusterSecurityGroupIngressCommandInput
+  | RevokeEndpointAccessCommandInput
   | RevokeSnapshotAccessCommandInput
   | RotateEncryptionKeyCommandInput;
 
 export type ServiceOutputTypes =
   | AcceptReservedNodeExchangeCommandOutput
   | AuthorizeClusterSecurityGroupIngressCommandOutput
+  | AuthorizeEndpointAccessCommandOutput
   | AuthorizeSnapshotAccessCommandOutput
   | BatchDeleteClusterSnapshotsCommandOutput
   | BatchModifyClusterSnapshotsCommandOutput
@@ -461,6 +502,7 @@ export type ServiceOutputTypes =
   | CreateClusterSecurityGroupCommandOutput
   | CreateClusterSnapshotCommandOutput
   | CreateClusterSubnetGroupCommandOutput
+  | CreateEndpointAccessCommandOutput
   | CreateEventSubscriptionCommandOutput
   | CreateHsmClientCertificateCommandOutput
   | CreateHsmConfigurationCommandOutput
@@ -474,6 +516,7 @@ export type ServiceOutputTypes =
   | DeleteClusterSecurityGroupCommandOutput
   | DeleteClusterSnapshotCommandOutput
   | DeleteClusterSubnetGroupCommandOutput
+  | DeleteEndpointAccessCommandOutput
   | DeleteEventSubscriptionCommandOutput
   | DeleteHsmClientCertificateCommandOutput
   | DeleteHsmConfigurationCommandOutput
@@ -493,6 +536,8 @@ export type ServiceOutputTypes =
   | DescribeClusterVersionsCommandOutput
   | DescribeClustersCommandOutput
   | DescribeDefaultClusterParametersCommandOutput
+  | DescribeEndpointAccessCommandOutput
+  | DescribeEndpointAuthorizationCommandOutput
   | DescribeEventCategoriesCommandOutput
   | DescribeEventSubscriptionsCommandOutput
   | DescribeEventsCommandOutput
@@ -517,6 +562,7 @@ export type ServiceOutputTypes =
   | EnableSnapshotCopyCommandOutput
   | GetClusterCredentialsCommandOutput
   | GetReservedNodeExchangeOfferingsCommandOutput
+  | ModifyAquaConfigurationCommandOutput
   | ModifyClusterCommandOutput
   | ModifyClusterDbRevisionCommandOutput
   | ModifyClusterIamRolesCommandOutput
@@ -525,6 +571,7 @@ export type ServiceOutputTypes =
   | ModifyClusterSnapshotCommandOutput
   | ModifyClusterSnapshotScheduleCommandOutput
   | ModifyClusterSubnetGroupCommandOutput
+  | ModifyEndpointAccessCommandOutput
   | ModifyEventSubscriptionCommandOutput
   | ModifyScheduledActionCommandOutput
   | ModifySnapshotCopyRetentionPeriodCommandOutput
@@ -539,6 +586,7 @@ export type ServiceOutputTypes =
   | RestoreTableFromClusterSnapshotCommandOutput
   | ResumeClusterCommandOutput
   | RevokeClusterSecurityGroupIngressCommandOutput
+  | RevokeEndpointAccessCommandOutput
   | RevokeSnapshotAccessCommandOutput
   | RotateEncryptionKeyCommandOutput;
 
