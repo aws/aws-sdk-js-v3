@@ -133,7 +133,7 @@ const client = new AWS.KinesisVideoSignaling({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.getIceServerConfig(params);
+  const data = await client.getIceServerConfig(params);
   // process data.
 } catch (error) {
   // error handling.

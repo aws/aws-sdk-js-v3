@@ -163,7 +163,7 @@ const client = new AWS.SageMakerFeatureStoreRuntime({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.deleteRecord(params);
+  const data = await client.deleteRecord(params);
   // process data.
 } catch (error) {
   // error handling.

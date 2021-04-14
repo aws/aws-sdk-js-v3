@@ -131,7 +131,7 @@ const client = new AWS.Forecastquery({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.queryForecast(params);
+  const data = await client.queryForecast(params);
   // process data.
 } catch (error) {
   // error handling.

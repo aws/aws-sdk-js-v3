@@ -136,7 +136,7 @@ const client = new AWS.STS({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.assumeRole(params);
+  const data = await client.assumeRole(params);
   // process data.
 } catch (error) {
   // error handling.

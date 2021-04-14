@@ -132,7 +132,7 @@ const client = new AWS.Translate({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createParallelData(params);
+  const data = await client.createParallelData(params);
   // process data.
 } catch (error) {
   // error handling.

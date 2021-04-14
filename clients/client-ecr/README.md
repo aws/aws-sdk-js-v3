@@ -138,7 +138,7 @@ const client = new AWS.ECR({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.batchCheckLayerAvailability(params);
+  const data = await client.batchCheckLayerAvailability(params);
   // process data.
 } catch (error) {
   // error handling.

@@ -132,7 +132,7 @@ const client = new AWS.HealthLake({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createFHIRDatastore(params);
+  const data = await client.createFHIRDatastore(params);
   // process data.
 } catch (error) {
   // error handling.

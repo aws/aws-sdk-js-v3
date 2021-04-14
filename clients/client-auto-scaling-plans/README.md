@@ -139,7 +139,7 @@ const client = new AWS.AutoScalingPlans({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createScalingPlan(params);
+  const data = await client.createScalingPlan(params);
   // process data.
 } catch (error) {
   // error handling.

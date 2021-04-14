@@ -134,7 +134,7 @@ const client = new AWS.AppIntegrations({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createEventIntegration(params);
+  const data = await client.createEventIntegration(params);
   // process data.
 } catch (error) {
   // error handling.

@@ -148,7 +148,7 @@ const client = new AWS.SSOOIDC({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createToken(params);
+  const data = await client.createToken(params);
   // process data.
 } catch (error) {
   // error handling.

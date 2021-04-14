@@ -139,7 +139,7 @@ const client = new AWS.CognitoIdentityProvider({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.addCustomAttributes(params);
+  const data = await client.addCustomAttributes(params);
   // process data.
 } catch (error) {
   // error handling.

@@ -326,7 +326,7 @@ const client = new AWS.CodePipeline({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.acknowledgeJob(params);
+  const data = await client.acknowledgeJob(params);
   // process data.
 } catch (error) {
   // error handling.

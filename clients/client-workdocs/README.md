@@ -163,7 +163,7 @@ const client = new AWS.WorkDocs({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.abortDocumentVersionUpload(params);
+  const data = await client.abortDocumentVersionUpload(params);
   // process data.
 } catch (error) {
   // error handling.

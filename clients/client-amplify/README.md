@@ -136,7 +136,7 @@ const client = new AWS.Amplify({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createApp(params);
+  const data = await client.createApp(params);
   // process data.
 } catch (error) {
   // error handling.

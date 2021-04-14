@@ -138,7 +138,7 @@ const client = new AWS.AlexaForBusiness({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.approveSkill(params);
+  const data = await client.approveSkill(params);
   // process data.
 } catch (error) {
   // error handling.

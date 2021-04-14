@@ -133,7 +133,7 @@ const client = new AWS.APIGateway({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createApiKey(params);
+  const data = await client.createApiKey(params);
   // process data.
 } catch (error) {
   // error handling.

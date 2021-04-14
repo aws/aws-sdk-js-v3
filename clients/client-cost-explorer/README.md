@@ -144,7 +144,7 @@ const client = new AWS.CostExplorer({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createAnomalyMonitor(params);
+  const data = await client.createAnomalyMonitor(params);
   // process data.
 } catch (error) {
   // error handling.

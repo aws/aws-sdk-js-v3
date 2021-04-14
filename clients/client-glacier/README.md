@@ -168,7 +168,7 @@ const client = new AWS.Glacier({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.abortMultipartUpload(params);
+  const data = await client.abortMultipartUpload(params);
   // process data.
 } catch (error) {
   // error handling.

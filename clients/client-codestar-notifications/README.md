@@ -215,7 +215,7 @@ const client = new AWS.CodestarNotifications({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createNotificationRule(params);
+  const data = await client.createNotificationRule(params);
   // process data.
 } catch (error) {
   // error handling.

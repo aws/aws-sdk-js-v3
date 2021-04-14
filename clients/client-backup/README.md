@@ -135,7 +135,7 @@ const client = new AWS.Backup({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createBackupPlan(params);
+  const data = await client.createBackupPlan(params);
   // process data.
 } catch (error) {
   // error handling.

@@ -131,7 +131,7 @@ const client = new AWS.AmplifyBackend({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.cloneBackend(params);
+  const data = await client.cloneBackend(params);
   // process data.
 } catch (error) {
   // error handling.

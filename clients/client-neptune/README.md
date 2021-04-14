@@ -149,7 +149,7 @@ const client = new AWS.Neptune({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.addRoleToDBCluster(params);
+  const data = await client.addRoleToDBCluster(params);
   // process data.
 } catch (error) {
   // error handling.

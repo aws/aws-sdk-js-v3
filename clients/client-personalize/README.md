@@ -132,7 +132,7 @@ const client = new AWS.Personalize({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createBatchInferenceJob(params);
+  const data = await client.createBatchInferenceJob(params);
   // process data.
 } catch (error) {
   // error handling.

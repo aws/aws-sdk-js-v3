@@ -145,7 +145,7 @@ const client = new AWS.DeviceFarm({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createDevicePool(params);
+  const data = await client.createDevicePool(params);
   // process data.
 } catch (error) {
   // error handling.

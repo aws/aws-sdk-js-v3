@@ -127,7 +127,7 @@ const client = new AWS.${serviceId}({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.${operationName}(params);
+  const data = await client.${operationName}(params);
   // process data.
 } catch (error) {
   // error handling.

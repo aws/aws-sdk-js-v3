@@ -132,7 +132,7 @@ const client = new AWS.FSx({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.associateFileSystemAliases(params);
+  const data = await client.associateFileSystemAliases(params);
   // process data.
 } catch (error) {
   // error handling.

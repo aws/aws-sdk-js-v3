@@ -131,7 +131,7 @@ const client = new AWS.ApiGatewayManagementApi({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.deleteConnection(params);
+  const data = await client.deleteConnection(params);
   // process data.
 } catch (error) {
   // error handling.

@@ -136,7 +136,7 @@ const client = new AWS.RAM({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.acceptResourceShareInvitation(params);
+  const data = await client.acceptResourceShareInvitation(params);
   // process data.
 } catch (error) {
   // error handling.

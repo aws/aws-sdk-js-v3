@@ -316,7 +316,7 @@ const client = new AWS.CodeBuild({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.batchDeleteBuilds(params);
+  const data = await client.batchDeleteBuilds(params);
   // process data.
 } catch (error) {
   // error handling.

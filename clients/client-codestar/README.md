@@ -221,7 +221,7 @@ const client = new AWS.CodeStar({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.associateTeamMember(params);
+  const data = await client.associateTeamMember(params);
   // process data.
 } catch (error) {
   // error handling.

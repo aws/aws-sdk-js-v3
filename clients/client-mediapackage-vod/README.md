@@ -131,7 +131,7 @@ const client = new AWS.MediaPackageVod({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createAsset(params);
+  const data = await client.createAsset(params);
   // process data.
 } catch (error) {
   // error handling.

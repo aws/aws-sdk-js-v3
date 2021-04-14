@@ -147,7 +147,7 @@ const client = new AWS.SFN({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createActivity(params);
+  const data = await client.createActivity(params);
   // process data.
 } catch (error) {
   // error handling.

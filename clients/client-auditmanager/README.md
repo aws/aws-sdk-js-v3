@@ -161,7 +161,7 @@ const client = new AWS.AuditManager({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.associateAssessmentReportEvidenceFolder(params);
+  const data = await client.associateAssessmentReportEvidenceFolder(params);
   // process data.
 } catch (error) {
   // error handling.

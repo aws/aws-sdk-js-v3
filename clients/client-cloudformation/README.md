@@ -146,7 +146,7 @@ const client = new AWS.CloudFormation({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.cancelUpdateStack(params);
+  const data = await client.cancelUpdateStack(params);
   // process data.
 } catch (error) {
   // error handling.

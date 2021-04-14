@@ -154,7 +154,7 @@ const client = new AWS.EC2({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.acceptReservedInstancesExchangeQuote(params);
+  const data = await client.acceptReservedInstancesExchangeQuote(params);
   // process data.
 } catch (error) {
   // error handling.

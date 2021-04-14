@@ -136,7 +136,7 @@ const client = new AWS.DynamoDBStreams({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.describeStream(params);
+  const data = await client.describeStream(params);
   // process data.
 } catch (error) {
   // error handling.

@@ -131,7 +131,7 @@ const client = new AWS.QLDB({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.cancelJournalKinesisStream(params);
+  const data = await client.cancelJournalKinesisStream(params);
   // process data.
 } catch (error) {
   // error handling.

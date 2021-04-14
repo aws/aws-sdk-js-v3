@@ -131,7 +131,7 @@ const client = new AWS.MediaConvert({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.associateCertificate(params);
+  const data = await client.associateCertificate(params);
   // process data.
 } catch (error) {
   // error handling.

@@ -144,7 +144,7 @@ const client = new AWS.ElasticBeanstalk({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.abortEnvironmentUpdate(params);
+  const data = await client.abortEnvironmentUpdate(params);
   // process data.
 } catch (error) {
   // error handling.

@@ -145,7 +145,7 @@ const client = new AWS.Lightsail({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.allocateStaticIp(params);
+  const data = await client.allocateStaticIp(params);
   // process data.
 } catch (error) {
   // error handling.

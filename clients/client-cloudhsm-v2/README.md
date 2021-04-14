@@ -132,7 +132,7 @@ const client = new AWS.CloudHSMV2({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.copyBackupToRegion(params);
+  const data = await client.copyBackupToRegion(params);
   // process data.
 } catch (error) {
   // error handling.

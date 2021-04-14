@@ -159,7 +159,7 @@ const client = new AWS.Appflow({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createConnectorProfile(params);
+  const data = await client.createConnectorProfile(params);
   // process data.
 } catch (error) {
   // error handling.

@@ -135,7 +135,7 @@ const client = new AWS.DataPipeline({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.activatePipeline(params);
+  const data = await client.activatePipeline(params);
   // process data.
 } catch (error) {
   // error handling.

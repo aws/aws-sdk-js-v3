@@ -210,7 +210,7 @@ const client = new AWS.NetworkFirewall({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.associateFirewallPolicy(params);
+  const data = await client.associateFirewallPolicy(params);
   // process data.
 } catch (error) {
   // error handling.

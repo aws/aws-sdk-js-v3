@@ -137,7 +137,7 @@ const client = new AWS.CloudDirectory({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.addFacetToObject(params);
+  const data = await client.addFacetToObject(params);
   // process data.
 } catch (error) {
   // error handling.

@@ -136,7 +136,7 @@ const client = new AWS.IoTSecureTunneling({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.closeTunnel(params);
+  const data = await client.closeTunnel(params);
   // process data.
 } catch (error) {
   // error handling.

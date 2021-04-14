@@ -133,7 +133,7 @@ const client = new AWS.Glue({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.batchCreatePartition(params);
+  const data = await client.batchCreatePartition(params);
   // process data.
 } catch (error) {
   // error handling.

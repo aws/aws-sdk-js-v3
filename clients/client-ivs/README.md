@@ -403,7 +403,7 @@ const client = new AWS.Ivs({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.batchGetChannel(params);
+  const data = await client.batchGetChannel(params);
   // process data.
 } catch (error) {
   // error handling.

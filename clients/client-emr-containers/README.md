@@ -152,7 +152,7 @@ const client = new AWS.EMRContainers({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.cancelJobRun(params);
+  const data = await client.cancelJobRun(params);
   // process data.
 } catch (error) {
   // error handling.

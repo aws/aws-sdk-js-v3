@@ -134,7 +134,7 @@ const client = new AWS.Savingsplans({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createSavingsPlan(params);
+  const data = await client.createSavingsPlan(params);
   // process data.
 } catch (error) {
   // error handling.

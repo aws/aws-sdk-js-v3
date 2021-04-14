@@ -135,7 +135,7 @@ const client = new AWS.Mobile({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createProject(params);
+  const data = await client.createProject(params);
   // process data.
 } catch (error) {
   // error handling.

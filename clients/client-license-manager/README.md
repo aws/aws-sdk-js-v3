@@ -134,7 +134,7 @@ const client = new AWS.LicenseManager({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.acceptGrant(params);
+  const data = await client.acceptGrant(params);
   // process data.
 } catch (error) {
   // error handling.

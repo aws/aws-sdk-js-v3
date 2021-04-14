@@ -137,7 +137,7 @@ const client = new AWS.AccessAnalyzer({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createAnalyzer(params);
+  const data = await client.createAnalyzer(params);
   // process data.
 } catch (error) {
   // error handling.

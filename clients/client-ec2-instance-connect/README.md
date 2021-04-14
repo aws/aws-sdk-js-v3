@@ -133,7 +133,7 @@ const client = new AWS.EC2InstanceConnect({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.sendSSHPublicKey(params);
+  const data = await client.sendSSHPublicKey(params);
   // process data.
 } catch (error) {
   // error handling.

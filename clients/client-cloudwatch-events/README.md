@@ -152,7 +152,7 @@ const client = new AWS.CloudWatchEvents({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.activateEventSource(params);
+  const data = await client.activateEventSource(params);
   // process data.
 } catch (error) {
   // error handling.

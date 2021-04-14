@@ -131,7 +131,7 @@ const client = new AWS.S3Outposts({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createEndpoint(params);
+  const data = await client.createEndpoint(params);
   // process data.
 } catch (error) {
   // error handling.

@@ -144,7 +144,7 @@ const client = new AWS.Connect({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.associateApprovedOrigin(params);
+  const data = await client.associateApprovedOrigin(params);
   // process data.
 } catch (error) {
   // error handling.

@@ -146,7 +146,7 @@ const client = new AWS.CloudTrail({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.addTags(params);
+  const data = await client.addTags(params);
   // process data.
 } catch (error) {
   // error handling.

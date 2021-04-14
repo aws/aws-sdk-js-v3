@@ -132,7 +132,7 @@ const client = new AWS.ComprehendMedical({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.describeEntitiesDetectionV2Job(params);
+  const data = await client.describeEntitiesDetectionV2Job(params);
   // process data.
 } catch (error) {
   // error handling.

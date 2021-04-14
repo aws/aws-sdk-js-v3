@@ -149,7 +149,7 @@ const client = new AWS.EBS({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.completeSnapshot(params);
+  const data = await client.completeSnapshot(params);
   // process data.
 } catch (error) {
   // error handling.

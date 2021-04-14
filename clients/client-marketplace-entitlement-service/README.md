@@ -154,7 +154,7 @@ const client = new AWS.MarketplaceEntitlementService({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.getEntitlements(params);
+  const data = await client.getEntitlements(params);
   // process data.
 } catch (error) {
   // error handling.

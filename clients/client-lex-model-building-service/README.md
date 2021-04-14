@@ -138,7 +138,7 @@ const client = new AWS.LexModelBuildingService({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createBotVersion(params);
+  const data = await client.createBotVersion(params);
   // process data.
 } catch (error) {
   // error handling.

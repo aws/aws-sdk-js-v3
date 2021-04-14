@@ -131,7 +131,7 @@ const client = new AWS.MediaConnect({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.addFlowOutputs(params);
+  const data = await client.addFlowOutputs(params);
   // process data.
 } catch (error) {
   // error handling.

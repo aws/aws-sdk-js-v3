@@ -131,7 +131,7 @@ const client = new AWS.Mq({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createBroker(params);
+  const data = await client.createBroker(params);
   // process data.
 } catch (error) {
   // error handling.

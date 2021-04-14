@@ -133,7 +133,7 @@ const client = new AWS.TimestreamQuery({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.cancelQuery(params);
+  const data = await client.cancelQuery(params);
   // process data.
 } catch (error) {
   // error handling.

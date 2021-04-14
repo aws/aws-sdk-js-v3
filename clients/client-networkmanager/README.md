@@ -133,7 +133,7 @@ const client = new AWS.NetworkManager({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.associateCustomerGateway(params);
+  const data = await client.associateCustomerGateway(params);
   // process data.
 } catch (error) {
   // error handling.

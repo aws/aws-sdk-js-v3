@@ -154,7 +154,7 @@ const client = new AWS.CostAndUsageReportService({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.deleteReportDefinition(params);
+  const data = await client.deleteReportDefinition(params);
   // process data.
 } catch (error) {
   // error handling.

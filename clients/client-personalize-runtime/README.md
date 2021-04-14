@@ -131,7 +131,7 @@ const client = new AWS.PersonalizeRuntime({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.getPersonalizedRanking(params);
+  const data = await client.getPersonalizedRanking(params);
   // process data.
 } catch (error) {
   // error handling.

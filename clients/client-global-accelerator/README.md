@@ -279,7 +279,7 @@ const client = new AWS.GlobalAccelerator({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.addCustomRoutingEndpoints(params);
+  const data = await client.addCustomRoutingEndpoints(params);
   // process data.
 } catch (error) {
   // error handling.

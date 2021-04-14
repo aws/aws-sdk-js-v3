@@ -143,7 +143,7 @@ const client = new AWS.ConnectContactLens({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.listRealtimeContactAnalysisSegments(params);
+  const data = await client.listRealtimeContactAnalysisSegments(params);
   // process data.
 } catch (error) {
   // error handling.

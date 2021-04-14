@@ -142,7 +142,7 @@ const client = new AWS.Macie({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.associateMemberAccount(params);
+  const data = await client.associateMemberAccount(params);
   // process data.
 } catch (error) {
   // error handling.

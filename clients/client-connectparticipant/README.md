@@ -136,7 +136,7 @@ const client = new AWS.ConnectParticipant({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createParticipantConnection(params);
+  const data = await client.createParticipantConnection(params);
   // process data.
 } catch (error) {
   // error handling.

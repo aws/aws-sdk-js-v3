@@ -146,7 +146,7 @@ const client = new AWS.SSO({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.getRoleCredentials(params);
+  const data = await client.getRoleCredentials(params);
   // process data.
 } catch (error) {
   // error handling.

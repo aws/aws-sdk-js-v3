@@ -137,7 +137,7 @@ const client = new AWS.DataSync({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.cancelTaskExecution(params);
+  const data = await client.cancelTaskExecution(params);
   // process data.
 } catch (error) {
   // error handling.

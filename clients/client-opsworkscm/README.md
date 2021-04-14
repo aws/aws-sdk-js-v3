@@ -219,7 +219,7 @@ const client = new AWS.OpsWorksCM({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.associateNode(params);
+  const data = await client.associateNode(params);
   // process data.
 } catch (error) {
   // error handling.

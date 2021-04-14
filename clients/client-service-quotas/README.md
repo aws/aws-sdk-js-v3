@@ -142,7 +142,7 @@ const client = new AWS.ServiceQuotas({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.associateServiceQuotaTemplate(params);
+  const data = await client.associateServiceQuotaTemplate(params);
   // process data.
 } catch (error) {
   // error handling.

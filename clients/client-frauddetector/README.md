@@ -133,7 +133,7 @@ const client = new AWS.FraudDetector({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.batchCreateVariable(params);
+  const data = await client.batchCreateVariable(params);
   // process data.
 } catch (error) {
   // error handling.

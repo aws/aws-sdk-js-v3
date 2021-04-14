@@ -131,7 +131,7 @@ const client = new AWS.KinesisVideo({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createSignalingChannel(params);
+  const data = await client.createSignalingChannel(params);
   // process data.
 } catch (error) {
   // error handling.

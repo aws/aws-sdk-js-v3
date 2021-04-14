@@ -146,7 +146,7 @@ const client = new AWS.SWF({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.countClosedWorkflowExecutions(params);
+  const data = await client.countClosedWorkflowExecutions(params);
   // process data.
 } catch (error) {
   // error handling.

@@ -156,7 +156,7 @@ const client = new AWS.MigrationHubConfig({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createHomeRegionControl(params);
+  const data = await client.createHomeRegionControl(params);
   // process data.
 } catch (error) {
   // error handling.

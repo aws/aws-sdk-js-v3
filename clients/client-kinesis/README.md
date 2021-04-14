@@ -134,7 +134,7 @@ const client = new AWS.Kinesis({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.addTagsToStream(params);
+  const data = await client.addTagsToStream(params);
   // process data.
 } catch (error) {
   // error handling.

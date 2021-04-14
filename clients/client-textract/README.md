@@ -133,7 +133,7 @@ const client = new AWS.Textract({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.analyzeDocument(params);
+  const data = await client.analyzeDocument(params);
   // process data.
 } catch (error) {
   // error handling.

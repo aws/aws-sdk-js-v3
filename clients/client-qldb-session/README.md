@@ -151,7 +151,7 @@ const client = new AWS.QLDBSession({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.sendCommand(params);
+  const data = await client.sendCommand(params);
   // process data.
 } catch (error) {
   // error handling.

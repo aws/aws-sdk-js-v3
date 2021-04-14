@@ -522,7 +522,7 @@ const client = new AWS.CodeCommit({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.associateApprovalRuleTemplateWithRepository(params);
+  const data = await client.associateApprovalRuleTemplateWithRepository(params);
   // process data.
 } catch (error) {
   // error handling.

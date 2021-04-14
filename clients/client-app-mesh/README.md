@@ -143,7 +143,7 @@ const client = new AWS.AppMesh({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createGatewayRoute(params);
+  const data = await client.createGatewayRoute(params);
   // process data.
 } catch (error) {
   // error handling.

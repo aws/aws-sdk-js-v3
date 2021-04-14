@@ -132,7 +132,7 @@ const client = new AWS.RedshiftData({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.cancelStatement(params);
+  const data = await client.cancelStatement(params);
   // process data.
 } catch (error) {
   // error handling.

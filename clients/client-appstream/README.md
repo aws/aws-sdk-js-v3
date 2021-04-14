@@ -152,7 +152,7 @@ const client = new AWS.AppStream({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.associateFleet(params);
+  const data = await client.associateFleet(params);
   // process data.
 } catch (error) {
   // error handling.

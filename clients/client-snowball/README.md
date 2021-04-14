@@ -137,7 +137,7 @@ const client = new AWS.Snowball({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.cancelCluster(params);
+  const data = await client.cancelCluster(params);
   // process data.
 } catch (error) {
   // error handling.

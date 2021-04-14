@@ -154,7 +154,7 @@ const client = new AWS.Pricing({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.describeServices(params);
+  const data = await client.describeServices(params);
   // process data.
 } catch (error) {
   // error handling.

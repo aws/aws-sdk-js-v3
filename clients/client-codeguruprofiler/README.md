@@ -131,7 +131,7 @@ const client = new AWS.CodeGuruProfiler({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.configureAgent(params);
+  const data = await client.configureAgent(params);
   // process data.
 } catch (error) {
   // error handling.

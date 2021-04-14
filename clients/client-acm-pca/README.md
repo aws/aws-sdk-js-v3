@@ -146,7 +146,7 @@ const client = new AWS.ACMPCA({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createCertificateAuthority(params);
+  const data = await client.createCertificateAuthority(params);
   // process data.
 } catch (error) {
   // error handling.

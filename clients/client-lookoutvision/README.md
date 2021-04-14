@@ -137,7 +137,7 @@ const client = new AWS.LookoutVision({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createDataset(params);
+  const data = await client.createDataset(params);
   // process data.
 } catch (error) {
   // error handling.

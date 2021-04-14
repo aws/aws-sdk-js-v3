@@ -131,7 +131,7 @@ const client = new AWS.MediaPackage({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.configureLogs(params);
+  const data = await client.configureLogs(params);
   // process data.
 } catch (error) {
   // error handling.

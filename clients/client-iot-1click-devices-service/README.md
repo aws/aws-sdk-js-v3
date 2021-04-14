@@ -139,7 +139,7 @@ const client = new AWS.IoT1ClickDevicesService({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.claimDevicesByClaimCode(params);
+  const data = await client.claimDevicesByClaimCode(params);
   // process data.
 } catch (error) {
   // error handling.

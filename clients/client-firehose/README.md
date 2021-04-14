@@ -135,7 +135,7 @@ const client = new AWS.Firehose({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createDeliveryStream(params);
+  const data = await client.createDeliveryStream(params);
   // process data.
 } catch (error) {
   // error handling.

@@ -166,7 +166,7 @@ const client = new AWS.ElasticLoadBalancingV2({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.addListenerCertificates(params);
+  const data = await client.addListenerCertificates(params);
   // process data.
 } catch (error) {
   // error handling.

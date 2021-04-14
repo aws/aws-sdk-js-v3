@@ -139,7 +139,7 @@ const client = new AWS.LexRuntimeService({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.deleteSession(params);
+  const data = await client.deleteSession(params);
   // process data.
 } catch (error) {
   // error handling.

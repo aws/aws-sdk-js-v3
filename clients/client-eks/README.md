@@ -140,7 +140,7 @@ const client = new AWS.EKS({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createAddon(params);
+  const data = await client.createAddon(params);
   // process data.
 } catch (error) {
   // error handling.

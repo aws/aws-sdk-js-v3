@@ -137,7 +137,7 @@ const client = new AWS.ACM({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.addTagsToCertificate(params);
+  const data = await client.addTagsToCertificate(params);
   // process data.
 } catch (error) {
   // error handling.

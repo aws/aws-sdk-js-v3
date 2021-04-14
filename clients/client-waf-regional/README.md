@@ -141,7 +141,7 @@ const client = new AWS.WAFRegional({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.associateWebACL(params);
+  const data = await client.associateWebACL(params);
   // process data.
 } catch (error) {
   // error handling.

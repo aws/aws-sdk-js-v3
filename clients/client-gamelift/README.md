@@ -182,7 +182,7 @@ const client = new AWS.GameLift({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.acceptMatch(params);
+  const data = await client.acceptMatch(params);
   // process data.
 } catch (error) {
   // error handling.

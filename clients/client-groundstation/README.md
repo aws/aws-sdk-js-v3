@@ -134,7 +134,7 @@ const client = new AWS.GroundStation({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.cancelContact(params);
+  const data = await client.cancelContact(params);
   // process data.
 } catch (error) {
   // error handling.

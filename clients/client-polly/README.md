@@ -136,7 +136,7 @@ const client = new AWS.Polly({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.deleteLexicon(params);
+  const data = await client.deleteLexicon(params);
   // process data.
 } catch (error) {
   // error handling.

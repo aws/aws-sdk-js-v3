@@ -138,7 +138,7 @@ const client = new AWS.CognitoSync({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.bulkPublish(params);
+  const data = await client.bulkPublish(params);
   // process data.
 } catch (error) {
   // error handling.

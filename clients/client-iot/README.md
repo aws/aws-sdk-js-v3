@@ -147,7 +147,7 @@ const client = new AWS.IoT({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.acceptCertificateTransfer(params);
+  const data = await client.acceptCertificateTransfer(params);
   // process data.
 } catch (error) {
   // error handling.

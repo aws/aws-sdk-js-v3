@@ -146,7 +146,7 @@ const client = new AWS.ECS({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createCapacityProvider(params);
+  const data = await client.createCapacityProvider(params);
   // process data.
 } catch (error) {
   // error handling.

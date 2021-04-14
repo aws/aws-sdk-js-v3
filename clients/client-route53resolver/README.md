@@ -160,7 +160,7 @@ const client = new AWS.Route53Resolver({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.associateResolverEndpointIpAddress(params);
+  const data = await client.associateResolverEndpointIpAddress(params);
   // process data.
 } catch (error) {
   // error handling.

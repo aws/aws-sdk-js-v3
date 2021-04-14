@@ -168,7 +168,7 @@ const client = new AWS.Chime({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.associatePhoneNumbersWithVoiceConnector(params);
+  const data = await client.associatePhoneNumbersWithVoiceConnector(params);
   // process data.
 } catch (error) {
   // error handling.

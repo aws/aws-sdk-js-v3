@@ -406,7 +406,7 @@ const client = new AWS.Codeartifact({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.associateExternalConnection(params);
+  const data = await client.associateExternalConnection(params);
   // process data.
 } catch (error) {
   // error handling.
