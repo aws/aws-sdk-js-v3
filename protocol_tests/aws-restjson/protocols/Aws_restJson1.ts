@@ -150,6 +150,7 @@ export const serializeAws_restJson1AllQueryStringTypesCommand = async (
   const headers: any = {};
   let resolvedPath = "/AllQueryStringTypesInput";
   const query: any = {
+    ...(input.queryParamsMapOfStrings !== undefined && input.queryParamsMapOfStrings),
     ...(input.queryString !== undefined && { String: input.queryString }),
     ...(input.queryStringList !== undefined && { StringList: (input.queryStringList || []).map((_entry) => _entry) }),
     ...(input.queryStringSet !== undefined && {
@@ -1233,6 +1234,7 @@ export const serializeAws_restJson1QueryParamsAsStringListMapCommand = async (
   const headers: any = {};
   let resolvedPath = "/StringListMap";
   const query: any = {
+    ...(input.foo !== undefined && input.foo),
     ...(input.qux !== undefined && { corge: input.qux }),
   };
   let body: any;
@@ -1256,6 +1258,7 @@ export const serializeAws_restJson1QueryPrecedenceCommand = async (
   const headers: any = {};
   let resolvedPath = "/Precedence";
   const query: any = {
+    ...(input.baz !== undefined && input.baz),
     ...(input.foo !== undefined && { bar: input.foo }),
   };
   let body: any;
