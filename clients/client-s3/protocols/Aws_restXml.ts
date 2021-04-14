@@ -6479,10 +6479,8 @@ export const deserializeAws_restXmlGetBucketPolicyCommand = async (
     $metadata: deserializeMetadata(output),
     Policy: undefined,
   };
-  const data: any = await parseBody(output.body, context);
-  if (data["Policy"] !== undefined) {
-    contents.Policy = data["Policy"];
-  }
+  const data: any = await collectBodyString(output.body, context);
+  contents.Policy = data;
   return Promise.resolve(contents);
 };
 

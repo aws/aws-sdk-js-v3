@@ -4233,7 +4233,8 @@
         "Policy": {
           "target": "com.amazonaws.s3#Policy",
           "traits": {
-            "smithy.api#documentation": "<p>The bucket policy as a JSON document.</p>"
+            "smithy.api#documentation": "<p>The bucket policy as a JSON document.</p>",
+            "smithy.api#httpPayload": {}
           }
         }
       }
