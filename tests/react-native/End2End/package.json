@@ -7,9 +7,9 @@
     "test": "jest"
   },
   "dependencies": {
-    "@aws-sdk/client-cognito-identity": "1.0.0-ci.0",
-    "@aws-sdk/client-s3": "1.0.0-ci.0",
-    "@aws-sdk/credential-provider-cognito-identity": "1.0.0-ci.0",
+    "@aws-sdk/client-cognito-identity": "ci",
+    "@aws-sdk/client-s3": "ci",
+    "@aws-sdk/credential-provider-cognito-identity": "ci",
     "detox": "^17.0.2",
     "jest-junit": "^11.0.1",
     "react": "16.8.6",
