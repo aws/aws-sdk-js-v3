@@ -16,6 +16,7 @@
 package software.amazon.smithy.aws.typescript.codegen;
 
 import software.amazon.smithy.aws.traits.ServiceTrait;
+import software.amazon.smithy.aws.traits.auth.SigV4Trait;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
@@ -33,5 +34,13 @@ final class AwsTraitsUtils {
 
     static boolean isAwsService(ServiceShape serviceShape) {
         return serviceShape.hasTrait(ServiceTrait.class);
+    }
+
+    static boolean isSigV4Service(TypeScriptSettings settings, Model model) {
+        return isSigV4Service(settings.getService(model));
+    }
+
+    static boolean isSigV4Service(ServiceShape serviceShape) {
+        return serviceShape.hasTrait(SigV4Trait.class);
     }
 }

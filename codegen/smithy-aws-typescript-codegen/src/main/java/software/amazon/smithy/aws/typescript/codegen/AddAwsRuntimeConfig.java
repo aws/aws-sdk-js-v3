@@ -16,6 +16,7 @@
 package software.amazon.smithy.aws.typescript.codegen;
 
 import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isAwsService;
+import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isSigV4Service;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -33,6 +34,9 @@ import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.MapUtils;
 
+// TODO: This javadoc is specific to needs of AWS client. However it has elements that would be needed by non-AWS
+// clients too, like logger, region for SigV4. We should refactor these into different Integration or rename this
+// class to be generic.
 /**
  * AWS clients need to know the service name for collecting metrics, the
  * region name used to resolve endpoints, the max attempt to retry a request
@@ -87,7 +91,9 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
         if (isAwsService(settings, model)) {
             writer.writeDocs("Unique service identifier.\n@internal")
                     .write("serviceId?: string;\n");
-            writer.writeDocs("The AWS region to which this client will send requests")
+        }
+        if (isSigV4Service(settings, model)) {
+            writer.writeDocs("The AWS region to which this client will send requests or use as signingRegion")
                     .write("region?: string | __Provider<string>;\n");
         }
         writer.writeDocs("Value for how many times a request will be made at most in case of retry.")
@@ -128,7 +134,7 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
             Model model
     ) {
         Map<String, Consumer<TypeScriptWriter>> defaultConfigs = new HashMap();
-        boolean isAwsService = isAwsService(settings, model);
+        boolean isSigV4Service = isSigV4Service(settings, model);
         switch (target) {
             case SHARED:
                 return MapUtils.of(
@@ -138,7 +144,7 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                         }
                 );
             case BROWSER:
-                if (isAwsService) {
+                if (isSigV4Service) {
                     defaultConfigs.put("region", writer -> {
                         writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
                         writer.addImport("invalidProvider", "invalidProvider",
@@ -154,7 +160,8 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                 });
                 return defaultConfigs;
             case NODE:
-                if (isAwsService) {
+                if (isSigV4Service) {
+                    // TODO: For non-AWS service, figure out how the region should be configured.
                     defaultConfigs.put("region", writer -> {
                         writer.addDependency(AwsDependency.NODE_CONFIG_PROVIDER);
                         writer.addImport("loadConfig", "loadNodeConfig",
