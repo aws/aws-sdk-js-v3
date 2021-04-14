@@ -2339,11 +2339,7 @@ export const serializeAws_restJson1GetExportCommand = async (
     throw new Error("No value provided for input HTTP label: exportType.");
   }
   const query: any = {
-    ...(input.parameters !== undefined &&
-      Object.entries(input.parameters || {}).reduce(
-        (acc: any, [key, value]: [string, string]) => ({ ...acc, [key]: value }),
-        {}
-      )),
+    ...(input.parameters !== undefined && input.parameters),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2974,11 +2970,7 @@ export const serializeAws_restJson1GetSdkCommand = async (
     throw new Error("No value provided for input HTTP label: sdkType.");
   }
   const query: any = {
-    ...(input.parameters !== undefined &&
-      Object.entries(input.parameters || {}).reduce(
-        (acc: any, [key, value]: [string, string]) => ({ ...acc, [key]: value }),
-        {}
-      )),
+    ...(input.parameters !== undefined && input.parameters),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -3438,11 +3430,7 @@ export const serializeAws_restJson1ImportRestApiCommand = async (
   let resolvedPath = "/restapis";
   const query: any = {
     mode: "import",
-    ...(input.parameters !== undefined &&
-      Object.entries(input.parameters || {}).reduce(
-        (acc: any, [key, value]: [string, string]) => ({ ...acc, [key]: value }),
-        {}
-      )),
+    ...(input.parameters !== undefined && input.parameters),
     ...(input.failOnWarnings !== undefined && { failonwarnings: input.failOnWarnings.toString() }),
   };
   let body: any;
@@ -3819,11 +3807,7 @@ export const serializeAws_restJson1PutRestApiCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   const query: any = {
-    ...(input.parameters !== undefined &&
-      Object.entries(input.parameters || {}).reduce(
-        (acc: any, [key, value]: [string, string]) => ({ ...acc, [key]: value }),
-        {}
-      )),
+    ...(input.parameters !== undefined && input.parameters),
     ...(input.mode !== undefined && { mode: input.mode }),
     ...(input.failOnWarnings !== undefined && { failonwarnings: input.failOnWarnings.toString() }),
   };
