@@ -9,6 +9,7 @@ import {
 import { ENV_PROFILE, fromIni, FromIniInit } from "@aws-sdk/credential-provider-ini";
 import { fromProcess, FromProcessInit } from "@aws-sdk/credential-provider-process";
 import { fromSSO, FromSSOInit } from "@aws-sdk/credential-provider-sso";
+import { fromTokenFile, FromTokenFileInit } from "@aws-sdk/credential-provider-web-identity";
 import { chain, memoize, ProviderError } from "@aws-sdk/property-provider";
 import { loadSharedConfigFiles } from "@aws-sdk/shared-ini-file-loader";
 import { CredentialProvider } from "@aws-sdk/types";
@@ -19,6 +20,8 @@ export const ENV_IMDS_DISABLED = "AWS_EC2_METADATA_DISABLED";
  * Creates a credential provider that will attempt to find credentials from the
  * following sources (listed in order of precedence):
  *   * Environment variables exposed via `process.env`
+ *   * SSO credentials from token cache
+ *   * Web identity token credentials
  *   * Shared credentials and config ini files
  *   * The EC2/ECS Instance Metadata Service
  *
@@ -36,6 +39,8 @@ export const ENV_IMDS_DISABLED = "AWS_EC2_METADATA_DISABLED";
  *                              environment variables
  * @see fromSSO                 The function used to source credentials from
  *                              resolved SSO token cache
+ * @see fromTokenFile           The function used to source credentials from
+ *                              token file
  * @see fromIni                 The function used to source credentials from INI
  *                              files
  * @see fromProcess             The function used to sources credentials from
@@ -46,11 +51,11 @@ export const ENV_IMDS_DISABLED = "AWS_EC2_METADATA_DISABLED";
  *                              ECS Container Metadata Service
  */
 export const defaultProvider = (
-  init: FromIniInit & RemoteProviderInit & FromProcessInit & FromSSOInit = {}
+  init: FromIniInit & RemoteProviderInit & FromProcessInit & FromSSOInit & FromTokenFileInit = {}
 ): CredentialProvider => {
   const options = { profile: process.env[ENV_PROFILE], ...init };
   if (!options.loadedConfig) options.loadedConfig = loadSharedConfigFiles(init);
-  const providers = [fromSSO(options), fromIni(options), fromProcess(options), remoteProvider(options)];
+  const providers = [fromSSO(options), fromTokenFile(options), fromIni(options), fromProcess(options), remoteProvider(options)];
   if (!options.profile) providers.unshift(fromEnv());
   const providerChain = chain(...providers);
 

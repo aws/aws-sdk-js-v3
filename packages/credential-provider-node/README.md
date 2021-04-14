@@ -8,8 +8,12 @@
 This module provides a factory function, `fromEnv`, that will attempt to source
 AWS credentials from a Node.JS environment. It will attempt to find credentials
 from the following sources (listed in order of precedence):
-_ Environment variables exposed via `process.env`
-_ Shared credentials and config ini files \* The EC2/ECS Instance Metadata Service
+
+- Environment variables exposed via `process.env`
+- SSO credentials from token cache
+- Web identity token credentials
+- Shared credentials and config ini files
+- The EC2/ECS Instance Metadata Service
 
 The default credential provider will invoke one provider at a time and only
 continue to the next if no credentials have been located. For example, if the
@@ -45,6 +49,11 @@ supported:
 - `roleAssumer` - A function that assumes a role and returns a promise
   fulfilled with credentials for the assumed role. If not specified, the SDK
   will create an STS client and call its `assumeRole` method.
+- `roleArn` - ARN to assume. If not specified, the provider will use the value
+  in the `AWS_ROLE_ARN` environment variable.
+- `webIdentityTokenFile` - File location of where the `OIDC` token is stored.
+  If not specified, the provider will use the value in the `AWS_WEB_IDENTITY_TOKEN_FILE`
+  environment variable.
 - `timeout` - The connection timeout (in milliseconds) to apply to any remote
   requests. If not specified, a default value of `1000` (one second) is used.
 - `maxRetries` - The maximum number of times any HTTP connections should be
@@ -53,6 +62,8 @@ supported:
 ## Related packages:
 
 - [AWS Credential Provider for Node.JS - Environment Variables](../credential-provider-env)
+- [AWS Credential Provider for Node.JS - SSO](../credential-provider-sso)
+- [AWS Credential Provider for Node.JS - Web Identity](../credential-provider-web-identity)
 - [AWS Credential Provider for Node.JS - Shared Configuration Files](../credential-provider-ini)
 - [AWS Credential Provider for Node.JS - Instance and Container Metadata](../credential-provider-imds)
 - [AWS Shared Configuration File Loader](../shared-ini-file-loader)
