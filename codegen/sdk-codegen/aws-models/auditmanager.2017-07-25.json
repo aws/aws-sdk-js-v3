@@ -102,7 +102,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n   You do not have sufficient access to perform this action. \n</p>",
+        "smithy.api#documentation": "<p>\n   Your account is not registered with AWS Audit Manager. Check the delegated administrator setup on the AWS Audit Manager settings page, and try again.\n</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 403
       }
@@ -557,6 +557,12 @@
     "com.amazonaws.auditmanager#AssessmentFrameworkMetadata": {
       "type": "structure",
       "members": {
+        "arn": {
+          "target": "com.amazonaws.auditmanager#AuditManagerArn",
+          "traits": {
+            "smithy.api#documentation": "<p>\n   The Amazon Resource Name (ARN) of the framework. \n</p>"
+          }
+        },
         "id": {
           "target": "com.amazonaws.auditmanager#UUID",
           "traits": {
@@ -1461,7 +1467,7 @@
         "errorMessage": {
           "target": "com.amazonaws.auditmanager#ErrorMessage",
           "traits": {
-            "smithy.api#documentation": "<p>\n  The error message returned by the <code>BatchImportEvidenceToAssessmentControlError</code> API. \n</p>"
+            "smithy.api#documentation": "<p>\n  The error message returned by the <code>BatchImportEvidenceToAssessmentControl</code> API. \n</p>"
           }
         }
       },
@@ -1810,13 +1816,13 @@
         "controlSources": {
           "target": "com.amazonaws.auditmanager#ControlSources",
           "traits": {
-            "smithy.api#documentation": "<p>\n   The data mapping sources for the specified control.\n</p>"
+            "smithy.api#documentation": "<p>\n   The data source that determines from where AWS Audit Manager collects evidence for the control. \n</p>"
           }
         },
         "controlMappingSources": {
           "target": "com.amazonaws.auditmanager#ControlMappingSources",
           "traits": {
-            "smithy.api#documentation": "<p>\n   The data mapping sources for the specified control. \n</p>"
+            "smithy.api#documentation": "<p>\n   The data mapping sources for the specified control.\n</p>"
           }
         },
         "createdAt": {
@@ -2336,6 +2342,12 @@
             "smithy.api#documentation": "<p>\n   The control sets to be associated with the framework. \n</p>",
             "smithy.api#required": {}
           }
+        },
+        "tags": {
+          "target": "com.amazonaws.auditmanager#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>\n   The tags associated with the framework.\n</p>"
+          }
         }
       }
     },
@@ -2603,7 +2615,7 @@
         "controlMappingSources": {
           "target": "com.amazonaws.auditmanager#CreateControlMappingSources",
           "traits": {
-            "smithy.api#documentation": "<p>\n The data source that determines from where AWS Audit Manager collects evidence for the control. \n</p>",
+            "smithy.api#documentation": "<p>\n   The data mapping sources for the specified control.\n</p>",
             "smithy.api#required": {}
           }
         },
@@ -3485,6 +3497,12 @@
           "traits": {
             "smithy.api#documentation": "<p>\n   The IAM user or role that most recently updated the framework. \n</p>"
           }
+        },
+        "tags": {
+          "target": "com.amazonaws.auditmanager#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>\n         The tags associated with the framework.\n      </p>"
+          }
         }
       },
       "traits": {
@@ -3775,6 +3793,9 @@
       "members": {
         "assessment": {
           "target": "com.amazonaws.auditmanager#Assessment"
+        },
+        "userRole": {
+          "target": "com.amazonaws.auditmanager#Role"
         }
       }
     },
@@ -4479,6 +4500,9 @@
         "target": "com.amazonaws.auditmanager#GetServicesInScopeResponse"
       },
       "errors": [
+        {
+          "target": "com.amazonaws.auditmanager#AccessDeniedException"
+        },
         {
           "target": "com.amazonaws.auditmanager#InternalServerException"
         },
@@ -5469,7 +5493,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n     The wrapper that contains AWS Audit Manager role information, such as the role type and IAM Amazon Resource Name (ARN).\n  </p>"
+        "smithy.api#documentation": "<p>\n     The wrapper that contains the AWS Audit Manager role information of the current user, such as the role type and IAM Amazon Resource Name (ARN).\n  </p>"
       }
     },
     "com.amazonaws.auditmanager#RoleType": {
@@ -5687,12 +5711,12 @@
         "keywordValue": {
           "target": "com.amazonaws.auditmanager#KeywordValue",
           "traits": {
-            "smithy.api#documentation": "<p>\n   The value of the keyword used to search AWS CloudTrail logs when mapping a control data source.\n</p>"
+            "smithy.api#documentation": "<p>\nThe value of the keyword used to search AWS CloudTrail logs, AWS Config rules, AWS Security Hub checks, and AWS API names when mapping a control data source. \n</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n   The keyword to search for in AWS CloudTrail logs.\n</p>"
+        "smithy.api#documentation": "<p>\nThe keyword to search for in AWS CloudTrail logs, AWS Config rules, AWS Security Hub checks, and AWS API names.\n</p>"
       }
     },
     "com.amazonaws.auditmanager#SourceName": {
@@ -6478,7 +6502,7 @@
         "controlMappingSources": {
           "target": "com.amazonaws.auditmanager#ControlMappingSources",
           "traits": {
-            "smithy.api#documentation": "<p>\n   The data source that determines from where AWS Audit Manager collects evidence for the control. \n</p>",
+            "smithy.api#documentation": "<p>\n   The data mapping sources for the specified control.\n</p>",
             "smithy.api#required": {}
           }
         }

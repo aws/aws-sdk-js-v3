@@ -64,13 +64,13 @@
         "AudioChunk": {
           "target": "com.amazonaws.transcribestreaming#AudioChunk",
           "traits": {
-            "smithy.api#documentation": "<p>An audio blob that contains the next part of the audio that you want to transcribe.</p>",
+            "smithy.api#documentation": "<p>An audio blob that contains the next part of the audio that you want to transcribe. The maximum audio chunk size is 32 KB.</p>",
             "smithy.api#eventPayload": {}
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Provides a wrapper for the audio chunks that you are sending.</p>"
+        "smithy.api#documentation": "<p>Provides a wrapper for the audio chunks that you are sending.</p>\n         <p>For information on audio encoding in Amazon Transcribe, see <a>input</a>. For information on audio encoding formats in Amazon Transcribe Medical, see <a>input-med</a>.</p>"
       }
     },
     "com.amazonaws.transcribestreaming#AudioStream": {
@@ -79,7 +79,7 @@
         "AudioEvent": {
           "target": "com.amazonaws.transcribestreaming#AudioEvent",
           "traits": {
-            "smithy.api#documentation": "<p>A blob of audio from your application. You audio stream consists of one or more audio\n      events.</p>"
+            "smithy.api#documentation": "<p>A blob of audio from your application. You audio stream consists of one or more audio\n      events.</p>\n         <p>For information on audio encoding formats in Amazon Transcribe, see <a>input</a>. For information on audio encoding formats in Amazon Transcribe Medical, see <a>input-med</a>.</p>\n         <p>For more information on stream encoding in Amazon Transcribe, see <a>event-stream</a>. For information on stream encoding in Amazon Transcribe Medical, see <a>event-stream-med</a>.</p>"
           }
         }
       },
@@ -177,10 +177,16 @@
           "traits": {
             "smithy.api#documentation": "<p>If speaker identification is enabled, shows the speakers identified in the real-time stream.</p>"
           }
+        },
+        "Confidence": {
+          "target": "com.amazonaws.transcribestreaming#Confidence",
+          "traits": {
+            "smithy.api#documentation": "<p>A value between 0 and 1 for an item that is a confidence score that Amazon Transcribe assigns to\n      each word or phrase that it transcribes.</p>"
+          }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>A word or phrase transcribed from the input audio.</p>"
+        "smithy.api#documentation": "<p>A word, phrase, or punctuation mark that is transcribed from the input audio.</p>"
       }
     },
     "com.amazonaws.transcribestreaming#ItemList": {
@@ -251,6 +257,10 @@
           {
             "value": "ko-KR",
             "name": "KO_KR"
+          },
+          {
+            "value": "zh-CN",
+            "name": "ZH_CN"
           }
         ]
       }
@@ -309,7 +319,13 @@
         "Items": {
           "target": "com.amazonaws.transcribestreaming#MedicalItemList",
           "traits": {
-            "smithy.api#documentation": "<p>A list of objects that contains words and punctuation marks that represents one or more\n            interpretations of the input audio.</p>"
+            "smithy.api#documentation": "<p>A list of objects that contains words and punctuation marks that represents one or\n            more interpretations of the input audio.</p>"
+          }
+        },
+        "Entities": {
+          "target": "com.amazonaws.transcribestreaming#MedicalEntityList",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains the medical entities identified as personal health information in the transcription output.</p>"
           }
         }
       },
@@ -321,6 +337,61 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.transcribestreaming#MedicalAlternative"
+      }
+    },
+    "com.amazonaws.transcribestreaming#MedicalContentIdentificationType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "PHI",
+            "name": "PHI"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.transcribestreaming#MedicalEntity": {
+      "type": "structure",
+      "members": {
+        "StartTime": {
+          "target": "com.amazonaws.transcribestreaming#Double",
+          "traits": {
+            "smithy.api#documentation": "<p>The start time of the speech that was identified as a medical entity.</p>"
+          }
+        },
+        "EndTime": {
+          "target": "com.amazonaws.transcribestreaming#Double",
+          "traits": {
+            "smithy.api#documentation": "<p>The end time of the speech that was identified as a medical entity.</p>"
+          }
+        },
+        "Category": {
+          "target": "com.amazonaws.transcribestreaming#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of personal health information of the medical entity.</p>"
+          }
+        },
+        "Content": {
+          "target": "com.amazonaws.transcribestreaming#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The word or words in the transcription output that have been identified as a\n            medical entity.</p>"
+          }
+        },
+        "Confidence": {
+          "target": "com.amazonaws.transcribestreaming#Confidence",
+          "traits": {
+            "smithy.api#documentation": "<p>A value between zero and one that Amazon Transcribe Medical assigned to the personal health information\n            that it identified in the source audio. Larger values indicate that Amazon Transcribe Medical has higher\n            confidence in the personal health information that it identified.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The medical entity identified as personal health information.</p>"
+      }
+    },
+    "com.amazonaws.transcribestreaming#MedicalEntityList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.transcribestreaming#MedicalEntity"
       }
     },
     "com.amazonaws.transcribestreaming#MedicalItem": {
@@ -353,7 +424,7 @@
         "Confidence": {
           "target": "com.amazonaws.transcribestreaming#Confidence",
           "traits": {
-            "smithy.api#documentation": "<p>A value between 0 and 1 for an item that is a confidence score that Amazon Transcribe Medical\n            assigns to each word that it transcribes.</p>"
+            "smithy.api#documentation": "<p>A value between 0 and 1 for an item that is a confidence score that Amazon Transcribe Medical assigns to\n            each word that it transcribes.</p>"
           }
         },
         "Speaker": {
@@ -364,7 +435,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>A word or punctuation that is transcribed from the input audio.</p>"
+        "smithy.api#documentation": "<p>A word, phrase, or punctuation mark that is transcribed from the input audio.</p>"
       }
     },
     "com.amazonaws.transcribestreaming#MedicalItemList": {
@@ -623,7 +694,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Starts a bidirectional HTTP/2 stream where audio is streamed to Amazon Transcribe Medical and the transcription\n            results are streamed to your application.</p>",
+        "smithy.api#documentation": "<p>Starts a bidirectional HTTP/2 stream where audio is streamed to Amazon Transcribe Medical and the\n            transcription results are streamed to your application.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/medical-stream-transcription",
@@ -637,7 +708,7 @@
         "LanguageCode": {
           "target": "com.amazonaws.transcribestreaming#LanguageCode",
           "traits": {
-            "smithy.api#documentation": "<p> Indicates the source language used in the input audio stream. For Amazon Transcribe Medical,\n            this is US English (en-US). </p>",
+            "smithy.api#documentation": "<p> Indicates the source language used in the input audio stream. For Amazon Transcribe Medical, this is US\n            English (en-US). </p>",
             "smithy.api#httpHeader": "x-amzn-transcribe-language-code",
             "smithy.api#required": {}
           }
@@ -676,7 +747,7 @@
         "Type": {
           "target": "com.amazonaws.transcribestreaming#Type",
           "traits": {
-            "smithy.api#documentation": "<p>The type of input audio. Choose <code>DICTATION</code> for a provider dictating patient notes. Choose <code>CONVERSATION</code> for a dialogue between a patient and one or more medical professionanls.</p>",
+            "smithy.api#documentation": "<p>The type of input audio. Choose <code>DICTATION</code> for a provider dictating\n            patient notes. Choose <code>CONVERSATION</code> for a dialogue between a patient and one\n            or more medical professionanls.</p>",
             "smithy.api#httpHeader": "x-amzn-transcribe-type",
             "smithy.api#required": {}
           }
@@ -715,6 +786,13 @@
             "smithy.api#documentation": "<p>The number of channels that are in your audio stream.</p>",
             "smithy.api#httpHeader": "x-amzn-transcribe-number-of-channels"
           }
+        },
+        "ContentIdentificationType": {
+          "target": "com.amazonaws.transcribestreaming#MedicalContentIdentificationType",
+          "traits": {
+            "smithy.api#documentation": "<p>Set this field to <code>PHI</code> to identify personal health information in the\n            transcription output.</p>",
+            "smithy.api#httpHeader": "x-amzn-transcribe-content-identification-type"
+          }
         }
       }
     },
@@ -731,7 +809,7 @@
         "LanguageCode": {
           "target": "com.amazonaws.transcribestreaming#LanguageCode",
           "traits": {
-            "smithy.api#documentation": "<p>The language code for the response transcript. For Amazon Transcribe Medical, this is US\n            English (en-US).</p>",
+            "smithy.api#documentation": "<p>The language code for the response transcript. For Amazon Transcribe Medical, this is US English\n            (en-US).</p>",
             "smithy.api#httpHeader": "x-amzn-transcribe-language-code"
           }
         },
@@ -803,6 +881,13 @@
           "traits": {
             "smithy.api#documentation": "<p>The number of channels identified in the stream.</p>",
             "smithy.api#httpHeader": "x-amzn-transcribe-number-of-channels"
+          }
+        },
+        "ContentIdentificationType": {
+          "target": "com.amazonaws.transcribestreaming#MedicalContentIdentificationType",
+          "traits": {
+            "smithy.api#documentation": "<p>If the value is <code>PHI</code>, indicates that you've configured your stream to\n            identify personal health information.</p>",
+            "smithy.api#httpHeader": "x-amzn-transcribe-content-identification-type"
           }
         }
       }

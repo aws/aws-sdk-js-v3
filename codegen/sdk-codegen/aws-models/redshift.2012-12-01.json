@@ -94,6 +94,19 @@
         }
       }
     },
+    "com.amazonaws.redshift#AccessToClusterDeniedFault": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.redshift#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>You are not authorized to access the cluster.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
     "com.amazonaws.redshift#AccessToSnapshotDeniedFault": {
       "type": "structure",
       "members": {
@@ -182,6 +195,64 @@
           {
             "value": "resize-cluster",
             "name": "RESIZE_CLUSTER"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.redshift#AquaConfiguration": {
+      "type": "structure",
+      "members": {
+        "AquaStatus": {
+          "target": "com.amazonaws.redshift#AquaStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The value indicates the status of AQUA on the cluster. Possible values include the following.</p>\n        <ul>\n            <li>\n               <p>enabled - AQUA is enabled.</p>\n            </li>\n            <li>\n               <p>disabled - AQUA is not enabled. </p>\n            </li>\n            <li>\n               <p>applying - AQUA status is being applied. </p>\n            </li>\n         </ul>"
+          }
+        },
+        "AquaConfigurationStatus": {
+          "target": "com.amazonaws.redshift#AquaConfigurationStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The value represents how the cluster is configured to use AQUA. Possible values include the following.</p>\n        <ul>\n            <li>\n               <p>enabled - Use AQUA if it is available for the current AWS Region and Amazon Redshift node type.</p>\n            </li>\n            <li>\n               <p>disabled - Don't use AQUA. </p>\n            </li>\n            <li>\n               <p>auto - Amazon Redshift determines whether to use AQUA.</p>\n            </li>\n         </ul>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The AQUA (Advanced Query Accelerator) configuration of the cluster.</p>"
+      }
+    },
+    "com.amazonaws.redshift#AquaConfigurationStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "enabled",
+            "name": "ENABLED"
+          },
+          {
+            "value": "disabled",
+            "name": "DISABLED"
+          },
+          {
+            "value": "auto",
+            "name": "AUTO"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.redshift#AquaStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "enabled",
+            "name": "ENABLED"
+          },
+          {
+            "value": "disabled",
+            "name": "DISABLED"
+          },
+          {
+            "value": "applying",
+            "name": "APPLYING"
           }
         ]
       }
@@ -275,6 +346,21 @@
         "smithy.api#httpError": 400
       }
     },
+    "com.amazonaws.redshift#AuthorizationStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "Authorized",
+            "name": "AUTHORIZED"
+          },
+          {
+            "value": "Revoking",
+            "name": "REVOKING"
+          }
+        ]
+      }
+    },
     "com.amazonaws.redshift#AuthorizeClusterSecurityGroupIngress": {
       "type": "operation",
       "input": {
@@ -339,6 +425,62 @@
       "members": {
         "ClusterSecurityGroup": {
           "target": "com.amazonaws.redshift#ClusterSecurityGroup"
+        }
+      }
+    },
+    "com.amazonaws.redshift#AuthorizeEndpointAccess": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.redshift#AuthorizeEndpointAccessMessage"
+      },
+      "output": {
+        "target": "com.amazonaws.redshift#EndpointAuthorization"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.redshift#ClusterNotFoundFault"
+        },
+        {
+          "target": "com.amazonaws.redshift#EndpointAuthorizationAlreadyExistsFault"
+        },
+        {
+          "target": "com.amazonaws.redshift#EndpointAuthorizationsPerClusterLimitExceededFault"
+        },
+        {
+          "target": "com.amazonaws.redshift#InvalidAuthorizationStateFault"
+        },
+        {
+          "target": "com.amazonaws.redshift#InvalidClusterStateFault"
+        },
+        {
+          "target": "com.amazonaws.redshift#UnsupportedOperationFault"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Grants access to a cluster.</p>"
+      }
+    },
+    "com.amazonaws.redshift#AuthorizeEndpointAccessMessage": {
+      "type": "structure",
+      "members": {
+        "ClusterIdentifier": {
+          "target": "com.amazonaws.redshift#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The cluster identifier of the cluster to grant access to.</p>"
+          }
+        },
+        "Account": {
+          "target": "com.amazonaws.redshift#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS account ID to grant access to.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "VpcIds": {
+          "target": "com.amazonaws.redshift#VpcIdentifierList",
+          "traits": {
+            "smithy.api#documentation": "<p>The virtual private cloud (VPC) identifiers to grant access to.</p>"
+          }
         }
       }
     },
@@ -939,6 +1081,18 @@
           "target": "com.amazonaws.redshift#String",
           "traits": {
             "smithy.api#documentation": "<p>The namespace Amazon Resource Name (ARN) of the cluster.</p>"
+          }
+        },
+        "TotalStorageCapacityInMegaBytes": {
+          "target": "com.amazonaws.redshift#LongOptional",
+          "traits": {
+            "smithy.api#documentation": "<p>The total storage capacity of the cluster in megabytes. </p>"
+          }
+        },
+        "AquaConfiguration": {
+          "target": "com.amazonaws.redshift#AquaConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The AQUA (Advanced Query Accelerator) configuration of the cluster.</p>"
           }
         }
       },
@@ -2031,7 +2185,7 @@
         "AutomatedSnapshotRetentionPeriod": {
           "target": "com.amazonaws.redshift#IntegerOptional",
           "traits": {
-            "smithy.api#documentation": "<p>The number of days that automated snapshots are retained. If the value is 0,\n            automated snapshots are disabled. Even if automated snapshots are disabled, you can\n            still create manual snapshots when you want with <a>CreateClusterSnapshot</a>. </p>\n        <p>Default: <code>1</code>\n        </p>\n        <p>Constraints: Must be a value from 0 to 35.</p>"
+            "smithy.api#documentation": "<p>The number of days that automated snapshots are retained. If the value is 0,\n            automated snapshots are disabled. Even if automated snapshots are disabled, you can\n            still create manual snapshots when you want with <a>CreateClusterSnapshot</a>. </p>\n        \n        <p>You can't disable automated snapshots for RA3 node types. Set the automated retention period from 1-35 days.</p>\n        <p>Default: <code>1</code>\n        </p>\n        <p>Constraints: Must be a value from 0 to 35.</p>"
           }
         },
         "ManualSnapshotRetentionPeriod": {
@@ -2140,6 +2294,12 @@
           "target": "com.amazonaws.redshift#BooleanOptional",
           "traits": {
             "smithy.api#documentation": "<p>The option to enable relocation for an Amazon Redshift cluster between Availability Zones after the cluster is created.</p>"
+          }
+        },
+        "AquaConfigurationStatus": {
+          "target": "com.amazonaws.redshift#AquaConfigurationStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) when it is created. Possible values include the following.</p>\n        <ul>\n            <li>\n               <p>enabled - Use AQUA if it is available for the current AWS Region and Amazon Redshift node type.</p>\n            </li>\n            <li>\n               <p>disabled - Don't use AQUA. </p>\n            </li>\n            <li>\n               <p>auto - Amazon Redshift determines whether to use AQUA.</p>\n            </li>\n         </ul>"
           }
         }
       },
@@ -2444,6 +2604,87 @@
         }
       }
     },
+    "com.amazonaws.redshift#CreateEndpointAccess": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.redshift#CreateEndpointAccessMessage"
+      },
+      "output": {
+        "target": "com.amazonaws.redshift#EndpointAccess"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.redshift#AccessToClusterDeniedFault"
+        },
+        {
+          "target": "com.amazonaws.redshift#ClusterNotFoundFault"
+        },
+        {
+          "target": "com.amazonaws.redshift#ClusterSubnetGroupNotFoundFault"
+        },
+        {
+          "target": "com.amazonaws.redshift#EndpointAlreadyExistsFault"
+        },
+        {
+          "target": "com.amazonaws.redshift#EndpointsPerAuthorizationLimitExceededFault"
+        },
+        {
+          "target": "com.amazonaws.redshift#EndpointsPerClusterLimitExceededFault"
+        },
+        {
+          "target": "com.amazonaws.redshift#InvalidClusterSecurityGroupStateFault"
+        },
+        {
+          "target": "com.amazonaws.redshift#InvalidClusterStateFault"
+        },
+        {
+          "target": "com.amazonaws.redshift#UnauthorizedOperation"
+        },
+        {
+          "target": "com.amazonaws.redshift#UnsupportedOperationFault"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Creates a Redshift-managed VPC endpoint.</p>"
+      }
+    },
+    "com.amazonaws.redshift#CreateEndpointAccessMessage": {
+      "type": "structure",
+      "members": {
+        "ClusterIdentifier": {
+          "target": "com.amazonaws.redshift#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The cluster identifier of the cluster to access.</p>"
+          }
+        },
+        "ResourceOwner": {
+          "target": "com.amazonaws.redshift#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS account ID of the owner of the cluster. This is only required if the cluster is in another AWS account.</p>"
+          }
+        },
+        "EndpointName": {
+          "target": "com.amazonaws.redshift#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Redshift-managed VPC endpoint name.</p>\n         <p>An endpoint name must contain 1-30 characters.\n          Valid characters are A-Z, a-z, 0-9, and hyphen(-).\n          The first character must be a letter.\n          The name can't contain two consecutive hyphens or end with a hyphen.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "SubnetGroupName": {
+          "target": "com.amazonaws.redshift#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "VpcSecurityGroupIds": {
+          "target": "com.amazonaws.redshift#VpcSecurityGroupIdList",
+          "traits": {
+            "smithy.api#documentation": "<p>The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.</p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.redshift#CreateEventSubscription": {
       "type": "operation",
       "input": {
@@ -2580,7 +2821,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates an HSM client certificate that an Amazon Redshift cluster will use to connect to\n            the client's HSM in order to store and retrieve the keys used to encrypt the cluster\n            databases.</p>\n        <p>The command returns a public key, which you must store in the HSM. In addition to\n            creating the HSM certificate, you must create an Amazon Redshift HSM configuration that\n            provides a cluster the information needed to store and use encryption keys in the HSM.\n            For more information, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html\">Hardware Security Modules</a>\n            in the Amazon Redshift Cluster Management Guide.</p>"
+        "smithy.api#documentation": "<p>Creates an HSM client certificate that an Amazon Redshift cluster will use to connect to\n            the client's HSM in order to store and retrieve the keys used to encrypt the cluster\n            databases.</p>\n        <p>The command returns a public key, which you must store in the HSM. In addition to\n            creating the HSM certificate, you must create an Amazon Redshift HSM configuration that\n            provides a cluster the information needed to store and use encryption keys in the HSM.\n            For more information, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html#working-with-HSM\">Hardware Security Modules</a>\n            in the <i>Amazon Redshift Cluster Management Guide</i>.</p>"
       }
     },
     "com.amazonaws.redshift#CreateHsmClientCertificateMessage": {
@@ -3418,6 +3659,47 @@
       },
       "traits": {
         "smithy.api#documentation": "<p></p>"
+      }
+    },
+    "com.amazonaws.redshift#DeleteEndpointAccess": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.redshift#DeleteEndpointAccessMessage"
+      },
+      "output": {
+        "target": "com.amazonaws.redshift#EndpointAccess"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.redshift#ClusterNotFoundFault"
+        },
+        {
+          "target": "com.amazonaws.redshift#EndpointNotFoundFault"
+        },
+        {
+          "target": "com.amazonaws.redshift#InvalidClusterSecurityGroupStateFault"
+        },
+        {
+          "target": "com.amazonaws.redshift#InvalidClusterStateFault"
+        },
+        {
+          "target": "com.amazonaws.redshift#InvalidEndpointStateFault"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes a Redshift-managed VPC endpoint.</p>"
+      }
+    },
+    "com.amazonaws.redshift#DeleteEndpointAccessMessage": {
+      "type": "structure",
+      "members": {
+        "EndpointName": {
+          "target": "com.amazonaws.redshift#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Redshift-managed VPC endpoint to delete.</p>",
+            "smithy.api#required": {}
+          }
+        }
       }
     },
     "com.amazonaws.redshift#DeleteEventSubscription": {
@@ -4406,6 +4688,125 @@
       "members": {
         "DefaultClusterParameters": {
           "target": "com.amazonaws.redshift#DefaultClusterParameters"
+        }
+      }
+    },
+    "com.amazonaws.redshift#DescribeEndpointAccess": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.redshift#DescribeEndpointAccessMessage"
+      },
+      "output": {
+        "target": "com.amazonaws.redshift#EndpointAccessList"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.redshift#ClusterNotFoundFault"
+        },
+        {
+          "target": "com.amazonaws.redshift#EndpointNotFoundFault"
+        },
+        {
+          "target": "com.amazonaws.redshift#InvalidClusterStateFault"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Describes a Redshift-managed VPC endpoint.</p>"
+      }
+    },
+    "com.amazonaws.redshift#DescribeEndpointAccessMessage": {
+      "type": "structure",
+      "members": {
+        "ClusterIdentifier": {
+          "target": "com.amazonaws.redshift#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The cluster identifier associated with the described endpoint.</p>"
+          }
+        },
+        "ResourceOwner": {
+          "target": "com.amazonaws.redshift#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS account ID of the owner of the cluster.</p>"
+          }
+        },
+        "EndpointName": {
+          "target": "com.amazonaws.redshift#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the endpoint to be described.</p>"
+          }
+        },
+        "VpcId": {
+          "target": "com.amazonaws.redshift#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The virtual private cloud (VPC) identifier with access to the cluster.</p>"
+          }
+        },
+        "MaxRecords": {
+          "target": "com.amazonaws.redshift#IntegerOptional",
+          "traits": {
+            "smithy.api#documentation": "<p>Reserved for Amazon Redshift internal use.</p>"
+          }
+        },
+        "Marker": {
+          "target": "com.amazonaws.redshift#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Reserved for Amazon Redshift internal use.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.redshift#DescribeEndpointAuthorization": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.redshift#DescribeEndpointAuthorizationMessage"
+      },
+      "output": {
+        "target": "com.amazonaws.redshift#EndpointAuthorizationList"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.redshift#ClusterNotFoundFault"
+        },
+        {
+          "target": "com.amazonaws.redshift#UnsupportedOperationFault"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Describes an endpoint authorization.</p>"
+      }
+    },
+    "com.amazonaws.redshift#DescribeEndpointAuthorizationMessage": {
+      "type": "structure",
+      "members": {
+        "ClusterIdentifier": {
+          "target": "com.amazonaws.redshift#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The cluster identifier of the cluster to access.</p>"
+          }
+        },
+        "Account": {
+          "target": "com.amazonaws.redshift#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS account ID of either the cluster owner (grantor) or grantee. \n       If <code>Grantee</code> parameter is true, then the <code>Account</code> value is of the grantor.</p>"
+          }
+        },
+        "Grantee": {
+          "target": "com.amazonaws.redshift#BooleanOptional",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether to check authorization from a grantor or grantee point of view. \n           If true, Amazon Redshift returns endpoint authorizations that you've been granted.\n           If false (default), checks authorization from a grantor point of view.</p>"
+          }
+        },
+        "MaxRecords": {
+          "target": "com.amazonaws.redshift#IntegerOptional",
+          "traits": {
+            "smithy.api#documentation": "<p>Reserved for Amazon Redshift internal use.</p>"
+          }
+        },
+        "Marker": {
+          "target": "com.amazonaws.redshift#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Reserved for Amazon Redshift internal use.</p>"
+          }
         }
       }
     },
@@ -5760,7 +6161,7 @@
           }
         },
         "VpcEndpoints": {
-          "target": "com.amazonaws.redshift#SpartaProxyVpcEndpointList",
+          "target": "com.amazonaws.redshift#VpcEndpointsList",
           "traits": {
             "smithy.api#documentation": "<p>Describes a connection endpoint.</p>"
           }
@@ -5768,6 +6169,270 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Describes a connection endpoint.</p>"
+      }
+    },
+    "com.amazonaws.redshift#EndpointAccess": {
+      "type": "structure",
+      "members": {
+        "ClusterIdentifier": {
+          "target": "com.amazonaws.redshift#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The cluster identifier of the cluster associated with the endpoint.</p>"
+          }
+        },
+        "ResourceOwner": {
+          "target": "com.amazonaws.redshift#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS account ID of the owner of the cluster.</p>"
+          }
+        },
+        "SubnetGroupName": {
+          "target": "com.amazonaws.redshift#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The subnet group name where Amazon Redshift chooses to deploy the endpoint.</p>"
+          }
+        },
+        "EndpointStatus": {
+          "target": "com.amazonaws.redshift#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the endpoint.</p>"
+          }
+        },
+        "EndpointName": {
+          "target": "com.amazonaws.redshift#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the endpoint.</p>"
+          }
+        },
+        "EndpointCreateTime": {
+          "target": "com.amazonaws.redshift#TStamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time (UTC) that the endpoint was created.</p>"
+          }
+        },
+        "Port": {
+          "target": "com.amazonaws.redshift#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The port number on which the cluster accepts incoming connections.</p>"
+          }
+        },
+        "Address": {
+          "target": "com.amazonaws.redshift#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The DNS address of the endpoint.</p>"
+          }
+        },
+        "VpcSecurityGroups": {
+          "target": "com.amazonaws.redshift#VpcSecurityGroupMembershipList",
+          "traits": {
+            "smithy.api#documentation": "<p>The security groups associated with the endpoint.</p>"
+          }
+        },
+        "VpcEndpoint": {
+          "target": "com.amazonaws.redshift#VpcEndpoint"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes a Redshift-managed VPC endpoint.</p>"
+      }
+    },
+    "com.amazonaws.redshift#EndpointAccessList": {
+      "type": "structure",
+      "members": {
+        "EndpointAccessList": {
+          "target": "com.amazonaws.redshift#EndpointAccesses",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of endpoints with access to the cluster.</p>"
+          }
+        },
+        "Marker": {
+          "target": "com.amazonaws.redshift#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Reserved for Amazon Redshift internal use.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.redshift#EndpointAccesses": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.redshift#EndpointAccess"
+      }
+    },
+    "com.amazonaws.redshift#EndpointAlreadyExistsFault": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.redshift#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The account already has a Redshift-managed VPC endpoint with the given identifier.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.redshift#EndpointAuthorization": {
+      "type": "structure",
+      "members": {
+        "Grantor": {
+          "target": "com.amazonaws.redshift#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS account ID of the cluster owner.</p>"
+          }
+        },
+        "Grantee": {
+          "target": "com.amazonaws.redshift#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS account ID of the grantee of the cluster.</p>"
+          }
+        },
+        "ClusterIdentifier": {
+          "target": "com.amazonaws.redshift#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The cluster identifier.</p>"
+          }
+        },
+        "AuthorizeTime": {
+          "target": "com.amazonaws.redshift#TStamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time (UTC) when the authorization was created.</p>"
+          }
+        },
+        "ClusterStatus": {
+          "target": "com.amazonaws.redshift#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the cluster.</p>"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.redshift#AuthorizationStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the authorization action.</p>"
+          }
+        },
+        "AllowedAllVPCs": {
+          "target": "com.amazonaws.redshift#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether all VPCs in the grantee account are allowed access to the cluster.</p>"
+          }
+        },
+        "AllowedVPCs": {
+          "target": "com.amazonaws.redshift#VpcIdentifierList",
+          "traits": {
+            "smithy.api#documentation": "<p>The VPCs allowed access to the cluster.</p>"
+          }
+        },
+        "EndpointCount": {
+          "target": "com.amazonaws.redshift#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of Redshift-managed VPC endpoints created for the authorization.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes an endpoint authorization for authorizing Redshift-managed VPC endpoint access to a cluster across AWS accounts.</p>"
+      }
+    },
+    "com.amazonaws.redshift#EndpointAuthorizationAlreadyExistsFault": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.redshift#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The authorization already exists for this endpoint.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.redshift#EndpointAuthorizationList": {
+      "type": "structure",
+      "members": {
+        "EndpointAuthorizationList": {
+          "target": "com.amazonaws.redshift#EndpointAuthorizations",
+          "traits": {
+            "smithy.api#documentation": "<p>The authorizations to an endpoint.</p>"
+          }
+        },
+        "Marker": {
+          "target": "com.amazonaws.redshift#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Reserved for Amazon Redshift internal use.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.redshift#EndpointAuthorizationNotFoundFault": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.redshift#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The authorization for this endpoint can't be found.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
+      }
+    },
+    "com.amazonaws.redshift#EndpointAuthorizations": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.redshift#EndpointAuthorization"
+      }
+    },
+    "com.amazonaws.redshift#EndpointAuthorizationsPerClusterLimitExceededFault": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.redshift#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The number of endpoint authorizations per cluster has exceeded its limit.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.redshift#EndpointNotFoundFault": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.redshift#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The endpoint name doesn't refer to an existing endpoint.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
+      }
+    },
+    "com.amazonaws.redshift#EndpointsPerAuthorizationLimitExceededFault": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.redshift#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The number of Redshift-managed VPC endpoints per authorization has exceeded its limit.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.redshift#EndpointsPerClusterLimitExceededFault": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.redshift#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The number of Redshift-managed VPC endpoints per cluster has exceeded its limit.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.redshift#Event": {
@@ -6558,6 +7223,19 @@
         "smithy.api#box": {}
       }
     },
+    "com.amazonaws.redshift#InvalidAuthorizationStateFault": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.redshift#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The status of the authorization is not valid.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
     "com.amazonaws.redshift#InvalidClusterParameterGroupStateFault": {
       "type": "structure",
       "members": {
@@ -6671,6 +7349,19 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>The Elastic IP (EIP) is invalid or cannot be found.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.redshift#InvalidEndpointStateFault": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.redshift#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The status of the endpoint is not valid.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -6990,6 +7681,55 @@
         ]
       }
     },
+    "com.amazonaws.redshift#ModifyAquaConfiguration": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.redshift#ModifyAquaInputMessage"
+      },
+      "output": {
+        "target": "com.amazonaws.redshift#ModifyAquaOutputMessage"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.redshift#ClusterNotFoundFault"
+        },
+        {
+          "target": "com.amazonaws.redshift#UnsupportedOperationFault"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Modifies whether a cluster can use AQUA (Advanced Query Accelerator). </p>"
+      }
+    },
+    "com.amazonaws.redshift#ModifyAquaInputMessage": {
+      "type": "structure",
+      "members": {
+        "ClusterIdentifier": {
+          "target": "com.amazonaws.redshift#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the cluster to be modified.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AquaConfigurationStatus": {
+          "target": "com.amazonaws.redshift#AquaConfigurationStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The new value of AQUA configuration status. Possible values include the following.</p>\n        <ul>\n            <li>\n               <p>enabled - Use AQUA if it is available for the current AWS Region and Amazon Redshift node type.</p>\n            </li>\n            <li>\n               <p>disabled - Don't use AQUA. </p>\n            </li>\n            <li>\n               <p>auto - Amazon Redshift determines whether to use AQUA.</p>\n            </li>\n         </ul>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.redshift#ModifyAquaOutputMessage": {
+      "type": "structure",
+      "members": {
+        "AquaConfiguration": {
+          "target": "com.amazonaws.redshift#AquaConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The updated AQUA configuration of the cluster. </p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.redshift#ModifyCluster": {
       "type": "operation",
       "input": {
@@ -7291,7 +8031,7 @@
         "AutomatedSnapshotRetentionPeriod": {
           "target": "com.amazonaws.redshift#IntegerOptional",
           "traits": {
-            "smithy.api#documentation": "<p>The number of days that automated snapshots are retained. If the value is 0,\n            automated snapshots are disabled. Even if automated snapshots are disabled, you can\n            still create manual snapshots when you want with <a>CreateClusterSnapshot</a>. </p>\n        <p>If you decrease the automated snapshot retention period from its current value,\n            existing automated snapshots that fall outside of the new retention period will be\n            immediately deleted.</p>\n        <p>Default: Uses existing setting.</p>\n        <p>Constraints: Must be a value from 0 to 35.</p>"
+            "smithy.api#documentation": "<p>The number of days that automated snapshots are retained. If the value is 0,\n            automated snapshots are disabled. Even if automated snapshots are disabled, you can\n            still create manual snapshots when you want with <a>CreateClusterSnapshot</a>. </p>\n        <p>If you decrease the automated snapshot retention period from its current value,\n            existing automated snapshots that fall outside of the new retention period will be\n            immediately deleted.</p>\n        \n        <p>You can't disable automated snapshots for RA3 node types. Set the automated retention period from 1-35 days.</p>\n        <p>Default: Uses existing setting.</p>\n        <p>Constraints: Must be a value from 0 to 35.</p>"
           }
         },
         "ManualSnapshotRetentionPeriod": {
@@ -7609,6 +8349,56 @@
       "members": {
         "ClusterSubnetGroup": {
           "target": "com.amazonaws.redshift#ClusterSubnetGroup"
+        }
+      }
+    },
+    "com.amazonaws.redshift#ModifyEndpointAccess": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.redshift#ModifyEndpointAccessMessage"
+      },
+      "output": {
+        "target": "com.amazonaws.redshift#EndpointAccess"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.redshift#ClusterNotFoundFault"
+        },
+        {
+          "target": "com.amazonaws.redshift#EndpointNotFoundFault"
+        },
+        {
+          "target": "com.amazonaws.redshift#InvalidClusterSecurityGroupStateFault"
+        },
+        {
+          "target": "com.amazonaws.redshift#InvalidClusterStateFault"
+        },
+        {
+          "target": "com.amazonaws.redshift#InvalidEndpointStateFault"
+        },
+        {
+          "target": "com.amazonaws.redshift#UnauthorizedOperation"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Modifies a Redshift-managed VPC endpoint.</p>"
+      }
+    },
+    "com.amazonaws.redshift#ModifyEndpointAccessMessage": {
+      "type": "structure",
+      "members": {
+        "EndpointName": {
+          "target": "com.amazonaws.redshift#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The endpoint to be modified.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "VpcSecurityGroupIds": {
+          "target": "com.amazonaws.redshift#VpcSecurityGroupIdList",
+          "traits": {
+            "smithy.api#documentation": "<p>The complete list of VPC security groups associated with the endpoint after the endpoint is modified.</p>"
+          }
         }
       }
     },
@@ -7949,6 +8739,47 @@
         }
       }
     },
+    "com.amazonaws.redshift#NetworkInterface": {
+      "type": "structure",
+      "members": {
+        "NetworkInterfaceId": {
+          "target": "com.amazonaws.redshift#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The network interface identifier. </p>"
+          }
+        },
+        "SubnetId": {
+          "target": "com.amazonaws.redshift#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The subnet identifier. </p>"
+          }
+        },
+        "PrivateIpAddress": {
+          "target": "com.amazonaws.redshift#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The IPv4 address of the network interface within the subnet. </p>"
+          }
+        },
+        "AvailabilityZone": {
+          "target": "com.amazonaws.redshift#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Availability Zone. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes a network interface. </p>"
+      }
+    },
+    "com.amazonaws.redshift#NetworkInterfaceList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.redshift#NetworkInterface",
+        "traits": {
+          "smithy.api#xmlName": "NetworkInterface"
+        }
+      }
+    },
     "com.amazonaws.redshift#NodeConfigurationOption": {
       "type": "structure",
       "members": {
@@ -8200,7 +9031,7 @@
         "ParameterValue": {
           "target": "com.amazonaws.redshift#String",
           "traits": {
-            "smithy.api#documentation": "<p>The value of the parameter.</p>"
+            "smithy.api#documentation": "<p>The value of the parameter. If <code>ParameterName</code> is <code>wlm_json_configuration</code>, \n            then the maximum size of <code>ParameterValue</code> is 8000 characters.</p>"
           }
         },
         "Description": {
@@ -8255,10 +9086,12 @@
       "traits": {
         "smithy.api#enum": [
           {
-            "value": "static"
+            "value": "static",
+            "name": "static"
           },
           {
-            "value": "dynamic"
+            "value": "dynamic",
+            "name": "dynamic"
           }
         ]
       }
@@ -8542,6 +9375,9 @@
           "target": "com.amazonaws.redshift#AuthorizeClusterSecurityGroupIngress"
         },
         {
+          "target": "com.amazonaws.redshift#AuthorizeEndpointAccess"
+        },
+        {
           "target": "com.amazonaws.redshift#AuthorizeSnapshotAccess"
         },
         {
@@ -8570,6 +9406,9 @@
         },
         {
           "target": "com.amazonaws.redshift#CreateClusterSubnetGroup"
+        },
+        {
+          "target": "com.amazonaws.redshift#CreateEndpointAccess"
         },
         {
           "target": "com.amazonaws.redshift#CreateEventSubscription"
@@ -8609,6 +9448,9 @@
         },
         {
           "target": "com.amazonaws.redshift#DeleteClusterSubnetGroup"
+        },
+        {
+          "target": "com.amazonaws.redshift#DeleteEndpointAccess"
         },
         {
           "target": "com.amazonaws.redshift#DeleteEventSubscription"
@@ -8666,6 +9508,12 @@
         },
         {
           "target": "com.amazonaws.redshift#DescribeDefaultClusterParameters"
+        },
+        {
+          "target": "com.amazonaws.redshift#DescribeEndpointAccess"
+        },
+        {
+          "target": "com.amazonaws.redshift#DescribeEndpointAuthorization"
         },
         {
           "target": "com.amazonaws.redshift#DescribeEventCategories"
@@ -8740,6 +9588,9 @@
           "target": "com.amazonaws.redshift#GetReservedNodeExchangeOfferings"
         },
         {
+          "target": "com.amazonaws.redshift#ModifyAquaConfiguration"
+        },
+        {
           "target": "com.amazonaws.redshift#ModifyCluster"
         },
         {
@@ -8762,6 +9613,9 @@
         },
         {
           "target": "com.amazonaws.redshift#ModifyClusterSubnetGroup"
+        },
+        {
+          "target": "com.amazonaws.redshift#ModifyEndpointAccess"
         },
         {
           "target": "com.amazonaws.redshift#ModifyEventSubscription"
@@ -8804,6 +9658,9 @@
         },
         {
           "target": "com.amazonaws.redshift#RevokeClusterSecurityGroupIngress"
+        },
+        {
+          "target": "com.amazonaws.redshift#RevokeEndpointAccess"
         },
         {
           "target": "com.amazonaws.redshift#RevokeSnapshotAccess"
@@ -9054,10 +9911,12 @@
       "traits": {
         "smithy.api#enum": [
           {
-            "value": "Regular"
+            "value": "Regular",
+            "name": "Regular"
           },
           {
-            "value": "Upgradable"
+            "value": "Upgradable",
+            "name": "Upgradable"
           }
         ]
       }
@@ -9602,7 +10461,7 @@
         "AutomatedSnapshotRetentionPeriod": {
           "target": "com.amazonaws.redshift#IntegerOptional",
           "traits": {
-            "smithy.api#documentation": "<p>The number of days that automated snapshots are retained. If the value is 0,\n            automated snapshots are disabled. Even if automated snapshots are disabled, you can\n            still create manual snapshots when you want with <a>CreateClusterSnapshot</a>. </p>\n        <p>Default: The value selected for the cluster from which the snapshot was\n            taken.</p>\n        <p>Constraints: Must be a value from 0 to 35.</p>"
+            "smithy.api#documentation": "<p>The number of days that automated snapshots are retained. If the value is 0,\n            automated snapshots are disabled. Even if automated snapshots are disabled, you can\n            still create manual snapshots when you want with <a>CreateClusterSnapshot</a>. </p>\n        \n        <p>You can't disable automated snapshots for RA3 node types. Set the automated retention period from 1-35 days.</p>\n        <p>Default: The value selected for the cluster from which the snapshot was\n            taken.</p>\n        <p>Constraints: Must be a value from 0 to 35.</p>"
           }
         },
         "ManualSnapshotRetentionPeriod": {
@@ -9663,6 +10522,12 @@
           "target": "com.amazonaws.redshift#BooleanOptional",
           "traits": {
             "smithy.api#documentation": "<p>The option to enable relocation for an Amazon Redshift cluster between Availability Zones after the cluster is restored.</p>"
+          }
+        },
+        "AquaConfigurationStatus": {
+          "target": "com.amazonaws.redshift#AquaConfigurationStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values include the following.</p>\n        <ul>\n            <li>\n               <p>enabled - Use AQUA if it is available for the current AWS Region and Amazon Redshift node type.</p>\n            </li>\n            <li>\n               <p>disabled - Don't use AQUA. </p>\n            </li>\n            <li>\n               <p>auto - Amazon Redshift determines whether to use AQUA.</p>\n            </li>\n         </ul>"
           }
         }
       },
@@ -9811,6 +10676,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The name of the table to create as a result of the current request.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "EnableCaseSensitiveIdentifier": {
+          "target": "com.amazonaws.redshift#BooleanOptional",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether name identifiers for database, schema, and table are case sensitive. \n            If <code>true</code>, the names are case sensitive. \n            If <code>false</code> (default), the names are not case sensitive.</p>"
           }
         }
       },
@@ -9968,6 +10839,70 @@
       "members": {
         "ClusterSecurityGroup": {
           "target": "com.amazonaws.redshift#ClusterSecurityGroup"
+        }
+      }
+    },
+    "com.amazonaws.redshift#RevokeEndpointAccess": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.redshift#RevokeEndpointAccessMessage"
+      },
+      "output": {
+        "target": "com.amazonaws.redshift#EndpointAuthorization"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.redshift#ClusterNotFoundFault"
+        },
+        {
+          "target": "com.amazonaws.redshift#EndpointAuthorizationNotFoundFault"
+        },
+        {
+          "target": "com.amazonaws.redshift#EndpointNotFoundFault"
+        },
+        {
+          "target": "com.amazonaws.redshift#InvalidAuthorizationStateFault"
+        },
+        {
+          "target": "com.amazonaws.redshift#InvalidClusterSecurityGroupStateFault"
+        },
+        {
+          "target": "com.amazonaws.redshift#InvalidClusterStateFault"
+        },
+        {
+          "target": "com.amazonaws.redshift#InvalidEndpointStateFault"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Revokes access to a cluster.</p>"
+      }
+    },
+    "com.amazonaws.redshift#RevokeEndpointAccessMessage": {
+      "type": "structure",
+      "members": {
+        "ClusterIdentifier": {
+          "target": "com.amazonaws.redshift#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The cluster to revoke access from.</p>"
+          }
+        },
+        "Account": {
+          "target": "com.amazonaws.redshift#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS account ID whose access is to be revoked.</p>"
+          }
+        },
+        "VpcIds": {
+          "target": "com.amazonaws.redshift#VpcIdentifierList",
+          "traits": {
+            "smithy.api#documentation": "<p>The virtual private cloud (VPC) identifiers for which access is to be revoked.</p>"
+          }
+        },
+        "Force": {
+          "target": "com.amazonaws.redshift#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether to force the revoke action. \n           If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted.</p>"
+          }
         }
       }
     },
@@ -10142,13 +11077,16 @@
       "traits": {
         "smithy.api#enum": [
           {
-            "value": "MODIFYING"
+            "value": "MODIFYING",
+            "name": "MODIFYING"
           },
           {
-            "value": "ACTIVE"
+            "value": "ACTIVE",
+            "name": "ACTIVE"
           },
           {
-            "value": "FAILED"
+            "value": "FAILED",
+            "name": "FAILED"
           }
         ]
       }
@@ -11040,44 +11978,26 @@
       "traits": {
         "smithy.api#enum": [
           {
-            "value": "cluster"
+            "value": "cluster",
+            "name": "cluster"
           },
           {
-            "value": "cluster-parameter-group"
+            "value": "cluster-parameter-group",
+            "name": "cluster_parameter_group"
           },
           {
-            "value": "cluster-security-group"
+            "value": "cluster-security-group",
+            "name": "cluster_security_group"
           },
           {
-            "value": "cluster-snapshot"
+            "value": "cluster-snapshot",
+            "name": "cluster_snapshot"
           },
           {
-            "value": "scheduled-action"
+            "value": "scheduled-action",
+            "name": "scheduled_action"
           }
         ]
-      }
-    },
-    "com.amazonaws.redshift#SpartaProxyVpcEndpoint": {
-      "type": "structure",
-      "members": {
-        "VpcEndpointId": {
-          "target": "com.amazonaws.redshift#String",
-          "traits": {
-            "smithy.api#documentation": "<p>The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.</p>"
-          }
-        }
-      },
-      "traits": {
-        "smithy.api#documentation": "<p>The connection endpoint for connecting an Amazon Redshift cluster through the proxy.</p>"
-      }
-    },
-    "com.amazonaws.redshift#SpartaProxyVpcEndpointList": {
-      "type": "list",
-      "member": {
-        "target": "com.amazonaws.redshift#SpartaProxyVpcEndpoint",
-        "traits": {
-          "smithy.api#xmlName": "SpartaProxyVpcEndpoint"
-        }
       }
     },
     "com.amazonaws.redshift#String": {
@@ -11412,19 +12332,24 @@
       "traits": {
         "smithy.api#enum": [
           {
-            "value": "PENDING"
+            "value": "PENDING",
+            "name": "PENDING"
           },
           {
-            "value": "IN_PROGRESS"
+            "value": "IN_PROGRESS",
+            "name": "IN_PROGRESS"
           },
           {
-            "value": "SUCCEEDED"
+            "value": "SUCCEEDED",
+            "name": "SUCCEEDED"
           },
           {
-            "value": "FAILED"
+            "value": "FAILED",
+            "name": "FAILED"
           },
           {
-            "value": "CANCELED"
+            "value": "CANCELED",
+            "name": "CANCELED"
           }
         ]
       }
@@ -11827,6 +12752,50 @@
         "target": "com.amazonaws.redshift#String",
         "traits": {
           "smithy.api#xmlName": "item"
+        }
+      }
+    },
+    "com.amazonaws.redshift#VpcEndpoint": {
+      "type": "structure",
+      "members": {
+        "VpcEndpointId": {
+          "target": "com.amazonaws.redshift#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.</p>"
+          }
+        },
+        "VpcId": {
+          "target": "com.amazonaws.redshift#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The VPC identifier that the endpoint is associated. </p>"
+          }
+        },
+        "NetworkInterfaces": {
+          "target": "com.amazonaws.redshift#NetworkInterfaceList",
+          "traits": {
+            "smithy.api#documentation": "<p>One or more network interfaces of the endpoint. Also known as an interface endpoint. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The connection endpoint for connecting to an Amazon Redshift cluster through the proxy.</p>"
+      }
+    },
+    "com.amazonaws.redshift#VpcEndpointsList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.redshift#VpcEndpoint",
+        "traits": {
+          "smithy.api#xmlName": "VpcEndpoint"
+        }
+      }
+    },
+    "com.amazonaws.redshift#VpcIdentifierList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.redshift#String",
+        "traits": {
+          "smithy.api#xmlName": "VpcIdentifier"
         }
       }
     },

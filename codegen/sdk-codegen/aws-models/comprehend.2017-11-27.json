@@ -798,6 +798,9 @@
           "target": "com.amazonaws.comprehend#ClassifyDocument"
         },
         {
+          "target": "com.amazonaws.comprehend#ContainsPiiEntities"
+        },
+        {
           "target": "com.amazonaws.comprehend#CreateDocumentClassifier"
         },
         {
@@ -989,6 +992,62 @@
         "smithy.api#httpError": 400
       }
     },
+    "com.amazonaws.comprehend#ContainsPiiEntities": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.comprehend#ContainsPiiEntitiesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.comprehend#ContainsPiiEntitiesResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.comprehend#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.comprehend#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.comprehend#TextSizeLimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.comprehend#UnsupportedLanguageException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Analyzes input text for the presence of personally identifiable information (PII) and\n      returns the labels of identified PII entity types such as name, address, bank account number,\n      or phone number.</p>"
+      }
+    },
+    "com.amazonaws.comprehend#ContainsPiiEntitiesRequest": {
+      "type": "structure",
+      "members": {
+        "Text": {
+          "target": "com.amazonaws.comprehend#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Creates a new document classification request to analyze a single document in real-time,\n      returning personally identifiable information (PII) entity labels.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "LanguageCode": {
+          "target": "com.amazonaws.comprehend#LanguageCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The language of the input documents.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.comprehend#ContainsPiiEntitiesResponse": {
+      "type": "structure",
+      "members": {
+        "Labels": {
+          "target": "com.amazonaws.comprehend#ListOfEntityLabels",
+          "traits": {
+            "smithy.api#documentation": "<p>The labels used in the document being analyzed. Individual labels represent personally\n      identifiable information (PII) entity types.</p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.comprehend#CreateDocumentClassifier": {
       "type": "operation",
       "input": {
@@ -1094,6 +1153,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Indicates the mode in which the classifier will be trained. The classifier can be trained\n      in multi-class mode, which identifies one and only one class for each document, or multi-label\n      mode, which identifies one or more labels for each document. In multi-label mode, multiple\n      labels for an individual document are separated by a delimiter. The default delimiter between\n      labels is a pipe (|).</p>"
           }
+        },
+        "ModelKmsKeyId": {
+          "target": "com.amazonaws.comprehend#KmsKeyId",
+          "traits": {
+            "smithy.api#documentation": "<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt\n      trained custom models. The ModelKmsKeyId can be either of the following formats:</p>\n         <ul>\n            <li>\n               <p>KMS Key ID: <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code>\n               </p>\n            </li>\n            <li>\n               <p>Amazon Resource Name (ARN) of a KMS Key:\n            <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code>\n               </p>\n            </li>\n         </ul>"
+          }
         }
       }
     },
@@ -1181,6 +1246,12 @@
           "target": "com.amazonaws.comprehend#TagList",
           "traits": {
             "smithy.api#documentation": "<p>Tags associated with the endpoint being created. A tag is a key-value pair that adds\n      metadata to the endpoint. For example, a tag with \"Sales\" as the key might be added to an\n      endpoint to indicate its use by the sales department. </p>"
+          }
+        },
+        "DataAccessRoleArn": {
+          "target": "com.amazonaws.comprehend#IamRoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS identity and Access Management (IAM) role that\n      grants Amazon Comprehend read access to trained custom models encrypted with a customer\n      managed key (ModelKmsKeyId).</p>"
           }
         }
       }
@@ -1288,6 +1359,12 @@
           "target": "com.amazonaws.comprehend#VpcConfig",
           "traits": {
             "smithy.api#documentation": "<p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing\n      the resources you are using for your custom entity recognizer. For more information, see\n        <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\">Amazon\n        VPC</a>. </p>"
+          }
+        },
+        "ModelKmsKeyId": {
+          "target": "com.amazonaws.comprehend#KmsKeyId",
+          "traits": {
+            "smithy.api#documentation": "<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt\n      trained custom models. The ModelKmsKeyId can be either of the following formats</p>\n         <ul>\n            <li>\n               <p>KMS Key ID: <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code>\n               </p>\n            </li>\n            <li>\n               <p>Amazon Resource Name (ARN) of a KMS Key:\n            <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code>\n               </p>\n            </li>\n         </ul>"
           }
         }
       }
@@ -2717,6 +2794,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Indicates the mode in which the specific classifier was trained. This also indicates the\n      format of input documents and the format of the confusion matrix. Each classifier can only be\n      trained in one mode and this cannot be changed once the classifier is trained.</p>"
           }
+        },
+        "ModelKmsKeyId": {
+          "target": "com.amazonaws.comprehend#KmsKeyId",
+          "traits": {
+            "smithy.api#documentation": "<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt\n      trained custom models. The ModelKmsKeyId can be either of the following formats:</p>\n         <ul>\n            <li>\n               <p>KMS Key ID: <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code>\n               </p>\n            </li>\n            <li>\n               <p>Amazon Resource Name (ARN) of a KMS Key:\n            <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code>\n               </p>\n            </li>\n         </ul>"
+          }
         }
       },
       "traits": {
@@ -2916,7 +2999,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The filter used to determine which endpoints are returned. You can filter jobs on\n      their name, model, status, or the date and time that they were created. You can only set one\n      filter at a time. </p>"
+        "smithy.api#documentation": "<p>The filter used to determine which endpoints are returned. You can filter jobs on their\n      name, model, status, or the date and time that they were created. You can only set one filter\n      at a time. </p>"
       }
     },
     "com.amazonaws.comprehend#EndpointProperties": {
@@ -2968,6 +3051,12 @@
           "target": "com.amazonaws.comprehend#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date and time that the endpoint was last modified.</p>"
+          }
+        },
+        "DataAccessRoleArn": {
+          "target": "com.amazonaws.comprehend#IamRoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the AWS identity and Access Management (IAM) role that\n      grants Amazon Comprehend read access to trained custom models encrypted with a customer\n      managed key (ModelKmsKeyId).</p>"
           }
         }
       },
@@ -3168,6 +3257,26 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Provides information about an entity. </p>\n         <p> </p>"
+      }
+    },
+    "com.amazonaws.comprehend#EntityLabel": {
+      "type": "structure",
+      "members": {
+        "Name": {
+          "target": "com.amazonaws.comprehend#PiiEntityType",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the label.</p>"
+          }
+        },
+        "Score": {
+          "target": "com.amazonaws.comprehend#Float",
+          "traits": {
+            "smithy.api#documentation": "<p>The level of confidence that Amazon Comprehend has in the accuracy of the\n      detection.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specifies one of the label or labels that categorize the personally identifiable\n      information (PII) entity being analyzed.</p>"
       }
     },
     "com.amazonaws.comprehend#EntityRecognizerAnnotations": {
@@ -3498,6 +3607,12 @@
           "traits": {
             "smithy.api#documentation": "<p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the\n      resources you are using for your custom entity recognizer. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\">Amazon\n        VPC</a>. </p>"
           }
+        },
+        "ModelKmsKeyId": {
+          "target": "com.amazonaws.comprehend#KmsKeyId",
+          "traits": {
+            "smithy.api#documentation": "<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt\n      trained custom models. The ModelKmsKeyId can be either of the following formats: </p>\n         <ul>\n            <li>\n               <p>KMS Key ID: <code>\"1234abcd-12ab-34cd-56ef-1234567890ab\"</code>\n               </p>\n            </li>\n            <li>\n               <p>Amazon Resource Name (ARN) of a KMS Key:\n            <code>\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\"</code>\n               </p>\n            </li>\n         </ul>"
+          }
         }
       },
       "traits": {
@@ -3560,7 +3675,7 @@
           "min": 0,
           "max": 64
         },
-        "smithy.api#pattern": "^(?:(?!\\\\n+|\\\\t+|\\\\r+|[\\r\\t\\n\\s,]).)+$"
+        "smithy.api#pattern": "^(?:(?!\\\\n+|\\\\t+|\\\\r+|[\\r\\t\\n,]).)+$"
       }
     },
     "com.amazonaws.comprehend#EntityTypesEvaluationMetrics": {
@@ -3694,13 +3809,13 @@
         "InputDataConfig": {
           "target": "com.amazonaws.comprehend#InputDataConfig",
           "traits": {
-            "smithy.api#documentation": "<p>The input data configuration that you supplied when you created the events detection job.</p>"
+            "smithy.api#documentation": "<p>The input data configuration that you supplied when you created the events detection\n      job.</p>"
           }
         },
         "OutputDataConfig": {
           "target": "com.amazonaws.comprehend#OutputDataConfig",
           "traits": {
-            "smithy.api#documentation": "<p>The output data configuration that you supplied when you created the events detection job.</p>"
+            "smithy.api#documentation": "<p>The output data configuration that you supplied when you created the events detection\n      job.</p>"
           }
         },
         "LanguageCode": {
@@ -4745,6 +4860,12 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.comprehend#Entity"
+      }
+    },
+    "com.amazonaws.comprehend#ListOfEntityLabels": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.comprehend#EntityLabel"
       }
     },
     "com.amazonaws.comprehend#ListOfKeyPhrases": {
@@ -6185,7 +6306,7 @@
         "ClientRequestToken": {
           "target": "com.amazonaws.comprehend#ClientRequestTokenString",
           "traits": {
-            "smithy.api#documentation": "<p>An unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.</p>",
+            "smithy.api#documentation": "<p>An unique identifier for the request. If you don't set the client request token, Amazon\n      Comprehend generates one.</p>",
             "smithy.api#idempotencyToken": {}
           }
         },
@@ -7409,7 +7530,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Amazon Comprehend can't process the language of the input text. For all custom entity\n      recognition APIs (such as <code>CreateEntityRecognizer</code>), only English, Spanish, French,\n      Italian, German, or Portuguese are accepted. For most other APIs, such as those for Custom\n      Classification, Amazon Comprehend accepts text in all supported languages. For a list of\n      supported languages, see <a>supported-languages</a>. </p>",
+        "smithy.api#documentation": "<p>Amazon Comprehend can't process the language of the input text. For custom entity\n      recognition APIs, only English, Spanish, French, Italian, German, or Portuguese are accepted.\n      For a list of supported languages, see <a>supported-languages</a>. </p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }

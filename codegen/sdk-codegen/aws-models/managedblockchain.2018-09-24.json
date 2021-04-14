@@ -31,7 +31,11 @@
   "shapes": {
     "com.amazonaws.managedblockchain#AccessDeniedException": {
       "type": "structure",
-      "members": {},
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.managedblockchain#String"
+        }
+      },
       "traits": {
         "smithy.api#documentation": "<p>You do not have sufficient access to perform this action.</p>",
         "smithy.api#error": "client",
@@ -61,7 +65,17 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>A policy type that defines the voting rules for the network. The rules decide if a proposal is approved. Approval may be based on criteria such as the percentage of <code>YES</code> votes and the duration of the proposal. The policy applies to all proposals and is specified when the network is created.</p>"
+        "smithy.api#documentation": "<p>A policy type that defines the voting rules for the network. The rules decide if a proposal is approved. Approval may be based on criteria such as the percentage of <code>YES</code> votes and the duration of the proposal. The policy applies to all proposals and is specified when the network is created.</p>\n         <p>Applies only to Hyperledger Fabric.</p>"
+      }
+    },
+    "com.amazonaws.managedblockchain#ArnString": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1011
+        },
+        "smithy.api#pattern": "^arn:.+:.+:.+:.+:.+"
       }
     },
     "com.amazonaws.managedblockchain#AvailabilityZoneString": {
@@ -108,10 +122,13 @@
         },
         {
           "target": "com.amazonaws.managedblockchain#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.managedblockchain#TooManyTagsException"
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a member within a Managed Blockchain network.</p>",
+        "smithy.api#documentation": "<p>Creates a member within a Managed Blockchain network.</p>\n         <p>Applies only to Hyperledger Fabric.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/networks/{NetworkId}/members",
@@ -191,10 +208,13 @@
         },
         {
           "target": "com.amazonaws.managedblockchain#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.managedblockchain#TooManyTagsException"
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a new blockchain network using Amazon Managed Blockchain.</p>",
+        "smithy.api#documentation": "<p>Creates a new blockchain network using Amazon Managed Blockchain.</p>\n         <p>Applies only to Hyperledger Fabric.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/networks",
@@ -259,6 +279,12 @@
             "smithy.api#documentation": "<p>Configuration properties for the first member within the network.</p>",
             "smithy.api#required": {}
           }
+        },
+        "Tags": {
+          "target": "com.amazonaws.managedblockchain#InputTagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>Tags to assign to the network. Each tag consists of a key and optional value.</p>\n         <p>When specifying tags during creation, you can specify multiple key-value pairs in a single request, with an overall maximum of 50 tags added to each resource.</p>\n         <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html\">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href=\"https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html\">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>"
+          }
         }
       }
     },
@@ -311,13 +337,16 @@
         },
         {
           "target": "com.amazonaws.managedblockchain#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.managedblockchain#TooManyTagsException"
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a peer node in a member.</p>",
+        "smithy.api#documentation": "<p>Creates a node on the specified blockchain network.</p>\n         <p>Applies to Hyperledger Fabric and Ethereum.</p>",
         "smithy.api#http": {
           "method": "POST",
-          "uri": "/networks/{NetworkId}/members/{MemberId}/nodes",
+          "uri": "/networks/{NetworkId}/nodes",
           "code": 200
         }
       }
@@ -336,7 +365,7 @@
         "NetworkId": {
           "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier of the network in which this node runs.</p>",
+            "smithy.api#documentation": "<p>The unique identifier of the network for the node.</p>\n         <p>Ethereum public networks have the following <code>NetworkId</code>s:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>n-ethereum-mainnet</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>n-ethereum-rinkeby</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>n-ethereum-ropsten</code>\n               </p>\n            </li>\n         </ul>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -344,9 +373,7 @@
         "MemberId": {
           "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier of the member that owns this node.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The unique identifier of the member that owns this node.</p>\n         <p>Applies only to Hyperledger Fabric.</p>"
           }
         },
         "NodeConfiguration": {
@@ -354,6 +381,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The properties of a node configuration.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.managedblockchain#InputTagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>Tags to assign to the node. Each tag consists of a key and optional value.</p>\n         <p>When specifying tags during creation, you can specify multiple key-value pairs in a single request, with an overall maximum of 50 tags added to each resource.</p>\n         <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html\">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href=\"https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html\">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>"
           }
         }
       }
@@ -395,10 +428,13 @@
         },
         {
           "target": "com.amazonaws.managedblockchain#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.managedblockchain#TooManyTagsException"
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a proposal for a change to the network that other members of the network can vote on, for example, a proposal to add a new member to the network. Any member can create a proposal.</p>",
+        "smithy.api#documentation": "<p>Creates a proposal for a change to the network that other members of the network can vote on, for example, a proposal to add a new member to the network. Any member can create a proposal.</p>\n         <p>Applies only to Hyperledger Fabric.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/networks/{NetworkId}/proposals",
@@ -444,6 +480,12 @@
           "traits": {
             "smithy.api#documentation": "<p>A description for the proposal that is visible to voting members, for example, \"Proposal to add Example Corp. as member.\"</p>"
           }
+        },
+        "Tags": {
+          "target": "com.amazonaws.managedblockchain#InputTagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>Tags to assign to the proposal. Each tag consists of a key and optional value.</p>\n         <p>When specifying tags during creation, you can specify multiple key-value pairs in a single request, with an overall maximum of 50 tags added to each resource. If the proposal is for a network invitation, the invitation inherits the tags added to the proposal.</p>\n         <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html\">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href=\"https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html\">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>"
+          }
         }
       }
     },
@@ -487,7 +529,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes a member. Deleting a member removes the member and all associated resources from the network. <code>DeleteMember</code> can only be called for a specified <code>MemberId</code> if the principal performing the action is associated with the AWS account that owns the member. In all other cases, the <code>DeleteMember</code> action is carried out as the result of an approved proposal to remove a member. If <code>MemberId</code> is the last member in a network specified by the last AWS account, the network is deleted also.</p>",
+        "smithy.api#documentation": "<p>Deletes a member. Deleting a member removes the member and all associated resources from the network. <code>DeleteMember</code> can only be called for a specified <code>MemberId</code> if the principal performing the action is associated with the AWS account that owns the member. In all other cases, the <code>DeleteMember</code> action is carried out as the result of an approved proposal to remove a member. If <code>MemberId</code> is the last member in a network specified by the last AWS account, the network is deleted also.</p>\n         <p>Applies only to Hyperledger Fabric.</p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/networks/{NetworkId}/members/{MemberId}",
@@ -549,10 +591,10 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes a peer node from a member that your AWS account owns. All data on the node is lost and cannot be recovered.</p>",
+        "smithy.api#documentation": "<p>Deletes a node that your AWS account owns. All data on the node is lost and cannot be recovered.</p>\n         <p>Applies to Hyperledger Fabric and Ethereum.</p>",
         "smithy.api#http": {
           "method": "DELETE",
-          "uri": "/networks/{NetworkId}/members/{MemberId}/nodes/{NodeId}",
+          "uri": "/networks/{NetworkId}/nodes/{NodeId}",
           "code": 200
         }
       }
@@ -563,7 +605,7 @@
         "NetworkId": {
           "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier of the network that the node belongs to.</p>",
+            "smithy.api#documentation": "<p>The unique identifier of the network that the node is on.</p>\n         <p>Ethereum public networks have the following <code>NetworkId</code>s:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>n-ethereum-mainnet</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>n-ethereum-rinkeby</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>n-ethereum-ropsten</code>\n               </p>\n            </li>\n         </ul>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -571,9 +613,8 @@
         "MemberId": {
           "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier of the member that owns this node.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The unique identifier of the member that owns this node.</p>\n         <p>Applies only to Hyperledger Fabric and is required for Hyperledger Fabric.</p>",
+            "smithy.api#httpQuery": "memberId"
           }
         },
         "NodeId": {
@@ -620,6 +661,9 @@
         "smithy.api#box": {}
       }
     },
+    "com.amazonaws.managedblockchain#ExceptionMessage": {
+      "type": "string"
+    },
     "com.amazonaws.managedblockchain#Framework": {
       "type": "string",
       "traits": {
@@ -627,6 +671,10 @@
           {
             "value": "HYPERLEDGER_FABRIC",
             "name": "HYPERLEDGER_FABRIC"
+          },
+          {
+            "value": "ETHEREUM",
+            "name": "ETHEREUM"
           }
         ]
       }
@@ -666,7 +714,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns detailed information about a member.</p>",
+        "smithy.api#documentation": "<p>Returns detailed information about a member.</p>\n         <p>Applies only to Hyperledger Fabric.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/networks/{NetworkId}/members/{MemberId}",
@@ -732,7 +780,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns detailed information about a network.</p>",
+        "smithy.api#documentation": "<p>Returns detailed information about a network.</p>\n         <p>Applies to Hyperledger Fabric and Ethereum.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/networks/{NetworkId}",
@@ -790,10 +838,10 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns detailed information about a peer node.</p>",
+        "smithy.api#documentation": "<p>Returns detailed information about a node.</p>\n         <p>Applies to Hyperledger Fabric and Ethereum.</p>",
         "smithy.api#http": {
           "method": "GET",
-          "uri": "/networks/{NetworkId}/members/{MemberId}/nodes/{NodeId}",
+          "uri": "/networks/{NetworkId}/nodes/{NodeId}",
           "code": 200
         }
       }
@@ -804,7 +852,7 @@
         "NetworkId": {
           "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier of the network to which the node belongs.</p>",
+            "smithy.api#documentation": "<p>The unique identifier of the network that the node is on.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -812,9 +860,8 @@
         "MemberId": {
           "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier of the member that owns the node.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The unique identifier of the member that owns the node.</p>\n         <p>Applies only to Hyperledger Fabric and is required for Hyperledger Fabric.</p>",
+            "smithy.api#httpQuery": "memberId"
           }
         },
         "NodeId": {
@@ -864,7 +911,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns detailed information about a proposal.</p>",
+        "smithy.api#documentation": "<p>Returns detailed information about a proposal.</p>\n         <p>Applies only to Hyperledger Fabric.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/networks/{NetworkId}/proposals/{ProposalId}",
@@ -915,6 +962,21 @@
         "smithy.api#documentation": "<p></p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.managedblockchain#InputTagMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.managedblockchain#TagKey"
+      },
+      "value": {
+        "target": "com.amazonaws.managedblockchain#TagValue"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 50
+        }
       }
     },
     "com.amazonaws.managedblockchain#InstanceTypeString": {
@@ -971,10 +1033,16 @@
         },
         "NetworkSummary": {
           "target": "com.amazonaws.managedblockchain#NetworkSummary"
+        },
+        "Arn": {
+          "target": "com.amazonaws.managedblockchain#ArnString",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the invitation. For more information about ARNs and their format, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>"
+          }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>An invitation to an AWS account to create a member and join the network.</p>"
+        "smithy.api#documentation": "<p>An invitation to an AWS account to create a member and join the network.</p>\n         <p>Applies only to Hyperledger Fabric.</p>"
       }
     },
     "com.amazonaws.managedblockchain#InvitationList": {
@@ -1022,7 +1090,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>An action to invite a specific AWS account to create a member and join the network. The <code>InviteAction</code> is carried out when a <code>Proposal</code> is <code>APPROVED</code>.</p>"
+        "smithy.api#documentation": "<p>An action to invite a specific AWS account to create a member and join the network. The <code>InviteAction</code> is carried out when a <code>Proposal</code> is <code>APPROVED</code>.</p>\n         <p>Applies only to Hyperledger Fabric.</p>"
       }
     },
     "com.amazonaws.managedblockchain#InviteActionList": {
@@ -1066,7 +1134,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns a listing of all invitations for the current AWS account.</p>",
+        "smithy.api#documentation": "<p>Returns a list of all invitations for the current AWS account.</p>\n         <p>Applies only to Hyperledger Fabric.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/invitations",
@@ -1138,7 +1206,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns a listing of the members in a network and properties of their configurations.</p>",
+        "smithy.api#documentation": "<p>Returns a list of the members in a network and properties of their configurations.</p>\n         <p>Applies only to Hyperledger Fabric.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/networks/{NetworkId}/members",
@@ -1239,7 +1307,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns information about the networks in which the current AWS account has members.</p>",
+        "smithy.api#documentation": "<p>Returns information about the networks in which the current AWS account participates.</p>\n         <p>Applies to Hyperledger Fabric and Ethereum.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/networks",
@@ -1272,7 +1340,7 @@
         "Status": {
           "target": "com.amazonaws.managedblockchain#NetworkStatus",
           "traits": {
-            "smithy.api#documentation": "<p>An optional status specifier. If provided, only networks currently in this status are listed.</p>",
+            "smithy.api#documentation": "<p>An optional status specifier. If provided, only networks currently in this status are listed.</p>\n         <p>Applies only to Hyperledger Fabric.</p>",
             "smithy.api#httpQuery": "status"
           }
         },
@@ -1332,10 +1400,10 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns information about the nodes within a network.</p>",
+        "smithy.api#documentation": "<p>Returns information about the nodes within a network.</p>\n         <p>Applies to Hyperledger Fabric and Ethereum.</p>",
         "smithy.api#http": {
           "method": "GET",
-          "uri": "/networks/{NetworkId}/members/{MemberId}/nodes",
+          "uri": "/networks/{NetworkId}/nodes",
           "code": 200
         },
         "smithy.api#paginated": {
@@ -1359,9 +1427,8 @@
         "MemberId": {
           "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier of the member who owns the nodes to list.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The unique identifier of the member who owns the nodes to list.</p>\n         <p>Applies only to Hyperledger Fabric and is required for Hyperledger Fabric.</p>",
+            "smithy.api#httpQuery": "memberId"
           }
         },
         "Status": {
@@ -1427,7 +1494,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns the listing of votes for a specified proposal, including the value of each vote and the unique identifier of the member that cast the vote.</p>",
+        "smithy.api#documentation": "<p>Returns the list of votes for a specified proposal, including the value of each vote and the unique identifier of the member that cast the vote.</p>\n         <p>Applies only to Hyperledger Fabric.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/networks/{NetworkId}/proposals/{ProposalId}/votes",
@@ -1481,7 +1548,7 @@
         "ProposalVotes": {
           "target": "com.amazonaws.managedblockchain#ProposalVoteList",
           "traits": {
-            "smithy.api#documentation": "<p>\n         The listing of votes.\n      </p>"
+            "smithy.api#documentation": "<p>\n         The list of votes.\n      </p>"
           }
         },
         "NextToken": {
@@ -1518,7 +1585,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns a listing of proposals for the network.</p>",
+        "smithy.api#documentation": "<p>Returns a list of proposals for the network.</p>\n         <p>Applies only to Hyperledger Fabric.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/networks/{NetworkId}/proposals",
@@ -1571,6 +1638,61 @@
           "target": "com.amazonaws.managedblockchain#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token that indicates the next set of results to retrieve.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.managedblockchain#ListTagsForResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.managedblockchain#ListTagsForResourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.managedblockchain#ListTagsForResourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.managedblockchain#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.managedblockchain#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.managedblockchain#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.managedblockchain#ResourceNotReadyException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns a list of tags for the specified resource. Each tag consists of a key and optional value.</p>\n         <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html\">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href=\"https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html\">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/tags/{ResourceArn}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.managedblockchain#ListTagsForResourceRequest": {
+      "type": "structure",
+      "members": {
+        "ResourceArn": {
+          "target": "com.amazonaws.managedblockchain#ArnString",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource. For more information about ARNs and their format, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.managedblockchain#ListTagsForResourceResponse": {
+      "type": "structure",
+      "members": {
+        "Tags": {
+          "target": "com.amazonaws.managedblockchain#OutputTagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags assigned to the resource.</p>"
           }
         }
       }
@@ -1653,10 +1775,22 @@
           "traits": {
             "smithy.api#documentation": "<p>The date and time that the member was created.</p>"
           }
+        },
+        "Tags": {
+          "target": "com.amazonaws.managedblockchain#OutputTagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>Tags assigned to the member. Tags consist of a key and optional value. For more information about tags, see <a href=\"https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html\">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>"
+          }
+        },
+        "Arn": {
+          "target": "com.amazonaws.managedblockchain#ArnString",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the member. For more information about ARNs and their format, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>"
+          }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Member configuration properties.</p>"
+        "smithy.api#documentation": "<p>Member configuration properties.</p>\n         <p>Applies only to Hyperledger Fabric.</p>"
       }
     },
     "com.amazonaws.managedblockchain#MemberConfiguration": {
@@ -1687,10 +1821,16 @@
           "traits": {
             "smithy.api#documentation": "<p>Configuration properties for logging events associated with a member of a Managed Blockchain network.</p>"
           }
+        },
+        "Tags": {
+          "target": "com.amazonaws.managedblockchain#InputTagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>Tags assigned to the member. Tags consist of a key and optional value. For more information about tags, see <a href=\"https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html\">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>\n         <p>When specifying tags during creation, you can specify multiple key-value pairs in a single request, with an overall maximum of 50 tags added to each resource.</p>"
+          }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Configuration properties of the member.</p>"
+        "smithy.api#documentation": "<p>Configuration properties of the member.</p>\n         <p>Applies only to Hyperledger Fabric.</p>"
       }
     },
     "com.amazonaws.managedblockchain#MemberFabricAttributes": {
@@ -1726,7 +1866,7 @@
         "AdminPassword": {
           "target": "com.amazonaws.managedblockchain#PasswordString",
           "traits": {
-            "smithy.api#documentation": "<p>The password for the member's initial administrative user. The <code>AdminPassword</code> must be at least eight characters long and no more than 32 characters. It must contain at least one uppercase letter, one lowercase letter, and one digit. It cannot have a single quote(‘), double quote(“), forward slash(/), backward slash(\\), @, or a space.</p>",
+            "smithy.api#documentation": "<p>The password for the member's initial administrative user. The <code>AdminPassword</code> must be at least eight characters long and no more than 32 characters. It must contain at least one uppercase letter, one lowercase letter, and one digit. It cannot have a single quotation mark (‘), a double quotation marks (“), a forward slash(/), a backward slash(\\), @, or a space.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1870,10 +2010,16 @@
           "traits": {
             "smithy.api#documentation": "<p>An indicator of whether the member is owned by your AWS account or a different AWS account.</p>"
           }
+        },
+        "Arn": {
+          "target": "com.amazonaws.managedblockchain#ArnString",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the member. For more information about ARNs and their format, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>"
+          }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>A summary of configuration properties for a member.</p>"
+        "smithy.api#documentation": "<p>A summary of configuration properties for a member.</p>\n         <p>Applies only to Hyperledger Fabric.</p>"
       }
     },
     "com.amazonaws.managedblockchain#MemberSummaryList": {
@@ -1954,10 +2100,36 @@
           "traits": {
             "smithy.api#documentation": "<p>The date and time that the network was created.</p>"
           }
+        },
+        "Tags": {
+          "target": "com.amazonaws.managedblockchain#OutputTagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>Tags assigned to the network. Each tag consists of a key and optional value.</p>\n         <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html\">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href=\"https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html\">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>"
+          }
+        },
+        "Arn": {
+          "target": "com.amazonaws.managedblockchain#ArnString",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the network. For more information about ARNs and their format, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>"
+          }
         }
       },
       "traits": {
         "smithy.api#documentation": "<p>Network configuration properties.</p>"
+      }
+    },
+    "com.amazonaws.managedblockchain#NetworkEthereumAttributes": {
+      "type": "structure",
+      "members": {
+        "ChainId": {
+          "target": "com.amazonaws.managedblockchain#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Ethereum <code>CHAIN_ID</code> associated with the Ethereum network. Chain IDs are as follows:</p>\n         <ul>\n            <li>\n               <p>mainnet = <code>1</code>\n               </p>\n            </li>\n            <li>\n               <p>rinkeby = <code>4</code>\n               </p>\n            </li>\n            <li>\n               <p>ropsten = <code>3</code>\n               </p>\n            </li>\n         </ul>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Attributes of Ethereum for a network. </p>"
       }
     },
     "com.amazonaws.managedblockchain#NetworkFabricAttributes": {
@@ -2003,6 +2175,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Attributes of Hyperledger Fabric for a Managed Blockchain network that uses Hyperledger Fabric.</p>"
           }
+        },
+        "Ethereum": {
+          "target": "com.amazonaws.managedblockchain#NetworkEthereumAttributes",
+          "traits": {
+            "smithy.api#documentation": "<p>Attributes of an Ethereum network for Managed Blockchain resources participating in an Ethereum network. </p>"
+          }
         }
       },
       "traits": {
@@ -2040,7 +2218,7 @@
           "min": 1,
           "max": 64
         },
-        "smithy.api#pattern": "^(?!-)^[^0-9](?!.*--)[A-Za-z0-9-]+[^- ]$"
+        "smithy.api#pattern": "^(?!-|[0-9])(?!.*-$)(?!.*?--)[a-zA-Z0-9-]+$"
       }
     },
     "com.amazonaws.managedblockchain#NetworkStatus": {
@@ -2114,6 +2292,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The date and time that the network was created.</p>"
           }
+        },
+        "Arn": {
+          "target": "com.amazonaws.managedblockchain#ArnString",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the network. For more information about ARNs and their format, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>"
+          }
         }
       },
       "traits": {
@@ -2132,13 +2316,13 @@
         "NetworkId": {
           "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier of the network that the node is in.</p>"
+            "smithy.api#documentation": "<p>The unique identifier of the network that the node is on.</p>"
           }
         },
         "MemberId": {
           "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier of the member to which the node belongs.</p>"
+            "smithy.api#documentation": "<p>The unique identifier of the member to which the node belongs.</p>\n         <p>Applies only to Hyperledger Fabric.</p>"
           }
         },
         "Id": {
@@ -2156,7 +2340,7 @@
         "AvailabilityZone": {
           "target": "com.amazonaws.managedblockchain#AvailabilityZoneString",
           "traits": {
-            "smithy.api#documentation": "<p>The Availability Zone in which the node exists.</p>"
+            "smithy.api#documentation": "<p>The Availability Zone in which the node exists. Required for Ethereum nodes. </p>"
           }
         },
         "FrameworkAttributes": {
@@ -2168,13 +2352,13 @@
         "LogPublishingConfiguration": {
           "target": "com.amazonaws.managedblockchain#NodeLogPublishingConfiguration",
           "traits": {
-            "smithy.api#documentation": "<p>Configuration properties for logging events associated with a peer node owned by a member in a Managed Blockchain network.</p>"
+            "smithy.api#documentation": "<p>Configuration properties for logging events associated with a peer node on a Hyperledger Fabric network on Managed Blockchain.</p>"
           }
         },
         "StateDB": {
           "target": "com.amazonaws.managedblockchain#StateDBType",
           "traits": {
-            "smithy.api#documentation": "<p>The state database that the node uses. Values are <code>LevelDB</code> or <code>CouchDB</code>.</p>"
+            "smithy.api#documentation": "<p>The state database that the node uses. Values are <code>LevelDB</code> or <code>CouchDB</code>.</p>\n         <p>Applies only to Hyperledger Fabric.</p>"
           }
         },
         "Status": {
@@ -2188,10 +2372,22 @@
           "traits": {
             "smithy.api#documentation": "<p>The date and time that the node was created.</p>"
           }
+        },
+        "Tags": {
+          "target": "com.amazonaws.managedblockchain#OutputTagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>Tags assigned to the node. Each tag consists of a key and optional value.</p>\n         <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html\">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href=\"https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html\">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>"
+          }
+        },
+        "Arn": {
+          "target": "com.amazonaws.managedblockchain#ArnString",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the node. For more information about ARNs and their format, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>"
+          }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Configuration properties of a peer node.</p>"
+        "smithy.api#documentation": "<p>Configuration properties of a node.</p>"
       }
     },
     "com.amazonaws.managedblockchain#NodeConfiguration": {
@@ -2207,25 +2403,44 @@
         "AvailabilityZone": {
           "target": "com.amazonaws.managedblockchain#AvailabilityZoneString",
           "traits": {
-            "smithy.api#documentation": "<p>The Availability Zone in which the node exists.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The Availability Zone in which the node exists. Required for Ethereum nodes. </p>"
           }
         },
         "LogPublishingConfiguration": {
           "target": "com.amazonaws.managedblockchain#NodeLogPublishingConfiguration",
           "traits": {
-            "smithy.api#documentation": "<p>Configuration properties for logging events associated with a peer node owned by a member in a Managed Blockchain network.      \n      </p>"
+            "smithy.api#documentation": "<p>Configuration properties for logging events associated with a peer node on a Hyperledger Fabric network on Managed Blockchain.      \n      </p>"
           }
         },
         "StateDB": {
           "target": "com.amazonaws.managedblockchain#StateDBType",
           "traits": {
-            "smithy.api#documentation": "<p>The state database that the node uses. Values are <code>LevelDB</code> or <code>CouchDB</code>. When using an Amazon Managed Blockchain network with Hyperledger Fabric version 1.4 or later, the default is <code>CouchDB</code>.</p>"
+            "smithy.api#documentation": "<p>The state database that the node uses. Values are <code>LevelDB</code> or <code>CouchDB</code>. When using an Amazon Managed Blockchain network with Hyperledger Fabric version 1.4 or later, the default is <code>CouchDB</code>.</p>\n         <p>Applies only to Hyperledger Fabric.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Configuration properties of a peer node.</p>"
+        "smithy.api#documentation": "<p>Configuration properties of a node.</p>"
+      }
+    },
+    "com.amazonaws.managedblockchain#NodeEthereumAttributes": {
+      "type": "structure",
+      "members": {
+        "HttpEndpoint": {
+          "target": "com.amazonaws.managedblockchain#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The endpoint on which the Ethereum node listens to run Ethereum JSON-RPC methods over HTTP connections from a client. Use this endpoint in client code for smart contracts when using an HTTP connection. Connections to this endpoint are authenticated using <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">Signature Version 4</a>.</p>"
+          }
+        },
+        "WebSocketEndpoint": {
+          "target": "com.amazonaws.managedblockchain#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The endpoint on which the Ethereum node listens to run Ethereum JSON-RPC methods over WebSockets connections from a client. Use this endpoint in client code for smart contracts when using a WebSockets connection. Connections to this endpoint are authenticated using <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">Signature Version 4</a>.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Attributes of an Ethereum node.</p>"
       }
     },
     "com.amazonaws.managedblockchain#NodeFabricAttributes": {
@@ -2245,7 +2460,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Attributes of Hyperledger Fabric for a peer node on a Managed Blockchain network that uses Hyperledger Fabric.</p>"
+        "smithy.api#documentation": "<p>Attributes of Hyperledger Fabric for a peer node on a Hyperledger Fabric network on Managed Blockchain.</p>"
       }
     },
     "com.amazonaws.managedblockchain#NodeFabricLogPublishingConfiguration": {
@@ -2276,10 +2491,16 @@
           "traits": {
             "smithy.api#documentation": "<p>Attributes of Hyperledger Fabric for a peer node on a Managed Blockchain network that uses Hyperledger Fabric.</p>"
           }
+        },
+        "Ethereum": {
+          "target": "com.amazonaws.managedblockchain#NodeEthereumAttributes",
+          "traits": {
+            "smithy.api#documentation": "<p>Attributes of Ethereum for a node on a Managed Blockchain network that uses Ethereum. </p>"
+          }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Attributes relevant to a peer node on a Managed Blockchain network for the blockchain framework that the network uses.</p>"
+        "smithy.api#documentation": "<p>Attributes relevant to a node on a Managed Blockchain network for the blockchain framework that the network uses.</p>"
       }
     },
     "com.amazonaws.managedblockchain#NodeListMaxResults": {
@@ -2303,7 +2524,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Configuration properties for logging events associated with a peer node owned by a member in a Managed Blockchain network.</p>"
+        "smithy.api#documentation": "<p>Configuration properties for logging events associated with a peer node on a Hyperledger Fabric network on Managed Blockchain.</p>"
       }
     },
     "com.amazonaws.managedblockchain#NodeStatus": {
@@ -2317,6 +2538,10 @@
           {
             "value": "AVAILABLE",
             "name": "AVAILABLE"
+          },
+          {
+            "value": "UNHEALTHY",
+            "name": "UNHEALTHY"
           },
           {
             "value": "CREATE_FAILED",
@@ -2373,16 +2598,37 @@
           "traits": {
             "smithy.api#documentation": "<p>The EC2 instance type for the node.</p>"
           }
+        },
+        "Arn": {
+          "target": "com.amazonaws.managedblockchain#ArnString",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the node. For more information about ARNs and their format, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>"
+          }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>A summary of configuration properties for a peer node.</p>"
+        "smithy.api#documentation": "<p>A summary of configuration properties for a node.</p>"
       }
     },
     "com.amazonaws.managedblockchain#NodeSummaryList": {
       "type": "list",
       "member": {
         "target": "com.amazonaws.managedblockchain#NodeSummary"
+      }
+    },
+    "com.amazonaws.managedblockchain#OutputTagMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.managedblockchain#TagKey"
+      },
+      "value": {
+        "target": "com.amazonaws.managedblockchain#TagValue"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 200
+        }
       }
     },
     "com.amazonaws.managedblockchain#PaginationToken": {
@@ -2482,10 +2728,22 @@
           "traits": {
             "smithy.api#documentation": "<p>\n         The number of votes remaining to be cast on the proposal by members. In other words, the number of members minus the sum of <code>YES</code> votes and <code>NO</code> votes.\n      </p>"
           }
+        },
+        "Tags": {
+          "target": "com.amazonaws.managedblockchain#OutputTagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>Tags assigned to the proposal. Each tag consists of a key and optional value.</p>\n         <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html\">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href=\"https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html\">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>"
+          }
+        },
+        "Arn": {
+          "target": "com.amazonaws.managedblockchain#ArnString",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the proposal. For more information about ARNs and their format, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>"
+          }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Properties of a proposal on a Managed Blockchain network.</p>"
+        "smithy.api#documentation": "<p>Properties of a proposal on a Managed Blockchain network.</p>\n         <p>Applies only to Hyperledger Fabric.</p>"
       }
     },
     "com.amazonaws.managedblockchain#ProposalActions": {
@@ -2505,7 +2763,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n         The actions to carry out if a proposal is <code>APPROVED</code>.\n      </p>"
+        "smithy.api#documentation": "<p>\n         The actions to carry out if a proposal is <code>APPROVED</code>.\n      </p>\n         <p>Applies only to Hyperledger Fabric.</p>"
       }
     },
     "com.amazonaws.managedblockchain#ProposalDurationInt": {
@@ -2599,10 +2857,16 @@
           "traits": {
             "smithy.api#documentation": "<p>\n         The date and time that the proposal expires. This is the <code>CreationDate</code> plus the <code>ProposalDurationInHours</code> that is specified in the <code>ProposalThresholdPolicy</code>.  After this date and time, if members have not cast enough votes to determine the outcome according to the voting policy, the proposal is <code>EXPIRED</code> and <code>Actions</code> are not carried out.\n      </p>"
           }
+        },
+        "Arn": {
+          "target": "com.amazonaws.managedblockchain#ArnString",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the proposal. For more information about ARNs and their format, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>"
+          }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Properties of a proposal.</p>"
+        "smithy.api#documentation": "<p>Properties of a proposal.</p>\n         <p>Applies only to Hyperledger Fabric.</p>"
       }
     },
     "com.amazonaws.managedblockchain#ProposalSummaryList": {
@@ -2646,7 +2910,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Rejects an invitation to join a network. This action can be called by a principal in an AWS account that has received an invitation to create a member and join a network.</p>",
+        "smithy.api#documentation": "<p>Rejects an invitation to join a network. This action can be called by a principal in an AWS account that has received an invitation to create a member and join a network.</p>\n         <p>Applies only to Hyperledger Fabric.</p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/invitations/{InvitationId}",
@@ -2683,7 +2947,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>An action to remove a member from a Managed Blockchain network as the result of a removal proposal that is <code>APPROVED</code>. The member and all associated resources are deleted from the network.</p>"
+        "smithy.api#documentation": "<p>An action to remove a member from a Managed Blockchain network as the result of a removal proposal that is <code>APPROVED</code>. The member and all associated resources are deleted from the network.</p>\n         <p>Applies only to Hyperledger Fabric.</p>"
       }
     },
     "com.amazonaws.managedblockchain#RemoveActionList": {
@@ -2732,10 +2996,16 @@
       "members": {
         "Message": {
           "target": "com.amazonaws.managedblockchain#String"
+        },
+        "ResourceName": {
+          "target": "com.amazonaws.managedblockchain#ArnString",
+          "traits": {
+            "smithy.api#documentation": "<p>A requested resource does not exist. It may have been deleted or referenced inaccurately.</p>"
+          }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>A requested resource does not exist on the network. It may have been deleted or referenced inaccurately.</p>",
+        "smithy.api#documentation": "<p>A requested resource does not exist. It may have been deleted or referenced inaccurately.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
       }
@@ -2770,6 +3040,94 @@
     },
     "com.amazonaws.managedblockchain#String": {
       "type": "string"
+    },
+    "com.amazonaws.managedblockchain#TagKey": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        }
+      }
+    },
+    "com.amazonaws.managedblockchain#TagKeyList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.managedblockchain#TagKey"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 200
+        }
+      }
+    },
+    "com.amazonaws.managedblockchain#TagResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.managedblockchain#TagResourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.managedblockchain#TagResourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.managedblockchain#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.managedblockchain#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.managedblockchain#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.managedblockchain#ResourceNotReadyException"
+        },
+        {
+          "target": "com.amazonaws.managedblockchain#TooManyTagsException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Adds or overwrites the specified tags for the specified Amazon Managed Blockchain resource. Each tag consists of a key and optional value.</p>\n         <p>When you specify a tag key that already exists, the tag value is overwritten with the new value. Use <code>UntagResource</code> to remove tag keys.</p>\n         <p>A resource can have up to 50 tags. If you try to create more than 50 tags for a resource, your request fails and returns an error.</p>\n         <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html\">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href=\"https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html\">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/tags/{ResourceArn}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.managedblockchain#TagResourceRequest": {
+      "type": "structure",
+      "members": {
+        "ResourceArn": {
+          "target": "com.amazonaws.managedblockchain#ArnString",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource. For more information about ARNs and their format, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.managedblockchain#InputTagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags to assign to the specified resource. Tag values can be empty, for example, <code>\"MyTagKey\" : \"\"</code>. You can specify multiple key-value pairs in a single request, with an overall maximum of 50 tags added to each resource.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.managedblockchain#TagResourceResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.managedblockchain#TagValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        }
+      }
     },
     "com.amazonaws.managedblockchain#TaigaWebService": {
       "type": "service",
@@ -2824,7 +3182,16 @@
           "target": "com.amazonaws.managedblockchain#ListProposalVotes"
         },
         {
+          "target": "com.amazonaws.managedblockchain#ListTagsForResource"
+        },
+        {
           "target": "com.amazonaws.managedblockchain#RejectInvitation"
+        },
+        {
+          "target": "com.amazonaws.managedblockchain#TagResource"
+        },
+        {
+          "target": "com.amazonaws.managedblockchain#UntagResource"
         },
         {
           "target": "com.amazonaws.managedblockchain#UpdateMember"
@@ -2848,7 +3215,7 @@
           "name": "managedblockchain"
         },
         "aws.protocols#restJson1": {},
-        "smithy.api#documentation": "<p></p>\n         <p>Amazon Managed Blockchain is a fully managed service for creating and managing blockchain networks using open source frameworks. Blockchain allows you to build applications where multiple parties can securely and transparently run transactions and share data without the need for a trusted, central authority. Currently, Managed Blockchain supports the Hyperledger Fabric open source framework. </p>",
+        "smithy.api#documentation": "<p></p>\n         <p>Amazon Managed Blockchain is a fully managed service for creating and managing blockchain networks using open-source frameworks. Blockchain allows you to build applications where multiple parties can securely and transparently run transactions and share data without the need for a trusted, central authority.</p>\n        <p>Managed Blockchain supports the Hyperledger Fabric and Ethereum open-source frameworks. Because of fundamental differences between the frameworks, some API actions or data types may only apply in the context of one framework and not the other. For example, actions related to Hyperledger Fabric network members such as <code>CreateMember</code> and <code>DeleteMember</code> do not apply to Ethereum.</p>\n        <p>The description for each action indicates the framework or frameworks to which it applies. Data types and properties that apply only in the context of a particular framework are similarly indicated.</p>",
         "smithy.api#title": "Amazon Managed Blockchain"
       }
     },
@@ -2892,6 +3259,81 @@
         "smithy.api#timestampFormat": "date-time"
       }
     },
+    "com.amazonaws.managedblockchain#TooManyTagsException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.managedblockchain#ExceptionMessage"
+        },
+        "ResourceName": {
+          "target": "com.amazonaws.managedblockchain#ArnString",
+          "traits": {
+            "smithy.api#documentation": "<p></p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p></p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.managedblockchain#UntagResource": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.managedblockchain#UntagResourceRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.managedblockchain#UntagResourceResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.managedblockchain#InternalServiceErrorException"
+        },
+        {
+          "target": "com.amazonaws.managedblockchain#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.managedblockchain#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.managedblockchain#ResourceNotReadyException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Removes the specified tags from the Amazon Managed Blockchain resource.</p>\n         <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html\">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href=\"https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html\">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/tags/{ResourceArn}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.managedblockchain#UntagResourceRequest": {
+      "type": "structure",
+      "members": {
+        "ResourceArn": {
+          "target": "com.amazonaws.managedblockchain#ArnString",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource. For more information about ARNs and their format, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "TagKeys": {
+          "target": "com.amazonaws.managedblockchain#TagKeyList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tag keys.</p>",
+            "smithy.api#httpQuery": "tagKeys",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.managedblockchain#UntagResourceResponse": {
+      "type": "structure",
+      "members": {}
+    },
     "com.amazonaws.managedblockchain#UpdateMember": {
       "type": "operation",
       "input": {
@@ -2918,7 +3360,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Updates a member configuration with new parameters.</p>",
+        "smithy.api#documentation": "<p>Updates a member configuration with new parameters.</p>\n         <p>Applies only to Hyperledger Fabric.</p>",
         "smithy.api#http": {
           "method": "PATCH",
           "uri": "/networks/{NetworkId}/members/{MemberId}",
@@ -2932,7 +3374,7 @@
         "NetworkId": {
           "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
-            "smithy.api#documentation": "<p>The unique ID of the Managed Blockchain network to which the member belongs.</p>",
+            "smithy.api#documentation": "<p>The unique identifier of the Managed Blockchain network to which the member belongs.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -2940,7 +3382,7 @@
         "MemberId": {
           "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
-            "smithy.api#documentation": "<p>The unique ID of the member.</p>",
+            "smithy.api#documentation": "<p>The unique identifier of the member.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -2983,10 +3425,10 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Updates a node configuration with new parameters.</p>",
+        "smithy.api#documentation": "<p>Updates a node configuration with new parameters.</p>\n         <p>Applies only to Hyperledger Fabric.</p>",
         "smithy.api#http": {
           "method": "PATCH",
-          "uri": "/networks/{NetworkId}/members/{MemberId}/nodes/{NodeId}",
+          "uri": "/networks/{NetworkId}/nodes/{NodeId}",
           "code": 200
         }
       }
@@ -2997,7 +3439,7 @@
         "NetworkId": {
           "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
-            "smithy.api#documentation": "<p>The unique ID of the Managed Blockchain network to which the node belongs.</p>",
+            "smithy.api#documentation": "<p>The unique identifier of the network that the node is on.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -3005,15 +3447,13 @@
         "MemberId": {
           "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
-            "smithy.api#documentation": "<p>The unique ID of the member that owns the node.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The unique identifier of the member that owns the node.</p>\n         <p>Applies only to Hyperledger Fabric.</p>"
           }
         },
         "NodeId": {
           "target": "com.amazonaws.managedblockchain#ResourceIdString",
           "traits": {
-            "smithy.api#documentation": "<p>The unique ID of the node.</p>",
+            "smithy.api#documentation": "<p>The unique identifier of the node.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -3075,7 +3515,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Casts a vote for a specified <code>ProposalId</code> on behalf of a member. The member to vote as, specified by <code>VoterMemberId</code>, must be in the same AWS account as the principal that calls the action.</p>",
+        "smithy.api#documentation": "<p>Casts a vote for a specified <code>ProposalId</code> on behalf of a member. The member to vote as, specified by <code>VoterMemberId</code>, must be in the same AWS account as the principal that calls the action.</p>\n         <p>Applies only to Hyperledger Fabric.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/networks/{NetworkId}/proposals/{ProposalId}/votes",
@@ -3145,7 +3585,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n         Properties of an individual vote that a member cast for a proposal.\n      </p>"
+        "smithy.api#documentation": "<p>\n         Properties of an individual vote that a member cast for a proposal.\n      </p>\n         <p>Applies only to Hyperledger Fabric.</p>"
       }
     },
     "com.amazonaws.managedblockchain#VoteValue": {
@@ -3174,7 +3614,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n         The voting rules for the network to decide if a proposal is accepted\n      </p>"
+        "smithy.api#documentation": "<p>\n         The voting rules for the network to decide if a proposal is accepted\n      </p>\n         <p>Applies only to Hyperledger Fabric.</p>"
       }
     }
   }

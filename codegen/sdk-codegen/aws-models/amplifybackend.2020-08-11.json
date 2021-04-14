@@ -134,7 +134,8 @@
           "sdkId": "AmplifyBackend",
           "arnNamespace": "amplifybackend",
           "cloudFormationName": "AmplifyBackend",
-          "cloudTrailEventSource": "amplifybackend.amazonaws.com"
+          "cloudTrailEventSource": "amplifybackend.amazonaws.com",
+          "endpointPrefix": "amplifybackend"
         },
         "aws.auth#sigv4": {
           "name": "amplifybackend"

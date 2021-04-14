@@ -46,7 +46,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>An object that represents the AWS Cloud Map attribute information for your virtual\n         node.</p>"
+        "smithy.api#documentation": "<p>An object that represents the AWS Cloud Map attribute information for your virtual\n         node.</p>\n         <note>\n            <p>AWS Cloud Map is not available in the eu-south-1 Region.</p>\n         </note>"
       }
     },
     "com.amazonaws.appmesh#AwsCloudMapInstanceAttributeKey": {
@@ -81,8 +81,7 @@
         "smithy.api#length": {
           "min": 1,
           "max": 1024
-        },
-        "smithy.api#pattern": "((?=^.{1,127}$)^([a-zA-Z0-9_][a-zA-Z0-9-_]{0,61}[a-zA-Z0-9_]|[a-zA-Z0-9])(\\.([a-zA-Z0-9_][a-zA-Z0-9-_]{0,61}[a-zA-Z0-9_]|[a-zA-Z0-9]))*$)|(^\\.$)"
+        }
       }
     },
     "com.amazonaws.appmesh#AwsCloudMapServiceDiscovery": {
@@ -110,7 +109,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>An object that represents the AWS Cloud Map service discovery information for your virtual\n         node.</p>"
+        "smithy.api#documentation": "<p>An object that represents the AWS Cloud Map service discovery information for your virtual\n         node.</p>\n         <note>\n            <p>AWS Cloud Map is not available in the eu-south-1 Region.</p>\n         </note>"
       }
     },
     "com.amazonaws.appmesh#AppMesh": {
@@ -136,7 +135,9 @@
         "aws.api#service": {
           "sdkId": "App Mesh",
           "arnNamespace": "appmesh",
-          "cloudTrailEventSource": "appmesh.amazonaws.com"
+          "cloudFormationName": "AppMesh",
+          "cloudTrailEventSource": "appmesh.amazonaws.com",
+          "endpointPrefix": "appmesh"
         },
         "aws.auth#sigv4": {
           "name": "appmesh"
@@ -153,12 +154,12 @@
         "virtualService": {
           "target": "com.amazonaws.appmesh#VirtualServiceBackend",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies a virtual service to use as a backend for a virtual node. </p>"
+            "smithy.api#documentation": "<p>Specifies a virtual service to use as a backend.  </p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>An object that represents the backends that a virtual node is expected to send outbound\n         traffic to. </p>"
+        "smithy.api#documentation": "<p>An object that represents the backends that a virtual node is expected to send outbound\n         traffic to.</p>"
       }
     },
     "com.amazonaws.appmesh#BackendDefaults": {
@@ -227,13 +228,19 @@
           "target": "smithy.api#Boolean",
           "traits": {
             "smithy.api#box": {},
-            "smithy.api#documentation": "<p>Whether the policy is enforced. The default is <code>True</code>, if a value isn't\n         specified.</p>"
+            "smithy.api#documentation": "<p>Whether the policy is enforced. The default is <code>True</code>, if a value isn't specified.</p>"
           }
         },
         "ports": {
           "target": "com.amazonaws.appmesh#PortSet",
           "traits": {
             "smithy.api#documentation": "<p>One or more ports that the policy is enforced for.</p>"
+          }
+        },
+        "certificate": {
+          "target": "com.amazonaws.appmesh#ClientTlsCertificate",
+          "traits": {
+            "smithy.api#documentation": "<p>A reference to an object that represents a client's TLS certificate.</p>"
           }
         },
         "validation": {
@@ -245,7 +252,24 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>An object that represents a Transport Layer Security (TLS) client policy.</p>"
+        "smithy.api#documentation": "<p>A reference to an object that represents a Transport Layer Security (TLS) client policy.</p>"
+      }
+    },
+    "com.amazonaws.appmesh#ClientTlsCertificate": {
+      "type": "union",
+      "members": {
+        "file": {
+          "target": "com.amazonaws.appmesh#ListenerTlsFileCertificate"
+        },
+        "sds": {
+          "target": "com.amazonaws.appmesh#ListenerTlsSdsCertificate",
+          "traits": {
+            "smithy.api#documentation": "<p>A reference to an object that represents a client's TLS Secret Discovery Service\n         certificate.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An object that represents the client's certificate.</p>"
       }
     },
     "com.amazonaws.appmesh#ConflictException": {
@@ -296,7 +320,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a gateway route.</p>\n         <p>A gateway route is attached to a virtual gateway and routes traffic to an existing\n         virtual service. If a route matches a request, it can distribute traffic to a target virtual service.</p>\n         <p>For more information about gateway routes, see <a href=\"https://docs.aws.amazon.com/app-mesh/latest/userguide/gateway-routes.html\">Gateway routes</a>.</p>",
+        "smithy.api#documentation": "<p>Creates a gateway route.</p>\n         <p>A gateway route is attached to a virtual gateway and routes traffic to an existing\n         virtual service. If a route matches a request, it can distribute traffic to a target\n         virtual service.</p>\n         <p>For more information about gateway routes, see <a href=\"https://docs.aws.amazon.com/app-mesh/latest/userguide/gateway-routes.html\">Gateway routes</a>.</p>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/v20190125/meshes/{meshName}/virtualGateway/{virtualGatewayName}/gatewayRoutes",
@@ -622,7 +646,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a virtual gateway.</p>\n         <p>A virtual gateway allows resources outside your mesh to communicate to resources that\n         are inside your mesh. The virtual gateway represents an Envoy proxy running in an Amazon ECS\n         task, in a Kubernetes service, or on an Amazon EC2 instance. Unlike a virtual node, which\n         represents an Envoy running with an application, a virtual gateway represents Envoy deployed by itself.</p>\n         <p>For more information about virtual gateways, see <a href=\"https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_gateways.html\">Virtual gateways</a>.</p>",
+        "smithy.api#documentation": "<p>Creates a virtual gateway.</p>\n         <p>A virtual gateway allows resources outside your mesh to communicate to resources that\n         are inside your mesh. The virtual gateway represents an Envoy proxy running in an Amazon ECS\n         task, in a Kubernetes service, or on an Amazon EC2 instance. Unlike a virtual node, which\n         represents an Envoy running with an application, a virtual gateway represents Envoy\n         deployed by itself.</p>\n         <p>For more information about virtual gateways, see <a href=\"https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_gateways.html\">Virtual gateways</a>. </p>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/v20190125/meshes/{meshName}/virtualGateways",
@@ -726,7 +750,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a virtual node within a service mesh.</p>\n         <p> A virtual node acts as a logical pointer to a particular task group, such as an Amazon ECS\n         service or a Kubernetes deployment. When you create a virtual node, you can specify the\n         service discovery information for your task group, and whether the proxy running in a task\n         group will communicate with other proxies using Transport Layer Security (TLS).</p>\n         <p>You define a <code>listener</code> for any inbound traffic that your virtual node\n         expects. Any virtual service that your virtual node expects to communicate to is specified\n         as a <code>backend</code>.</p>\n         <p>The response metadata for your new virtual node contains the <code>arn</code> that is\n         associated with the virtual node. Set this value (either the full ARN or the truncated\n         resource name: for example, <code>mesh/default/virtualNode/simpleapp</code>) as the\n            <code>APPMESH_VIRTUAL_NODE_NAME</code> environment variable for your task group's Envoy\n         proxy container in your task definition or pod spec. This is then mapped to the\n            <code>node.id</code> and <code>node.cluster</code> Envoy parameters.</p>\n         <note>\n            <p>If you require your Envoy stats or tracing to use a different name, you can override\n            the <code>node.cluster</code> value that is set by\n               <code>APPMESH_VIRTUAL_NODE_NAME</code> with the\n               <code>APPMESH_VIRTUAL_NODE_CLUSTER</code> environment variable.</p>\n         </note>\n         <p>For more information about virtual nodes, see <a href=\"https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_nodes.html\">Virtual nodes</a>.</p>",
+        "smithy.api#documentation": "<p>Creates a virtual node within a service mesh.</p>\n         <p> A virtual node acts as a logical pointer to a particular task group, such as an Amazon ECS\n         service or a Kubernetes deployment. When you create a virtual node, you can specify the\n         service discovery information for your task group, and whether the proxy running in a task\n         group will communicate with other proxies using Transport Layer Security (TLS).</p>\n         <p>You define a <code>listener</code> for any inbound traffic that your virtual node\n         expects. Any virtual service that your virtual node expects to communicate to is specified\n         as a <code>backend</code>.</p>\n         <p>The response metadata for your new virtual node contains the <code>arn</code> that is\n         associated with the virtual node. Set this value to the full ARN; for example,\n            <code>arn:aws:appmesh:us-west-2:123456789012:myMesh/default/virtualNode/myApp</code>)\n         as the <code>APPMESH_RESOURCE_ARN</code> environment variable for your task group's Envoy\n         proxy container in your task definition or pod spec. This is then mapped to the\n            <code>node.id</code> and <code>node.cluster</code> Envoy parameters.</p>\n         <note>\n            <p>By default, App Mesh uses the name of the resource you specified in\n               <code>APPMESH_RESOURCE_ARN</code> when Envoy is referring to itself in metrics and\n            traces. You can override this behavior by setting the\n               <code>APPMESH_RESOURCE_CLUSTER</code> environment variable with your own name.</p>\n            <p>AWS Cloud Map is not available in the eu-south-1 Region.</p>\n         </note>\n         <p>For more information about virtual nodes, see <a href=\"https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_nodes.html\">Virtual nodes</a>. You must be using <code>1.15.0</code> or later of the Envoy image when\n         setting these variables. For more information about App Mesh Envoy variables, see <a href=\"https://docs.aws.amazon.com/app-mesh/latest/userguide/envoy.html\">Envoy image</a> in\n         the AWS App Mesh User Guide.</p>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/v20190125/meshes/{meshName}/virtualNodes",
@@ -2315,7 +2339,7 @@
         "path": {
           "target": "com.amazonaws.appmesh#FilePath",
           "traits": {
-            "smithy.api#documentation": "<p>The file path to write access logs to. You can use <code>/dev/stdout</code> to send\n         access logs to standard out and configure your Envoy container to use a log driver, such as\n            <code>awslogs</code>, to export the access logs to a log storage service such as Amazon\n         CloudWatch Logs. You can also specify a path in the Envoy container's file system to write\n         the files to disk.</p>\n         <note>\n            <p>The Envoy process must have write permissions to the path that you specify here.\n            Otherwise, Envoy fails to bootstrap properly.</p>\n         </note>",
+            "smithy.api#documentation": "<p>The file path to write access logs to. You can use <code>/dev/stdout</code> to send\n         access logs to standard out and configure your Envoy container to use a log driver, such as\n            <code>awslogs</code>, to export the access logs to a log storage service such as Amazon\n         CloudWatch Logs. You can also specify a path in the Envoy container's file system to write\n         the files to disk.</p> \n         <note>\n            <p>The Envoy process must have write permissions to the path that you specify here.\n            Otherwise, Envoy fails to bootstrap properly.</p>\n         </note>",
             "smithy.api#required": {}
           }
         }
@@ -2661,7 +2685,7 @@
         "perRetryTimeout": {
           "target": "com.amazonaws.appmesh#Duration",
           "traits": {
-            "smithy.api#documentation": "<p>An object that represents a duration of time.</p>",
+            "smithy.api#documentation": "<p>The timeout for each retry attempt.</p>",
             "smithy.api#required": {}
           }
         },
@@ -2681,7 +2705,7 @@
         "tcpRetryEvents": {
           "target": "com.amazonaws.appmesh#TcpRetryPolicyEvents",
           "traits": {
-            "smithy.api#documentation": "<p>Specify a valid value.</p>"
+            "smithy.api#documentation": "<p>Specify a valid value. The event occurs before any processing of a request has started and is encountered when the upstream is temporarily or permanently unavailable.</p>"
           }
         },
         "grpcRetryEvents": {
@@ -2892,7 +2916,7 @@
         "perRequest": {
           "target": "com.amazonaws.appmesh#Duration",
           "traits": {
-            "smithy.api#documentation": "<p>An object that represents a per request timeout. The default value is 15 seconds. If you set a higher timeout, then make sure that the higher value is set for each App Mesh resource in a conversation. For example, if a virtual node backend uses a virtual router provider to route to another virtual node, then the timeout should be greater than 15 seconds for the source and destination virtual node and the route.</p>"
+            "smithy.api#documentation": "<p>An object that represents a per request timeout. The default value is 15 seconds. If you set a higher timeout, then make sure that the higher value is set for each App Mesh \n                                  resource in a conversation. For example, if a virtual node backend uses a virtual router provider to route to another virtual node, then the timeout should be greater than 15\n                                  seconds for the source and destination virtual node and the route.</p>"
           }
         },
         "idle": {
@@ -3150,7 +3174,7 @@
         "perRetryTimeout": {
           "target": "com.amazonaws.appmesh#Duration",
           "traits": {
-            "smithy.api#documentation": "<p>An object that represents a duration of time.</p>",
+            "smithy.api#documentation": "<p>The timeout for each retry attempt.</p>",
             "smithy.api#required": {}
           }
         },
@@ -3170,7 +3194,7 @@
         "tcpRetryEvents": {
           "target": "com.amazonaws.appmesh#TcpRetryPolicyEvents",
           "traits": {
-            "smithy.api#documentation": "<p>Specify a valid value.</p>"
+            "smithy.api#documentation": "<p>Specify a valid value. The event occurs before any processing of a request has started and is encountered when the upstream is temporarily or permanently unavailable.</p>"
           }
         }
       },
@@ -3339,10 +3363,16 @@
       "type": "structure",
       "members": {
         "perRequest": {
-          "target": "com.amazonaws.appmesh#Duration"
+          "target": "com.amazonaws.appmesh#Duration",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that represents a per request timeout. The default value is 15 seconds. If you set a higher timeout, then make sure that the higher value is set for each App Mesh \n                                  resource in a conversation. For example, if a virtual node backend uses a virtual router provider to route to another virtual node, then the timeout should be greater than 15\n                                  seconds for the source and destination virtual node and the route.</p>"
+          }
         },
         "idle": {
-          "target": "com.amazonaws.appmesh#Duration"
+          "target": "com.amazonaws.appmesh#Duration",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that represents an idle timeout. An idle timeout bounds the amount of time that a connection may be idle. The default value is none.</p>"
+          }
         }
       },
       "traits": {
@@ -4272,6 +4302,18 @@
           "traits": {
             "smithy.api#documentation": "<p>An object that represents timeouts for different protocols.</p>"
           }
+        },
+        "outlierDetection": {
+          "target": "com.amazonaws.appmesh#OutlierDetection",
+          "traits": {
+            "smithy.api#documentation": "<p>The outlier detection information for the listener.</p>"
+          }
+        },
+        "connectionPool": {
+          "target": "com.amazonaws.appmesh#VirtualNodeConnectionPool",
+          "traits": {
+            "smithy.api#documentation": "<p>The connection pool information for the listener.</p>"
+          }
         }
       },
       "traits": {
@@ -4320,8 +4362,14 @@
         "certificate": {
           "target": "com.amazonaws.appmesh#ListenerTlsCertificate",
           "traits": {
-            "smithy.api#documentation": "<p>A reference to an object that represents a listener's TLS certificate.</p>",
+            "smithy.api#documentation": "<p>A reference to an object that represents a listener's Transport Layer Security (TLS) certificate.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "validation": {
+          "target": "com.amazonaws.appmesh#ListenerTlsValidationContext",
+          "traits": {
+            "smithy.api#documentation": "<p>A reference to an object that represents a listener's Transport Layer Security (TLS) validation context.</p>"
           }
         }
       },
@@ -4357,6 +4405,12 @@
           "target": "com.amazonaws.appmesh#ListenerTlsFileCertificate",
           "traits": {
             "smithy.api#documentation": "<p>A reference to an object that represents a local file certificate.</p>"
+          }
+        },
+        "sds": {
+          "target": "com.amazonaws.appmesh#ListenerTlsSdsCertificate",
+          "traits": {
+            "smithy.api#documentation": "<p>A reference to an object that represents a listener's Secret Discovery Service\n         certificate.</p>"
           }
         }
       },
@@ -4405,6 +4459,59 @@
         ]
       }
     },
+    "com.amazonaws.appmesh#ListenerTlsSdsCertificate": {
+      "type": "structure",
+      "members": {
+        "secretName": {
+          "target": "com.amazonaws.appmesh#SdsSecretName",
+          "traits": {
+            "smithy.api#documentation": "<p>A reference to an object that represents the name of the secret requested from the\n         Secret Discovery Service provider representing Transport Layer Security (TLS) materials like a certificate or\n         certificate chain.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An object that represents the listener's Secret Discovery Service certificate. The proxy\n         must be configured with a local SDS provider via a Unix Domain Socket. See App Mesh <a href=\"https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html\">TLS\n            documentation</a> for more info.</p>"
+      }
+    },
+    "com.amazonaws.appmesh#ListenerTlsValidationContext": {
+      "type": "structure",
+      "members": {
+        "trust": {
+          "target": "com.amazonaws.appmesh#ListenerTlsValidationContextTrust",
+          "traits": {
+            "smithy.api#documentation": "<p>A reference to where to retrieve the trust chain when validating a peer’s Transport Layer Security (TLS)\n         certificate.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "subjectAlternativeNames": {
+          "target": "com.amazonaws.appmesh#SubjectAlternativeNames",
+          "traits": {
+            "smithy.api#documentation": "<p>A reference to an object that represents the SANs for a listener's Transport Layer Security (TLS) validation\n         context.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An object that represents a listener's Transport Layer Security (TLS) validation context.</p>"
+      }
+    },
+    "com.amazonaws.appmesh#ListenerTlsValidationContextTrust": {
+      "type": "union",
+      "members": {
+        "file": {
+          "target": "com.amazonaws.appmesh#TlsValidationContextFileTrust"
+        },
+        "sds": {
+          "target": "com.amazonaws.appmesh#TlsValidationContextSdsTrust",
+          "traits": {
+            "smithy.api#documentation": "<p>A reference to an object that represents a listener's Transport Layer Security (TLS) Secret Discovery Service\n         validation context trust.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An object that represents a listener's Transport Layer Security (TLS) validation context trust.</p>"
+      }
+    },
     "com.amazonaws.appmesh#Listeners": {
       "type": "list",
       "member": {
@@ -4451,6 +4558,30 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>An object that represents the range of values to match on. The first character of the range is included in the range, though the last character is not. For example, if the range specified were 1-100, only values 1-99 would be matched.</p>"
+      }
+    },
+    "com.amazonaws.appmesh#MaxConnections": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 1
+        }
+      }
+    },
+    "com.amazonaws.appmesh#MaxPendingRequests": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 1
+        }
+      }
+    },
+    "com.amazonaws.appmesh#MaxRequests": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 1
+        }
       }
     },
     "com.amazonaws.appmesh#MaxRetries": {
@@ -4678,6 +4809,61 @@
         "smithy.api#documentation": "<p>The specified resource doesn't exist. Check your request syntax and try again.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
+      }
+    },
+    "com.amazonaws.appmesh#OutlierDetection": {
+      "type": "structure",
+      "members": {
+        "maxServerErrors": {
+          "target": "com.amazonaws.appmesh#OutlierDetectionMaxServerErrors",
+          "traits": {
+            "smithy.api#documentation": "<p>Number of consecutive <code>5xx</code> errors required for ejection. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "interval": {
+          "target": "com.amazonaws.appmesh#Duration",
+          "traits": {
+            "smithy.api#documentation": "<p>The time interval between ejection sweep analysis.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "baseEjectionDuration": {
+          "target": "com.amazonaws.appmesh#Duration",
+          "traits": {
+            "smithy.api#documentation": "<p>The base amount of time for which a host is ejected.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "maxEjectionPercent": {
+          "target": "com.amazonaws.appmesh#OutlierDetectionMaxEjectionPercent",
+          "traits": {
+            "smithy.api#documentation": "<p>Maximum percentage of hosts in load balancing pool for upstream service that can be\n         ejected. Will eject at least one host regardless of the value.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An object that represents the outlier detection for a virtual node's listener.</p>"
+      }
+    },
+    "com.amazonaws.appmesh#OutlierDetectionMaxEjectionPercent": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#box": {},
+        "smithy.api#range": {
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
+    "com.amazonaws.appmesh#OutlierDetectionMaxServerErrors": {
+      "type": "long",
+      "traits": {
+        "smithy.api#box": {},
+        "smithy.api#range": {
+          "min": 1
+        }
       }
     },
     "com.amazonaws.appmesh#PercentInt": {
@@ -5079,6 +5265,9 @@
         ]
       }
     },
+    "com.amazonaws.appmesh#SdsSecretName": {
+      "type": "string"
+    },
     "com.amazonaws.appmesh#ServiceDiscovery": {
       "type": "union",
       "members": {
@@ -5114,6 +5303,51 @@
         "smithy.api#error": "server",
         "smithy.api#httpError": 503,
         "smithy.api#retryable": {}
+      }
+    },
+    "com.amazonaws.appmesh#SubjectAlternativeName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 254
+        }
+      }
+    },
+    "com.amazonaws.appmesh#SubjectAlternativeNameList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.appmesh#SubjectAlternativeName"
+      }
+    },
+    "com.amazonaws.appmesh#SubjectAlternativeNameMatchers": {
+      "type": "structure",
+      "members": {
+        "exact": {
+          "target": "com.amazonaws.appmesh#SubjectAlternativeNameList",
+          "traits": {
+            "smithy.api#documentation": "<p>The values sent must match the specified values exactly.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An object that represents the methods by which a subject alternative name on a peer\n         Transport Layer Security (TLS) certificate can be matched.</p>"
+      }
+    },
+    "com.amazonaws.appmesh#SubjectAlternativeNames": {
+      "type": "structure",
+      "members": {
+        "match": {
+          "target": "com.amazonaws.appmesh#SubjectAlternativeNameMatchers",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that represents the criteria for determining a SANs match.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An object that represents the subject alternative names secured by the\n         certificate.</p>"
       }
     },
     "com.amazonaws.appmesh#TagKey": {
@@ -5162,7 +5396,8 @@
         "value": {
           "target": "com.amazonaws.appmesh#TagValue",
           "traits": {
-            "smithy.api#documentation": "<p>The optional part of a key-value pair that make up a tag. A <code>value</code> acts as a\n         descriptor within a tag category (key).</p>"
+            "smithy.api#documentation": "<p>The optional part of a key-value pair that make up a tag. A <code>value</code> acts as a\n         descriptor within a tag category (key).</p>",
+            "smithy.api#required": {}
           }
         }
       },
@@ -5324,7 +5559,10 @@
       "type": "structure",
       "members": {
         "idle": {
-          "target": "com.amazonaws.appmesh#Duration"
+          "target": "com.amazonaws.appmesh#Duration",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that represents an idle timeout. An idle timeout bounds the amount of time that a connection may be idle. The default value is none.</p>"
+          }
         }
       },
       "traits": {
@@ -5337,13 +5575,19 @@
         "trust": {
           "target": "com.amazonaws.appmesh#TlsValidationContextTrust",
           "traits": {
-            "smithy.api#documentation": "<p>A reference to an object that represents a TLS validation context trust.</p>",
+            "smithy.api#documentation": "<p>A reference to where to retrieve the trust chain when validating a peer’s Transport Layer Security (TLS)\n         certificate.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "subjectAlternativeNames": {
+          "target": "com.amazonaws.appmesh#SubjectAlternativeNames",
+          "traits": {
+            "smithy.api#documentation": "<p>A reference to an object that represents the SANs for a Transport Layer Security (TLS) validation context.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>An object that represents a Transport Layer Security (TLS) validation context.</p>"
+        "smithy.api#documentation": "<p>An object that represents how the proxy will validate its peer during Transport Layer Security (TLS)\n         negotiation.</p>"
       }
     },
     "com.amazonaws.appmesh#TlsValidationContextAcmTrust": {
@@ -5358,7 +5602,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>An object that represents a TLS validation context trust for an AWS Certicate Manager (ACM)\n         certificate.</p>"
+        "smithy.api#documentation": "<p>An object that represents a Transport Layer Security (TLS) validation context trust for an AWS Certicate Manager (ACM)\n         certificate.</p>"
       }
     },
     "com.amazonaws.appmesh#TlsValidationContextFileTrust": {
@@ -5376,19 +5620,40 @@
         "smithy.api#documentation": "<p>An object that represents a Transport Layer Security (TLS) validation context trust for a local file.</p>"
       }
     },
+    "com.amazonaws.appmesh#TlsValidationContextSdsTrust": {
+      "type": "structure",
+      "members": {
+        "secretName": {
+          "target": "com.amazonaws.appmesh#SdsSecretName",
+          "traits": {
+            "smithy.api#documentation": "<p>A reference to an object that represents the name of the secret for a Transport Layer Security (TLS) Secret\n         Discovery Service validation context trust.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An object that represents a Transport Layer Security (TLS) Secret Discovery Service validation context trust. The\n         proxy must be configured with a local SDS provider via a Unix Domain Socket. See App Mesh\n            <a href=\"https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html\">TLS\n            documentation</a> for more info.</p>"
+      }
+    },
     "com.amazonaws.appmesh#TlsValidationContextTrust": {
       "type": "union",
       "members": {
         "acm": {
           "target": "com.amazonaws.appmesh#TlsValidationContextAcmTrust",
           "traits": {
-            "smithy.api#documentation": "<p>A reference to an object that represents a TLS validation context trust for an AWS Certicate Manager (ACM)\n         certificate.</p>"
+            "smithy.api#documentation": "<p>A reference to an object that represents a Transport Layer Security (TLS) validation context trust for an\n         AWS Certicate Manager (ACM) certificate.</p>"
           }
         },
         "file": {
           "target": "com.amazonaws.appmesh#TlsValidationContextFileTrust",
           "traits": {
-            "smithy.api#documentation": "<p>An object that represents a TLS validation context trust for a local file.</p>"
+            "smithy.api#documentation": "<p>An object that represents a Transport Layer Security (TLS) validation context trust for a local file.</p>"
+          }
+        },
+        "sds": {
+          "target": "com.amazonaws.appmesh#TlsValidationContextSdsTrust",
+          "traits": {
+            "smithy.api#documentation": "<p>A reference to an object that represents a Transport Layer Security (TLS) Secret Discovery Service validation\n         context trust.</p>"
           }
         }
       },
@@ -5406,7 +5671,10 @@
       "traits": {
         "smithy.api#documentation": "<p>The maximum request rate permitted by the App Mesh APIs has been exceeded for your\n         account. For best results, use an increasing or variable sleep interval between\n         requests.</p>",
         "smithy.api#error": "client",
-        "smithy.api#httpError": 429
+        "smithy.api#httpError": 429,
+        "smithy.api#retryable": {
+          "throttling": true
+        }
       }
     },
     "com.amazonaws.appmesh#TooManyTagsException": {
@@ -6319,16 +6587,65 @@
             "smithy.api#documentation": "<p>One or more ports that the policy is enforced for.</p>"
           }
         },
+        "certificate": {
+          "target": "com.amazonaws.appmesh#VirtualGatewayClientTlsCertificate",
+          "traits": {
+            "smithy.api#documentation": "<p>A reference to an object that represents a virtual gateway's client's Transport Layer Security (TLS)\n         certificate.</p>"
+          }
+        },
         "validation": {
           "target": "com.amazonaws.appmesh#VirtualGatewayTlsValidationContext",
           "traits": {
-            "smithy.api#documentation": "<p>A reference to an object that represents a TLS validation context.</p>",
+            "smithy.api#documentation": "<p>A reference to an object that represents a Transport Layer Security (TLS) validation context.</p>",
             "smithy.api#required": {}
           }
         }
       },
       "traits": {
         "smithy.api#documentation": "<p>An object that represents a Transport Layer Security (TLS) client policy.</p>"
+      }
+    },
+    "com.amazonaws.appmesh#VirtualGatewayClientTlsCertificate": {
+      "type": "union",
+      "members": {
+        "file": {
+          "target": "com.amazonaws.appmesh#VirtualGatewayListenerTlsFileCertificate"
+        },
+        "sds": {
+          "target": "com.amazonaws.appmesh#VirtualGatewayListenerTlsSdsCertificate",
+          "traits": {
+            "smithy.api#documentation": "<p>A reference to an object that represents a virtual gateway's client's Secret Discovery\n         Service certificate.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An object that represents the virtual gateway's client's Transport Layer Security (TLS) certificate.</p>"
+      }
+    },
+    "com.amazonaws.appmesh#VirtualGatewayConnectionPool": {
+      "type": "union",
+      "members": {
+        "http": {
+          "target": "com.amazonaws.appmesh#VirtualGatewayHttpConnectionPool",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that represents a type of connection pool.</p>"
+          }
+        },
+        "http2": {
+          "target": "com.amazonaws.appmesh#VirtualGatewayHttp2ConnectionPool",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that represents a type of connection pool.</p>"
+          }
+        },
+        "grpc": {
+          "target": "com.amazonaws.appmesh#VirtualGatewayGrpcConnectionPool",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that represents a type of connection pool. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An object that represents the type of virtual gateway connection pool.</p>\n         <p>Only one protocol is used at a time and should be the same protocol as the one chosen\n         under port mapping.</p>\n         <p>If not present the default value for <code>maxPendingRequests</code> is\n            <code>2147483647</code>.</p>"
       }
     },
     "com.amazonaws.appmesh#VirtualGatewayData": {
@@ -6391,6 +6708,21 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>An object that represents an access log file.</p>"
+      }
+    },
+    "com.amazonaws.appmesh#VirtualGatewayGrpcConnectionPool": {
+      "type": "structure",
+      "members": {
+        "maxRequests": {
+          "target": "com.amazonaws.appmesh#MaxRequests",
+          "traits": {
+            "smithy.api#documentation": "<p>Maximum number of inflight requests Envoy can concurrently support across hosts in\n         upstream cluster.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An object that represents a type of connection pool.</p>"
       }
     },
     "com.amazonaws.appmesh#VirtualGatewayHealthCheckIntervalMillis": {
@@ -6477,6 +6809,43 @@
         }
       }
     },
+    "com.amazonaws.appmesh#VirtualGatewayHttp2ConnectionPool": {
+      "type": "structure",
+      "members": {
+        "maxRequests": {
+          "target": "com.amazonaws.appmesh#MaxRequests",
+          "traits": {
+            "smithy.api#documentation": "<p>Maximum number of inflight requests Envoy can concurrently support across hosts in\n         upstream cluster.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An object that represents a type of connection pool.</p>"
+      }
+    },
+    "com.amazonaws.appmesh#VirtualGatewayHttpConnectionPool": {
+      "type": "structure",
+      "members": {
+        "maxConnections": {
+          "target": "com.amazonaws.appmesh#MaxConnections",
+          "traits": {
+            "smithy.api#documentation": "<p>Maximum number of outbound TCP connections Envoy can establish concurrently with all\n         hosts in upstream cluster.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "maxPendingRequests": {
+          "target": "com.amazonaws.appmesh#MaxPendingRequests",
+          "traits": {
+            "smithy.api#box": {},
+            "smithy.api#documentation": "<p>Number of overflowing requests after <code>max_connections</code> Envoy will queue to\n         upstream cluster.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An object that represents a type of connection pool.</p>"
+      }
+    },
     "com.amazonaws.appmesh#VirtualGatewayList": {
       "type": "list",
       "member": {
@@ -6504,6 +6873,12 @@
           "traits": {
             "smithy.api#documentation": "<p>A reference to an object that represents the Transport Layer Security (TLS) properties for the listener.</p>"
           }
+        },
+        "connectionPool": {
+          "target": "com.amazonaws.appmesh#VirtualGatewayConnectionPool",
+          "traits": {
+            "smithy.api#documentation": "<p>The connection pool information for the virtual gateway listener.</p>"
+          }
         }
       },
       "traits": {
@@ -6518,6 +6893,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Specify one of the following modes.</p>\n         <ul>\n            <li>\n               <p>\n                  <b/>STRICT – Listener only accepts connections with TLS\n               enabled. </p>\n            </li>\n            <li>\n               <p>\n                  <b/>PERMISSIVE – Listener accepts connections with or\n               without TLS enabled.</p>\n            </li>\n            <li>\n               <p>\n                  <b/>DISABLED – Listener only accepts connections without\n               TLS. </p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
+          }
+        },
+        "validation": {
+          "target": "com.amazonaws.appmesh#VirtualGatewayListenerTlsValidationContext",
+          "traits": {
+            "smithy.api#documentation": "<p>A reference to an object that represents a virtual gateway's listener's Transport Layer Security (TLS) validation\n         context.</p>"
           }
         },
         "certificate": {
@@ -6560,6 +6941,12 @@
           "target": "com.amazonaws.appmesh#VirtualGatewayListenerTlsFileCertificate",
           "traits": {
             "smithy.api#documentation": "<p>A reference to an object that represents a local file certificate.</p>"
+          }
+        },
+        "sds": {
+          "target": "com.amazonaws.appmesh#VirtualGatewayListenerTlsSdsCertificate",
+          "traits": {
+            "smithy.api#documentation": "<p>A reference to an object that represents a virtual gateway's listener's Secret Discovery\n         Service certificate.</p>"
           }
         }
       },
@@ -6606,6 +6993,59 @@
             "name": "DISABLED"
           }
         ]
+      }
+    },
+    "com.amazonaws.appmesh#VirtualGatewayListenerTlsSdsCertificate": {
+      "type": "structure",
+      "members": {
+        "secretName": {
+          "target": "com.amazonaws.appmesh#VirtualGatewaySdsSecretName",
+          "traits": {
+            "smithy.api#documentation": "<p>A reference to an object that represents the name of the secret secret requested from\n         the Secret Discovery Service provider representing Transport Layer Security (TLS) materials like a certificate or\n         certificate chain.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An object that represents the virtual gateway's listener's Secret Discovery Service\n         certificate.The proxy must be configured with a local SDS provider via a Unix Domain\n         Socket. See App Mesh <a href=\"https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html\">TLS\n            documentation</a> for more info. </p>"
+      }
+    },
+    "com.amazonaws.appmesh#VirtualGatewayListenerTlsValidationContext": {
+      "type": "structure",
+      "members": {
+        "trust": {
+          "target": "com.amazonaws.appmesh#VirtualGatewayListenerTlsValidationContextTrust",
+          "traits": {
+            "smithy.api#documentation": "<p>A reference to where to retrieve the trust chain when validating a peer’s Transport Layer Security (TLS)\n         certificate.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "subjectAlternativeNames": {
+          "target": "com.amazonaws.appmesh#SubjectAlternativeNames",
+          "traits": {
+            "smithy.api#documentation": "<p>A reference to an object that represents the SANs for a virtual gateway listener's Transport Layer Security (TLS)\n         validation context.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An object that represents a virtual gateway's listener's Transport Layer Security (TLS) validation\n         context.</p>"
+      }
+    },
+    "com.amazonaws.appmesh#VirtualGatewayListenerTlsValidationContextTrust": {
+      "type": "union",
+      "members": {
+        "file": {
+          "target": "com.amazonaws.appmesh#VirtualGatewayTlsValidationContextFileTrust"
+        },
+        "sds": {
+          "target": "com.amazonaws.appmesh#VirtualGatewayTlsValidationContextSdsTrust",
+          "traits": {
+            "smithy.api#documentation": "<p>A reference to an object that represents a virtual gateway's listener's Transport Layer Security (TLS) Secret\n         Discovery Service validation context trust.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An object that represents a virtual gateway's listener's Transport Layer Security (TLS) validation context\n         trust.</p>"
       }
     },
     "com.amazonaws.appmesh#VirtualGatewayListeners": {
@@ -6739,6 +7179,9 @@
         "smithy.api#documentation": "<p>An object that represents a virtual gateway returned by a list operation.</p>"
       }
     },
+    "com.amazonaws.appmesh#VirtualGatewaySdsSecretName": {
+      "type": "string"
+    },
     "com.amazonaws.appmesh#VirtualGatewaySpec": {
       "type": "structure",
       "members": {
@@ -6803,8 +7246,14 @@
         "trust": {
           "target": "com.amazonaws.appmesh#VirtualGatewayTlsValidationContextTrust",
           "traits": {
-            "smithy.api#documentation": "<p>A reference to an object that represents a TLS validation context trust.</p>",
+            "smithy.api#documentation": "<p>A reference to where to retrieve the trust chain when validating a peer’s Transport Layer Security (TLS)\n         certificate.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "subjectAlternativeNames": {
+          "target": "com.amazonaws.appmesh#SubjectAlternativeNames",
+          "traits": {
+            "smithy.api#documentation": "<p>A reference to an object that represents the SANs for a virtual gateway's listener's\n         Transport Layer Security (TLS) validation context.</p>"
           }
         }
       },
@@ -6824,7 +7273,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>An object that represents a TLS validation context trust for an AWS Certicate Manager (ACM)\n         certificate.</p>"
+        "smithy.api#documentation": "<p>An object that represents a Transport Layer Security (TLS) validation context trust for an AWS Certicate Manager (ACM)\n         certificate.</p>"
       }
     },
     "com.amazonaws.appmesh#VirtualGatewayTlsValidationContextFileTrust": {
@@ -6842,19 +7291,40 @@
         "smithy.api#documentation": "<p>An object that represents a Transport Layer Security (TLS) validation context trust for a local file.</p>"
       }
     },
+    "com.amazonaws.appmesh#VirtualGatewayTlsValidationContextSdsTrust": {
+      "type": "structure",
+      "members": {
+        "secretName": {
+          "target": "com.amazonaws.appmesh#VirtualGatewaySdsSecretName",
+          "traits": {
+            "smithy.api#documentation": "<p>A reference to an object that represents the name of the secret for a virtual gateway's\n         Transport Layer Security (TLS) Secret Discovery Service validation context trust.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An object that represents a virtual gateway's listener's Transport Layer Security (TLS) Secret Discovery Service\n         validation context trust. The proxy must be configured with a local SDS provider via a Unix\n         Domain Socket. See App Mesh <a href=\"https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html\">TLS\n            documentation</a> for more info.</p>"
+      }
+    },
     "com.amazonaws.appmesh#VirtualGatewayTlsValidationContextTrust": {
       "type": "union",
       "members": {
         "acm": {
           "target": "com.amazonaws.appmesh#VirtualGatewayTlsValidationContextAcmTrust",
           "traits": {
-            "smithy.api#documentation": "<p>A reference to an object that represents a TLS validation context trust for an AWS Certicate Manager (ACM)\n         certificate.</p>"
+            "smithy.api#documentation": "<p>A reference to an object that represents a Transport Layer Security (TLS) validation context trust for an\n         AWS Certicate Manager (ACM) certificate.</p>"
           }
         },
         "file": {
           "target": "com.amazonaws.appmesh#VirtualGatewayTlsValidationContextFileTrust",
           "traits": {
-            "smithy.api#documentation": "<p>An object that represents a TLS validation context trust for a local file.</p>"
+            "smithy.api#documentation": "<p>An object that represents a Transport Layer Security (TLS) validation context trust for a local file.</p>"
+          }
+        },
+        "sds": {
+          "target": "com.amazonaws.appmesh#VirtualGatewayTlsValidationContextSdsTrust",
+          "traits": {
+            "smithy.api#documentation": "<p>A reference to an object that represents a virtual gateway's Transport Layer Security (TLS) Secret Discovery\n         Service validation context trust.</p>"
           }
         }
       },
@@ -6894,6 +7364,38 @@
           "noAccount": false,
           "noRegion": false
         }
+      }
+    },
+    "com.amazonaws.appmesh#VirtualNodeConnectionPool": {
+      "type": "union",
+      "members": {
+        "tcp": {
+          "target": "com.amazonaws.appmesh#VirtualNodeTcpConnectionPool",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that represents a type of connection pool.</p>"
+          }
+        },
+        "http": {
+          "target": "com.amazonaws.appmesh#VirtualNodeHttpConnectionPool",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that represents a type of connection pool.</p>"
+          }
+        },
+        "http2": {
+          "target": "com.amazonaws.appmesh#VirtualNodeHttp2ConnectionPool",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that represents a type of connection pool.</p>"
+          }
+        },
+        "grpc": {
+          "target": "com.amazonaws.appmesh#VirtualNodeGrpcConnectionPool",
+          "traits": {
+            "smithy.api#documentation": "<p>An object that represents a type of connection pool.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An object that represents the type of virtual node connection pool.</p>\n         <p>Only one protocol is used at a time and should be the same protocol as the one chosen\n         under port mapping.</p>\n         <p>If not present the default value for <code>maxPendingRequests</code> is\n            <code>2147483647</code>.</p>\n         <p/>"
       }
     },
     "com.amazonaws.appmesh#VirtualNodeData": {
@@ -6942,6 +7444,58 @@
             "resource": "com.amazonaws.appmesh#VirtualNode"
           }
         ]
+      }
+    },
+    "com.amazonaws.appmesh#VirtualNodeGrpcConnectionPool": {
+      "type": "structure",
+      "members": {
+        "maxRequests": {
+          "target": "com.amazonaws.appmesh#MaxRequests",
+          "traits": {
+            "smithy.api#documentation": "<p>Maximum number of inflight requests Envoy can concurrently support across hosts in\n         upstream cluster.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An object that represents a type of connection pool.</p>"
+      }
+    },
+    "com.amazonaws.appmesh#VirtualNodeHttp2ConnectionPool": {
+      "type": "structure",
+      "members": {
+        "maxRequests": {
+          "target": "com.amazonaws.appmesh#MaxRequests",
+          "traits": {
+            "smithy.api#documentation": "<p>Maximum number of inflight requests Envoy can concurrently support across hosts in\n         upstream cluster.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An object that represents a type of connection pool.</p>"
+      }
+    },
+    "com.amazonaws.appmesh#VirtualNodeHttpConnectionPool": {
+      "type": "structure",
+      "members": {
+        "maxConnections": {
+          "target": "com.amazonaws.appmesh#MaxConnections",
+          "traits": {
+            "smithy.api#documentation": "<p>Maximum number of outbound TCP connections Envoy can establish concurrently with all\n         hosts in upstream cluster.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "maxPendingRequests": {
+          "target": "com.amazonaws.appmesh#MaxPendingRequests",
+          "traits": {
+            "smithy.api#box": {},
+            "smithy.api#documentation": "<p>Number of overflowing requests after <code>max_connections</code> Envoy will queue to\n         upstream cluster.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An object that represents a type of connection pool.</p>"
       }
     },
     "com.amazonaws.appmesh#VirtualNodeList": {
@@ -7099,6 +7653,21 @@
             "name": "DELETED"
           }
         ]
+      }
+    },
+    "com.amazonaws.appmesh#VirtualNodeTcpConnectionPool": {
+      "type": "structure",
+      "members": {
+        "maxConnections": {
+          "target": "com.amazonaws.appmesh#MaxConnections",
+          "traits": {
+            "smithy.api#documentation": "<p>Maximum number of outbound TCP connections Envoy can establish concurrently with all\n         hosts in upstream cluster.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An object that represents a type of connection pool.</p>"
       }
     },
     "com.amazonaws.appmesh#VirtualRouter": {
