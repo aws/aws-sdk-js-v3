@@ -2811,7 +2811,7 @@ export interface CreateKeySigningKeyRequest {
    * 					          <ul>
    *                   <li>
    *                      <p>
-   *                         <code>"Service": "dnssec.route53.aws.amazonaws.com"</code>
+   *                         <code>"Service": "api-service.dnssec.route53.aws.internal"</code>
    *                      </p>
    *                   </li>
    *                </ul>
