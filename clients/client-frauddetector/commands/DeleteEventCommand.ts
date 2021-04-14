@@ -22,7 +22,7 @@ export type DeleteEventCommandOutput = DeleteEventResult & __MetadataBearer;
 
 /**
  * <p>Deletes the specified event.</p>
- * 	        <p>When you delete an event, Amazon Fraud Detector permanently deletes that event from the evaluation history, and the event data is no longer stored in Amazon Fraud Detector.</p>
+ * 	        <p>When you delete an event, Amazon Fraud Detector permanently deletes that event and the event data is no longer stored in Amazon Fraud Detector.</p>
  */
 export class DeleteEventCommand extends $Command<
   DeleteEventCommandInput,

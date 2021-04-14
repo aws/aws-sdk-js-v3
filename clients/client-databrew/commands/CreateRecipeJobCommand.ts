@@ -21,9 +21,8 @@ export type CreateRecipeJobCommandInput = CreateRecipeJobRequest;
 export type CreateRecipeJobCommandOutput = CreateRecipeJobResponse & __MetadataBearer;
 
 /**
- * <p>Creates a new job for an existing AWS Glue DataBrew recipe in the current AWS account.
- *             You can create a standalone job using either a project, or a combination of a recipe and
- *             a dataset.</p>
+ * <p>Creates a new job to transform input data, using steps defined in an existing AWS Glue
+ *             DataBrew recipe</p>
  */
 export class CreateRecipeJobCommand extends $Command<
   CreateRecipeJobCommandInput,

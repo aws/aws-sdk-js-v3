@@ -21,8 +21,8 @@ export type ListSimulationApplicationsCommandInput = ListSimulationApplicationsR
 export type ListSimulationApplicationsCommandOutput = ListSimulationApplicationsResponse & __MetadataBearer;
 
 /**
- * <p>Returns a list of simulation applications. You can optionally provide filters to retrieve
- *          specific simulation applications. </p>
+ * <p>Returns a list of simulation applications. You can optionally provide filters to
+ *          retrieve specific simulation applications. </p>
  */
 export class ListSimulationApplicationsCommand extends $Command<
   ListSimulationApplicationsCommandInput,

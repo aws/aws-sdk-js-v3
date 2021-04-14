@@ -41,6 +41,40 @@ export type DescribeCustomKeyStoresCommandOutput = DescribeCustomKeyStoresRespon
  *       minimum number of HSMs required for the operation, if any.</p>
  *          <p> For help repairing your custom key store, see the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html">Troubleshooting Custom Key Stores</a> topic in the
  *       <i>AWS Key Management Service Developer Guide</i>.</p>
+ *          <p>
+ *             <b>Cross-account use</b>: No. You cannot perform this operation on a custom key store in a different AWS account.</p>
+ *          <p>
+ *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:DescribeCustomKeyStores</a> (IAM policy)</p>
+ *          <p>
+ *             <b>Related operations:</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>ConnectCustomKeyStore</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>CreateCustomKeyStore</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteCustomKeyStore</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DisconnectCustomKeyStore</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateCustomKeyStore</a>
+ *                </p>
+ *             </li>
+ *          </ul>
  */
 export class DescribeCustomKeyStoresCommand extends $Command<
   DescribeCustomKeyStoresCommandInput,

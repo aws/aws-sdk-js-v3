@@ -21,7 +21,11 @@ export type DescribeAppInstanceUserCommandInput = DescribeAppInstanceUserRequest
 export type DescribeAppInstanceUserCommandOutput = DescribeAppInstanceUserResponse & __MetadataBearer;
 
 /**
- * <p>Returns the full details of an <code>AppInstanceUser</code>.</p>
+ * <p>
+ * Returns the full details of an
+ * <code>AppInstanceUser</code>
+ * .
+ * </p>
  */
 export class DescribeAppInstanceUserCommand extends $Command<
   DescribeAppInstanceUserCommandInput,

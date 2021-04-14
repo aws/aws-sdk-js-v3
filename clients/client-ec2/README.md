@@ -9,9 +9,12 @@ AWS SDK for JavaScript EC2 Client for Node.js, Browser and React Native.
 
 <fullname>Amazon Elastic Compute Cloud</fullname>
 
-<p>Amazon Elastic Compute Cloud (Amazon EC2) provides secure and resizable computing capacity in the AWS cloud.
-Using Amazon EC2 eliminates the need to invest in hardware up front, so you can develop and
-deploy applications faster.</p>
+<p>Amazon Elastic Compute Cloud (Amazon EC2) provides secure and resizable computing capacity in the AWS Cloud.
+Using Amazon EC2 eliminates the need to invest in hardware up front, so you can develop and deploy applications
+faster. Amazon Virtual Private Cloud (Amazon VPC) enables you to provision a logically isolated section of the
+AWS Cloud where you can launch AWS resources in a virtual network that you've defined. Amazon Elastic Block Store
+(Amazon EBS) provides block level storage volumes for use with EC2 instances. EBS volumes are highly available
+and reliable storage volumes that can be attached to any running instance and used like a hard drive.</p>
 <p>To learn more, see the following resources:</p>
 <ul>
 <li>
@@ -19,7 +22,7 @@ deploy applications faster.</p>
 </p>
 </li>
 <li>
-<p>Amazon EBS: <a href="http://aws.amazon.com/ebs">Amazon EBS product page</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html">Amazon EBS documentation</a>
+<p>Amazon EBS: <a href="http://aws.amazon.com/ebs">Amazon EBS product page</a>, <a href="http://aws.amazon.com/documentation/ebs">Amazon EBS documentation</a>
 </p>
 </li>
 <li>

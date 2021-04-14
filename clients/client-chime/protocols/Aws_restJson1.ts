@@ -1081,6 +1081,8 @@ export const serializeAws_restJson1CreateAppInstanceCommand = async (
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
     ...(input.Metadata !== undefined && input.Metadata !== null && { Metadata: input.Metadata }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1159,6 +1161,8 @@ export const serializeAws_restJson1CreateAppInstanceUserCommand = async (
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
     ...(input.Metadata !== undefined && input.Metadata !== null && { Metadata: input.Metadata }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1255,6 +1259,7 @@ export const serializeAws_restJson1CreateChannelCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/json",
+    ...(isSerializableHeaderValue(input.ChimeBearer) && { "x-amz-chime-bearer": input.ChimeBearer! }),
   };
   let resolvedPath = "/channels";
   let body: any;
@@ -1294,6 +1299,7 @@ export const serializeAws_restJson1CreateChannelBanCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/json",
+    ...(isSerializableHeaderValue(input.ChimeBearer) && { "x-amz-chime-bearer": input.ChimeBearer! }),
   };
   let resolvedPath = "/channels/{ChannelArn}/bans";
   if (input.ChannelArn !== undefined) {
@@ -1334,6 +1340,7 @@ export const serializeAws_restJson1CreateChannelMembershipCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/json",
+    ...(isSerializableHeaderValue(input.ChimeBearer) && { "x-amz-chime-bearer": input.ChimeBearer! }),
   };
   let resolvedPath = "/channels/{ChannelArn}/memberships";
   if (input.ChannelArn !== undefined) {
@@ -1375,6 +1382,7 @@ export const serializeAws_restJson1CreateChannelModeratorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/json",
+    ...(isSerializableHeaderValue(input.ChimeBearer) && { "x-amz-chime-bearer": input.ChimeBearer! }),
   };
   let resolvedPath = "/channels/{ChannelArn}/moderators";
   if (input.ChannelArn !== undefined) {
@@ -2085,7 +2093,9 @@ export const serializeAws_restJson1DeleteChannelCommand = async (
   input: DeleteChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    ...(isSerializableHeaderValue(input.ChimeBearer) && { "x-amz-chime-bearer": input.ChimeBearer! }),
+  };
   let resolvedPath = "/channels/{ChannelArn}";
   if (input.ChannelArn !== undefined) {
     const labelValue: string = input.ChannelArn;
@@ -2120,7 +2130,9 @@ export const serializeAws_restJson1DeleteChannelBanCommand = async (
   input: DeleteChannelBanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    ...(isSerializableHeaderValue(input.ChimeBearer) && { "x-amz-chime-bearer": input.ChimeBearer! }),
+  };
   let resolvedPath = "/channels/{ChannelArn}/bans/{MemberArn}";
   if (input.ChannelArn !== undefined) {
     const labelValue: string = input.ChannelArn;
@@ -2164,7 +2176,9 @@ export const serializeAws_restJson1DeleteChannelMembershipCommand = async (
   input: DeleteChannelMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    ...(isSerializableHeaderValue(input.ChimeBearer) && { "x-amz-chime-bearer": input.ChimeBearer! }),
+  };
   let resolvedPath = "/channels/{ChannelArn}/memberships/{MemberArn}";
   if (input.ChannelArn !== undefined) {
     const labelValue: string = input.ChannelArn;
@@ -2208,7 +2222,9 @@ export const serializeAws_restJson1DeleteChannelMessageCommand = async (
   input: DeleteChannelMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    ...(isSerializableHeaderValue(input.ChimeBearer) && { "x-amz-chime-bearer": input.ChimeBearer! }),
+  };
   let resolvedPath = "/channels/{ChannelArn}/messages/{MessageId}";
   if (input.ChannelArn !== undefined) {
     const labelValue: string = input.ChannelArn;
@@ -2252,7 +2268,9 @@ export const serializeAws_restJson1DeleteChannelModeratorCommand = async (
   input: DeleteChannelModeratorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    ...(isSerializableHeaderValue(input.ChimeBearer) && { "x-amz-chime-bearer": input.ChimeBearer! }),
+  };
   let resolvedPath = "/channels/{ChannelArn}/moderators/{ChannelModeratorArn}";
   if (input.ChannelArn !== undefined) {
     const labelValue: string = input.ChannelArn;
@@ -2913,7 +2931,9 @@ export const serializeAws_restJson1DescribeChannelCommand = async (
   input: DescribeChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    ...(isSerializableHeaderValue(input.ChimeBearer) && { "x-amz-chime-bearer": input.ChimeBearer! }),
+  };
   let resolvedPath = "/channels/{ChannelArn}";
   if (input.ChannelArn !== undefined) {
     const labelValue: string = input.ChannelArn;
@@ -2948,7 +2968,9 @@ export const serializeAws_restJson1DescribeChannelBanCommand = async (
   input: DescribeChannelBanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    ...(isSerializableHeaderValue(input.ChimeBearer) && { "x-amz-chime-bearer": input.ChimeBearer! }),
+  };
   let resolvedPath = "/channels/{ChannelArn}/bans/{MemberArn}";
   if (input.ChannelArn !== undefined) {
     const labelValue: string = input.ChannelArn;
@@ -2992,7 +3014,9 @@ export const serializeAws_restJson1DescribeChannelMembershipCommand = async (
   input: DescribeChannelMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    ...(isSerializableHeaderValue(input.ChimeBearer) && { "x-amz-chime-bearer": input.ChimeBearer! }),
+  };
   let resolvedPath = "/channels/{ChannelArn}/memberships/{MemberArn}";
   if (input.ChannelArn !== undefined) {
     const labelValue: string = input.ChannelArn;
@@ -3036,7 +3060,9 @@ export const serializeAws_restJson1DescribeChannelMembershipForAppInstanceUserCo
   input: DescribeChannelMembershipForAppInstanceUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    ...(isSerializableHeaderValue(input.ChimeBearer) && { "x-amz-chime-bearer": input.ChimeBearer! }),
+  };
   let resolvedPath = "/channels/{ChannelArn}";
   if (input.ChannelArn !== undefined) {
     const labelValue: string = input.ChannelArn;
@@ -3076,7 +3102,9 @@ export const serializeAws_restJson1DescribeChannelModeratedByAppInstanceUserComm
   input: DescribeChannelModeratedByAppInstanceUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    ...(isSerializableHeaderValue(input.ChimeBearer) && { "x-amz-chime-bearer": input.ChimeBearer! }),
+  };
   let resolvedPath = "/channels/{ChannelArn}";
   if (input.ChannelArn !== undefined) {
     const labelValue: string = input.ChannelArn;
@@ -3116,7 +3144,9 @@ export const serializeAws_restJson1DescribeChannelModeratorCommand = async (
   input: DescribeChannelModeratorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    ...(isSerializableHeaderValue(input.ChimeBearer) && { "x-amz-chime-bearer": input.ChimeBearer! }),
+  };
   let resolvedPath = "/channels/{ChannelArn}/moderators/{ChannelModeratorArn}";
   if (input.ChannelArn !== undefined) {
     const labelValue: string = input.ChannelArn;
@@ -3512,7 +3542,9 @@ export const serializeAws_restJson1GetChannelMessageCommand = async (
   input: GetChannelMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    ...(isSerializableHeaderValue(input.ChimeBearer) && { "x-amz-chime-bearer": input.ChimeBearer! }),
+  };
   let resolvedPath = "/channels/{ChannelArn}/messages/{MessageId}";
   if (input.ChannelArn !== undefined) {
     const labelValue: string = input.ChannelArn;
@@ -4529,7 +4561,9 @@ export const serializeAws_restJson1ListChannelBansCommand = async (
   input: ListChannelBansCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    ...(isSerializableHeaderValue(input.ChimeBearer) && { "x-amz-chime-bearer": input.ChimeBearer! }),
+  };
   let resolvedPath = "/channels/{ChannelArn}/bans";
   if (input.ChannelArn !== undefined) {
     const labelValue: string = input.ChannelArn;
@@ -4569,7 +4603,9 @@ export const serializeAws_restJson1ListChannelMembershipsCommand = async (
   input: ListChannelMembershipsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    ...(isSerializableHeaderValue(input.ChimeBearer) && { "x-amz-chime-bearer": input.ChimeBearer! }),
+  };
   let resolvedPath = "/channels/{ChannelArn}/memberships";
   if (input.ChannelArn !== undefined) {
     const labelValue: string = input.ChannelArn;
@@ -4610,7 +4646,9 @@ export const serializeAws_restJson1ListChannelMembershipsForAppInstanceUserComma
   input: ListChannelMembershipsForAppInstanceUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    ...(isSerializableHeaderValue(input.ChimeBearer) && { "x-amz-chime-bearer": input.ChimeBearer! }),
+  };
   let resolvedPath = "/channels";
   const query: any = {
     scope: "app-instance-user-memberships",
@@ -4643,7 +4681,9 @@ export const serializeAws_restJson1ListChannelMessagesCommand = async (
   input: ListChannelMessagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    ...(isSerializableHeaderValue(input.ChimeBearer) && { "x-amz-chime-bearer": input.ChimeBearer! }),
+  };
   let resolvedPath = "/channels/{ChannelArn}/messages";
   if (input.ChannelArn !== undefined) {
     const labelValue: string = input.ChannelArn;
@@ -4688,7 +4728,9 @@ export const serializeAws_restJson1ListChannelModeratorsCommand = async (
   input: ListChannelModeratorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    ...(isSerializableHeaderValue(input.ChimeBearer) && { "x-amz-chime-bearer": input.ChimeBearer! }),
+  };
   let resolvedPath = "/channels/{ChannelArn}/moderators";
   if (input.ChannelArn !== undefined) {
     const labelValue: string = input.ChannelArn;
@@ -4728,7 +4770,9 @@ export const serializeAws_restJson1ListChannelsCommand = async (
   input: ListChannelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    ...(isSerializableHeaderValue(input.ChimeBearer) && { "x-amz-chime-bearer": input.ChimeBearer! }),
+  };
   let resolvedPath = "/channels";
   const query: any = {
     ...(input.AppInstanceArn !== undefined && { "app-instance-arn": input.AppInstanceArn }),
@@ -4761,7 +4805,9 @@ export const serializeAws_restJson1ListChannelsModeratedByAppInstanceUserCommand
   input: ListChannelsModeratedByAppInstanceUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    ...(isSerializableHeaderValue(input.ChimeBearer) && { "x-amz-chime-bearer": input.ChimeBearer! }),
+  };
   let resolvedPath = "/channels";
   const query: any = {
     scope: "app-instance-user-moderated-channels",
@@ -5695,7 +5741,9 @@ export const serializeAws_restJson1RedactChannelMessageCommand = async (
   input: RedactChannelMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    ...(isSerializableHeaderValue(input.ChimeBearer) && { "x-amz-chime-bearer": input.ChimeBearer! }),
+  };
   let resolvedPath = "/channels/{ChannelArn}/messages/{MessageId}";
   if (input.ChannelArn !== undefined) {
     const labelValue: string = input.ChannelArn;
@@ -5989,6 +6037,7 @@ export const serializeAws_restJson1SendChannelMessageCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/json",
+    ...(isSerializableHeaderValue(input.ChimeBearer) && { "x-amz-chime-bearer": input.ChimeBearer! }),
   };
   let resolvedPath = "/channels/{ChannelArn}/messages";
   if (input.ChannelArn !== undefined) {
@@ -6456,6 +6505,7 @@ export const serializeAws_restJson1UpdateChannelCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/json",
+    ...(isSerializableHeaderValue(input.ChimeBearer) && { "x-amz-chime-bearer": input.ChimeBearer! }),
   };
   let resolvedPath = "/channels/{ChannelArn}";
   if (input.ChannelArn !== undefined) {
@@ -6498,6 +6548,7 @@ export const serializeAws_restJson1UpdateChannelMessageCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/json",
+    ...(isSerializableHeaderValue(input.ChimeBearer) && { "x-amz-chime-bearer": input.ChimeBearer! }),
   };
   let resolvedPath = "/channels/{ChannelArn}/messages/{MessageId}";
   if (input.ChannelArn !== undefined) {
@@ -6546,7 +6597,9 @@ export const serializeAws_restJson1UpdateChannelReadMarkerCommand = async (
   input: UpdateChannelReadMarkerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    ...(isSerializableHeaderValue(input.ChimeBearer) && { "x-amz-chime-bearer": input.ChimeBearer! }),
+  };
   let resolvedPath = "/channels/{ChannelArn}/readMarker";
   if (input.ChannelArn !== undefined) {
     const labelValue: string = input.ChannelArn;
@@ -11006,14 +11059,6 @@ const deserializeAws_restJson1DeleteAppInstanceAdminCommandError = async (
     case "com.amazonaws.chime#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.chime#ResourceLimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -18164,14 +18209,6 @@ const deserializeAws_restJson1ListAppInstanceAdminsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.chime#ResourceLimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "ServiceFailureException":
     case "com.amazonaws.chime#ServiceFailureException":
       response = {
@@ -19802,6 +19839,14 @@ const deserializeAws_restJson1ListPhoneNumbersCommandError = async (
     case "com.amazonaws.chime#ForbiddenException":
       response = {
         ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.chime#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };

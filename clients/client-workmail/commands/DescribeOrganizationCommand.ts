@@ -21,7 +21,8 @@ export type DescribeOrganizationCommandInput = DescribeOrganizationRequest;
 export type DescribeOrganizationCommandOutput = DescribeOrganizationResponse & __MetadataBearer;
 
 /**
- * <p>Provides more information regarding a given organization based on its identifier.</p>
+ * <p>Provides more information regarding a given organization based on its
+ *          identifier.</p>
  */
 export class DescribeOrganizationCommand extends $Command<
   DescribeOrganizationCommandInput,

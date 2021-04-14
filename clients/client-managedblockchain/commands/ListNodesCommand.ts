@@ -26,6 +26,7 @@ export type ListNodesCommandOutput = ListNodesOutput & __MetadataBearer;
 
 /**
  * <p>Returns information about the nodes within a network.</p>
+ *          <p>Applies to Hyperledger Fabric and Ethereum.</p>
  */
 export class ListNodesCommand extends $Command<
   ListNodesCommandInput,

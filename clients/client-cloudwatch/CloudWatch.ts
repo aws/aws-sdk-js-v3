@@ -20,6 +20,11 @@ import {
   DeleteInsightRulesCommandOutput,
 } from "./commands/DeleteInsightRulesCommand";
 import {
+  DeleteMetricStreamCommand,
+  DeleteMetricStreamCommandInput,
+  DeleteMetricStreamCommandOutput,
+} from "./commands/DeleteMetricStreamCommand";
+import {
   DescribeAlarmHistoryCommand,
   DescribeAlarmHistoryCommandInput,
   DescribeAlarmHistoryCommandOutput,
@@ -85,6 +90,11 @@ import {
   GetMetricStatisticsCommandOutput,
 } from "./commands/GetMetricStatisticsCommand";
 import {
+  GetMetricStreamCommand,
+  GetMetricStreamCommandInput,
+  GetMetricStreamCommandOutput,
+} from "./commands/GetMetricStreamCommand";
+import {
   GetMetricWidgetImageCommand,
   GetMetricWidgetImageCommandInput,
   GetMetricWidgetImageCommandOutput,
@@ -94,6 +104,11 @@ import {
   ListDashboardsCommandInput,
   ListDashboardsCommandOutput,
 } from "./commands/ListDashboardsCommand";
+import {
+  ListMetricStreamsCommand,
+  ListMetricStreamsCommandInput,
+  ListMetricStreamsCommandOutput,
+} from "./commands/ListMetricStreamsCommand";
 import { ListMetricsCommand, ListMetricsCommandInput, ListMetricsCommandOutput } from "./commands/ListMetricsCommand";
 import {
   ListTagsForResourceCommand,
@@ -131,10 +146,25 @@ import {
   PutMetricDataCommandOutput,
 } from "./commands/PutMetricDataCommand";
 import {
+  PutMetricStreamCommand,
+  PutMetricStreamCommandInput,
+  PutMetricStreamCommandOutput,
+} from "./commands/PutMetricStreamCommand";
+import {
   SetAlarmStateCommand,
   SetAlarmStateCommandInput,
   SetAlarmStateCommandOutput,
 } from "./commands/SetAlarmStateCommand";
+import {
+  StartMetricStreamsCommand,
+  StartMetricStreamsCommandInput,
+  StartMetricStreamsCommandOutput,
+} from "./commands/StartMetricStreamsCommand";
+import {
+  StopMetricStreamsCommand,
+  StopMetricStreamsCommandInput,
+  StopMetricStreamsCommandOutput,
+} from "./commands/StopMetricStreamsCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -296,6 +326,38 @@ export class CloudWatch extends CloudWatchClient {
     cb?: (err: any, data?: DeleteInsightRulesCommandOutput) => void
   ): Promise<DeleteInsightRulesCommandOutput> | void {
     const command = new DeleteInsightRulesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Permanently deletes the metric stream that you specify.</p>
+   */
+  public deleteMetricStream(
+    args: DeleteMetricStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMetricStreamCommandOutput>;
+  public deleteMetricStream(
+    args: DeleteMetricStreamCommandInput,
+    cb: (err: any, data?: DeleteMetricStreamCommandOutput) => void
+  ): void;
+  public deleteMetricStream(
+    args: DeleteMetricStreamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteMetricStreamCommandOutput) => void
+  ): void;
+  public deleteMetricStream(
+    args: DeleteMetricStreamCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMetricStreamCommandOutput) => void),
+    cb?: (err: any, data?: DeleteMetricStreamCommandOutput) => void
+  ): Promise<DeleteMetricStreamCommandOutput> | void {
+    const command = new DeleteMetricStreamCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -859,6 +921,38 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
+   * <p>Returns information about the metric stream that you specify.</p>
+   */
+  public getMetricStream(
+    args: GetMetricStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMetricStreamCommandOutput>;
+  public getMetricStream(
+    args: GetMetricStreamCommandInput,
+    cb: (err: any, data?: GetMetricStreamCommandOutput) => void
+  ): void;
+  public getMetricStream(
+    args: GetMetricStreamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMetricStreamCommandOutput) => void
+  ): void;
+  public getMetricStream(
+    args: GetMetricStreamCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMetricStreamCommandOutput) => void),
+    cb?: (err: any, data?: GetMetricStreamCommandOutput) => void
+  ): Promise<GetMetricStreamCommandOutput> | void {
+    const command = new GetMetricStreamCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>You can use the <code>GetMetricWidgetImage</code> API to retrieve a snapshot graph of
    * 			one or more Amazon CloudWatch metrics as a bitmap image. You can then embed this
    * 			image into your services and products, such as wiki pages, reports, and documents.
@@ -976,6 +1070,38 @@ export class CloudWatch extends CloudWatchClient {
     cb?: (err: any, data?: ListMetricsCommandOutput) => void
   ): Promise<ListMetricsCommandOutput> | void {
     const command = new ListMetricsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of metric streams in this account.</p>
+   */
+  public listMetricStreams(
+    args: ListMetricStreamsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMetricStreamsCommandOutput>;
+  public listMetricStreams(
+    args: ListMetricStreamsCommandInput,
+    cb: (err: any, data?: ListMetricStreamsCommandOutput) => void
+  ): void;
+  public listMetricStreams(
+    args: ListMetricStreamsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMetricStreamsCommandOutput) => void
+  ): void;
+  public listMetricStreams(
+    args: ListMetricStreamsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMetricStreamsCommandOutput) => void),
+    cb?: (err: any, data?: ListMetricStreamsCommandOutput) => void
+  ): Promise<ListMetricStreamsCommandOutput> | void {
+    const command = new ListMetricStreamsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1229,7 +1355,7 @@ export class CloudWatch extends CloudWatchClient {
    *
    * 		       <p>The first time you create an alarm in the
    * 			AWS Management Console, the CLI, or by using the PutMetricAlarm API, CloudWatch
-   * 			creates the necessary service-linked rolea for you. The service-linked roles
+   * 			creates the necessary service-linked role for you. The service-linked roles
    * 			are called <code>AWSServiceRoleForCloudWatchEvents</code> and
    * 			<code>AWSServiceRoleForCloudWatchAlarms_ActionSSM</code>.
    * 			For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role">AWS service-linked role</a>.</p>
@@ -1340,6 +1466,65 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
+   * <p>Creates or updates a metric stream. Metric streams can automatically stream CloudWatch metrics
+   * 			to AWS destinations including
+   * 			Amazon S3 and to many third-party solutions.</p>
+   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Metric-Streams.html">
+   * 		Using Metric Streams</a>.</p>
+   * 		       <p>To create a metric stream,
+   * 			you must be logged on to an account that has the <code>iam:PassRole</code> permission
+   * 			and either the <code>CloudWatchFullAccess</code>
+   * 		policy or the <code>cloudwatch:PutMetricStream</code>
+   * 		permission.</p>
+   * 		       <p>When you create or update a metric stream, you choose one of the following:</p>
+   * 		       <ul>
+   *             <li>
+   *                <p>Stream metrics from all metric namespaces in the account.</p>
+   *             </li>
+   *             <li>
+   *                <p>Stream metrics from all metric namespaces in the account, except
+   * 				for the namespaces that you list in <code>ExcludeFilters</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Stream metrics from only the metric namespaces that you list in
+   * 				<code>IncludeFilters</code>.</p>
+   *             </li>
+   *          </ul>
+   *
+   * 		       <p>When you use <code>PutMetricStream</code> to create a new metric stream, the stream
+   * 		is created in the <code>running</code> state. If you use it to update an existing stream,
+   * 		the state of the stream is not changed.</p>
+   */
+  public putMetricStream(
+    args: PutMetricStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutMetricStreamCommandOutput>;
+  public putMetricStream(
+    args: PutMetricStreamCommandInput,
+    cb: (err: any, data?: PutMetricStreamCommandOutput) => void
+  ): void;
+  public putMetricStream(
+    args: PutMetricStreamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutMetricStreamCommandOutput) => void
+  ): void;
+  public putMetricStream(
+    args: PutMetricStreamCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutMetricStreamCommandOutput) => void),
+    cb?: (err: any, data?: PutMetricStreamCommandOutput) => void
+  ): Promise<PutMetricStreamCommandOutput> | void {
+    const command = new PutMetricStreamCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Temporarily sets the state of an alarm for testing purposes. When the updated
    * 			state differs from the previous value, the action configured for
    * 			the appropriate state is invoked. For example, if your alarm is configured to send an
@@ -1376,6 +1561,70 @@ export class CloudWatch extends CloudWatchClient {
     cb?: (err: any, data?: SetAlarmStateCommandOutput) => void
   ): Promise<SetAlarmStateCommandOutput> | void {
     const command = new SetAlarmStateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts the streaming of metrics for one or more of your metric streams.</p>
+   */
+  public startMetricStreams(
+    args: StartMetricStreamsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartMetricStreamsCommandOutput>;
+  public startMetricStreams(
+    args: StartMetricStreamsCommandInput,
+    cb: (err: any, data?: StartMetricStreamsCommandOutput) => void
+  ): void;
+  public startMetricStreams(
+    args: StartMetricStreamsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartMetricStreamsCommandOutput) => void
+  ): void;
+  public startMetricStreams(
+    args: StartMetricStreamsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartMetricStreamsCommandOutput) => void),
+    cb?: (err: any, data?: StartMetricStreamsCommandOutput) => void
+  ): Promise<StartMetricStreamsCommandOutput> | void {
+    const command = new StartMetricStreamsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Stops the streaming of metrics for one or more of your metric streams.</p>
+   */
+  public stopMetricStreams(
+    args: StopMetricStreamsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopMetricStreamsCommandOutput>;
+  public stopMetricStreams(
+    args: StopMetricStreamsCommandInput,
+    cb: (err: any, data?: StopMetricStreamsCommandOutput) => void
+  ): void;
+  public stopMetricStreams(
+    args: StopMetricStreamsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopMetricStreamsCommandOutput) => void
+  ): void;
+  public stopMetricStreams(
+    args: StopMetricStreamsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopMetricStreamsCommandOutput) => void),
+    cb?: (err: any, data?: StopMetricStreamsCommandOutput) => void
+  ): Promise<StopMetricStreamsCommandOutput> | void {
+    const command = new StopMetricStreamsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -21,7 +21,7 @@ export type GetOpsMetadataCommandInput = GetOpsMetadataRequest;
 export type GetOpsMetadataCommandOutput = GetOpsMetadataResult & __MetadataBearer;
 
 /**
- * <p>View operational metadata related to an application in AppManager.</p>
+ * <p>View operational metadata related to an application in Application Manager.</p>
  */
 export class GetOpsMetadataCommand extends $Command<
   GetOpsMetadataCommandInput,

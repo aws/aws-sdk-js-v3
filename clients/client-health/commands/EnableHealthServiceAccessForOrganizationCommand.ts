@@ -20,12 +20,29 @@ export type EnableHealthServiceAccessForOrganizationCommandInput = {};
 export type EnableHealthServiceAccessForOrganizationCommandOutput = __MetadataBearer;
 
 /**
- * <p>Calling this operation enables AWS Health to work with AWS Organizations. This applies a
- *          service-linked role (SLR) to the master account in the organization. To call this
- *          operation, you must sign in as an IAM user, assume an IAM role, or sign in as the root
- *          user (not recommended) in the organization's master account.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html">Aggregating AWS Health events</a> in the <i>AWS Health User
- *             Guide</i>.</p>
+ * <p>Enables AWS Health to work with AWS Organizations. You can use the organizational view feature
+ *          to aggregate events from all AWS accounts in your organization in a centralized location. </p>
+ *          <p>This operation also creates a service-linked role for the management account in the
+ *          organization. </p>
+ *          <note>
+ *             <p>To call this operation, you must meet the following requirements:</p>
+ *             <ul>
+ *                <li>
+ *                   <p>You must have a Business or Enterprise support plan from <a href="http://aws.amazon.com/premiumsupport/">AWS Support</a> to use the
+ *                   AWS Health API. If you call the AWS Health API from an AWS account that
+ *                   doesn't have a Business or Enterprise support plan, you receive a
+ *                      <code>SubscriptionRequiredException</code> error.</p>
+ *                </li>
+ *                <li>
+ *                   <p>You must have permission to call this operation from the organization's
+ *                   management account. For example IAM policies, see <a href="https://docs.aws.amazon.com/health/latest/ug/security_iam_id-based-policy-examples.html">AWS Health
+ *                      identity-based policy examples</a>.</p>
+ *                </li>
+ *             </ul>
+ *          </note>
+ *          <p>If you don't have the required support plan, you can instead use the AWS Health console
+ *          to enable the organizational view feature. For more information, see <a href="https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html">Aggregating
+ *             AWS Health events</a> in the <i>AWS Health User Guide</i>.</p>
  */
 export class EnableHealthServiceAccessForOrganizationCommand extends $Command<
   EnableHealthServiceAccessForOrganizationCommandInput,

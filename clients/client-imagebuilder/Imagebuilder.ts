@@ -10,6 +10,11 @@ import {
   CreateComponentCommandOutput,
 } from "./commands/CreateComponentCommand";
 import {
+  CreateContainerRecipeCommand,
+  CreateContainerRecipeCommandInput,
+  CreateContainerRecipeCommandOutput,
+} from "./commands/CreateContainerRecipeCommand";
+import {
   CreateDistributionConfigurationCommand,
   CreateDistributionConfigurationCommandInput,
   CreateDistributionConfigurationCommandOutput,
@@ -35,6 +40,11 @@ import {
   DeleteComponentCommandInput,
   DeleteComponentCommandOutput,
 } from "./commands/DeleteComponentCommand";
+import {
+  DeleteContainerRecipeCommand,
+  DeleteContainerRecipeCommandInput,
+  DeleteContainerRecipeCommandOutput,
+} from "./commands/DeleteContainerRecipeCommand";
 import {
   DeleteDistributionConfigurationCommand,
   DeleteDistributionConfigurationCommandInput,
@@ -66,6 +76,16 @@ import {
   GetComponentPolicyCommandInput,
   GetComponentPolicyCommandOutput,
 } from "./commands/GetComponentPolicyCommand";
+import {
+  GetContainerRecipeCommand,
+  GetContainerRecipeCommandInput,
+  GetContainerRecipeCommandOutput,
+} from "./commands/GetContainerRecipeCommand";
+import {
+  GetContainerRecipePolicyCommand,
+  GetContainerRecipePolicyCommandInput,
+  GetContainerRecipePolicyCommandOutput,
+} from "./commands/GetContainerRecipePolicyCommand";
 import {
   GetDistributionConfigurationCommand,
   GetDistributionConfigurationCommandInput,
@@ -113,6 +133,11 @@ import {
   ListComponentsCommandOutput,
 } from "./commands/ListComponentsCommand";
 import {
+  ListContainerRecipesCommand,
+  ListContainerRecipesCommandInput,
+  ListContainerRecipesCommandOutput,
+} from "./commands/ListContainerRecipesCommand";
+import {
   ListDistributionConfigurationsCommand,
   ListDistributionConfigurationsCommandInput,
   ListDistributionConfigurationsCommandOutput,
@@ -122,6 +147,11 @@ import {
   ListImageBuildVersionsCommandInput,
   ListImageBuildVersionsCommandOutput,
 } from "./commands/ListImageBuildVersionsCommand";
+import {
+  ListImagePackagesCommand,
+  ListImagePackagesCommandInput,
+  ListImagePackagesCommandOutput,
+} from "./commands/ListImagePackagesCommand";
 import {
   ListImagePipelineImagesCommand,
   ListImagePipelineImagesCommandInput,
@@ -153,6 +183,11 @@ import {
   PutComponentPolicyCommandInput,
   PutComponentPolicyCommandOutput,
 } from "./commands/PutComponentPolicyCommand";
+import {
+  PutContainerRecipePolicyCommand,
+  PutContainerRecipePolicyCommandInput,
+  PutContainerRecipePolicyCommandOutput,
+} from "./commands/PutContainerRecipePolicyCommand";
 import {
   PutImagePolicyCommand,
   PutImagePolicyCommandInput,
@@ -192,11 +227,15 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * <p>EC2 Image Builder is a fully managed AWS service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date “golden” server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.</p>
+ * <p>EC2 Image Builder is a fully managed AWS service that makes it easier to automate the
+ *       creation, management, and deployment of customized, secure, and up-to-date "golden" server
+ *       images that are pre-installed and pre-configured with software and settings to meet specific
+ *       IT standards.</p>
  */
 export class Imagebuilder extends ImagebuilderClient {
   /**
-   * <p>CancelImageCreation cancels the creation of Image. This operation can only be used on images in a non-terminal state.</p>
+   * <p>CancelImageCreation cancels the creation of Image. This operation can only be used on
+   *       images in a non-terminal state.</p>
    */
   public cancelImageCreation(
     args: CancelImageCreationCommandInput,
@@ -228,7 +267,8 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p>Creates a new component that can be used to build, validate, test, and assess your image.</p>
+   * <p>Creates a new component that can be used to build, validate, test, and assess your
+   *       image.</p>
    */
   public createComponent(
     args: CreateComponentCommandInput,
@@ -260,7 +300,40 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p>Creates a new distribution configuration. Distribution configurations define and configure the outputs of your pipeline. </p>
+   * <p>Creates a new container recipe. Container recipes define how images are configured, tested, and assessed.</p>
+   */
+  public createContainerRecipe(
+    args: CreateContainerRecipeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateContainerRecipeCommandOutput>;
+  public createContainerRecipe(
+    args: CreateContainerRecipeCommandInput,
+    cb: (err: any, data?: CreateContainerRecipeCommandOutput) => void
+  ): void;
+  public createContainerRecipe(
+    args: CreateContainerRecipeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateContainerRecipeCommandOutput) => void
+  ): void;
+  public createContainerRecipe(
+    args: CreateContainerRecipeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateContainerRecipeCommandOutput) => void),
+    cb?: (err: any, data?: CreateContainerRecipeCommandOutput) => void
+  ): Promise<CreateContainerRecipeCommandOutput> | void {
+    const command = new CreateContainerRecipeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a new distribution configuration. Distribution configurations define and configure
+   *       the outputs of your pipeline.</p>
    */
   public createDistributionConfiguration(
     args: CreateDistributionConfigurationCommandInput,
@@ -292,7 +365,8 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Creates a new image. This request will create a new image along with all of the configured output resources defined in the distribution configuration. </p>
+   * <p> Creates a new image. This request will create a new image along with all of the
+   *       configured output resources defined in the distribution configuration.</p>
    */
   public createImage(args: CreateImageCommandInput, options?: __HttpHandlerOptions): Promise<CreateImageCommandOutput>;
   public createImage(args: CreateImageCommandInput, cb: (err: any, data?: CreateImageCommandOutput) => void): void;
@@ -318,7 +392,8 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Creates a new image pipeline. Image pipelines enable you to automate the creation and distribution of images. </p>
+   * <p> Creates a new image pipeline. Image pipelines enable you to automate the creation and
+   *       distribution of images.</p>
    */
   public createImagePipeline(
     args: CreateImagePipelineCommandInput,
@@ -350,7 +425,8 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Creates a new image recipe. Image recipes define how images are configured, tested, and assessed. </p>
+   * <p> Creates a new image recipe. Image recipes define how images are configured, tested, and
+   *       assessed.</p>
    */
   public createImageRecipe(
     args: CreateImageRecipeCommandInput,
@@ -382,7 +458,8 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Creates a new infrastructure configuration. An infrastructure configuration defines the environment in which your image will be built and tested. </p>
+   * <p> Creates a new infrastructure configuration. An infrastructure configuration defines the
+   *       environment in which your image will be built and tested.</p>
    */
   public createInfrastructureConfiguration(
     args: CreateInfrastructureConfigurationCommandInput,
@@ -414,7 +491,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Deletes a component build version. </p>
+   * <p> Deletes a component build version.</p>
    */
   public deleteComponent(
     args: DeleteComponentCommandInput,
@@ -446,7 +523,39 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Deletes a distribution configuration. </p>
+   * <p>Deletes a container recipe.</p>
+   */
+  public deleteContainerRecipe(
+    args: DeleteContainerRecipeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteContainerRecipeCommandOutput>;
+  public deleteContainerRecipe(
+    args: DeleteContainerRecipeCommandInput,
+    cb: (err: any, data?: DeleteContainerRecipeCommandOutput) => void
+  ): void;
+  public deleteContainerRecipe(
+    args: DeleteContainerRecipeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteContainerRecipeCommandOutput) => void
+  ): void;
+  public deleteContainerRecipe(
+    args: DeleteContainerRecipeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteContainerRecipeCommandOutput) => void),
+    cb?: (err: any, data?: DeleteContainerRecipeCommandOutput) => void
+  ): Promise<DeleteContainerRecipeCommandOutput> | void {
+    const command = new DeleteContainerRecipeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p> Deletes a distribution configuration.</p>
    */
   public deleteDistributionConfiguration(
     args: DeleteDistributionConfigurationCommandInput,
@@ -478,7 +587,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Deletes an image. </p>
+   * <p> Deletes an image.</p>
    */
   public deleteImage(args: DeleteImageCommandInput, options?: __HttpHandlerOptions): Promise<DeleteImageCommandOutput>;
   public deleteImage(args: DeleteImageCommandInput, cb: (err: any, data?: DeleteImageCommandOutput) => void): void;
@@ -504,7 +613,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Deletes an image pipeline. </p>
+   * <p> Deletes an image pipeline.</p>
    */
   public deleteImagePipeline(
     args: DeleteImagePipelineCommandInput,
@@ -536,7 +645,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Deletes an image recipe. </p>
+   * <p> Deletes an image recipe.</p>
    */
   public deleteImageRecipe(
     args: DeleteImageRecipeCommandInput,
@@ -568,7 +677,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Deletes an infrastructure configuration. </p>
+   * <p> Deletes an infrastructure configuration.</p>
    */
   public deleteInfrastructureConfiguration(
     args: DeleteInfrastructureConfigurationCommandInput,
@@ -600,7 +709,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Gets a component object. </p>
+   * <p> Gets a component object.</p>
    */
   public getComponent(
     args: GetComponentCommandInput,
@@ -629,7 +738,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Gets a component policy. </p>
+   * <p> Gets a component policy.</p>
    */
   public getComponentPolicy(
     args: GetComponentPolicyCommandInput,
@@ -661,7 +770,71 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Gets a distribution configuration. </p>
+   * <p>Retrieves a container recipe.</p>
+   */
+  public getContainerRecipe(
+    args: GetContainerRecipeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetContainerRecipeCommandOutput>;
+  public getContainerRecipe(
+    args: GetContainerRecipeCommandInput,
+    cb: (err: any, data?: GetContainerRecipeCommandOutput) => void
+  ): void;
+  public getContainerRecipe(
+    args: GetContainerRecipeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetContainerRecipeCommandOutput) => void
+  ): void;
+  public getContainerRecipe(
+    args: GetContainerRecipeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetContainerRecipeCommandOutput) => void),
+    cb?: (err: any, data?: GetContainerRecipeCommandOutput) => void
+  ): Promise<GetContainerRecipeCommandOutput> | void {
+    const command = new GetContainerRecipeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves the policy for a container recipe.</p>
+   */
+  public getContainerRecipePolicy(
+    args: GetContainerRecipePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetContainerRecipePolicyCommandOutput>;
+  public getContainerRecipePolicy(
+    args: GetContainerRecipePolicyCommandInput,
+    cb: (err: any, data?: GetContainerRecipePolicyCommandOutput) => void
+  ): void;
+  public getContainerRecipePolicy(
+    args: GetContainerRecipePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetContainerRecipePolicyCommandOutput) => void
+  ): void;
+  public getContainerRecipePolicy(
+    args: GetContainerRecipePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetContainerRecipePolicyCommandOutput) => void),
+    cb?: (err: any, data?: GetContainerRecipePolicyCommandOutput) => void
+  ): Promise<GetContainerRecipePolicyCommandOutput> | void {
+    const command = new GetContainerRecipePolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p> Gets a distribution configuration.</p>
    */
   public getDistributionConfiguration(
     args: GetDistributionConfigurationCommandInput,
@@ -693,7 +866,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Gets an image. </p>
+   * <p> Gets an image.</p>
    */
   public getImage(args: GetImageCommandInput, options?: __HttpHandlerOptions): Promise<GetImageCommandOutput>;
   public getImage(args: GetImageCommandInput, cb: (err: any, data?: GetImageCommandOutput) => void): void;
@@ -719,7 +892,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Gets an image pipeline. </p>
+   * <p> Gets an image pipeline.</p>
    */
   public getImagePipeline(
     args: GetImagePipelineCommandInput,
@@ -751,7 +924,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Gets an image policy. </p>
+   * <p> Gets an image policy.</p>
    */
   public getImagePolicy(
     args: GetImagePolicyCommandInput,
@@ -783,7 +956,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Gets an image recipe. </p>
+   * <p> Gets an image recipe.</p>
    */
   public getImageRecipe(
     args: GetImageRecipeCommandInput,
@@ -815,7 +988,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Gets an image recipe policy. </p>
+   * <p> Gets an image recipe policy.</p>
    */
   public getImageRecipePolicy(
     args: GetImageRecipePolicyCommandInput,
@@ -847,7 +1020,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Gets an infrastructure configuration. </p>
+   * <p> Gets an infrastructure configuration.</p>
    */
   public getInfrastructureConfiguration(
     args: GetInfrastructureConfigurationCommandInput,
@@ -879,7 +1052,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p>Imports a component and transforms its data into a component document. </p>
+   * <p>Imports a component and transforms its data into a component document.</p>
    */
   public importComponent(
     args: ImportComponentCommandInput,
@@ -911,7 +1084,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Returns the list of component build versions for the specified semantic version. </p>
+   * <p> Returns the list of component build versions for the specified semantic version.</p>
    */
   public listComponentBuildVersions(
     args: ListComponentBuildVersionsCommandInput,
@@ -943,7 +1116,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p>Returns the list of component build versions for the specified semantic version. </p>
+   * <p>Returns the list of component build versions for the specified semantic version.</p>
    */
   public listComponents(
     args: ListComponentsCommandInput,
@@ -975,7 +1148,39 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Returns a list of distribution configurations. </p>
+   * <p>Returns a list of container recipes.</p>
+   */
+  public listContainerRecipes(
+    args: ListContainerRecipesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListContainerRecipesCommandOutput>;
+  public listContainerRecipes(
+    args: ListContainerRecipesCommandInput,
+    cb: (err: any, data?: ListContainerRecipesCommandOutput) => void
+  ): void;
+  public listContainerRecipes(
+    args: ListContainerRecipesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListContainerRecipesCommandOutput) => void
+  ): void;
+  public listContainerRecipes(
+    args: ListContainerRecipesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListContainerRecipesCommandOutput) => void),
+    cb?: (err: any, data?: ListContainerRecipesCommandOutput) => void
+  ): Promise<ListContainerRecipesCommandOutput> | void {
+    const command = new ListContainerRecipesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of distribution configurations.</p>
    */
   public listDistributionConfigurations(
     args: ListDistributionConfigurationsCommandInput,
@@ -1007,7 +1212,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Returns a list of image build versions. </p>
+   * <p> Returns a list of image build versions.</p>
    */
   public listImageBuildVersions(
     args: ListImageBuildVersionsCommandInput,
@@ -1039,7 +1244,39 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Returns a list of images created by the specified pipeline. </p>
+   * <p>List the Packages that are associated with an Image Build Version, as determined by AWS Systems Manager Inventory at build time.</p>
+   */
+  public listImagePackages(
+    args: ListImagePackagesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListImagePackagesCommandOutput>;
+  public listImagePackages(
+    args: ListImagePackagesCommandInput,
+    cb: (err: any, data?: ListImagePackagesCommandOutput) => void
+  ): void;
+  public listImagePackages(
+    args: ListImagePackagesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListImagePackagesCommandOutput) => void
+  ): void;
+  public listImagePackages(
+    args: ListImagePackagesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListImagePackagesCommandOutput) => void),
+    cb?: (err: any, data?: ListImagePackagesCommandOutput) => void
+  ): Promise<ListImagePackagesCommandOutput> | void {
+    const command = new ListImagePackagesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p> Returns a list of images created by the specified pipeline.</p>
    */
   public listImagePipelineImages(
     args: ListImagePipelineImagesCommandInput,
@@ -1071,7 +1308,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p>Returns a list of image pipelines. </p>
+   * <p>Returns a list of image pipelines.</p>
    */
   public listImagePipelines(
     args: ListImagePipelinesCommandInput,
@@ -1103,7 +1340,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Returns a list of image recipes. </p>
+   * <p> Returns a list of image recipes.</p>
    */
   public listImageRecipes(
     args: ListImageRecipesCommandInput,
@@ -1135,7 +1372,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Returns the list of images that you have access to. </p>
+   * <p> Returns the list of images that you have access to.</p>
    */
   public listImages(args: ListImagesCommandInput, options?: __HttpHandlerOptions): Promise<ListImagesCommandOutput>;
   public listImages(args: ListImagesCommandInput, cb: (err: any, data?: ListImagesCommandOutput) => void): void;
@@ -1161,7 +1398,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Returns a list of infrastructure configurations. </p>
+   * <p> Returns a list of infrastructure configurations.</p>
    */
   public listInfrastructureConfigurations(
     args: ListInfrastructureConfigurationsCommandInput,
@@ -1193,7 +1430,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Returns the list of tags for the specified resource. </p>
+   * <p> Returns the list of tags for the specified resource.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1225,7 +1462,9 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Applies a policy to a component. We recommend that you call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a> to share resources. If you call the Image Builder API <code>PutComponentPolicy</code>, you must also call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to all principals with whom the resource is shared. </p>
+   * <p> Applies a policy to a component. We recommend that you call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a> to share resources. If you call the Image Builder API
+   *         <code>PutComponentPolicy</code>, you must also call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to
+   *       all principals with whom the resource is shared.</p>
    */
   public putComponentPolicy(
     args: PutComponentPolicyCommandInput,
@@ -1257,7 +1496,41 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p>Applies a policy to an image. We recommend that you call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a> to share resources. If you call the Image Builder API <code>PutImagePolicy</code>, you must also call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to all principals with whom the resource is shared. </p>
+   * <p>Applies a policy to a container image. We recommend that you call the RAM API CreateResourceShare (https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html) to share resources. If you call the Image Builder API <code>PutContainerImagePolicy</code>, you must also call the RAM API PromoteResourceShareCreatedFromPolicy (https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html) in order for the resource to be visible to all principals with whom the resource is shared.</p>
+   */
+  public putContainerRecipePolicy(
+    args: PutContainerRecipePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutContainerRecipePolicyCommandOutput>;
+  public putContainerRecipePolicy(
+    args: PutContainerRecipePolicyCommandInput,
+    cb: (err: any, data?: PutContainerRecipePolicyCommandOutput) => void
+  ): void;
+  public putContainerRecipePolicy(
+    args: PutContainerRecipePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutContainerRecipePolicyCommandOutput) => void
+  ): void;
+  public putContainerRecipePolicy(
+    args: PutContainerRecipePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutContainerRecipePolicyCommandOutput) => void),
+    cb?: (err: any, data?: PutContainerRecipePolicyCommandOutput) => void
+  ): Promise<PutContainerRecipePolicyCommandOutput> | void {
+    const command = new PutContainerRecipePolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Applies a policy to an image. We recommend that you call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a> to share resources. If you call the Image Builder API
+   *         <code>PutImagePolicy</code>, you must also call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to
+   *       all principals with whom the resource is shared.</p>
    */
   public putImagePolicy(
     args: PutImagePolicyCommandInput,
@@ -1289,7 +1562,9 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Applies a policy to an image recipe. We recommend that you call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a> to share resources. If you call the Image Builder API <code>PutImageRecipePolicy</code>, you must also call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to all principals with whom the resource is shared. </p>
+   * <p> Applies a policy to an image recipe. We recommend that you call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a> to share resources. If you call the Image Builder API
+   *         <code>PutImageRecipePolicy</code>, you must also call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to
+   *       all principals with whom the resource is shared.</p>
    */
   public putImageRecipePolicy(
     args: PutImageRecipePolicyCommandInput,
@@ -1321,7 +1596,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Manually triggers a pipeline to create an image. </p>
+   * <p> Manually triggers a pipeline to create an image.</p>
    */
   public startImagePipelineExecution(
     args: StartImagePipelineExecutionCommandInput,
@@ -1353,7 +1628,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Adds a tag to a resource. </p>
+   * <p> Adds a tag to a resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -1379,7 +1654,7 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Removes a tag from a resource. </p>
+   * <p> Removes a tag from a resource.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1411,7 +1686,8 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Updates a new distribution configuration. Distribution configurations define and configure the outputs of your pipeline. </p>
+   * <p> Updates a new distribution configuration. Distribution configurations define and
+   *       configure the outputs of your pipeline.</p>
    */
   public updateDistributionConfiguration(
     args: UpdateDistributionConfigurationCommandInput,
@@ -1443,7 +1719,8 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Updates a new image pipeline. Image pipelines enable you to automate the creation and distribution of images. </p>
+   * <p> Updates a new image pipeline. Image pipelines enable you to automate the creation and
+   *       distribution of images.</p>
    */
   public updateImagePipeline(
     args: UpdateImagePipelineCommandInput,
@@ -1475,7 +1752,8 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Updates a new infrastructure configuration. An infrastructure configuration defines the environment in which your image will be built and tested. </p>
+   * <p> Updates a new infrastructure configuration. An infrastructure configuration defines the
+   *       environment in which your image will be built and tested.</p>
    */
   public updateInfrastructureConfiguration(
     args: UpdateInfrastructureConfigurationCommandInput,

@@ -21,9 +21,8 @@ export type UntagResourceCommandInput = UntagResourceRequest;
 export type UntagResourceCommandOutput = UntagResourceResponse & __MetadataBearer;
 
 /**
- * <p>Removes one or more tags from the specified Amazon Connect Customer Profiles resource.
- *          In Connect Customer Profiles, domains, profile object types, and integrations can be
- *          tagged.</p>
+ * <p>Removes one or more tags from the specified Amazon Connect Customer Profiles resource. In Connect
+ *          Customer Profiles, domains, profile object types, and integrations can be tagged.</p>
  */
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,

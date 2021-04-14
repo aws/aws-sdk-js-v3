@@ -18,8 +18,9 @@ export type ExportImageCommandInput = ExportImageRequest;
 export type ExportImageCommandOutput = ExportImageResult & __MetadataBearer;
 
 /**
- * <p>Exports an Amazon Machine Image (AMI) to a VM file. For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport_image.html">Exporting a VM Directory from an Amazon Machine Image
- *     (AMI)</a> in the <i>VM Import/Export User Guide</i>.</p>
+ * <p>Exports an Amazon Machine Image (AMI) to a VM file. For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport_image.html">Exporting a VM
+ *     directly from an Amazon Machine Image (AMI)</a> in the
+ *     <i>VM Import/Export User Guide</i>.</p>
  */
 export class ExportImageCommand extends $Command<
   ExportImageCommandInput,

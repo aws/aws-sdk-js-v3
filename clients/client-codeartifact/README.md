@@ -8,7 +8,7 @@
 AWS SDK for JavaScript Codeartifact Client for Node.js, Browser and React Native.
 
 <p> AWS CodeArtifact is a fully managed artifact repository compatible with language-native
-package managers and build tools such as npm, Apache Maven, NuGet, and pip. You can use CodeArtifact to
+package managers and build tools such as npm, Apache Maven, and pip. You can use CodeArtifact to
 share packages with development teams and pull packages. Packages can be pulled from both
 public and CodeArtifact repositories. You can also create an upstream relationship between a CodeArtifact
 repository and another repository, which effectively merges their contents from the point of
@@ -28,10 +28,7 @@ polyglot, so a single repository can contain packages of any supported type. Eac
 repository exposes endpoints for fetching and publishing packages using tools like the
 <b>
 <code>npm</code>
-</b> CLI, the <b>
-<code>NuGet</code>
-</b> CLI,
-the Maven CLI (<b>
+</b> CLI, the Maven CLI (<b>
 <code>mvn</code>
 </b>), and <b>
 <code>pip</code>
@@ -57,7 +54,7 @@ across their organization.</p>
 <li>
 <p>
 <b>Package</b>: A <i>package</i> is a bundle of software and the metadata required to
-resolve dependencies and install the software. CodeArtifact supports <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-npm.html">npm</a>, <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-python.html">PyPI</a>, <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-maven">Maven</a>, and <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-nuget">NuGet</a> package formats.</p>
+resolve dependencies and install the software. CodeArtifact supports <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-npm.html">npm</a>, <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-python.html">PyPI</a>, and <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/using-maven">Maven</a> package formats.</p>
 <p>In CodeArtifact, a package consists of:</p>
 <ul>
 <li>
@@ -150,9 +147,7 @@ contains information about the requested domain.</p>
 </li>
 <li>
 <p>
-<code>DescribePackageVersion</code>: Returns a <code>
-<a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html">PackageVersionDescription</a>
-</code>
+<code>DescribePackageVersion</code>: Returns a <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html">PackageVersionDescription</a>
 object that contains details about a package version. </p>
 </li>
 <li>
@@ -210,11 +205,6 @@ package format:
 <code>maven</code>
 </p>
 </li>
-<li>
-<p>
-<code>nuget</code>
-</p>
-</li>
 </ul>
 </li>
 <li>
@@ -255,24 +245,12 @@ package in a repository.</p>
 </li>
 <li>
 <p>
-<code>ListTagsForResource</code>: Returns a list of the tags associated with a resource.</p>
-</li>
-<li>
-<p>
 <code>PutDomainPermissionsPolicy</code>: Attaches a resource policy to a domain.</p>
 </li>
 <li>
 <p>
 <code>PutRepositoryPermissionsPolicy</code>: Sets the resource policy on a repository
 that specifies permissions to access it. </p>
-</li>
-<li>
-<p>
-<code>TagResource</code>: Adds or updates tags for a resource.</p>
-</li>
-<li>
-<p>
-<code>UntagResource</code>: Removes a tag from a resource. </p>
 </li>
 <li>
 <p>

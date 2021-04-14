@@ -21,7 +21,7 @@ export type PutPlaybackConfigurationCommandInput = PutPlaybackConfigurationReque
 export type PutPlaybackConfigurationCommandOutput = PutPlaybackConfigurationResponse & __MetadataBearer;
 
 /**
- * <p>Adds a new playback configuration to AWS Elemental MediaTailor. </p>
+ * <p>Adds a new playback configuration to AWS Elemental MediaTailor.</p>
  */
 export class PutPlaybackConfigurationCommand extends $Command<
   PutPlaybackConfigurationCommandInput,

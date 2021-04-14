@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UpdateSigningCertificateRequest } from "../models/models_0";
+import { UpdateSigningCertificateRequest } from "../models/models_1";
 import {
   deserializeAws_queryUpdateSigningCertificateCommand,
   serializeAws_queryUpdateSigningCertificateCommand,
@@ -21,14 +21,14 @@ export type UpdateSigningCertificateCommandInput = UpdateSigningCertificateReque
 export type UpdateSigningCertificateCommandOutput = __MetadataBearer;
 
 /**
- * <p>Changes the status of the specified user signing certificate from active to disabled, or
- *          vice versa. This operation can be used to disable an IAM user's signing certificate as
- *          part of a certificate rotation work flow.</p>
- *          <p>If the <code>UserName</code> field is not specified, the user name is determined
- *          implicitly based on the AWS access key ID used to sign the request. This operation works
- *          for access keys under the AWS account. Consequently, you can use this operation to manage
- *          AWS account root user credentials even if the AWS account has no associated
- *          users.</p>
+ * <p>Changes the status of the specified user signing certificate from active to disabled,
+ *             or vice versa. This operation can be used to disable an IAM user's signing certificate
+ *             as part of a certificate rotation work flow.</p>
+ *         <p>If the <code>UserName</code> field is not specified, the user name is determined
+ *             implicitly based on the AWS access key ID used to sign the request. This operation
+ *             works for access keys under the AWS account. Consequently, you can use this operation
+ *             to manage AWS account root user credentials even if the AWS account has no
+ *             associated users.</p>
  */
 export class UpdateSigningCertificateCommand extends $Command<
   UpdateSigningCertificateCommandInput,

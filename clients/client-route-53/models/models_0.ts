@@ -58,6 +58,159 @@ export namespace AccountLimit {
   });
 }
 
+export interface ActivateKeySigningKeyRequest {
+  /**
+   * <p>A unique string used to identify a hosted zone.</p>
+   */
+  HostedZoneId: string | undefined;
+
+  /**
+   * <p>A string used to identify a key-signing key (KSK). <code>Name</code> can include numbers, letters,  and underscores (_). <code>Name</code> must be unique for each key-signing key in the same
+   * 			hosted zone.</p>
+   */
+  Name: string | undefined;
+}
+
+export namespace ActivateKeySigningKeyRequest {
+  export const filterSensitiveLog = (obj: ActivateKeySigningKeyRequest): any => ({
+    ...obj,
+  });
+}
+
+export type ChangeStatus = "INSYNC" | "PENDING";
+
+/**
+ * <p>A complex type that describes change information about changes made to your hosted
+ * 			zone.</p>
+ */
+export interface ChangeInfo {
+  /**
+   * <p>The ID of the request.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The current state of the request. <code>PENDING</code> indicates that this request has
+   * 			not yet been applied to all Amazon Route 53 DNS servers.</p>
+   */
+  Status: ChangeStatus | string | undefined;
+
+  /**
+   * <p>The date and time that the change request was submitted in
+   * 			<a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601 format</a> and Coordinated Universal Time (UTC).
+   * 			For example, the value <code>2017-03-27T17:48:16.751Z</code> represents March 27, 2017 at 17:48:16.751 UTC.</p>
+   */
+  SubmittedAt: Date | undefined;
+
+  /**
+   * <p>A complex type that describes change information about changes made to your hosted
+   * 			zone.</p>
+   * 		       <p>This element contains an ID that you use when performing a
+   * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html">GetChange</a>
+   * 			action to get detailed information about the change.</p>
+   */
+  Comment?: string;
+}
+
+export namespace ChangeInfo {
+  export const filterSensitiveLog = (obj: ChangeInfo): any => ({
+    ...obj,
+  });
+}
+
+export interface ActivateKeySigningKeyResponse {
+  /**
+   * <p>A complex type that describes change information about changes made to your hosted
+   * 			zone.</p>
+   */
+  ChangeInfo: ChangeInfo | undefined;
+}
+
+export namespace ActivateKeySigningKeyResponse {
+  export const filterSensitiveLog = (obj: ActivateKeySigningKeyResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Another user submitted a request to create, update, or delete the object at the same time that you did. Retry the request. </p>
+ */
+export interface ConcurrentModification extends __SmithyException, $MetadataBearer {
+  name: "ConcurrentModification";
+  $fault: "client";
+  /**
+   * <p></p>
+   */
+  message?: string;
+}
+
+export namespace ConcurrentModification {
+  export const filterSensitiveLog = (obj: ConcurrentModification): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The key-signing key (KSK) status isn't valid or another KSK has the status <code>INTERNAL_FAILURE</code>.</p>
+ */
+export interface InvalidKeySigningKeyStatus extends __SmithyException, $MetadataBearer {
+  name: "InvalidKeySigningKeyStatus";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidKeySigningKeyStatus {
+  export const filterSensitiveLog = (obj: InvalidKeySigningKeyStatus): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The KeyManagementServiceArn that you specified isn't valid to use with DNSSEC signing.</p>
+ */
+export interface InvalidKMSArn extends __SmithyException, $MetadataBearer {
+  name: "InvalidKMSArn";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidKMSArn {
+  export const filterSensitiveLog = (obj: InvalidKMSArn): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Your hosted zone status isn't valid for this operation. In the hosted zone, change the status to enable <code>DNSSEC</code>
+ * 			or disable <code>DNSSEC</code>.</p>
+ */
+export interface InvalidSigningStatus extends __SmithyException, $MetadataBearer {
+  name: "InvalidSigningStatus";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidSigningStatus {
+  export const filterSensitiveLog = (obj: InvalidSigningStatus): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The specified key-signing key (KSK) doesn't exist.</p>
+ */
+export interface NoSuchKeySigningKey extends __SmithyException, $MetadataBearer {
+  name: "NoSuchKeySigningKey";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace NoSuchKeySigningKey {
+  export const filterSensitiveLog = (obj: NoSuchKeySigningKey): any => ({
+    ...obj,
+  });
+}
+
 export type CloudWatchRegion =
   | "af-south-1"
   | "ap-east-1"
@@ -95,8 +248,8 @@ export interface AlarmIdentifier {
   /**
    * <p>For the CloudWatch alarm that you want Route 53 health checkers to use to determine whether this health check is healthy,
    * 			the region that the alarm was created in.</p>
-   * 		       <p>For the current list of CloudWatch regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#cw_region">Amazon CloudWatch</a> in
-   * 			the <i>AWS Service Endpoints</i> chapter of the <i>Amazon Web Services General Reference</i>.</p>
+   * 	        <p>For the current list of CloudWatch regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/cw_region.html">Amazon CloudWatch endpoints and quotas</a> in
+   * 			the <i>Amazon Web Services General Reference</i>.</p>
    */
   Region: CloudWatchRegion | string | undefined;
 
@@ -176,8 +329,8 @@ export interface AliasTarget {
    *             <dd>
    * 					          <p>Specify the hosted zone ID for the region that you created the environment in. The environment
    * 						must have a regionalized subdomain. For a list of regions and the corresponding hosted zone IDs, see
-   * 						<a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region">AWS Elastic Beanstalk</a> in the
-   * 						"AWS Service Endpoints" chapter of the <i>Amazon Web Services General Reference</i>.</p>
+   * 					    <a href="https://docs.aws.amazon.com/general/latest/gr/elasticbeanstalk.html">AWS Elastic Beanstalk endpoints and quotas</a> in the
+   * 						 the <i>Amazon Web Services General Reference</i>.</p>
    * 				        </dd>
    *             <dt>ELB load balancer</dt>
    *             <dd>
@@ -186,8 +339,7 @@ export interface AliasTarget {
    * 					          <ul>
    *                   <li>
    *                      <p>
-   *                         <a href="https://docs.aws.amazon.com/general/latest/gr/elb.html">Service Endpoints</a> table
-   * 							in the "Elastic Load Balancing Endpoints and Quotas" topic in the <i>Amazon Web Services General Reference</i>:
+   *                         <a href="https://docs.aws.amazon.com/general/latest/gr/elb.html">Elastic Load Balancing endpoints and quotas</a> topic in the <i>Amazon Web Services General Reference</i>:
    * 							Use the value that corresponds with the region that you created your load balancer in. Note that there are
    * 							separate columns for Application and Classic Load Balancers and for Network Load Balancers.</p>
    *                   </li>
@@ -582,47 +734,6 @@ export namespace AssociateVPCWithHostedZoneRequest {
   });
 }
 
-export type ChangeStatus = "INSYNC" | "PENDING";
-
-/**
- * <p>A complex type that describes change information about changes made to your hosted
- * 			zone.</p>
- */
-export interface ChangeInfo {
-  /**
-   * <p>The ID of the request.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The current state of the request. <code>PENDING</code> indicates that this request has
-   * 			not yet been applied to all Amazon Route 53 DNS servers.</p>
-   */
-  Status: ChangeStatus | string | undefined;
-
-  /**
-   * <p>The date and time that the change request was submitted in
-   * 			<a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601 format</a> and Coordinated Universal Time (UTC).
-   * 			For example, the value <code>2017-03-27T17:48:16.751Z</code> represents March 27, 2017 at 17:48:16.751 UTC.</p>
-   */
-  SubmittedAt: Date | undefined;
-
-  /**
-   * <p>A complex type that describes change information about changes made to your hosted
-   * 			zone.</p>
-   * 		       <p>This element contains an ID that you use when performing a
-   * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html">GetChange</a>
-   * 			action to get detailed information about the change.</p>
-   */
-  Comment?: string;
-}
-
-export namespace ChangeInfo {
-  export const filterSensitiveLog = (obj: ChangeInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains the response information for the <code>AssociateVPCWithHostedZone</code> request.</p>
  */
@@ -681,7 +792,7 @@ export interface InvalidInput extends __SmithyException, $MetadataBearer {
   name: "InvalidInput";
   $fault: "client";
   /**
-   * <p>Descriptive message for the error response.</p>
+   * <p></p>
    */
   message?: string;
 }
@@ -699,7 +810,7 @@ export interface InvalidVPCId extends __SmithyException, $MetadataBearer {
   name: "InvalidVPCId";
   $fault: "client";
   /**
-   * <p>Descriptive message for the error response.</p>
+   * <p></p>
    */
   message?: string;
 }
@@ -723,7 +834,7 @@ export interface LimitsExceeded extends __SmithyException, $MetadataBearer {
   name: "LimitsExceeded";
   $fault: "client";
   /**
-   * <p>Descriptive message for the error response.</p>
+   * <p></p>
    */
   message?: string;
 }
@@ -741,7 +852,7 @@ export interface NoSuchHostedZone extends __SmithyException, $MetadataBearer {
   name: "NoSuchHostedZone";
   $fault: "client";
   /**
-   * <p>Descriptive message for the error response.</p>
+   * <p></p>
    */
   message?: string;
 }
@@ -759,7 +870,7 @@ export interface NotAuthorizedException extends __SmithyException, $MetadataBear
   name: "NotAuthorizedException";
   $fault: "client";
   /**
-   * <p>Descriptive message for the error response.</p>
+   * <p></p>
    */
   message?: string;
 }
@@ -797,7 +908,7 @@ export interface PublicZoneVPCAssociation extends __SmithyException, $MetadataBe
   name: "PublicZoneVPCAssociation";
   $fault: "client";
   /**
-   * <p>Descriptive message for the error response.</p>
+   * <p></p>
    */
   message?: string;
 }
@@ -929,7 +1040,20 @@ export namespace ResourceRecord {
   });
 }
 
-export type RRType = "A" | "AAAA" | "CAA" | "CNAME" | "MX" | "NAPTR" | "NS" | "PTR" | "SOA" | "SPF" | "SRV" | "TXT";
+export type RRType =
+  | "A"
+  | "AAAA"
+  | "CAA"
+  | "CNAME"
+  | "DS"
+  | "MX"
+  | "NAPTR"
+  | "NS"
+  | "PTR"
+  | "SOA"
+  | "SPF"
+  | "SRV"
+  | "TXT";
 
 /**
  * <p>Information about the resource record set to create or delete.</p>
@@ -974,8 +1098,9 @@ export interface ResourceRecordSet {
 
   /**
    * <p>The DNS record type. For information about different record types and how data is encoded for them, see
-   * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/ResourceRecordTypes.html">Supported DNS Resource Record Types</a> in the <i>Amazon Route 53 Developer Guide</i>.</p>
-   * 		       <p>Valid values for basic resource record sets: <code>A</code> | <code>AAAA</code> | <code>CAA</code> | <code>CNAME</code> | <code>MX</code> |
+   * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/ResourceRecordTypes.html">Supported DNS Resource Record Types</a>
+   * 			in the <i>Amazon Route 53 Developer Guide</i>.</p>
+   * 		       <p>Valid values for basic resource record sets: <code>A</code> | <code>AAAA</code> | <code>CAA</code> | <code>CNAME</code> | <code>DS</code> |<code>MX</code> |
    * 			<code>NAPTR</code> | <code>NS</code> | <code>PTR</code> | <code>SOA</code> | <code>SPF</code> | <code>SRV</code> | <code>TXT</code>
    *          </p>
    * 		       <p>Values for weighted, latency, geolocation, and failover resource record sets: <code>A</code> | <code>AAAA</code> | <code>CAA</code> |
@@ -1550,7 +1675,7 @@ export interface InvalidChangeBatch extends __SmithyException, $MetadataBearer {
   name: "InvalidChangeBatch";
   $fault: "client";
   /**
-   * <p>Descriptive message for the error response.</p>
+   * <p></p>
    */
   messages?: string[];
 
@@ -1570,7 +1695,7 @@ export interface NoSuchHealthCheck extends __SmithyException, $MetadataBearer {
   name: "NoSuchHealthCheck";
   $fault: "client";
   /**
-   * <p>Descriptive message for the error response.</p>
+   * <p></p>
    */
   message?: string;
 }
@@ -2212,7 +2337,7 @@ export namespace LinkedService {
  */
 export interface HealthCheck {
   /**
-   * <p>The identifier that Amazon Route 53assigned to the health check when you created it. When you add or update a resource record set, you use
+   * <p>The identifier that Amazon Route 53 assigned to the health check when you created it. When you add or update a resource record set, you use
    * 			this value to specify which health check to use. The value can be up to 64 characters long. </p>
    */
   Id: string | undefined;
@@ -2290,7 +2415,7 @@ export interface HealthCheckAlreadyExists extends __SmithyException, $MetadataBe
   name: "HealthCheckAlreadyExists";
   $fault: "client";
   /**
-   * <p>Descriptive message for the error response.</p>
+   * <p></p>
    */
   message?: string;
 }
@@ -2527,7 +2652,7 @@ export interface DelegationSetNotAvailable extends __SmithyException, $MetadataB
   name: "DelegationSetNotAvailable";
   $fault: "client";
   /**
-   * <p>Descriptive message for the error response.</p>
+   * <p></p>
    */
   message?: string;
 }
@@ -2545,7 +2670,7 @@ export interface DelegationSetNotReusable extends __SmithyException, $MetadataBe
   name: "DelegationSetNotReusable";
   $fault: "client";
   /**
-   * <p>Descriptive message for the error response.</p>
+   * <p></p>
    */
   message?: string;
 }
@@ -2564,7 +2689,7 @@ export interface HostedZoneAlreadyExists extends __SmithyException, $MetadataBea
   name: "HostedZoneAlreadyExists";
   $fault: "client";
   /**
-   * <p>Descriptive message for the error response.</p>
+   * <p></p>
    */
   message?: string;
 }
@@ -2582,7 +2707,7 @@ export interface InvalidDomainName extends __SmithyException, $MetadataBearer {
   name: "InvalidDomainName";
   $fault: "client";
   /**
-   * <p>Descriptive message for the error response.</p>
+   * <p></p>
    */
   message?: string;
 }
@@ -2600,7 +2725,7 @@ export interface NoSuchDelegationSet extends __SmithyException, $MetadataBearer 
   name: "NoSuchDelegationSet";
   $fault: "client";
   /**
-   * <p>Descriptive message for the error response.</p>
+   * <p></p>
    */
   message?: string;
 }
@@ -2626,7 +2751,7 @@ export interface TooManyHostedZones extends __SmithyException, $MetadataBearer {
   name: "TooManyHostedZones";
   $fault: "client";
   /**
-   * <p>Descriptive message for the error response.</p>
+   * <p></p>
    */
   message?: string;
 }
@@ -2637,20 +2762,342 @@ export namespace TooManyHostedZones {
   });
 }
 
+export interface CreateKeySigningKeyRequest {
+  /**
+   * <p>A unique string that identifies the request.</p>
+   */
+  CallerReference: string | undefined;
+
+  /**
+   * <p>The unique string (ID) used to identify a hosted zone.</p>
+   */
+  HostedZoneId: string | undefined;
+
+  /**
+   * <p>The Amazon resource name (ARN) for a customer managed customer master key (CMK) in AWS Key Management Service (AWS KMS).
+   * 			The <code>KeyManagementServiceArn</code> must be unique for each key-signing key (KSK) in a single hosted zone.
+   * 			To see an example of <code>KeyManagementServiceArn</code> that grants the correct permissions for DNSSEC,
+   * 			scroll down to <b>Example</b>. </p>
+   * 		       <p>You must configure the customer managed CMK as follows:</p>
+   * 		       <dl>
+   *             <dt>Status</dt>
+   *             <dd>
+   *                <p>Enabled</p>
+   *             </dd>
+   *             <dt>Key spec</dt>
+   *             <dd>
+   *                <p>ECC_NIST_P256</p>
+   *             </dd>
+   *             <dt>Key usage</dt>
+   *             <dd>
+   *                <p>Sign and verify</p>
+   *             </dd>
+   *             <dt>Key policy</dt>
+   *             <dd>
+   *                <p>The key policy must give permission for the following actions:</p>
+   * 					          <ul>
+   *                   <li>
+   *                      <p>DescribeKey</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>GetPublicKey</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Sign</p>
+   *                   </li>
+   *                </ul>
+   * 					          <p>The key policy must also include the Amazon Route 53 service in the principal for your account.
+   * 						Specify the following:</p>
+   * 					          <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>"Service": "api-service.dnssec.route53.aws.internal"</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   * 				        </dd>
+   *          </dl>
+   * 		       <p>For more information about working with a customer managed CMK in AWS KMS, see
+   * 			<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html">AWS Key Management Service concepts</a>.</p>
+   */
+  KeyManagementServiceArn: string | undefined;
+
+  /**
+   * <p>A string used to identify a key-signing key (KSK). <code>Name</code> can include numbers, letters,  and underscores (_). <code>Name</code> must be unique for each key-signing key in the same
+   * 			hosted zone.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A string specifying the initial status of the key-signing key (KSK). You can set the value to <code>ACTIVE</code> or <code>INACTIVE</code>.</p>
+   */
+  Status: string | undefined;
+}
+
+export namespace CreateKeySigningKeyRequest {
+  export const filterSensitiveLog = (obj: CreateKeySigningKeyRequest): any => ({
+    ...obj,
+  });
+}
+
 /**
- * <p>Another user submitted a request to create, update, or delete the object at the same time that you did. Retry the request. </p>
+ * <p>A key-signing key (KSK) is a complex type that represents a public/private key pair. The private key is used to generate
+ * 		a digital signature for the zone signing key (ZSK). The public key is stored in the DNS and is used to authenticate the ZSK.
+ * 		A KSK is always associated with a hosted zone; it cannot exist by itself.</p>
  */
-export interface ConcurrentModification extends __SmithyException, $MetadataBearer {
-  name: "ConcurrentModification";
+export interface KeySigningKey {
+  /**
+   * <p>A string used to identify a key-signing key (KSK). <code>Name</code> can include numbers, letters,  and underscores (_). <code>Name</code> must be unique for each key-signing key in the same
+   * 			hosted zone.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The Amazon resource name (ARN) used to identify the customer managed customer master key (CMK) in AWS Key Management Service (AWS KMS).
+   * 			The <code>KmsArn</code> must be unique for each key-signing key (KSK) in a single hosted zone.</p>
+   * 		       <p>You must configure the CMK as follows:</p>
+   * 		       <dl>
+   *             <dt>Status</dt>
+   *             <dd>
+   *                <p>Enabled</p>
+   *             </dd>
+   *             <dt>Key spec</dt>
+   *             <dd>
+   *                <p>ECC_NIST_P256</p>
+   *             </dd>
+   *             <dt>Key usage</dt>
+   *             <dd>
+   *                <p>Sign and verify</p>
+   *             </dd>
+   *             <dt>Key policy</dt>
+   *             <dd>
+   *                <p>The key policy must give permission for the following actions:</p>
+   * 				           <ul>
+   *                   <li>
+   *                      <p>DescribeKey</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>GetPublicKey</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Sign</p>
+   *                   </li>
+   *                </ul>
+   * 					          <p>The key policy must also include the Amazon Route 53 service in the principal for your account.
+   * 						Specify the following:</p>
+   * 					          <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>"Service": "api-service.dnssec.route53.aws.internal"</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   * 				        </dd>
+   *          </dl>
+   * 		       <p>For more information about working with the customer managed CMK in AWS KMS, see
+   * 			<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html">AWS Key Management Service concepts</a>.</p>
+   */
+  KmsArn?: string;
+
+  /**
+   * <p>An integer that specifies how the key is used. For key-signing key (KSK), this value is always 257.</p>
+   */
+  Flag?: number;
+
+  /**
+   * <p>A string used to represent the signing algorithm. This value must follow the guidelines provided by
+   * 			<a href="https://tools.ietf.org/html/rfc8624#section-3.1">RFC-8624 Section 3.1</a>.
+   * 		</p>
+   */
+  SigningAlgorithmMnemonic?: string;
+
+  /**
+   * <p>An integer used to represent the signing algorithm. This value must follow the guidelines provided by
+   * 			<a href="https://tools.ietf.org/html/rfc8624#section-3.1">RFC-8624 Section 3.1</a>.
+   * 		</p>
+   */
+  SigningAlgorithmType?: number;
+
+  /**
+   * <p>A string used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by
+   * 			<a href="https://tools.ietf.org/html/rfc8624#section-3.3">RFC-8624 Section 3.3</a>.
+   * 		</p>
+   */
+  DigestAlgorithmMnemonic?: string;
+
+  /**
+   * <p>An integer used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by
+   * 			<a href="https://tools.ietf.org/html/rfc8624#section-3.3">RFC-8624 Section 3.3</a>.</p>
+   */
+  DigestAlgorithmType?: number;
+
+  /**
+   * <p>An integer used to identify the DNSSEC record for the domain name. The process used to calculate the value is described in
+   * 			<a href="https://tools.ietf.org/rfc/rfc4034.txt">RFC-4034 Appendix B</a>.</p>
+   */
+  KeyTag?: number;
+
+  /**
+   * <p>A cryptographic digest of a DNSKEY resource record (RR). DNSKEY records are used to publish the public key that resolvers
+   * 			can use to verify DNSSEC signatures that are used to secure certain kinds of information provided by the DNS system.</p>
+   */
+  DigestValue?: string;
+
+  /**
+   * <p>The public key, represented as a Base64 encoding, as required by <a href="https://tools.ietf.org/rfc/rfc4034.txt">
+   * 			RFC-4034 Page 5</a>.</p>
+   */
+  PublicKey?: string;
+
+  /**
+   * <p>A string that represents a delegation signer (DS) record.</p>
+   */
+  DSRecord?: string;
+
+  /**
+   * <p>A string that represents a DNSKEY record.</p>
+   */
+  DNSKEYRecord?: string;
+
+  /**
+   * <p>A string that represents the current key-signing key (KSK) status.</p>
+   * 		       <p>Status can have one of the following values:</p>
+   * 		       <dl>
+   *             <dt>ACTIVE</dt>
+   *             <dd>
+   *                <p>The KSK is being used for signing.</p>
+   *             </dd>
+   *             <dt>INACTIVE</dt>
+   *             <dd>
+   *                <p>The KSK is not being used for signing.</p>
+   *             </dd>
+   *             <dt>DELETING</dt>
+   *             <dd>
+   *                <p>The KSK is in the process of being deleted.</p>
+   *             </dd>
+   *             <dt>ACTION_NEEDED</dt>
+   *             <dd>
+   *                <p>There is a problem with the KSK that requires you to take action to resolve.
+   * 				For example, the customer managed customer master key (CMK) might have been deleted, or the
+   * 				permissions for the customer managed CMK might have been changed.</p>
+   *             </dd>
+   *             <dt>INTERNAL_FAILURE</dt>
+   *             <dd>
+   *                <p>There was an error during a request. Before you can continue to work with DNSSEC
+   * 					signing, including actions that involve this KSK, you must correct the problem. For example,
+   * 					you may need to activate or deactivate the KSK.</p>
+   *             </dd>
+   *          </dl>
+   */
+  Status?: string;
+
+  /**
+   * <p>The status message provided for the following key-signing key (KSK) statuses: <code>ACTION_NEEDED</code> or
+   * 			<code>INTERNAL_FAILURE</code>. The status message includes information about what the problem might be and steps
+   * 			that you can take to correct the issue.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>The date when the key-signing key (KSK) was created.</p>
+   */
+  CreatedDate?: Date;
+
+  /**
+   * <p>The last time that the key-signing key (KSK) was changed.</p>
+   */
+  LastModifiedDate?: Date;
+}
+
+export namespace KeySigningKey {
+  export const filterSensitiveLog = (obj: KeySigningKey): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateKeySigningKeyResponse {
+  /**
+   * <p>A complex type that describes change information about changes made to your hosted
+   * 			zone.</p>
+   */
+  ChangeInfo: ChangeInfo | undefined;
+
+  /**
+   * <p>The key-signing key (KSK) that the request creates.</p>
+   */
+  KeySigningKey: KeySigningKey | undefined;
+
+  /**
+   * <p>The unique URL representing the new key-signing key (KSK).</p>
+   */
+  Location: string | undefined;
+}
+
+export namespace CreateKeySigningKeyResponse {
+  export const filterSensitiveLog = (obj: CreateKeySigningKeyResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Parameter name is not valid.</p>
+ */
+export interface InvalidArgument extends __SmithyException, $MetadataBearer {
+  name: "InvalidArgument";
   $fault: "client";
   /**
-   * <p>Descriptive message for the error response.</p>
+   * <p></p>
    */
   message?: string;
 }
 
-export namespace ConcurrentModification {
-  export const filterSensitiveLog = (obj: ConcurrentModification): any => ({
+export namespace InvalidArgument {
+  export const filterSensitiveLog = (obj: InvalidArgument): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The key-signing key (KSK) name that you specified isn't a valid name.</p>
+ */
+export interface InvalidKeySigningKeyName extends __SmithyException, $MetadataBearer {
+  name: "InvalidKeySigningKeyName";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidKeySigningKeyName {
+  export const filterSensitiveLog = (obj: InvalidKeySigningKeyName): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>You've already created a key-signing key (KSK) with this name or with the same customer managed customer master key (CMK) ARN.</p>
+ */
+export interface KeySigningKeyAlreadyExists extends __SmithyException, $MetadataBearer {
+  name: "KeySigningKeyAlreadyExists";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace KeySigningKeyAlreadyExists {
+  export const filterSensitiveLog = (obj: KeySigningKeyAlreadyExists): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>You've reached the limit for the number of key-signing keys (KSKs). Remove at least one KSK, and then try again.</p>
+ */
+export interface TooManyKeySigningKeys extends __SmithyException, $MetadataBearer {
+  name: "TooManyKeySigningKeys";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace TooManyKeySigningKeys {
+  export const filterSensitiveLog = (obj: TooManyKeySigningKeys): any => ({
     ...obj,
   });
 }
@@ -2834,7 +3281,7 @@ export interface DelegationSetAlreadyCreated extends __SmithyException, $Metadat
   name: "DelegationSetAlreadyCreated";
   $fault: "client";
   /**
-   * <p>Descriptive message for the error response.</p>
+   * <p></p>
    */
   message?: string;
 }
@@ -2852,7 +3299,7 @@ export interface DelegationSetAlreadyReusable extends __SmithyException, $Metada
   name: "DelegationSetAlreadyReusable";
   $fault: "client";
   /**
-   * <p>Descriptive message for the error response.</p>
+   * <p></p>
    */
   message?: string;
 }
@@ -2870,31 +3317,13 @@ export interface HostedZoneNotFound extends __SmithyException, $MetadataBearer {
   name: "HostedZoneNotFound";
   $fault: "client";
   /**
-   * <p>Descriptive message for the error response.</p>
+   * <p></p>
    */
   message?: string;
 }
 
 export namespace HostedZoneNotFound {
   export const filterSensitiveLog = (obj: HostedZoneNotFound): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Parameter name is invalid.</p>
- */
-export interface InvalidArgument extends __SmithyException, $MetadataBearer {
-  name: "InvalidArgument";
-  $fault: "client";
-  /**
-   * <p>Descriptive message for the error response.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidArgument {
-  export const filterSensitiveLog = (obj: InvalidArgument): any => ({
     ...obj,
   });
 }
@@ -2993,13 +3422,13 @@ export namespace CreateTrafficPolicyResponse {
 }
 
 /**
- * <p>The format of the traffic policy document that you specified in the <code>Document</code> element is invalid.</p>
+ * <p>The format of the traffic policy document that you specified in the <code>Document</code> element is not valid.</p>
  */
 export interface InvalidTrafficPolicyDocument extends __SmithyException, $MetadataBearer {
   name: "InvalidTrafficPolicyDocument";
   $fault: "client";
   /**
-   * <p>Descriptive message for the error response.</p>
+   * <p></p>
    */
   message?: string;
 }
@@ -3023,7 +3452,7 @@ export interface TooManyTrafficPolicies extends __SmithyException, $MetadataBear
   name: "TooManyTrafficPolicies";
   $fault: "client";
   /**
-   * <p>Descriptive message for the error response.</p>
+   * <p></p>
    */
   message?: string;
 }
@@ -3041,7 +3470,7 @@ export interface TrafficPolicyAlreadyExists extends __SmithyException, $Metadata
   name: "TrafficPolicyAlreadyExists";
   $fault: "client";
   /**
-   * <p>Descriptive message for the error response.</p>
+   * <p></p>
    */
   message?: string;
 }
@@ -3191,7 +3620,7 @@ export interface NoSuchTrafficPolicy extends __SmithyException, $MetadataBearer 
   name: "NoSuchTrafficPolicy";
   $fault: "client";
   /**
-   * <p>Descriptive message for the error response.</p>
+   * <p></p>
    */
   message?: string;
 }
@@ -3216,7 +3645,7 @@ export interface TooManyTrafficPolicyInstances extends __SmithyException, $Metad
   name: "TooManyTrafficPolicyInstances";
   $fault: "client";
   /**
-   * <p>Descriptive message for the error response.</p>
+   * <p></p>
    */
   message?: string;
 }
@@ -3234,7 +3663,7 @@ export interface TrafficPolicyInstanceAlreadyExists extends __SmithyException, $
   name: "TrafficPolicyInstanceAlreadyExists";
   $fault: "client";
   /**
-   * <p>Descriptive message for the error response.</p>
+   * <p></p>
    */
   message?: string;
 }
@@ -3307,7 +3736,7 @@ export interface TooManyTrafficPolicyVersionsForCurrentPolicy extends __SmithyEx
   name: "TooManyTrafficPolicyVersionsForCurrentPolicy";
   $fault: "client";
   /**
-   * <p>Descriptive message for the error response.</p>
+   * <p></p>
    */
   message?: string;
 }
@@ -3372,13 +3801,76 @@ export interface TooManyVPCAssociationAuthorizations extends __SmithyException, 
   name: "TooManyVPCAssociationAuthorizations";
   $fault: "client";
   /**
-   * <p>Descriptive message for the error response.</p>
+   * <p></p>
    */
   message?: string;
 }
 
 export namespace TooManyVPCAssociationAuthorizations {
   export const filterSensitiveLog = (obj: TooManyVPCAssociationAuthorizations): any => ({
+    ...obj,
+  });
+}
+
+export interface DeactivateKeySigningKeyRequest {
+  /**
+   * <p>A unique string used to identify a hosted zone.</p>
+   */
+  HostedZoneId: string | undefined;
+
+  /**
+   * <p>A string used to identify a key-signing key (KSK).</p>
+   */
+  Name: string | undefined;
+}
+
+export namespace DeactivateKeySigningKeyRequest {
+  export const filterSensitiveLog = (obj: DeactivateKeySigningKeyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeactivateKeySigningKeyResponse {
+  /**
+   * <p>A complex type that describes change information about changes made to your hosted
+   * 			zone.</p>
+   */
+  ChangeInfo: ChangeInfo | undefined;
+}
+
+export namespace DeactivateKeySigningKeyResponse {
+  export const filterSensitiveLog = (obj: DeactivateKeySigningKeyResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The key-signing key (KSK) is specified in a parent DS record.</p>
+ */
+export interface KeySigningKeyInParentDSRecord extends __SmithyException, $MetadataBearer {
+  name: "KeySigningKeyInParentDSRecord";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace KeySigningKeyInParentDSRecord {
+  export const filterSensitiveLog = (obj: KeySigningKeyInParentDSRecord): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The key-signing key (KSK) that you specified can't be deactivated because it's the only KSK for a
+ * 		currently-enabled DNSSEC. Disable DNSSEC signing, or add or enable another KSK.</p>
+ */
+export interface KeySigningKeyInUse extends __SmithyException, $MetadataBearer {
+  name: "KeySigningKeyInUse";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace KeySigningKeyInUse {
+  export const filterSensitiveLog = (obj: KeySigningKeyInUse): any => ({
     ...obj,
   });
 }
@@ -3419,7 +3911,7 @@ export interface HealthCheckInUse extends __SmithyException, $MetadataBearer {
   name: "HealthCheckInUse";
   $fault: "client";
   /**
-   * <p>Descriptive message for the error response.</p>
+   * <p></p>
    */
   message?: string;
 }
@@ -3469,13 +3961,45 @@ export interface HostedZoneNotEmpty extends __SmithyException, $MetadataBearer {
   name: "HostedZoneNotEmpty";
   $fault: "client";
   /**
-   * <p>Descriptive message for the error response.</p>
+   * <p></p>
    */
   message?: string;
 }
 
 export namespace HostedZoneNotEmpty {
   export const filterSensitiveLog = (obj: HostedZoneNotEmpty): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteKeySigningKeyRequest {
+  /**
+   * <p>A unique string used to identify a hosted zone.</p>
+   */
+  HostedZoneId: string | undefined;
+
+  /**
+   * <p>A string used to identify a key-signing key (KSK).</p>
+   */
+  Name: string | undefined;
+}
+
+export namespace DeleteKeySigningKeyRequest {
+  export const filterSensitiveLog = (obj: DeleteKeySigningKeyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteKeySigningKeyResponse {
+  /**
+   * <p>A complex type that describes change information about changes made to your hosted
+   * 			zone.</p>
+   */
+  ChangeInfo: ChangeInfo | undefined;
+}
+
+export namespace DeleteKeySigningKeyResponse {
+  export const filterSensitiveLog = (obj: DeleteKeySigningKeyResponse): any => ({
     ...obj,
   });
 }
@@ -3524,7 +4048,7 @@ export interface DelegationSetInUse extends __SmithyException, $MetadataBearer {
   name: "DelegationSetInUse";
   $fault: "client";
   /**
-   * <p>Descriptive message for the error response.</p>
+   * <p></p>
    */
   message?: string;
 }
@@ -3601,7 +4125,7 @@ export interface TrafficPolicyInUse extends __SmithyException, $MetadataBearer {
   name: "TrafficPolicyInUse";
   $fault: "client";
   /**
-   * <p>Descriptive message for the error response.</p>
+   * <p></p>
    */
   message?: string;
 }
@@ -3650,7 +4174,7 @@ export interface NoSuchTrafficPolicyInstance extends __SmithyException, $Metadat
   name: "NoSuchTrafficPolicyInstance";
   $fault: "client";
   /**
-   * <p>Descriptive message for the error response.</p>
+   * <p></p>
    */
   message?: string;
 }
@@ -3703,13 +4227,55 @@ export interface VPCAssociationAuthorizationNotFound extends __SmithyException, 
   name: "VPCAssociationAuthorizationNotFound";
   $fault: "client";
   /**
-   * <p>Descriptive message for the error response.</p>
+   * <p></p>
    */
   message?: string;
 }
 
 export namespace VPCAssociationAuthorizationNotFound {
   export const filterSensitiveLog = (obj: VPCAssociationAuthorizationNotFound): any => ({
+    ...obj,
+  });
+}
+
+export interface DisableHostedZoneDNSSECRequest {
+  /**
+   * <p>A unique string used to identify a hosted zone.</p>
+   */
+  HostedZoneId: string | undefined;
+}
+
+export namespace DisableHostedZoneDNSSECRequest {
+  export const filterSensitiveLog = (obj: DisableHostedZoneDNSSECRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisableHostedZoneDNSSECResponse {
+  /**
+   * <p>A complex type that describes change information about changes made to your hosted
+   * 			zone.</p>
+   */
+  ChangeInfo: ChangeInfo | undefined;
+}
+
+export namespace DisableHostedZoneDNSSECResponse {
+  export const filterSensitiveLog = (obj: DisableHostedZoneDNSSECResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The hosted zone doesn't have any DNSSEC resources.</p>
+ */
+export interface DNSSECNotFound extends __SmithyException, $MetadataBearer {
+  name: "DNSSECNotFound";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace DNSSECNotFound {
+  export const filterSensitiveLog = (obj: DNSSECNotFound): any => ({
     ...obj,
   });
 }
@@ -3767,7 +4333,7 @@ export interface LastVPCAssociation extends __SmithyException, $MetadataBearer {
   name: "LastVPCAssociation";
   $fault: "client";
   /**
-   * <p>Descriptive message for the error response.</p>
+   * <p></p>
    */
   message?: string;
 }
@@ -3785,13 +4351,70 @@ export interface VPCAssociationNotFound extends __SmithyException, $MetadataBear
   name: "VPCAssociationNotFound";
   $fault: "client";
   /**
-   * <p>Descriptive message for the error response.</p>
+   * <p>The specified VPC or hosted zone weren't found.</p>
    */
   message?: string;
 }
 
 export namespace VPCAssociationNotFound {
   export const filterSensitiveLog = (obj: VPCAssociationNotFound): any => ({
+    ...obj,
+  });
+}
+
+export interface EnableHostedZoneDNSSECRequest {
+  /**
+   * <p>A unique string used to identify a hosted zone.</p>
+   */
+  HostedZoneId: string | undefined;
+}
+
+export namespace EnableHostedZoneDNSSECRequest {
+  export const filterSensitiveLog = (obj: EnableHostedZoneDNSSECRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface EnableHostedZoneDNSSECResponse {
+  /**
+   * <p>A complex type that describes change information about changes made to your hosted
+   * 			zone.</p>
+   */
+  ChangeInfo: ChangeInfo | undefined;
+}
+
+export namespace EnableHostedZoneDNSSECResponse {
+  export const filterSensitiveLog = (obj: EnableHostedZoneDNSSECResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The hosted zone nameservers don't match the parent nameservers. The hosted zone and parent must have the same nameservers.</p>
+ */
+export interface HostedZonePartiallyDelegated extends __SmithyException, $MetadataBearer {
+  name: "HostedZonePartiallyDelegated";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace HostedZonePartiallyDelegated {
+  export const filterSensitiveLog = (obj: HostedZonePartiallyDelegated): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A key-signing key (KSK) with <code>ACTIVE</code> status wasn't found.</p>
+ */
+export interface KeySigningKeyWithActiveStatusNotFound extends __SmithyException, $MetadataBearer {
+  name: "KeySigningKeyWithActiveStatusNotFound";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace KeySigningKeyWithActiveStatusNotFound {
+  export const filterSensitiveLog = (obj: KeySigningKeyWithActiveStatusNotFound): any => ({
     ...obj,
   });
 }
@@ -3941,6 +4564,86 @@ export namespace GetCheckerIpRangesResponse {
   });
 }
 
+export interface GetDNSSECRequest {
+  /**
+   * <p>A unique string used to identify a hosted zone.</p>
+   */
+  HostedZoneId: string | undefined;
+}
+
+export namespace GetDNSSECRequest {
+  export const filterSensitiveLog = (obj: GetDNSSECRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A string repesenting the status of DNSSEC signing.</p>
+ */
+export interface DNSSECStatus {
+  /**
+   * <p>A string that represents the current hosted zone signing status.</p>
+   * 		       <p>Status can have one of the following values:</p>
+   * 		       <dl>
+   *             <dt>SIGNING</dt>
+   *             <dd>
+   *                <p>DNSSEC signing is enabled for the hosted zone.</p>
+   *             </dd>
+   *             <dt>NOT_SIGNING</dt>
+   *             <dd>
+   *                <p>DNSSEC signing is not enabled for the hosted zone.</p>
+   *             </dd>
+   *             <dt>DELETING</dt>
+   *             <dd>
+   *                <p>DNSSEC signing is in the process of being removed for the hosted zone.</p>
+   *             </dd>
+   *             <dt>ACTION_NEEDED</dt>
+   *             <dd>
+   *                <p>There is a problem with signing in the hosted zone that requires you to take action to resolve.
+   * 					For example, the customer managed customer master key (CMK) might have been deleted, or the
+   * 					permissions for the customer managed CMK might have been changed.</p>
+   *             </dd>
+   *             <dt>INTERNAL_FAILURE</dt>
+   *             <dd>
+   *                <p>There was an error during a request. Before you can continue to work with DNSSEC
+   * 					signing, including with key-signing keys (KSKs), you must correct the problem by enabling or
+   * 					disabling DNSSEC signing for the hosted zone.</p>
+   *             </dd>
+   *          </dl>
+   */
+  ServeSignature?: string;
+
+  /**
+   * <p>The status message provided for the following DNSSEC signing status: <code>INTERNAL_FAILURE</code>. The status message
+   * 			includes information about what the problem might be and steps that you can take to correct the issue.</p>
+   */
+  StatusMessage?: string;
+}
+
+export namespace DNSSECStatus {
+  export const filterSensitiveLog = (obj: DNSSECStatus): any => ({
+    ...obj,
+  });
+}
+
+export interface GetDNSSECResponse {
+  /**
+   * <p>A string repesenting the status of DNSSEC.</p>
+   */
+  Status: DNSSECStatus | undefined;
+
+  /**
+   * <p>The key-signing keys (KSKs) in your account.</p>
+   */
+  KeySigningKeys: KeySigningKey[] | undefined;
+}
+
+export namespace GetDNSSECResponse {
+  export const filterSensitiveLog = (obj: GetDNSSECResponse): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>A request for information about whether a specified geographic location is supported for Amazon Route 53 geolocation resource record sets.</p>
  */
@@ -3987,10 +4690,7 @@ export interface GetGeoLocationRequest {
   CountryCode?: string;
 
   /**
-   * <p>For <code>SubdivisionCode</code>, Amazon Route 53 supports only states of the United States. For a list of state abbreviations, see
-   * 			<a href="https://pe.usps.com/text/pub28/28apb.htm">Appendix B: Two–Letter State and Possession Abbreviations</a>
-   * 			on the United States Postal Service website. </p>
-   * 		       <p>If you specify <code>subdivisioncode</code>, you must also specify <code>US</code> for <code>CountryCode</code>. </p>
+   * <p>The code for the subdivision, such as a particular state within the United States. For a list of US state abbreviations, see <a href="https://pe.usps.com/text/pub28/28apb.htm">Appendix B: Two–Letter State and Possession Abbreviations</a>  on the United States Postal Service website. For a list of all supported subdivision codes, use the <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListGeoLocations.html">ListGeoLocations</a> API.</p>
    */
   SubdivisionCode?: string;
 }
@@ -4026,7 +4726,7 @@ export interface GeoLocationDetails {
   CountryName?: string;
 
   /**
-   * <p>The code for the subdivision. Route 53 currently supports only states in the United States.</p>
+   * <p>The code for the subdivision, such as a particular state within the United States. For a list of US state abbreviations, see <a href="https://pe.usps.com/text/pub28/28apb.htm">Appendix B: Two–Letter State and Possession Abbreviations</a>  on the United States Postal Service website. For a list of all supported subdivision codes, use the <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListGeoLocations.html">ListGeoLocations</a> API.</p>
    */
   SubdivisionCode?: string;
 
@@ -4066,7 +4766,7 @@ export interface NoSuchGeoLocation extends __SmithyException, $MetadataBearer {
   name: "NoSuchGeoLocation";
   $fault: "client";
   /**
-   * <p>Descriptive message for the error response.</p>
+   * <p></p>
    */
   message?: string;
 }
@@ -4447,7 +5147,7 @@ export interface HostedZoneNotPrivate extends __SmithyException, $MetadataBearer
   name: "HostedZoneNotPrivate";
   $fault: "client";
   /**
-   * <p>Descriptive message for the error response.</p>
+   * <p></p>
    */
   message?: string;
 }
@@ -6590,7 +7290,7 @@ export interface ConflictingTypes extends __SmithyException, $MetadataBearer {
   name: "ConflictingTypes";
   $fault: "client";
   /**
-   * <p>Descriptive message for the error response.</p>
+   * <p></p>
    */
   message?: string;
 }

@@ -21,7 +21,7 @@ export type DescribeFHIRImportJobCommandInput = DescribeFHIRImportJobRequest;
 export type DescribeFHIRImportJobCommandOutput = DescribeFHIRImportJobResponse & __MetadataBearer;
 
 /**
- * <p>Displays the properties of a FHIR import job, including the ID, ARN, name, and the status of the datastore.</p>
+ * <p>Displays the properties of a FHIR import job, including the ID, ARN, name, and the status of the job.</p>
  */
 export class DescribeFHIRImportJobCommand extends $Command<
   DescribeFHIRImportJobCommandInput,

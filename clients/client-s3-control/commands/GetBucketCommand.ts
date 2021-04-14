@@ -19,11 +19,14 @@ export type GetBucketCommandInput = GetBucketRequest;
 export type GetBucketCommandOutput = GetBucketResult & __MetadataBearer;
 
 /**
- * <p>Gets an Amazon S3 on Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">
- *          Using Amazon S3 on Outposts</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
- *          <p>If you are using an identity other than the root user of the AWS account that owns the bucket, the calling identity
- *          must have the <code>s3-outposts:GetBucket</code> permissions on the specified bucket and belong to the bucket owner's account
- *          in order to use this operation. Only users from Outposts bucket owner account with the right permissions can perform actions on an Outposts bucket.
+ * <p>Gets an Amazon S3 on Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">
+ *          Using Amazon S3 on Outposts</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
+ *          <p>If you are using an identity other than the root user of the AWS account
+ *          that owns the Outposts bucket, the calling identity must have the
+ *          <code>s3-outposts:GetBucket</code> permissions on the specified Outposts bucket and
+ *          belong to the Outposts bucket owner's account in order to use this action. Only
+ *          users from Outposts bucket owner account with the right permissions can perform
+ *          actions on an Outposts bucket.
  *       </p>
  *          <p>
  *          If you don't have <code>s3-outposts:GetBucket</code> permissions or you're not using an identity that belongs to the bucket owner's

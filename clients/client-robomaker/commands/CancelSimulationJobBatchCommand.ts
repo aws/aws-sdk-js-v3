@@ -21,10 +21,8 @@ export type CancelSimulationJobBatchCommandInput = CancelSimulationJobBatchReque
 export type CancelSimulationJobBatchCommandOutput = CancelSimulationJobBatchResponse & __MetadataBearer;
 
 /**
- * <p>Cancels a simulation job batch. When you cancel a simulation job batch,
- *       you are also cancelling all of the active simulation jobs created as part of
- *       the batch.
- *       </p>
+ * <p>Cancels a simulation job batch. When you cancel a simulation job batch, you are also
+ *          cancelling all of the active simulation jobs created as part of the batch. </p>
  */
 export class CancelSimulationJobBatchCommand extends $Command<
   CancelSimulationJobBatchCommandInput,

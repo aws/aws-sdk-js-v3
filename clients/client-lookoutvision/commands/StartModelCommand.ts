@@ -23,12 +23,15 @@ export type StartModelCommandOutput = StartModelResponse & __MetadataBearer;
 /**
  * <p>Starts the running of the version of an Amazon Lookout for Vision model. Starting a model takes a while
  *          to complete. To check the current state of the model, use <a>DescribeModel</a>.</p>
+ *          <p>A model is ready to use when its status is <code>HOSTED</code>.</p>
  *          <p>Once the model is running, you can detect custom labels in new images by calling
  *          <a>DetectAnomalies</a>.</p>
  *          <note>
  *             <p>You are charged for the amount of time that the model is running. To stop a running
  *          model, call <a>StopModel</a>.</p>
  *          </note>
+ *          <p>This operation requires permissions to perform the
+ *          <code>lookoutvision:StartModel</code> operation.</p>
  */
 export class StartModelCommand extends $Command<
   StartModelCommandInput,

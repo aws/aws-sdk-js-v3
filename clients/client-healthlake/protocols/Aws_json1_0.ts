@@ -11,10 +11,15 @@ import {
   DescribeFHIRDatastoreCommandOutput,
 } from "../commands/DescribeFHIRDatastoreCommand";
 import {
+  DescribeFHIRExportJobCommandInput,
+  DescribeFHIRExportJobCommandOutput,
+} from "../commands/DescribeFHIRExportJobCommand";
+import {
   DescribeFHIRImportJobCommandInput,
   DescribeFHIRImportJobCommandOutput,
 } from "../commands/DescribeFHIRImportJobCommand";
 import { ListFHIRDatastoresCommandInput, ListFHIRDatastoresCommandOutput } from "../commands/ListFHIRDatastoresCommand";
+import { StartFHIRExportJobCommandInput, StartFHIRExportJobCommandOutput } from "../commands/StartFHIRExportJobCommand";
 import { StartFHIRImportJobCommandInput, StartFHIRImportJobCommandOutput } from "../commands/StartFHIRImportJobCommand";
 import {
   AccessDeniedException,
@@ -27,15 +32,21 @@ import {
   DeleteFHIRDatastoreResponse,
   DescribeFHIRDatastoreRequest,
   DescribeFHIRDatastoreResponse,
+  DescribeFHIRExportJobRequest,
+  DescribeFHIRExportJobResponse,
   DescribeFHIRImportJobRequest,
   DescribeFHIRImportJobResponse,
+  ExportJobProperties,
   ImportJobProperties,
   InputDataConfig,
   InternalServerException,
   ListFHIRDatastoresRequest,
   ListFHIRDatastoresResponse,
+  OutputDataConfig,
   PreloadDataConfig,
   ResourceNotFoundException,
+  StartFHIRExportJobRequest,
+  StartFHIRExportJobResponse,
   StartFHIRImportJobRequest,
   StartFHIRImportJobResponse,
   ThrottlingException,
@@ -91,6 +102,19 @@ export const serializeAws_json1_0DescribeFHIRDatastoreCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_0DescribeFHIRExportJobCommand = async (
+  input: DescribeFHIRExportJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "HealthLake.DescribeFHIRExportJob",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0DescribeFHIRExportJobRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_0DescribeFHIRImportJobCommand = async (
   input: DescribeFHIRImportJobCommandInput,
   context: __SerdeContext
@@ -114,6 +138,19 @@ export const serializeAws_json1_0ListFHIRDatastoresCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListFHIRDatastoresRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0StartFHIRExportJobCommand = async (
+  input: StartFHIRExportJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "HealthLake.StartFHIRExportJob",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0StartFHIRExportJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -372,6 +409,84 @@ const deserializeAws_json1_0DescribeFHIRDatastoreCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_0DescribeFHIRExportJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFHIRExportJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0DescribeFHIRExportJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0DescribeFHIRExportJobResponse(data, context);
+  const response: DescribeFHIRExportJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0DescribeFHIRExportJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFHIRExportJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.healthlake#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.healthlake#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.healthlake#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.healthlake#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_0DescribeFHIRImportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -483,6 +598,92 @@ const deserializeAws_json1_0ListFHIRDatastoresCommandError = async (
     case "com.amazonaws.healthlake#InternalServerException":
       response = {
         ...(await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.healthlake#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.healthlake#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_0StartFHIRExportJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartFHIRExportJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0StartFHIRExportJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0StartFHIRExportJobResponse(data, context);
+  const response: StartFHIRExportJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0StartFHIRExportJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartFHIRExportJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.healthlake#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.healthlake#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.healthlake#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -742,6 +943,16 @@ const serializeAws_json1_0DescribeFHIRDatastoreRequest = (
   };
 };
 
+const serializeAws_json1_0DescribeFHIRExportJobRequest = (
+  input: DescribeFHIRExportJobRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DatastoreId !== undefined && input.DatastoreId !== null && { DatastoreId: input.DatastoreId }),
+    ...(input.JobId !== undefined && input.JobId !== null && { JobId: input.JobId }),
+  };
+};
+
 const serializeAws_json1_0DescribeFHIRImportJobRequest = (
   input: DescribeFHIRImportJobRequest,
   context: __SerdeContext
@@ -771,10 +982,34 @@ const serializeAws_json1_0ListFHIRDatastoresRequest = (
   };
 };
 
+const serializeAws_json1_0OutputDataConfig = (input: OutputDataConfig, context: __SerdeContext): any => {
+  return OutputDataConfig.visit(input, {
+    S3Uri: (value) => ({ S3Uri: value }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
 const serializeAws_json1_0PreloadDataConfig = (input: PreloadDataConfig, context: __SerdeContext): any => {
   return {
     ...(input.PreloadDataType !== undefined &&
       input.PreloadDataType !== null && { PreloadDataType: input.PreloadDataType }),
+  };
+};
+
+const serializeAws_json1_0StartFHIRExportJobRequest = (
+  input: StartFHIRExportJobRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.DataAccessRoleArn !== undefined &&
+      input.DataAccessRoleArn !== null && { DataAccessRoleArn: input.DataAccessRoleArn }),
+    ...(input.DatastoreId !== undefined && input.DatastoreId !== null && { DatastoreId: input.DatastoreId }),
+    ...(input.JobName !== undefined && input.JobName !== null && { JobName: input.JobName }),
+    ...(input.OutputDataConfig !== undefined &&
+      input.OutputDataConfig !== null && {
+        OutputDataConfig: serializeAws_json1_0OutputDataConfig(input.OutputDataConfig, context),
+      }),
   };
 };
 
@@ -889,6 +1124,18 @@ const deserializeAws_json1_0DescribeFHIRDatastoreResponse = (
   } as any;
 };
 
+const deserializeAws_json1_0DescribeFHIRExportJobResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeFHIRExportJobResponse => {
+  return {
+    ExportJobProperties:
+      output.ExportJobProperties !== undefined && output.ExportJobProperties !== null
+        ? deserializeAws_json1_0ExportJobProperties(output.ExportJobProperties, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0DescribeFHIRImportJobResponse = (
   output: any,
   context: __SerdeContext
@@ -897,6 +1144,30 @@ const deserializeAws_json1_0DescribeFHIRImportJobResponse = (
     ImportJobProperties:
       output.ImportJobProperties !== undefined && output.ImportJobProperties !== null
         ? deserializeAws_json1_0ImportJobProperties(output.ImportJobProperties, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0ExportJobProperties = (output: any, context: __SerdeContext): ExportJobProperties => {
+  return {
+    DataAccessRoleArn:
+      output.DataAccessRoleArn !== undefined && output.DataAccessRoleArn !== null
+        ? output.DataAccessRoleArn
+        : undefined,
+    DatastoreId: output.DatastoreId !== undefined && output.DatastoreId !== null ? output.DatastoreId : undefined,
+    EndTime:
+      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+    JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
+    JobName: output.JobName !== undefined && output.JobName !== null ? output.JobName : undefined,
+    JobStatus: output.JobStatus !== undefined && output.JobStatus !== null ? output.JobStatus : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    OutputDataConfig:
+      output.OutputDataConfig !== undefined && output.OutputDataConfig !== null
+        ? deserializeAws_json1_0OutputDataConfig(output.OutputDataConfig, context)
+        : undefined,
+    SubmitTime:
+      output.SubmitTime !== undefined && output.SubmitTime !== null
+        ? new Date(Math.round(output.SubmitTime * 1000))
         : undefined,
   } as any;
 };
@@ -956,6 +1227,15 @@ const deserializeAws_json1_0ListFHIRDatastoresResponse = (
   } as any;
 };
 
+const deserializeAws_json1_0OutputDataConfig = (output: any, context: __SerdeContext): OutputDataConfig => {
+  if (output.S3Uri !== undefined && output.S3Uri !== null) {
+    return {
+      S3Uri: output.S3Uri,
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
 const deserializeAws_json1_0PreloadDataConfig = (output: any, context: __SerdeContext): PreloadDataConfig => {
   return {
     PreloadDataType:
@@ -969,6 +1249,17 @@ const deserializeAws_json1_0ResourceNotFoundException = (
 ): ResourceNotFoundException => {
   return {
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0StartFHIRExportJobResponse = (
+  output: any,
+  context: __SerdeContext
+): StartFHIRExportJobResponse => {
+  return {
+    DatastoreId: output.DatastoreId !== undefined && output.DatastoreId !== null ? output.DatastoreId : undefined,
+    JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
+    JobStatus: output.JobStatus !== undefined && output.JobStatus !== null ? output.JobStatus : undefined,
   } as any;
 };
 

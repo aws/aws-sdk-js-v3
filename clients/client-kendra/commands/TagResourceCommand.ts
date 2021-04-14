@@ -21,8 +21,9 @@ export type TagResourceCommandInput = TagResourceRequest;
 export type TagResourceCommandOutput = TagResourceResponse & __MetadataBearer;
 
 /**
- * <p>Adds the specified tag to the specified index, FAQ, or data source resource. If the tag
- *       already exists, the existing value is replaced with the new value.</p>
+ * <p>Adds the specified tag to the specified index, FAQ, or data source
+ *       resource. If the tag already exists, the existing value is replaced with
+ *       the new value.</p>
  */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,

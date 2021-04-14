@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { RevokeSecurityGroupEgressRequest, RevokeSecurityGroupEgressResult } from "../models/models_4";
+import { RevokeSecurityGroupEgressRequest, RevokeSecurityGroupEgressResult } from "../models/models_5";
 import {
   deserializeAws_ec2RevokeSecurityGroupEgressCommand,
   serializeAws_ec2RevokeSecurityGroupEgressCommand,

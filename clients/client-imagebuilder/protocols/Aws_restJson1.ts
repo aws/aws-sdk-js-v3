@@ -4,6 +4,10 @@ import {
 } from "../commands/CancelImageCreationCommand";
 import { CreateComponentCommandInput, CreateComponentCommandOutput } from "../commands/CreateComponentCommand";
 import {
+  CreateContainerRecipeCommandInput,
+  CreateContainerRecipeCommandOutput,
+} from "../commands/CreateContainerRecipeCommand";
+import {
   CreateDistributionConfigurationCommandInput,
   CreateDistributionConfigurationCommandOutput,
 } from "../commands/CreateDistributionConfigurationCommand";
@@ -18,6 +22,10 @@ import {
   CreateInfrastructureConfigurationCommandOutput,
 } from "../commands/CreateInfrastructureConfigurationCommand";
 import { DeleteComponentCommandInput, DeleteComponentCommandOutput } from "../commands/DeleteComponentCommand";
+import {
+  DeleteContainerRecipeCommandInput,
+  DeleteContainerRecipeCommandOutput,
+} from "../commands/DeleteContainerRecipeCommand";
 import {
   DeleteDistributionConfigurationCommandInput,
   DeleteDistributionConfigurationCommandOutput,
@@ -34,6 +42,11 @@ import {
 } from "../commands/DeleteInfrastructureConfigurationCommand";
 import { GetComponentCommandInput, GetComponentCommandOutput } from "../commands/GetComponentCommand";
 import { GetComponentPolicyCommandInput, GetComponentPolicyCommandOutput } from "../commands/GetComponentPolicyCommand";
+import { GetContainerRecipeCommandInput, GetContainerRecipeCommandOutput } from "../commands/GetContainerRecipeCommand";
+import {
+  GetContainerRecipePolicyCommandInput,
+  GetContainerRecipePolicyCommandOutput,
+} from "../commands/GetContainerRecipePolicyCommand";
 import {
   GetDistributionConfigurationCommandInput,
   GetDistributionConfigurationCommandOutput,
@@ -57,6 +70,10 @@ import {
 } from "../commands/ListComponentBuildVersionsCommand";
 import { ListComponentsCommandInput, ListComponentsCommandOutput } from "../commands/ListComponentsCommand";
 import {
+  ListContainerRecipesCommandInput,
+  ListContainerRecipesCommandOutput,
+} from "../commands/ListContainerRecipesCommand";
+import {
   ListDistributionConfigurationsCommandInput,
   ListDistributionConfigurationsCommandOutput,
 } from "../commands/ListDistributionConfigurationsCommand";
@@ -64,6 +81,7 @@ import {
   ListImageBuildVersionsCommandInput,
   ListImageBuildVersionsCommandOutput,
 } from "../commands/ListImageBuildVersionsCommand";
+import { ListImagePackagesCommandInput, ListImagePackagesCommandOutput } from "../commands/ListImagePackagesCommand";
 import {
   ListImagePipelineImagesCommandInput,
   ListImagePipelineImagesCommandOutput,
@@ -80,6 +98,10 @@ import {
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import { PutComponentPolicyCommandInput, PutComponentPolicyCommandOutput } from "../commands/PutComponentPolicyCommand";
+import {
+  PutContainerRecipePolicyCommandInput,
+  PutContainerRecipePolicyCommandOutput,
+} from "../commands/PutContainerRecipePolicyCommand";
 import { PutImagePolicyCommandInput, PutImagePolicyCommandOutput } from "../commands/PutImagePolicyCommand";
 import {
   PutImageRecipePolicyCommandInput,
@@ -112,6 +134,10 @@ import {
   ComponentConfiguration,
   ComponentSummary,
   ComponentVersion,
+  Container,
+  ContainerDistributionConfiguration,
+  ContainerRecipe,
+  ContainerRecipeSummary,
   Distribution,
   DistributionConfiguration,
   DistributionConfigurationSummary,
@@ -120,6 +146,7 @@ import {
   ForbiddenException,
   IdempotentParameterMismatchException,
   Image,
+  ImagePackage,
   ImagePipeline,
   ImageRecipe,
   ImageRecipeSummary,
@@ -130,6 +157,7 @@ import {
   InfrastructureConfiguration,
   InfrastructureConfigurationSummary,
   InstanceBlockDeviceMapping,
+  InstanceConfiguration,
   InvalidPaginationTokenException,
   InvalidParameterCombinationException,
   InvalidParameterException,
@@ -137,6 +165,7 @@ import {
   InvalidRequestException,
   InvalidVersionNumberException,
   LaunchPermissionConfiguration,
+  LaunchTemplateConfiguration,
   Logging,
   OutputResources,
   ResourceAlreadyExistsException,
@@ -148,6 +177,7 @@ import {
   ServiceException,
   ServiceQuotaExceededException,
   ServiceUnavailableException,
+  TargetContainerRepository,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
@@ -227,6 +257,60 @@ export const serializeAws_restJson1CreateComponentCommand = async (
   });
 };
 
+export const serializeAws_restJson1CreateContainerRecipeCommand = async (
+  input: CreateContainerRecipeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = "/CreateContainerRecipe";
+  let body: any;
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.components !== undefined &&
+      input.components !== null && {
+        components: serializeAws_restJson1ComponentConfigurationList(input.components, context),
+      }),
+    ...(input.containerType !== undefined && input.containerType !== null && { containerType: input.containerType }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.dockerfileTemplateData !== undefined &&
+      input.dockerfileTemplateData !== null && { dockerfileTemplateData: input.dockerfileTemplateData }),
+    ...(input.dockerfileTemplateUri !== undefined &&
+      input.dockerfileTemplateUri !== null && { dockerfileTemplateUri: input.dockerfileTemplateUri }),
+    ...(input.imageOsVersionOverride !== undefined &&
+      input.imageOsVersionOverride !== null && { imageOsVersionOverride: input.imageOsVersionOverride }),
+    ...(input.instanceConfiguration !== undefined &&
+      input.instanceConfiguration !== null && {
+        instanceConfiguration: serializeAws_restJson1InstanceConfiguration(input.instanceConfiguration, context),
+      }),
+    ...(input.kmsKeyId !== undefined && input.kmsKeyId !== null && { kmsKeyId: input.kmsKeyId }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.parentImage !== undefined && input.parentImage !== null && { parentImage: input.parentImage }),
+    ...(input.platformOverride !== undefined &&
+      input.platformOverride !== null && { platformOverride: input.platformOverride }),
+    ...(input.semanticVersion !== undefined &&
+      input.semanticVersion !== null && { semanticVersion: input.semanticVersion }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.targetRepository !== undefined &&
+      input.targetRepository !== null && {
+        targetRepository: serializeAws_restJson1TargetContainerRepository(input.targetRepository, context),
+      }),
+    ...(input.workingDirectory !== undefined &&
+      input.workingDirectory !== null && { workingDirectory: input.workingDirectory }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1CreateDistributionConfigurationCommand = async (
   input: CreateDistributionConfigurationCommandInput,
   context: __SerdeContext
@@ -269,6 +353,8 @@ export const serializeAws_restJson1CreateImageCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.containerRecipeArn !== undefined &&
+      input.containerRecipeArn !== null && { containerRecipeArn: input.containerRecipeArn }),
     ...(input.distributionConfigurationArn !== undefined &&
       input.distributionConfigurationArn !== null && {
         distributionConfigurationArn: input.distributionConfigurationArn,
@@ -312,6 +398,8 @@ export const serializeAws_restJson1CreateImagePipelineCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.containerRecipeArn !== undefined &&
+      input.containerRecipeArn !== null && { containerRecipeArn: input.containerRecipeArn }),
     ...(input.description !== undefined && input.description !== null && { description: input.description }),
     ...(input.distributionConfigurationArn !== undefined &&
       input.distributionConfigurationArn !== null && {
@@ -445,6 +533,29 @@ export const serializeAws_restJson1DeleteComponentCommand = async (
   let resolvedPath = "/DeleteComponent";
   const query: any = {
     ...(input.componentBuildVersionArn !== undefined && { componentBuildVersionArn: input.componentBuildVersionArn }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteContainerRecipeCommand = async (
+  input: DeleteContainerRecipeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/DeleteContainerRecipe";
+  const query: any = {
+    ...(input.containerRecipeArn !== undefined && { containerRecipeArn: input.containerRecipeArn }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -610,6 +721,52 @@ export const serializeAws_restJson1GetComponentPolicyCommand = async (
   let resolvedPath = "/GetComponentPolicy";
   const query: any = {
     ...(input.componentArn !== undefined && { componentArn: input.componentArn }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetContainerRecipeCommand = async (
+  input: GetContainerRecipeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/GetContainerRecipe";
+  const query: any = {
+    ...(input.containerRecipeArn !== undefined && { containerRecipeArn: input.containerRecipeArn }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetContainerRecipePolicyCommand = async (
+  input: GetContainerRecipePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/GetContainerRecipePolicy";
+  const query: any = {
+    ...(input.containerRecipeArn !== undefined && { containerRecipeArn: input.containerRecipeArn }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -864,6 +1021,35 @@ export const serializeAws_restJson1ListComponentsCommand = async (
   let resolvedPath = "/ListComponents";
   let body: any;
   body = JSON.stringify({
+    ...(input.byName !== undefined && input.byName !== null && { byName: input.byName }),
+    ...(input.filters !== undefined &&
+      input.filters !== null && { filters: serializeAws_restJson1FilterList(input.filters, context) }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.owner !== undefined && input.owner !== null && { owner: input.owner }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListContainerRecipesCommand = async (
+  input: ListContainerRecipesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = "/ListContainerRecipes";
+  let body: any;
+  body = JSON.stringify({
     ...(input.filters !== undefined &&
       input.filters !== null && { filters: serializeAws_restJson1FilterList(input.filters, context) }),
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
@@ -923,6 +1109,33 @@ export const serializeAws_restJson1ListImageBuildVersionsCommand = async (
       input.filters !== null && { filters: serializeAws_restJson1FilterList(input.filters, context) }),
     ...(input.imageVersionArn !== undefined &&
       input.imageVersionArn !== null && { imageVersionArn: input.imageVersionArn }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListImagePackagesCommand = async (
+  input: ListImagePackagesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = "/ListImagePackages";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.imageBuildVersionArn !== undefined &&
+      input.imageBuildVersionArn !== null && { imageBuildVersionArn: input.imageBuildVersionArn }),
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   });
@@ -1032,8 +1245,11 @@ export const serializeAws_restJson1ListImagesCommand = async (
   let resolvedPath = "/ListImages";
   let body: any;
   body = JSON.stringify({
+    ...(input.byName !== undefined && input.byName !== null && { byName: input.byName }),
     ...(input.filters !== undefined &&
       input.filters !== null && { filters: serializeAws_restJson1FilterList(input.filters, context) }),
+    ...(input.includeDeprecated !== undefined &&
+      input.includeDeprecated !== null && { includeDeprecated: input.includeDeprecated }),
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
     ...(input.owner !== undefined && input.owner !== null && { owner: input.owner }),
@@ -1116,6 +1332,32 @@ export const serializeAws_restJson1PutComponentPolicyCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.componentArn !== undefined && input.componentArn !== null && { componentArn: input.componentArn }),
+    ...(input.policy !== undefined && input.policy !== null && { policy: input.policy }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1PutContainerRecipePolicyCommand = async (
+  input: PutContainerRecipePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = "/PutContainerRecipePolicy";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.containerRecipeArn !== undefined &&
+      input.containerRecipeArn !== null && { containerRecipeArn: input.containerRecipeArn }),
     ...(input.policy !== undefined && input.policy !== null && { policy: input.policy }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1316,6 +1558,8 @@ export const serializeAws_restJson1UpdateImagePipelineCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.containerRecipeArn !== undefined &&
+      input.containerRecipeArn !== null && { containerRecipeArn: input.containerRecipeArn }),
     ...(input.description !== undefined && input.description !== null && { description: input.description }),
     ...(input.distributionConfigurationArn !== undefined &&
       input.distributionConfigurationArn !== null && {
@@ -1612,6 +1856,149 @@ const deserializeAws_restJson1CreateComponentCommandError = async (
     case "com.amazonaws.imagebuilder#InvalidVersionNumberException":
       response = {
         ...(await deserializeAws_restJson1InvalidVersionNumberExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.imagebuilder#ResourceInUseException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.imagebuilder#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1CreateContainerRecipeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateContainerRecipeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateContainerRecipeCommandError(output, context);
+  }
+  const contents: CreateContainerRecipeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    clientToken: undefined,
+    containerRecipeArn: undefined,
+    requestId: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.clientToken !== undefined && data.clientToken !== null) {
+    contents.clientToken = data.clientToken;
+  }
+  if (data.containerRecipeArn !== undefined && data.containerRecipeArn !== null) {
+    contents.containerRecipeArn = data.containerRecipeArn;
+  }
+  if (data.requestId !== undefined && data.requestId !== null) {
+    contents.requestId = data.requestId;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateContainerRecipeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateContainerRecipeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1CallRateLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      response = {
+        ...(await deserializeAws_restJson1ClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "IdempotentParameterMismatchException":
+    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
+      response = {
+        ...(await deserializeAws_restJson1IdempotentParameterMismatchExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidVersionNumberException":
+    case "com.amazonaws.imagebuilder#InvalidVersionNumberException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidVersionNumberExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.imagebuilder#ResourceAlreadyExistsException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2455,6 +2842,113 @@ const deserializeAws_restJson1DeleteComponentCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DeleteContainerRecipeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteContainerRecipeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteContainerRecipeCommandError(output, context);
+  }
+  const contents: DeleteContainerRecipeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    containerRecipeArn: undefined,
+    requestId: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.containerRecipeArn !== undefined && data.containerRecipeArn !== null) {
+    contents.containerRecipeArn = data.containerRecipeArn;
+  }
+  if (data.requestId !== undefined && data.requestId !== null) {
+    contents.requestId = data.requestId;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteContainerRecipeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteContainerRecipeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1CallRateLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      response = {
+        ...(await deserializeAws_restJson1ClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceDependencyException":
+    case "com.amazonaws.imagebuilder#ResourceDependencyException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceDependencyExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DeleteDistributionConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3115,6 +3609,204 @@ const deserializeAws_restJson1GetComponentPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetComponentPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1CallRateLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.imagebuilder#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1GetContainerRecipeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetContainerRecipeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetContainerRecipeCommandError(output, context);
+  }
+  const contents: GetContainerRecipeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    containerRecipe: undefined,
+    requestId: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.containerRecipe !== undefined && data.containerRecipe !== null) {
+    contents.containerRecipe = deserializeAws_restJson1ContainerRecipe(data.containerRecipe, context);
+  }
+  if (data.requestId !== undefined && data.requestId !== null) {
+    contents.requestId = data.requestId;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetContainerRecipeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetContainerRecipeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1CallRateLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      response = {
+        ...(await deserializeAws_restJson1ClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1GetContainerRecipePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetContainerRecipePolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetContainerRecipePolicyCommandError(output, context);
+  }
+  const contents: GetContainerRecipePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    policy: undefined,
+    requestId: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.policy !== undefined && data.policy !== null) {
+    contents.policy = data.policy;
+  }
+  if (data.requestId !== undefined && data.requestId !== null) {
+    contents.requestId = data.requestId;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetContainerRecipePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetContainerRecipePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -4244,6 +4936,120 @@ const deserializeAws_restJson1ListComponentsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1ListContainerRecipesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListContainerRecipesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListContainerRecipesCommandError(output, context);
+  }
+  const contents: ListContainerRecipesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    containerRecipeSummaryList: undefined,
+    nextToken: undefined,
+    requestId: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.containerRecipeSummaryList !== undefined && data.containerRecipeSummaryList !== null) {
+    contents.containerRecipeSummaryList = deserializeAws_restJson1ContainerRecipeSummaryList(
+      data.containerRecipeSummaryList,
+      context
+    );
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = data.nextToken;
+  }
+  if (data.requestId !== undefined && data.requestId !== null) {
+    contents.requestId = data.requestId;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListContainerRecipesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListContainerRecipesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1CallRateLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      response = {
+        ...(await deserializeAws_restJson1ClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidPaginationTokenException":
+    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidPaginationTokenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1ListDistributionConfigurationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4432,6 +5238,125 @@ const deserializeAws_restJson1ListImageBuildVersionsCommandError = async (
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListImagePackagesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListImagePackagesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListImagePackagesCommandError(output, context);
+  }
+  const contents: ListImagePackagesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    imagePackageList: undefined,
+    nextToken: undefined,
+    requestId: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.imagePackageList !== undefined && data.imagePackageList !== null) {
+    contents.imagePackageList = deserializeAws_restJson1ImagePackageList(data.imagePackageList, context);
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = data.nextToken;
+  }
+  if (data.requestId !== undefined && data.requestId !== null) {
+    contents.requestId = data.requestId;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListImagePackagesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListImagePackagesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1CallRateLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      response = {
+        ...(await deserializeAws_restJson1ClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidPaginationTokenException":
+    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidPaginationTokenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.imagebuilder#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5138,6 +6063,121 @@ const deserializeAws_restJson1PutComponentPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutComponentPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1CallRateLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      response = {
+        ...(await deserializeAws_restJson1ClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.imagebuilder#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.imagebuilder#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1PutContainerRecipePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutContainerRecipePolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1PutContainerRecipePolicyCommandError(output, context);
+  }
+  const contents: PutContainerRecipePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    containerRecipeArn: undefined,
+    requestId: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.containerRecipeArn !== undefined && data.containerRecipeArn !== null) {
+    contents.containerRecipeArn = data.containerRecipeArn;
+  }
+  if (data.requestId !== undefined && data.requestId !== null) {
+    contents.requestId = data.requestId;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1PutContainerRecipePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutContainerRecipePolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -6424,12 +7464,43 @@ const serializeAws_restJson1ComponentConfigurationList = (
     });
 };
 
+const serializeAws_restJson1ContainerDistributionConfiguration = (
+  input: ContainerDistributionConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.containerTags !== undefined &&
+      input.containerTags !== null && {
+        containerTags: serializeAws_restJson1StringList(input.containerTags, context),
+      }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.targetRepository !== undefined &&
+      input.targetRepository !== null && {
+        targetRepository: serializeAws_restJson1TargetContainerRepository(input.targetRepository, context),
+      }),
+  };
+};
+
 const serializeAws_restJson1Distribution = (input: Distribution, context: __SerdeContext): any => {
   return {
     ...(input.amiDistributionConfiguration !== undefined &&
       input.amiDistributionConfiguration !== null && {
         amiDistributionConfiguration: serializeAws_restJson1AmiDistributionConfiguration(
           input.amiDistributionConfiguration,
+          context
+        ),
+      }),
+    ...(input.containerDistributionConfiguration !== undefined &&
+      input.containerDistributionConfiguration !== null && {
+        containerDistributionConfiguration: serializeAws_restJson1ContainerDistributionConfiguration(
+          input.containerDistributionConfiguration,
+          context
+        ),
+      }),
+    ...(input.launchTemplateConfigurations !== undefined &&
+      input.launchTemplateConfigurations !== null && {
+        launchTemplateConfigurations: serializeAws_restJson1LaunchTemplateConfigurationList(
+          input.launchTemplateConfigurations,
           context
         ),
       }),
@@ -6540,6 +7611,16 @@ const serializeAws_restJson1InstanceBlockDeviceMappings = (
     });
 };
 
+const serializeAws_restJson1InstanceConfiguration = (input: InstanceConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.blockDeviceMappings !== undefined &&
+      input.blockDeviceMappings !== null && {
+        blockDeviceMappings: serializeAws_restJson1InstanceBlockDeviceMappings(input.blockDeviceMappings, context),
+      }),
+    ...(input.image !== undefined && input.image !== null && { image: input.image }),
+  };
+};
+
 const serializeAws_restJson1InstanceTypeList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -6561,6 +7642,33 @@ const serializeAws_restJson1LaunchPermissionConfiguration = (
     ...(input.userIds !== undefined &&
       input.userIds !== null && { userIds: serializeAws_restJson1AccountList(input.userIds, context) }),
   };
+};
+
+const serializeAws_restJson1LaunchTemplateConfiguration = (
+  input: LaunchTemplateConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.accountId !== undefined && input.accountId !== null && { accountId: input.accountId }),
+    ...(input.launchTemplateId !== undefined &&
+      input.launchTemplateId !== null && { launchTemplateId: input.launchTemplateId }),
+    ...(input.setDefaultVersion !== undefined &&
+      input.setDefaultVersion !== null && { setDefaultVersion: input.setDefaultVersion }),
+  };
+};
+
+const serializeAws_restJson1LaunchTemplateConfigurationList = (
+  input: LaunchTemplateConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1LaunchTemplateConfiguration(entry, context);
+    });
 };
 
 const serializeAws_restJson1LicenseConfigurationArnList = (input: string[], context: __SerdeContext): any => {
@@ -6619,6 +7727,7 @@ const serializeAws_restJson1Schedule = (input: Schedule, context: __SerdeContext
       }),
     ...(input.scheduleExpression !== undefined &&
       input.scheduleExpression !== null && { scheduleExpression: input.scheduleExpression }),
+    ...(input.timezone !== undefined && input.timezone !== null && { timezone: input.timezone }),
   };
 };
 
@@ -6654,6 +7763,17 @@ const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context:
       [key]: value,
     };
   }, {});
+};
+
+const serializeAws_restJson1TargetContainerRepository = (
+  input: TargetContainerRepository,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.repositoryName !== undefined &&
+      input.repositoryName !== null && { repositoryName: input.repositoryName }),
+    ...(input.service !== undefined && input.service !== null && { service: input.service }),
+  };
 };
 
 const deserializeAws_restJson1AccountList = (output: any, context: __SerdeContext): string[] => {
@@ -6830,11 +7950,130 @@ const deserializeAws_restJson1ComponentVersionList = (output: any, context: __Se
     });
 };
 
+const deserializeAws_restJson1Container = (output: any, context: __SerdeContext): Container => {
+  return {
+    imageUris:
+      output.imageUris !== undefined && output.imageUris !== null
+        ? deserializeAws_restJson1StringList(output.imageUris, context)
+        : undefined,
+    region: output.region !== undefined && output.region !== null ? output.region : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ContainerDistributionConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ContainerDistributionConfiguration => {
+  return {
+    containerTags:
+      output.containerTags !== undefined && output.containerTags !== null
+        ? deserializeAws_restJson1StringList(output.containerTags, context)
+        : undefined,
+    description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    targetRepository:
+      output.targetRepository !== undefined && output.targetRepository !== null
+        ? deserializeAws_restJson1TargetContainerRepository(output.targetRepository, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ContainerList = (output: any, context: __SerdeContext): Container[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Container(entry, context);
+    });
+};
+
+const deserializeAws_restJson1ContainerRecipe = (output: any, context: __SerdeContext): ContainerRecipe => {
+  return {
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    components:
+      output.components !== undefined && output.components !== null
+        ? deserializeAws_restJson1ComponentConfigurationList(output.components, context)
+        : undefined,
+    containerType:
+      output.containerType !== undefined && output.containerType !== null ? output.containerType : undefined,
+    dateCreated: output.dateCreated !== undefined && output.dateCreated !== null ? output.dateCreated : undefined,
+    description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    dockerfileTemplateData:
+      output.dockerfileTemplateData !== undefined && output.dockerfileTemplateData !== null
+        ? output.dockerfileTemplateData
+        : undefined,
+    encrypted: output.encrypted !== undefined && output.encrypted !== null ? output.encrypted : undefined,
+    instanceConfiguration:
+      output.instanceConfiguration !== undefined && output.instanceConfiguration !== null
+        ? deserializeAws_restJson1InstanceConfiguration(output.instanceConfiguration, context)
+        : undefined,
+    kmsKeyId: output.kmsKeyId !== undefined && output.kmsKeyId !== null ? output.kmsKeyId : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    owner: output.owner !== undefined && output.owner !== null ? output.owner : undefined,
+    parentImage: output.parentImage !== undefined && output.parentImage !== null ? output.parentImage : undefined,
+    platform: output.platform !== undefined && output.platform !== null ? output.platform : undefined,
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_restJson1TagMap(output.tags, context)
+        : undefined,
+    targetRepository:
+      output.targetRepository !== undefined && output.targetRepository !== null
+        ? deserializeAws_restJson1TargetContainerRepository(output.targetRepository, context)
+        : undefined,
+    version: output.version !== undefined && output.version !== null ? output.version : undefined,
+    workingDirectory:
+      output.workingDirectory !== undefined && output.workingDirectory !== null ? output.workingDirectory : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ContainerRecipeSummary = (
+  output: any,
+  context: __SerdeContext
+): ContainerRecipeSummary => {
+  return {
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    containerType:
+      output.containerType !== undefined && output.containerType !== null ? output.containerType : undefined,
+    dateCreated: output.dateCreated !== undefined && output.dateCreated !== null ? output.dateCreated : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    owner: output.owner !== undefined && output.owner !== null ? output.owner : undefined,
+    parentImage: output.parentImage !== undefined && output.parentImage !== null ? output.parentImage : undefined,
+    platform: output.platform !== undefined && output.platform !== null ? output.platform : undefined,
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_restJson1TagMap(output.tags, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ContainerRecipeSummaryList = (
+  output: any,
+  context: __SerdeContext
+): ContainerRecipeSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ContainerRecipeSummary(entry, context);
+    });
+};
+
 const deserializeAws_restJson1Distribution = (output: any, context: __SerdeContext): Distribution => {
   return {
     amiDistributionConfiguration:
       output.amiDistributionConfiguration !== undefined && output.amiDistributionConfiguration !== null
         ? deserializeAws_restJson1AmiDistributionConfiguration(output.amiDistributionConfiguration, context)
+        : undefined,
+    containerDistributionConfiguration:
+      output.containerDistributionConfiguration !== undefined && output.containerDistributionConfiguration !== null
+        ? deserializeAws_restJson1ContainerDistributionConfiguration(output.containerDistributionConfiguration, context)
+        : undefined,
+    launchTemplateConfigurations:
+      output.launchTemplateConfigurations !== undefined && output.launchTemplateConfigurations !== null
+        ? deserializeAws_restJson1LaunchTemplateConfigurationList(output.launchTemplateConfigurations, context)
         : undefined,
     licenseConfigurationArns:
       output.licenseConfigurationArns !== undefined && output.licenseConfigurationArns !== null
@@ -6877,6 +8116,10 @@ const deserializeAws_restJson1DistributionConfigurationSummary = (
     dateUpdated: output.dateUpdated !== undefined && output.dateUpdated !== null ? output.dateUpdated : undefined,
     description: output.description !== undefined && output.description !== null ? output.description : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    regions:
+      output.regions !== undefined && output.regions !== null
+        ? deserializeAws_restJson1RegionList(output.regions, context)
+        : undefined,
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1TagMap(output.tags, context)
@@ -6930,6 +8173,10 @@ const deserializeAws_restJson1EbsInstanceBlockDeviceSpecification = (
 const deserializeAws_restJson1Image = (output: any, context: __SerdeContext): Image => {
   return {
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    containerRecipe:
+      output.containerRecipe !== undefined && output.containerRecipe !== null
+        ? deserializeAws_restJson1ContainerRecipe(output.containerRecipe, context)
+        : undefined,
     dateCreated: output.dateCreated !== undefined && output.dateCreated !== null ? output.dateCreated : undefined,
     distributionConfiguration:
       output.distributionConfiguration !== undefined && output.distributionConfiguration !== null
@@ -6974,13 +8221,37 @@ const deserializeAws_restJson1Image = (output: any, context: __SerdeContext): Im
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1TagMap(output.tags, context)
         : undefined,
+    type: output.type !== undefined && output.type !== null ? output.type : undefined,
     version: output.version !== undefined && output.version !== null ? output.version : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1ImagePackage = (output: any, context: __SerdeContext): ImagePackage => {
+  return {
+    packageName: output.packageName !== undefined && output.packageName !== null ? output.packageName : undefined,
+    packageVersion:
+      output.packageVersion !== undefined && output.packageVersion !== null ? output.packageVersion : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ImagePackageList = (output: any, context: __SerdeContext): ImagePackage[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ImagePackage(entry, context);
+    });
 };
 
 const deserializeAws_restJson1ImagePipeline = (output: any, context: __SerdeContext): ImagePipeline => {
   return {
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    containerRecipeArn:
+      output.containerRecipeArn !== undefined && output.containerRecipeArn !== null
+        ? output.containerRecipeArn
+        : undefined,
     dateCreated: output.dateCreated !== undefined && output.dateCreated !== null ? output.dateCreated : undefined,
     dateLastRun: output.dateLastRun !== undefined && output.dateLastRun !== null ? output.dateLastRun : undefined,
     dateNextRun: output.dateNextRun !== undefined && output.dateNextRun !== null ? output.dateNextRun : undefined,
@@ -7050,6 +8321,7 @@ const deserializeAws_restJson1ImageRecipe = (output: any, context: __SerdeContex
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1TagMap(output.tags, context)
         : undefined,
+    type: output.type !== undefined && output.type !== null ? output.type : undefined,
     version: output.version !== undefined && output.version !== null ? output.version : undefined,
     workingDirectory:
       output.workingDirectory !== undefined && output.workingDirectory !== null ? output.workingDirectory : undefined,
@@ -7109,6 +8381,7 @@ const deserializeAws_restJson1ImageSummary = (output: any, context: __SerdeConte
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1TagMap(output.tags, context)
         : undefined,
+    type: output.type !== undefined && output.type !== null ? output.type : undefined,
     version: output.version !== undefined && output.version !== null ? output.version : undefined,
   } as any;
 };
@@ -7146,6 +8419,7 @@ const deserializeAws_restJson1ImageVersion = (output: any, context: __SerdeConte
     osVersion: output.osVersion !== undefined && output.osVersion !== null ? output.osVersion : undefined,
     owner: output.owner !== undefined && output.owner !== null ? output.owner : undefined,
     platform: output.platform !== undefined && output.platform !== null ? output.platform : undefined,
+    type: output.type !== undefined && output.type !== null ? output.type : undefined,
     version: output.version !== undefined && output.version !== null ? output.version : undefined,
   } as any;
 };
@@ -7214,6 +8488,14 @@ const deserializeAws_restJson1InfrastructureConfigurationSummary = (
     dateCreated: output.dateCreated !== undefined && output.dateCreated !== null ? output.dateCreated : undefined,
     dateUpdated: output.dateUpdated !== undefined && output.dateUpdated !== null ? output.dateUpdated : undefined,
     description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    instanceProfileName:
+      output.instanceProfileName !== undefined && output.instanceProfileName !== null
+        ? output.instanceProfileName
+        : undefined,
+    instanceTypes:
+      output.instanceTypes !== undefined && output.instanceTypes !== null
+        ? deserializeAws_restJson1InstanceTypeList(output.instanceTypes, context)
+        : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     resourceTags:
       output.resourceTags !== undefined && output.resourceTags !== null
@@ -7269,6 +8551,16 @@ const deserializeAws_restJson1InstanceBlockDeviceMappings = (
     });
 };
 
+const deserializeAws_restJson1InstanceConfiguration = (output: any, context: __SerdeContext): InstanceConfiguration => {
+  return {
+    blockDeviceMappings:
+      output.blockDeviceMappings !== undefined && output.blockDeviceMappings !== null
+        ? deserializeAws_restJson1InstanceBlockDeviceMappings(output.blockDeviceMappings, context)
+        : undefined,
+    image: output.image !== undefined && output.image !== null ? output.image : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1InstanceTypeList = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -7294,6 +8586,35 @@ const deserializeAws_restJson1LaunchPermissionConfiguration = (
         ? deserializeAws_restJson1AccountList(output.userIds, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1LaunchTemplateConfiguration = (
+  output: any,
+  context: __SerdeContext
+): LaunchTemplateConfiguration => {
+  return {
+    accountId: output.accountId !== undefined && output.accountId !== null ? output.accountId : undefined,
+    launchTemplateId:
+      output.launchTemplateId !== undefined && output.launchTemplateId !== null ? output.launchTemplateId : undefined,
+    setDefaultVersion:
+      output.setDefaultVersion !== undefined && output.setDefaultVersion !== null
+        ? output.setDefaultVersion
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1LaunchTemplateConfigurationList = (
+  output: any,
+  context: __SerdeContext
+): LaunchTemplateConfiguration[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1LaunchTemplateConfiguration(entry, context);
+    });
 };
 
 const deserializeAws_restJson1LicenseConfigurationArnList = (output: any, context: __SerdeContext): string[] => {
@@ -7333,7 +8654,22 @@ const deserializeAws_restJson1OutputResources = (output: any, context: __SerdeCo
       output.amis !== undefined && output.amis !== null
         ? deserializeAws_restJson1AmiList(output.amis, context)
         : undefined,
+    containers:
+      output.containers !== undefined && output.containers !== null
+        ? deserializeAws_restJson1ContainerList(output.containers, context)
+        : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1RegionList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1ResourceTagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
@@ -7365,6 +8701,7 @@ const deserializeAws_restJson1Schedule = (output: any, context: __SerdeContext):
       output.scheduleExpression !== undefined && output.scheduleExpression !== null
         ? output.scheduleExpression
         : undefined,
+    timezone: output.timezone !== undefined && output.timezone !== null ? output.timezone : undefined,
   } as any;
 };
 
@@ -7400,6 +8737,17 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
       [key]: value,
     };
   }, {});
+};
+
+const deserializeAws_restJson1TargetContainerRepository = (
+  output: any,
+  context: __SerdeContext
+): TargetContainerRepository => {
+  return {
+    repositoryName:
+      output.repositoryName !== undefined && output.repositoryName !== null ? output.repositoryName : undefined,
+    service: output.service !== undefined && output.service !== null ? output.service : undefined,
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

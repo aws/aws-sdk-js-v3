@@ -21,8 +21,7 @@ export type GetVoiceConnectorCommandInput = GetVoiceConnectorRequest;
 export type GetVoiceConnectorCommandOutput = GetVoiceConnectorResponse & __MetadataBearer;
 
 /**
- * <p>Retrieves details for the specified Amazon Chime Voice Connector, such as timestamps,
- *       name, outbound host, and encryption requirements.</p>
+ * <p>Retrieves details for the specified Amazon Chime Voice Connector, such as timestamps,name, outbound host, and encryption requirements.</p>
  */
 export class GetVoiceConnectorCommand extends $Command<
   GetVoiceConnectorCommandInput,

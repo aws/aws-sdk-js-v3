@@ -21,19 +21,19 @@ export type AddRoleToInstanceProfileCommandInput = AddRoleToInstanceProfileReque
 export type AddRoleToInstanceProfileCommandOutput = __MetadataBearer;
 
 /**
- * <p>Adds the specified IAM role to the specified instance profile. An instance profile can
- *          contain only one role. (The number and size of IAM resources in an AWS account are limited. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS Quotas</a> in the <i>IAM User Guide</i>.) You can remove the existing role
- *          and then add a different role to an instance profile. You must then wait for the change to
- *          appear across all of AWS because of <a href="https://en.wikipedia.org/wiki/Eventual_consistency">eventual consistency</a>.
- *          To force the change, you must <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisassociateIamInstanceProfile.html">disassociate
- *             the instance profile</a> and then <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateIamInstanceProfile.html">associate the
- *             instance profile</a>, or you can stop your instance and then restart it.</p>
- *          <note>
- *             <p>The caller of this API must be granted the <code>PassRole</code> permission on the
- *             IAM role by a permissions policy.</p>
- *          </note>
- *          <p>For more information about roles, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working with Roles</a>. For more
- *          information about instance profiles, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About Instance Profiles</a>.</p>
+ * <p>Adds the specified IAM role to the specified instance profile. An instance profile
+ *             can contain only one role, and this quota cannot be increased. You can remove the
+ *             existing role and then add a different role to an instance profile. You must then wait
+ *             for the change to appear across all of AWS because of <a href="https://en.wikipedia.org/wiki/Eventual_consistency">eventual
+ *                 consistency</a>. To force the change, you must <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisassociateIamInstanceProfile.html">disassociate the instance profile</a> and then <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateIamInstanceProfile.html">associate the
+ *                 instance profile</a>, or you can stop your instance and then restart it.</p>
+ *         <note>
+ *             <p>The caller of this operation must be granted the <code>PassRole</code> permission
+ *                 on the IAM role by a permissions policy.</p>
+ *         </note>
+ *         <p>For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working with roles</a>. For more
+ *             information about instance profiles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About instance
+ *             profiles</a>.</p>
  */
 export class AddRoleToInstanceProfileCommand extends $Command<
   AddRoleToInstanceProfileCommandInput,

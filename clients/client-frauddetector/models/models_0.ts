@@ -16,6 +16,15 @@ export namespace AccessDeniedException {
   });
 }
 
+export enum AsyncJobStatus {
+  CANCELED = "CANCELED",
+  CANCEL_IN_PROGRESS = "CANCEL_IN_PROGRESS",
+  COMPLETE = "COMPLETE",
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  IN_PROGRESS_INITIALIZING = "IN_PROGRESS_INITIALIZING",
+}
+
 /**
  * <p>A key and value pair. </p>
  */
@@ -310,6 +319,98 @@ export namespace BatchGetVariableResult {
   });
 }
 
+export interface CancelBatchPredictionJobRequest {
+  /**
+   * <p>The ID of the batch prediction job to cancel.</p>
+   */
+  jobId: string | undefined;
+}
+
+export namespace CancelBatchPredictionJobRequest {
+  export const filterSensitiveLog = (obj: CancelBatchPredictionJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CancelBatchPredictionJobResult {}
+
+export namespace CancelBatchPredictionJobResult {
+  export const filterSensitiveLog = (obj: CancelBatchPredictionJobResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An exception indicating the specified resource was not found.</p>
+ */
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  message: string | undefined;
+}
+
+export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateBatchPredictionJobRequest {
+  /**
+   * <p>The ID of the batch prediction job.</p>
+   */
+  jobId: string | undefined;
+
+  /**
+   * <p>The Amazon S3 location of your training file.</p>
+   */
+  inputPath: string | undefined;
+
+  /**
+   * <p>The Amazon S3 location of your output file.</p>
+   */
+  outputPath: string | undefined;
+
+  /**
+   * <p>The name of the event type.</p>
+   */
+  eventTypeName: string | undefined;
+
+  /**
+   * <p>The name of the detector.</p>
+   */
+  detectorName: string | undefined;
+
+  /**
+   * <p>The detector version.</p>
+   */
+  detectorVersion?: string;
+
+  /**
+   * <p>The ARN of the IAM role to use for this job request.</p>
+   */
+  iamRoleArn: string | undefined;
+
+  /**
+   * <p>A collection of key and value pairs.</p>
+   */
+  tags?: Tag[];
+}
+
+export namespace CreateBatchPredictionJobRequest {
+  export const filterSensitiveLog = (obj: CreateBatchPredictionJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateBatchPredictionJobResult {}
+
+export namespace CreateBatchPredictionJobResult {
+  export const filterSensitiveLog = (obj: CreateBatchPredictionJobResult): any => ({
+    ...obj,
+  });
+}
+
 export enum ModelTypeEnum {
   ONLINE_FRAUD_INSIGHTS = "ONLINE_FRAUD_INSIGHTS",
 }
@@ -448,21 +549,6 @@ export interface CreateDetectorVersionResult {
 
 export namespace CreateDetectorVersionResult {
   export const filterSensitiveLog = (obj: CreateDetectorVersionResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>An exception indicating the specified resource was not found.</p>
- */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  message: string | undefined;
-}
-
-export namespace ResourceNotFoundException {
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
 }
@@ -748,6 +834,27 @@ export interface CreateVariableResult {}
 
 export namespace CreateVariableResult {
   export const filterSensitiveLog = (obj: CreateVariableResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteBatchPredictionJobRequest {
+  /**
+   * <p>The ID of the batch prediction job to delete.</p>
+   */
+  jobId: string | undefined;
+}
+
+export namespace DeleteBatchPredictionJobRequest {
+  export const filterSensitiveLog = (obj: DeleteBatchPredictionJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteBatchPredictionJobResult {}
+
+export namespace DeleteBatchPredictionJobResult {
+  export const filterSensitiveLog = (obj: DeleteBatchPredictionJobResult): any => ({
     ...obj,
   });
 }
@@ -1406,6 +1513,133 @@ export interface DescribeModelVersionsResult {
 
 export namespace DescribeModelVersionsResult {
   export const filterSensitiveLog = (obj: DescribeModelVersionsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface GetBatchPredictionJobsRequest {
+  /**
+   * <p>The batch prediction job for which to get the details.</p>
+   */
+  jobId?: string;
+
+  /**
+   * <p>The maximum number of objects to return for the request.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The next token from the previous request.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace GetBatchPredictionJobsRequest {
+  export const filterSensitiveLog = (obj: GetBatchPredictionJobsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The batch prediction details.</p>
+ */
+export interface BatchPrediction {
+  /**
+   * <p>The job ID for the batch prediction.</p>
+   */
+  jobId?: string;
+
+  /**
+   * <p>The batch prediction status.</p>
+   */
+  status?: AsyncJobStatus | string;
+
+  /**
+   * <p>The reason a batch prediction job failed.</p>
+   */
+  failureReason?: string;
+
+  /**
+   * <p>Timestamp of when the batch prediction job started.</p>
+   */
+  startTime?: string;
+
+  /**
+   * <p>Timestamp of when the batch prediction job comleted.</p>
+   */
+  completionTime?: string;
+
+  /**
+   * <p>Timestamp of most recent heartbeat indicating the batch prediction job was making progress.</p>
+   */
+  lastHeartbeatTime?: string;
+
+  /**
+   * <p>The Amazon S3 location of your training file.</p>
+   */
+  inputPath?: string;
+
+  /**
+   * <p>The Amazon S3 location of your output file.</p>
+   */
+  outputPath?: string;
+
+  /**
+   * <p>The name of the event type.</p>
+   */
+  eventTypeName?: string;
+
+  /**
+   * <p>The name of the detector.</p>
+   */
+  detectorName?: string;
+
+  /**
+   * <p>The detector version. </p>
+   */
+  detectorVersion?: string;
+
+  /**
+   * <p>The ARN of the IAM role to use for this job request.</p>
+   */
+  iamRoleArn?: string;
+
+  /**
+   * <p>The ARN of batch prediction job.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The number of records processed by the batch prediction job.</p>
+   */
+  processedRecordsCount?: number;
+
+  /**
+   * <p>The total number of records in the batch prediction job.</p>
+   */
+  totalRecordsCount?: number;
+}
+
+export namespace BatchPrediction {
+  export const filterSensitiveLog = (obj: BatchPrediction): any => ({
+    ...obj,
+  });
+}
+
+export interface GetBatchPredictionJobsResult {
+  /**
+   * <p>An array containing the details of each batch prediction job.</p>
+   */
+  batchPredictions?: BatchPrediction[];
+
+  /**
+   * <p>The next token for the subsequent request.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace GetBatchPredictionJobsResult {
+  export const filterSensitiveLog = (obj: GetBatchPredictionJobsResult): any => ({
     ...obj,
   });
 }
@@ -3182,6 +3416,7 @@ export namespace UpdateModelVersionResult {
 export enum ModelVersionStatus {
   ACTIVE = "ACTIVE",
   INACTIVE = "INACTIVE",
+  TRAINING_CANCELLED = "TRAINING_CANCELLED",
 }
 
 export interface UpdateModelVersionStatusRequest {

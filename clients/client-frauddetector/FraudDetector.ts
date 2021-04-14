@@ -10,6 +10,16 @@ import {
   BatchGetVariableCommandOutput,
 } from "./commands/BatchGetVariableCommand";
 import {
+  CancelBatchPredictionJobCommand,
+  CancelBatchPredictionJobCommandInput,
+  CancelBatchPredictionJobCommandOutput,
+} from "./commands/CancelBatchPredictionJobCommand";
+import {
+  CreateBatchPredictionJobCommand,
+  CreateBatchPredictionJobCommandInput,
+  CreateBatchPredictionJobCommandOutput,
+} from "./commands/CreateBatchPredictionJobCommand";
+import {
   CreateDetectorVersionCommand,
   CreateDetectorVersionCommandInput,
   CreateDetectorVersionCommandOutput,
@@ -26,6 +36,11 @@ import {
   CreateVariableCommandInput,
   CreateVariableCommandOutput,
 } from "./commands/CreateVariableCommand";
+import {
+  DeleteBatchPredictionJobCommand,
+  DeleteBatchPredictionJobCommandInput,
+  DeleteBatchPredictionJobCommandOutput,
+} from "./commands/DeleteBatchPredictionJobCommand";
 import {
   DeleteDetectorCommand,
   DeleteDetectorCommandInput,
@@ -80,6 +95,11 @@ import {
   DescribeModelVersionsCommandInput,
   DescribeModelVersionsCommandOutput,
 } from "./commands/DescribeModelVersionsCommand";
+import {
+  GetBatchPredictionJobsCommand,
+  GetBatchPredictionJobsCommandInput,
+  GetBatchPredictionJobsCommandOutput,
+} from "./commands/GetBatchPredictionJobsCommand";
 import {
   GetDetectorVersionCommand,
   GetDetectorVersionCommandInput,
@@ -277,6 +297,70 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
+   * <p>Cancels the specified batch prediction job.</p>
+   */
+  public cancelBatchPredictionJob(
+    args: CancelBatchPredictionJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelBatchPredictionJobCommandOutput>;
+  public cancelBatchPredictionJob(
+    args: CancelBatchPredictionJobCommandInput,
+    cb: (err: any, data?: CancelBatchPredictionJobCommandOutput) => void
+  ): void;
+  public cancelBatchPredictionJob(
+    args: CancelBatchPredictionJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelBatchPredictionJobCommandOutput) => void
+  ): void;
+  public cancelBatchPredictionJob(
+    args: CancelBatchPredictionJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelBatchPredictionJobCommandOutput) => void),
+    cb?: (err: any, data?: CancelBatchPredictionJobCommandOutput) => void
+  ): Promise<CancelBatchPredictionJobCommandOutput> | void {
+    const command = new CancelBatchPredictionJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a batch prediction job.</p>
+   */
+  public createBatchPredictionJob(
+    args: CreateBatchPredictionJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateBatchPredictionJobCommandOutput>;
+  public createBatchPredictionJob(
+    args: CreateBatchPredictionJobCommandInput,
+    cb: (err: any, data?: CreateBatchPredictionJobCommandOutput) => void
+  ): void;
+  public createBatchPredictionJob(
+    args: CreateBatchPredictionJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateBatchPredictionJobCommandOutput) => void
+  ): void;
+  public createBatchPredictionJob(
+    args: CreateBatchPredictionJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBatchPredictionJobCommandOutput) => void),
+    cb?: (err: any, data?: CreateBatchPredictionJobCommandOutput) => void
+  ): Promise<CreateBatchPredictionJobCommandOutput> | void {
+    const command = new CreateBatchPredictionJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a detector version. The detector version starts in a <code>DRAFT</code> status.</p>
    */
   public createDetectorVersion(
@@ -426,6 +510,38 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
+   * <p>Deletes a batch prediction job.</p>
+   */
+  public deleteBatchPredictionJob(
+    args: DeleteBatchPredictionJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteBatchPredictionJobCommandOutput>;
+  public deleteBatchPredictionJob(
+    args: DeleteBatchPredictionJobCommandInput,
+    cb: (err: any, data?: DeleteBatchPredictionJobCommandOutput) => void
+  ): void;
+  public deleteBatchPredictionJob(
+    args: DeleteBatchPredictionJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteBatchPredictionJobCommandOutput) => void
+  ): void;
+  public deleteBatchPredictionJob(
+    args: DeleteBatchPredictionJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBatchPredictionJobCommandOutput) => void),
+    cb?: (err: any, data?: DeleteBatchPredictionJobCommandOutput) => void
+  ): Promise<DeleteBatchPredictionJobCommandOutput> | void {
+    const command = new DeleteBatchPredictionJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes the detector. Before deleting a detector, you must first delete all detector versions and rule versions associated with the detector.</p>
    * 	        <p>When you delete a detector, Amazon Fraud Detector permanently deletes the detector and the data is no longer stored in Amazon Fraud Detector.</p>
    */
@@ -494,7 +610,7 @@ export class FraudDetector extends FraudDetectorClient {
   /**
    * <p>Deletes an entity type.</p>
    * 	        <p>You cannot delete an entity type that is included in an event type.</p>
-   * 	        <p>When you delete an entity type, Amazon Fraud Detector permanently deletes that entity type from the evaluation history, and the data is no longer stored in Amazon Fraud Detector.</p>
+   * 	        <p>When you delete an entity type, Amazon Fraud Detector permanently deletes that entity type and the data is no longer stored in Amazon Fraud Detector.</p>
    */
   public deleteEntityType(
     args: DeleteEntityTypeCommandInput,
@@ -527,7 +643,7 @@ export class FraudDetector extends FraudDetectorClient {
 
   /**
    * <p>Deletes the specified event.</p>
-   * 	        <p>When you delete an event, Amazon Fraud Detector permanently deletes that event from the evaluation history, and the event data is no longer stored in Amazon Fraud Detector.</p>
+   * 	        <p>When you delete an event, Amazon Fraud Detector permanently deletes that event and the event data is no longer stored in Amazon Fraud Detector.</p>
    */
   public deleteEvent(args: DeleteEventCommandInput, options?: __HttpHandlerOptions): Promise<DeleteEventCommandOutput>;
   public deleteEvent(args: DeleteEventCommandInput, cb: (err: any, data?: DeleteEventCommandOutput) => void): void;
@@ -555,7 +671,7 @@ export class FraudDetector extends FraudDetectorClient {
   /**
    * <p>Deletes an event type.</p>
    * 	        <p>You cannot delete an event type that is used in a detector or a model.</p>
-   * 	        <p>When you delete an entity type, Amazon Fraud Detector permanently deletes that entity type from the evaluation history, and the data is no longer stored in Amazon Fraud Detector.</p>
+   * 	        <p>When you delete an entity type, Amazon Fraud Detector permanently deletes that entity type and the data is no longer stored in Amazon Fraud Detector.</p>
    */
   public deleteEventType(
     args: DeleteEventTypeCommandInput,
@@ -624,7 +740,7 @@ export class FraudDetector extends FraudDetectorClient {
    * 	        <p>You cannot delete labels that are included in an event type in Amazon Fraud Detector.</p>
    *          <p>You cannot delete a label assigned to an event ID. You must first delete the relevant event ID.</p>
    *
-   *          <p>When you delete a label, Amazon Fraud Detector permanently deletes that label from the evaluation history, and the data is no longer stored in Amazon Fraud Detector.</p>
+   *          <p>When you delete a label, Amazon Fraud Detector permanently deletes that label and the data is no longer stored in Amazon Fraud Detector.</p>
    */
   public deleteLabel(args: DeleteLabelCommandInput, options?: __HttpHandlerOptions): Promise<DeleteLabelCommandOutput>;
   public deleteLabel(args: DeleteLabelCommandInput, cb: (err: any, data?: DeleteLabelCommandOutput) => void): void;
@@ -652,7 +768,7 @@ export class FraudDetector extends FraudDetectorClient {
   /**
    * <p>Deletes a model.</p>
    * 	        <p>You can delete models and model versions in Amazon Fraud Detector, provided that they are not associated with a detector version.</p>
-   * 	        <p> When you delete a model, Amazon Fraud Detector permanently deletes that model from the evaluation history, and the data is no longer stored in Amazon Fraud Detector.</p>
+   * 	        <p> When you delete a model, Amazon Fraud Detector permanently deletes that model and the data is no longer stored in Amazon Fraud Detector.</p>
    */
   public deleteModel(args: DeleteModelCommandInput, options?: __HttpHandlerOptions): Promise<DeleteModelCommandOutput>;
   public deleteModel(args: DeleteModelCommandInput, cb: (err: any, data?: DeleteModelCommandOutput) => void): void;
@@ -680,7 +796,7 @@ export class FraudDetector extends FraudDetectorClient {
   /**
    * <p>Deletes a model version.</p>
    * 	        <p>You can delete models and model versions in Amazon Fraud Detector, provided that they are not associated with a detector version.</p>
-   * 	        <p> When you delete a model version, Amazon Fraud Detector permanently deletes that model version from the evaluation history, and the data is no longer stored in Amazon Fraud Detector.</p>
+   * 	        <p> When you delete a model version, Amazon Fraud Detector permanently deletes that model version and the data is no longer stored in Amazon Fraud Detector.</p>
    */
   public deleteModelVersion(
     args: DeleteModelVersionCommandInput,
@@ -714,7 +830,7 @@ export class FraudDetector extends FraudDetectorClient {
   /**
    * <p>Deletes an outcome.</p>
    * 	        <p>You cannot delete an outcome that is used in a rule version.</p>
-   * 	        <p>When you delete an outcome, Amazon Fraud Detector permanently deletes that outcome from the evaluation history, and the data is no longer stored in Amazon Fraud Detector.</p>
+   * 	        <p>When you delete an outcome, Amazon Fraud Detector permanently deletes that outcome and the data is no longer stored in Amazon Fraud Detector.</p>
    */
   public deleteOutcome(
     args: DeleteOutcomeCommandInput,
@@ -747,7 +863,7 @@ export class FraudDetector extends FraudDetectorClient {
 
   /**
    * <p>Deletes the rule. You cannot delete a rule if it is used by an <code>ACTIVE</code> or <code>INACTIVE</code> detector version.</p>
-   * 	  	     <p>When you delete a rule, Amazon Fraud Detector permanently deletes that rule from the evaluation history, and the data is no longer stored in Amazon Fraud Detector.</p>
+   * 	  	     <p>When you delete a rule, Amazon Fraud Detector permanently deletes that rule and the data is no longer stored in Amazon Fraud Detector.</p>
    */
   public deleteRule(args: DeleteRuleCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRuleCommandOutput>;
   public deleteRule(args: DeleteRuleCommandInput, cb: (err: any, data?: DeleteRuleCommandOutput) => void): void;
@@ -776,7 +892,7 @@ export class FraudDetector extends FraudDetectorClient {
    * <p>Deletes a variable.</p>
    * 	        <p>You can't delete variables that are included in an event type in Amazon Fraud Detector.</p>
    * 	        <p>Amazon Fraud Detector automatically deletes model output variables and SageMaker model output variables when you delete the model. You can't delete these variables manually.</p>
-   * 	        <p>When you delete a variable, Amazon Fraud Detector permanently deletes that variable from the evaluation history, and the data is no longer stored in Amazon Fraud Detector.</p>
+   * 	        <p>When you delete a variable, Amazon Fraud Detector permanently deletes that variable and the data is no longer stored in Amazon Fraud Detector.</p>
    */
   public deleteVariable(
     args: DeleteVariableCommandInput,
@@ -861,6 +977,38 @@ export class FraudDetector extends FraudDetectorClient {
     cb?: (err: any, data?: DescribeModelVersionsCommandOutput) => void
   ): Promise<DescribeModelVersionsCommandOutput> | void {
     const command = new DescribeModelVersionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets all batch prediction jobs or a specific job if you specify a job ID. This is a paginated API. If you provide a null maxResults, this action retrieves a maximum of 50 records per page. If you provide a maxResults, the value must be between 1 and 50. To get the next page results, provide the pagination token from the GetBatchPredictionJobsResponse as part of your request. A null pagination token fetches the records from the beginning.</p>
+   */
+  public getBatchPredictionJobs(
+    args: GetBatchPredictionJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBatchPredictionJobsCommandOutput>;
+  public getBatchPredictionJobs(
+    args: GetBatchPredictionJobsCommandInput,
+    cb: (err: any, data?: GetBatchPredictionJobsCommandOutput) => void
+  ): void;
+  public getBatchPredictionJobs(
+    args: GetBatchPredictionJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetBatchPredictionJobsCommandOutput) => void
+  ): void;
+  public getBatchPredictionJobs(
+    args: GetBatchPredictionJobsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBatchPredictionJobsCommandOutput) => void),
+    cb?: (err: any, data?: GetBatchPredictionJobsCommandOutput) => void
+  ): Promise<GetBatchPredictionJobsCommandOutput> | void {
+    const command = new GetBatchPredictionJobsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

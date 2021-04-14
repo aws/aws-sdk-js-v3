@@ -22,9 +22,7 @@ export type DescribeOrganizationConfigRulesCommandOutput = DescribeOrganizationC
 
 /**
  * <p>Returns a list of organization config rules. </p>
- * 			      <p>Only a master account and a delegated administrator account can call this API.
- * 				When calling this API with a delegated administrator, you must ensure AWS Organizations
- * 			<code>ListDelegatedAdministrator</code> permissions are added. </p>
+ *
  * 		       <note>
  *             <p>When you specify the limit and the next token, you receive a paginated response.
  * 			Limit and next token are not applicable if you specify organization config rule names.

@@ -26,7 +26,8 @@ export type PutItemsCommandOutput = __MetadataBearer;
 
 /**
  * <p>Adds one or more items to an Items dataset. For more information see
- *       <a>importing-items</a>.</p>
+ *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/importing-items.html">Importing Items Incrementally</a>.
+ *      </p>
  */
 export class PutItemsCommand extends $Command<
   PutItemsCommandInput,

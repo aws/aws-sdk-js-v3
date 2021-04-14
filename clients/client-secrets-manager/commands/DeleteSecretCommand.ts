@@ -21,22 +21,22 @@ export type DeleteSecretCommandInput = DeleteSecretRequest;
 export type DeleteSecretCommandOutput = DeleteSecretResponse & __MetadataBearer;
 
 /**
- * <p>Deletes an entire secret and all of its versions. You can optionally include a recovery
+ * <p>Deletes an entire secret and all of the versions. You can optionally include a recovery
  *       window during which you can restore the secret. If you don't specify a recovery window value,
  *       the operation defaults to 30 days. Secrets Manager attaches a <code>DeletionDate</code> stamp to
  *       the secret that specifies the end of the recovery window. At the end of the recovery window,
  *       Secrets Manager deletes the secret permanently.</p>
  *          <p>At any time before recovery window ends, you can use <a>RestoreSecret</a> to
  *       remove the <code>DeletionDate</code> and cancel the deletion of the secret.</p>
- *          <p>You cannot access the encrypted secret information in any secret that is scheduled for
- *       deletion. If you need to access that information, you must cancel the deletion with <a>RestoreSecret</a> and then retrieve the information.</p>
+ *          <p>You cannot access the encrypted secret information in any secret scheduled for deletion.
+ *       If you need to access that information, you must cancel the deletion with <a>RestoreSecret</a> and then retrieve the information.</p>
  *          <note>
  *             <ul>
  *                <li>
  *                   <p>There is no explicit operation to delete a version of a secret. Instead, remove all
  *             staging labels from the <code>VersionStage</code> field of a version. That marks the
- *             version as deprecated and allows Secrets Manager to delete it as needed. Versions that do not have
- *             any staging labels do not show up in <a>ListSecretVersionIds</a> unless you
+ *             version as deprecated and allows Secrets Manager to delete it as needed. Versions without any
+ *             staging labels do not show up in <a>ListSecretVersionIds</a> unless you
  *             specify <code>IncludeDeprecated</code>.</p>
  *                </li>
  *                <li>

@@ -27,6 +27,8 @@ export type UpdateDatasetEntriesCommandOutput = UpdateDatasetEntriesResponse & _
  *
  *          <p>Updating a dataset might take a while to complete. To check the current status, call <a>DescribeDataset</a> and
  *          check the <code>Status</code> field in the response.</p>
+ *          <p>This operation requires permissions to perform the
+ *          <code>lookoutvision:UpdateDatasetEntries</code> operation.</p>
  */
 export class UpdateDatasetEntriesCommand extends $Command<
   UpdateDatasetEntriesCommandInput,

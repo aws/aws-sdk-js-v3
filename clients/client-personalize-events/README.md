@@ -8,7 +8,8 @@
 AWS SDK for JavaScript PersonalizeEvents Client for Node.js, Browser and React Native.
 
 <p>Amazon Personalize can consume real-time user event data, such as <i>stream</i> or <i>click</i> data, and use
-it for model training either alone or combined with historical data. For more information see <a>recording-events</a>.</p>
+it for model training either alone or combined with historical data. For more information see
+<a href="https://docs.aws.amazon.com/personalize/latest/dg/recording-events.html">Recording Events</a>.</p>
 
 ## Installing
 

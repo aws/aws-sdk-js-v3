@@ -4,6 +4,14 @@ import {
 } from "../commands/BatchCreateVariableCommand";
 import { BatchGetVariableCommandInput, BatchGetVariableCommandOutput } from "../commands/BatchGetVariableCommand";
 import {
+  CancelBatchPredictionJobCommandInput,
+  CancelBatchPredictionJobCommandOutput,
+} from "../commands/CancelBatchPredictionJobCommand";
+import {
+  CreateBatchPredictionJobCommandInput,
+  CreateBatchPredictionJobCommandOutput,
+} from "../commands/CreateBatchPredictionJobCommand";
+import {
   CreateDetectorVersionCommandInput,
   CreateDetectorVersionCommandOutput,
 } from "../commands/CreateDetectorVersionCommand";
@@ -11,6 +19,10 @@ import { CreateModelCommandInput, CreateModelCommandOutput } from "../commands/C
 import { CreateModelVersionCommandInput, CreateModelVersionCommandOutput } from "../commands/CreateModelVersionCommand";
 import { CreateRuleCommandInput, CreateRuleCommandOutput } from "../commands/CreateRuleCommand";
 import { CreateVariableCommandInput, CreateVariableCommandOutput } from "../commands/CreateVariableCommand";
+import {
+  DeleteBatchPredictionJobCommandInput,
+  DeleteBatchPredictionJobCommandOutput,
+} from "../commands/DeleteBatchPredictionJobCommand";
 import { DeleteDetectorCommandInput, DeleteDetectorCommandOutput } from "../commands/DeleteDetectorCommand";
 import {
   DeleteDetectorVersionCommandInput,
@@ -34,6 +46,10 @@ import {
   DescribeModelVersionsCommandInput,
   DescribeModelVersionsCommandOutput,
 } from "../commands/DescribeModelVersionsCommand";
+import {
+  GetBatchPredictionJobsCommandInput,
+  GetBatchPredictionJobsCommandOutput,
+} from "../commands/GetBatchPredictionJobsCommand";
 import { GetDetectorVersionCommandInput, GetDetectorVersionCommandOutput } from "../commands/GetDetectorVersionCommand";
 import { GetDetectorsCommandInput, GetDetectorsCommandOutput } from "../commands/GetDetectorsCommand";
 import { GetEntityTypesCommandInput, GetEntityTypesCommandOutput } from "../commands/GetEntityTypesCommand";
@@ -95,7 +111,12 @@ import {
   BatchGetVariableError,
   BatchGetVariableRequest,
   BatchGetVariableResult,
+  BatchPrediction,
+  CancelBatchPredictionJobRequest,
+  CancelBatchPredictionJobResult,
   ConflictException,
+  CreateBatchPredictionJobRequest,
+  CreateBatchPredictionJobResult,
   CreateDetectorVersionRequest,
   CreateDetectorVersionResult,
   CreateModelRequest,
@@ -107,6 +128,8 @@ import {
   CreateVariableRequest,
   CreateVariableResult,
   DataValidationMetrics,
+  DeleteBatchPredictionJobRequest,
+  DeleteBatchPredictionJobResult,
   DeleteDetectorRequest,
   DeleteDetectorResult,
   DeleteDetectorVersionRequest,
@@ -144,6 +167,8 @@ import {
   ExternalModel,
   FieldValidationMessage,
   FileValidationMessage,
+  GetBatchPredictionJobsRequest,
+  GetBatchPredictionJobsResult,
   GetDetectorVersionRequest,
   GetDetectorVersionResult,
   GetDetectorsRequest,
@@ -269,6 +294,32 @@ export const serializeAws_json1_1BatchGetVariableCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1CancelBatchPredictionJobCommand = async (
+  input: CancelBatchPredictionJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSHawksNestServiceFacade.CancelBatchPredictionJob",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CancelBatchPredictionJobRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateBatchPredictionJobCommand = async (
+  input: CreateBatchPredictionJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSHawksNestServiceFacade.CreateBatchPredictionJob",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateBatchPredictionJobRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1CreateDetectorVersionCommand = async (
   input: CreateDetectorVersionCommandInput,
   context: __SerdeContext
@@ -331,6 +382,19 @@ export const serializeAws_json1_1CreateVariableCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateVariableRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteBatchPredictionJobCommand = async (
+  input: DeleteBatchPredictionJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSHawksNestServiceFacade.DeleteBatchPredictionJob",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteBatchPredictionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -513,6 +577,19 @@ export const serializeAws_json1_1DescribeModelVersionsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeModelVersionsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetBatchPredictionJobsCommand = async (
+  input: GetBatchPredictionJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSHawksNestServiceFacade.GetBatchPredictionJobs",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetBatchPredictionJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1087,6 +1164,154 @@ const deserializeAws_json1_1BatchGetVariableCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1CancelBatchPredictionJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelBatchPredictionJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CancelBatchPredictionJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CancelBatchPredictionJobResult(data, context);
+  const response: CancelBatchPredictionJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CancelBatchPredictionJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelBatchPredictionJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.frauddetector#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.frauddetector#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1CreateBatchPredictionJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateBatchPredictionJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateBatchPredictionJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateBatchPredictionJobResult(data, context);
+  const response: CreateBatchPredictionJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateBatchPredictionJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateBatchPredictionJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.frauddetector#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1CreateDetectorVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1448,6 +1673,84 @@ const deserializeAws_json1_1CreateVariableCommandError = async (
     case "com.amazonaws.frauddetector#ThrottlingException":
       response = {
         ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteBatchPredictionJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteBatchPredictionJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteBatchPredictionJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteBatchPredictionJobResult(data, context);
+  const response: DeleteBatchPredictionJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteBatchPredictionJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteBatchPredictionJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.frauddetector#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.frauddetector#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2568,6 +2871,84 @@ const deserializeAws_json1_1DescribeModelVersionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeModelVersionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.frauddetector#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.frauddetector#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1GetBatchPredictionJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetBatchPredictionJobsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetBatchPredictionJobsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetBatchPredictionJobsResult(data, context);
+  const response: GetBatchPredictionJobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetBatchPredictionJobsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetBatchPredictionJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -5279,6 +5660,32 @@ const serializeAws_json1_1BatchGetVariableRequest = (input: BatchGetVariableRequ
   };
 };
 
+const serializeAws_json1_1CancelBatchPredictionJobRequest = (
+  input: CancelBatchPredictionJobRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.jobId !== undefined && input.jobId !== null && { jobId: input.jobId }),
+  };
+};
+
+const serializeAws_json1_1CreateBatchPredictionJobRequest = (
+  input: CreateBatchPredictionJobRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.detectorName !== undefined && input.detectorName !== null && { detectorName: input.detectorName }),
+    ...(input.detectorVersion !== undefined &&
+      input.detectorVersion !== null && { detectorVersion: input.detectorVersion }),
+    ...(input.eventTypeName !== undefined && input.eventTypeName !== null && { eventTypeName: input.eventTypeName }),
+    ...(input.iamRoleArn !== undefined && input.iamRoleArn !== null && { iamRoleArn: input.iamRoleArn }),
+    ...(input.inputPath !== undefined && input.inputPath !== null && { inputPath: input.inputPath }),
+    ...(input.jobId !== undefined && input.jobId !== null && { jobId: input.jobId }),
+    ...(input.outputPath !== undefined && input.outputPath !== null && { outputPath: input.outputPath }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1tagList(input.tags, context) }),
+  };
+};
+
 const serializeAws_json1_1CreateDetectorVersionRequest = (
   input: CreateDetectorVersionRequest,
   context: __SerdeContext
@@ -5368,6 +5775,15 @@ const serializeAws_json1_1CsvIndexToVariableMap = (input: { [key: string]: strin
       [key]: value,
     };
   }, {});
+};
+
+const serializeAws_json1_1DeleteBatchPredictionJobRequest = (
+  input: DeleteBatchPredictionJobRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.jobId !== undefined && input.jobId !== null && { jobId: input.jobId }),
+  };
 };
 
 const serializeAws_json1_1DeleteDetectorRequest = (input: DeleteDetectorRequest, context: __SerdeContext): any => {
@@ -5520,6 +5936,17 @@ const serializeAws_json1_1ExternalModelEndpointDataBlobMap = (
       [key]: serializeAws_json1_1ModelEndpointDataBlob(value, context),
     };
   }, {});
+};
+
+const serializeAws_json1_1GetBatchPredictionJobsRequest = (
+  input: GetBatchPredictionJobsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.jobId !== undefined && input.jobId !== null && { jobId: input.jobId }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+  };
 };
 
 const serializeAws_json1_1GetDetectorsRequest = (input: GetDetectorsRequest, context: __SerdeContext): any => {
@@ -6168,10 +6595,68 @@ const deserializeAws_json1_1BatchGetVariableResult = (output: any, context: __Se
   } as any;
 };
 
+const deserializeAws_json1_1BatchPrediction = (output: any, context: __SerdeContext): BatchPrediction => {
+  return {
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    completionTime:
+      output.completionTime !== undefined && output.completionTime !== null ? output.completionTime : undefined,
+    detectorName: output.detectorName !== undefined && output.detectorName !== null ? output.detectorName : undefined,
+    detectorVersion:
+      output.detectorVersion !== undefined && output.detectorVersion !== null ? output.detectorVersion : undefined,
+    eventTypeName:
+      output.eventTypeName !== undefined && output.eventTypeName !== null ? output.eventTypeName : undefined,
+    failureReason:
+      output.failureReason !== undefined && output.failureReason !== null ? output.failureReason : undefined,
+    iamRoleArn: output.iamRoleArn !== undefined && output.iamRoleArn !== null ? output.iamRoleArn : undefined,
+    inputPath: output.inputPath !== undefined && output.inputPath !== null ? output.inputPath : undefined,
+    jobId: output.jobId !== undefined && output.jobId !== null ? output.jobId : undefined,
+    lastHeartbeatTime:
+      output.lastHeartbeatTime !== undefined && output.lastHeartbeatTime !== null
+        ? output.lastHeartbeatTime
+        : undefined,
+    outputPath: output.outputPath !== undefined && output.outputPath !== null ? output.outputPath : undefined,
+    processedRecordsCount:
+      output.processedRecordsCount !== undefined && output.processedRecordsCount !== null
+        ? output.processedRecordsCount
+        : undefined,
+    startTime: output.startTime !== undefined && output.startTime !== null ? output.startTime : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    totalRecordsCount:
+      output.totalRecordsCount !== undefined && output.totalRecordsCount !== null
+        ? output.totalRecordsCount
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1BatchPredictionList = (output: any, context: __SerdeContext): BatchPrediction[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1BatchPrediction(entry, context);
+    });
+};
+
+const deserializeAws_json1_1CancelBatchPredictionJobResult = (
+  output: any,
+  context: __SerdeContext
+): CancelBatchPredictionJobResult => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1CreateBatchPredictionJobResult = (
+  output: any,
+  context: __SerdeContext
+): CreateBatchPredictionJobResult => {
+  return {} as any;
 };
 
 const deserializeAws_json1_1CreateDetectorVersionResult = (
@@ -6244,6 +6729,13 @@ const deserializeAws_json1_1DataValidationMetrics = (output: any, context: __Ser
         ? deserializeAws_json1_1fileValidationMessageList(output.fileLevelMessages, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1DeleteBatchPredictionJobResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteBatchPredictionJobResult => {
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteDetectorResult = (output: any, context: __SerdeContext): DeleteDetectorResult => {
@@ -6528,6 +7020,19 @@ const deserializeAws_json1_1fileValidationMessageList = (
       }
       return deserializeAws_json1_1FileValidationMessage(entry, context);
     });
+};
+
+const deserializeAws_json1_1GetBatchPredictionJobsResult = (
+  output: any,
+  context: __SerdeContext
+): GetBatchPredictionJobsResult => {
+  return {
+    batchPredictions:
+      output.batchPredictions !== undefined && output.batchPredictions !== null
+        ? deserializeAws_json1_1BatchPredictionList(output.batchPredictions, context)
+        : undefined,
+    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1GetDetectorsResult = (output: any, context: __SerdeContext): GetDetectorsResult => {

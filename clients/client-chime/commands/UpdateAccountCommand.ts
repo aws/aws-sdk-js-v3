@@ -21,8 +21,8 @@ export type UpdateAccountCommandInput = UpdateAccountRequest;
 export type UpdateAccountCommandOutput = UpdateAccountResponse & __MetadataBearer;
 
 /**
- * <p>Updates account details for the specified Amazon Chime account. Currently, only
- *        account name updates are supported for this action.</p>
+ * <p>Updates account details for the specified Amazon Chime account. Currently, only account name
+ *             updates are supported for this action.</p>
  */
 export class UpdateAccountCommand extends $Command<
   UpdateAccountCommandInput,

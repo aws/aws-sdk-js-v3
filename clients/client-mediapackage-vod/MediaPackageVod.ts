@@ -1,4 +1,9 @@
 import { MediaPackageVodClient } from "./MediaPackageVodClient";
+import {
+  ConfigureLogsCommand,
+  ConfigureLogsCommandInput,
+  ConfigureLogsCommandOutput,
+} from "./commands/ConfigureLogsCommand";
 import { CreateAssetCommand, CreateAssetCommandInput, CreateAssetCommandOutput } from "./commands/CreateAssetCommand";
 import {
   CreatePackagingConfigurationCommand,
@@ -69,6 +74,38 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  * AWS Elemental MediaPackage VOD
  */
 export class MediaPackageVod extends MediaPackageVodClient {
+  /**
+   * Changes the packaging group's properities to configure log subscription
+   */
+  public configureLogs(
+    args: ConfigureLogsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ConfigureLogsCommandOutput>;
+  public configureLogs(
+    args: ConfigureLogsCommandInput,
+    cb: (err: any, data?: ConfigureLogsCommandOutput) => void
+  ): void;
+  public configureLogs(
+    args: ConfigureLogsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ConfigureLogsCommandOutput) => void
+  ): void;
+  public configureLogs(
+    args: ConfigureLogsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ConfigureLogsCommandOutput) => void),
+    cb?: (err: any, data?: ConfigureLogsCommandOutput) => void
+  ): Promise<ConfigureLogsCommandOutput> | void {
+    const command = new ConfigureLogsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * Creates a new MediaPackage VOD Asset resource.
    */

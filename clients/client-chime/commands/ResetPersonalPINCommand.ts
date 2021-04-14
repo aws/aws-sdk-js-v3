@@ -21,8 +21,8 @@ export type ResetPersonalPINCommandInput = ResetPersonalPINRequest;
 export type ResetPersonalPINCommandOutput = ResetPersonalPINResponse & __MetadataBearer;
 
 /**
- * <p>Resets the personal meeting PIN for the specified user on an Amazon Chime account.
- *       Returns the <a>User</a> object with the updated personal meeting PIN.</p>
+ * <p>Resets the personal meeting PIN for the specified user on an Amazon Chime account. Returns
+ *             the <a>User</a> object with the updated personal meeting PIN.</p>
  */
 export class ResetPersonalPINCommand extends $Command<
   ResetPersonalPINCommandInput,

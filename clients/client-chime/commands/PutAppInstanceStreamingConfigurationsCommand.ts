@@ -25,7 +25,7 @@ export type PutAppInstanceStreamingConfigurationsCommandOutput = PutAppInstanceS
   __MetadataBearer;
 
 /**
- * <p>The data streaming configurations of an app instance.</p>
+ * <p>The data streaming configurations of an <code>AppInstance</code>.</p>
  */
 export class PutAppInstanceStreamingConfigurationsCommand extends $Command<
   PutAppInstanceStreamingConfigurationsCommandInput,

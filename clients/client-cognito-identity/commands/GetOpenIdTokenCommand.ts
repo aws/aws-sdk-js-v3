@@ -24,7 +24,7 @@ export type GetOpenIdTokenCommandOutput = GetOpenIdTokenResponse & __MetadataBea
  * <p>Gets an OpenID token, using a known Cognito ID. This known Cognito ID is returned by
  *             <a>GetId</a>. You can optionally add additional logins for the identity.
  *          Supplying multiple logins creates an implicit link.</p>
- *          <p>The OpenId token is valid for 10 minutes.</p>
+ *          <p>The OpenID token is valid for 10 minutes.</p>
  *          <p>This is a public API. You do not need any credentials to call this API.</p>
  */
 export class GetOpenIdTokenCommand extends $Command<

@@ -21,7 +21,7 @@ export type ListCandidatesForAutoMLJobCommandInput = ListCandidatesForAutoMLJobR
 export type ListCandidatesForAutoMLJobCommandOutput = ListCandidatesForAutoMLJobResponse & __MetadataBearer;
 
 /**
- * <p>List the Candidates created for the job.</p>
+ * <p>List the candidates created for the job.</p>
  */
 export class ListCandidatesForAutoMLJobCommand extends $Command<
   ListCandidatesForAutoMLJobCommandInput,

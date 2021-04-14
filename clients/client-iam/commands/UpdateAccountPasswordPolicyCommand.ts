@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UpdateAccountPasswordPolicyRequest } from "../models/models_0";
+import { UpdateAccountPasswordPolicyRequest } from "../models/models_1";
 import {
   deserializeAws_queryUpdateAccountPasswordPolicyCommand,
   serializeAws_queryUpdateAccountPasswordPolicyCommand,
@@ -22,20 +22,21 @@ export type UpdateAccountPasswordPolicyCommandOutput = __MetadataBearer;
 
 /**
  * <p>Updates the password policy settings for the AWS account.</p>
- *          <note>
+ *         <note>
  *             <ul>
  *                <li>
- *                   <p>This operation does not support partial updates. No parameters are required,
- *                   but if you do not specify a parameter, that parameter's value reverts to its
- *                   default value. See the <b>Request Parameters</b> section
- *                   for each parameter's default value. Also note that some parameters do not allow
- *                   the default parameter to be explicitly set. Instead, to invoke the default value,
- *                   do not include that parameter when you invoke the operation.</p>
- *                </li>
+ *                     <p>This operation does not support partial updates. No parameters are
+ *                         required, but if you do not specify a parameter, that parameter's value
+ *                         reverts to its default value. See the <b>Request
+ *                             Parameters</b> section for each parameter's default value. Also
+ *                         note that some parameters do not allow the default parameter to be
+ *                         explicitly set. Instead, to invoke the default value, do not include that
+ *                         parameter when you invoke the operation.</p>
+ *                 </li>
  *             </ul>
- *          </note>
- *          <p> For more information about using a password policy, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html">Managing an IAM Password
- *             Policy</a> in the <i>IAM User Guide</i>.</p>
+ *         </note>
+ *         <p> For more information about using a password policy, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html">Managing an IAM password
+ *                 policy</a> in the <i>IAM User Guide</i>.</p>
  */
 export class UpdateAccountPasswordPolicyCommand extends $Command<
   UpdateAccountPasswordPolicyCommandInput,

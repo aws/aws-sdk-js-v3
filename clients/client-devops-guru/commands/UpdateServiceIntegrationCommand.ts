@@ -20,6 +20,12 @@ import {
 export type UpdateServiceIntegrationCommandInput = UpdateServiceIntegrationRequest;
 export type UpdateServiceIntegrationCommandOutput = UpdateServiceIntegrationResponse & __MetadataBearer;
 
+/**
+ * <p>
+ * 			Enables or disables integration with a service that can be integrated with DevOps Guru. The one service that can be integrated with
+ * 			DevOps Guru is AWS Systems Manager, which can be used to create an OpsItem for each generated insight.
+ * 		</p>
+ */
 export class UpdateServiceIntegrationCommand extends $Command<
   UpdateServiceIntegrationCommandInput,
   UpdateServiceIntegrationCommandOutput,

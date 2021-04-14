@@ -74,6 +74,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  SyncResourceCommand,
+  SyncResourceCommandInput,
+  SyncResourceCommandOutput,
+} from "./commands/SyncResourceCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -582,8 +587,38 @@ export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
   }
 
   /**
+   * <p>Syncs the resource with what is currently recorded in App registry. Specifically, the resource’s App registry system tags are synced with its associated application. The resource is removed if it is not associated with the application. The caller must have permissions to read and update the resource.</p>
+   */
+  public syncResource(
+    args: SyncResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SyncResourceCommandOutput>;
+  public syncResource(args: SyncResourceCommandInput, cb: (err: any, data?: SyncResourceCommandOutput) => void): void;
+  public syncResource(
+    args: SyncResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SyncResourceCommandOutput) => void
+  ): void;
+  public syncResource(
+    args: SyncResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SyncResourceCommandOutput) => void),
+    cb?: (err: any, data?: SyncResourceCommandOutput) => void
+  ): Promise<SyncResourceCommandOutput> | void {
+    const command = new SyncResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Assigns one or more tags (key-value pairs) to the specified resource.</p>
    *          <p>Each tag consists of a key and an optional value. If a tag with the same key is already associated with the resource, this action updates its value.</p>
+   *          <p>This operation returns an empty response if the call was successful.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -610,6 +645,7 @@ export class ServiceCatalogAppRegistry extends ServiceCatalogAppRegistryClient {
 
   /**
    * <p>Removes tags from a resource.</p>
+   *          <p>This operation returns an empty response if the call was successful.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,

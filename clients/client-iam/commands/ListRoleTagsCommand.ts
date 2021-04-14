@@ -19,8 +19,8 @@ export type ListRoleTagsCommandOutput = ListRoleTagsResponse & __MetadataBearer;
 
 /**
  * <p>Lists the tags that are attached to the specified role. The returned list of tags is
- *       sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM Identities</a> in the
- *         <i>IAM User Guide</i>.</p>
+ *       sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
+ *       <i>IAM User Guide</i>.</p>
  */
 export class ListRoleTagsCommand extends $Command<
   ListRoleTagsCommandInput,

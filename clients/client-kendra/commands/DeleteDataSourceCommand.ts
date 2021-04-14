@@ -21,9 +21,10 @@ export type DeleteDataSourceCommandInput = DeleteDataSourceRequest;
 export type DeleteDataSourceCommandOutput = __MetadataBearer;
 
 /**
- * <p>Deletes an Amazon Kendra data source. An exception is not thrown if the data source is
- *       already being deleted. While the data source is being deleted, the <code>Status</code> field
- *       returned by a call to the  operation is set to
+ * <p>Deletes an Amazon Kendra data source. An exception is not thrown if the
+ *       data source is already being deleted. While the data source is being
+ *       deleted, the <code>Status</code> field returned by a call to the
+ *         <code>DescribeDataSource</code> operation is set to
  *         <code>DELETING</code>. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/delete-data-source.html">Deleting Data Sources</a>.</p>
  */
 export class DeleteDataSourceCommand extends $Command<

@@ -21,8 +21,8 @@ export type PutIntegrationCommandInput = PutIntegrationRequest;
 export type PutIntegrationCommandOutput = PutIntegrationResponse & __MetadataBearer;
 
 /**
- * <p>Adds an integration between the service and a third-party service, which includes Amazon
- *          AppFlow and Amazon Connect.</p>
+ * <p>Adds an integration between the service and a third-party service, which includes
+ *          Amazon AppFlow and Amazon Connect.</p>
  *          <p>An integration can belong to only one domain.</p>
  */
 export class PutIntegrationCommand extends $Command<

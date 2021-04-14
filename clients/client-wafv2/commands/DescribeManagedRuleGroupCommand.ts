@@ -21,10 +21,7 @@ export type DescribeManagedRuleGroupCommandInput = DescribeManagedRuleGroupReque
 export type DescribeManagedRuleGroupCommandOutput = DescribeManagedRuleGroupResponse & __MetadataBearer;
 
 /**
- * <note>
- *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
- *          </note>
- *          <p>Provides high-level information for a managed rule group, including descriptions of the rules. </p>
+ * <p>Provides high-level information for a managed rule group, including descriptions of the rules. </p>
  */
 export class DescribeManagedRuleGroupCommand extends $Command<
   DescribeManagedRuleGroupCommandInput,

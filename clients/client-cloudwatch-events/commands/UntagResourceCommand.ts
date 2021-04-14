@@ -21,8 +21,8 @@ export type UntagResourceCommandInput = UntagResourceRequest;
 export type UntagResourceCommandOutput = UntagResourceResponse & __MetadataBearer;
 
 /**
- * <p>Removes one or more tags from the specified EventBridge resource. In Amazon
- *             EventBridge (CloudWatch Events, rules and event buses can be tagged.</p>
+ * <p>Removes one or more tags from the specified EventBridge resource. In Amazon EventBridge
+ *       (CloudWatch Events, rules and event buses can be tagged.</p>
  */
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,

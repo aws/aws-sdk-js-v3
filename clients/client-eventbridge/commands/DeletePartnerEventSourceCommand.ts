@@ -21,11 +21,11 @@ export type DeletePartnerEventSourceCommandInput = DeletePartnerEventSourceReque
 export type DeletePartnerEventSourceCommandOutput = __MetadataBearer;
 
 /**
- * <p>This operation is used by SaaS partners to delete a partner event source. This
- *             operation is not used by AWS customers.</p>
- *         <p>When you delete an event source, the status of the corresponding partner event bus in
- *             the AWS customer account becomes DELETED.</p>
- *         <p></p>
+ * <p>This operation is used by SaaS partners to delete a partner event source. This operation
+ *       is not used by AWS customers.</p>
+ *          <p>When you delete an event source, the status of the corresponding partner event bus in the
+ *       AWS customer account becomes DELETED.</p>
+ *          <p></p>
  */
 export class DeletePartnerEventSourceCommand extends $Command<
   DeletePartnerEventSourceCommandInput,

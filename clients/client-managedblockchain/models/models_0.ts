@@ -7,6 +7,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
+  Message?: string;
 }
 
 export namespace AccessDeniedException {
@@ -22,6 +23,7 @@ export enum ThresholdComparator {
 
 /**
  * <p>A policy type that defines the voting rules for the network. The rules decide if a proposal is approved. Approval may be based on criteria such as the percentage of <code>YES</code> votes and the duration of the proposal. The policy applies to all proposals and is specified when the network is created.</p>
+ *          <p>Applies only to Hyperledger Fabric.</p>
  */
 export interface ApprovalThresholdPolicy {
   /**
@@ -56,7 +58,7 @@ export interface MemberFabricConfiguration {
   AdminUsername: string | undefined;
 
   /**
-   * <p>The password for the member's initial administrative user. The <code>AdminPassword</code> must be at least eight characters long and no more than 32 characters. It must contain at least one uppercase letter, one lowercase letter, and one digit. It cannot have a single quote(‘), double quote(“), forward slash(/), backward slash(\), @, or a space.</p>
+   * <p>The password for the member's initial administrative user. The <code>AdminPassword</code> must be at least eight characters long and no more than 32 characters. It must contain at least one uppercase letter, one lowercase letter, and one digit. It cannot have a single quotation mark (‘), a double quotation marks (“), a forward slash(/), a backward slash(\), @, or a space.</p>
    */
   AdminPassword: string | undefined;
 }
@@ -151,6 +153,7 @@ export namespace MemberLogPublishingConfiguration {
 
 /**
  * <p>Configuration properties of the member.</p>
+ *          <p>Applies only to Hyperledger Fabric.</p>
  */
 export interface MemberConfiguration {
   /**
@@ -172,6 +175,12 @@ export interface MemberConfiguration {
    * <p>Configuration properties for logging events associated with a member of a Managed Blockchain network.</p>
    */
   LogPublishingConfiguration?: MemberLogPublishingConfiguration;
+
+  /**
+   * <p>Tags assigned to the member. Tags consist of a key and optional value. For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
+   *          <p>When specifying tags during creation, you can specify multiple key-value pairs in a single request, with an overall maximum of 50 tags added to each resource.</p>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace MemberConfiguration {
@@ -287,12 +296,16 @@ export namespace ResourceLimitExceededException {
 }
 
 /**
- * <p>A requested resource does not exist on the network. It may have been deleted or referenced inaccurately.</p>
+ * <p>A requested resource does not exist. It may have been deleted or referenced inaccurately.</p>
  */
 export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
+  /**
+   * <p>A requested resource does not exist. It may have been deleted or referenced inaccurately.</p>
+   */
+  ResourceName?: string;
 }
 
 export namespace ResourceNotFoundException {
@@ -330,7 +343,27 @@ export namespace ThrottlingException {
   });
 }
 
+/**
+ * <p></p>
+ */
+export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
+  name: "TooManyTagsException";
+  $fault: "client";
+  Message?: string;
+  /**
+   * <p></p>
+   */
+  ResourceName?: string;
+}
+
+export namespace TooManyTagsException {
+  export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
+    ...obj,
+  });
+}
+
 export enum Framework {
+  ETHEREUM = "ETHEREUM",
   HYPERLEDGER_FABRIC = "HYPERLEDGER_FABRIC",
 }
 
@@ -379,6 +412,7 @@ export namespace NetworkFrameworkConfiguration {
  * <p>
  *          The voting rules for the network to decide if a proposal is accepted
  *       </p>
+ *          <p>Applies only to Hyperledger Fabric.</p>
  */
 export interface VotingPolicy {
   /**
@@ -437,6 +471,13 @@ export interface CreateNetworkInput {
    * <p>Configuration properties for the first member within the network.</p>
    */
   MemberConfiguration: MemberConfiguration | undefined;
+
+  /**
+   * <p>Tags to assign to the network. Each tag consists of a key and optional value.</p>
+   *          <p>When specifying tags during creation, you can specify multiple key-value pairs in a single request, with an overall maximum of 50 tags added to each resource.</p>
+   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace CreateNetworkInput {
@@ -488,7 +529,7 @@ export namespace NodeFabricLogPublishingConfiguration {
 }
 
 /**
- * <p>Configuration properties for logging events associated with a peer node owned by a member in a Managed Blockchain network.</p>
+ * <p>Configuration properties for logging events associated with a peer node on a Hyperledger Fabric network on Managed Blockchain.</p>
  */
 export interface NodeLogPublishingConfiguration {
   /**
@@ -509,7 +550,7 @@ export enum StateDBType {
 }
 
 /**
- * <p>Configuration properties of a peer node.</p>
+ * <p>Configuration properties of a node.</p>
  */
 export interface NodeConfiguration {
   /**
@@ -518,18 +559,19 @@ export interface NodeConfiguration {
   InstanceType: string | undefined;
 
   /**
-   * <p>The Availability Zone in which the node exists.</p>
+   * <p>The Availability Zone in which the node exists. Required for Ethereum nodes. </p>
    */
-  AvailabilityZone: string | undefined;
+  AvailabilityZone?: string;
 
   /**
-   * <p>Configuration properties for logging events associated with a peer node owned by a member in a Managed Blockchain network.
+   * <p>Configuration properties for logging events associated with a peer node on a Hyperledger Fabric network on Managed Blockchain.
    *       </p>
    */
   LogPublishingConfiguration?: NodeLogPublishingConfiguration;
 
   /**
    * <p>The state database that the node uses. Values are <code>LevelDB</code> or <code>CouchDB</code>. When using an Amazon Managed Blockchain network with Hyperledger Fabric version 1.4 or later, the default is <code>CouchDB</code>.</p>
+   *          <p>Applies only to Hyperledger Fabric.</p>
    */
   StateDB?: StateDBType | string;
 }
@@ -547,19 +589,45 @@ export interface CreateNodeInput {
   ClientRequestToken?: string;
 
   /**
-   * <p>The unique identifier of the network in which this node runs.</p>
+   * <p>The unique identifier of the network for the node.</p>
+   *          <p>Ethereum public networks have the following <code>NetworkId</code>s:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>n-ethereum-mainnet</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>n-ethereum-rinkeby</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>n-ethereum-ropsten</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   NetworkId: string | undefined;
 
   /**
    * <p>The unique identifier of the member that owns this node.</p>
+   *          <p>Applies only to Hyperledger Fabric.</p>
    */
-  MemberId: string | undefined;
+  MemberId?: string;
 
   /**
    * <p>The properties of a node configuration.</p>
    */
   NodeConfiguration: NodeConfiguration | undefined;
+
+  /**
+   * <p>Tags to assign to the node. Each tag consists of a key and optional value.</p>
+   *          <p>When specifying tags during creation, you can specify multiple key-value pairs in a single request, with an overall maximum of 50 tags added to each resource.</p>
+   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace CreateNodeInput {
@@ -583,6 +651,7 @@ export namespace CreateNodeOutput {
 
 /**
  * <p>An action to invite a specific AWS account to create a member and join the network. The <code>InviteAction</code> is carried out when a <code>Proposal</code> is <code>APPROVED</code>.</p>
+ *          <p>Applies only to Hyperledger Fabric.</p>
  */
 export interface InviteAction {
   /**
@@ -599,6 +668,7 @@ export namespace InviteAction {
 
 /**
  * <p>An action to remove a member from a Managed Blockchain network as the result of a removal proposal that is <code>APPROVED</code>. The member and all associated resources are deleted from the network.</p>
+ *          <p>Applies only to Hyperledger Fabric.</p>
  */
 export interface RemoveAction {
   /**
@@ -617,6 +687,7 @@ export namespace RemoveAction {
  * <p>
  *          The actions to carry out if a proposal is <code>APPROVED</code>.
  *       </p>
+ *          <p>Applies only to Hyperledger Fabric.</p>
  */
 export interface ProposalActions {
   /**
@@ -666,6 +737,13 @@ export interface CreateProposalInput {
    * <p>A description for the proposal that is visible to voting members, for example, "Proposal to add Example Corp. as member."</p>
    */
   Description?: string;
+
+  /**
+   * <p>Tags to assign to the proposal. Each tag consists of a key and optional value.</p>
+   *          <p>When specifying tags during creation, you can specify multiple key-value pairs in a single request, with an overall maximum of 50 tags added to each resource. If the proposal is for a network invitation, the invitation inherits the tags added to the proposal.</p>
+   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace CreateProposalInput {
@@ -715,14 +793,33 @@ export namespace DeleteMemberOutput {
 
 export interface DeleteNodeInput {
   /**
-   * <p>The unique identifier of the network that the node belongs to.</p>
+   * <p>The unique identifier of the network that the node is on.</p>
+   *          <p>Ethereum public networks have the following <code>NetworkId</code>s:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>n-ethereum-mainnet</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>n-ethereum-rinkeby</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>n-ethereum-ropsten</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   NetworkId: string | undefined;
 
   /**
    * <p>The unique identifier of the member that owns this node.</p>
+   *          <p>Applies only to Hyperledger Fabric and is required for Hyperledger Fabric.</p>
    */
-  MemberId: string | undefined;
+  MemberId?: string;
 
   /**
    * <p>The unique identifier of the node.</p>
@@ -810,6 +907,7 @@ export enum MemberStatus {
 
 /**
  * <p>Member configuration properties.</p>
+ *          <p>Applies only to Hyperledger Fabric.</p>
  */
 export interface Member {
   /**
@@ -875,6 +973,16 @@ export interface Member {
    * <p>The date and time that the member was created.</p>
    */
   CreationDate?: Date;
+
+  /**
+   * <p>Tags assigned to the member. Tags consist of a key and optional value. For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the member. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
+   */
+  Arn?: string;
 }
 
 export namespace Member {
@@ -910,6 +1018,36 @@ export namespace GetNetworkInput {
 }
 
 /**
+ * <p>Attributes of Ethereum for a network. </p>
+ */
+export interface NetworkEthereumAttributes {
+  /**
+   * <p>The Ethereum <code>CHAIN_ID</code> associated with the Ethereum network. Chain IDs are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>mainnet = <code>1</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>rinkeby = <code>4</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>ropsten = <code>3</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  ChainId?: string;
+}
+
+export namespace NetworkEthereumAttributes {
+  export const filterSensitiveLog = (obj: NetworkEthereumAttributes): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Attributes of Hyperledger Fabric for a network.</p>
  */
 export interface NetworkFabricAttributes {
@@ -938,6 +1076,11 @@ export interface NetworkFrameworkAttributes {
    * <p>Attributes of Hyperledger Fabric for a Managed Blockchain network that uses Hyperledger Fabric.</p>
    */
   Fabric?: NetworkFabricAttributes;
+
+  /**
+   * <p>Attributes of an Ethereum network for Managed Blockchain resources participating in an Ethereum network. </p>
+   */
+  Ethereum?: NetworkEthereumAttributes;
 }
 
 export namespace NetworkFrameworkAttributes {
@@ -1007,6 +1150,17 @@ export interface Network {
    * <p>The date and time that the network was created.</p>
    */
   CreationDate?: Date;
+
+  /**
+   * <p>Tags assigned to the network. Each tag consists of a key and optional value.</p>
+   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the network. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
+   */
+  Arn?: string;
 }
 
 export namespace Network {
@@ -1030,14 +1184,15 @@ export namespace GetNetworkOutput {
 
 export interface GetNodeInput {
   /**
-   * <p>The unique identifier of the network to which the node belongs.</p>
+   * <p>The unique identifier of the network that the node is on.</p>
    */
   NetworkId: string | undefined;
 
   /**
    * <p>The unique identifier of the member that owns the node.</p>
+   *          <p>Applies only to Hyperledger Fabric and is required for Hyperledger Fabric.</p>
    */
-  MemberId: string | undefined;
+  MemberId?: string;
 
   /**
    * <p>The unique identifier of the node.</p>
@@ -1052,7 +1207,28 @@ export namespace GetNodeInput {
 }
 
 /**
- * <p>Attributes of Hyperledger Fabric for a peer node on a Managed Blockchain network that uses Hyperledger Fabric.</p>
+ * <p>Attributes of an Ethereum node.</p>
+ */
+export interface NodeEthereumAttributes {
+  /**
+   * <p>The endpoint on which the Ethereum node listens to run Ethereum JSON-RPC methods over HTTP connections from a client. Use this endpoint in client code for smart contracts when using an HTTP connection. Connections to this endpoint are authenticated using <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>.</p>
+   */
+  HttpEndpoint?: string;
+
+  /**
+   * <p>The endpoint on which the Ethereum node listens to run Ethereum JSON-RPC methods over WebSockets connections from a client. Use this endpoint in client code for smart contracts when using a WebSockets connection. Connections to this endpoint are authenticated using <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>.</p>
+   */
+  WebSocketEndpoint?: string;
+}
+
+export namespace NodeEthereumAttributes {
+  export const filterSensitiveLog = (obj: NodeEthereumAttributes): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Attributes of Hyperledger Fabric for a peer node on a Hyperledger Fabric network on Managed Blockchain.</p>
  */
 export interface NodeFabricAttributes {
   /**
@@ -1073,13 +1249,18 @@ export namespace NodeFabricAttributes {
 }
 
 /**
- * <p>Attributes relevant to a peer node on a Managed Blockchain network for the blockchain framework that the network uses.</p>
+ * <p>Attributes relevant to a node on a Managed Blockchain network for the blockchain framework that the network uses.</p>
  */
 export interface NodeFrameworkAttributes {
   /**
    * <p>Attributes of Hyperledger Fabric for a peer node on a Managed Blockchain network that uses Hyperledger Fabric.</p>
    */
   Fabric?: NodeFabricAttributes;
+
+  /**
+   * <p>Attributes of Ethereum for a node on a Managed Blockchain network that uses Ethereum. </p>
+   */
+  Ethereum?: NodeEthereumAttributes;
 }
 
 export namespace NodeFrameworkAttributes {
@@ -1095,20 +1276,22 @@ export enum NodeStatus {
   DELETED = "DELETED",
   DELETING = "DELETING",
   FAILED = "FAILED",
+  UNHEALTHY = "UNHEALTHY",
   UPDATING = "UPDATING",
 }
 
 /**
- * <p>Configuration properties of a peer node.</p>
+ * <p>Configuration properties of a node.</p>
  */
 export interface Node {
   /**
-   * <p>The unique identifier of the network that the node is in.</p>
+   * <p>The unique identifier of the network that the node is on.</p>
    */
   NetworkId?: string;
 
   /**
    * <p>The unique identifier of the member to which the node belongs.</p>
+   *          <p>Applies only to Hyperledger Fabric.</p>
    */
   MemberId?: string;
 
@@ -1123,7 +1306,7 @@ export interface Node {
   InstanceType?: string;
 
   /**
-   * <p>The Availability Zone in which the node exists.</p>
+   * <p>The Availability Zone in which the node exists. Required for Ethereum nodes. </p>
    */
   AvailabilityZone?: string;
 
@@ -1133,12 +1316,13 @@ export interface Node {
   FrameworkAttributes?: NodeFrameworkAttributes;
 
   /**
-   * <p>Configuration properties for logging events associated with a peer node owned by a member in a Managed Blockchain network.</p>
+   * <p>Configuration properties for logging events associated with a peer node on a Hyperledger Fabric network on Managed Blockchain.</p>
    */
   LogPublishingConfiguration?: NodeLogPublishingConfiguration;
 
   /**
    * <p>The state database that the node uses. Values are <code>LevelDB</code> or <code>CouchDB</code>.</p>
+   *          <p>Applies only to Hyperledger Fabric.</p>
    */
   StateDB?: StateDBType | string;
 
@@ -1151,6 +1335,17 @@ export interface Node {
    * <p>The date and time that the node was created.</p>
    */
   CreationDate?: Date;
+
+  /**
+   * <p>Tags assigned to the node. Each tag consists of a key and optional value.</p>
+   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the node. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
+   */
+  Arn?: string;
 }
 
 export namespace Node {
@@ -1200,6 +1395,7 @@ export enum ProposalStatus {
 
 /**
  * <p>Properties of a proposal on a Managed Blockchain network.</p>
+ *          <p>Applies only to Hyperledger Fabric.</p>
  */
 export interface Proposal {
   /**
@@ -1293,6 +1489,17 @@ export interface Proposal {
    *       </p>
    */
   OutstandingVoteCount?: number;
+
+  /**
+   * <p>Tags assigned to the proposal. Each tag consists of a key and optional value.</p>
+   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the proposal. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
+   */
+  Arn?: string;
 }
 
 export namespace Proposal {
@@ -1367,6 +1574,11 @@ export interface NetworkSummary {
    * <p>The date and time that the network was created.</p>
    */
   CreationDate?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the network. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
+   */
+  Arn?: string;
 }
 
 export namespace NetworkSummary {
@@ -1385,6 +1597,7 @@ export enum InvitationStatus {
 
 /**
  * <p>An invitation to an AWS account to create a member and join the network.</p>
+ *          <p>Applies only to Hyperledger Fabric.</p>
  */
 export interface Invitation {
   /**
@@ -1433,6 +1646,11 @@ export interface Invitation {
    * <p>A summary of network configuration properties.</p>
    */
   NetworkSummary?: NetworkSummary;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the invitation. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
+   */
+  Arn?: string;
 }
 
 export namespace Invitation {
@@ -1519,6 +1737,7 @@ export namespace ListMembersInput {
 
 /**
  * <p>A summary of configuration properties for a member.</p>
+ *          <p>Applies only to Hyperledger Fabric.</p>
  */
 export interface MemberSummary {
   /**
@@ -1574,6 +1793,11 @@ export interface MemberSummary {
    * <p>An indicator of whether the member is owned by your AWS account or a different AWS account.</p>
    */
   IsOwned?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the member. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
+   */
+  Arn?: string;
 }
 
 export namespace MemberSummary {
@@ -1613,6 +1837,7 @@ export interface ListNetworksInput {
 
   /**
    * <p>An optional status specifier. If provided, only networks currently in this status are listed.</p>
+   *          <p>Applies only to Hyperledger Fabric.</p>
    */
   Status?: NetworkStatus | string;
 
@@ -1659,8 +1884,9 @@ export interface ListNodesInput {
 
   /**
    * <p>The unique identifier of the member who owns the nodes to list.</p>
+   *          <p>Applies only to Hyperledger Fabric and is required for Hyperledger Fabric.</p>
    */
-  MemberId: string | undefined;
+  MemberId?: string;
 
   /**
    * <p>An optional status specifier. If provided, only nodes currently in this status are listed.</p>
@@ -1685,7 +1911,7 @@ export namespace ListNodesInput {
 }
 
 /**
- * <p>A summary of configuration properties for a peer node.</p>
+ * <p>A summary of configuration properties for a node.</p>
  */
 export interface NodeSummary {
   /**
@@ -1712,6 +1938,11 @@ export interface NodeSummary {
    * <p>The EC2 instance type for the node.</p>
    */
   InstanceType?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the node. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
+   */
+  Arn?: string;
 }
 
 export namespace NodeSummary {
@@ -1769,6 +2000,7 @@ export namespace ListProposalsInput {
 
 /**
  * <p>Properties of a proposal.</p>
+ *          <p>Applies only to Hyperledger Fabric.</p>
  */
 export interface ProposalSummary {
   /**
@@ -1839,6 +2071,11 @@ export interface ProposalSummary {
    *       </p>
    */
   ExpirationDate?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the proposal. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
+   */
+  Arn?: string;
 }
 
 export namespace ProposalSummary {
@@ -1910,6 +2147,7 @@ export enum VoteValue {
  * <p>
  *          Properties of an individual vote that a member cast for a proposal.
  *       </p>
+ *          <p>Applies only to Hyperledger Fabric.</p>
  */
 export interface VoteSummary {
   /**
@@ -1943,7 +2181,7 @@ export namespace VoteSummary {
 export interface ListProposalVotesOutput {
   /**
    * <p>
-   *          The listing of votes.
+   *          The list of votes.
    *       </p>
    */
   ProposalVotes?: VoteSummary[];
@@ -1958,6 +2196,32 @@ export interface ListProposalVotesOutput {
 
 export namespace ListProposalVotesOutput {
   export const filterSensitiveLog = (obj: ListProposalVotesOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+export namespace ListTagsForResourceRequest {
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>The tags assigned to the resource.</p>
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace ListTagsForResourceResponse {
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
 }
@@ -1983,14 +2247,66 @@ export namespace RejectInvitationOutput {
   });
 }
 
+export interface TagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The tags to assign to the specified resource. Tag values can be empty, for example, <code>"MyTagKey" : ""</code>. You can specify multiple key-value pairs in a single request, with an overall maximum of 50 tags added to each resource.</p>
+   */
+  Tags: { [key: string]: string } | undefined;
+}
+
+export namespace TagResourceRequest {
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface TagResourceResponse {}
+
+export namespace TagResourceResponse {
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The tag keys.</p>
+   */
+  TagKeys: string[] | undefined;
+}
+
+export namespace UntagResourceRequest {
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceResponse {}
+
+export namespace UntagResourceResponse {
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface UpdateMemberInput {
   /**
-   * <p>The unique ID of the Managed Blockchain network to which the member belongs.</p>
+   * <p>The unique identifier of the Managed Blockchain network to which the member belongs.</p>
    */
   NetworkId: string | undefined;
 
   /**
-   * <p>The unique ID of the member.</p>
+   * <p>The unique identifier of the member.</p>
    */
   MemberId: string | undefined;
 
@@ -2016,17 +2332,18 @@ export namespace UpdateMemberOutput {
 
 export interface UpdateNodeInput {
   /**
-   * <p>The unique ID of the Managed Blockchain network to which the node belongs.</p>
+   * <p>The unique identifier of the network that the node is on.</p>
    */
   NetworkId: string | undefined;
 
   /**
-   * <p>The unique ID of the member that owns the node.</p>
+   * <p>The unique identifier of the member that owns the node.</p>
+   *          <p>Applies only to Hyperledger Fabric.</p>
    */
-  MemberId: string | undefined;
+  MemberId?: string;
 
   /**
-   * <p>The unique ID of the node.</p>
+   * <p>The unique identifier of the node.</p>
    */
   NodeId: string | undefined;
 

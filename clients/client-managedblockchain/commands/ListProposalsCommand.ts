@@ -25,7 +25,8 @@ export type ListProposalsCommandInput = ListProposalsInput;
 export type ListProposalsCommandOutput = ListProposalsOutput & __MetadataBearer;
 
 /**
- * <p>Returns a listing of proposals for the network.</p>
+ * <p>Returns a list of proposals for the network.</p>
+ *          <p>Applies only to Hyperledger Fabric.</p>
  */
 export class ListProposalsCommand extends $Command<
   ListProposalsCommandInput,

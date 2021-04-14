@@ -20,6 +20,10 @@ import {
   GetOpenIdTokenForDeveloperIdentityCommandInput,
   GetOpenIdTokenForDeveloperIdentityCommandOutput,
 } from "../commands/GetOpenIdTokenForDeveloperIdentityCommand";
+import {
+  GetPrincipalTagAttributeMapCommandInput,
+  GetPrincipalTagAttributeMapCommandOutput,
+} from "../commands/GetPrincipalTagAttributeMapCommand";
 import { ListIdentitiesCommandInput, ListIdentitiesCommandOutput } from "../commands/ListIdentitiesCommand";
 import { ListIdentityPoolsCommandInput, ListIdentityPoolsCommandOutput } from "../commands/ListIdentityPoolsCommand";
 import {
@@ -38,6 +42,10 @@ import {
   SetIdentityPoolRolesCommandInput,
   SetIdentityPoolRolesCommandOutput,
 } from "../commands/SetIdentityPoolRolesCommand";
+import {
+  SetPrincipalTagAttributeMapCommandInput,
+  SetPrincipalTagAttributeMapCommandOutput,
+} from "../commands/SetPrincipalTagAttributeMapCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import {
   UnlinkDeveloperIdentityCommandInput,
@@ -68,6 +76,8 @@ import {
   GetOpenIdTokenForDeveloperIdentityResponse,
   GetOpenIdTokenInput,
   GetOpenIdTokenResponse,
+  GetPrincipalTagAttributeMapInput,
+  GetPrincipalTagAttributeMapResponse,
   IdentityDescription,
   IdentityPool,
   IdentityPoolShortDescription,
@@ -92,6 +102,8 @@ import {
   RoleMapping,
   RulesConfigurationType,
   SetIdentityPoolRolesInput,
+  SetPrincipalTagAttributeMapInput,
+  SetPrincipalTagAttributeMapResponse,
   TagResourceInput,
   TagResourceResponse,
   TooManyRequestsException,
@@ -241,6 +253,19 @@ export const serializeAws_json1_1GetOpenIdTokenForDeveloperIdentityCommand = asy
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1GetPrincipalTagAttributeMapCommand = async (
+  input: GetPrincipalTagAttributeMapCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSCognitoIdentityService.GetPrincipalTagAttributeMap",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetPrincipalTagAttributeMapInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListIdentitiesCommand = async (
   input: ListIdentitiesCommandInput,
   context: __SerdeContext
@@ -316,6 +341,19 @@ export const serializeAws_json1_1SetIdentityPoolRolesCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1SetIdentityPoolRolesInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1SetPrincipalTagAttributeMapCommand = async (
+  input: SetPrincipalTagAttributeMapCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSCognitoIdentityService.SetPrincipalTagAttributeMap",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1SetPrincipalTagAttributeMapInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1321,6 +1359,92 @@ const deserializeAws_json1_1GetOpenIdTokenForDeveloperIdentityCommandError = asy
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1GetPrincipalTagAttributeMapCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPrincipalTagAttributeMapCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetPrincipalTagAttributeMapCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetPrincipalTagAttributeMapResponse(data, context);
+  const response: GetPrincipalTagAttributeMapCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetPrincipalTagAttributeMapCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPrincipalTagAttributeMapCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalErrorException":
+    case "com.amazonaws.cognitoidentity#InternalErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.cognitoidentity#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotAuthorizedException":
+    case "com.amazonaws.cognitoidentity#NotAuthorizedException":
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cognitoidentity#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.cognitoidentity#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1ListIdentitiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1829,6 +1953,92 @@ const deserializeAws_json1_1SetIdentityPoolRolesCommandError = async (
     case "com.amazonaws.cognitoidentity#ResourceConflictException":
       response = {
         ...(await deserializeAws_json1_1ResourceConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cognitoidentity#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.cognitoidentity#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1SetPrincipalTagAttributeMapCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SetPrincipalTagAttributeMapCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1SetPrincipalTagAttributeMapCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1SetPrincipalTagAttributeMapResponse(data, context);
+  const response: SetPrincipalTagAttributeMapCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1SetPrincipalTagAttributeMapCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SetPrincipalTagAttributeMapCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalErrorException":
+    case "com.amazonaws.cognitoidentity#InternalErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.cognitoidentity#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotAuthorizedException":
+    case "com.amazonaws.cognitoidentity#NotAuthorizedException":
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2638,6 +2848,10 @@ const serializeAws_json1_1GetOpenIdTokenForDeveloperIdentityInput = (
       input.IdentityPoolId !== null && { IdentityPoolId: input.IdentityPoolId }),
     ...(input.Logins !== undefined &&
       input.Logins !== null && { Logins: serializeAws_json1_1LoginsMap(input.Logins, context) }),
+    ...(input.PrincipalTags !== undefined &&
+      input.PrincipalTags !== null && {
+        PrincipalTags: serializeAws_json1_1PrincipalTags(input.PrincipalTags, context),
+      }),
     ...(input.TokenDuration !== undefined && input.TokenDuration !== null && { TokenDuration: input.TokenDuration }),
   };
 };
@@ -2647,6 +2861,18 @@ const serializeAws_json1_1GetOpenIdTokenInput = (input: GetOpenIdTokenInput, con
     ...(input.IdentityId !== undefined && input.IdentityId !== null && { IdentityId: input.IdentityId }),
     ...(input.Logins !== undefined &&
       input.Logins !== null && { Logins: serializeAws_json1_1LoginsMap(input.Logins, context) }),
+  };
+};
+
+const serializeAws_json1_1GetPrincipalTagAttributeMapInput = (
+  input: GetPrincipalTagAttributeMapInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.IdentityPoolId !== undefined &&
+      input.IdentityPoolId !== null && { IdentityPoolId: input.IdentityPoolId }),
+    ...(input.IdentityProviderName !== undefined &&
+      input.IdentityProviderName !== null && { IdentityProviderName: input.IdentityProviderName }),
   };
 };
 
@@ -2847,6 +3073,18 @@ const serializeAws_json1_1OIDCProviderList = (input: string[], context: __SerdeC
     });
 };
 
+const serializeAws_json1_1PrincipalTags = (input: { [key: string]: string }, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
+};
+
 const serializeAws_json1_1RoleMapping = (input: RoleMapping, context: __SerdeContext): any => {
   return {
     ...(input.AmbiguousRoleResolution !== undefined &&
@@ -2912,6 +3150,23 @@ const serializeAws_json1_1SetIdentityPoolRolesInput = (
       input.RoleMappings !== null && { RoleMappings: serializeAws_json1_1RoleMappingMap(input.RoleMappings, context) }),
     ...(input.Roles !== undefined &&
       input.Roles !== null && { Roles: serializeAws_json1_1RolesMap(input.Roles, context) }),
+  };
+};
+
+const serializeAws_json1_1SetPrincipalTagAttributeMapInput = (
+  input: SetPrincipalTagAttributeMapInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.IdentityPoolId !== undefined &&
+      input.IdentityPoolId !== null && { IdentityPoolId: input.IdentityPoolId }),
+    ...(input.IdentityProviderName !== undefined &&
+      input.IdentityProviderName !== null && { IdentityProviderName: input.IdentityProviderName }),
+    ...(input.PrincipalTags !== undefined &&
+      input.PrincipalTags !== null && {
+        PrincipalTags: serializeAws_json1_1PrincipalTags(input.PrincipalTags, context),
+      }),
+    ...(input.UseDefaults !== undefined && input.UseDefaults !== null && { UseDefaults: input.UseDefaults }),
   };
 };
 
@@ -3099,6 +3354,25 @@ const deserializeAws_json1_1GetOpenIdTokenResponse = (output: any, context: __Se
   return {
     IdentityId: output.IdentityId !== undefined && output.IdentityId !== null ? output.IdentityId : undefined,
     Token: output.Token !== undefined && output.Token !== null ? output.Token : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GetPrincipalTagAttributeMapResponse = (
+  output: any,
+  context: __SerdeContext
+): GetPrincipalTagAttributeMapResponse => {
+  return {
+    IdentityPoolId:
+      output.IdentityPoolId !== undefined && output.IdentityPoolId !== null ? output.IdentityPoolId : undefined,
+    IdentityProviderName:
+      output.IdentityProviderName !== undefined && output.IdentityProviderName !== null
+        ? output.IdentityProviderName
+        : undefined,
+    PrincipalTags:
+      output.PrincipalTags !== undefined && output.PrincipalTags !== null
+        ? deserializeAws_json1_1PrincipalTags(output.PrincipalTags, context)
+        : undefined,
+    UseDefaults: output.UseDefaults !== undefined && output.UseDefaults !== null ? output.UseDefaults : undefined,
   } as any;
 };
 
@@ -3361,6 +3635,18 @@ const deserializeAws_json1_1OIDCProviderList = (output: any, context: __SerdeCon
     });
 };
 
+const deserializeAws_json1_1PrincipalTags = (output: any, context: __SerdeContext): { [key: string]: string } => {
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
+};
+
 const deserializeAws_json1_1ResourceConflictException = (
   output: any,
   context: __SerdeContext
@@ -3435,6 +3721,25 @@ const deserializeAws_json1_1SAMLProviderList = (output: any, context: __SerdeCon
       }
       return entry;
     });
+};
+
+const deserializeAws_json1_1SetPrincipalTagAttributeMapResponse = (
+  output: any,
+  context: __SerdeContext
+): SetPrincipalTagAttributeMapResponse => {
+  return {
+    IdentityPoolId:
+      output.IdentityPoolId !== undefined && output.IdentityPoolId !== null ? output.IdentityPoolId : undefined,
+    IdentityProviderName:
+      output.IdentityProviderName !== undefined && output.IdentityProviderName !== null
+        ? output.IdentityProviderName
+        : undefined,
+    PrincipalTags:
+      output.PrincipalTags !== undefined && output.PrincipalTags !== null
+        ? deserializeAws_json1_1PrincipalTags(output.PrincipalTags, context)
+        : undefined,
+    UseDefaults: output.UseDefaults !== undefined && output.UseDefaults !== null ? output.UseDefaults : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {

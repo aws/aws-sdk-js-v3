@@ -20,6 +20,11 @@ import {
 export type PutFeedbackCommandInput = PutFeedbackRequest;
 export type PutFeedbackCommandOutput = PutFeedbackResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *    		Collects customer feedback about the specified insight.
+ *    	</p>
+ */
 export class PutFeedbackCommand extends $Command<
   PutFeedbackCommandInput,
   PutFeedbackCommandOutput,

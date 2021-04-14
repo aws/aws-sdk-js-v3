@@ -21,7 +21,11 @@ export type GetCommandInvocationCommandInput = GetCommandInvocationRequest;
 export type GetCommandInvocationCommandOutput = GetCommandInvocationResult & __MetadataBearer;
 
 /**
- * <p>Returns detailed information about command execution for an invocation or plugin. </p>
+ * <p>Returns detailed information about command execution for an invocation or plugin.</p>
+ *          <p>
+ *             <code>GetCommandInvocation</code> only gives the execution status of a plugin in a document.
+ *    To get the command execution status on a specific instance, use <a>ListCommandInvocations</a>. To get the command execution status across instances, use
+ *     <a>ListCommands</a>.</p>
  */
 export class GetCommandInvocationCommand extends $Command<
   GetCommandInvocationCommandInput,

@@ -59,6 +59,7 @@ import {
   DeleteRetentionConfigurationCommandInput,
   DeleteRetentionConfigurationCommandOutput,
 } from "./commands/DeleteRetentionConfigurationCommand";
+import { DeleteStoredQueryCommandInput, DeleteStoredQueryCommandOutput } from "./commands/DeleteStoredQueryCommand";
 import {
   DeliverConfigSnapshotCommandInput,
   DeliverConfigSnapshotCommandOutput,
@@ -67,6 +68,10 @@ import {
   DescribeAggregateComplianceByConfigRulesCommandInput,
   DescribeAggregateComplianceByConfigRulesCommandOutput,
 } from "./commands/DescribeAggregateComplianceByConfigRulesCommand";
+import {
+  DescribeAggregateComplianceByConformancePacksCommandInput,
+  DescribeAggregateComplianceByConformancePacksCommandOutput,
+} from "./commands/DescribeAggregateComplianceByConformancePacksCommand";
 import {
   DescribeAggregationAuthorizationsCommandInput,
   DescribeAggregationAuthorizationsCommandOutput,
@@ -168,6 +173,10 @@ import {
   GetAggregateConfigRuleComplianceSummaryCommandOutput,
 } from "./commands/GetAggregateConfigRuleComplianceSummaryCommand";
 import {
+  GetAggregateConformancePackComplianceSummaryCommandInput,
+  GetAggregateConformancePackComplianceSummaryCommandOutput,
+} from "./commands/GetAggregateConformancePackComplianceSummaryCommand";
+import {
   GetAggregateDiscoveredResourceCountsCommandInput,
   GetAggregateDiscoveredResourceCountsCommandOutput,
 } from "./commands/GetAggregateDiscoveredResourceCountsCommand";
@@ -215,6 +224,7 @@ import {
   GetResourceConfigHistoryCommandInput,
   GetResourceConfigHistoryCommandOutput,
 } from "./commands/GetResourceConfigHistoryCommand";
+import { GetStoredQueryCommandInput, GetStoredQueryCommandOutput } from "./commands/GetStoredQueryCommand";
 import {
   ListAggregateDiscoveredResourcesCommandInput,
   ListAggregateDiscoveredResourcesCommandOutput,
@@ -223,6 +233,7 @@ import {
   ListDiscoveredResourcesCommandInput,
   ListDiscoveredResourcesCommandOutput,
 } from "./commands/ListDiscoveredResourcesCommand";
+import { ListStoredQueriesCommandInput, ListStoredQueriesCommandOutput } from "./commands/ListStoredQueriesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -244,6 +255,10 @@ import { PutConformancePackCommandInput, PutConformancePackCommandOutput } from 
 import { PutDeliveryChannelCommandInput, PutDeliveryChannelCommandOutput } from "./commands/PutDeliveryChannelCommand";
 import { PutEvaluationsCommandInput, PutEvaluationsCommandOutput } from "./commands/PutEvaluationsCommand";
 import {
+  PutExternalEvaluationCommandInput,
+  PutExternalEvaluationCommandOutput,
+} from "./commands/PutExternalEvaluationCommand";
+import {
   PutOrganizationConfigRuleCommandInput,
   PutOrganizationConfigRuleCommandOutput,
 } from "./commands/PutOrganizationConfigRuleCommand";
@@ -264,6 +279,7 @@ import {
   PutRetentionConfigurationCommandInput,
   PutRetentionConfigurationCommandOutput,
 } from "./commands/PutRetentionConfigurationCommand";
+import { PutStoredQueryCommandInput, PutStoredQueryCommandOutput } from "./commands/PutStoredQueryCommand";
 import {
   SelectAggregateResourceConfigCommandInput,
   SelectAggregateResourceConfigCommandOutput,
@@ -358,8 +374,10 @@ export type ServiceInputTypes =
   | DeleteRemediationExceptionsCommandInput
   | DeleteResourceConfigCommandInput
   | DeleteRetentionConfigurationCommandInput
+  | DeleteStoredQueryCommandInput
   | DeliverConfigSnapshotCommandInput
   | DescribeAggregateComplianceByConfigRulesCommandInput
+  | DescribeAggregateComplianceByConformancePacksCommandInput
   | DescribeAggregationAuthorizationsCommandInput
   | DescribeComplianceByConfigRuleCommandInput
   | DescribeComplianceByResourceCommandInput
@@ -385,6 +403,7 @@ export type ServiceInputTypes =
   | DescribeRetentionConfigurationsCommandInput
   | GetAggregateComplianceDetailsByConfigRuleCommandInput
   | GetAggregateConfigRuleComplianceSummaryCommandInput
+  | GetAggregateConformancePackComplianceSummaryCommandInput
   | GetAggregateDiscoveredResourceCountsCommandInput
   | GetAggregateResourceConfigCommandInput
   | GetComplianceDetailsByConfigRuleCommandInput
@@ -397,8 +416,10 @@ export type ServiceInputTypes =
   | GetOrganizationConfigRuleDetailedStatusCommandInput
   | GetOrganizationConformancePackDetailedStatusCommandInput
   | GetResourceConfigHistoryCommandInput
+  | GetStoredQueryCommandInput
   | ListAggregateDiscoveredResourcesCommandInput
   | ListDiscoveredResourcesCommandInput
+  | ListStoredQueriesCommandInput
   | ListTagsForResourceCommandInput
   | PutAggregationAuthorizationCommandInput
   | PutConfigRuleCommandInput
@@ -407,12 +428,14 @@ export type ServiceInputTypes =
   | PutConformancePackCommandInput
   | PutDeliveryChannelCommandInput
   | PutEvaluationsCommandInput
+  | PutExternalEvaluationCommandInput
   | PutOrganizationConfigRuleCommandInput
   | PutOrganizationConformancePackCommandInput
   | PutRemediationConfigurationsCommandInput
   | PutRemediationExceptionsCommandInput
   | PutResourceConfigCommandInput
   | PutRetentionConfigurationCommandInput
+  | PutStoredQueryCommandInput
   | SelectAggregateResourceConfigCommandInput
   | SelectResourceConfigCommandInput
   | StartConfigRulesEvaluationCommandInput
@@ -439,8 +462,10 @@ export type ServiceOutputTypes =
   | DeleteRemediationExceptionsCommandOutput
   | DeleteResourceConfigCommandOutput
   | DeleteRetentionConfigurationCommandOutput
+  | DeleteStoredQueryCommandOutput
   | DeliverConfigSnapshotCommandOutput
   | DescribeAggregateComplianceByConfigRulesCommandOutput
+  | DescribeAggregateComplianceByConformancePacksCommandOutput
   | DescribeAggregationAuthorizationsCommandOutput
   | DescribeComplianceByConfigRuleCommandOutput
   | DescribeComplianceByResourceCommandOutput
@@ -466,6 +491,7 @@ export type ServiceOutputTypes =
   | DescribeRetentionConfigurationsCommandOutput
   | GetAggregateComplianceDetailsByConfigRuleCommandOutput
   | GetAggregateConfigRuleComplianceSummaryCommandOutput
+  | GetAggregateConformancePackComplianceSummaryCommandOutput
   | GetAggregateDiscoveredResourceCountsCommandOutput
   | GetAggregateResourceConfigCommandOutput
   | GetComplianceDetailsByConfigRuleCommandOutput
@@ -478,8 +504,10 @@ export type ServiceOutputTypes =
   | GetOrganizationConfigRuleDetailedStatusCommandOutput
   | GetOrganizationConformancePackDetailedStatusCommandOutput
   | GetResourceConfigHistoryCommandOutput
+  | GetStoredQueryCommandOutput
   | ListAggregateDiscoveredResourcesCommandOutput
   | ListDiscoveredResourcesCommandOutput
+  | ListStoredQueriesCommandOutput
   | ListTagsForResourceCommandOutput
   | PutAggregationAuthorizationCommandOutput
   | PutConfigRuleCommandOutput
@@ -488,12 +516,14 @@ export type ServiceOutputTypes =
   | PutConformancePackCommandOutput
   | PutDeliveryChannelCommandOutput
   | PutEvaluationsCommandOutput
+  | PutExternalEvaluationCommandOutput
   | PutOrganizationConfigRuleCommandOutput
   | PutOrganizationConformancePackCommandOutput
   | PutRemediationConfigurationsCommandOutput
   | PutRemediationExceptionsCommandOutput
   | PutResourceConfigCommandOutput
   | PutRetentionConfigurationCommandOutput
+  | PutStoredQueryCommandOutput
   | SelectAggregateResourceConfigCommandOutput
   | SelectResourceConfigCommandOutput
   | StartConfigRulesEvaluationCommandOutput

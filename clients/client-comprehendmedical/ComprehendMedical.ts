@@ -137,8 +137,8 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   }
 
   /**
-   * <p>Gets the properties associated with an InferICD10CM job.
-   *       Use this operation to get the status of an inference job.</p>
+   * <p>Gets the properties associated with an InferICD10CM job. Use this operation to get the
+   *       status of an inference job.</p>
    */
   public describeICD10CMInferenceJob(
     args: DescribeICD10CMInferenceJobCommandInput,
@@ -203,8 +203,8 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   }
 
   /**
-   * <p>Gets the properties associated with an InferRxNorm job.
-   *       Use this operation to get the status of an inference job.</p>
+   * <p>Gets the properties associated with an InferRxNorm job. Use this operation to get the
+   *       status of an inference job.</p>
    */
   public describeRxNormInferenceJob(
     args: DescribeRxNormInferenceJobCommandInput,
@@ -345,7 +345,7 @@ export class ComprehendMedical extends ComprehendMedicalClient {
    * <p>InferICD10CM detects medical conditions as entities listed in a patient record and links
    *       those entities to normalized concept identifiers in the ICD-10-CM knowledge base from the
    *       Centers for Disease Control. Amazon Comprehend Medical only detects medical entities in
-   *       English language texts.</p>
+   *       English language texts.  </p>
    */
   public inferICD10CM(
     args: InferICD10CMCommandInput,
@@ -376,7 +376,7 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   /**
    * <p>InferRxNorm detects medications as entities listed in a patient record and links to the
    *       normalized concept identifiers in the RxNorm database from the National Library of Medicine.
-   *       Amazon Comprehend Medical only detects medical entities in English language texts.</p>
+   *       Amazon Comprehend Medical only detects medical entities in English language texts.  </p>
    */
   public inferRxNorm(args: InferRxNormCommandInput, options?: __HttpHandlerOptions): Promise<InferRxNormCommandOutput>;
   public inferRxNorm(args: InferRxNormCommandInput, cb: (err: any, data?: InferRxNormCommandOutput) => void): void;
@@ -434,8 +434,7 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   }
 
   /**
-   * <p>Gets a list of InferICD10CM jobs that you have
-   *       submitted.</p>
+   * <p>Gets a list of InferICD10CM jobs that you have submitted.</p>
    */
   public listICD10CMInferenceJobs(
     args: ListICD10CMInferenceJobsCommandInput,
@@ -500,8 +499,7 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   }
 
   /**
-   * <p>Gets a list of InferRxNorm jobs that you have
-   *       submitted.</p>
+   * <p>Gets a list of InferRxNorm jobs that you have submitted.</p>
    */
   public listRxNormInferenceJobs(
     args: ListRxNormInferenceJobsCommandInput,
@@ -566,8 +564,9 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   }
 
   /**
-   * <p>Starts an asynchronous job to detect medical conditions and link them to the ICD-10-CM ontology. Use the
-   *       <code>DescribeICD10CMInferenceJob</code> operation to track the status of a job.</p>
+   * <p>Starts an asynchronous job to detect medical conditions and link them to the ICD-10-CM
+   *       ontology. Use the <code>DescribeICD10CMInferenceJob</code> operation to track the status of a
+   *       job.</p>
    */
   public startICD10CMInferenceJob(
     args: StartICD10CMInferenceJobCommandInput,
@@ -632,8 +631,9 @@ export class ComprehendMedical extends ComprehendMedicalClient {
   }
 
   /**
-   * <p>Starts an asynchronous job to detect medication entities and link them to the RxNorm ontology. Use the
-   *       <code>DescribeRxNormInferenceJob</code> operation to track the status of a job.</p>
+   * <p>Starts an asynchronous job to detect medication entities and link them to the RxNorm
+   *       ontology. Use the <code>DescribeRxNormInferenceJob</code> operation to track the status of a
+   *       job.</p>
    */
   public startRxNormInferenceJob(
     args: StartRxNormInferenceJobCommandInput,

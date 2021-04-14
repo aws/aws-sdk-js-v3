@@ -105,10 +105,7 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * <note>
- * 			         <p></p>
- * 		       </note>
- * 		       <p>This is the <i>ACM Private CA API Reference</i>. It provides descriptions,
+ * <p>This is the <i>ACM Private CA API Reference</i>. It provides descriptions,
  * 			syntax, and usage examples for each of the actions and data types involved in creating
  * 			and managing private certificate authorities (CA) for your organization.</p>
  * 		       <p>The documentation for each action shows the Query API request parameters and the XML
@@ -246,7 +243,7 @@ export class ACMPCA extends ACMPCAClient {
    * 			then permissions cannot be used to enable automatic renewals. Instead,
    * 			the ACM certificate owner must set up a resource-based policy to enable
    * 			cross-account issuance and renewals. For more information, see
-   * 			<a href="acm-pca/latest/userguide/pca-rbp.html">Using a Resource
+   * 			<a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-rbp.html">Using a Resource
    * 			Based Policy with ACM Private CA</a>.</p>
    * 		          </li>
    *          </ul>
@@ -357,7 +354,7 @@ export class ACMPCA extends ACMPCAClient {
    * 			then permissions cannot be used to enable automatic renewals. Instead,
    * 			the ACM certificate owner must set up a resource-based policy to enable
    * 			cross-account issuance and renewals. For more information, see
-   * 			<a href="acm-pca/latest/userguide/pca-rbp.html">Using a Resource
+   * 			<a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-rbp.html">Using a Resource
    * 			Based Policy with ACM Private CA</a>.</p>
    * 		          </li>
    *          </ul>
@@ -395,10 +392,10 @@ export class ACMPCA extends ACMPCAClient {
    * <p>Deletes the resource-based policy attached to a private CA. Deletion will remove any
    * 			access that the policy has granted. If there is no policy attached to the private CA,
    * 			this action will return successful.</p>
-   * 		       <p>If you delete a policy that was applied through AWS Resource Access Manager (RAM),
-   * 			the CA will be removed from all shares in which it was included. </p>
-   * 		       <p>The AWS Certificate Manager Service Linked Role that the policy supports is not affected when you delete
-   * 			the policy. </p>
+   * 		       <p>If you delete a policy that was applied through AWS Resource Access Manager (RAM), the
+   * 			CA will be removed from all shares in which it was included. </p>
+   * 		       <p>The AWS Certificate Manager Service Linked Role that the policy supports is not affected when you
+   * 			delete the policy. </p>
    * 		       <p>The current policy can be shown with <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_GetPolicy.html">GetPolicy</a> and updated with <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_PutPolicy.html">PutPolicy</a>.</p>
    * 		       <p class="title">
    *             <b>About Policies</b>
@@ -407,7 +404,7 @@ export class ACMPCA extends ACMPCAClient {
    *             <li>
    * 			            <p>A policy grants access on a private CA to an AWS customer account, to AWS Organizations, or to
    * 			an AWS Organizations unit. Policies are under the control of a CA administrator. For more information,
-   * 			see <a href="acm-pca/latest/userguide/pca-rbp.html">Using a Resource Based Policy with ACM Private CA</a>.</p>
+   * 			see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-rbp.html">Using a Resource Based Policy with ACM Private CA</a>.</p>
    * 		          </li>
    *             <li>
    * 			            <p>A policy permits a user of AWS Certificate Manager (ACM) to issue ACM certificates
@@ -423,8 +420,8 @@ export class ACMPCA extends ACMPCAClient {
    * 		          </li>
    *             <li>
    * 			            <p>Updates made in AWS Resource Manager (RAM) are reflected in policies. For more information,
-   * 			see <a href="acm-pca/latest/userguide/pca-ram.html">Using AWS Resource Access Manager
-   * 			(RAM) with ACM Private CA</a>.</p>
+   * 			see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-ram.html">Attach a Policy for Cross-Account
+   * 			Access</a>.</p>
    * 		          </li>
    *          </ul>
    */
@@ -485,7 +482,7 @@ export class ACMPCA extends ACMPCAClient {
    *             <li>
    * 				           <p>
    *                   <code>FAILED</code> - Your private CA has failed. Your CA can fail because of
-   * 					problems such a network outage or backend AWS failure or other errors. A
+   * 					problems such a network outage or back-end AWS failure or other errors. A
    * 					failed CA can never return to the pending state. You must create a new CA.
    * 				</p>
    * 			         </li>
@@ -677,7 +674,7 @@ export class ACMPCA extends ACMPCAClient {
    * <p>Retrieves the resource-based policy attached to a private CA. If either the private CA
    * 			resource or the policy cannot be found, this action returns a
    * 				<code>ResourceNotFoundException</code>. </p>
-   * 		       <p>The policy can be attached or updated with <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_PutPolicy.html">PutPolicy</a> and removed with <a href="acm-pca/latest/APIReference/API_DeletePolicy.html">DeletePolicy</a>.</p>
+   * 		       <p>The policy can be attached or updated with <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_PutPolicy.html">PutPolicy</a> and removed with <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeletePolicy.html">DeletePolicy</a>.</p>
    * 		       <p class="title">
    *             <b>About Policies</b>
    *          </p>
@@ -685,7 +682,7 @@ export class ACMPCA extends ACMPCAClient {
    *             <li>
    * 			            <p>A policy grants access on a private CA to an AWS customer account, to AWS Organizations, or to
    * 			an AWS Organizations unit. Policies are under the control of a CA administrator. For more information,
-   * 			see <a href="acm-pca/latest/userguide/pca-rbp.html">Using a Resource Based Policy with ACM Private CA</a>.</p>
+   * 			see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-rbp.html">Using a Resource Based Policy with ACM Private CA</a>.</p>
    * 		          </li>
    *             <li>
    * 			            <p>A policy permits a user of AWS Certificate Manager (ACM) to issue ACM certificates
@@ -701,8 +698,8 @@ export class ACMPCA extends ACMPCAClient {
    * 		          </li>
    *             <li>
    * 			            <p>Updates made in AWS Resource Manager (RAM) are reflected in policies. For more information,
-   * 			see <a href="acm-pca/latest/userguide/pca-ram.html">Using AWS Resource Access Manager
-   * 			(RAM) with ACM Private CA</a>.</p>
+   * 			see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-ram.html">Attach a Policy for Cross-Account
+   * 			Access</a>.</p>
    * 		          </li>
    *          </ul>
    */
@@ -735,8 +732,8 @@ export class ACMPCA extends ACMPCAClient {
    * 			action, the following preparations must in place:</p>
    * 		       <ol>
    *             <li>
-   * 				           <p>In ACM Private CA, call the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a> action to create the private CA that
-   * 					that you plan to back with the imported certificate.</p>
+   * 				           <p>In ACM Private CA, call the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a> action to create the private CA that you
+   * 					plan to back with the imported certificate.</p>
    * 			         </li>
    *             <li>
    * 				           <p>Call the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_GetCertificateAuthorityCsr.html">GetCertificateAuthorityCsr</a> action to generate a certificate signing
@@ -751,24 +748,37 @@ export class ACMPCA extends ACMPCAClient {
    * 					chain to your working directory.</p>
    * 			         </li>
    *          </ol>
-   * 		       <p>The following requirements apply when you import a CA certificate.</p>
+   * 		       <p>ACM Private CA supports three scenarios for installing a CA certificate:</p>
    * 		       <ul>
    *             <li>
-   * 				           <p>You cannot import a non-self-signed certificate for use as a root CA.</p>
+   * 				           <p>Installing a certificate for a root CA hosted by ACM Private CA.</p>
    * 			         </li>
    *             <li>
-   * 				           <p>You cannot import a self-signed certificate for use as a subordinate
-   * 					CA.</p>
+   * 				           <p>Installing a subordinate CA certificate whose parent authority is hosted by
+   * 					ACM Private CA.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>Installing a subordinate CA certificate whose parent authority is externally
+   * 					hosted.</p>
+   * 			         </li>
+   *          </ul>
+   * 		       <p>The following additional requirements apply when you import a CA certificate.</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>Only a self-signed certificate can be imported as a root CA.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>A self-signed certificate cannot be imported as a subordinate CA.</p>
    * 			         </li>
    *             <li>
    * 				           <p>Your certificate chain must not include the private CA certificate that you
    * 					are importing.</p>
    * 			         </li>
    *             <li>
-   * 				           <p>Your ACM Private CA-hosted or on-premises CA certificate must be the last certificate
-   * 					in your chain. The subordinate certificate, if any, that your root CA signed
-   * 					must be next to last. The subordinate certificate signed by the preceding
-   * 					subordinate CA must come next, and so on until your chain is built. </p>
+   * 				           <p>Your root CA must be the last certificate in your chain. The subordinate
+   * 					certificate, if any, that your root CA signed must be next to last. The
+   * 					subordinate certificate signed by the preceding subordinate CA must come next,
+   * 					and so on until your chain is built. </p>
    * 			         </li>
    *             <li>
    * 				           <p>The chain must be PEM-encoded.</p>
@@ -878,11 +888,10 @@ export class ACMPCA extends ACMPCAClient {
   }
 
   /**
-   * <p>Uses your private certificate authority
-   * 			(CA), or one that
-   * 			has been shared with you, to issue a client certificate. This action returns the Amazon
-   * 			Resource Name (ARN) of the certificate. You can retrieve the certificate by calling the
-   * 				<a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_GetCertificate.html">GetCertificate</a> action and specifying the ARN. </p>
+   * <p>Uses your private certificate authority (CA), or one that has been shared with you, to
+   * 			issue a client certificate. This action returns the Amazon Resource Name (ARN) of the
+   * 			certificate. You can retrieve the certificate by calling the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_GetCertificate.html">GetCertificate</a> action and
+   * 			specifying the ARN. </p>
    * 		       <note>
    * 			         <p>You cannot use the ACM <b>ListCertificateAuthorities</b> action to retrieve the ARNs of the
    * 				certificates that you issue by using ACM Private CA.</p>
@@ -974,7 +983,7 @@ export class ACMPCA extends ACMPCAClient {
    * 			then permissions cannot be used to enable automatic renewals. Instead,
    * 			the ACM certificate owner must set up a resource-based policy to enable
    * 			cross-account issuance and renewals. For more information, see
-   * 			<a href="acm-pca/latest/userguide/pca-rbp.html">Using a Resource
+   * 			<a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-rbp.html">Using a Resource
    * 			Based Policy with ACM Private CA</a>.</p>
    * 		          </li>
    *          </ul>
@@ -1039,18 +1048,18 @@ export class ACMPCA extends ACMPCAClient {
 
   /**
    * <p>Attaches a resource-based policy to a private CA. </p>
-   * 		       <p>A policy can also be applied by <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-ram.html">sharing</a> a private CA through AWS Resource Access Manager
-   * 			(RAM).</p>
+   * 		       <p>A policy can also be applied by sharing a private CA through AWS Resource Access
+   * 			Manager (RAM). For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-ram.html">Attach a Policy for Cross-Account
+   * 			Access</a>.</p>
    * 		       <p>The policy can be displayed with <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_GetPolicy.html">GetPolicy</a> and removed with <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeletePolicy.html">DeletePolicy</a>.</p>
-   *
-   * 			      <p class="title">
+   * 		       <p class="title">
    *             <b>About Policies</b>
    *          </p>
    *          <ul>
    *             <li>
    * 			            <p>A policy grants access on a private CA to an AWS customer account, to AWS Organizations, or to
    * 			an AWS Organizations unit. Policies are under the control of a CA administrator. For more information,
-   * 			see <a href="acm-pca/latest/userguide/pca-rbp.html">Using a Resource Based Policy with ACM Private CA</a>.</p>
+   * 			see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-rbp.html">Using a Resource Based Policy with ACM Private CA</a>.</p>
    * 		          </li>
    *             <li>
    * 			            <p>A policy permits a user of AWS Certificate Manager (ACM) to issue ACM certificates
@@ -1066,8 +1075,8 @@ export class ACMPCA extends ACMPCAClient {
    * 		          </li>
    *             <li>
    * 			            <p>Updates made in AWS Resource Manager (RAM) are reflected in policies. For more information,
-   * 			see <a href="acm-pca/latest/userguide/pca-ram.html">Using AWS Resource Access Manager
-   * 			(RAM) with ACM Private CA</a>.</p>
+   * 			see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-ram.html">Attach a Policy for Cross-Account
+   * 			Access</a>.</p>
    * 		          </li>
    *          </ul>
    */

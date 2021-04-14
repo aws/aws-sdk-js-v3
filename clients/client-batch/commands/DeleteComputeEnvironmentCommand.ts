@@ -24,7 +24,7 @@ export type DeleteComputeEnvironmentCommandOutput = DeleteComputeEnvironmentResp
  * <p>Deletes an AWS Batch compute environment.</p>
  *          <p>Before you can delete a compute environment, you must set its state to <code>DISABLED</code> with the <a>UpdateComputeEnvironment</a> API operation and disassociate it from any job queues with the <a>UpdateJobQueue</a> API operation. Compute environments that use AWS Fargate resources must terminate all
  *    active jobs on that compute environment before deleting the compute environment. If this isn't done, the compute
- *    environment will end up in an invalid state.</p>
+ *    environment enters an invalid state.</p>
  */
 export class DeleteComputeEnvironmentCommand extends $Command<
   DeleteComputeEnvironmentCommandInput,

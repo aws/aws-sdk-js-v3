@@ -21,7 +21,7 @@ export type CreateScalingPlanCommandInput = CreateScalingPlanRequest;
 export type CreateScalingPlanCommandOutput = CreateScalingPlanResponse & __MetadataBearer;
 
 /**
- * <p>Creates a scaling plan.</p>
+ * <p>Creates a scaling plan. </p>
  */
 export class CreateScalingPlanCommand extends $Command<
   CreateScalingPlanCommandInput,

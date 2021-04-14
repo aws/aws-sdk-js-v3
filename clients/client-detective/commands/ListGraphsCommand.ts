@@ -21,10 +21,10 @@ export type ListGraphsCommandInput = ListGraphsRequest;
 export type ListGraphsCommandOutput = ListGraphsResponse & __MetadataBearer;
 
 /**
- * <p>Returns the list of behavior graphs that the calling account is a master of. This
- *          operation can only be called by a master account.</p>
- *          <p>Because an account can currently only be the master of one behavior graph within a
- *          Region, the results always contain a single graph.</p>
+ * <p>Returns the list of behavior graphs that the calling account is an administrator account
+ *          of. This operation can only be called by an administrator account.</p>
+ *          <p>Because an account can currently only be the administrator of one behavior graph within
+ *          a Region, the results always contain a single behavior graph.</p>
  */
 export class ListGraphsCommand extends $Command<
   ListGraphsCommandInput,

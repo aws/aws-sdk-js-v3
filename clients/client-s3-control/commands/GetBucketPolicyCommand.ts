@@ -27,17 +27,17 @@ export type GetBucketPolicyCommandOutput = GetBucketPolicyResult & __MetadataBea
  *             bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketPolicy.html">GetBucketPolicy</a> in the
  *                <i>Amazon Simple Storage Service API</i>. </p>
  *          </note>
- *          <p>Returns the policy of a specified Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the
- *             <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+ *          <p>Returns the policy of a specified Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the
+ *             <i>Amazon Simple Storage Service User Guide</i>.</p>
  *          <p>If you are using an identity other than the root user of the AWS account that owns the bucket, the calling identity
- *       must have the <code>GetBucketPolicy</code> permissions on the specified bucket and belong to the bucket owner's account in order to use this operation.</p>
+ *       must have the <code>GetBucketPolicy</code> permissions on the specified bucket and belong to the bucket owner's account in order to use this action.</p>
  *
  *          <p>Only users from Outposts bucket owner account with the right permissions can perform actions on an Outposts bucket.
  *          If you don't have <code>s3-outposts:GetBucketPolicy</code> permissions or you're not using an identity that belongs to the bucket owner's
  *          account, Amazon S3 returns a <code>403 Access Denied</code> error.</p>
  *
  *          <important>
- *             <p>As a security precaution, the root user of the AWS account that owns a bucket can always use this operation, even if the policy
+ *             <p>As a security precaution, the root user of the AWS account that owns a bucket can always use this action, even if the policy
  *          explicitly denies the root user the ability to perform this action.</p>
  *          </important>
  *

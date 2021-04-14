@@ -21,9 +21,9 @@ export type GetAccessKeyLastUsedCommandInput = GetAccessKeyLastUsedRequest;
 export type GetAccessKeyLastUsedCommandOutput = GetAccessKeyLastUsedResponse & __MetadataBearer;
 
 /**
- * <p>Retrieves information about when the specified access key was last used. The information
- *          includes the date and time of last use, along with the AWS service and Region that were
- *          specified in the last request made with that key.</p>
+ * <p>Retrieves information about when the specified access key was last used. The
+ *             information includes the date and time of last use, along with the AWS service and
+ *             Region that were specified in the last request made with that key.</p>
  */
 export class GetAccessKeyLastUsedCommand extends $Command<
   GetAccessKeyLastUsedCommandInput,

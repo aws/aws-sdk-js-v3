@@ -83,7 +83,7 @@ export type PutObjectTaggingCommandOutput = PutObjectTaggingOutput & __MetadataB
  *                   </li>
  *                   <li>
  *                      <p>
- *                         <i>Cause: A conflicting conditional operation is currently in
+ *                         <i>Cause: A conflicting conditional action is currently in
  *                         progress against this resource. Please try again.</i>
  *                      </p>
  *                   </li>
@@ -118,6 +118,11 @@ export type PutObjectTaggingCommandOutput = PutObjectTaggingOutput & __MetadataB
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html">GetObjectTagging</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectTagging.html">DeleteObjectTagging</a>
  *                </p>
  *             </li>
  *          </ul>

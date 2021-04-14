@@ -20,6 +20,13 @@ import {
 export type DescribeServiceIntegrationCommandInput = DescribeServiceIntegrationRequest;
 export type DescribeServiceIntegrationCommandOutput = DescribeServiceIntegrationResponse & __MetadataBearer;
 
+/**
+ * <p>
+ * 			Returns the integration status of services that are integrated with DevOps Guru.
+ * 			The one service that can be integrated with DevOps Guru
+ *       	is AWS Systems Manager, which can be used to create an OpsItem for each generated insight.
+ * 		</p>
+ */
 export class DescribeServiceIntegrationCommand extends $Command<
   DescribeServiceIntegrationCommandInput,
   DescribeServiceIntegrationCommandOutput,

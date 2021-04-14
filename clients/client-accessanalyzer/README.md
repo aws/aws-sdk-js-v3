@@ -9,10 +9,12 @@ AWS SDK for JavaScript AccessAnalyzer Client for Node.js, Browser and React Nati
 
 <p>AWS IAM Access Analyzer helps identify potential resource-access risks by enabling you to identify
 any policies that grant access to an external principal. It does this by using logic-based
-reasoning to analyze resource-based policies in your AWS environment. An external principal
-can be another AWS account, a root user, an IAM user or role, a federated user, an AWS
-service, or an anonymous user. This guide describes the AWS IAM Access Analyzer operations that you can
-call programmatically. For general information about Access Analyzer, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">AWS IAM Access Analyzer section of the IAM User Guide</a>.</p>
+reasoning to analyze resource-based policies in your AWS environment. An external
+principal can be another AWS account, a root user, an IAM user or role, a federated
+user, an AWS service, or an anonymous user. You can also use Access Analyzer to preview and
+validate public and cross-account access to your resources before deploying permissions
+changes. This guide describes the AWS IAM Access Analyzer operations that you can call
+programmatically. For general information about Access Analyzer, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">AWS IAM Access Analyzer</a> in the <b>IAM User Guide</b>.</p>
 <p>To start using Access Analyzer, you first need to create an analyzer.</p>
 
 ## Installing
@@ -30,16 +32,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `AccessAnalyzerClient` and
-the commands you need, for example `CreateAnalyzerCommand`:
+the commands you need, for example `ApplyArchiveRuleCommand`:
 
 ```js
 // ES5 example
-const { AccessAnalyzerClient, CreateAnalyzerCommand } = require("@aws-sdk/client-accessanalyzer");
+const { AccessAnalyzerClient, ApplyArchiveRuleCommand } = require("@aws-sdk/client-accessanalyzer");
 ```
 
 ```ts
 // ES6+ example
-import { AccessAnalyzerClient, CreateAnalyzerCommand } from "@aws-sdk/client-accessanalyzer";
+import { AccessAnalyzerClient, ApplyArchiveRuleCommand } from "@aws-sdk/client-accessanalyzer";
 ```
 
 ### Usage
@@ -58,7 +60,7 @@ const client = new AccessAnalyzerClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateAnalyzerCommand(params);
+const command = new ApplyArchiveRuleCommand(params);
 ```
 
 #### Async/await
@@ -137,7 +139,7 @@ const client = new AWS.AccessAnalyzer({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createAnalyzer(params);
+  const data = await client.applyArchiveRule(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -145,7 +147,7 @@ try {
 
 // Promises.
 client
-  .createAnalyzer(params)
+  .applyArchiveRule(params)
   .then((data) => {
     // process data.
   })
@@ -154,7 +156,7 @@ client
   });
 
 // callbacks.
-client.createAnalyzer(params, (err, data) => {
+client.applyArchiveRule(params, (err, data) => {
   // proccess err and data.
 });
 ```

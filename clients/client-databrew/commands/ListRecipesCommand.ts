@@ -21,7 +21,7 @@ export type ListRecipesCommandInput = ListRecipesRequest;
 export type ListRecipesCommandOutput = ListRecipesResponse & __MetadataBearer;
 
 /**
- * <p>Lists all of the AWS Glue DataBrew recipes in the current AWS account.</p>
+ * <p>Lists all of the DataBrew recipes that are defined.</p>
  */
 export class ListRecipesCommand extends $Command<
   ListRecipesCommandInput,

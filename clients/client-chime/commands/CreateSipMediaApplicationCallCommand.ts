@@ -21,8 +21,8 @@ export type CreateSipMediaApplicationCallCommandInput = CreateSipMediaApplicatio
 export type CreateSipMediaApplicationCallCommandOutput = CreateSipMediaApplicationCallResponse & __MetadataBearer;
 
 /**
- * <p>Creates an outbound call to a phone number from the phone number specified in the request, and it invokes the endpoint of the
- *       specified <code>sipMediaApplicationId</code>.</p>
+ * <p>Creates an outbound call to a phone number from the phone number specified in the request, and it invokes the endpoint of the specified
+ * <code>sipMediaApplicationId</code>.</p>
  */
 export class CreateSipMediaApplicationCallCommand extends $Command<
   CreateSipMediaApplicationCallCommandInput,

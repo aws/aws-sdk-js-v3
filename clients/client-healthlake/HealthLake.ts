@@ -15,6 +15,11 @@ import {
   DescribeFHIRDatastoreCommandOutput,
 } from "./commands/DescribeFHIRDatastoreCommand";
 import {
+  DescribeFHIRExportJobCommand,
+  DescribeFHIRExportJobCommandInput,
+  DescribeFHIRExportJobCommandOutput,
+} from "./commands/DescribeFHIRExportJobCommand";
+import {
   DescribeFHIRImportJobCommand,
   DescribeFHIRImportJobCommandInput,
   DescribeFHIRImportJobCommandOutput,
@@ -25,6 +30,11 @@ import {
   ListFHIRDatastoresCommandOutput,
 } from "./commands/ListFHIRDatastoresCommand";
 import {
+  StartFHIRExportJobCommand,
+  StartFHIRExportJobCommandInput,
+  StartFHIRExportJobCommandOutput,
+} from "./commands/StartFHIRExportJobCommand";
+import {
   StartFHIRImportJobCommand,
   StartFHIRImportJobCommandInput,
   StartFHIRImportJobCommandOutput,
@@ -33,11 +43,11 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <p>Amazon HealthLake is a HIPAA eligibile service that allows customers to store,
- *          transform, query, and analyze their data in a consistent fashion in the cloud.</p>
+ *          transform, query, and analyze their FHIR-formatted data in a consistent fashion in the cloud.</p>
  */
 export class HealthLake extends HealthLakeClient {
   /**
-   * <p>Creates a datastore that can ingest and export FHIR data.</p>
+   * <p>Creates a Data Store that can ingest and export FHIR formatted data.</p>
    */
   public createFHIRDatastore(
     args: CreateFHIRDatastoreCommandInput,
@@ -69,7 +79,7 @@ export class HealthLake extends HealthLakeClient {
   }
 
   /**
-   * <p>Deletes a datastore. </p>
+   * <p>Deletes a Data Store. </p>
    */
   public deleteFHIRDatastore(
     args: DeleteFHIRDatastoreCommandInput,
@@ -101,9 +111,9 @@ export class HealthLake extends HealthLakeClient {
   }
 
   /**
-   * <p>Gets the properties associated with the FHIR datastore, including the datastore ID,
-   *          datastore ARN, datastore name, datastore status, created at, datastore type version, and
-   *          datastore endpoint.</p>
+   * <p>Gets the properties associated with the FHIR Data Store, including the Data Store ID,
+   *          Data Store ARN, Data Store name, Data Store status, created at, Data Store type version, and
+   *          Data Store endpoint.</p>
    */
   public describeFHIRDatastore(
     args: DescribeFHIRDatastoreCommandInput,
@@ -135,7 +145,39 @@ export class HealthLake extends HealthLakeClient {
   }
 
   /**
-   * <p>Displays the properties of a FHIR import job, including the ID, ARN, name, and the status of the datastore.</p>
+   * <p>Displays the properties of a FHIR export job, including the ID, ARN, name, and the status of the job.</p>
+   */
+  public describeFHIRExportJob(
+    args: DescribeFHIRExportJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeFHIRExportJobCommandOutput>;
+  public describeFHIRExportJob(
+    args: DescribeFHIRExportJobCommandInput,
+    cb: (err: any, data?: DescribeFHIRExportJobCommandOutput) => void
+  ): void;
+  public describeFHIRExportJob(
+    args: DescribeFHIRExportJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeFHIRExportJobCommandOutput) => void
+  ): void;
+  public describeFHIRExportJob(
+    args: DescribeFHIRExportJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFHIRExportJobCommandOutput) => void),
+    cb?: (err: any, data?: DescribeFHIRExportJobCommandOutput) => void
+  ): Promise<DescribeFHIRExportJobCommandOutput> | void {
+    const command = new DescribeFHIRExportJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Displays the properties of a FHIR import job, including the ID, ARN, name, and the status of the job.</p>
    */
   public describeFHIRImportJob(
     args: DescribeFHIRImportJobCommandInput,
@@ -167,7 +209,7 @@ export class HealthLake extends HealthLakeClient {
   }
 
   /**
-   * <p>Lists all FHIR datastores that are in the user’s account, regardless of datastore
+   * <p>Lists all FHIR Data Stores that are in the user’s account, regardless of Data Store
    *          status.</p>
    */
   public listFHIRDatastores(
@@ -189,6 +231,38 @@ export class HealthLake extends HealthLakeClient {
     cb?: (err: any, data?: ListFHIRDatastoresCommandOutput) => void
   ): Promise<ListFHIRDatastoresCommandOutput> | void {
     const command = new ListFHIRDatastoresCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Begins a FHIR export job.</p>
+   */
+  public startFHIRExportJob(
+    args: StartFHIRExportJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartFHIRExportJobCommandOutput>;
+  public startFHIRExportJob(
+    args: StartFHIRExportJobCommandInput,
+    cb: (err: any, data?: StartFHIRExportJobCommandOutput) => void
+  ): void;
+  public startFHIRExportJob(
+    args: StartFHIRExportJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartFHIRExportJobCommandOutput) => void
+  ): void;
+  public startFHIRExportJob(
+    args: StartFHIRExportJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartFHIRExportJobCommandOutput) => void),
+    cb?: (err: any, data?: StartFHIRExportJobCommandOutput) => void
+  ): Promise<StartFHIRExportJobCommandOutput> | void {
+    const command = new StartFHIRExportJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

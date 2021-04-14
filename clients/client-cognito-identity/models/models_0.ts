@@ -77,7 +77,7 @@ export interface CreateIdentityPoolInput {
   DeveloperProviderName?: string;
 
   /**
-   * <p>A list of OpendID Connect provider ARNs.</p>
+   * <p>The Amazon Resource Names (ARN) of the OpenID Connect providers.</p>
    */
   OpenIdConnectProviderARNs?: string[];
 
@@ -142,7 +142,7 @@ export interface IdentityPool {
   DeveloperProviderName?: string;
 
   /**
-   * <p>A list of OpendID Connect provider ARNs.</p>
+   * <p>The ARNs of the OpenID Connect providers.</p>
    */
   OpenIdConnectProviderARNs?: string[];
 
@@ -474,8 +474,8 @@ export interface GetCredentialsForIdentityInput {
    *          <p>Logins should not be specified when trying to get credentials for an unauthenticated
    *          identity.</p>
    *          <p>The Logins parameter is required when using identities associated with external
-   *          identity providers such as FaceBook. For examples of <code>Logins</code> maps, see the code
-   *          examples in the <a href="http://docs.aws.amazon.com/cognito/latest/developerguide/external-identity-providers.html">External Identity Providers</a> section of the Amazon Cognito Developer
+   *          identity providers such as Facebook. For examples of <code>Logins</code> maps, see the code
+   *          examples in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/external-identity-providers.html">External Identity Providers</a> section of the Amazon Cognito Developer
    *          Guide.</p>
    */
   Logins?: { [key: string]: string };
@@ -798,7 +798,7 @@ export interface GetOpenIdTokenInput {
    * <p>A set of optional name-value pairs that map provider names to provider tokens. When
    *          using graph.facebook.com and www.amazon.com, supply the access_token returned from the
    *          provider's authflow. For accounts.google.com, an Amazon Cognito user pool provider, or any
-   *          other OpenId Connect provider, always include the <code>id_token</code>.</p>
+   *          other OpenID Connect provider, always include the <code>id_token</code>.</p>
    */
   Logins?: { [key: string]: string };
 }
@@ -877,6 +877,11 @@ export interface GetOpenIdTokenForDeveloperIdentityInput {
   Logins: { [key: string]: string } | undefined;
 
   /**
+   * <p>Use this operation to configure attribute mappings for custom providers. </p>
+   */
+  PrincipalTags?: { [key: string]: string };
+
+  /**
    * <p>The expiration time of the token, in seconds. You can specify a custom expiration
    *          time for the token so that you can cache it. If you don't provide an expiration time, the
    *          token is valid for 15 minutes. You can exchange the token with Amazon STS for temporary AWS
@@ -915,6 +920,52 @@ export interface GetOpenIdTokenForDeveloperIdentityResponse {
 
 export namespace GetOpenIdTokenForDeveloperIdentityResponse {
   export const filterSensitiveLog = (obj: GetOpenIdTokenForDeveloperIdentityResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetPrincipalTagAttributeMapInput {
+  /**
+   * <p>You can use this operation to get the ID of the Identity Pool you setup attribute mappings for.</p>
+   */
+  IdentityPoolId: string | undefined;
+
+  /**
+   * <p>You can use this operation to get the provider name.</p>
+   */
+  IdentityProviderName: string | undefined;
+}
+
+export namespace GetPrincipalTagAttributeMapInput {
+  export const filterSensitiveLog = (obj: GetPrincipalTagAttributeMapInput): any => ({
+    ...obj,
+  });
+}
+
+export interface GetPrincipalTagAttributeMapResponse {
+  /**
+   * <p>You can use this operation to get the ID of the Identity Pool you setup attribute mappings for.</p>
+   */
+  IdentityPoolId?: string;
+
+  /**
+   * <p>You can use this operation to get the provider name.</p>
+   */
+  IdentityProviderName?: string;
+
+  /**
+   * <p>You can use this operation to list </p>
+   */
+  UseDefaults?: boolean;
+
+  /**
+   * <p>You can use this operation to add principal tags. The <code>PrincipalTags</code>operation enables you to reference user attributes in your IAM permissions policy.</p>
+   */
+  PrincipalTags?: { [key: string]: string };
+}
+
+export namespace GetPrincipalTagAttributeMapResponse {
+  export const filterSensitiveLog = (obj: GetPrincipalTagAttributeMapResponse): any => ({
     ...obj,
   });
 }
@@ -1235,7 +1286,7 @@ export interface SetIdentityPoolRolesInput {
    * <p>How users for a specific identity provider are to mapped to roles. This is a string
    *          to <a>RoleMapping</a> object map. The string identifies the identity provider,
    *          for example, "graph.facebook.com" or
-   *          "cognito-idp-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".</p>
+   *          "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".</p>
    *          <p>Up to 25 rules can be specified per identity provider.</p>
    */
   RoleMappings?: { [key: string]: RoleMapping };
@@ -1247,9 +1298,65 @@ export namespace SetIdentityPoolRolesInput {
   });
 }
 
+export interface SetPrincipalTagAttributeMapInput {
+  /**
+   * <p>The ID of the Identity Pool you want to set attribute mappings for.</p>
+   */
+  IdentityPoolId: string | undefined;
+
+  /**
+   * <p>The provider name you want to use for attribute mappings.</p>
+   */
+  IdentityProviderName: string | undefined;
+
+  /**
+   * <p>You can use this operation to use default (username and clientID) attribute mappings.</p>
+   */
+  UseDefaults?: boolean;
+
+  /**
+   * <p>You can use this operation to add principal tags.</p>
+   */
+  PrincipalTags?: { [key: string]: string };
+}
+
+export namespace SetPrincipalTagAttributeMapInput {
+  export const filterSensitiveLog = (obj: SetPrincipalTagAttributeMapInput): any => ({
+    ...obj,
+  });
+}
+
+export interface SetPrincipalTagAttributeMapResponse {
+  /**
+   * <p>The ID of the Identity Pool you want to set attribute mappings for.</p>
+   */
+  IdentityPoolId?: string;
+
+  /**
+   * <p>The provider name you want to use for attribute mappings.</p>
+   */
+  IdentityProviderName?: string;
+
+  /**
+   * <p>You can use this operation to select default (username and clientID) attribute mappings.</p>
+   */
+  UseDefaults?: boolean;
+
+  /**
+   * <p>You can use this operation to add principal tags. The <code>PrincipalTags</code>operation enables you to reference user attributes in your IAM permissions policy.</p>
+   */
+  PrincipalTags?: { [key: string]: string };
+}
+
+export namespace SetPrincipalTagAttributeMapResponse {
+  export const filterSensitiveLog = (obj: SetPrincipalTagAttributeMapResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface TagResourceInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the identity pool to assign the tags to.</p>
+   * <p>The Amazon Resource Name (ARN) of the identity pool.</p>
    */
   ResourceArn: string | undefined;
 
@@ -1333,8 +1440,7 @@ export namespace UnlinkIdentityInput {
 
 export interface UntagResourceInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the identity pool that the tags are assigned
-   *          to.</p>
+   * <p>The Amazon Resource Name (ARN) of the identity pool.</p>
    */
   ResourceArn: string | undefined;
 

@@ -25,7 +25,7 @@ export type DeleteInfrastructureConfigurationCommandOutput = DeleteInfrastructur
   __MetadataBearer;
 
 /**
- * <p> Deletes an infrastructure configuration. </p>
+ * <p> Deletes an infrastructure configuration.</p>
  */
 export class DeleteInfrastructureConfigurationCommand extends $Command<
   DeleteInfrastructureConfigurationCommandInput,

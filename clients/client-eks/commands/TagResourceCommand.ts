@@ -27,7 +27,7 @@ export type TagResourceCommandOutput = TagResourceResponse & __MetadataBearer;
  *             associated with that resource are deleted as well. Tags that you create for Amazon EKS
  *             resources do not propagate to any other resources associated with the cluster. For
  *             example, if you tag a cluster with this operation, that tag does not automatically
- *             propagate to the subnets and worker nodes associated with the cluster.</p>
+ *             propagate to the subnets and nodes associated with the cluster.</p>
  */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,

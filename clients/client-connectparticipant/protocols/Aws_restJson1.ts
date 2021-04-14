@@ -1,4 +1,8 @@
 import {
+  CompleteAttachmentUploadCommandInput,
+  CompleteAttachmentUploadCommandOutput,
+} from "../commands/CompleteAttachmentUploadCommand";
+import {
   CreateParticipantConnectionCommandInput,
   CreateParticipantConnectionCommandOutput,
 } from "../commands/CreateParticipantConnectionCommand";
@@ -6,17 +10,26 @@ import {
   DisconnectParticipantCommandInput,
   DisconnectParticipantCommandOutput,
 } from "../commands/DisconnectParticipantCommand";
+import { GetAttachmentCommandInput, GetAttachmentCommandOutput } from "../commands/GetAttachmentCommand";
 import { GetTranscriptCommandInput, GetTranscriptCommandOutput } from "../commands/GetTranscriptCommand";
 import { SendEventCommandInput, SendEventCommandOutput } from "../commands/SendEventCommand";
 import { SendMessageCommandInput, SendMessageCommandOutput } from "../commands/SendMessageCommand";
 import {
+  StartAttachmentUploadCommandInput,
+  StartAttachmentUploadCommandOutput,
+} from "../commands/StartAttachmentUploadCommand";
+import {
   AccessDeniedException,
+  AttachmentItem,
+  ConflictException,
   ConnectionCredentials,
   ConnectionType,
   InternalServerException,
   Item,
+  ServiceQuotaExceededException,
   StartPosition,
   ThrottlingException,
+  UploadMetadata,
   ValidationException,
   Websocket,
 } from "../models/models_0";
@@ -29,6 +42,35 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
+
+export const serializeAws_restJson1CompleteAttachmentUploadCommand = async (
+  input: CompleteAttachmentUploadCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+    ...(isSerializableHeaderValue(input.ConnectionToken) && { "x-amz-bearer": input.ConnectionToken! }),
+  };
+  let resolvedPath = "/participant/complete-attachment-upload";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AttachmentIds !== undefined &&
+      input.AttachmentIds !== null && {
+        AttachmentIds: serializeAws_restJson1AttachmentIdList(input.AttachmentIds, context),
+      }),
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
 
 export const serializeAws_restJson1CreateParticipantConnectionCommand = async (
   input: CreateParticipantConnectionCommandInput,
@@ -68,6 +110,31 @@ export const serializeAws_restJson1DisconnectParticipantCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetAttachmentCommand = async (
+  input: GetAttachmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+    ...(isSerializableHeaderValue(input.ConnectionToken) && { "x-amz-bearer": input.ConnectionToken! }),
+  };
+  let resolvedPath = "/participant/attachment";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AttachmentId !== undefined && input.AttachmentId !== null && { AttachmentId: input.AttachmentId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -166,6 +233,127 @@ export const serializeAws_restJson1SendMessageCommand = async (
     path: resolvedPath,
     body,
   });
+};
+
+export const serializeAws_restJson1StartAttachmentUploadCommand = async (
+  input: StartAttachmentUploadCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+    ...(isSerializableHeaderValue(input.ConnectionToken) && { "x-amz-bearer": input.ConnectionToken! }),
+  };
+  let resolvedPath = "/participant/start-attachment-upload";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AttachmentName !== undefined &&
+      input.AttachmentName !== null && { AttachmentName: input.AttachmentName }),
+    ...(input.AttachmentSizeInBytes !== undefined &&
+      input.AttachmentSizeInBytes !== null && { AttachmentSizeInBytes: input.AttachmentSizeInBytes }),
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.ContentType !== undefined && input.ContentType !== null && { ContentType: input.ContentType }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const deserializeAws_restJson1CompleteAttachmentUploadCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CompleteAttachmentUploadCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CompleteAttachmentUploadCommandError(output, context);
+  }
+  const contents: CompleteAttachmentUploadCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CompleteAttachmentUploadCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CompleteAttachmentUploadCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connectparticipant#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.connectparticipant#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.connectparticipant#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.connectparticipant#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.connectparticipant#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.connectparticipant#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CreateParticipantConnectionCommand = async (
@@ -269,6 +457,89 @@ const deserializeAws_restJson1DisconnectParticipantCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisconnectParticipantCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connectparticipant#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.connectparticipant#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.connectparticipant#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.connectparticipant#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1GetAttachmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAttachmentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetAttachmentCommandError(output, context);
+  }
+  const contents: GetAttachmentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Url: undefined,
+    UrlExpiry: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.Url !== undefined && data.Url !== null) {
+    contents.Url = data.Url;
+  }
+  if (data.UrlExpiry !== undefined && data.UrlExpiry !== null) {
+    contents.UrlExpiry = data.UrlExpiry;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetAttachmentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAttachmentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -579,12 +850,120 @@ const deserializeAws_restJson1SendMessageCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1StartAttachmentUploadCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartAttachmentUploadCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1StartAttachmentUploadCommandError(output, context);
+  }
+  const contents: StartAttachmentUploadCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    AttachmentId: undefined,
+    UploadMetadata: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.AttachmentId !== undefined && data.AttachmentId !== null) {
+    contents.AttachmentId = data.AttachmentId;
+  }
+  if (data.UploadMetadata !== undefined && data.UploadMetadata !== null) {
+    contents.UploadMetadata = deserializeAws_restJson1UploadMetadata(data.UploadMetadata, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1StartAttachmentUploadCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartAttachmentUploadCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connectparticipant#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.connectparticipant#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.connectparticipant#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.connectparticipant#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.connectparticipant#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const contents: AccessDeniedException = {
     name: "AccessDeniedException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    Message: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = data.Message;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ConflictExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ConflictException> => {
+  const contents: ConflictException = {
+    name: "ConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined,
@@ -603,6 +982,23 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   const contents: InternalServerException = {
     name: "InternalServerException",
     $fault: "server",
+    $metadata: deserializeMetadata(parsedOutput),
+    Message: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = data.Message;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServiceQuotaExceededException> => {
+  const contents: ServiceQuotaExceededException = {
+    name: "ServiceQuotaExceededException",
+    $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined,
   };
@@ -647,6 +1043,17 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return contents;
 };
 
+const serializeAws_restJson1AttachmentIdList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_restJson1ConnectionTypeList = (input: (ConnectionType | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -666,6 +1073,27 @@ const serializeAws_restJson1StartPosition = (input: StartPosition, context: __Se
   };
 };
 
+const deserializeAws_restJson1AttachmentItem = (output: any, context: __SerdeContext): AttachmentItem => {
+  return {
+    AttachmentId: output.AttachmentId !== undefined && output.AttachmentId !== null ? output.AttachmentId : undefined,
+    AttachmentName:
+      output.AttachmentName !== undefined && output.AttachmentName !== null ? output.AttachmentName : undefined,
+    ContentType: output.ContentType !== undefined && output.ContentType !== null ? output.ContentType : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Attachments = (output: any, context: __SerdeContext): AttachmentItem[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AttachmentItem(entry, context);
+    });
+};
+
 const deserializeAws_restJson1ConnectionCredentials = (output: any, context: __SerdeContext): ConnectionCredentials => {
   return {
     ConnectionToken:
@@ -677,6 +1105,10 @@ const deserializeAws_restJson1ConnectionCredentials = (output: any, context: __S
 const deserializeAws_restJson1Item = (output: any, context: __SerdeContext): Item => {
   return {
     AbsoluteTime: output.AbsoluteTime !== undefined && output.AbsoluteTime !== null ? output.AbsoluteTime : undefined,
+    Attachments:
+      output.Attachments !== undefined && output.Attachments !== null
+        ? deserializeAws_restJson1Attachments(output.Attachments, context)
+        : undefined,
     Content: output.Content !== undefined && output.Content !== null ? output.Content : undefined,
     ContentType: output.ContentType !== undefined && output.ContentType !== null ? output.ContentType : undefined,
     DisplayName: output.DisplayName !== undefined && output.DisplayName !== null ? output.DisplayName : undefined,
@@ -698,6 +1130,32 @@ const deserializeAws_restJson1Transcript = (output: any, context: __SerdeContext
       }
       return deserializeAws_restJson1Item(entry, context);
     });
+};
+
+const deserializeAws_restJson1UploadMetadata = (output: any, context: __SerdeContext): UploadMetadata => {
+  return {
+    HeadersToInclude:
+      output.HeadersToInclude !== undefined && output.HeadersToInclude !== null
+        ? deserializeAws_restJson1UploadMetadataSignedHeaders(output.HeadersToInclude, context)
+        : undefined,
+    Url: output.Url !== undefined && output.Url !== null ? output.Url : undefined,
+    UrlExpiry: output.UrlExpiry !== undefined && output.UrlExpiry !== null ? output.UrlExpiry : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1UploadMetadataSignedHeaders = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: string } => {
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1Websocket = (output: any, context: __SerdeContext): Websocket => {

@@ -20,7 +20,6 @@ export type TagUserCommandOutput = __MetadataBearer;
 /**
  * <p>Adds one or more tags to an IAM user. If a tag with the same key name already exists,
  *       then that tag is overwritten with the new value.</p>
- *
  *          <p>A tag consists of a key name and an associated value. By assigning tags to your
  *       resources, you can do the following:</p>
  *          <ul>
@@ -34,11 +33,11 @@ export type TagUserCommandOutput = __MetadataBearer;
  *             </li>
  *             <li>
  *                <p>
- *                   <b>Access control</b> - Reference tags in IAM
- *           user-based and resource-based policies. You can use tags to restrict access to only an
- *           IAM requesting user or to a role that has a specified tag attached. You can also
- *           restrict access to only those resources that have a certain tag attached. For examples of
- *           policies that show how to use tags to control access, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Control Access Using IAM Tags</a> in the
+ *                   <b>Access control</b> - Include tags in IAM user-based
+ *           and resource-based policies. You can use tags to restrict access to only an IAM
+ *           requesting user that has a specified tag attached. You can also restrict access to only
+ *           those resources that have a certain tag attached. For examples of policies that show how
+ *           to use tags to control access, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Control access using IAM tags</a> in the
  *             <i>IAM User Guide</i>.</p>
  *             </li>
  *             <li>
@@ -50,9 +49,9 @@ export type TagUserCommandOutput = __MetadataBearer;
  *          <note>
  *             <ul>
  *                <li>
- *                   <p>Make sure that you have no invalid tags and that you do not exceed the allowed
- *             number of tags per role. In either case, the entire request fails and
- *               <i>no</i> tags are added to the role.</p>
+ *                   <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request
+ *    fails and the resource is not created. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
+ *       <i>IAM User Guide</i>.</p>
  *                </li>
  *                <li>
  *                   <p>AWS always interprets the tag <code>Value</code> as a single string. If you
@@ -61,7 +60,7 @@ export type TagUserCommandOutput = __MetadataBearer;
  *                </li>
  *             </ul>
  *          </note>
- *          <p>For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM Identities</a> in the
+ *          <p>For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM identities</a> in the
  *         <i>IAM User Guide</i>.</p>
  */
 export class TagUserCommand extends $Command<TagUserCommandInput, TagUserCommandOutput, IAMClientResolvedConfig> {

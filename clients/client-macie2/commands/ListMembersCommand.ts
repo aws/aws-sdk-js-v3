@@ -21,7 +21,7 @@ export type ListMembersCommandInput = ListMembersRequest;
 export type ListMembersCommandOutput = ListMembersResponse & __MetadataBearer;
 
 /**
- * <p>Retrieves information about the accounts that are associated with an Amazon Macie master account.</p>
+ * <p>Retrieves information about the accounts that are associated with an Amazon Macie administrator account.</p>
  */
 export class ListMembersCommand extends $Command<
   ListMembersCommandInput,

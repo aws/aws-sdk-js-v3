@@ -1854,6 +1854,16 @@
         "smithy.api#documentation": "<p>Specifies a table definition in the AWS Glue Data Catalog.</p>"
       }
     },
+    "com.amazonaws.glue#CatalogGetterPageSize": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#box": {},
+        "smithy.api#range": {
+          "min": 1,
+          "max": 100
+        }
+      }
+    },
     "com.amazonaws.glue#CatalogIdString": {
       "type": "string",
       "traits": {
@@ -2249,6 +2259,38 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.glue#ColumnError"
+      }
+    },
+    "com.amazonaws.glue#ColumnImportance": {
+      "type": "structure",
+      "members": {
+        "ColumnName": {
+          "target": "com.amazonaws.glue#NameString",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of a column.</p>"
+          }
+        },
+        "Importance": {
+          "target": "com.amazonaws.glue#GenericBoundedDouble",
+          "traits": {
+            "smithy.api#documentation": "<p>The column importance score for the column, as a decimal.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A structure containing the column name and column importance score for a column. </p>\n\t\n\t        <p>Column importance helps you understand how columns contribute to your model, by identifying which columns in your records are more important than others.</p>"
+      }
+    },
+    "com.amazonaws.glue#ColumnImportanceList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.glue#ColumnImportance"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 100
+        }
       }
     },
     "com.amazonaws.glue#ColumnList": {
@@ -2688,7 +2730,7 @@
         "ConnectionProperties": {
           "target": "com.amazonaws.glue#ConnectionProperties",
           "traits": {
-            "smithy.api#documentation": "<p>These key-value pairs define parameters for the connection:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>HOST</code> - The host URI: either the\n        fully qualified domain name (FQDN) or the IPv4 address of\n        the database host.</p>\n            </li>\n            <li>\n               <p>\n                  <code>PORT</code> - The port number, between\n        1024 and 65535, of the port on which the database host is\n        listening for database connections.</p>\n            </li>\n            <li>\n               <p>\n                  <code>USER_NAME</code> -  The name under which\n        to log in to the database. The value string for <code>USER_NAME</code> is \"<code>USERNAME</code>\".</p>\n            </li>\n            <li>\n               <p>\n                  <code>PASSWORD</code> - A password,\n        if one is used, for the user name.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ENCRYPTED_PASSWORD</code> - When you enable connection password protection by setting <code>ConnectionPasswordEncryption</code> in the Data Catalog encryption settings, this field stores the encrypted password.</p>\n            </li>\n            <li>\n               <p>\n                  <code>JDBC_DRIVER_JAR_URI</code> - The Amazon Simple Storage Service (Amazon S3) path of the\n          JAR file that contains the JDBC driver to use.</p>\n            </li>\n            <li>\n               <p>\n                  <code>JDBC_DRIVER_CLASS_NAME</code> - The class name of the JDBC driver to use.</p>\n            </li>\n            <li>\n               <p>\n                  <code>JDBC_ENGINE</code> - The name of the JDBC engine to use.</p>\n            </li>\n            <li>\n               <p>\n                  <code>JDBC_ENGINE_VERSION</code> - The version of the JDBC engine to use.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CONFIG_FILES</code> - (Reserved for future use.)</p>\n            </li>\n            <li>\n               <p>\n                  <code>INSTANCE_ID</code> - The instance ID to use.</p>\n            </li>\n            <li>\n               <p>\n                  <code>JDBC_CONNECTION_URL</code> - The URL for connecting to a JDBC data source.</p>\n            </li>\n            <li>\n               <p>\n                  <code>JDBC_ENFORCE_SSL</code> - A Boolean string (true, false) specifying whether Secure\n          Sockets Layer (SSL) with hostname matching is enforced for the JDBC connection on the\n          client. The default is false.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CUSTOM_JDBC_CERT</code> - An Amazon S3 location specifying the customer's root certificate. AWS Glue uses this root certificate to validate the customer’s certificate when connecting to the customer database. AWS Glue only handles X.509 certificates. The certificate provided must be DER-encoded and supplied in Base64 encoding PEM format.</p>\n            </li>\n            <li>\n               <p>\n                  <code>SKIP_CUSTOM_JDBC_CERT_VALIDATION</code> - By default, this is <code>false</code>. AWS Glue validates the Signature algorithm and Subject Public Key Algorithm for the customer certificate. The only permitted algorithms for the Signature algorithm are SHA256withRSA, SHA384withRSA or SHA512withRSA. For the Subject Public Key Algorithm, the key length must be at least 2048. You can set the value of this property to <code>true</code> to skip AWS Glue’s validation of the customer certificate.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CUSTOM_JDBC_CERT_STRING</code> - A custom JDBC certificate string which is used for domain match or distinguished name match to prevent a man-in-the-middle attack. In Oracle database, this is used as the <code>SSL_SERVER_CERT_DN</code>; in Microsoft SQL Server, this is used as the <code>hostNameInCertificate</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CONNECTION_URL</code> - The URL for connecting to a general (non-JDBC) data source.</p>\n            </li>\n            <li>\n               <p>\n                  <code>KAFKA_BOOTSTRAP_SERVERS</code> - A comma-separated list of host and port pairs that are the addresses of the Apache Kafka brokers in a Kafka cluster to which a Kafka client will connect to and bootstrap itself.</p>\n            </li>\n            <li>\n               <p>\n                  <code>KAFKA_SSL_ENABLED</code> - Whether to enable or disable SSL on an Apache Kafka connection. Default value is \"true\".</p>\n            </li>\n            <li>\n               <p>\n                  <code>KAFKA_CUSTOM_CERT</code> - The Amazon S3 URL for the private CA cert file (.pem format). The default is an empty string.</p>\n            </li>\n            <li>\n               <p>\n                  <code>KAFKA_SKIP_CUSTOM_CERT_VALIDATION</code> - Whether to skip the validation of the CA cert file or not. AWS Glue validates for three algorithms: SHA256withRSA, SHA384withRSA and SHA512withRSA. Default value is \"false\".</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>These key-value pairs define parameters for the connection:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>HOST</code> - The host URI: either the\n        fully qualified domain name (FQDN) or the IPv4 address of\n        the database host.</p>\n            </li>\n            <li>\n               <p>\n                  <code>PORT</code> - The port number, between\n        1024 and 65535, of the port on which the database host is\n        listening for database connections.</p>\n            </li>\n            <li>\n               <p>\n                  <code>USER_NAME</code> -  The name under which\n        to log in to the database. The value string for <code>USER_NAME</code> is \"<code>USERNAME</code>\".</p>\n            </li>\n            <li>\n               <p>\n                  <code>PASSWORD</code> - A password,\n        if one is used, for the user name.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ENCRYPTED_PASSWORD</code> - When you enable connection password protection by setting <code>ConnectionPasswordEncryption</code> in the Data Catalog encryption settings, this field stores the encrypted password.</p>\n            </li>\n            <li>\n               <p>\n                  <code>JDBC_DRIVER_JAR_URI</code> - The Amazon Simple Storage Service (Amazon S3) path of the\n          JAR file that contains the JDBC driver to use.</p>\n            </li>\n            <li>\n               <p>\n                  <code>JDBC_DRIVER_CLASS_NAME</code> - The class name of the JDBC driver to use.</p>\n            </li>\n            <li>\n               <p>\n                  <code>JDBC_ENGINE</code> - The name of the JDBC engine to use.</p>\n            </li>\n            <li>\n               <p>\n                  <code>JDBC_ENGINE_VERSION</code> - The version of the JDBC engine to use.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CONFIG_FILES</code> - (Reserved for future use.)</p>\n            </li>\n            <li>\n               <p>\n                  <code>INSTANCE_ID</code> - The instance ID to use.</p>\n            </li>\n            <li>\n               <p>\n                  <code>JDBC_CONNECTION_URL</code> - The URL for connecting to a JDBC data source.</p>\n            </li>\n            <li>\n               <p>\n                  <code>JDBC_ENFORCE_SSL</code> - A Boolean string (true, false) specifying whether Secure\n          Sockets Layer (SSL) with hostname matching is enforced for the JDBC connection on the\n          client. The default is false.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CUSTOM_JDBC_CERT</code> - An Amazon S3 location specifying the customer's root certificate. AWS Glue uses this root certificate to validate the customer’s certificate when connecting to the customer database. AWS Glue only handles X.509 certificates. The certificate provided must be DER-encoded and supplied in Base64 encoding PEM format.</p>\n            </li>\n            <li>\n               <p>\n                  <code>SKIP_CUSTOM_JDBC_CERT_VALIDATION</code> - By default, this is <code>false</code>. AWS Glue validates the Signature algorithm and Subject Public Key Algorithm for the customer certificate. The only permitted algorithms for the Signature algorithm are SHA256withRSA, SHA384withRSA or SHA512withRSA. For the Subject Public Key Algorithm, the key length must be at least 2048. You can set the value of this property to <code>true</code> to skip AWS Glue’s validation of the customer certificate.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CUSTOM_JDBC_CERT_STRING</code> - A custom JDBC certificate string which is used for domain match or distinguished name match to prevent a man-in-the-middle attack. In Oracle database, this is used as the <code>SSL_SERVER_CERT_DN</code>; in Microsoft SQL Server, this is used as the <code>hostNameInCertificate</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CONNECTION_URL</code> - The URL for connecting to a general (non-JDBC) data source.</p>\n            </li>\n            <li>\n               <p>\n                  <code>KAFKA_BOOTSTRAP_SERVERS</code> - A comma-separated list of host and port pairs that are the addresses of the Apache Kafka brokers in a Kafka cluster to which a Kafka client will connect to and bootstrap itself.</p>\n            </li>\n            <li>\n               <p>\n                  <code>KAFKA_SSL_ENABLED</code> - Whether to enable or disable SSL on an Apache Kafka connection. Default value is \"true\".</p>\n            </li>\n            <li>\n               <p>\n                  <code>KAFKA_CUSTOM_CERT</code> - The Amazon S3 URL for the private CA cert file (.pem format). The default is an empty string.</p>\n            </li>\n            <li>\n               <p>\n                  <code>KAFKA_SKIP_CUSTOM_CERT_VALIDATION</code> - Whether to skip the validation of the CA cert file or not. AWS Glue validates for three algorithms: SHA256withRSA, SHA384withRSA and SHA512withRSA. Default value is \"false\".</p>\n            </li>\n            <li>\n               <p>\n                  <code>SECRET_ID</code> - The secret ID used for the secret manager of credentials.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CONNECTOR_URL</code> - The connector URL for a MARKETPLACE or CUSTOM connection.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CONNECTOR_TYPE</code> - The connector type for a MARKETPLACE or CUSTOM connection.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CONNECTOR_CLASS_NAME</code> - The connector class name for a MARKETPLACE or CUSTOM connection.</p>\n            </li>\n         </ul>"
           }
         },
         "PhysicalConnectionRequirements": {
@@ -2739,7 +2781,7 @@
         "ConnectionType": {
           "target": "com.amazonaws.glue#ConnectionType",
           "traits": {
-            "smithy.api#documentation": "<p>The type of the connection. Currently, these types are supported:</p>\n\t        <ul>\n            <li>\n               <p>\n                  <code>JDBC</code> - Designates a connection to a database through Java Database Connectivity (JDBC).</p>\n            </li>\n            <li>\n               <p>\n                  <code>KAFKA</code> - Designates a connection to an Apache Kafka streaming platform.</p>\n            </li>\n            <li>\n               <p>\n                  <code>MONGODB</code> - Designates a connection to a MongoDB document database.</p>\n            </li>\n            <li>\n               <p>\n                  <code>NETWORK</code> - Designates a network connection to a data source within an Amazon Virtual Private Cloud environment (Amazon VPC).</p>\n            </li>\n         </ul>\n         <p>SFTP is not supported.</p>",
+            "smithy.api#documentation": "<p>The type of the connection. Currently, these types are supported:</p>\n\t        <ul>\n            <li>\n               <p>\n                  <code>JDBC</code> - Designates a connection to a database through Java Database Connectivity (JDBC).</p>\n            </li>\n            <li>\n               <p>\n                  <code>KAFKA</code> - Designates a connection to an Apache Kafka streaming platform.</p>\n            </li>\n            <li>\n               <p>\n                  <code>MONGODB</code> - Designates a connection to a MongoDB document database.</p>\n            </li>\n            <li>\n               <p>\n                  <code>NETWORK</code> - Designates a network connection to a data source within an Amazon Virtual Private Cloud environment (Amazon VPC).</p>\n            </li>\n            <li>\n               <p>\n                  <code>MARKETPLACE</code> - Uses configuration settings contained in a connector purchased from AWS Marketplace to read from and write to data stores that are not natively supported by AWS Glue.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CUSTOM</code> - Uses configuration settings contained in a custom connector to read from and write to data stores that are not natively supported by AWS Glue.</p>\n            </li>\n         </ul>\n         <p>SFTP is not supported.</p>",
             "smithy.api#required": {}
           }
         },
@@ -2899,6 +2941,22 @@
           {
             "value": "KAFKA_SKIP_CUSTOM_CERT_VALIDATION",
             "name": "KAFKA_SKIP_CUSTOM_CERT_VALIDATION"
+          },
+          {
+            "value": "SECRET_ID",
+            "name": "SECRET_ID"
+          },
+          {
+            "value": "CONNECTOR_URL",
+            "name": "CONNECTOR_URL"
+          },
+          {
+            "value": "CONNECTOR_TYPE",
+            "name": "CONNECTOR_TYPE"
+          },
+          {
+            "value": "CONNECTOR_CLASS_NAME",
+            "name": "CONNECTOR_CLASS_NAME"
           }
         ]
       }
@@ -2926,6 +2984,14 @@
           {
             "value": "NETWORK",
             "name": "NETWORK"
+          },
+          {
+            "value": "MARKETPLACE",
+            "name": "MARKETPLACE"
+          },
+          {
+            "value": "CUSTOM",
+            "name": "CUSTOM"
           }
         ]
       }
@@ -7317,6 +7383,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The confusion matrix shows you what your transform is predicting accurately and what types of errors it is making.</p>\n\t        <p>For more information, see <a href=\"https://en.wikipedia.org/wiki/Confusion_matrix\">Confusion matrix</a> in Wikipedia.</p>"
           }
+        },
+        "ColumnImportances": {
+          "target": "com.amazonaws.glue#ColumnImportanceList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of <code>ColumnImportance</code> structures containing column importance metrics, sorted in order of descending importance.</p>"
+          }
         }
       },
       "traits": {
@@ -8204,7 +8276,7 @@
           }
         },
         "MaxResults": {
-          "target": "com.amazonaws.glue#PageSize",
+          "target": "com.amazonaws.glue#CatalogGetterPageSize",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of databases to return in one response.</p>"
           }
@@ -9431,6 +9503,9 @@
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of partitions to return in a single response.</p>"
           }
+        },
+        "ExcludeColumnSchema": {
+          "target": "com.amazonaws.glue#BooleanNullable"
         }
       }
     },
@@ -9636,7 +9711,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Retrieves the security configurations for the resource policies set on individual resources, and also the account-level policy.</p>\n\t\n\t        <p>This operation also returns the Data Catalog resource policy. However, if you enabled metadata encryption in Data Catalog settings, and you do not have permission on the AWS KMS key, the operation can't return the Data Catalog resource policy.</p>",
+        "smithy.api#documentation": "<p>Retrieves the resource policies set on individual resources by AWS Resource Access Manager\n      during cross-account permission grants. Also retrieves the Data Catalog resource\n      policy.</p>\n         <p>If you enabled metadata encryption in Data Catalog settings, and you do not have\n      permission on the AWS KMS key, the operation can't return the Data Catalog resource\n      policy.</p>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -9717,7 +9792,7 @@
         "ResourceArn": {
           "target": "com.amazonaws.glue#GlueResourceArn",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the AWS Glue resource for the resource policy to be retrieved. For more\n      information about AWS Glue resource ARNs, see the <a href=\"https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-aws-glue-arn-id\">AWS Glue ARN string pattern</a>\n         </p>"
+            "smithy.api#documentation": "<p>The ARN of the AWS Glue resource for which to retrieve the resource policy. If not\n      supplied, the Data Catalog resource policy is returned. Use <code>GetResourcePolicies</code>\n      to view all existing resource policies. For more information see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/glue-specifying-resource-arns.html\">Specifying AWS Glue Resource ARNs</a>.\n    </p>"
           }
         }
       }
@@ -10439,7 +10514,7 @@
           }
         },
         "MaxResults": {
-          "target": "com.amazonaws.glue#PageSize",
+          "target": "com.amazonaws.glue#CatalogGetterPageSize",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of table versions to return in one response.</p>"
           }
@@ -10526,7 +10601,7 @@
           }
         },
         "MaxResults": {
-          "target": "com.amazonaws.glue#PageSize",
+          "target": "com.amazonaws.glue#CatalogGetterPageSize",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of tables to return in a single response.</p>"
           }
@@ -10847,7 +10922,7 @@
           }
         },
         "MaxResults": {
-          "target": "com.amazonaws.glue#PageSize",
+          "target": "com.amazonaws.glue#CatalogGetterPageSize",
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of functions to return in one response.</p>"
           }
@@ -13325,6 +13400,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The time at which the entry was created.</p>"
           }
+        },
+        "OtherMetadataValueList": {
+          "target": "com.amazonaws.glue#OtherMetadataValueList",
+          "traits": {
+            "smithy.api#documentation": "<p>Other metadata belonging to the same metadata key.</p>"
+          }
         }
       },
       "traits": {
@@ -13639,6 +13720,32 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.glue#Order"
+      }
+    },
+    "com.amazonaws.glue#OtherMetadataValueList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.glue#OtherMetadataValueListItem"
+      }
+    },
+    "com.amazonaws.glue#OtherMetadataValueListItem": {
+      "type": "structure",
+      "members": {
+        "MetadataValue": {
+          "target": "com.amazonaws.glue#MetadataValueString",
+          "traits": {
+            "smithy.api#documentation": "<p>The metadata key’s corresponding value for the other metadata belonging to the same metadata key.</p>"
+          }
+        },
+        "CreatedTime": {
+          "target": "com.amazonaws.glue#CreatedTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time at which the entry was created.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A structure containing other metadata for a schema version belonging to the same metadata key.</p>"
       }
     },
     "com.amazonaws.glue#PageSize": {
@@ -14248,7 +14355,7 @@
         "ResourceArn": {
           "target": "com.amazonaws.glue#GlueResourceArn",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the AWS Glue resource for the resource policy to be set. For more\n      information about AWS Glue resource ARNs, see the <a href=\"https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-aws-glue-arn-id\">AWS Glue ARN string pattern</a>\n         </p>"
+            "smithy.api#documentation": "<p>Do not use. For internal use only.</p>"
           }
         },
         "PolicyHashCondition": {
@@ -14260,13 +14367,13 @@
         "PolicyExistsCondition": {
           "target": "com.amazonaws.glue#ExistCondition",
           "traits": {
-            "smithy.api#documentation": "<p>A value of <code>MUST_EXIST</code> is used to update a policy. A value of\n        <code>NOT_EXIST</code> is used to create a new policy. If a value of <code>NONE</code> or a\n      null value is used, the call will not depend on the existence of a policy.</p>"
+            "smithy.api#documentation": "<p>A value of <code>MUST_EXIST</code> is used to update a policy. A value of\n        <code>NOT_EXIST</code> is used to create a new policy. If a value of <code>NONE</code> or a\n      null value is used, the call does not depend on the existence of a policy.</p>"
           }
         },
         "EnableHybrid": {
           "target": "com.amazonaws.glue#EnableHybridValues",
           "traits": {
-            "smithy.api#documentation": "<p>Allows you to specify if you want to use both resource-level and account/catalog-level resource policies. A resource-level policy is a policy attached to an individual resource such as a database or a table.</p>\n\t\n\t        <p>The default value of <code>NO</code> indicates that resource-level policies cannot co-exist with an account-level policy. A value of <code>YES</code> means the use of both resource-level and account/catalog-level resource policies is allowed.</p>"
+            "smithy.api#documentation": "<p>If <code>'TRUE'</code>, indicates that you are using both methods to grant cross-account\n      access to Data Catalog resources:</p>\n         <ul>\n            <li>\n               <p>By directly updating the resource policy with <code>PutResourePolicy</code>\n               </p>\n            </li>\n            <li>\n               <p>By using the <b>Grant permissions</b> command on the AWS\n          Management Console.</p>\n            </li>\n         </ul>\n         <p>Must be set to <code>'TRUE'</code> if you have already used the Management Console to\n      grant cross-account access, otherwise the call fails. Default is 'FALSE'.</p>"
           }
         }
       }
@@ -15344,14 +15451,26 @@
       "type": "structure",
       "members": {
         "SchemaArn": {
-          "target": "com.amazonaws.glue#GlueResourceArn"
+          "target": "com.amazonaws.glue#GlueResourceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p>"
+          }
         },
         "SchemaName": {
-          "target": "com.amazonaws.glue#SchemaRegistryNameString"
+          "target": "com.amazonaws.glue#SchemaRegistryNameString",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p>"
+          }
         },
         "RegistryName": {
-          "target": "com.amazonaws.glue#SchemaRegistryNameString"
+          "target": "com.amazonaws.glue#SchemaRegistryNameString",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the schema registry that contains the schema.</p>"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The unique ID of the schema in the AWS Glue schema registry.</p>"
       }
     },
     "com.amazonaws.glue#SchemaListDefinition": {
@@ -15447,7 +15566,7 @@
           "min": 1,
           "max": 255
         },
-        "smithy.api#pattern": "[a-zA-Z0-9-_$#]+"
+        "smithy.api#pattern": "[a-zA-Z0-9-_$#.]+"
       }
     },
     "com.amazonaws.glue#SchemaRegistryTokenString": {
@@ -15565,11 +15684,20 @@
       "type": "structure",
       "members": {
         "LatestVersion": {
-          "target": "com.amazonaws.glue#LatestSchemaVersionBoolean"
+          "target": "com.amazonaws.glue#LatestSchemaVersionBoolean",
+          "traits": {
+            "smithy.api#documentation": "<p>The latest version available for the schema.</p>"
+          }
         },
         "VersionNumber": {
-          "target": "com.amazonaws.glue#VersionLongNumber"
+          "target": "com.amazonaws.glue#VersionLongNumber",
+          "traits": {
+            "smithy.api#documentation": "<p>The version number of the schema.</p>"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A structure containing the schema version information.</p>"
       }
     },
     "com.amazonaws.glue#SchemaVersionStatus": {
@@ -19489,13 +19617,16 @@
       "traits": {
         "smithy.api#enum": [
           {
-            "value": "Standard"
+            "value": "Standard",
+            "name": "Standard"
           },
           {
-            "value": "G.1X"
+            "value": "G.1X",
+            "name": "G_1X"
           },
           {
-            "value": "G.2X"
+            "value": "G.2X",
+            "name": "G_2X"
           }
         ]
       }

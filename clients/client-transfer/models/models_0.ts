@@ -33,6 +33,11 @@ export namespace ConflictException {
   });
 }
 
+export enum Domain {
+  EFS = "EFS",
+  S3 = "S3",
+}
+
 /**
  * <p>The virtual private cloud (VPC) endpoint settings that are configured for your file
  *       transfer protocol-enabled server. With a VPC endpoint, you can restrict access to your server
@@ -214,6 +219,7 @@ export interface CreateServerRequest {
    */
   Certificate?: string;
 
+  Domain?: Domain | string;
   /**
    * <p>The virtual private cloud (VPC) endpoint settings that are configured for your server.
    *       When you host your endpoint within your VPC, you can make it accessible only to resources
@@ -456,6 +462,18 @@ export enum HomeDirectoryType {
   PATH = "PATH",
 }
 
+export interface PosixProfile {
+  Uid: number | undefined;
+  Gid: number | undefined;
+  SecondaryGids?: number[];
+}
+
+export namespace PosixProfile {
+  export const filterSensitiveLog = (obj: PosixProfile): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateUserRequest {
   /**
    * <p>The landing directory (folder) for a user when they log in to the server using the
@@ -531,6 +549,7 @@ export interface CreateUserRequest {
    */
   Policy?: string;
 
+  PosixProfile?: PosixProfile;
   /**
    * <p>The IAM role that controls your users' access to your Amazon S3 bucket. The policies
    *       attached to this role will determine the level of access you want to provide your users when
@@ -739,6 +758,7 @@ export interface DescribedServer {
    */
   Certificate?: string;
 
+  Domain?: Domain | string;
   /**
    * <p>Specifies the virtual private cloud (VPC) endpoint settings that you configured for your
    *       server.</p>
@@ -926,6 +946,7 @@ export interface DescribedUser {
    */
   Policy?: string;
 
+  PosixProfile?: PosixProfile;
   /**
    * <p>Specifies the IAM role that controls your users' access to your Amazon S3 bucket. The
    *       policies attached to this role will determine the level of access you want to provide your
@@ -1127,6 +1148,7 @@ export interface ListedServer {
    */
   Arn: string | undefined;
 
+  Domain?: Domain | string;
   /**
    * <p>Specifies the authentication method used to validate a user for a server that was
    *       specified. This can include Secure Shell (SSH), user name and password combinations, or your
@@ -1799,6 +1821,7 @@ export interface UpdateUserRequest {
    */
   Policy?: string;
 
+  PosixProfile?: PosixProfile;
   /**
    * <p>The IAM role that controls your users' access to your Amazon S3 bucket. The policies
    *       attached to this role will determine the level of access you want to provide your users when

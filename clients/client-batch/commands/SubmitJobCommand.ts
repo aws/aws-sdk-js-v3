@@ -21,13 +21,15 @@ export type SubmitJobCommandInput = SubmitJobRequest;
 export type SubmitJobCommandOutput = SubmitJobResponse & __MetadataBearer;
 
 /**
- * <p>Submits an AWS Batch job from a job definition. Parameters specified during <a>SubmitJob</a> override
- *    parameters defined in the job definition.</p>
+ * <p>Submits an AWS Batch job from a job definition. Parameters that are specified during <a>SubmitJob</a>
+ *    override parameters defined in the job definition. vCPU and memory requirements that are specified in the
+ *     <code>ResourceRequirements</code> objects in the job definition are the exception. They can't be overridden this way
+ *    using the <code>memory</code> and <code>vcpus</code> parameters. Rather, you must specify updates to job definition
+ *    parameters in a <code>ResourceRequirements</code> object that's included in the <code>containerOverrides</code>
+ *    parameter.</p>
  *          <important>
- *             <p>Jobs run on Fargate resources
- *     don't
- *     run for more than 14 days. After 14 days, the Fargate resources might no longer be available and the job is
- *     terminated.</p>
+ *             <p>Jobs that run on Fargate resources can't be guaranteed to run for more than 14 days. This is because, after 14
+ *     days, Fargate resources might become unavailable and job might be terminated.</p>
  *          </important>
  */
 export class SubmitJobCommand extends $Command<

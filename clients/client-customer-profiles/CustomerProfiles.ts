@@ -131,15 +131,15 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <fullname>Amazon Connect Customer Profiles</fullname>
- *          <p>Welcome to the Amazon Connect Customer Profiles API Reference. This guide provides
- *          information about the Amazon Connect Customer Profiles API, including supported operations,
- *          data types, parameters, and schemas.</p>
- *          <p>Amazon Connect Customer Profiles is a unified customer profile for your contact center
- *          that has pre-built connectors powered by AppFlow that make it easy to combine customer
- *          information from third party applications, such as Salesforce (CRM), ServiceNow (ITSM), and
- *          your enterprise resource planning (ERP), with contact history from your Amazon Connect
- *          contact center.</p>
- *          <p>If you're new to Amazon Connect, you might find it helpful to also review the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/what-is-amazon-connect.html">Amazon Connect Administrator Guide</a>.</p>
+ *          <p>Welcome to the Amazon Connect Customer Profiles API Reference. This guide provides information
+ *          about the Amazon Connect Customer Profiles API, including supported operations, data types,
+ *          parameters, and schemas.</p>
+ *          <p>Amazon Connect Customer Profiles is a unified customer profile for your contact center that has
+ *          pre-built connectors powered by AppFlow that make it easy to combine customer information
+ *          from third party applications, such as Salesforce (CRM), ServiceNow (ITSM), and your
+ *          enterprise resource planning (ERP), with contact history from your Amazon Connect contact
+ *          center.</p>
+ *          <p>If you're new to Amazon Connect , you might find it helpful to also review the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/what-is-amazon-connect.html">Amazon Connect Administrator Guide</a>.</p>
  */
 export class CustomerProfiles extends CustomerProfilesClient {
   /**
@@ -181,8 +181,8 @@ export class CustomerProfiles extends CustomerProfilesClient {
    * <p>Creates a domain, which is a container for all customer data, such as customer profile
    *          attributes, object types, profile keys, and encryption keys. You can create multiple
    *          domains, and each domain can have multiple third-party integrations.</p>
-   *          <p>Each Amazon Connect instance can be associated with only one domain. Multiple Amazon
-   *          Connect instances can be associated with one domain.</p>
+   *          <p>Each Amazon Connect instance can be associated with only one domain. Multiple Amazon Connect instances can
+   *          be associated with one domain.</p>
    */
   public createDomain(
     args: CreateDomainCommandInput,
@@ -750,9 +750,8 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
-   * <p>Displays the tags associated with an Amazon Connect Customer Profiles resource. In
-   *          Connect Customer Profiles, domains, profile object types, and integrations can be
-   *          tagged.</p>
+   * <p>Displays the tags associated with an Amazon Connect Customer Profiles resource. In Connect
+   *          Customer Profiles, domains, profile object types, and integrations can be tagged.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -784,8 +783,8 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
-   * <p>Adds an integration between the service and a third-party service, which includes Amazon
-   *          AppFlow and Amazon Connect.</p>
+   * <p>Adds an integration between the service and a third-party service, which includes
+   *          Amazon AppFlow and Amazon Connect.</p>
    *          <p>An integration can belong to only one domain.</p>
    */
   public putIntegration(
@@ -924,11 +923,11 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
-   * <p>Assigns one or more tags (key-value pairs) to the specified Amazon Connect Customer
-   *          Profiles resource. Tags can help you organize and categorize your resources. You can also
-   *          use them to scope user permissions by granting a user permission to access or change only
-   *          resources with certain tag values. In Connect Customer Profiles, domains, profile object
-   *          types, and integrations can be tagged.</p>
+   * <p>Assigns one or more tags (key-value pairs) to the specified Amazon Connect Customer Profiles
+   *          resource. Tags can help you organize and categorize your resources. You can also use them
+   *          to scope user permissions by granting a user permission to access or change only resources
+   *          with certain tag values. In Connect Customer Profiles, domains, profile object types, and
+   *          integrations can be tagged.</p>
    *          <p>Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of
    *          characters.</p>
    *          <p>You can use the TagResource action with a resource that already has tags. If you specify
@@ -961,9 +960,8 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
-   * <p>Removes one or more tags from the specified Amazon Connect Customer Profiles resource.
-   *          In Connect Customer Profiles, domains, profile object types, and integrations can be
-   *          tagged.</p>
+   * <p>Removes one or more tags from the specified Amazon Connect Customer Profiles resource. In Connect
+   *          Customer Profiles, domains, profile object types, and integrations can be tagged.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,

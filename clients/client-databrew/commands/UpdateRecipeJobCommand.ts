@@ -21,8 +21,7 @@ export type UpdateRecipeJobCommandInput = UpdateRecipeJobRequest;
 export type UpdateRecipeJobCommandOutput = UpdateRecipeJobResponse & __MetadataBearer;
 
 /**
- * <p>Modifies the definition of an existing AWS Glue DataBrew recipe job in the current AWS
- *             account.</p>
+ * <p>Modifies the definition of an existing DataBrew recipe job.</p>
  */
 export class UpdateRecipeJobCommand extends $Command<
   UpdateRecipeJobCommandInput,

@@ -25,8 +25,8 @@ export type SetSecurityGroupsCommandInput = SetSecurityGroupsInput;
 export type SetSecurityGroupsCommandOutput = SetSecurityGroupsOutput & __MetadataBearer;
 
 /**
- * <p>Associates the specified security groups with the specified Application Load Balancer.
- *       The specified security groups override the previously associated security groups.</p>
+ * <p>Associates the specified security groups with the specified Application Load Balancer. The
+ *       specified security groups override the previously associated security groups.</p>
  *          <p>You can't specify a security group for a Network Load Balancer or Gateway Load
  *       Balancer.</p>
  */

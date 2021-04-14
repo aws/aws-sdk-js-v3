@@ -41,6 +41,7 @@ export async function* paginateListPipelines(
   let page: ListPipelinesCommandOutput;
   while (hasNext) {
     input.nextToken = token;
+    input["maxResults"] = config.pageSize;
     if (config.client instanceof CodePipeline) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
     } else if (config.client instanceof CodePipelineClient) {

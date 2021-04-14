@@ -70,6 +70,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { StopResourceCommandInput, StopResourceCommandOutput } from "./commands/StopResourceCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateDatasetGroupCommandInput, UpdateDatasetGroupCommandOutput } from "./commands/UpdateDatasetGroupCommand";
@@ -155,6 +156,7 @@ export type ServiceInputTypes =
   | ListPredictorBacktestExportJobsCommandInput
   | ListPredictorsCommandInput
   | ListTagsForResourceCommandInput
+  | StopResourceCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateDatasetGroupCommandInput;
@@ -190,6 +192,7 @@ export type ServiceOutputTypes =
   | ListPredictorBacktestExportJobsCommandOutput
   | ListPredictorsCommandOutput
   | ListTagsForResourceCommandOutput
+  | StopResourceCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateDatasetGroupCommandOutput;

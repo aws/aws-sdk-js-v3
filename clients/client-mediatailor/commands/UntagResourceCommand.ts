@@ -21,7 +21,7 @@ export type UntagResourceCommandInput = UntagResourceRequest;
 export type UntagResourceCommandOutput = __MetadataBearer;
 
 /**
- * <p>Removes tags from the specified playback configuration resource. You can specify one or more tags to remove. </p>
+ * <p>Removes tags from the specified playback configuration resource. You can specify one or more tags to remove.</p>
  */
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,

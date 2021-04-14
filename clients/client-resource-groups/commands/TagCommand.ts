@@ -26,6 +26,17 @@ export type TagCommandOutput = TagOutput & __MetadataBearer;
  *                 administration services. Tags are not intended to be used for private or sensitive
  *                 data.</p>
  *         </important>
+ *          <p>
+ *             <b>Minimum permissions</b>
+ *          </p>
+ *          <p>To run this command, you must have the following permissions:</p>
+ *          <ul>
+ *             <li>
+ *                 <p>
+ *                   <code>resource-groups:Tag</code>
+ *                </p>
+ *             </li>
+ *          </ul>
  */
 export class TagCommand extends $Command<TagCommandInput, TagCommandOutput, ResourceGroupsClientResolvedConfig> {
   // Start section: command_properties

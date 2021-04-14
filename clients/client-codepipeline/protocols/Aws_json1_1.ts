@@ -26,6 +26,7 @@ import {
   EnableStageTransitionCommandInput,
   EnableStageTransitionCommandOutput,
 } from "../commands/EnableStageTransitionCommand";
+import { GetActionTypeCommandInput, GetActionTypeCommandOutput } from "../commands/GetActionTypeCommand";
 import { GetJobDetailsCommandInput, GetJobDetailsCommandOutput } from "../commands/GetJobDetailsCommand";
 import { GetPipelineCommandInput, GetPipelineCommandOutput } from "../commands/GetPipelineCommand";
 import {
@@ -94,6 +95,7 @@ import {
 } from "../commands/StopPipelineExecutionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { UpdateActionTypeCommandInput, UpdateActionTypeCommandOutput } from "../commands/UpdateActionTypeCommand";
 import { UpdatePipelineCommandInput, UpdatePipelineCommandOutput } from "../commands/UpdatePipelineCommand";
 import {
   AWSSessionCredentials,
@@ -115,9 +117,16 @@ import {
   ActionRevision,
   ActionState,
   ActionType,
+  ActionTypeArtifactDetails,
+  ActionTypeDeclaration,
+  ActionTypeExecutor,
   ActionTypeId,
+  ActionTypeIdentifier,
   ActionTypeNotFoundException,
+  ActionTypePermissions,
+  ActionTypeProperty,
   ActionTypeSettings,
+  ActionTypeUrls,
   ApprovalAlreadyCompletedException,
   ApprovalResult,
   Artifact,
@@ -147,7 +156,10 @@ import {
   ErrorDetails,
   ExecutionDetails,
   ExecutionTrigger,
+  ExecutorConfiguration,
   FailureDetails,
+  GetActionTypeInput,
+  GetActionTypeOutput,
   GetJobDetailsInput,
   GetJobDetailsOutput,
   GetPipelineExecutionInput,
@@ -177,6 +189,8 @@ import {
   JobData,
   JobDetails,
   JobNotFoundException,
+  JobWorkerExecutorConfiguration,
+  LambdaExecutorConfiguration,
   LimitExceededException,
   ListActionExecutionsInput,
   ListActionExecutionsOutput,
@@ -221,6 +235,7 @@ import {
   PutWebhookOutput,
   RegisterWebhookWithThirdPartyInput,
   RegisterWebhookWithThirdPartyOutput,
+  RequestFailedException,
   ResourceNotFoundException,
   RetryStageExecutionInput,
   RetryStageExecutionOutput,
@@ -248,6 +263,7 @@ import {
   TransitionState,
   UntagResourceInput,
   UntagResourceOutput,
+  UpdateActionTypeInput,
   UpdatePipelineInput,
   UpdatePipelineOutput,
   ValidationException,
@@ -394,6 +410,19 @@ export const serializeAws_json1_1EnableStageTransitionCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1EnableStageTransitionInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetActionTypeCommand = async (
+  input: GetActionTypeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "CodePipeline_20150709.GetActionType",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetActionTypeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -732,6 +761,19 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UntagResourceInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateActionTypeCommand = async (
+  input: UpdateActionTypeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "CodePipeline_20150709.UpdateActionType",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateActionTypeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1455,6 +1497,68 @@ const deserializeAws_json1_1EnableStageTransitionCommandError = async (
     case "com.amazonaws.codepipeline#StageNotFoundException":
       response = {
         ...(await deserializeAws_json1_1StageNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.codepipeline#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1GetActionTypeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetActionTypeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetActionTypeCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetActionTypeOutput(data, context);
+  const response: GetActionTypeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetActionTypeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetActionTypeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ActionTypeNotFoundException":
+    case "com.amazonaws.codepipeline#ActionTypeNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ActionTypeNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3428,6 +3532,73 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1UpdateActionTypeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateActionTypeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateActionTypeCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: UpdateActionTypeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateActionTypeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateActionTypeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ActionTypeNotFoundException":
+    case "com.amazonaws.codepipeline#ActionTypeNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ActionTypeNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "RequestFailedException":
+    case "com.amazonaws.codepipeline#RequestFailedException":
+      response = {
+        ...(await deserializeAws_json1_1RequestFailedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.codepipeline#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1UpdatePipelineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3957,6 +4128,21 @@ const deserializeAws_json1_1PipelineVersionNotFoundExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1RequestFailedExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<RequestFailedException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1RequestFailedException(body, context);
+  const contents: RequestFailedException = {
+    name: "RequestFailedException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -4147,12 +4333,101 @@ const serializeAws_json1_1ActionRevision = (input: ActionRevision, context: __Se
   };
 };
 
+const serializeAws_json1_1ActionTypeArtifactDetails = (
+  input: ActionTypeArtifactDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.maximumCount !== undefined && input.maximumCount !== null && { maximumCount: input.maximumCount }),
+    ...(input.minimumCount !== undefined && input.minimumCount !== null && { minimumCount: input.minimumCount }),
+  };
+};
+
+const serializeAws_json1_1ActionTypeDeclaration = (input: ActionTypeDeclaration, context: __SerdeContext): any => {
+  return {
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.executor !== undefined &&
+      input.executor !== null && { executor: serializeAws_json1_1ActionTypeExecutor(input.executor, context) }),
+    ...(input.id !== undefined &&
+      input.id !== null && { id: serializeAws_json1_1ActionTypeIdentifier(input.id, context) }),
+    ...(input.inputArtifactDetails !== undefined &&
+      input.inputArtifactDetails !== null && {
+        inputArtifactDetails: serializeAws_json1_1ActionTypeArtifactDetails(input.inputArtifactDetails, context),
+      }),
+    ...(input.outputArtifactDetails !== undefined &&
+      input.outputArtifactDetails !== null && {
+        outputArtifactDetails: serializeAws_json1_1ActionTypeArtifactDetails(input.outputArtifactDetails, context),
+      }),
+    ...(input.permissions !== undefined &&
+      input.permissions !== null && {
+        permissions: serializeAws_json1_1ActionTypePermissions(input.permissions, context),
+      }),
+    ...(input.properties !== undefined &&
+      input.properties !== null && { properties: serializeAws_json1_1ActionTypeProperties(input.properties, context) }),
+    ...(input.urls !== undefined &&
+      input.urls !== null && { urls: serializeAws_json1_1ActionTypeUrls(input.urls, context) }),
+  };
+};
+
+const serializeAws_json1_1ActionTypeExecutor = (input: ActionTypeExecutor, context: __SerdeContext): any => {
+  return {
+    ...(input.configuration !== undefined &&
+      input.configuration !== null && {
+        configuration: serializeAws_json1_1ExecutorConfiguration(input.configuration, context),
+      }),
+    ...(input.jobTimeout !== undefined && input.jobTimeout !== null && { jobTimeout: input.jobTimeout }),
+    ...(input.policyStatementsTemplate !== undefined &&
+      input.policyStatementsTemplate !== null && { policyStatementsTemplate: input.policyStatementsTemplate }),
+    ...(input.type !== undefined && input.type !== null && { type: input.type }),
+  };
+};
+
 const serializeAws_json1_1ActionTypeId = (input: ActionTypeId, context: __SerdeContext): any => {
   return {
     ...(input.category !== undefined && input.category !== null && { category: input.category }),
     ...(input.owner !== undefined && input.owner !== null && { owner: input.owner }),
     ...(input.provider !== undefined && input.provider !== null && { provider: input.provider }),
     ...(input.version !== undefined && input.version !== null && { version: input.version }),
+  };
+};
+
+const serializeAws_json1_1ActionTypeIdentifier = (input: ActionTypeIdentifier, context: __SerdeContext): any => {
+  return {
+    ...(input.category !== undefined && input.category !== null && { category: input.category }),
+    ...(input.owner !== undefined && input.owner !== null && { owner: input.owner }),
+    ...(input.provider !== undefined && input.provider !== null && { provider: input.provider }),
+    ...(input.version !== undefined && input.version !== null && { version: input.version }),
+  };
+};
+
+const serializeAws_json1_1ActionTypePermissions = (input: ActionTypePermissions, context: __SerdeContext): any => {
+  return {
+    ...(input.allowedAccounts !== undefined &&
+      input.allowedAccounts !== null && {
+        allowedAccounts: serializeAws_json1_1AllowedAccounts(input.allowedAccounts, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1ActionTypeProperties = (input: ActionTypeProperty[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1ActionTypeProperty(entry, context);
+    });
+};
+
+const serializeAws_json1_1ActionTypeProperty = (input: ActionTypeProperty, context: __SerdeContext): any => {
+  return {
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.key !== undefined && input.key !== null && { key: input.key }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.noEcho !== undefined && input.noEcho !== null && { noEcho: input.noEcho }),
+    ...(input.optional !== undefined && input.optional !== null && { optional: input.optional }),
+    ...(input.queryable !== undefined && input.queryable !== null && { queryable: input.queryable }),
   };
 };
 
@@ -4167,6 +4442,30 @@ const serializeAws_json1_1ActionTypeSettings = (input: ActionTypeSettings, conte
     ...(input.thirdPartyConfigurationUrl !== undefined &&
       input.thirdPartyConfigurationUrl !== null && { thirdPartyConfigurationUrl: input.thirdPartyConfigurationUrl }),
   };
+};
+
+const serializeAws_json1_1ActionTypeUrls = (input: ActionTypeUrls, context: __SerdeContext): any => {
+  return {
+    ...(input.configurationUrl !== undefined &&
+      input.configurationUrl !== null && { configurationUrl: input.configurationUrl }),
+    ...(input.entityUrlTemplate !== undefined &&
+      input.entityUrlTemplate !== null && { entityUrlTemplate: input.entityUrlTemplate }),
+    ...(input.executionUrlTemplate !== undefined &&
+      input.executionUrlTemplate !== null && { executionUrlTemplate: input.executionUrlTemplate }),
+    ...(input.revisionUrlTemplate !== undefined &&
+      input.revisionUrlTemplate !== null && { revisionUrlTemplate: input.revisionUrlTemplate }),
+  };
+};
+
+const serializeAws_json1_1AllowedAccounts = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1ApprovalResult = (input: ApprovalResult, context: __SerdeContext): any => {
@@ -4339,12 +4638,40 @@ const serializeAws_json1_1ExecutionDetails = (input: ExecutionDetails, context: 
   };
 };
 
+const serializeAws_json1_1ExecutorConfiguration = (input: ExecutorConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.jobWorkerExecutorConfiguration !== undefined &&
+      input.jobWorkerExecutorConfiguration !== null && {
+        jobWorkerExecutorConfiguration: serializeAws_json1_1JobWorkerExecutorConfiguration(
+          input.jobWorkerExecutorConfiguration,
+          context
+        ),
+      }),
+    ...(input.lambdaExecutorConfiguration !== undefined &&
+      input.lambdaExecutorConfiguration !== null && {
+        lambdaExecutorConfiguration: serializeAws_json1_1LambdaExecutorConfiguration(
+          input.lambdaExecutorConfiguration,
+          context
+        ),
+      }),
+  };
+};
+
 const serializeAws_json1_1FailureDetails = (input: FailureDetails, context: __SerdeContext): any => {
   return {
     ...(input.externalExecutionId !== undefined &&
       input.externalExecutionId !== null && { externalExecutionId: input.externalExecutionId }),
     ...(input.message !== undefined && input.message !== null && { message: input.message }),
     ...(input.type !== undefined && input.type !== null && { type: input.type }),
+  };
+};
+
+const serializeAws_json1_1GetActionTypeInput = (input: GetActionTypeInput, context: __SerdeContext): any => {
+  return {
+    ...(input.category !== undefined && input.category !== null && { category: input.category }),
+    ...(input.owner !== undefined && input.owner !== null && { owner: input.owner }),
+    ...(input.provider !== undefined && input.provider !== null && { provider: input.provider }),
+    ...(input.version !== undefined && input.version !== null && { version: input.version }),
   };
 };
 
@@ -4405,6 +4732,35 @@ const serializeAws_json1_1InputArtifactList = (input: InputArtifact[], context: 
     });
 };
 
+const serializeAws_json1_1JobWorkerExecutorConfiguration = (
+  input: JobWorkerExecutorConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.pollingAccounts !== undefined &&
+      input.pollingAccounts !== null && {
+        pollingAccounts: serializeAws_json1_1PollingAccountList(input.pollingAccounts, context),
+      }),
+    ...(input.pollingServicePrincipals !== undefined &&
+      input.pollingServicePrincipals !== null && {
+        pollingServicePrincipals: serializeAws_json1_1PollingServicePrincipalList(
+          input.pollingServicePrincipals,
+          context
+        ),
+      }),
+  };
+};
+
+const serializeAws_json1_1LambdaExecutorConfiguration = (
+  input: LambdaExecutorConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.lambdaFunctionArn !== undefined &&
+      input.lambdaFunctionArn !== null && { lambdaFunctionArn: input.lambdaFunctionArn }),
+  };
+};
+
 const serializeAws_json1_1ListActionExecutionsInput = (
   input: ListActionExecutionsInput,
   context: __SerdeContext
@@ -4423,6 +4779,7 @@ const serializeAws_json1_1ListActionTypesInput = (input: ListActionTypesInput, c
     ...(input.actionOwnerFilter !== undefined &&
       input.actionOwnerFilter !== null && { actionOwnerFilter: input.actionOwnerFilter }),
     ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.regionFilter !== undefined && input.regionFilter !== null && { regionFilter: input.regionFilter }),
   };
 };
 
@@ -4439,6 +4796,7 @@ const serializeAws_json1_1ListPipelineExecutionsInput = (
 
 const serializeAws_json1_1ListPipelinesInput = (input: ListPipelinesInput, context: __SerdeContext): any => {
   return {
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
@@ -4538,6 +4896,28 @@ const serializeAws_json1_1PollForThirdPartyJobsInput = (
       input.actionTypeId !== null && { actionTypeId: serializeAws_json1_1ActionTypeId(input.actionTypeId, context) }),
     ...(input.maxBatchSize !== undefined && input.maxBatchSize !== null && { maxBatchSize: input.maxBatchSize }),
   };
+};
+
+const serializeAws_json1_1PollingAccountList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1PollingServicePrincipalList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1PutActionRevisionInput = (input: PutActionRevisionInput, context: __SerdeContext): any => {
@@ -4773,6 +5153,15 @@ const serializeAws_json1_1UntagResourceInput = (input: UntagResourceInput, conte
     ...(input.resourceArn !== undefined && input.resourceArn !== null && { resourceArn: input.resourceArn }),
     ...(input.tagKeys !== undefined &&
       input.tagKeys !== null && { tagKeys: serializeAws_json1_1TagKeyList(input.tagKeys, context) }),
+  };
+};
+
+const serializeAws_json1_1UpdateActionTypeInput = (input: UpdateActionTypeInput, context: __SerdeContext): any => {
+  return {
+    ...(input.actionType !== undefined &&
+      input.actionType !== null && {
+        actionType: serializeAws_json1_1ActionTypeDeclaration(input.actionType, context),
+      }),
   };
 };
 
@@ -5145,7 +5534,75 @@ const deserializeAws_json1_1ActionType = (output: any, context: __SerdeContext):
   } as any;
 };
 
+const deserializeAws_json1_1ActionTypeArtifactDetails = (
+  output: any,
+  context: __SerdeContext
+): ActionTypeArtifactDetails => {
+  return {
+    maximumCount: output.maximumCount !== undefined && output.maximumCount !== null ? output.maximumCount : undefined,
+    minimumCount: output.minimumCount !== undefined && output.minimumCount !== null ? output.minimumCount : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ActionTypeDeclaration = (output: any, context: __SerdeContext): ActionTypeDeclaration => {
+  return {
+    description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    executor:
+      output.executor !== undefined && output.executor !== null
+        ? deserializeAws_json1_1ActionTypeExecutor(output.executor, context)
+        : undefined,
+    id:
+      output.id !== undefined && output.id !== null
+        ? deserializeAws_json1_1ActionTypeIdentifier(output.id, context)
+        : undefined,
+    inputArtifactDetails:
+      output.inputArtifactDetails !== undefined && output.inputArtifactDetails !== null
+        ? deserializeAws_json1_1ActionTypeArtifactDetails(output.inputArtifactDetails, context)
+        : undefined,
+    outputArtifactDetails:
+      output.outputArtifactDetails !== undefined && output.outputArtifactDetails !== null
+        ? deserializeAws_json1_1ActionTypeArtifactDetails(output.outputArtifactDetails, context)
+        : undefined,
+    permissions:
+      output.permissions !== undefined && output.permissions !== null
+        ? deserializeAws_json1_1ActionTypePermissions(output.permissions, context)
+        : undefined,
+    properties:
+      output.properties !== undefined && output.properties !== null
+        ? deserializeAws_json1_1ActionTypeProperties(output.properties, context)
+        : undefined,
+    urls:
+      output.urls !== undefined && output.urls !== null
+        ? deserializeAws_json1_1ActionTypeUrls(output.urls, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ActionTypeExecutor = (output: any, context: __SerdeContext): ActionTypeExecutor => {
+  return {
+    configuration:
+      output.configuration !== undefined && output.configuration !== null
+        ? deserializeAws_json1_1ExecutorConfiguration(output.configuration, context)
+        : undefined,
+    jobTimeout: output.jobTimeout !== undefined && output.jobTimeout !== null ? output.jobTimeout : undefined,
+    policyStatementsTemplate:
+      output.policyStatementsTemplate !== undefined && output.policyStatementsTemplate !== null
+        ? output.policyStatementsTemplate
+        : undefined,
+    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ActionTypeId = (output: any, context: __SerdeContext): ActionTypeId => {
+  return {
+    category: output.category !== undefined && output.category !== null ? output.category : undefined,
+    owner: output.owner !== undefined && output.owner !== null ? output.owner : undefined,
+    provider: output.provider !== undefined && output.provider !== null ? output.provider : undefined,
+    version: output.version !== undefined && output.version !== null ? output.version : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ActionTypeIdentifier = (output: any, context: __SerdeContext): ActionTypeIdentifier => {
   return {
     category: output.category !== undefined && output.category !== null ? output.category : undefined,
     owner: output.owner !== undefined && output.owner !== null ? output.owner : undefined,
@@ -5174,6 +5631,37 @@ const deserializeAws_json1_1ActionTypeNotFoundException = (
   } as any;
 };
 
+const deserializeAws_json1_1ActionTypePermissions = (output: any, context: __SerdeContext): ActionTypePermissions => {
+  return {
+    allowedAccounts:
+      output.allowedAccounts !== undefined && output.allowedAccounts !== null
+        ? deserializeAws_json1_1AllowedAccounts(output.allowedAccounts, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ActionTypeProperties = (output: any, context: __SerdeContext): ActionTypeProperty[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ActionTypeProperty(entry, context);
+    });
+};
+
+const deserializeAws_json1_1ActionTypeProperty = (output: any, context: __SerdeContext): ActionTypeProperty => {
+  return {
+    description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    key: output.key !== undefined && output.key !== null ? output.key : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    noEcho: output.noEcho !== undefined && output.noEcho !== null ? output.noEcho : undefined,
+    optional: output.optional !== undefined && output.optional !== null ? output.optional : undefined,
+    queryable: output.queryable !== undefined && output.queryable !== null ? output.queryable : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ActionTypeSettings = (output: any, context: __SerdeContext): ActionTypeSettings => {
   return {
     entityUrlTemplate:
@@ -5193,6 +5681,36 @@ const deserializeAws_json1_1ActionTypeSettings = (output: any, context: __SerdeC
         ? output.thirdPartyConfigurationUrl
         : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1ActionTypeUrls = (output: any, context: __SerdeContext): ActionTypeUrls => {
+  return {
+    configurationUrl:
+      output.configurationUrl !== undefined && output.configurationUrl !== null ? output.configurationUrl : undefined,
+    entityUrlTemplate:
+      output.entityUrlTemplate !== undefined && output.entityUrlTemplate !== null
+        ? output.entityUrlTemplate
+        : undefined,
+    executionUrlTemplate:
+      output.executionUrlTemplate !== undefined && output.executionUrlTemplate !== null
+        ? output.executionUrlTemplate
+        : undefined,
+    revisionUrlTemplate:
+      output.revisionUrlTemplate !== undefined && output.revisionUrlTemplate !== null
+        ? output.revisionUrlTemplate
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AllowedAccounts = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1ApprovalAlreadyCompletedException = (
@@ -5416,6 +5934,28 @@ const deserializeAws_json1_1ExecutionTrigger = (output: any, context: __SerdeCon
     triggerDetail:
       output.triggerDetail !== undefined && output.triggerDetail !== null ? output.triggerDetail : undefined,
     triggerType: output.triggerType !== undefined && output.triggerType !== null ? output.triggerType : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ExecutorConfiguration = (output: any, context: __SerdeContext): ExecutorConfiguration => {
+  return {
+    jobWorkerExecutorConfiguration:
+      output.jobWorkerExecutorConfiguration !== undefined && output.jobWorkerExecutorConfiguration !== null
+        ? deserializeAws_json1_1JobWorkerExecutorConfiguration(output.jobWorkerExecutorConfiguration, context)
+        : undefined,
+    lambdaExecutorConfiguration:
+      output.lambdaExecutorConfiguration !== undefined && output.lambdaExecutorConfiguration !== null
+        ? deserializeAws_json1_1LambdaExecutorConfiguration(output.lambdaExecutorConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GetActionTypeOutput = (output: any, context: __SerdeContext): GetActionTypeOutput => {
+  return {
+    actionType:
+      output.actionType !== undefined && output.actionType !== null
+        ? deserializeAws_json1_1ActionTypeDeclaration(output.actionType, context)
+        : undefined,
   } as any;
 };
 
@@ -5689,6 +6229,34 @@ const deserializeAws_json1_1JobNotFoundException = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_json1_1JobWorkerExecutorConfiguration = (
+  output: any,
+  context: __SerdeContext
+): JobWorkerExecutorConfiguration => {
+  return {
+    pollingAccounts:
+      output.pollingAccounts !== undefined && output.pollingAccounts !== null
+        ? deserializeAws_json1_1PollingAccountList(output.pollingAccounts, context)
+        : undefined,
+    pollingServicePrincipals:
+      output.pollingServicePrincipals !== undefined && output.pollingServicePrincipals !== null
+        ? deserializeAws_json1_1PollingServicePrincipalList(output.pollingServicePrincipals, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1LambdaExecutorConfiguration = (
+  output: any,
+  context: __SerdeContext
+): LambdaExecutorConfiguration => {
+  return {
+    lambdaFunctionArn:
+      output.lambdaFunctionArn !== undefined && output.lambdaFunctionArn !== null
+        ? output.lambdaFunctionArn
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
@@ -5885,6 +6453,8 @@ const deserializeAws_json1_1PipelineExecution = (output: any, context: __SerdeCo
     pipelineVersion:
       output.pipelineVersion !== undefined && output.pipelineVersion !== null ? output.pipelineVersion : undefined,
     status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    statusSummary:
+      output.statusSummary !== undefined && output.statusSummary !== null ? output.statusSummary : undefined,
   } as any;
 };
 
@@ -6047,6 +6617,28 @@ const deserializeAws_json1_1PollForThirdPartyJobsOutput = (
   } as any;
 };
 
+const deserializeAws_json1_1PollingAccountList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const deserializeAws_json1_1PollingServicePrincipalList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const deserializeAws_json1_1PutActionRevisionOutput = (
   output: any,
   context: __SerdeContext
@@ -6086,6 +6678,12 @@ const deserializeAws_json1_1RegisterWebhookWithThirdPartyOutput = (
   context: __SerdeContext
 ): RegisterWebhookWithThirdPartyOutput => {
   return {} as any;
+};
+
+const deserializeAws_json1_1RequestFailedException = (output: any, context: __SerdeContext): RequestFailedException => {
+  return {
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1ResolvedActionConfigurationMap = (

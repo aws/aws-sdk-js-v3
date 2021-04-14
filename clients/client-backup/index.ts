@@ -17,6 +17,7 @@ export * from "./commands/DescribeProtectedResourceCommand";
 export * from "./commands/DescribeRecoveryPointCommand";
 export * from "./commands/DescribeRegionSettingsCommand";
 export * from "./commands/DescribeRestoreJobCommand";
+export * from "./commands/DisassociateRecoveryPointCommand";
 export * from "./commands/ExportBackupPlanTemplateCommand";
 export * from "./commands/GetBackupPlanCommand";
 export * from "./commands/GetBackupPlanFromJSONCommand";

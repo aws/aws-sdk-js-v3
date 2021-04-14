@@ -85,6 +85,11 @@ import {
   DescribeRestoreJobCommandOutput,
 } from "./commands/DescribeRestoreJobCommand";
 import {
+  DisassociateRecoveryPointCommand,
+  DisassociateRecoveryPointCommandInput,
+  DisassociateRecoveryPointCommandOutput,
+} from "./commands/DisassociateRecoveryPointCommand";
+import {
   ExportBackupPlanTemplateCommand,
   ExportBackupPlanTemplateCommandInput,
   ExportBackupPlanTemplateCommandOutput,
@@ -254,7 +259,8 @@ export class Backup extends BackupClient {
    * <p>Creates a backup plan using a backup plan name and backup rules. A backup plan is a
    *          document that contains information that AWS Backup uses to schedule tasks that create
    *          recovery points for resources.</p>
-   *          <p>If you call <code>CreateBackupPlan</code> with a plan that already exists, an <code>AlreadyExistsException</code> is returned.</p>
+   *          <p>If you call <code>CreateBackupPlan</code> with a plan that already exists, an
+   *             <code>AlreadyExistsException</code> is returned.</p>
    */
   public createBackupPlan(
     args: CreateBackupPlanCommandInput,
@@ -560,6 +566,8 @@ export class Backup extends BackupClient {
 
   /**
    * <p>Deletes the recovery point specified by a recovery point ID.</p>
+   *          <p>If the recovery point ID belongs to a continuous backup, calling this endpoint deletes
+   *          the existing continuous backup and stops future continuous backup.</p>
    */
   public deleteRecoveryPoint(
     args: DeleteRecoveryPointCommandInput,
@@ -687,7 +695,8 @@ export class Backup extends BackupClient {
   }
 
   /**
-   * <p>The current feature settings for the AWS Account.</p>
+   * <p>Describes the global settings of the AWS account, including whether it is opted in to
+   *          cross-account backup.</p>
    */
   public describeGlobalSettings(
     args: DescribeGlobalSettingsCommandInput,
@@ -785,10 +794,11 @@ export class Backup extends BackupClient {
   }
 
   /**
-   * <p>Returns the current service opt-in settings for the Region. If service-opt-in is enabled for a service,
-   *          AWS Backup tries to protect that service's resources in this Region, when the resource is included in an on-demand backup or scheduled backup plan.
-   *          Otherwise, AWS Backup does not try to protect that service's resources in this Region, AWS Backup does not try to protect that service's
-   *          resources in this Region.</p>
+   * <p>Returns the current service opt-in settings for the Region. If service-opt-in is enabled
+   *          for a service, AWS Backup tries to protect that service's resources in this Region, when
+   *          the resource is included in an on-demand backup or scheduled backup plan. Otherwise, AWS
+   *          Backup does not try to protect that service's resources in this Region, AWS Backup does not
+   *          try to protect that service's resources in this Region.</p>
    */
   public describeRegionSettings(
     args: DescribeRegionSettingsCommandInput,
@@ -852,6 +862,42 @@ export class Backup extends BackupClient {
   }
 
   /**
+   * <p>Deletes the specified continuous backup recovery point from AWS Backup and releases
+   *          control of that continuous backup to the source service, such as Amazon RDS. The source
+   *          service will continue to create and retain continuous backups using the lifecycle that you
+   *          specified in your original backup plan.</p>
+   *          <p>Does not support snapshot backup recovery points.</p>
+   */
+  public disassociateRecoveryPoint(
+    args: DisassociateRecoveryPointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateRecoveryPointCommandOutput>;
+  public disassociateRecoveryPoint(
+    args: DisassociateRecoveryPointCommandInput,
+    cb: (err: any, data?: DisassociateRecoveryPointCommandOutput) => void
+  ): void;
+  public disassociateRecoveryPoint(
+    args: DisassociateRecoveryPointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateRecoveryPointCommandOutput) => void
+  ): void;
+  public disassociateRecoveryPoint(
+    args: DisassociateRecoveryPointCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateRecoveryPointCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateRecoveryPointCommandOutput) => void
+  ): Promise<DisassociateRecoveryPointCommandOutput> | void {
+    const command = new DisassociateRecoveryPointCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns the backup plan that is specified by the plan ID as a backup template.</p>
    */
   public exportBackupPlanTemplate(
@@ -884,9 +930,8 @@ export class Backup extends BackupClient {
   }
 
   /**
-   * <p>Returns <code>BackupPlan</code> details for the specified <code>BackupPlanId</code>.
-   *          Returns the body of a
-   *          backup plan in JSON format, in addition to plan metadata.</p>
+   * <p>Returns <code>BackupPlan</code> details for the specified <code>BackupPlanId</code>. The
+   *          details are the body of a backup plan in JSON format, in addition to plan metadata.</p>
    */
   public getBackupPlan(
     args: GetBackupPlanCommandInput,
@@ -1144,7 +1189,8 @@ export class Backup extends BackupClient {
   }
 
   /**
-   * <p>Returns a list of existing backup jobs for an authenticated account.</p>
+   * <p>Returns a list of existing backup jobs for an authenticated account for the last 30
+   *          days. For a longer period of time, consider using these <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html">monitoring tools</a>.</p>
    */
   public listBackupJobs(
     args: ListBackupJobsCommandInput,
@@ -1634,6 +1680,7 @@ export class Backup extends BackupClient {
 
   /**
    * <p>Starts a job to create a one-time copy of the specified resource.</p>
+   *          <p>Does not support continuous backups.</p>
    */
   public startCopyJob(
     args: StartCopyJobCommandInput,
@@ -1662,7 +1709,7 @@ export class Backup extends BackupClient {
   }
 
   /**
-   * <p>Recovers the saved resource identified by an Amazon Resource Name (ARN). </p>
+   * <p>Recovers the saved resource identified by an Amazon Resource Name (ARN).</p>
    */
   public startRestoreJob(
     args: StartRestoreJobCommandInput,
@@ -1786,8 +1833,8 @@ export class Backup extends BackupClient {
   }
 
   /**
-   * <p>Updates an existing backup plan identified by its <code>backupPlanId</code>
-   *          with the input document in JSON format. The new version is uniquely identified by a
+   * <p>Updates an existing backup plan identified by its <code>backupPlanId</code> with the
+   *          input document in JSON format. The new version is uniquely identified by a
    *             <code>VersionId</code>.</p>
    */
   public updateBackupPlan(
@@ -1820,7 +1867,7 @@ export class Backup extends BackupClient {
   }
 
   /**
-   * <p>Updates the current global settings for the AWS Account. Use the
+   * <p>Updates the current global settings for the AWS account. Use the
    *             <code>DescribeGlobalSettings</code> API to determine the current settings.</p>
    */
   public updateGlobalSettings(
@@ -1856,11 +1903,13 @@ export class Backup extends BackupClient {
    * <p>Sets the transition lifecycle of a recovery point.</p>
    *          <p>The lifecycle defines when a protected resource is transitioned to cold storage and when
    *          it expires. AWS Backup transitions and expires backups automatically according to the
-   *          lifecycle that you define. </p>
+   *          lifecycle that you define.</p>
    *          <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90
    *          days. Therefore, the “expire after days” setting must be 90 days greater than the
    *          “transition to cold after days” setting. The “transition to cold after days” setting cannot
-   *          be changed after a backup has been transitioned to cold. </p>
+   *          be changed after a backup has been transitioned to cold.</p>
+   *          <p>Only Amazon EFS file system backups can be transitioned to cold storage.</p>
+   *          <p>Does not support continuous backups.</p>
    */
   public updateRecoveryPointLifecycle(
     args: UpdateRecoveryPointLifecycleCommandInput,
@@ -1892,10 +1941,12 @@ export class Backup extends BackupClient {
   }
 
   /**
-   * <p>Updates the current service opt-in settings for the Region. If service-opt-in is enabled for a service,
-   *          AWS Backup tries to protect that service's resources in this Region, when the resource is included in an on-demand backup or scheduled backup plan.
-   *          Otherwise, AWS Backup does not try to protect that service's resources in this Region. Use the <code>DescribeRegionSettings</code> API to determine the
-   *          resource types that are supported.</p>
+   * <p>Updates the current service opt-in settings for the Region. If service-opt-in is enabled
+   *          for a service, AWS Backup tries to protect that service's resources in this Region, when
+   *          the resource is included in an on-demand backup or scheduled backup plan. Otherwise, AWS
+   *          Backup does not try to protect that service's resources in this Region. Use the
+   *             <code>DescribeRegionSettings</code> API to determine the resource types that are
+   *          supported.</p>
    */
   public updateRegionSettings(
     args: UpdateRegionSettingsCommandInput,

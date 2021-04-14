@@ -21,8 +21,7 @@ export type PublishRecipeCommandInput = PublishRecipeRequest;
 export type PublishRecipeCommandOutput = PublishRecipeResponse & __MetadataBearer;
 
 /**
- * <p>Publishes a new major version of an AWS Glue DataBrew recipe that exists in the
- *             current AWS account.</p>
+ * <p>Publishes a new version of a DataBrew recipe.</p>
  */
 export class PublishRecipeCommand extends $Command<
   PublishRecipeCommandInput,

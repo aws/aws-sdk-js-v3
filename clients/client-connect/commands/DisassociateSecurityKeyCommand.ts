@@ -21,7 +21,8 @@ export type DisassociateSecurityKeyCommandInput = DisassociateSecurityKeyRequest
 export type DisassociateSecurityKeyCommandOutput = __MetadataBearer;
 
 /**
- * <p>Deletes the specified security key.</p>
+ * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+ *          <p>Deletes the specified security key.</p>
  */
 export class DisassociateSecurityKeyCommand extends $Command<
   DisassociateSecurityKeyCommandInput,

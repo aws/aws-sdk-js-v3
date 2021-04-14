@@ -22,13 +22,13 @@ export type ListEntitiesForPolicyCommandOutput = ListEntitiesForPolicyResponse &
 
 /**
  * <p>Lists all IAM users, groups, and roles that the specified managed policy is attached
- *          to.</p>
- *          <p>You can use the optional <code>EntityFilter</code> parameter to limit the results to a
- *          particular type of entity (users, groups, or roles). For example, to list only the roles
- *          that are attached to the specified policy, set <code>EntityFilter</code> to
- *             <code>Role</code>.</p>
- *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
- *          parameters.</p>
+ *             to.</p>
+ *         <p>You can use the optional <code>EntityFilter</code> parameter to limit the results to a
+ *             particular type of entity (users, groups, or roles). For example, to list only the roles
+ *             that are attached to the specified policy, set <code>EntityFilter</code> to
+ *                 <code>Role</code>.</p>
+ *         <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
+ *             parameters.</p>
  */
 export class ListEntitiesForPolicyCommand extends $Command<
   ListEntitiesForPolicyCommandInput,

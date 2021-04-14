@@ -2706,12 +2706,15 @@ const deserializeAws_json1_1EntityList = (output: any, context: __SerdeContext):
 const deserializeAws_json1_1ICD10CMAttribute = (output: any, context: __SerdeContext): ICD10CMAttribute => {
   return {
     BeginOffset: output.BeginOffset !== undefined && output.BeginOffset !== null ? output.BeginOffset : undefined,
+    Category: output.Category !== undefined && output.Category !== null ? output.Category : undefined,
     EndOffset: output.EndOffset !== undefined && output.EndOffset !== null ? output.EndOffset : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     RelationshipScore:
       output.RelationshipScore !== undefined && output.RelationshipScore !== null
         ? output.RelationshipScore
         : undefined,
+    RelationshipType:
+      output.RelationshipType !== undefined && output.RelationshipType !== null ? output.RelationshipType : undefined,
     Score: output.Score !== undefined && output.Score !== null ? output.Score : undefined,
     Text: output.Text !== undefined && output.Text !== null ? output.Text : undefined,
     Traits:

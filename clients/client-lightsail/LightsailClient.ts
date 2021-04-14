@@ -313,6 +313,7 @@ import {
   SendContactMethodVerificationCommandInput,
   SendContactMethodVerificationCommandOutput,
 } from "./commands/SendContactMethodVerificationCommand";
+import { SetIpAddressTypeCommandInput, SetIpAddressTypeCommandOutput } from "./commands/SetIpAddressTypeCommand";
 import { StartInstanceCommandInput, StartInstanceCommandOutput } from "./commands/StartInstanceCommand";
 import {
   StartRelationalDatabaseCommandInput,
@@ -527,6 +528,7 @@ export type ServiceInputTypes =
   | ReleaseStaticIpCommandInput
   | ResetDistributionCacheCommandInput
   | SendContactMethodVerificationCommandInput
+  | SetIpAddressTypeCommandInput
   | StartInstanceCommandInput
   | StartRelationalDatabaseCommandInput
   | StopInstanceCommandInput
@@ -670,6 +672,7 @@ export type ServiceOutputTypes =
   | ReleaseStaticIpCommandOutput
   | ResetDistributionCacheCommandOutput
   | SendContactMethodVerificationCommandOutput
+  | SetIpAddressTypeCommandOutput
   | StartInstanceCommandOutput
   | StartRelationalDatabaseCommandOutput
   | StopInstanceCommandOutput

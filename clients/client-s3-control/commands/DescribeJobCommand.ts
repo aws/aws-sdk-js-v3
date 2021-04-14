@@ -24,7 +24,7 @@ export type DescribeJobCommandOutput = DescribeJobResult & __MetadataBearer;
 /**
  * <p>Retrieves the configuration parameters and status for a Batch Operations job. For more
  *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">S3 Batch Operations</a> in
- *          the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+ *          the <i>Amazon Simple Storage Service User Guide</i>.</p>
  *          <p></p>
  *          <p>Related actions include:</p>
  *          <ul>

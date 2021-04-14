@@ -22,9 +22,14 @@ import {
   UpdateLifecyclePolicyCommandOutput,
 } from "../commands/UpdateLifecyclePolicyCommand";
 import {
+  Action,
   CreateRule,
+  CrossRegionCopyAction,
   CrossRegionCopyRetainRule,
   CrossRegionCopyRule,
+  EncryptionConfiguration,
+  EventParameters,
+  EventSource,
   FastRestoreRule,
   InternalServerException,
   InvalidRequestException,
@@ -32,10 +37,12 @@ import {
   LifecyclePolicySummary,
   LimitExceededException,
   PolicyDetails,
+  ResourceLocationValues,
   ResourceNotFoundException,
   ResourceTypeValues,
   RetainRule,
   Schedule,
+  ShareRule,
   Tag,
   _Parameters,
 } from "../models/models_0";
@@ -974,6 +981,27 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   return contents;
 };
 
+const serializeAws_restJson1Action = (input: Action, context: __SerdeContext): any => {
+  return {
+    ...(input.CrossRegionCopy !== undefined &&
+      input.CrossRegionCopy !== null && {
+        CrossRegionCopy: serializeAws_restJson1CrossRegionCopyActionList(input.CrossRegionCopy, context),
+      }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+  };
+};
+
+const serializeAws_restJson1ActionList = (input: Action[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1Action(entry, context);
+    });
+};
+
 const serializeAws_restJson1AvailabilityZoneList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -991,9 +1019,38 @@ const serializeAws_restJson1CreateRule = (input: CreateRule, context: __SerdeCon
       input.CronExpression !== null && { CronExpression: input.CronExpression }),
     ...(input.Interval !== undefined && input.Interval !== null && { Interval: input.Interval }),
     ...(input.IntervalUnit !== undefined && input.IntervalUnit !== null && { IntervalUnit: input.IntervalUnit }),
+    ...(input.Location !== undefined && input.Location !== null && { Location: input.Location }),
     ...(input.Times !== undefined &&
       input.Times !== null && { Times: serializeAws_restJson1TimesList(input.Times, context) }),
   };
+};
+
+const serializeAws_restJson1CrossRegionCopyAction = (input: CrossRegionCopyAction, context: __SerdeContext): any => {
+  return {
+    ...(input.EncryptionConfiguration !== undefined &&
+      input.EncryptionConfiguration !== null && {
+        EncryptionConfiguration: serializeAws_restJson1EncryptionConfiguration(input.EncryptionConfiguration, context),
+      }),
+    ...(input.RetainRule !== undefined &&
+      input.RetainRule !== null && {
+        RetainRule: serializeAws_restJson1CrossRegionCopyRetainRule(input.RetainRule, context),
+      }),
+    ...(input.Target !== undefined && input.Target !== null && { Target: input.Target }),
+  };
+};
+
+const serializeAws_restJson1CrossRegionCopyActionList = (
+  input: CrossRegionCopyAction[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1CrossRegionCopyAction(entry, context);
+    });
 };
 
 const serializeAws_restJson1CrossRegionCopyRetainRule = (
@@ -1015,6 +1072,7 @@ const serializeAws_restJson1CrossRegionCopyRule = (input: CrossRegionCopyRule, c
       input.RetainRule !== null && {
         RetainRule: serializeAws_restJson1CrossRegionCopyRetainRule(input.RetainRule, context),
       }),
+    ...(input.Target !== undefined && input.Target !== null && { Target: input.Target }),
     ...(input.TargetRegion !== undefined && input.TargetRegion !== null && { TargetRegion: input.TargetRegion }),
   };
 };
@@ -1028,6 +1086,36 @@ const serializeAws_restJson1CrossRegionCopyRules = (input: CrossRegionCopyRule[]
       }
       return serializeAws_restJson1CrossRegionCopyRule(entry, context);
     });
+};
+
+const serializeAws_restJson1EncryptionConfiguration = (
+  input: EncryptionConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CmkArn !== undefined && input.CmkArn !== null && { CmkArn: input.CmkArn }),
+    ...(input.Encrypted !== undefined && input.Encrypted !== null && { Encrypted: input.Encrypted }),
+  };
+};
+
+const serializeAws_restJson1EventParameters = (input: EventParameters, context: __SerdeContext): any => {
+  return {
+    ...(input.DescriptionRegex !== undefined &&
+      input.DescriptionRegex !== null && { DescriptionRegex: input.DescriptionRegex }),
+    ...(input.EventType !== undefined && input.EventType !== null && { EventType: input.EventType }),
+    ...(input.SnapshotOwner !== undefined &&
+      input.SnapshotOwner !== null && {
+        SnapshotOwner: serializeAws_restJson1SnapshotOwnerList(input.SnapshotOwner, context),
+      }),
+  };
+};
+
+const serializeAws_restJson1EventSource = (input: EventSource, context: __SerdeContext): any => {
+  return {
+    ...(input.Parameters !== undefined &&
+      input.Parameters !== null && { Parameters: serializeAws_restJson1EventParameters(input.Parameters, context) }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+  };
 };
 
 const serializeAws_restJson1FastRestoreRule = (input: FastRestoreRule, context: __SerdeContext): any => {
@@ -1052,9 +1140,17 @@ const serializeAws_restJson1_Parameters = (input: _Parameters, context: __SerdeC
 
 const serializeAws_restJson1PolicyDetails = (input: PolicyDetails, context: __SerdeContext): any => {
   return {
+    ...(input.Actions !== undefined &&
+      input.Actions !== null && { Actions: serializeAws_restJson1ActionList(input.Actions, context) }),
+    ...(input.EventSource !== undefined &&
+      input.EventSource !== null && { EventSource: serializeAws_restJson1EventSource(input.EventSource, context) }),
     ...(input.Parameters !== undefined &&
       input.Parameters !== null && { Parameters: serializeAws_restJson1_Parameters(input.Parameters, context) }),
     ...(input.PolicyType !== undefined && input.PolicyType !== null && { PolicyType: input.PolicyType }),
+    ...(input.ResourceLocations !== undefined &&
+      input.ResourceLocations !== null && {
+        ResourceLocations: serializeAws_restJson1ResourceLocationList(input.ResourceLocations, context),
+      }),
     ...(input.ResourceTypes !== undefined &&
       input.ResourceTypes !== null && {
         ResourceTypes: serializeAws_restJson1ResourceTypeValuesList(input.ResourceTypes, context),
@@ -1064,6 +1160,20 @@ const serializeAws_restJson1PolicyDetails = (input: PolicyDetails, context: __Se
     ...(input.TargetTags !== undefined &&
       input.TargetTags !== null && { TargetTags: serializeAws_restJson1TargetTagList(input.TargetTags, context) }),
   };
+};
+
+const serializeAws_restJson1ResourceLocationList = (
+  input: (ResourceLocationValues | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1ResourceTypeValuesList = (
@@ -1104,6 +1214,8 @@ const serializeAws_restJson1Schedule = (input: Schedule, context: __SerdeContext
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.RetainRule !== undefined &&
       input.RetainRule !== null && { RetainRule: serializeAws_restJson1RetainRule(input.RetainRule, context) }),
+    ...(input.ShareRules !== undefined &&
+      input.ShareRules !== null && { ShareRules: serializeAws_restJson1ShareRules(input.ShareRules, context) }),
     ...(input.TagsToAdd !== undefined &&
       input.TagsToAdd !== null && { TagsToAdd: serializeAws_restJson1TagsToAddList(input.TagsToAdd, context) }),
     ...(input.VariableTags !== undefined &&
@@ -1121,6 +1233,52 @@ const serializeAws_restJson1ScheduleList = (input: Schedule[], context: __SerdeC
         return null as any;
       }
       return serializeAws_restJson1Schedule(entry, context);
+    });
+};
+
+const serializeAws_restJson1ShareRule = (input: ShareRule, context: __SerdeContext): any => {
+  return {
+    ...(input.TargetAccounts !== undefined &&
+      input.TargetAccounts !== null && {
+        TargetAccounts: serializeAws_restJson1ShareTargetAccountList(input.TargetAccounts, context),
+      }),
+    ...(input.UnshareInterval !== undefined &&
+      input.UnshareInterval !== null && { UnshareInterval: input.UnshareInterval }),
+    ...(input.UnshareIntervalUnit !== undefined &&
+      input.UnshareIntervalUnit !== null && { UnshareIntervalUnit: input.UnshareIntervalUnit }),
+  };
+};
+
+const serializeAws_restJson1ShareRules = (input: ShareRule[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1ShareRule(entry, context);
+    });
+};
+
+const serializeAws_restJson1ShareTargetAccountList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_restJson1SnapshotOwnerList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
     });
 };
 
@@ -1187,6 +1345,27 @@ const serializeAws_restJson1VariableTagsList = (input: Tag[], context: __SerdeCo
     });
 };
 
+const deserializeAws_restJson1Action = (output: any, context: __SerdeContext): Action => {
+  return {
+    CrossRegionCopy:
+      output.CrossRegionCopy !== undefined && output.CrossRegionCopy !== null
+        ? deserializeAws_restJson1CrossRegionCopyActionList(output.CrossRegionCopy, context)
+        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ActionList = (output: any, context: __SerdeContext): Action[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Action(entry, context);
+    });
+};
+
 const deserializeAws_restJson1AvailabilityZoneList = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -1204,11 +1383,40 @@ const deserializeAws_restJson1CreateRule = (output: any, context: __SerdeContext
       output.CronExpression !== undefined && output.CronExpression !== null ? output.CronExpression : undefined,
     Interval: output.Interval !== undefined && output.Interval !== null ? output.Interval : undefined,
     IntervalUnit: output.IntervalUnit !== undefined && output.IntervalUnit !== null ? output.IntervalUnit : undefined,
+    Location: output.Location !== undefined && output.Location !== null ? output.Location : undefined,
     Times:
       output.Times !== undefined && output.Times !== null
         ? deserializeAws_restJson1TimesList(output.Times, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1CrossRegionCopyAction = (output: any, context: __SerdeContext): CrossRegionCopyAction => {
+  return {
+    EncryptionConfiguration:
+      output.EncryptionConfiguration !== undefined && output.EncryptionConfiguration !== null
+        ? deserializeAws_restJson1EncryptionConfiguration(output.EncryptionConfiguration, context)
+        : undefined,
+    RetainRule:
+      output.RetainRule !== undefined && output.RetainRule !== null
+        ? deserializeAws_restJson1CrossRegionCopyRetainRule(output.RetainRule, context)
+        : undefined,
+    Target: output.Target !== undefined && output.Target !== null ? output.Target : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1CrossRegionCopyActionList = (
+  output: any,
+  context: __SerdeContext
+): CrossRegionCopyAction[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1CrossRegionCopyAction(entry, context);
+    });
 };
 
 const deserializeAws_restJson1CrossRegionCopyRetainRule = (
@@ -1230,6 +1438,7 @@ const deserializeAws_restJson1CrossRegionCopyRule = (output: any, context: __Ser
       output.RetainRule !== undefined && output.RetainRule !== null
         ? deserializeAws_restJson1CrossRegionCopyRetainRule(output.RetainRule, context)
         : undefined,
+    Target: output.Target !== undefined && output.Target !== null ? output.Target : undefined,
     TargetRegion: output.TargetRegion !== undefined && output.TargetRegion !== null ? output.TargetRegion : undefined,
   } as any;
 };
@@ -1243,6 +1452,38 @@ const deserializeAws_restJson1CrossRegionCopyRules = (output: any, context: __Se
       }
       return deserializeAws_restJson1CrossRegionCopyRule(entry, context);
     });
+};
+
+const deserializeAws_restJson1EncryptionConfiguration = (
+  output: any,
+  context: __SerdeContext
+): EncryptionConfiguration => {
+  return {
+    CmkArn: output.CmkArn !== undefined && output.CmkArn !== null ? output.CmkArn : undefined,
+    Encrypted: output.Encrypted !== undefined && output.Encrypted !== null ? output.Encrypted : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1EventParameters = (output: any, context: __SerdeContext): EventParameters => {
+  return {
+    DescriptionRegex:
+      output.DescriptionRegex !== undefined && output.DescriptionRegex !== null ? output.DescriptionRegex : undefined,
+    EventType: output.EventType !== undefined && output.EventType !== null ? output.EventType : undefined,
+    SnapshotOwner:
+      output.SnapshotOwner !== undefined && output.SnapshotOwner !== null
+        ? deserializeAws_restJson1SnapshotOwnerList(output.SnapshotOwner, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1EventSource = (output: any, context: __SerdeContext): EventSource => {
+  return {
+    Parameters:
+      output.Parameters !== undefined && output.Parameters !== null
+        ? deserializeAws_restJson1EventParameters(output.Parameters, context)
+        : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1FastRestoreRule = (output: any, context: __SerdeContext): FastRestoreRule => {
@@ -1260,9 +1501,13 @@ const deserializeAws_restJson1FastRestoreRule = (output: any, context: __SerdeCo
 const deserializeAws_restJson1LifecyclePolicy = (output: any, context: __SerdeContext): LifecyclePolicy => {
   return {
     DateCreated:
-      output.DateCreated !== undefined && output.DateCreated !== null ? new Date(output.DateCreated) : undefined,
+      output.DateCreated !== undefined && output.DateCreated !== null
+        ? new Date(Math.round(output.DateCreated * 1000))
+        : undefined,
     DateModified:
-      output.DateModified !== undefined && output.DateModified !== null ? new Date(output.DateModified) : undefined,
+      output.DateModified !== undefined && output.DateModified !== null
+        ? new Date(Math.round(output.DateModified * 1000))
+        : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     ExecutionRoleArn:
       output.ExecutionRoleArn !== undefined && output.ExecutionRoleArn !== null ? output.ExecutionRoleArn : undefined,
@@ -1335,11 +1580,23 @@ const deserializeAws_restJson1_Parameters = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1PolicyDetails = (output: any, context: __SerdeContext): PolicyDetails => {
   return {
+    Actions:
+      output.Actions !== undefined && output.Actions !== null
+        ? deserializeAws_restJson1ActionList(output.Actions, context)
+        : undefined,
+    EventSource:
+      output.EventSource !== undefined && output.EventSource !== null
+        ? deserializeAws_restJson1EventSource(output.EventSource, context)
+        : undefined,
     Parameters:
       output.Parameters !== undefined && output.Parameters !== null
         ? deserializeAws_restJson1_Parameters(output.Parameters, context)
         : undefined,
     PolicyType: output.PolicyType !== undefined && output.PolicyType !== null ? output.PolicyType : undefined,
+    ResourceLocations:
+      output.ResourceLocations !== undefined && output.ResourceLocations !== null
+        ? deserializeAws_restJson1ResourceLocationList(output.ResourceLocations, context)
+        : undefined,
     ResourceTypes:
       output.ResourceTypes !== undefined && output.ResourceTypes !== null
         ? deserializeAws_restJson1ResourceTypeValuesList(output.ResourceTypes, context)
@@ -1356,6 +1613,20 @@ const deserializeAws_restJson1PolicyDetails = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1PolicyIdList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const deserializeAws_restJson1ResourceLocationList = (
+  output: any,
+  context: __SerdeContext
+): (ResourceLocationValues | string)[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -1408,6 +1679,10 @@ const deserializeAws_restJson1Schedule = (output: any, context: __SerdeContext):
       output.RetainRule !== undefined && output.RetainRule !== null
         ? deserializeAws_restJson1RetainRule(output.RetainRule, context)
         : undefined,
+    ShareRules:
+      output.ShareRules !== undefined && output.ShareRules !== null
+        ? deserializeAws_restJson1ShareRules(output.ShareRules, context)
+        : undefined,
     TagsToAdd:
       output.TagsToAdd !== undefined && output.TagsToAdd !== null
         ? deserializeAws_restJson1TagsToAddList(output.TagsToAdd, context)
@@ -1427,6 +1702,54 @@ const deserializeAws_restJson1ScheduleList = (output: any, context: __SerdeConte
         return null as any;
       }
       return deserializeAws_restJson1Schedule(entry, context);
+    });
+};
+
+const deserializeAws_restJson1ShareRule = (output: any, context: __SerdeContext): ShareRule => {
+  return {
+    TargetAccounts:
+      output.TargetAccounts !== undefined && output.TargetAccounts !== null
+        ? deserializeAws_restJson1ShareTargetAccountList(output.TargetAccounts, context)
+        : undefined,
+    UnshareInterval:
+      output.UnshareInterval !== undefined && output.UnshareInterval !== null ? output.UnshareInterval : undefined,
+    UnshareIntervalUnit:
+      output.UnshareIntervalUnit !== undefined && output.UnshareIntervalUnit !== null
+        ? output.UnshareIntervalUnit
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ShareRules = (output: any, context: __SerdeContext): ShareRule[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ShareRule(entry, context);
+    });
+};
+
+const deserializeAws_restJson1ShareTargetAccountList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const deserializeAws_restJson1SnapshotOwnerList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
     });
 };
 

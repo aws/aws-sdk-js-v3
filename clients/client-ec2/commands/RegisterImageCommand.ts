@@ -23,14 +23,27 @@ export type RegisterImageCommandOutput = RegisterImageResult & __MetadataBearer;
  *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html">Creating your
  *         own AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  *          <note>
- *             <p>For Amazon EBS-backed instances, <a>CreateImage</a> creates and registers the AMI in a single request, so you don't have to register the AMI yourself.</p>
+ *             <p>For Amazon EBS-backed instances, <a>CreateImage</a> creates and registers
+ *          	the AMI in a single request, so you don't have to register the AMI yourself.</p>
  *          </note>
  *
- *          <p>You can also use <code>RegisterImage</code> to create an Amazon EBS-backed Linux AMI from
- *       a snapshot of a root device volume. You specify the snapshot using the block device mapping.
- *       For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-launch-snapshot.html">Launching a Linux instance from
- *         a backup</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          <p>If needed, you can deregister an AMI at any time. Any modifications you make to an AMI backed by an instance store volume invalidates its registration.
+ *        If you make changes to an image, deregister the previous image and register the new image.</p>
  *
+ *          <p>
+ *             <b>Register a snapshot of a root device volume</b>
+ *          </p>
+ *          <p>You can use <code>RegisterImage</code> to create an Amazon EBS-backed Linux AMI from
+ *        a snapshot of a root device volume. You specify the snapshot using a block device mapping.
+ *        You can't set the encryption state of the volume using the block device mapping. If the
+ *        snapshot is encrypted, or encryption by default is enabled, the root volume of an instance
+ *        launched from the AMI is encrypted.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot">Create a Linux AMI from a snapshot</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html">Use encryption with EBS-backed AMIs</a>
+ *        in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *
+ *          <p>
+ *             <b>AWS Marketplace product codes</b>
+ *          </p>
  *          <p>If any snapshots have AWS Marketplace product codes, they are copied to the new
  *       AMI.</p>
  *          <p>Windows and some Linux distributions, such as Red Hat Enterprise Linux (RHEL) and SUSE
@@ -55,8 +68,6 @@ export type RegisterImageCommandOutput = RegisterImageResult & __MetadataBearer;
  *       code, the Reserved Instance will not be applied to the On-Demand Instance. For information
  *       about how to obtain the platform details and billing information of an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Obtaining billing
  *         information</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
- *          <p>If needed, you can deregister an AMI at any time. Any modifications you make to an AMI backed by an instance store volume invalidates its registration.
- *        If you make changes to an image, deregister the previous image and register the new image.</p>
  */
 export class RegisterImageCommand extends $Command<
   RegisterImageCommandInput,

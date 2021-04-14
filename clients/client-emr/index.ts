@@ -58,6 +58,7 @@ export * from "./commands/SetVisibleToAllUsersCommand";
 export * from "./commands/StartNotebookExecutionCommand";
 export * from "./commands/StopNotebookExecutionCommand";
 export * from "./commands/TerminateJobFlowsCommand";
+export * from "./commands/UpdateStudioCommand";
 export * from "./commands/UpdateStudioSessionMappingCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";

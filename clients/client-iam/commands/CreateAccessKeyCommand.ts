@@ -22,18 +22,19 @@ export type CreateAccessKeyCommandOutput = CreateAccessKeyResponse & __MetadataB
 
 /**
  * <p> Creates a new AWS secret access key and corresponding AWS access key ID for the
- *          specified user. The default status for new keys is <code>Active</code>.</p>
- *          <p>If you do not specify a user name, IAM determines the user name implicitly based on
- *          the AWS access key ID signing the request. This operation works for access keys under the
- *          AWS account. Consequently, you can use this operation to manage AWS account root user
- *          credentials. This is true even if the AWS account has no associated users.</p>
- *          <p>The number and size of IAM resources in an AWS account are limited. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS Quotas</a> in the <i>IAM User Guide</i>.</p>
- *          <important>
+ *             specified user. The default status for new keys is <code>Active</code>.</p>
+ *         <p>If you do not specify a user name, IAM determines the user name implicitly based on
+ *             the AWS access key ID signing the request. This operation works for access keys under
+ *             the AWS account. Consequently, you can use this operation to manage AWS account root
+ *             user credentials. This is true even if the AWS account has no associated users.</p>
+ *         <p> For information about quotas on the number of keys you can create, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS
+ *                 quotas</a> in the <i>IAM User Guide</i>.</p>
+ *         <important>
  *             <p>To ensure the security of your AWS account, the secret access key is accessible
- *             only during key and user creation. You must save the key (for example, in a text file)
- *             if you want to be able to access it again. If a secret key is lost, you can delete the
- *             access keys for the associated user and then create new keys.</p>
- *          </important>
+ *                 only during key and user creation. You must save the key (for example, in a text
+ *                 file) if you want to be able to access it again. If a secret key is lost, you can
+ *                 delete the access keys for the associated user and then create new keys.</p>
+ *         </important>
  */
 export class CreateAccessKeyCommand extends $Command<
   CreateAccessKeyCommandInput,

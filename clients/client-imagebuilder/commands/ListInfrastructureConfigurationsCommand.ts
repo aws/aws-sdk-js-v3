@@ -21,7 +21,7 @@ export type ListInfrastructureConfigurationsCommandInput = ListInfrastructureCon
 export type ListInfrastructureConfigurationsCommandOutput = ListInfrastructureConfigurationsResponse & __MetadataBearer;
 
 /**
- * <p> Returns a list of infrastructure configurations. </p>
+ * <p> Returns a list of infrastructure configurations.</p>
  */
 export class ListInfrastructureConfigurationsCommand extends $Command<
   ListInfrastructureConfigurationsCommandInput,

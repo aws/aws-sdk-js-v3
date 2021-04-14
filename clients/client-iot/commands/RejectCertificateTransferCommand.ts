@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { RejectCertificateTransferRequest } from "../models/models_1";
+import { RejectCertificateTransferRequest } from "../models/models_2";
 import {
   deserializeAws_restJson1RejectCertificateTransferCommand,
   serializeAws_restJson1RejectCertificateTransferCommand,

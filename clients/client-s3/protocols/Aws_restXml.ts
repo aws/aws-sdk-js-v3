@@ -240,6 +240,10 @@ import {
 import { UploadPartCommandInput, UploadPartCommandOutput } from "../commands/UploadPartCommand";
 import { UploadPartCopyCommandInput, UploadPartCopyCommandOutput } from "../commands/UploadPartCopyCommand";
 import {
+  WriteGetObjectResponseCommandInput,
+  WriteGetObjectResponseCommandOutput,
+} from "../commands/WriteGetObjectResponseCommand";
+import {
   AbortIncompleteMultipartUpload,
   AccelerateConfiguration,
   AccessControlPolicy,
@@ -268,7 +272,6 @@ import {
   DeleteMarkerReplication,
   DeletedObject,
   Destination,
-  Encryption,
   EncryptionConfiguration,
   ErrorDocument,
   Event,
@@ -306,6 +309,7 @@ import {
   NoSuchUpload,
   NoncurrentVersionExpiration,
   NoncurrentVersionTransition,
+  NotFound,
   NotificationConfiguration,
   NotificationConfigurationFilter,
   ObjectAlreadyInActiveTierError,
@@ -360,6 +364,7 @@ import {
   CSVOutput,
   ContinuationEvent,
   CopyPartResult,
+  Encryption,
   EndEvent,
   InputSerialization,
   JSONInput,
@@ -378,7 +383,11 @@ import {
   SelectParameters,
   StatsEvent,
 } from "../models/models_1";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import {
+  HttpRequest as __HttpRequest,
+  HttpResponse as __HttpResponse,
+  isValidHostname as __isValidHostname,
+} from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
   dateToUtcString as __dateToUtcString,
@@ -486,6 +495,7 @@ export const serializeAws_restXmlCompleteMultipartUploadCommand = async (
     throw new Error("No value provided for input HTTP label: Key.");
   }
   const query: any = {
+    "x-id": "CompleteMultipartUpload",
     ...(input.UploadId !== undefined && { uploadId: input.UploadId }),
   };
   let body: any;
@@ -779,6 +789,7 @@ export const serializeAws_restXmlCreateMultipartUploadCommand = async (
   }
   const query: any = {
     uploads: "",
+    "x-id": "CreateMultipartUpload",
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1342,6 +1353,7 @@ export const serializeAws_restXmlDeleteObjectsCommand = async (
   }
   const query: any = {
     delete: "",
+    "x-id": "DeleteObjects",
   };
   let body: any;
   let contents: any;
@@ -2239,7 +2251,7 @@ export const serializeAws_restXmlGetObjectCommand = async (
     ...(input.ResponseContentLanguage !== undefined && { "response-content-language": input.ResponseContentLanguage }),
     ...(input.ResponseContentType !== undefined && { "response-content-type": input.ResponseContentType }),
     ...(input.ResponseExpires !== undefined && {
-      "response-expires": (input.ResponseExpires.toISOString().split(".")[0] + "Z").toString(),
+      "response-expires": __dateToUtcString(input.ResponseExpires).toString(),
     }),
     ...(input.VersionId !== undefined && { versionId: input.VersionId }),
     ...(input.PartNumber !== undefined && { partNumber: input.PartNumber.toString() }),
@@ -2461,6 +2473,7 @@ export const serializeAws_restXmlGetObjectTaggingCommand = async (
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
+    ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
   };
   let resolvedPath = "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
@@ -4267,6 +4280,7 @@ export const serializeAws_restXmlPutObjectTaggingCommand = async (
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
+    ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
   };
   let resolvedPath = "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
@@ -4401,6 +4415,7 @@ export const serializeAws_restXmlRestoreObjectCommand = async (
   }
   const query: any = {
     restore: "",
+    "x-id": "RestoreObject",
     ...(input.VersionId !== undefined && { versionId: input.VersionId }),
   };
   let body: any;
@@ -4471,6 +4486,7 @@ export const serializeAws_restXmlSelectObjectContentCommand = async (
   const query: any = {
     select: "",
     "select-type": "2",
+    "x-id": "SelectObjectContent",
   };
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -4673,6 +4689,132 @@ export const serializeAws_restXmlUploadPartCopyCommand = async (
     hostname,
     port,
     method: "PUT",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restXmlWriteGetObjectResponseCommand = async (
+  input: WriteGetObjectResponseCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/octet-stream",
+    "x-amz-content-sha256": "UNSIGNED-PAYLOAD",
+    ...(isSerializableHeaderValue(input.RequestRoute) && { "x-amz-request-route": input.RequestRoute! }),
+    ...(isSerializableHeaderValue(input.RequestToken) && { "x-amz-request-token": input.RequestToken! }),
+    ...(isSerializableHeaderValue(input.StatusCode) && { "x-amz-fwd-status": input.StatusCode!.toString() }),
+    ...(isSerializableHeaderValue(input.ErrorCode) && { "x-amz-fwd-error-code": input.ErrorCode! }),
+    ...(isSerializableHeaderValue(input.ErrorMessage) && { "x-amz-fwd-error-message": input.ErrorMessage! }),
+    ...(isSerializableHeaderValue(input.AcceptRanges) && { "x-amz-fwd-header-accept-ranges": input.AcceptRanges! }),
+    ...(isSerializableHeaderValue(input.CacheControl) && { "x-amz-fwd-header-cache-control": input.CacheControl! }),
+    ...(isSerializableHeaderValue(input.ContentDisposition) && {
+      "x-amz-fwd-header-content-disposition": input.ContentDisposition!,
+    }),
+    ...(isSerializableHeaderValue(input.ContentEncoding) && {
+      "x-amz-fwd-header-content-encoding": input.ContentEncoding!,
+    }),
+    ...(isSerializableHeaderValue(input.ContentLanguage) && {
+      "x-amz-fwd-header-content-language": input.ContentLanguage!,
+    }),
+    ...(isSerializableHeaderValue(input.ContentLength) && { "content-length": input.ContentLength!.toString() }),
+    ...(isSerializableHeaderValue(input.ContentRange) && { "x-amz-fwd-header-content-range": input.ContentRange! }),
+    ...(isSerializableHeaderValue(input.ContentType) && { "x-amz-fwd-header-content-type": input.ContentType! }),
+    ...(isSerializableHeaderValue(input.DeleteMarker) && {
+      "x-amz-fwd-header-x-amz-delete-marker": input.DeleteMarker!.toString(),
+    }),
+    ...(isSerializableHeaderValue(input.ETag) && { "x-amz-fwd-header-etag": input.ETag! }),
+    ...(isSerializableHeaderValue(input.Expires) && {
+      "x-amz-fwd-header-expires": __dateToUtcString(input.Expires!).toString(),
+    }),
+    ...(isSerializableHeaderValue(input.Expiration) && { "x-amz-fwd-header-x-amz-expiration": input.Expiration! }),
+    ...(isSerializableHeaderValue(input.LastModified) && {
+      "x-amz-fwd-header-last-modified": __dateToUtcString(input.LastModified!).toString(),
+    }),
+    ...(isSerializableHeaderValue(input.MissingMeta) && {
+      "x-amz-fwd-header-x-amz-missing-meta": input.MissingMeta!.toString(),
+    }),
+    ...(isSerializableHeaderValue(input.ObjectLockMode) && {
+      "x-amz-fwd-header-x-amz-object-lock-mode": input.ObjectLockMode!,
+    }),
+    ...(isSerializableHeaderValue(input.ObjectLockLegalHoldStatus) && {
+      "x-amz-fwd-header-x-amz-object-lock-legal-hold": input.ObjectLockLegalHoldStatus!,
+    }),
+    ...(isSerializableHeaderValue(input.ObjectLockRetainUntilDate) && {
+      "x-amz-fwd-header-x-amz-object-lock-retain-until-date": (
+        input.ObjectLockRetainUntilDate!.toISOString().split(".")[0] + "Z"
+      ).toString(),
+    }),
+    ...(isSerializableHeaderValue(input.PartsCount) && {
+      "x-amz-fwd-header-x-amz-mp-parts-count": input.PartsCount!.toString(),
+    }),
+    ...(isSerializableHeaderValue(input.ReplicationStatus) && {
+      "x-amz-fwd-header-x-amz-replication-status": input.ReplicationStatus!,
+    }),
+    ...(isSerializableHeaderValue(input.RequestCharged) && {
+      "x-amz-fwd-header-x-amz-request-charged": input.RequestCharged!,
+    }),
+    ...(isSerializableHeaderValue(input.Restore) && { "x-amz-fwd-header-x-amz-restore": input.Restore! }),
+    ...(isSerializableHeaderValue(input.ServerSideEncryption) && {
+      "x-amz-fwd-header-x-amz-server-side-encryption": input.ServerSideEncryption!,
+    }),
+    ...(isSerializableHeaderValue(input.SSECustomerAlgorithm) && {
+      "x-amz-fwd-header-x-amz-server-side-encryption-customer-algorithm": input.SSECustomerAlgorithm!,
+    }),
+    ...(isSerializableHeaderValue(input.SSEKMSKeyId) && {
+      "x-amz-fwd-header-x-amz-server-side-encryption-aws-kms-key-id": input.SSEKMSKeyId!,
+    }),
+    ...(isSerializableHeaderValue(input.SSECustomerKeyMD5) && {
+      "x-amz-fwd-header-x-amz-server-side-encryption-customer-key-md5": input.SSECustomerKeyMD5!,
+    }),
+    ...(isSerializableHeaderValue(input.StorageClass) && {
+      "x-amz-fwd-header-x-amz-storage-class": input.StorageClass!,
+    }),
+    ...(isSerializableHeaderValue(input.TagCount) && {
+      "x-amz-fwd-header-x-amz-tagging-count": input.TagCount!.toString(),
+    }),
+    ...(isSerializableHeaderValue(input.VersionId) && { "x-amz-fwd-header-x-amz-version-id": input.VersionId! }),
+    ...(isSerializableHeaderValue(input.BucketKeyEnabled) && {
+      "x-amz-fwd-header-x-amz-server-side-encryption-bucket-key-enabled": input.BucketKeyEnabled!.toString(),
+    }),
+    ...(input.Metadata !== undefined &&
+      Object.keys(input.Metadata).reduce(
+        (acc: any, suffix: string) => ({
+          ...acc,
+          [`x-amz-meta-${suffix.toLowerCase()}`]: input.Metadata![suffix],
+        }),
+        {}
+      )),
+  };
+  let resolvedPath = "/WriteGetObjectResponse";
+  const query: any = {
+    "x-id": "WriteGetObjectResponse",
+  };
+  let body: any;
+  let contents: any;
+  if (input.Body !== undefined) {
+    contents = input.Body;
+    body = contents;
+  }
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{RequestRoute}." + resolvedHostname;
+    if (input.RequestRoute === undefined) {
+      throw new Error("Empty value provided for input host prefix: RequestRoute.");
+    }
+    resolvedHostname = resolvedHostname.replace("{RequestRoute}", input.RequestRoute!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     query,
@@ -7384,10 +7526,10 @@ const deserializeAws_restXmlHeadBucketCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchBucket":
-    case "com.amazonaws.s3#NoSuchBucket":
+    case "NotFound":
+    case "com.amazonaws.s3#NotFound":
       response = {
-        ...(await deserializeAws_restXmlNoSuchBucketResponse(parsedOutput, context)),
+        ...(await deserializeAws_restXmlNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -7560,10 +7702,10 @@ const deserializeAws_restXmlHeadObjectCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "NoSuchKey":
-    case "com.amazonaws.s3#NoSuchKey":
+    case "NotFound":
+    case "com.amazonaws.s3#NotFound":
       response = {
-        ...(await deserializeAws_restXmlNoSuchKeyResponse(parsedOutput, context)),
+        ...(await deserializeAws_restXmlNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -9821,6 +9963,49 @@ const deserializeAws_restXmlUploadPartCopyCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restXmlWriteGetObjectResponseCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<WriteGetObjectResponseCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlWriteGetObjectResponseCommandError(output, context);
+  }
+  const contents: WriteGetObjectResponseCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlWriteGetObjectResponseCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<WriteGetObjectResponseCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 const deserializeAws_restXmlSelectObjectContentEventStream_event = async (
   output: any,
   context: __SerdeContext
@@ -9963,6 +10148,19 @@ const deserializeAws_restXmlNoSuchUploadResponse = async (
 ): Promise<NoSuchUpload> => {
   const contents: NoSuchUpload = {
     name: "NoSuchUpload",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+  };
+  const data: any = parsedOutput.body;
+  return contents;
+};
+
+const deserializeAws_restXmlNotFoundResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<NotFound> => {
+  const contents: NotFound = {
+    name: "NotFound",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
   };
@@ -10283,6 +10481,10 @@ const serializeAws_restXmlCORSConfiguration = (input: CORSConfiguration, context
 
 const serializeAws_restXmlCORSRule = (input: CORSRule, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("CORSRule");
+  if (input.ID !== undefined && input.ID !== null) {
+    const node = new __XmlNode("ID").addChildNode(new __XmlText(input.ID)).withName("ID");
+    bodyNode.addChildNode(node);
+  }
   if (input.AllowedHeaders !== undefined && input.AllowedHeaders !== null) {
     const nodes = serializeAws_restXmlAllowedHeaders(input.AllowedHeaders, context);
     nodes.map((node: any) => {
@@ -12481,12 +12683,16 @@ const deserializeAws_restXmlCopyPartResult = (output: any, context: __SerdeConte
 
 const deserializeAws_restXmlCORSRule = (output: any, context: __SerdeContext): CORSRule => {
   let contents: any = {
+    ID: undefined,
     AllowedHeaders: undefined,
     AllowedMethods: undefined,
     AllowedOrigins: undefined,
     ExposeHeaders: undefined,
     MaxAgeSeconds: undefined,
   };
+  if (output["ID"] !== undefined) {
+    contents.ID = output["ID"];
+  }
   if (output.AllowedHeader === "") {
     contents.AllowedHeaders = [];
   }

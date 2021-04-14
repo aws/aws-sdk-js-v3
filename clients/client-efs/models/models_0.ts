@@ -24,6 +24,7 @@ export enum LifeCycleState {
   CREATING = "creating",
   DELETED = "deleted",
   DELETING = "deleting",
+  ERROR = "error",
   UPDATING = "updating",
 }
 
@@ -60,6 +61,9 @@ export namespace PosixUser {
  *       If the access point root directory does not exist, EFS creates it with these settings when a client connects to the access point.
  *       When specifying <code>CreationInfo</code>, you must include values for all properties.
  *    </p>
+ *          <p>Amazon EFS creates a root directory only if you have provided the  CreationInfo: OwnUid, OwnGID, and permissions for the directory.
+ *       If  you do not provide this information, Amazon EFS does not create the root directory. If the root directory does not exist, attempts to mount
+ *       using the access point will fail.</p>
  *          <important>
  *             <p>If you do not provide <code>CreationInfo</code> and the specified <code>RootDirectory</code> does not exist,
  *       attempts to mount the file system using the access point will fail.</p>
@@ -241,6 +245,23 @@ export namespace AccessPointNotFound {
   });
 }
 
+/**
+ * <p>Returned if the Availability Zone that was specified for a mount target is different from the Availability Zone that was specified for One Zone storage classes.
+ *             For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html">Regional and One Zone storage redundancy</a>.</p>
+ */
+export interface AvailabilityZonesMismatch extends __SmithyException, $MetadataBearer {
+  name: "AvailabilityZonesMismatch";
+  $fault: "client";
+  ErrorCode?: string;
+  Message?: string;
+}
+
+export namespace AvailabilityZonesMismatch {
+  export const filterSensitiveLog = (obj: AvailabilityZonesMismatch): any => ({
+    ...obj,
+  });
+}
+
 export enum Status {
   DISABLED = "DISABLED",
   DISABLING = "DISABLING",
@@ -249,8 +270,8 @@ export enum Status {
 }
 
 /**
- * <p>The backup policy for the file system, showing the curent status. If
- *       <code>ENABLED</code>, the file system is being backed up.</p>
+ * <p>The backup policy for the file system used to create automatic daily backups. If status has a value of
+ *       <code>ENABLED</code>, the file system is being automatically backed up. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/awsbackup.html#automatic-backups">Automatic backups</a>.</p>
  */
 export interface BackupPolicy {
   /**
@@ -258,27 +279,27 @@ export interface BackupPolicy {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <i>
-   *                      <code>ENABLED</code> - EFS is automatically backing up the file system.</i>
-   *                </p>
+   *                   <b>
+   *                      <code>ENABLED</code>
+   *                   </b> - EFS is automatically backing up the file system.></p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>
-   *                      <code>ENABLING</code> - EFS is turning on automatic backups for the file system.</i>
-   *                </p>
+   *                   <b>
+   *                      <code>ENABLING</code>
+   *                   </b> - EFS is turning on automatic backups for the file system.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>
-   *                      <code>DISABLED</code> - automatic back ups are turned off for the file system.</i>
-   *                </p>
+   *                   <b>
+   *                      <code>DISABLED</code>
+   *                   </b> - automatic back ups are turned off for the file system.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>
-   *                      <code>DISABLED</code> - EFS is turning off automatic backups for the file system.</i>
-   *                </p>
+   *                   <b>
+   *                      <code>DISABLING</code>
+   *                   </b> - EFS is turning off automatic backups for the file system.</p>
    *             </li>
    *          </ul>
    */
@@ -350,7 +371,10 @@ export interface CreateAccessPointRequest {
    *       The clients using the access point can only access the root directory and below.
    *       If the <code>RootDirectory</code> > <code>Path</code> specified does not exist,
    *       EFS creates it and applies the <code>CreationInfo</code> settings when a client connects to an access point.
-   *       When specifying a <code>RootDirectory</code>, you need to provide the <code>Path</code>, and the <code>CreationInfo</code> is optional.</p>
+   *       When specifying a <code>RootDirectory</code>, you need to provide the <code>Path</code>, and the <code>CreationInfo</code>.</p>
+   *          <p>Amazon EFS creates a root directory only if you have provided the  CreationInfo: OwnUid, OwnGID, and permissions for the directory.
+   *       If  you do not provide this information, Amazon EFS does not create the root directory. If the root directory does not exist, attempts to mount
+   *       using the access point will fail.</p>
    */
   RootDirectory?: RootDirectory;
 }
@@ -433,6 +457,9 @@ export interface CreateFileSystemRequest {
    *       mode can scale to higher levels of aggregate throughput and operations per second with a
    *       tradeoff of slightly higher latencies for most file operations. The performance mode
    *       can't be changed after the file system has been created.</p>
+   *          <note>
+   *             <p>The <code>maxIO</code> mode is not supported on file systems using One Zone storage classes.</p>
+   *          </note>
    */
   PerformanceMode?: PerformanceMode | string;
 
@@ -447,7 +474,7 @@ export interface CreateFileSystemRequest {
 
   /**
    * <p>The ID of the AWS KMS CMK to be used to protect the encrypted file system. This
-   *       parameter is only required if you want to use a nondefault CMK. If this parameter is not
+   *       parameter is only required if you want to use a non-default CMK. If this parameter is not
    *       specified, the default CMK for Amazon EFS is used. This ID can be in one of the following
    *       formats:</p>
    *          <ul>
@@ -476,26 +503,52 @@ export interface CreateFileSystemRequest {
   KmsKeyId?: string;
 
   /**
-   * <p>The throughput mode for the file system to be created. There are two throughput modes to
-   *       choose from for your file system: <code>bursting</code> and <code>provisioned</code>. If you set <code>ThroughputMode</code> to <code>provisioned</code>,
-   *       you must also set a value for <code>ProvisionedThroughPutInMibps</code>. You can decrease your file
-   *       system's throughput in Provisioned Throughput mode or change between the throughput modes
-   *       as long as it’s been more than 24 hours since the last decrease or throughput mode
-   *       change. For more,
-   *       see <a href="https://docs.aws.amazon.com/efs/latest/ug/performance.html#provisioned-throughput">Specifying Throughput with Provisioned Mode</a>
-   *       in the <i>Amazon EFS User Guide.</i>
-   *          </p>
+   * <p>Specifies the throughput mode for the file system, either <code>bursting</code> or
+   *         <code>provisioned</code>. If you set <code>ThroughputMode</code> to
+   *       <code>provisioned</code>, you must also set a value for
+   *         <code>ProvisionedThroughputInMibps</code>. After you create the file system, you can
+   *       decrease your file system's throughput in Provisioned Throughput mode or change between
+   *       the throughput modes, as long as it’s been more than 24 hours since the last decrease or
+   *       throughput mode change. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/performance.html#provisioned-throughput">Specifying throughput with
+   *         provisioned mode</a> in the <i>Amazon EFS User Guide</i>. </p>
+   *          <p>Default is <code>bursting</code>.</p>
    */
   ThroughputMode?: ThroughputMode | string;
 
   /**
    * <p>The throughput, measured in MiB/s, that you want to provision for a file system that
-   *       you're creating. Valid values are 1-1024. Required if <code>ThroughputMode</code> is set to <code>provisioned</code>. The upper limit for throughput is 1024 MiB/s.
-   *       You can get this limit increased by contacting AWS Support. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits">Amazon EFS Limits That You Can Increase</a>
-   *       in the <i>Amazon EFS User Guide.</i>
-   *          </p>
+   *       you're creating. Valid values are 1-1024. Required if <code>ThroughputMode</code> is set
+   *       to <code>provisioned</code>. The upper limit for throughput is 1024 MiB/s. To increase this
+   *       limit, contact AWS Support. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits">Amazon EFS quotas that you can increase</a>
+   *       in the <i>Amazon EFS User Guide</i>.</p>
    */
   ProvisionedThroughputInMibps?: number;
+
+  /**
+   * <p>Used to create a file system that uses One Zone storage classes. It specifies the AWS
+   *       Availability Zone in which to create the file system. Use the format <code>us-east-1a</code>
+   *       to specify the Availability Zone. For
+   *       more information about One Zone storage classes, see <a href="https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html">Using EFS storage classes</a> in the <i>Amazon EFS User Guide</i>.</p>
+   *          <note>
+   *             <p>One Zone storage classes are not available in all Availability Zones in AWS Regions where
+   *         Amazon EFS is available.</p>
+   *          </note>
+   */
+  AvailabilityZoneName?: string;
+
+  /**
+   * <p>Specifies whether automatic backups are enabled on the file system that you are creating.
+   *       Set the value to <code>true</code> to enable automatic backups. If you are creating a file
+   *       system that uses One Zone storage classes, automatic backups are enabled by default. For more
+   *       information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/awsbackup.html#automatic-backups">Automatic backups</a> in the
+   *         <i>Amazon EFS User Guide</i>.</p>
+   *          <p>Default is <code>false</code>. However, if you specify an <code>AvailabilityZoneName</code>,
+   *       the default is <code>true</code>.</p>
+   *          <note>
+   *             <p>AWS Backup is not available in all AWS Regions where Amazon EFS is available.</p>
+   *          </note>
+   */
+  Backup?: boolean;
 
   /**
    * <p>A value that specifies to create one or more tags associated with the file system. Each
@@ -651,24 +704,32 @@ export interface FileSystemDescription {
   KmsKeyId?: string;
 
   /**
-   * <p>The throughput mode for a file system. There are two throughput modes to choose from for
-   *       your file system: <code>bursting</code> and <code>provisioned</code>. If you set <code>ThroughputMode</code> to <code>provisioned</code>,
-   *       you must also set a value for <code>ProvisionedThroughPutInMibps</code>. You can decrease your file system's
-   *       throughput in Provisioned Throughput mode or change between the throughput modes as long as
-   *       it’s been more than 24 hours since the last decrease or throughput mode change.
+   * <p>Displays the file system's throughput mode. For more information, see
+   *       <a href="https://docs.aws.amazon.com/efs/latest/ug/performance.html#throughput-modes">Throughput modes</a>
+   *       in the <i>Amazon EFS User Guide</i>.
    *     </p>
    */
   ThroughputMode?: ThroughputMode | string;
 
   /**
-   * <p>The throughput, measured in MiB/s, that you want to provision for a file system. Valid values are 1-1024.
-   *       Required if <code>ThroughputMode</code> is set to <code>provisioned</code>. The limit
-   *       on throughput is 1024 MiB/s. You can get these limits increased by contacting AWS Support. For
-   *       more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits">Amazon EFS Limits That You Can Increase</a>
-   *       in the <i>Amazon EFS User Guide.</i>
-   *          </p>
+   * <p>The amount of provisioned throughput, measured in MiB/s, for the file system. Valid for
+   *       file systems using <code>ThroughputMode</code> set to <code>provisioned</code>.</p>
    */
   ProvisionedThroughputInMibps?: number;
+
+  /**
+   * <p>Describes the AWS Availability Zone in which the file system is located, and is valid only
+   *       for file systems using One Zone storage classes. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html">Using EFS storage classes</a>
+   *       in the <i>Amazon EFS User Guide</i>.</p>
+   */
+  AvailabilityZoneName?: string;
+
+  /**
+   * <p>The unique and consistent identifier of the Availability Zone in which the file system's
+   *       One Zone storage classes exist. For example, <code>use1-az1</code> is an Availability Zone ID
+   *       for the us-east-1 AWS Region, and it has the same location in every AWS account.</p>
+   */
+  AvailabilityZoneId?: string;
 
   /**
    * <p>The tags associated with the file system, presented as an array of <code>Tag</code>
@@ -705,7 +766,7 @@ export namespace FileSystemLimitExceeded {
  *             might be returned when you try to create a file system in provisioned throughput mode,
  *             when you attempt to increase the provisioned throughput of an existing file system, or
  *             when you attempt to change an existing file system from bursting to provisioned
- *             throughput mode.</p>
+ *             throughput mode. Try again later.</p>
  */
 export interface InsufficientThroughputCapacity extends __SmithyException, $MetadataBearer {
   name: "InsufficientThroughputCapacity";
@@ -738,6 +799,22 @@ export namespace ThroughputLimitExceeded {
 }
 
 /**
+ * <p>Returned if the requested Amazon EFS functionality is not available in the specified Availability Zone.</p>
+ */
+export interface UnsupportedAvailabilityZone extends __SmithyException, $MetadataBearer {
+  name: "UnsupportedAvailabilityZone";
+  $fault: "client";
+  ErrorCode: string | undefined;
+  Message?: string;
+}
+
+export namespace UnsupportedAvailabilityZone {
+  export const filterSensitiveLog = (obj: UnsupportedAvailabilityZone): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p></p>
  */
 export interface CreateMountTargetRequest {
@@ -747,7 +824,8 @@ export interface CreateMountTargetRequest {
   FileSystemId: string | undefined;
 
   /**
-   * <p>The ID of the subnet to add the mount target in.</p>
+   * <p>The ID of the subnet to add the mount target in. For file systems that use One Zone storage classes, use the subnet
+   *     that is associated with the file system's Availability Zone.</p>
    */
   SubnetId: string | undefined;
 
@@ -844,20 +922,20 @@ export interface MountTargetDescription {
   NetworkInterfaceId?: string;
 
   /**
-   * <p>The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
+   * <p>The unique and consistent identifier of the Availability Zone that the mount target resides in.
    *       For example, <code>use1-az1</code> is an AZ ID for the us-east-1 Region and it has the same location in every AWS account.</p>
    */
   AvailabilityZoneId?: string;
 
   /**
-   * <p>The name of the Availability Zone (AZ) that the mount target resides in. AZs are
+   * <p>The name of the Availability Zone in which the mount target is located. Availability Zones are
    *       independently mapped to names for each AWS account. For example, the Availability Zone
    *       <code>us-east-1a</code> for your AWS account might not be the same location as <code>us-east-1a</code> for another AWS account.</p>
    */
   AvailabilityZoneName?: string;
 
   /**
-   * <p>The Virtual Private Cloud (VPC) ID that the mount target is configured in.</p>
+   * <p>The virtual private cloud (VPC) ID that the mount target is configured in.</p>
    */
   VpcId?: string;
 }
@@ -952,22 +1030,6 @@ export interface SubnetNotFound extends __SmithyException, $MetadataBearer {
 
 export namespace SubnetNotFound {
   export const filterSensitiveLog = (obj: SubnetNotFound): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p></p>
- */
-export interface UnsupportedAvailabilityZone extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedAvailabilityZone";
-  $fault: "client";
-  ErrorCode: string | undefined;
-  Message?: string;
-}
-
-export namespace UnsupportedAvailabilityZone {
-  export const filterSensitiveLog = (obj: UnsupportedAvailabilityZone): any => ({
     ...obj,
   });
 }
@@ -1204,7 +1266,7 @@ export namespace PolicyNotFound {
 }
 
 /**
- * <p>Returned if the AWS Backup service is not available in the region that the request was made.</p>
+ * <p>Returned if the AWS Backup service is not available in the Region in which the request was made.</p>
  */
 export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
@@ -1652,6 +1714,7 @@ export interface PutFileSystemPolicyRequest {
 
   /**
    * <p>The <code>FileSystemPolicy</code> that you're creating. Accepts a JSON formatted policy definition.
+   *      EFS file system policies have a 20,000 character limit.
    *       To find out more about the elements that make up a file system policy, see
    *       <a href="https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies">EFS Resource-based Policies</a>.
    *     </p>
@@ -1722,7 +1785,8 @@ export interface UntagResourceRequest {
   ResourceId: string | undefined;
 
   /**
-   * <p>The keys of the key:value tag pairs that you want to remove from the specified EFS resource.</p>
+   * <p>The keys of the key-value tag pairs that you want to remove from the specified EFS
+   *       resource.</p>
    */
   TagKeys: string[] | undefined;
 }
@@ -1757,17 +1821,18 @@ export interface UpdateFileSystemRequest {
   FileSystemId: string | undefined;
 
   /**
-   * <p>(Optional) The throughput mode that you want your file system to use. If you're not
+   * <p>(Optional) Updates the file system's throughput mode. If you're not
    *       updating your throughput mode, you don't need to provide this value in your
-   *       request. If you are changing the <code>ThroughputMode</code> to <code>provisioned</code>, you must also set a value for <code>ProvisionedThroughputInMibps</code>.</p>
+   *       request. If you are changing the <code>ThroughputMode</code> to <code>provisioned</code>,
+   *       you must also set a value for <code>ProvisionedThroughputInMibps</code>.</p>
    */
   ThroughputMode?: ThroughputMode | string;
 
   /**
-   * <p>(Optional) The amount of throughput, in MiB/s, that you want to provision for your file
-   *       system. Valid values are 1-1024. Required if <code>ThroughputMode</code> is changed to <code>provisioned</code> on update.
-   *       If you're not updating the amount of provisioned throughput for your file system, you
-   *       don't need to provide this value in your request. </p>
+   * <p>(Optional) Sets the amount of provisioned throughput, in MiB/s, for the file
+   *       system. Valid values are 1-1024. If you are changing the throughput mode to provisioned, you must also
+   *       provide the amount of provisioned throughput. Required if <code>ThroughputMode</code> is changed
+   *       to <code>provisioned</code> on update.</p>
    */
   ProvisionedThroughputInMibps?: number;
 }

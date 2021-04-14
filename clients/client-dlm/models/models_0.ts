@@ -2,67 +2,25 @@ import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
- * <p>Specifies optional parameters to add to a policy. The set of valid parameters depends on the combination of policy type and resource type.</p>
+ * <p>Specifies the encryption settings for shared snapshots that are copied across Regions.</p>
  */
-export interface _Parameters {
+export interface EncryptionConfiguration {
   /**
-   * <p>[EBS Snapshot Management – Instance policies only] Indicates whether to exclude the root volume from snapshots created using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSnapshots.html">CreateSnapshots</a>. The default is false.</p>
+   * <p>To encrypt a copy of an unencrypted snapshot when encryption by default is not enabled, enable
+   * 			encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this
+   * 			parameter is false or when encryption by default is not enabled.</p>
    */
-  ExcludeBootVolume?: boolean;
-
-  /**
-   * <p>Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. <code>true</code> indicates that targeted instances are not rebooted when the policy runs. <code>false</code> indicates that target instances are rebooted when the policy runs. The default is <code>true</code> (instance are not rebooted).</p>
-   */
-  NoReboot?: boolean;
-}
-
-export namespace _Parameters {
-  export const filterSensitiveLog = (obj: _Parameters): any => ({
-    ...obj,
-  });
-}
-
-export enum PolicyTypeValues {
-  EBS_SNAPSHOT_MANAGEMENT = "EBS_SNAPSHOT_MANAGEMENT",
-  IMAGE_MANAGEMENT = "IMAGE_MANAGEMENT",
-}
-
-export enum ResourceTypeValues {
-  INSTANCE = "INSTANCE",
-  VOLUME = "VOLUME",
-}
-
-export enum IntervalUnitValues {
-  HOURS = "HOURS",
-}
-
-/**
- * <p>Specifies when to create snapshots of EBS volumes.</p> <p>You must specify either a Cron expression or an interval, interval unit, and start time. You cannot specify both.</p>
- */
-export interface CreateRule {
-  /**
-   * <p>The interval between snapshots. The supported values are 1, 2, 3, 4, 6, 8, 12, and 24.</p>
-   */
-  Interval?: number;
+  Encrypted: boolean | undefined;
 
   /**
-   * <p>The interval unit.</p>
+   * <p>The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS
+   * 			encryption. If this parameter is not specified, your AWS managed CMK for EBS is used.</p>
    */
-  IntervalUnit?: IntervalUnitValues | string;
-
-  /**
-   * <p>The time, in UTC, to start the operation. The supported format is hh:mm.</p> <p>The operation occurs within a one-hour window following the specified time. If you do not specify a time, Amazon DLM selects a time within the next 24 hours.</p>
-   */
-  Times?: string[];
-
-  /**
-   * <p>The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions">Cron expressions</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
-   */
-  CronExpression?: string;
+  CmkArn?: string;
 }
 
-export namespace CreateRule {
-  export const filterSensitiveLog = (obj: CreateRule): any => ({
+export namespace EncryptionConfiguration {
+  export const filterSensitiveLog = (obj: EncryptionConfiguration): any => ({
     ...obj,
   });
 }
@@ -79,7 +37,8 @@ export enum RetentionIntervalUnitValues {
  */
 export interface CrossRegionCopyRetainRule {
   /**
-   * <p>The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.</p>
+   * <p>The amount of time to retain each snapshot. The maximum is 100 years. This is
+   * 			equivalent to 1200 months, 5200 weeks, or 36500 days.</p>
    */
   Interval?: number;
 
@@ -96,21 +55,244 @@ export namespace CrossRegionCopyRetainRule {
 }
 
 /**
+ * <p>Specifies a rule for copying shared snapshots across Regions.</p>
+ */
+export interface CrossRegionCopyAction {
+  /**
+   * <p>The target Region.</p>
+   */
+  Target: string | undefined;
+
+  /**
+   * <p>The encryption settings for the copied snapshot.</p>
+   */
+  EncryptionConfiguration: EncryptionConfiguration | undefined;
+
+  /**
+   * <p>Specifies the retention rule for cross-Region snapshot copies.</p>
+   */
+  RetainRule?: CrossRegionCopyRetainRule;
+}
+
+export namespace CrossRegionCopyAction {
+  export const filterSensitiveLog = (obj: CrossRegionCopyAction): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies an action for an event-based policy.</p>
+ */
+export interface Action {
+  /**
+   * <p>A descriptive name for the action.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The rule for copying shared snapshots across Regions.</p>
+   */
+  CrossRegionCopy: CrossRegionCopyAction[] | undefined;
+}
+
+export namespace Action {
+  export const filterSensitiveLog = (obj: Action): any => ({
+    ...obj,
+  });
+}
+
+export enum EventTypeValues {
+  SHARE_SNAPSHOT = "shareSnapshot",
+}
+
+/**
+ * <p>Specifies an event that triggers an event-based policy.</p>
+ */
+export interface EventParameters {
+  /**
+   * <p>The type of event. Currently, only snapshot sharing events are supported.</p>
+   */
+  EventType: EventTypeValues | string | undefined;
+
+  /**
+   * <p>The IDs of the AWS accounts that can trigger policy by sharing snapshots with your account. The
+   * 			policy only runs if one of the specified AWS accounts shares a snapshot with your account.</p>
+   */
+  SnapshotOwner: string[] | undefined;
+
+  /**
+   * <p>The snapshot description that can trigger the policy. The description pattern is specified using
+   * 			a regular expression. The policy runs only if a snapshot with a description that matches the
+   * 			specified pattern is shared with your account.</p>
+   * 		       <p>For example, specifying <code>^.*Created for policy: policy-1234567890abcdef0.*$</code>
+   * 			configures the policy to run only if snapshots created by policy <code>policy-1234567890abcdef0</code>
+   * 			are shared with your account.</p>
+   */
+  DescriptionRegex: string | undefined;
+}
+
+export namespace EventParameters {
+  export const filterSensitiveLog = (obj: EventParameters): any => ({
+    ...obj,
+  });
+}
+
+export enum EventSourceValues {
+  MANAGED_CWE = "MANAGED_CWE",
+}
+
+/**
+ * <p>Specifies an event that triggers an event-based policy.</p>
+ */
+export interface EventSource {
+  /**
+   * <p>The source of the event. Currently only managed AWS CloudWatch Events rules are supported.</p>
+   */
+  Type: EventSourceValues | string | undefined;
+
+  /**
+   * <p>Information about the event.</p>
+   */
+  Parameters?: EventParameters;
+}
+
+export namespace EventSource {
+  export const filterSensitiveLog = (obj: EventSource): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies optional parameters to add to a policy. The set of valid parameters depends
+ * 			on the combination of policy type and resource type.</p>
+ */
+export interface _Parameters {
+  /**
+   * <p>[EBS Snapshot Management – Instance policies only] Indicates whether to exclude the
+   * 			root volume from snapshots created using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSnapshots.html">CreateSnapshots</a>.
+   * 			The default is false.</p>
+   */
+  ExcludeBootVolume?: boolean;
+
+  /**
+   * <p>Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle
+   * 			policy runs. <code>true</code> indicates that targeted instances are not rebooted when the policy
+   * 			runs. <code>false</code> indicates that target instances are rebooted when the policy runs. The
+   * 			default is <code>true</code> (instances are not rebooted).</p>
+   */
+  NoReboot?: boolean;
+}
+
+export namespace _Parameters {
+  export const filterSensitiveLog = (obj: _Parameters): any => ({
+    ...obj,
+  });
+}
+
+export enum PolicyTypeValues {
+  EBS_SNAPSHOT_MANAGEMENT = "EBS_SNAPSHOT_MANAGEMENT",
+  EVENT_BASED_POLICY = "EVENT_BASED_POLICY",
+  IMAGE_MANAGEMENT = "IMAGE_MANAGEMENT",
+}
+
+export enum ResourceLocationValues {
+  CLOUD = "CLOUD",
+  OUTPOST = "OUTPOST",
+}
+
+export enum ResourceTypeValues {
+  INSTANCE = "INSTANCE",
+  VOLUME = "VOLUME",
+}
+
+export enum IntervalUnitValues {
+  HOURS = "HOURS",
+}
+
+export enum LocationValues {
+  CLOUD = "CLOUD",
+  OUTPOST_LOCAL = "OUTPOST_LOCAL",
+}
+
+/**
+ * <p>Specifies when to create snapshots of EBS volumes.</p>
+ * 		       <p>You must specify either a Cron expression or an interval, interval unit, and start
+ * 			time. You cannot specify both.</p>
+ */
+export interface CreateRule {
+  /**
+   * <p>Specifies the destination for snapshots created by the policy. To create snapshots in the same
+   * 			Region as the source resource, specify <code>CLOUD</code>. To create snapshots on the same
+   * 			Outpost as the source resource, specify <code>OUTPOST_LOCAL</code>. If you omit this
+   * 			parameter, <code>CLOUD</code> is used by default.</p>
+   * 		       <p>If the policy targets resources in an AWS Region, then you must create snapshots in the same
+   * 			Region as the source resource. </p>
+   * 		       <p>If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost
+   * 			as the source resource, or in the Region of that Outpost.</p>
+   */
+  Location?: LocationValues | string;
+
+  /**
+   * <p>The interval between snapshots. The supported values are 1, 2, 3, 4, 6, 8, 12, and
+   * 			24.</p>
+   */
+  Interval?: number;
+
+  /**
+   * <p>The interval unit.</p>
+   */
+  IntervalUnit?: IntervalUnitValues | string;
+
+  /**
+   * <p>The time, in UTC, to start the operation. The supported format is hh:mm.</p>
+   * 		       <p>The operation occurs within a one-hour window following the specified time. If you do
+   * 			not specify a time, Amazon DLM selects a time within the next 24 hours.</p>
+   */
+  Times?: string[];
+
+  /**
+   * <p>The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1
+   * 			year. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions">Cron
+   * 				expressions</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
+   */
+  CronExpression?: string;
+}
+
+export namespace CreateRule {
+  export const filterSensitiveLog = (obj: CreateRule): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Specifies a rule for cross-Region snapshot copies.</p>
  */
 export interface CrossRegionCopyRule {
   /**
-   * <p>The target Region.</p>
+   * <p>The target Region for the snapshot copies.</p>
+   * 		       <p>If you specify a target Region, you must omit <b>Target</b>. You cannot
+   * 			specify a target Region and a target Outpost in the same rule.</p>
    */
-  TargetRegion: string | undefined;
+  TargetRegion?: string;
 
   /**
-   * <p>To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.</p>
+   * <p>The Amazon Resource Name (ARN) of the target AWS Outpost for the snapshot copies.</p>
+   * 		       <p>If you specify an ARN, you must omit <b>TargetRegion</b>. You cannot
+   * 			specify a target Region and a target Outpost in the same rule.</p>
+   */
+  Target?: string;
+
+  /**
+   * <p>To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled,
+   * 			enable encryption using this parameter. Copies of encrypted snapshots are encrypted,
+   * 			even if this parameter is false or if encryption by default is not enabled.</p>
    */
   Encrypted: boolean | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this parameter is not specified, your AWS managed CMK for EBS is used.</p>
+   * <p>The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS
+   * 			encryption. If this parameter is not specified, your AWS managed CMK for EBS is
+   * 			used.</p>
    */
   CmkArn?: string;
 
@@ -132,7 +314,8 @@ export namespace CrossRegionCopyRule {
 }
 
 /**
- * <p>Specifies a rule for enabling fast snapshot restore. You can enable fast snapshot restore based on either a count or a time interval.</p>
+ * <p>Specifies a rule for enabling fast snapshot restore. You can enable fast snapshot
+ * 			restore based on either a count or a time interval.</p>
  */
 export interface FastRestoreRule {
   /**
@@ -141,7 +324,8 @@ export interface FastRestoreRule {
   Count?: number;
 
   /**
-   * <p>The amount of time to enable fast snapshot restore. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.</p>
+   * <p>The amount of time to enable fast snapshot restore. The maximum is 100 years. This is
+   * 			equivalent to 1200 months, 5200 weeks, or 36500 days.</p>
    */
   Interval?: number;
 
@@ -163,7 +347,8 @@ export namespace FastRestoreRule {
 }
 
 /**
- * <p>Specifies the retention rule for a lifecycle policy. You can retain snapshots based on either a count or a time interval.</p>
+ * <p>Specifies the retention rule for a lifecycle policy. You can retain snapshots based on
+ * 			either a count or a time interval.</p>
  */
 export interface RetainRule {
   /**
@@ -172,7 +357,8 @@ export interface RetainRule {
   Count?: number;
 
   /**
-   * <p>The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.</p>
+   * <p>The amount of time to retain each snapshot. The maximum is 100 years. This is
+   * 			equivalent to 1200 months, 5200 weeks, or 36500 days.</p>
    */
   Interval?: number;
 
@@ -184,6 +370,32 @@ export interface RetainRule {
 
 export namespace RetainRule {
   export const filterSensitiveLog = (obj: RetainRule): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies a rule for sharing snapshots across AWS accounts.</p>
+ */
+export interface ShareRule {
+  /**
+   * <p>The IDs of the AWS accounts with which to share the snapshots.</p>
+   */
+  TargetAccounts: string[] | undefined;
+
+  /**
+   * <p>The period after which snapshots that are shared with other AWS accounts are automatically unshared.</p>
+   */
+  UnshareInterval?: number;
+
+  /**
+   * <p>The unit of time for the automatic unsharing interval.</p>
+   */
+  UnshareIntervalUnit?: RetentionIntervalUnitValues | string;
+}
+
+export namespace ShareRule {
+  export const filterSensitiveLog = (obj: ShareRule): any => ({
     ...obj,
   });
 }
@@ -210,7 +422,7 @@ export namespace Tag {
 }
 
 /**
- * <p>Specifies a backup schedule.</p>
+ * <p>Specifies a backup schedule for a snapshot or AMI lifecycle policy.</p>
  */
 export interface Schedule {
   /**
@@ -219,17 +431,22 @@ export interface Schedule {
   Name?: string;
 
   /**
-   * <p>Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.</p>
+   * <p>Copy all user-defined tags on a source volume to snapshots of the volume created by
+   * 			this policy.</p>
    */
   CopyTags?: boolean;
 
   /**
-   * <p>The tags to apply to policy-created resources. These user-defined tags are in addition to the AWS-added lifecycle tags.</p>
+   * <p>The tags to apply to policy-created resources. These user-defined tags are in addition
+   * 			to the AWS-added lifecycle tags.</p>
    */
   TagsToAdd?: Tag[];
 
   /**
-   * <p>A collection of key/value pairs with values determined dynamically when the policy is executed. Keys may be any valid Amazon EC2 tag key. Values must be in one of the two following formats: <code>$(instance-id)</code> or <code>$(timestamp)</code>. Variable tags are only valid for EBS Snapshot Management – Instance policies.</p>
+   * <p>A collection of key/value pairs with values determined dynamically when the policy is
+   * 			executed. Keys may be any valid Amazon EC2 tag key. Values must be in one of the two
+   * 			following formats: <code>$(instance-id)</code> or <code>$(timestamp)</code>. Variable
+   * 			tags are only valid for EBS Snapshot Management – Instance policies.</p>
    */
   VariableTags?: Tag[];
 
@@ -250,8 +467,17 @@ export interface Schedule {
 
   /**
    * <p>The rule for cross-Region snapshot copies.</p>
+   * 		       <p>You can only specify cross-Region copy rules for policies that create snapshots in a Region.
+   * 			If the policy creates snapshots on an Outpost, then you cannot copy the snapshots to a Region or
+   * 			to an Outpost. If the policy creates snapshots in a Region, then snapshots can be copied to up to three
+   * 			Regions or Outposts.</p>
    */
   CrossRegionCopyRules?: CrossRegionCopyRule[];
+
+  /**
+   * <p>The rule for sharing snapshots with other AWS accounts.</p>
+   */
+  ShareRules?: ShareRule[];
 }
 
 export namespace Schedule {
@@ -265,29 +491,62 @@ export namespace Schedule {
  */
 export interface PolicyDetails {
   /**
-   * <p>The valid target resource types and actions a policy can manage. Specify <code>EBS_SNAPSHOT_MANAGEMENT</code> to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify <code>IMAGE_MANAGEMENT</code> to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. The default is <code>EBS_SNAPSHOT_MANAGEMENT</code>.</p>
+   * <p>The valid target resource types and actions a policy can manage. Specify <code>EBS_SNAPSHOT_MANAGEMENT</code>
+   * 			to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify <code>IMAGE_MANAGEMENT</code>
+   * 			to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify <code>EVENT_BASED_POLICY </code>
+   * 			to create an event-based policy that performs specific actions when a defined event occurs in your AWS account.</p>
+   * 		       <p>The default is <code>EBS_SNAPSHOT_MANAGEMENT</code>.</p>
    */
   PolicyType?: PolicyTypeValues | string;
 
   /**
-   * <p>The resource type. Use VOLUME to create snapshots of individual volumes or use INSTANCE to create multi-volume snapshots from the volumes for an instance.</p>
+   * <p>The target resource type for snapshot and AMI lifecycle policies. Use <code>VOLUME </code>to
+   * 			create snapshots of individual volumes or use <code>INSTANCE</code> to create multi-volume
+   * 			snapshots from the volumes for an instance.</p>
+   * 		       <p>This parameter is required for snapshot and AMI policies only. If you are creating an event-based policy, omit this parameter.</p>
    */
   ResourceTypes?: (ResourceTypeValues | string)[];
 
   /**
+   * <p>The location of the resources to backup. If the source resources are located in an AWS Region, specify
+   * 			<code>CLOUD</code>. If the source resources are located on an AWS Outpost
+   * 			in your account, specify <code>OUTPOST</code>. </p>
+   * 			      <p>If you specify <code>OUTPOST</code>, Amazon Data Lifecycle Manager backs up all resources
+   * 				of the specified type with matching target tags across all of the Outposts in your account.</p>
+   */
+  ResourceLocations?: (ResourceLocationValues | string)[];
+
+  /**
    * <p>The single tag that identifies targeted resources for this policy.</p>
+   * 		       <p>This parameter is required for snapshot and AMI policies only. If you are creating an event-based policy, omit this parameter.</p>
    */
   TargetTags?: Tag[];
 
   /**
-   * <p>The schedules of policy-defined actions. A policy can have up to four schedules - one mandatory schedule and up to three optional schedules.</p>
+   * <p>The schedules of policy-defined actions for snapshot and AMI lifecycle policies. A policy
+   * 			can have up to four schedules—one mandatory schedule and up to three optional schedules.</p>
+   * 		       <p>This parameter is required for snapshot and AMI policies only. If you are creating an event-based policy, omit this parameter.</p>
    */
   Schedules?: Schedule[];
 
   /**
-   * <p>A set of optional parameters for the policy. </p>
+   * <p>A set of optional parameters for snapshot and AMI lifecycle policies. </p>
+   * 		       <p>This parameter is required for snapshot and AMI policies only. If you are creating an event-based policy, omit this parameter.</p>
    */
   Parameters?: _Parameters;
+
+  /**
+   * <p>The event that triggers the event-based policy. </p>
+   * 		       <p>This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter.</p>
+   */
+  EventSource?: EventSource;
+
+  /**
+   * <p>The actions to be performed when the event-based policy is triggered. You can specify
+   * 		only one action per policy.</p>
+   * 		       <p>This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter.</p>
+   */
+  Actions?: Action[];
 }
 
 export namespace PolicyDetails {
@@ -303,12 +562,14 @@ export enum SettablePolicyStateValues {
 
 export interface CreateLifecyclePolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by the lifecycle policy.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by
+   * 			the lifecycle policy.</p>
    */
   ExecutionRoleArn: string | undefined;
 
   /**
-   * <p>A description of the lifecycle policy. The characters ^[0-9A-Za-z _-]+$ are supported.</p>
+   * <p>A description of the lifecycle policy. The characters ^[0-9A-Za-z _-]+$ are
+   * 			supported.</p>
    */
   Description: string | undefined;
 
@@ -364,7 +625,8 @@ export namespace InternalServerException {
 }
 
 /**
- * <p>Bad request. The request is missing required parameters or has invalid parameters.</p>
+ * <p>Bad request. The request is missing required parameters or has invalid
+ * 			parameters.</p>
  */
 export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
   name: "InvalidRequestException";
@@ -477,12 +739,15 @@ export interface GetLifecyclePoliciesRequest {
   ResourceTypes?: (ResourceTypeValues | string)[];
 
   /**
-   * <p>The target tag for a policy.</p> <p>Tags are strings in the format <code>key=value</code>.</p>
+   * <p>The target tag for a policy.</p>
+   * 		       <p>Tags are strings in the format <code>key=value</code>.</p>
    */
   TargetTags?: string[];
 
   /**
-   * <p>The tags to add to objects created by the policy.</p> <p>Tags are strings in the format <code>key=value</code>.</p> <p>These user-defined tags are added in addition to the AWS-added lifecycle tags.</p>
+   * <p>The tags to add to objects created by the policy.</p>
+   * 		       <p>Tags are strings in the format <code>key=value</code>.</p>
+   * 		       <p>These user-defined tags are added in addition to the AWS-added lifecycle tags.</p>
    */
   TagsToAdd?: string[];
 }
@@ -518,7 +783,9 @@ export interface LifecyclePolicySummary {
   Tags?: { [key: string]: string };
 
   /**
-   * <p>The type of policy. <code>EBS_SNAPSHOT_MANAGEMENT</code> indicates that the policy manages the lifecycle of Amazon EBS snapshots. <code>IMAGE_MANAGEMENT</code> indicates that the policy manages the lifecycle of EBS-backed AMIs.</p>
+   * <p>The type of policy. <code>EBS_SNAPSHOT_MANAGEMENT</code> indicates that the policy
+   * 			manages the lifecycle of Amazon EBS snapshots. <code>IMAGE_MANAGEMENT</code>
+   * 			indicates that the policy manages the lifecycle of EBS-backed AMIs.</p>
    */
   PolicyType?: PolicyTypeValues | string;
 }
@@ -580,7 +847,8 @@ export interface LifecyclePolicy {
   StatusMessage?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by the lifecycle policy.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by
+   * 			the lifecycle policy.</p>
    */
   ExecutionRoleArn?: string;
 
@@ -714,7 +982,8 @@ export interface UpdateLifecyclePolicyRequest {
   PolicyId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by the lifecycle policy.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by
+   * 			the lifecycle policy.</p>
    */
   ExecutionRoleArn?: string;
 
@@ -729,7 +998,8 @@ export interface UpdateLifecyclePolicyRequest {
   Description?: string;
 
   /**
-   * <p>The configuration of the lifecycle policy. You cannot update the policy type or the resource type.</p>
+   * <p>The configuration of the lifecycle policy. You cannot update the policy type or the
+   * 			resource type.</p>
    */
   PolicyDetails?: PolicyDetails;
 }

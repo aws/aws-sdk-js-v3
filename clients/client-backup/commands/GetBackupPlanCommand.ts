@@ -21,9 +21,8 @@ export type GetBackupPlanCommandInput = GetBackupPlanInput;
 export type GetBackupPlanCommandOutput = GetBackupPlanOutput & __MetadataBearer;
 
 /**
- * <p>Returns <code>BackupPlan</code> details for the specified <code>BackupPlanId</code>.
- *          Returns the body of a
- *          backup plan in JSON format, in addition to plan metadata.</p>
+ * <p>Returns <code>BackupPlan</code> details for the specified <code>BackupPlanId</code>. The
+ *          details are the body of a backup plan in JSON format, in addition to plan metadata.</p>
  */
 export class GetBackupPlanCommand extends $Command<
   GetBackupPlanCommandInput,

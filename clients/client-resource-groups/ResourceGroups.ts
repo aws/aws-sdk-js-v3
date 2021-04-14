@@ -25,6 +25,11 @@ import {
 } from "./commands/ListGroupResourcesCommand";
 import { ListGroupsCommand, ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
 import {
+  PutGroupConfigurationCommand,
+  PutGroupConfigurationCommandInput,
+  PutGroupConfigurationCommandOutput,
+} from "./commands/PutGroupConfigurationCommand";
+import {
   SearchResourcesCommand,
   SearchResourcesCommandInput,
   SearchResourcesCommandOutput,
@@ -85,7 +90,21 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 export class ResourceGroups extends ResourceGroupsClient {
   /**
    * <p>Creates a resource group with the specified name and description. You can optionally
-   *             include a resource query, or a service configuration.</p>
+   *             include a resource query, or a service configuration. For more information about
+   *             constructing a resource query, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag">Create a tag-based group in Resource Groups</a>. For more
+   *             information about service configurations, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for resource
+   *                 groups</a>.</p>
+   *          <p>
+   *             <b>Minimum permissions</b>
+   *          </p>
+   *          <p>To run this command, you must have the following permissions:</p>
+   *          <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>resource-groups:CreateGroup</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   public createGroup(args: CreateGroupCommandInput, options?: __HttpHandlerOptions): Promise<CreateGroupCommandOutput>;
   public createGroup(args: CreateGroupCommandInput, cb: (err: any, data?: CreateGroupCommandOutput) => void): void;
@@ -113,6 +132,17 @@ export class ResourceGroups extends ResourceGroupsClient {
   /**
    * <p>Deletes the specified resource group. Deleting a resource group does not delete any
    *             resources that are members of the group; it only deletes the group structure.</p>
+   *         <p>
+   *             <b>Minimum permissions</b>
+   *          </p>
+   *          <p>To run this command, you must have the following permissions:</p>
+   *          <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>resource-groups:DeleteGroup</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   public deleteGroup(args: DeleteGroupCommandInput, options?: __HttpHandlerOptions): Promise<DeleteGroupCommandOutput>;
   public deleteGroup(args: DeleteGroupCommandInput, cb: (err: any, data?: DeleteGroupCommandOutput) => void): void;
@@ -139,6 +169,17 @@ export class ResourceGroups extends ResourceGroupsClient {
 
   /**
    * <p>Returns information about a specified resource group.</p>
+   *          <p>
+   *             <b>Minimum permissions</b>
+   *          </p>
+   *          <p>To run this command, you must have the following permissions:</p>
+   *          <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>resource-groups:GetGroup</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   public getGroup(args: GetGroupCommandInput, options?: __HttpHandlerOptions): Promise<GetGroupCommandOutput>;
   public getGroup(args: GetGroupCommandInput, cb: (err: any, data?: GetGroupCommandOutput) => void): void;
@@ -164,14 +205,18 @@ export class ResourceGroups extends ResourceGroupsClient {
   }
 
   /**
-   * <p>Returns the service configuration associated with the specified resource group. AWS
-   *             Resource Groups supports configurations for the following resource group types:</p>
-   *         <ul>
+   * <p>Returns the service configuration associated with the specified resource group. For
+   *             details about the service configuration syntax, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for resource
+   *                 groups</a>.</p>
+   *          <p>
+   *             <b>Minimum permissions</b>
+   *          </p>
+   *          <p>To run this command, you must have the following permissions:</p>
+   *          <ul>
    *             <li>
    *                 <p>
-   *                   <code>AWS::EC2::CapacityReservationPool</code> - Amazon EC2 capacity
-   *                     reservation pools. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html#create-cr-group">Working with capacity reservation groups</a> in the <i>EC2 Users
-   *                         Guide</i>.</p>
+   *                   <code>resource-groups:GetGroupConfiguration</code>
+   *                </p>
    *             </li>
    *          </ul>
    */
@@ -205,7 +250,20 @@ export class ResourceGroups extends ResourceGroupsClient {
   }
 
   /**
-   * <p>Retrieves the resource query associated with the specified resource group.</p>
+   * <p>Retrieves the resource query associated with the specified resource group. For more
+   *             information about resource queries, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag">Create
+   *                 a tag-based group in Resource Groups</a>.</p>
+   *          <p>
+   *             <b>Minimum permissions</b>
+   *          </p>
+   *          <p>To run this command, you must have the following permissions:</p>
+   *          <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>resource-groups:GetGroupQuery</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   public getGroupQuery(
     args: GetGroupQueryCommandInput,
@@ -239,6 +297,17 @@ export class ResourceGroups extends ResourceGroupsClient {
   /**
    * <p>Returns a list of tags that are associated with a resource group, specified by an
    *             ARN.</p>
+   *          <p>
+   *             <b>Minimum permissions</b>
+   *          </p>
+   *          <p>To run this command, you must have the following permissions:</p>
+   *          <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>resource-groups:GetTags</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   public getTags(args: GetTagsCommandInput, options?: __HttpHandlerOptions): Promise<GetTagsCommandOutput>;
   public getTags(args: GetTagsCommandInput, cb: (err: any, data?: GetTagsCommandOutput) => void): void;
@@ -265,6 +334,17 @@ export class ResourceGroups extends ResourceGroupsClient {
 
   /**
    * <p>Adds the specified resources to the specified group.</p>
+   *          <p>
+   *             <b>Minimum permissions</b>
+   *          </p>
+   *          <p>To run this command, you must have the following permissions:</p>
+   *          <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>resource-groups:GroupResources</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   public groupResources(
     args: GroupResourcesCommandInput,
@@ -298,6 +378,17 @@ export class ResourceGroups extends ResourceGroupsClient {
   /**
    * <p>Returns a list of ARNs of the resources that are members of a specified resource
    *             group.</p>
+   *          <p>
+   *             <b>Minimum permissions</b>
+   *          </p>
+   *          <p>To run this command, you must have the following permissions:</p>
+   *          <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>resource-groups:ListGroupResources</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   public listGroupResources(
     args: ListGroupResourcesCommandInput,
@@ -330,6 +421,17 @@ export class ResourceGroups extends ResourceGroupsClient {
 
   /**
    * <p>Returns a list of existing resource groups in your account.</p>
+   *          <p>
+   *             <b>Minimum permissions</b>
+   *          </p>
+   *          <p>To run this command, you must have the following permissions:</p>
+   *          <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>resource-groups:ListGroups</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   public listGroups(args: ListGroupsCommandInput, options?: __HttpHandlerOptions): Promise<ListGroupsCommandOutput>;
   public listGroups(args: ListGroupsCommandInput, cb: (err: any, data?: ListGroupsCommandOutput) => void): void;
@@ -355,9 +457,65 @@ export class ResourceGroups extends ResourceGroupsClient {
   }
 
   /**
+   * <p>Attaches a service configuration to the specified group. This occurs asynchronously,
+   *             and can take time to complete. You can use <a>GetGroupConfiguration</a> to
+   *             check the status of the update.</p>
+   *          <p>
+   *             <b>Minimum permissions</b>
+   *          </p>
+   *          <p>To run this command, you must have the following permissions:</p>
+   *          <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>resource-groups:PutGroupConfiguration</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  public putGroupConfiguration(
+    args: PutGroupConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutGroupConfigurationCommandOutput>;
+  public putGroupConfiguration(
+    args: PutGroupConfigurationCommandInput,
+    cb: (err: any, data?: PutGroupConfigurationCommandOutput) => void
+  ): void;
+  public putGroupConfiguration(
+    args: PutGroupConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutGroupConfigurationCommandOutput) => void
+  ): void;
+  public putGroupConfiguration(
+    args: PutGroupConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutGroupConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: PutGroupConfigurationCommandOutput) => void
+  ): Promise<PutGroupConfigurationCommandOutput> | void {
+    const command = new PutGroupConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns a list of AWS resource identifiers that matches the specified query. The
    *             query uses the same format as a resource query in a CreateGroup or UpdateGroupQuery
    *             operation.</p>
+   *          <p>
+   *             <b>Minimum permissions</b>
+   *          </p>
+   *          <p>To run this command, you must have the following permissions:</p>
+   *          <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>resource-groups:SearchResources</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   public searchResources(
     args: SearchResourcesCommandInput,
@@ -397,6 +555,17 @@ export class ResourceGroups extends ResourceGroupsClient {
    *                 administration services. Tags are not intended to be used for private or sensitive
    *                 data.</p>
    *         </important>
+   *          <p>
+   *             <b>Minimum permissions</b>
+   *          </p>
+   *          <p>To run this command, you must have the following permissions:</p>
+   *          <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>resource-groups:Tag</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   public tag(args: TagCommandInput, options?: __HttpHandlerOptions): Promise<TagCommandOutput>;
   public tag(args: TagCommandInput, cb: (err: any, data?: TagCommandOutput) => void): void;
@@ -423,6 +592,17 @@ export class ResourceGroups extends ResourceGroupsClient {
 
   /**
    * <p>Removes the specified resources from the specified group.</p>
+   *          <p>
+   *             <b>Minimum permissions</b>
+   *          </p>
+   *          <p>To run this command, you must have the following permissions:</p>
+   *          <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>resource-groups:UngroupResources</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   public ungroupResources(
     args: UngroupResourcesCommandInput,
@@ -455,6 +635,17 @@ export class ResourceGroups extends ResourceGroupsClient {
 
   /**
    * <p>Deletes tags from a specified resource group.</p>
+   *          <p>
+   *             <b>Minimum permissions</b>
+   *          </p>
+   *          <p>To run this command, you must have the following permissions:</p>
+   *          <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>resource-groups:Untag</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   public untag(args: UntagCommandInput, options?: __HttpHandlerOptions): Promise<UntagCommandOutput>;
   public untag(args: UntagCommandInput, cb: (err: any, data?: UntagCommandOutput) => void): void;
@@ -482,6 +673,17 @@ export class ResourceGroups extends ResourceGroupsClient {
   /**
    * <p>Updates the description for an existing group. You cannot update the name of a
    *             resource group.</p>
+   *          <p>
+   *             <b>Minimum permissions</b>
+   *          </p>
+   *          <p>To run this command, you must have the following permissions:</p>
+   *          <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>resource-groups:UpdateGroup</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   public updateGroup(args: UpdateGroupCommandInput, options?: __HttpHandlerOptions): Promise<UpdateGroupCommandOutput>;
   public updateGroup(args: UpdateGroupCommandInput, cb: (err: any, data?: UpdateGroupCommandOutput) => void): void;
@@ -507,7 +709,19 @@ export class ResourceGroups extends ResourceGroupsClient {
   }
 
   /**
-   * <p>Updates the resource query of a group.</p>
+   * <p>Updates the resource query of a group. For more information about resource queries,
+   *             see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag">Create a tag-based group in Resource Groups</a>.</p>
+   *         <p>
+   *             <b>Minimum permissions</b>
+   *          </p>
+   *          <p>To run this command, you must have the following permissions:</p>
+   *          <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>resource-groups:UpdateGroupQuery</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   public updateGroupQuery(
     args: UpdateGroupQueryCommandInput,

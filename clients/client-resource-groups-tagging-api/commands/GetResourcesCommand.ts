@@ -38,18 +38,17 @@ export type GetResourcesCommandOutput = GetResourcesOutput & __MetadataBearer;
  *             </li>
  *             <li>
  *                 <p>Information about compliance with the account's effective tag policy. For more
- *                     information on tag policies, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html">Tag
+ *                     information on tag policies, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html">Tag
  *                         Policies</a> in the <i>AWS Organizations User Guide.</i>
  *                </p>
  *             </li>
  *          </ul>
- *         <note>
- *             <p>You can check the <code>PaginationToken</code> response parameter to determine if
- *                 a query is complete. Queries occasionally return fewer results on a page than
- *                 allowed. The <code>PaginationToken</code> response parameter value is
- *                     <code>null</code>
- *                 <i>only</i> when there are no more results to display. </p>
- *         </note>
+ *          <p>This operation supports pagination, where the response can be sent in
+ *     multiple pages. You should check the <code>PaginationToken</code> response parameter to determine
+ *     if there are additional results available to return. Repeat the query, passing the
+ *     <code>PaginationToken</code> response parameter value as an input to the next request until you
+ *     recieve a <code>null</code> value. A null value for <code>PaginationToken</code> indicates that
+ *     there are no more results waiting to be returned.</p>
  */
 export class GetResourcesCommand extends $Command<
   GetResourcesCommandInput,

@@ -23,29 +23,24 @@ export type CreateBucketCommandOutput = CreateBucketResult & __MetadataBearer;
 
 /**
  * <note>
- *             <p>This API operation creates an Amazon S3 on Outposts bucket. To create an S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">Create Bucket</a> in the <i>Amazon Simple Storage Service API</i>.
+ *             <p>This action creates an Amazon S3 on Outposts bucket. To create an S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">Create Bucket</a> in the <i>Amazon Simple Storage Service API</i>.
  *       </p>
  *          </note>
  *          <p>Creates a new Outposts bucket. By creating the bucket, you become the bucket owner. To create an Outposts bucket, you must have S3 on Outposts.
- *          For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using Amazon S3 on Outposts</a> in <i>Amazon Simple Storage Service Developer Guide</i>.</p>
- *          <p>Not every string is an acceptable bucket name. For information on bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules">Working with Amazon S3 Buckets</a>.</p>
- *
- *          <p>S3 on Outposts buckets do not support </p>
+ *          For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in <i>Amazon Simple Storage Service User Guide</i>.</p>
+ *          <p>Not every string is an acceptable bucket name. For information on bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/BucketRestrictions.html#bucketnamingrules">Working with Amazon S3 Buckets</a>.</p>
+ *          <p>S3 on Outposts buckets support:</p>
  *          <ul>
  *             <li>
- *                <p>ACLs. Instead, configure access point policies to manage
- *             access to buckets.</p>
+ *                <p>Tags</p>
  *             </li>
  *             <li>
- *                <p>Public access. </p>
- *             </li>
- *             <li>
- *                <p>Object Lock</p>
- *             </li>
- *             <li>
- *                <p>Bucket Location constraint</p>
+ *                <p>LifecycleConfigurations for deleting expired objects</p>
  *             </li>
  *          </ul>
+ *          <p>For a complete list of restrictions and Amazon S3 feature limitations on S3 on Outposts,
+ *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OnOutpostsRestrictionsLimitations.html">
+ *             Amazon S3 on Outposts Restrictions and Limitations</a>.</p>
  *          <p>For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
  *          endpoint hostname prefix and <code>x-amz-outpost-id</code> in your API request, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateBucket.html#API_control_CreateBucket_Examples">Examples</a> section.</p>
  *

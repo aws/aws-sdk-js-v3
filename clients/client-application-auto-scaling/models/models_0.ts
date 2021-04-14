@@ -629,7 +629,7 @@ export interface DescribeScalableTargetsRequest {
 
   /**
    * <p>The identifier of the resource associated with the scalable target.
-   *       This string consists of the resource type and unique identifier. If you specify a scalable dimension, you must also specify a resource ID.</p>
+   *       This string consists of the resource type and unique identifier.</p>
    *          <ul>
    *             <li>
    *                <p>ECS service - The resource type is <code>service</code> and the unique identifier is the cluster name
@@ -1048,7 +1048,7 @@ export interface DescribeScalingActivitiesRequest {
 
   /**
    * <p>The identifier of the resource associated with the scaling activity.
-   *       This string consists of the resource type and unique identifier. If you specify a scalable dimension, you must also specify a resource ID.</p>
+   *       This string consists of the resource type and unique identifier.</p>
    *          <ul>
    *             <li>
    *                <p>ECS service - The resource type is <code>service</code> and the unique identifier is the cluster name
@@ -1445,7 +1445,7 @@ export interface DescribeScalingPoliciesRequest {
 
   /**
    * <p>The identifier of the resource associated with the scaling policy.
-   *       This string consists of the resource type and unique identifier. If you specify a scalable dimension, you must also specify a resource ID.</p>
+   *       This string consists of the resource type and unique identifier.</p>
    *          <ul>
    *             <li>
    *                <p>ECS service - The resource type is <code>service</code> and the unique identifier is the cluster name
@@ -1778,7 +1778,7 @@ export interface StepScalingPolicyConfiguration {
    *                <p>Amazon Keyspaces tables</p>
    *            </li>
    *             <li>
-   *                <p>Amazon MSK cluster storage</p>
+   *                <p>Amazon MSK broker storage</p>
    *            </li>
    *          </ul>
    */
@@ -1911,7 +1911,7 @@ export enum MetricType {
  *          Application Auto Scaling.</p>
  *          <p>Only the AWS services that you're using send metrics to Amazon CloudWatch. To determine whether a
  *          desired metric already exists by looking up its namespace and dimension using the CloudWatch
- *          metrics dashboard in the console, follow the procedure in <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/monitoring-cloudwatch.html">Building Dashboards
+ *          metrics dashboard in the console, follow the procedure in <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/monitoring-cloudwatch.html">Building dashboards
  *             with CloudWatch</a> in the <i>Application Auto Scaling User Guide</i>.</p>
  */
 export interface PredefinedMetricSpecification {
@@ -1959,8 +1959,11 @@ export namespace PredefinedMetricSpecification {
  */
 export interface TargetTrackingScalingPolicyConfiguration {
   /**
-   * <p>The target value for the metric. The range is 8.515920e-109 to 1.174271e+108 (Base 10)
-   *          or 2e-360 to 2e360 (Base 2).</p>
+   * <p>The target value for the metric. Although this property accepts numbers of type Double,
+   *          it won't accept values that are either too small or too large. Values must be in the range
+   *          of -2^360 to 2^360. The value must be a valid number based on the choice of metric. For
+   *          example, if the metric is CPU utilization, then the target value is a percent value that
+   *          represents how much of the CPU can be used before scaling out. </p>
    */
   TargetValue: number | undefined;
 
@@ -2028,7 +2031,7 @@ export interface TargetTrackingScalingPolicyConfiguration {
    *                <p>Amazon Keyspaces tables</p>
    *            </li>
    *             <li>
-   *                <p>Amazon MSK cluster storage</p>
+   *                <p>Amazon MSK broker storage</p>
    *            </li>
    *          </ul>
    */
@@ -2084,7 +2087,7 @@ export interface TargetTrackingScalingPolicyConfiguration {
    *                <p>Amazon Keyspaces tables</p>
    *            </li>
    *             <li>
-   *                <p>Amazon MSK cluster storage</p>
+   *                <p>Amazon MSK broker storage</p>
    *            </li>
    *          </ul>
    */
@@ -2108,7 +2111,9 @@ export namespace TargetTrackingScalingPolicyConfiguration {
 
 /**
  * <p>Represents a scaling policy to use with Application Auto Scaling.</p>
- *          <p>For more information about configuring scaling policies for a specific service, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/getting-started.html">Getting started with Application Auto Scaling</a> in the <i>Application Auto Scaling User Guide</i>.</p>
+ *          <p>For more information about configuring scaling policies for a specific service, see
+ *             <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/getting-started.html">Getting started with Application Auto Scaling</a> in the
+ *          <i>Application Auto Scaling User Guide</i>.</p>
  */
 export interface ScalingPolicy {
   /**
@@ -2348,7 +2353,7 @@ export interface DescribeScheduledActionsRequest {
 
   /**
    * <p>The identifier of the resource associated with the scheduled action.
-   *       This string consists of the resource type and unique identifier. If you specify a scalable dimension, you must also specify a resource ID.</p>
+   *       This string consists of the resource type and unique identifier.</p>
    *          <ul>
    *             <li>
    *                <p>ECS service - The resource type is <code>service</code> and the unique identifier is the cluster name
@@ -2572,13 +2577,23 @@ export interface ScheduledAction {
    *                <p>Cron expressions - "<code>cron(<i>fields</i>)</code>"</p>
    *             </li>
    *          </ul>
-   *          <p>At expressions are useful for one-time schedules. Specify the time in UTC.</p>
+   *          <p>At expressions are useful for one-time schedules. Cron expressions are useful for
+   *          scheduled actions that run periodically at a specified date and time, and rate expressions
+   *          are useful for scheduled actions that run at a regular interval.</p>
+   *          <p>At and cron expressions use Universal Coordinated Time (UTC) by
+   *          default.</p>
+   *          <p>The cron format consists of six fields separated by white spaces: [Minutes] [Hours] [Day_of_Month] [Month] [Day_of_Week] [Year].</p>
    *          <p>For rate expressions, <i>value</i> is a positive integer and <i>unit</i> is
    *          <code>minute</code> | <code>minutes</code> | <code>hour</code> | <code>hours</code> | <code>day</code> | <code>days</code>.</p>
-   *          <p>For more information about cron expressions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions">Cron Expressions</a> in the <i>Amazon CloudWatch Events User Guide</i>.</p>
-   *            <p>For examples of using these expressions, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html">Scheduled Scaling</a> in the <i>Application Auto Scaling User Guide</i>.</p>
+   *            <p>For more information and examples, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/examples-scheduled-actions.html">Example scheduled actions for Application Auto Scaling</a> in the <i>Application Auto Scaling User Guide</i>.</p>
    */
   Schedule: string | undefined;
+
+  /**
+   * <p>The time zone used when referring to the date and time of a scheduled action, when the
+   *          scheduled action uses an at or cron expression.</p>
+   */
+  Timezone?: string;
 
   /**
    * <p>The identifier of the resource associated with the scaling policy.
@@ -2719,12 +2734,12 @@ export interface ScheduledAction {
   ScalableDimension?: ScalableDimension | string;
 
   /**
-   * <p>The date and time that the action is scheduled to begin.</p>
+   * <p>The date and time that the action is scheduled to begin, in UTC.</p>
    */
   StartTime?: Date;
 
   /**
-   * <p>The date and time that the action is scheduled to end.</p>
+   * <p>The date and time that the action is scheduled to end, in UTC.</p>
    */
   EndTime?: Date;
 
@@ -2768,7 +2783,7 @@ export namespace DescribeScheduledActionsResponse {
 }
 
 /**
- * <p>A per-account resource limit is exceeded. For more information, see <a href="https://docs.aws.amazon.com/ApplicationAutoScaling/latest/userguide/application-auto-scaling-limits.html">Application Auto Scaling Limits</a>.</p>
+ * <p>A per-account resource limit is exceeded. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-limits.html">Application Auto Scaling service quotas</a>.</p>
  */
 export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
@@ -2941,7 +2956,7 @@ export interface PutScalingPolicyRequest {
    *             <code>StepScaling</code>—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces (for
    *       Apache Cassandra), or Amazon MSK.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html">Target
-   *         Tracking Scaling Policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html">Step Scaling Policies</a> in the <i>Application Auto Scaling User Guide</i>.</p>
+   *         tracking scaling policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html">Step scaling policies</a> in the <i>Application Auto Scaling User Guide</i>.</p>
    */
   PolicyType?: PolicyType | string;
 
@@ -3006,13 +3021,25 @@ export interface PutScheduledActionRequest {
    *                <p>Cron expressions - "<code>cron(<i>fields</i>)</code>"</p>
    *             </li>
    *          </ul>
-   *          <p>At expressions are useful for one-time schedules. Specify the time in UTC.</p>
+   *          <p>At expressions are useful for one-time schedules. Cron expressions are useful for
+   *          scheduled actions that run periodically at a specified date and time, and rate expressions
+   *          are useful for scheduled actions that run at a regular interval.</p>
+   *          <p>At and cron expressions use Universal Coordinated Time (UTC) by
+   *          default.</p>
+   *          <p>The cron format consists of six fields separated by white spaces: [Minutes] [Hours] [Day_of_Month] [Month] [Day_of_Week] [Year].</p>
    *          <p>For rate expressions, <i>value</i> is a positive integer and <i>unit</i> is
    *          <code>minute</code> | <code>minutes</code> | <code>hour</code> | <code>hours</code> | <code>day</code> | <code>days</code>.</p>
-   *          <p>For more information about cron expressions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions">Cron Expressions</a> in the <i>Amazon CloudWatch Events User Guide</i>.</p>
-   *            <p>For examples of using these expressions, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html">Scheduled Scaling</a> in the <i>Application Auto Scaling User Guide</i>.</p>
+   *            <p>For more information and examples, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/examples-scheduled-actions.html">Example scheduled actions for Application Auto Scaling</a> in the <i>Application Auto Scaling User Guide</i>.</p>
    */
   Schedule?: string;
+
+  /**
+   * <p>Specifies the time zone used when setting a scheduled action by using an at or cron
+   *          expression. If a time zone is not provided, UTC is used by default.</p>
+   *          <p>Valid values are the canonical names of the IANA time zones supported by Joda-Time (such
+   *          as <code>Etc/GMT+9</code> or <code>Pacific/Tahiti</code>). For more information, see <a href="https://www.joda.org/joda-time/timezones.html">https://www.joda.org/joda-time/timezones.html</a>.</p>
+   */
+  Timezone?: string;
 
   /**
    * <p>The name of the scheduled action. This name must be unique among all other scheduled
@@ -3159,12 +3186,12 @@ export interface PutScheduledActionRequest {
   ScalableDimension: ScalableDimension | string | undefined;
 
   /**
-   * <p>The date and time for this scheduled action to start.</p>
+   * <p>The date and time for this scheduled action to start, in UTC.</p>
    */
   StartTime?: Date;
 
   /**
-   * <p>The date and time for the recurring schedule to end.</p>
+   * <p>The date and time for the recurring schedule to end, in UTC.</p>
    */
   EndTime?: Date;
 
@@ -3340,19 +3367,17 @@ export interface RegisterScalableTargetRequest {
   /**
    * <p>The minimum value that you plan to scale in to. When a scaling policy is in effect,
    *       Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to
-   *       changing demand. </p>
-   *          <p>This parameter is required if you are registering a scalable target. For certain
-   *       resources, the minimum value allowed is 0. This includes Lambda provisioned concurrency, Spot
-   *       Fleet, ECS services, Aurora DB clusters, EMR clusters, and custom resources. For all other
-   *       resources, the minimum value allowed is 1.</p>
+   *       changing demand. This property is required when registering a new scalable target.</p>
+   *          <p>For certain resources, the minimum value allowed is 0. This includes Lambda provisioned
+   *       concurrency, Spot Fleet, ECS services, Aurora DB clusters, EMR clusters, and custom resources.
+   *       For all other resources, the minimum value allowed is 1.</p>
    */
   MinCapacity?: number;
 
   /**
    * <p>The maximum value that you plan to scale out to. When a scaling policy is in effect,
    *          Application Auto Scaling can scale out (expand) as needed to the maximum capacity limit in response to
-   *          changing demand. </p>
-   *          <p>This parameter is required if you are registering a scalable target.</p>
+   *          changing demand. This property is required when registering a new scalable target.</p>
    *          <p>Although you can specify a large maximum capacity, note that service quotas may impose
    *          lower limits. Each service has its own default quotas for the maximum capacity of the
    *          resource. If you want to specify a higher limit, you can request an increase. For more
@@ -3367,7 +3392,7 @@ export interface RegisterScalableTargetRequest {
    *       Amazon EMR), and it must specify the ARN of an IAM role that allows Application Auto Scaling to modify the scalable
    *       target on your behalf. </p>
    *          <p>If the service supports service-linked roles, Application Auto Scaling uses a service-linked role, which
-   *       it creates if it does not yet exist. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles">Application Auto Scaling IAM Roles</a>.</p>
+   *       it creates if it does not yet exist. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles">Application Auto Scaling IAM roles</a>.</p>
    */
   RoleARN?: string;
 
@@ -3393,7 +3418,7 @@ export interface RegisterScalableTargetRequest {
    *                scaling activities that involve scheduled actions are suspended. </p>
    *             </li>
    *          </ul>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-suspend-resume-scaling.html">Suspending and Resuming Scaling</a> in the <i>Application Auto Scaling User
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-suspend-resume-scaling.html">Suspending and resuming scaling</a> in the <i>Application Auto Scaling User
    *          Guide</i>.</p>
    */
   SuspendedState?: SuspendedState;

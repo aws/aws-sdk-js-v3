@@ -47,7 +47,7 @@ export type PutResourcePolicyCommandOutput = PutResourcePolicyResponse & __Metad
  *                <p>To retrieve the resource policy attached to a secret, use <a>GetResourcePolicy</a>.</p>
  *             </li>
  *             <li>
- *                <p>To delete the resource-based policy that's attached to a secret, use <a>DeleteResourcePolicy</a>.</p>
+ *                <p>To delete the resource-based policy attached to a secret, use <a>DeleteResourcePolicy</a>.</p>
  *             </li>
  *             <li>
  *                <p>To list all of the currently available secrets, use <a>ListSecrets</a>.</p>

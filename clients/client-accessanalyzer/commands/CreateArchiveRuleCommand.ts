@@ -22,7 +22,9 @@ export type CreateArchiveRuleCommandOutput = __MetadataBearer;
 
 /**
  * <p>Creates an archive rule for the specified analyzer. Archive rules automatically archive
- *          findings that meet the criteria you define when you create the rule.</p>
+ *          new findings that meet the criteria you define when you create the rule.</p>
+ *          <p>To learn about filter keys that you can use to create an archive rule, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html">Access Analyzer filter keys</a> in the <b>IAM User
+ *          Guide</b>.</p>
  */
 export class CreateArchiveRuleCommand extends $Command<
   CreateArchiveRuleCommandInput,

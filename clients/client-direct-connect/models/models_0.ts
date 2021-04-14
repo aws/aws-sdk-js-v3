@@ -204,7 +204,7 @@ export namespace DirectConnectClientException {
  */
 export interface DirectConnectServerException extends __SmithyException, $MetadataBearer {
   name: "DirectConnectServerException";
-  $fault: "client";
+  $fault: "server";
   message?: string;
 }
 
@@ -270,6 +270,56 @@ export enum HasLogicalRedundancy {
   No = "no",
   Unknown = "unknown",
   Yes = "yes",
+}
+
+/**
+ * <p>Information about the MAC Security (MACsec) secret key.</p>
+ */
+export interface MacSecKey {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key.</p>
+   */
+  secretARN?: string;
+
+  /**
+   * <p>The Connection Key Name (CKN) for the MAC Security secret key.</p>
+   */
+  ckn?: string;
+
+  /**
+   * <p>The state of the MAC Security (MACsec) secret key.</p>
+   *          <p>The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>associating</code>: The MAC Security (MACsec) secret key is being validated and not yet associated with the connection or LAG.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>associated</code>: The MAC Security (MACsec) secret key is validated and associated with the connection or LAG.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>disassociating</code>: The MAC Security (MACsec) secret key is being disassociated from the connection or LAG</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>disassociated</code>: The MAC Security (MACsec) secret key is no longer associated with the connection or LAG.</p>
+   *             </li>
+   *          </ul>
+   */
+  state?: string;
+
+  /**
+   * <p>The date that the MAC Security (MACsec) secret key takes effect. The value is displayed in UTC format.</p>
+   */
+  startOn?: string;
+}
+
+export namespace MacSecKey {
+  export const filterSensitiveLog = (obj: MacSecKey): any => ({
+    ...obj,
+  });
 }
 
 /**
@@ -421,6 +471,28 @@ export interface Connection {
    * <p>The name of the service provider associated with the connection.</p>
    */
   providerName?: string;
+
+  /**
+   * <p>Indicates whether the connection supports MAC Security (MACsec).</p>
+   */
+  macSecCapable?: boolean;
+
+  /**
+   * <p>The MAC Security (MACsec) port link status of the connection.</p>
+   *          <p>The valid values are <code>Encryption Up</code>, which means that there is an active Connection Key Name, or <code>Encryption Down</code>.</p>
+   */
+  portEncryptionStatus?: string;
+
+  /**
+   * <p>The MAC Security (MACsec) connection encryption mode.</p>
+   *          <p>The valid values are <code>no_encrypt</code>, <code>should_encrypt</code>, and <code>must_encrypt</code>.</p>
+   */
+  encryptionMode?: string;
+
+  /**
+   * <p>The MAC Security (MACsec) security keys associated with the connection.</p>
+   */
+  macSecKeys?: MacSecKey[];
 }
 
 export namespace Connection {
@@ -1075,6 +1147,61 @@ export namespace AssociateHostedConnectionRequest {
   });
 }
 
+export interface AssociateMacSecKeyRequest {
+  /**
+   * <p>The ID of the dedicated connection (dxcon-xxxx), or the ID of the LAG (dxlag-xxxx).</p>
+   *          <p>You can use <a>DescribeConnections</a> or <a>DescribeLags</a> to retrieve connection ID.</p>
+   */
+  connectionId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.</p>
+   *          <p>You can use <a>DescribeConnections</a> or <a>DescribeLags</a> to retrieve the MAC Security (MACsec) secret key.</p>
+   *          <p>If you use this request parameter, you do not use the <code>ckn</code> and <code>cak</code> request parameters.</p>
+   */
+  secretARN?: string;
+
+  /**
+   * <p>The MAC Security (MACsec) CKN to associate with the dedicated connection.</p>
+   *          <p>You can create the CKN/CAK pair using an industry standard tool.</p>
+   *          <p> The valid values are 64 hexadecimal characters (0-9, A-E).</p>
+   *          <p>If you use this request parameter, you must use the <code>cak</code> request parameter and not use the <code>secretARN</code> request parameter.</p>
+   */
+  ckn?: string;
+
+  /**
+   * <p>The MAC Security (MACsec) CAK to associate with the dedicated connection.</p>
+   *          <p>You can create the CKN/CAK pair using an industry standard tool.</p>
+   *          <p> The valid values are 64 hexadecimal characters (0-9, A-E).</p>
+   *          <p>If you use this request parameter, you must use the <code>ckn</code> request parameter and not use the <code>secretARN</code> request parameter.</p>
+   */
+  cak?: string;
+}
+
+export namespace AssociateMacSecKeyRequest {
+  export const filterSensitiveLog = (obj: AssociateMacSecKeyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface AssociateMacSecKeyResponse {
+  /**
+   * <p>The ID of the dedicated connection (dxcon-xxxx), or the ID of the LAG (dxlag-xxxx).</p>
+   */
+  connectionId?: string;
+
+  /**
+   * <p>The MAC Security (MACsec) security keys associated with the dedicated connection.</p>
+   */
+  macSecKeys?: MacSecKey[];
+}
+
+export namespace AssociateMacSecKeyResponse {
+  export const filterSensitiveLog = (obj: AssociateMacSecKeyResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface AssociateVirtualInterfaceRequest {
   /**
    * <p>The ID of the virtual interface.</p>
@@ -1474,6 +1601,12 @@ export interface CreateConnectionRequest {
    * <p>The name of the service provider associated with the requested connection.</p>
    */
   providerName?: string;
+
+  /**
+   * <p>Indicates whether you want the connection to support MAC Security (MACsec).</p>
+   *          <p>MAC Security (MACsec) is only available on dedicated connections. For information about MAC Security (MACsec) prerequisties, see  <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites">MACsec prerequisties</a> in the <i>AWS Direct Connect User Guide</i>.</p>
+   */
+  requestMACSec?: boolean;
 }
 
 export namespace CreateConnectionRequest {
@@ -1923,6 +2056,14 @@ export interface CreateLagRequest {
    * <p>The name of the service provider associated with the LAG.</p>
    */
   providerName?: string;
+
+  /**
+   * <p>Indicates whether the connection will support MAC Security (MACsec).</p>
+   *          <note>
+   *             <p>All connections in the LAG must be capable of  supporting MAC Security (MACsec). For information about MAC Security (MACsec) prerequisties, see  <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites">MACsec prerequisties</a> in the <i>AWS Direct Connect User Guide</i>.</p>
+   *          </note>
+   */
+  requestMACSec?: boolean;
 }
 
 export namespace CreateLagRequest {
@@ -2055,6 +2196,22 @@ export interface Lag {
    * <p>The name of the service provider associated with the LAG.</p>
    */
   providerName?: string;
+
+  /**
+   * <p>Indicates whether the LAG supports MAC Security (MACsec).</p>
+   */
+  macSecCapable?: boolean;
+
+  /**
+   * <p>The LAG MAC Security (MACsec) encryption mode.</p>
+   *          <p>The valid values are <code>no_encrypt</code>, <code>should_encrypt</code>, and <code>must_encrypt</code>.</p>
+   */
+  encryptionMode?: string;
+
+  /**
+   * <p>The MAC Security (MACsec) security keys associated with the LAG.</p>
+   */
+  macSecKeys?: MacSecKey[];
 }
 
 export namespace Lag {
@@ -2764,7 +2921,7 @@ export interface DescribeDirectConnectGatewayAssociationsRequest {
   nextToken?: string;
 
   /**
-   * <p>The ID of the virtual private gateway.</p>
+   * <p>The ID of the virtual private gateway or transit gateway.</p>
    */
   virtualGatewayId?: string;
 }
@@ -3107,6 +3264,11 @@ export interface Location {
    * <p>The name of the service provider for the location.</p>
    */
   availableProviders?: string[];
+
+  /**
+   * <p>The available MAC Security (MACsec) port speeds for the location.</p>
+   */
+  availableMacSecPortSpeeds?: string[];
 }
 
 export namespace Location {
@@ -3272,6 +3434,44 @@ export interface DisassociateConnectionFromLagRequest {
 
 export namespace DisassociateConnectionFromLagRequest {
   export const filterSensitiveLog = (obj: DisassociateConnectionFromLagRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateMacSecKeyRequest {
+  /**
+   * <p>The ID of the dedicated connection (dxcon-xxxx), or the ID of the LAG (dxlag-xxxx).</p>
+   *          <p>You can use <a>DescribeConnections</a> or <a>DescribeLags</a> to retrieve connection ID.</p>
+   */
+  connectionId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key.</p>
+   *          <p>You can use <a>DescribeConnections</a> to retrieve the ARN of the MAC Security (MACsec) secret key.</p>
+   */
+  secretARN: string | undefined;
+}
+
+export namespace DisassociateMacSecKeyRequest {
+  export const filterSensitiveLog = (obj: DisassociateMacSecKeyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateMacSecKeyResponse {
+  /**
+   * <p>The ID of the dedicated connection (dxcon-xxxx), or the ID of the LAG (dxlag-xxxx).</p>
+   */
+  connectionId?: string;
+
+  /**
+   * <p>The MAC Security (MACsec) security keys no longer associated with the dedicated connection.</p>
+   */
+  macSecKeys?: MacSecKey[];
+}
+
+export namespace DisassociateMacSecKeyResponse {
+  export const filterSensitiveLog = (obj: DisassociateMacSecKeyResponse): any => ({
     ...obj,
   });
 }
@@ -3502,6 +3702,31 @@ export namespace UntagResourceResponse {
   });
 }
 
+export interface UpdateConnectionRequest {
+  /**
+   * <p>The ID of the dedicated connection.</p>
+   *          <p>You can use <a>DescribeConnections</a> to retrieve the connection ID.</p>
+   */
+  connectionId: string | undefined;
+
+  /**
+   * <p>The name of the connection.</p>
+   */
+  connectionName?: string;
+
+  /**
+   * <p>The connection MAC Security (MACsec) encryption mode.</p>
+   *          <p>The valid values are <code>no_encrypt</code>, <code>should_encrypt</code>, and <code>must_encrypt</code>.</p>
+   */
+  encryptionMode?: string;
+}
+
+export namespace UpdateConnectionRequest {
+  export const filterSensitiveLog = (obj: UpdateConnectionRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface UpdateDirectConnectGatewayAssociationRequest {
   /**
    * <p>The ID of the Direct Connect gateway association.</p>
@@ -3553,6 +3778,12 @@ export interface UpdateLagRequest {
    * <p>The minimum number of physical connections that must be operational for the LAG itself to be operational.</p>
    */
   minimumLinks?: number;
+
+  /**
+   * <p>The LAG MAC Security (MACsec) encryption mode.</p>
+   *          <p>AWS applies the value to all connections which are part of the LAG.</p>
+   */
+  encryptionMode?: string;
 }
 
 export namespace UpdateLagRequest {

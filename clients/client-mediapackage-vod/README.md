@@ -24,16 +24,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `MediaPackageVodClient` and
-the commands you need, for example `CreateAssetCommand`:
+the commands you need, for example `ConfigureLogsCommand`:
 
 ```js
 // ES5 example
-const { MediaPackageVodClient, CreateAssetCommand } = require("@aws-sdk/client-mediapackage-vod");
+const { MediaPackageVodClient, ConfigureLogsCommand } = require("@aws-sdk/client-mediapackage-vod");
 ```
 
 ```ts
 // ES6+ example
-import { MediaPackageVodClient, CreateAssetCommand } from "@aws-sdk/client-mediapackage-vod";
+import { MediaPackageVodClient, ConfigureLogsCommand } from "@aws-sdk/client-mediapackage-vod";
 ```
 
 ### Usage
@@ -52,7 +52,7 @@ const client = new MediaPackageVodClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateAssetCommand(params);
+const command = new ConfigureLogsCommand(params);
 ```
 
 #### Async/await
@@ -131,7 +131,7 @@ const client = new AWS.MediaPackageVod({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createAsset(params);
+  const data = await client.configureLogs(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -139,7 +139,7 @@ try {
 
 // Promises.
 client
-  .createAsset(params)
+  .configureLogs(params)
   .then((data) => {
     // process data.
   })
@@ -148,7 +148,7 @@ client
   });
 
 // callbacks.
-client.createAsset(params, (err, data) => {
+client.configureLogs(params, (err, data) => {
   // proccess err and data.
 });
 ```

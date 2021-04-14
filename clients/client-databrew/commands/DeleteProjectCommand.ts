@@ -21,7 +21,7 @@ export type DeleteProjectCommandInput = DeleteProjectRequest;
 export type DeleteProjectCommandOutput = DeleteProjectResponse & __MetadataBearer;
 
 /**
- * <p>Deletes an existing AWS Glue DataBrew project from the current AWS account.</p>
+ * <p>Deletes an existing DataBrew project.</p>
  */
 export class DeleteProjectCommand extends $Command<
   DeleteProjectCommandInput,

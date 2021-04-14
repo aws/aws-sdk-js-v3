@@ -213,6 +213,13 @@ export interface ReportDefinition {
    *          to deliver the report in addition to the previous versions.</p>
    */
   ReportVersioning?: ReportVersioning | string;
+
+  /**
+   * <p>
+   *       The Amazon resource name of the billing view. You can get this value by using the billing view service public APIs.
+   *     </p>
+   */
+  BillingViewArn?: string;
 }
 
 export namespace ReportDefinition {

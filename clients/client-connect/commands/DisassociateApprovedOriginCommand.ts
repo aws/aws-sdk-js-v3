@@ -21,7 +21,8 @@ export type DisassociateApprovedOriginCommandInput = DisassociateApprovedOriginR
 export type DisassociateApprovedOriginCommandOutput = __MetadataBearer;
 
 /**
- * <p>Revokes access to integrated applications from Amazon Connect.</p>
+ * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+ *          <p>Revokes access to integrated applications from Amazon Connect.</p>
  */
 export class DisassociateApprovedOriginCommand extends $Command<
   DisassociateApprovedOriginCommandInput,

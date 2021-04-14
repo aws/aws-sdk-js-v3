@@ -21,7 +21,7 @@ export type ListAppInstanceAdminsCommandInput = ListAppInstanceAdminsRequest;
 export type ListAppInstanceAdminsCommandOutput = ListAppInstanceAdminsResponse & __MetadataBearer;
 
 /**
- * <p>Returns a list of the administrators in the app instance.</p>
+ * <p>Returns a list of the administrators in the <code>AppInstance</code>.</p>
  */
 export class ListAppInstanceAdminsCommand extends $Command<
   ListAppInstanceAdminsCommandInput,

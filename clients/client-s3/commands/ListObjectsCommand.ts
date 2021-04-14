@@ -27,7 +27,7 @@ export type ListObjectsCommandOutput = ListObjectsOutput & __MetadataBearer;
  *          response can contain valid or invalid XML. Be sure to design your application to parse the
  *          contents of the response and handle it appropriately.</p>
  *          <important>
- *             <p>This API has been revised. We recommend that you use the newer version, <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html">ListObjectsV2</a>, when developing applications. For backward compatibility,
+ *             <p>This action has been revised. We recommend that you use the newer version, <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html">ListObjectsV2</a>, when developing applications. For backward compatibility,
  *             Amazon S3 continues to support <code>ListObjects</code>.</p>
  *          </important>
  *

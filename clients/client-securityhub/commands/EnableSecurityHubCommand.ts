@@ -1,5 +1,5 @@
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
-import { EnableSecurityHubRequest, EnableSecurityHubResponse } from "../models/models_0";
+import { EnableSecurityHubRequest, EnableSecurityHubResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1EnableSecurityHubCommand,
   serializeAws_restJson1EnableSecurityHubCommand,

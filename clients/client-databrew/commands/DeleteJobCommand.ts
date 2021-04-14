@@ -21,8 +21,7 @@ export type DeleteJobCommandInput = DeleteJobRequest;
 export type DeleteJobCommandOutput = DeleteJobResponse & __MetadataBearer;
 
 /**
- * <p>Deletes the specified AWS Glue DataBrew job from the current AWS account. The job can
- *             be for a recipe or for a profile.</p>
+ * <p>Deletes the specified DataBrew job.</p>
  */
 export class DeleteJobCommand extends $Command<
   DeleteJobCommandInput,

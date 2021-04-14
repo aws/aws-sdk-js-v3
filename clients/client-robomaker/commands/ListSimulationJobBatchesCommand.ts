@@ -22,8 +22,7 @@ export type ListSimulationJobBatchesCommandOutput = ListSimulationJobBatchesResp
 
 /**
  * <p>Returns a list simulation job batches. You can optionally provide filters to retrieve
- *          specific simulation batch jobs.
- *       </p>
+ *          specific simulation batch jobs. </p>
  */
 export class ListSimulationJobBatchesCommand extends $Command<
   ListSimulationJobBatchesCommandInput,

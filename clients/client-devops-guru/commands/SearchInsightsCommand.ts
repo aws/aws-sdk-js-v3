@@ -20,6 +20,17 @@ import {
 export type SearchInsightsCommandInput = SearchInsightsRequest;
 export type SearchInsightsCommandOutput = SearchInsightsResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *    		Returns a list of insights in your AWS account. You can specify which insights are returned by their start time, one or more statuses
+ *    		(<code>ONGOING</code>, <code>CLOSED</code>, and <code>CLOSED</code>), one or more severities (<code>LOW</code>, <code>MEDIUM</code>,
+ *    		and <code>HIGH</code>), and type (<code>REACTIVE</code> or <code>PROACTIVE</code>).
+ *    	</p>
+ *    	     <p>
+ *    		Use the <code>Filters</code> parameter to specify status and severity
+ *    		search parameters. Use the <code>Type</code> parameter to specify <code>REACTIVE</code> or <code>PROACTIVE</code> in your search.
+ *    	</p>
+ */
 export class SearchInsightsCommand extends $Command<
   SearchInsightsCommandInput,
   SearchInsightsCommandOutput,

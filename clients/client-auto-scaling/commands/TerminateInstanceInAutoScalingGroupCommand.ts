@@ -21,7 +21,8 @@ export type TerminateInstanceInAutoScalingGroupCommandInput = TerminateInstanceI
 export type TerminateInstanceInAutoScalingGroupCommandOutput = ActivityType & __MetadataBearer;
 
 /**
- * <p>Terminates the specified instance and optionally adjusts the desired group size. </p>
+ * <p>Terminates the specified instance and optionally adjusts the desired group size. This
+ *             operation cannot be called on instances in a warm pool.</p>
  *         <p>This call simply makes a termination request. The instance is not terminated
  *             immediately. When an instance is terminated, the instance status changes to
  *                 <code>terminated</code>. You can't connect to or start an instance after you've

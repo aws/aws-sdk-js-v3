@@ -15904,8 +15904,12 @@ const serializeAws_restJson1CampaignLimits = (input: CampaignLimits, context: __
 const serializeAws_restJson1CampaignSmsMessage = (input: CampaignSmsMessage, context: __SerdeContext): any => {
   return {
     ...(input.Body !== undefined && input.Body !== null && { Body: input.Body }),
+    ...(input.EntityId !== undefined && input.EntityId !== null && { EntityId: input.EntityId }),
     ...(input.MessageType !== undefined && input.MessageType !== null && { MessageType: input.MessageType }),
+    ...(input.OriginationNumber !== undefined &&
+      input.OriginationNumber !== null && { OriginationNumber: input.OriginationNumber }),
     ...(input.SenderId !== undefined && input.SenderId !== null && { SenderId: input.SenderId }),
+    ...(input.TemplateId !== undefined && input.TemplateId !== null && { TemplateId: input.TemplateId }),
   };
 };
 
@@ -16428,6 +16432,8 @@ const serializeAws_restJson1JourneyLimits = (input: JourneyLimits, context: __Se
     ...(input.DailyCap !== undefined && input.DailyCap !== null && { DailyCap: input.DailyCap }),
     ...(input.EndpointReentryCap !== undefined &&
       input.EndpointReentryCap !== null && { EndpointReentryCap: input.EndpointReentryCap }),
+    ...(input.EndpointReentryInterval !== undefined &&
+      input.EndpointReentryInterval !== null && { EndpointReentryInterval: input.EndpointReentryInterval }),
     ...(input.MessagesPerSecond !== undefined &&
       input.MessagesPerSecond !== null && { MessagesPerSecond: input.MessagesPerSecond }),
   };
@@ -16451,8 +16457,12 @@ const serializeAws_restJson1JourneySchedule = (input: JourneySchedule, context: 
 
 const serializeAws_restJson1JourneySMSMessage = (input: JourneySMSMessage, context: __SerdeContext): any => {
   return {
+    ...(input.EntityId !== undefined && input.EntityId !== null && { EntityId: input.EntityId }),
     ...(input.MessageType !== undefined && input.MessageType !== null && { MessageType: input.MessageType }),
+    ...(input.OriginationNumber !== undefined &&
+      input.OriginationNumber !== null && { OriginationNumber: input.OriginationNumber }),
     ...(input.SenderId !== undefined && input.SenderId !== null && { SenderId: input.SenderId }),
+    ...(input.TemplateId !== undefined && input.TemplateId !== null && { TemplateId: input.TemplateId }),
   };
 };
 
@@ -17126,6 +17136,7 @@ const serializeAws_restJson1SMSChannelRequest = (input: SMSChannelRequest, conte
 const serializeAws_restJson1SMSMessage = (input: SMSMessage, context: __SerdeContext): any => {
   return {
     ...(input.Body !== undefined && input.Body !== null && { Body: input.Body }),
+    ...(input.EntityId !== undefined && input.EntityId !== null && { EntityId: input.EntityId }),
     ...(input.Keyword !== undefined && input.Keyword !== null && { Keyword: input.Keyword }),
     ...(input.MediaUrl !== undefined && input.MediaUrl !== null && { MediaUrl: input.MediaUrl }),
     ...(input.MessageType !== undefined && input.MessageType !== null && { MessageType: input.MessageType }),
@@ -17136,6 +17147,7 @@ const serializeAws_restJson1SMSMessage = (input: SMSMessage, context: __SerdeCon
       input.Substitutions !== null && {
         Substitutions: serializeAws_restJson1MapOfListOf__string(input.Substitutions, context),
       }),
+    ...(input.TemplateId !== undefined && input.TemplateId !== null && { TemplateId: input.TemplateId }),
   };
 };
 
@@ -17388,6 +17400,8 @@ const serializeAws_restJson1WriteJourneyRequest = (input: WriteJourneyRequest, c
       input.QuietTime !== null && { QuietTime: serializeAws_restJson1QuietTime(input.QuietTime, context) }),
     ...(input.RefreshFrequency !== undefined &&
       input.RefreshFrequency !== null && { RefreshFrequency: input.RefreshFrequency }),
+    ...(input.RefreshOnSegmentUpdate !== undefined &&
+      input.RefreshOnSegmentUpdate !== null && { RefreshOnSegmentUpdate: input.RefreshOnSegmentUpdate }),
     ...(input.Schedule !== undefined &&
       input.Schedule !== null && { Schedule: serializeAws_restJson1JourneySchedule(input.Schedule, context) }),
     ...(input.StartActivity !== undefined && input.StartActivity !== null && { StartActivity: input.StartActivity }),
@@ -17396,6 +17410,8 @@ const serializeAws_restJson1WriteJourneyRequest = (input: WriteJourneyRequest, c
         StartCondition: serializeAws_restJson1StartCondition(input.StartCondition, context),
       }),
     ...(input.State !== undefined && input.State !== null && { State: input.State }),
+    ...(input.WaitForQuietTime !== undefined &&
+      input.WaitForQuietTime !== null && { WaitForQuietTime: input.WaitForQuietTime }),
   };
 };
 
@@ -17937,8 +17953,14 @@ const deserializeAws_restJson1CampaignResponse = (output: any, context: __SerdeC
 const deserializeAws_restJson1CampaignSmsMessage = (output: any, context: __SerdeContext): CampaignSmsMessage => {
   return {
     Body: output.Body !== undefined && output.Body !== null ? output.Body : undefined,
+    EntityId: output.EntityId !== undefined && output.EntityId !== null ? output.EntityId : undefined,
     MessageType: output.MessageType !== undefined && output.MessageType !== null ? output.MessageType : undefined,
+    OriginationNumber:
+      output.OriginationNumber !== undefined && output.OriginationNumber !== null
+        ? output.OriginationNumber
+        : undefined,
     SenderId: output.SenderId !== undefined && output.SenderId !== null ? output.SenderId : undefined,
+    TemplateId: output.TemplateId !== undefined && output.TemplateId !== null ? output.TemplateId : undefined,
   } as any;
 };
 
@@ -18569,6 +18591,10 @@ const deserializeAws_restJson1JourneyLimits = (output: any, context: __SerdeCont
       output.EndpointReentryCap !== undefined && output.EndpointReentryCap !== null
         ? output.EndpointReentryCap
         : undefined,
+    EndpointReentryInterval:
+      output.EndpointReentryInterval !== undefined && output.EndpointReentryInterval !== null
+        ? output.EndpointReentryInterval
+        : undefined,
     MessagesPerSecond:
       output.MessagesPerSecond !== undefined && output.MessagesPerSecond !== null
         ? output.MessagesPerSecond
@@ -18606,6 +18632,10 @@ const deserializeAws_restJson1JourneyResponse = (output: any, context: __SerdeCo
         : undefined,
     RefreshFrequency:
       output.RefreshFrequency !== undefined && output.RefreshFrequency !== null ? output.RefreshFrequency : undefined,
+    RefreshOnSegmentUpdate:
+      output.RefreshOnSegmentUpdate !== undefined && output.RefreshOnSegmentUpdate !== null
+        ? output.RefreshOnSegmentUpdate
+        : undefined,
     Schedule:
       output.Schedule !== undefined && output.Schedule !== null
         ? deserializeAws_restJson1JourneySchedule(output.Schedule, context)
@@ -18617,6 +18647,8 @@ const deserializeAws_restJson1JourneyResponse = (output: any, context: __SerdeCo
         ? deserializeAws_restJson1StartCondition(output.StartCondition, context)
         : undefined,
     State: output.State !== undefined && output.State !== null ? output.State : undefined,
+    WaitForQuietTime:
+      output.WaitForQuietTime !== undefined && output.WaitForQuietTime !== null ? output.WaitForQuietTime : undefined,
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1MapOf__string(output.tags, context)
@@ -18634,8 +18666,14 @@ const deserializeAws_restJson1JourneySchedule = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1JourneySMSMessage = (output: any, context: __SerdeContext): JourneySMSMessage => {
   return {
+    EntityId: output.EntityId !== undefined && output.EntityId !== null ? output.EntityId : undefined,
     MessageType: output.MessageType !== undefined && output.MessageType !== null ? output.MessageType : undefined,
+    OriginationNumber:
+      output.OriginationNumber !== undefined && output.OriginationNumber !== null
+        ? output.OriginationNumber
+        : undefined,
     SenderId: output.SenderId !== undefined && output.SenderId !== null ? output.SenderId : undefined,
+    TemplateId: output.TemplateId !== undefined && output.TemplateId !== null ? output.TemplateId : undefined,
   } as any;
 };
 

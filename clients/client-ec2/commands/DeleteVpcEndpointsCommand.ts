@@ -21,9 +21,31 @@ export type DeleteVpcEndpointsCommandInput = DeleteVpcEndpointsRequest;
 export type DeleteVpcEndpointsCommandOutput = DeleteVpcEndpointsResult & __MetadataBearer;
 
 /**
- * <p>Deletes one or more specified VPC endpoints. Deleting a gateway endpoint also deletes
- *             the endpoint routes in the route tables that were associated with the endpoint. Deleting
- *             an interface endpoint or a Gateway Load Balancer endpoint deletes the endpoint network interfaces. Gateway Load Balancer endpoints can only be deleted if the routes that are associated with the endpoint are deleted.</p>
+ * <p>Deletes one or more specified VPC endpoints. You can delete any of the following types of VPC endpoints.  </p>
+ *         <ul>
+ *             <li>
+ *                <p>Gateway endpoint,</p>
+ *             </li>
+ *             <li>
+ *                <p>Gateway Load Balancer endpoint,</p>
+ *             </li>
+ *             <li>
+ *                <p>Interface endpoint</p>
+ *             </li>
+ *          </ul>
+ *         <p>The following rules apply when you delete a VPC endpoint:</p>
+ *         <ul>
+ *             <li>
+ *                 <p>When you delete a gateway endpoint, we delete the endpoint routes in the route tables that are associated with the endpoint.</p>
+ *             </li>
+ *             <li>
+ *                 <p>When you delete a Gateway Load Balancer endpoint, we delete the endpoint network interfaces. </p>
+ *                 <p>You can only delete Gateway Load Balancer endpoints when the routes that are associated with the endpoint are deleted.</p>
+ *             </li>
+ *             <li>
+ *                 <p>When you delete an interface endpoint, we delete the  endpoint network interfaces.</p>
+ *             </li>
+ *          </ul>
  */
 export class DeleteVpcEndpointsCommand extends $Command<
   DeleteVpcEndpointsCommandInput,

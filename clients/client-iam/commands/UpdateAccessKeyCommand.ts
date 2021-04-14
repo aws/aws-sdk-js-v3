@@ -1,5 +1,5 @@
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UpdateAccessKeyRequest } from "../models/models_0";
+import { UpdateAccessKeyRequest } from "../models/models_1";
 import {
   deserializeAws_queryUpdateAccessKeyCommand,
   serializeAws_queryUpdateAccessKeyCommand,
@@ -22,14 +22,15 @@ export type UpdateAccessKeyCommandOutput = __MetadataBearer;
 
 /**
  * <p>Changes the status of the specified access key from Active to Inactive, or vice versa.
- *          This operation can be used to disable a user's key as part of a key rotation
- *          workflow.</p>
- *          <p>If the <code>UserName</code> is not specified, the user name is determined implicitly
- *          based on the AWS access key ID used to sign the request. This operation works for access
- *          keys under the AWS account. Consequently, you can use this operation to manage AWS
- *          account root user credentials even if the AWS account has no associated users.</p>
- *          <p>For information about rotating keys, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html">Managing Keys and Certificates</a> in
- *          the <i>IAM User Guide</i>.</p>
+ *             This operation can be used to disable a user's key as part of a key rotation
+ *             workflow.</p>
+ *         <p>If the <code>UserName</code> is not specified, the user name is determined implicitly
+ *             based on the AWS access key ID used to sign the request. This operation works for
+ *             access keys under the AWS account. Consequently, you can use this operation to manage
+ *             AWS account root user credentials even if the AWS account has no associated
+ *             users.</p>
+ *         <p>For information about rotating keys, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html">Managing keys and certificates</a>
+ *             in the <i>IAM User Guide</i>.</p>
  */
 export class UpdateAccessKeyCommand extends $Command<
   UpdateAccessKeyCommandInput,

@@ -34,70 +34,35 @@ export type CreateMatchmakingConfigurationCommandOutput = CreateMatchmakingConfi
  *             and the maximum time allowed for a matchmaking attempt. When using FlexMatch with GameLift
  *             hosting, you also need to identify the game session queue to use when starting a game
  *             session for the match.</p>
- *         <p>In addition, you must set up an Amazon Simple Notification Service (SNS) to receive matchmaking notifications, and
- *             provide the topic ARN in the matchmaking configuration. An alternative method,
+ *         <p>In addition, you must set up an Amazon Simple Notification Service (SNS) topic to receive matchmaking notifications.
+ *             Provide the topic ARN in the matchmaking configuration. An alternative method,
  *             continuously polling ticket status with <a>DescribeMatchmaking</a>, is only
  *             suitable for games in development with low matchmaking usage.</p>
  *         <p>
  *             <b>Learn more</b>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/gamelift-match.html">
- *             FlexMatch Developer Guide</a>
- *          </p>
- *         <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-configuration.html">
- *                 Design a FlexMatch Matchmaker</a>
+ *                 Design a FlexMatch matchmaker</a>
  *          </p>
  *         <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-notification.html">
- *             Set Up FlexMatch Event Notification</a>
+ *             Set up FlexMatch event notification</a>
  *          </p>
  *         <p>
- *             <b>Related operations</b>
+ *             <b>Related actions</b>
  *          </p>
- *         <ul>
- *             <li>
- *                <p>
- *                   <a>CreateMatchmakingConfiguration</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DescribeMatchmakingConfigurations</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateMatchmakingConfiguration</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteMatchmakingConfiguration</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>CreateMatchmakingRuleSet</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DescribeMatchmakingRuleSets</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ValidateMatchmakingRuleSet</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteMatchmakingRuleSet</a>
- *                </p>
- *             </li>
- *          </ul>
+ *                     <p>
+ *             <a>CreateMatchmakingConfiguration</a> |
+ *                     <a>DescribeMatchmakingConfigurations</a> |
+ *                     <a>UpdateMatchmakingConfiguration</a> |
+ *                     <a>DeleteMatchmakingConfiguration</a> |
+ *                     <a>CreateMatchmakingRuleSet</a> |
+ *                     <a>DescribeMatchmakingRuleSets</a> |
+ *                     <a>ValidateMatchmakingRuleSet</a> |
+ *                     <a>DeleteMatchmakingRuleSet</a> |
+ *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          </p>
  */
 export class CreateMatchmakingConfigurationCommand extends $Command<
   CreateMatchmakingConfigurationCommandInput,

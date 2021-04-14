@@ -20,6 +20,7 @@ import {
 } from "../commands/CreateImageBuilderStreamingURLCommand";
 import { CreateStackCommandInput, CreateStackCommandOutput } from "../commands/CreateStackCommand";
 import { CreateStreamingURLCommandInput, CreateStreamingURLCommandOutput } from "../commands/CreateStreamingURLCommand";
+import { CreateUpdatedImageCommandInput, CreateUpdatedImageCommandOutput } from "../commands/CreateUpdatedImageCommand";
 import {
   CreateUsageReportSubscriptionCommandInput,
   CreateUsageReportSubscriptionCommandOutput,
@@ -127,6 +128,8 @@ import {
   CreateStackResult,
   CreateStreamingURLRequest,
   CreateStreamingURLResult,
+  CreateUpdatedImageRequest,
+  CreateUpdatedImageResult,
   CreateUsageReportSubscriptionRequest,
   CreateUsageReportSubscriptionResult,
   CreateUserRequest,
@@ -376,6 +379,19 @@ export const serializeAws_json1_1CreateStreamingURLCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateStreamingURLRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateUpdatedImageCommand = async (
+  input: CreateUpdatedImageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "PhotonAdminProxyService.CreateUpdatedImage",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateUpdatedImageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1747,6 +1763,108 @@ const deserializeAws_json1_1CreateStreamingURLCommandError = async (
     case "com.amazonaws.appstream#ResourceNotAvailableException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1CreateUpdatedImageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateUpdatedImageCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateUpdatedImageCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateUpdatedImageResult(data, context);
+  const response: CreateUpdatedImageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateUpdatedImageCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateUpdatedImageCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.appstream#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "IncompatibleImageException":
+    case "com.amazonaws.appstream#IncompatibleImageException":
+      response = {
+        ...(await deserializeAws_json1_1IncompatibleImageExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidAccountStatusException":
+    case "com.amazonaws.appstream#InvalidAccountStatusException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.appstream#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.appstream#ResourceAlreadyExistsException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4700,6 +4818,24 @@ const serializeAws_json1_1CreateStreamingURLRequest = (
   };
 };
 
+const serializeAws_json1_1CreateUpdatedImageRequest = (
+  input: CreateUpdatedImageRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.dryRun !== undefined && input.dryRun !== null && { dryRun: input.dryRun }),
+    ...(input.existingImageName !== undefined &&
+      input.existingImageName !== null && { existingImageName: input.existingImageName }),
+    ...(input.newImageDescription !== undefined &&
+      input.newImageDescription !== null && { newImageDescription: input.newImageDescription }),
+    ...(input.newImageDisplayName !== undefined &&
+      input.newImageDisplayName !== null && { newImageDisplayName: input.newImageDisplayName }),
+    ...(input.newImageName !== undefined && input.newImageName !== null && { newImageName: input.newImageName }),
+    ...(input.newImageTags !== undefined &&
+      input.newImageTags !== null && { newImageTags: serializeAws_json1_1Tags(input.newImageTags, context) }),
+  };
+};
+
 const serializeAws_json1_1CreateUsageReportSubscriptionRequest = (
   input: CreateUsageReportSubscriptionRequest,
   context: __SerdeContext
@@ -5513,6 +5649,20 @@ const deserializeAws_json1_1CreateStreamingURLResult = (
   } as any;
 };
 
+const deserializeAws_json1_1CreateUpdatedImageResult = (
+  output: any,
+  context: __SerdeContext
+): CreateUpdatedImageResult => {
+  return {
+    canUpdateImage:
+      output.canUpdateImage !== undefined && output.canUpdateImage !== null ? output.canUpdateImage : undefined,
+    image:
+      output.image !== undefined && output.image !== null
+        ? deserializeAws_json1_1Image(output.image, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1CreateUsageReportSubscriptionResult = (
   output: any,
   context: __SerdeContext
@@ -5886,6 +6036,10 @@ const deserializeAws_json1_1Image = (output: any, context: __SerdeContext): Imag
     ImageBuilderSupported:
       output.ImageBuilderSupported !== undefined && output.ImageBuilderSupported !== null
         ? output.ImageBuilderSupported
+        : undefined,
+    ImageErrors:
+      output.ImageErrors !== undefined && output.ImageErrors !== null
+        ? deserializeAws_json1_1ResourceErrors(output.ImageErrors, context)
         : undefined,
     ImagePermissions:
       output.ImagePermissions !== undefined && output.ImagePermissions !== null

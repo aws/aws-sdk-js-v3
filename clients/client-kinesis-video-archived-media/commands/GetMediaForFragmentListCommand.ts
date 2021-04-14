@@ -35,19 +35,7 @@ export type GetMediaForFragmentListCommandOutput = GetMediaForFragmentListOutput
  *                     parameter</a>. </p>
  *         </note>
  *
- *         <p>The following limits apply when using the <code>GetMediaForFragmentList</code>
- *             API:</p>
- *         <ul>
- *             <li>
- *                 <p>A client can call <code>GetMediaForFragmentList</code> up to five times per
- *                     second per stream. </p>
- *             </li>
- *             <li>
- *                 <p>Kinesis Video Streams sends media data at a rate of up to 25 megabytes per
- *                     second (or 200 megabits per second) during a
- *                         <code>GetMediaForFragmentList</code> session. </p>
- *             </li>
- *          </ul>
+ *         <p>For limits, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/limits.html">Kinesis Video Streams Limits</a>.</p>
  *
  *         <important>
  *             <p>If an error is thrown after invoking a Kinesis Video Streams archived media API,
@@ -56,14 +44,14 @@ export type GetMediaForFragmentListCommandOutput = GetMediaForFragmentListOutput
  *             <ul>
  *                <li>
  *                     <p>
- *                      <code>x-amz-ErrorType</code> HTTP header – contains a more specific error
+ *                         <code>x-amz-ErrorType</code> HTTP header – contains a more specific error
  *                         type in addition to what the HTTP status code provides. </p>
  *                 </li>
  *                <li>
  *                     <p>
- *                      <code>x-amz-RequestId</code> HTTP header – if you want to report an issue
- *                         to AWS, the support team can better diagnose the problem if given the
- *                         Request Id.</p>
+ *                         <code>x-amz-RequestId</code> HTTP header – if you want to report an issue to
+ *                         AWS, the support team can better diagnose the problem if given the Request
+ *                         Id.</p>
  *                 </li>
  *             </ul>
  *             <p>Both the HTTP status code and the ErrorType header can be utilized to make

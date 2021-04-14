@@ -5,6 +5,11 @@ import {
   CreateAccessPointCommandOutput,
 } from "./commands/CreateAccessPointCommand";
 import {
+  CreateAccessPointForObjectLambdaCommand,
+  CreateAccessPointForObjectLambdaCommandInput,
+  CreateAccessPointForObjectLambdaCommandOutput,
+} from "./commands/CreateAccessPointForObjectLambdaCommand";
+import {
   CreateBucketCommand,
   CreateBucketCommandInput,
   CreateBucketCommandOutput,
@@ -16,10 +21,20 @@ import {
   DeleteAccessPointCommandOutput,
 } from "./commands/DeleteAccessPointCommand";
 import {
+  DeleteAccessPointForObjectLambdaCommand,
+  DeleteAccessPointForObjectLambdaCommandInput,
+  DeleteAccessPointForObjectLambdaCommandOutput,
+} from "./commands/DeleteAccessPointForObjectLambdaCommand";
+import {
   DeleteAccessPointPolicyCommand,
   DeleteAccessPointPolicyCommandInput,
   DeleteAccessPointPolicyCommandOutput,
 } from "./commands/DeleteAccessPointPolicyCommand";
+import {
+  DeleteAccessPointPolicyForObjectLambdaCommand,
+  DeleteAccessPointPolicyForObjectLambdaCommandInput,
+  DeleteAccessPointPolicyForObjectLambdaCommandOutput,
+} from "./commands/DeleteAccessPointPolicyForObjectLambdaCommand";
 import {
   DeleteBucketCommand,
   DeleteBucketCommandInput,
@@ -67,15 +82,35 @@ import {
   GetAccessPointCommandOutput,
 } from "./commands/GetAccessPointCommand";
 import {
+  GetAccessPointConfigurationForObjectLambdaCommand,
+  GetAccessPointConfigurationForObjectLambdaCommandInput,
+  GetAccessPointConfigurationForObjectLambdaCommandOutput,
+} from "./commands/GetAccessPointConfigurationForObjectLambdaCommand";
+import {
+  GetAccessPointForObjectLambdaCommand,
+  GetAccessPointForObjectLambdaCommandInput,
+  GetAccessPointForObjectLambdaCommandOutput,
+} from "./commands/GetAccessPointForObjectLambdaCommand";
+import {
   GetAccessPointPolicyCommand,
   GetAccessPointPolicyCommandInput,
   GetAccessPointPolicyCommandOutput,
 } from "./commands/GetAccessPointPolicyCommand";
 import {
+  GetAccessPointPolicyForObjectLambdaCommand,
+  GetAccessPointPolicyForObjectLambdaCommandInput,
+  GetAccessPointPolicyForObjectLambdaCommandOutput,
+} from "./commands/GetAccessPointPolicyForObjectLambdaCommand";
+import {
   GetAccessPointPolicyStatusCommand,
   GetAccessPointPolicyStatusCommandInput,
   GetAccessPointPolicyStatusCommandOutput,
 } from "./commands/GetAccessPointPolicyStatusCommand";
+import {
+  GetAccessPointPolicyStatusForObjectLambdaCommand,
+  GetAccessPointPolicyStatusForObjectLambdaCommandInput,
+  GetAccessPointPolicyStatusForObjectLambdaCommandOutput,
+} from "./commands/GetAccessPointPolicyStatusForObjectLambdaCommand";
 import { GetBucketCommand, GetBucketCommandInput, GetBucketCommandOutput } from "./commands/GetBucketCommand";
 import {
   GetBucketLifecycleConfigurationCommand,
@@ -117,6 +152,11 @@ import {
   ListAccessPointsCommandInput,
   ListAccessPointsCommandOutput,
 } from "./commands/ListAccessPointsCommand";
+import {
+  ListAccessPointsForObjectLambdaCommand,
+  ListAccessPointsForObjectLambdaCommandInput,
+  ListAccessPointsForObjectLambdaCommandOutput,
+} from "./commands/ListAccessPointsForObjectLambdaCommand";
 import { ListJobsCommand, ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
   ListRegionalBucketsCommand,
@@ -129,10 +169,20 @@ import {
   ListStorageLensConfigurationsCommandOutput,
 } from "./commands/ListStorageLensConfigurationsCommand";
 import {
+  PutAccessPointConfigurationForObjectLambdaCommand,
+  PutAccessPointConfigurationForObjectLambdaCommandInput,
+  PutAccessPointConfigurationForObjectLambdaCommandOutput,
+} from "./commands/PutAccessPointConfigurationForObjectLambdaCommand";
+import {
   PutAccessPointPolicyCommand,
   PutAccessPointPolicyCommandInput,
   PutAccessPointPolicyCommandOutput,
 } from "./commands/PutAccessPointPolicyCommand";
+import {
+  PutAccessPointPolicyForObjectLambdaCommand,
+  PutAccessPointPolicyForObjectLambdaCommandInput,
+  PutAccessPointPolicyForObjectLambdaCommandOutput,
+} from "./commands/PutAccessPointPolicyForObjectLambdaCommand";
 import {
   PutBucketLifecycleConfigurationCommand,
   PutBucketLifecycleConfigurationCommandInput,
@@ -182,36 +232,23 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <p>
- *          AWS S3 Control provides access to Amazon S3 control plane operations.
+ *          AWS S3 Control provides access to Amazon S3 control plane actions.
  *
  *       </p>
  */
 export class S3Control extends S3ControlClient {
   /**
    * <p>Creates an access point and associates it with the specified bucket. For more information, see
-   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-points.html">Managing Data Access with Amazon S3 Access
-   *             Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html">Managing Data Access with Amazon S3 Access
+   *             Points</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
    *          <p></p>
-   *          <p>
-   *             <b>Using this action with Amazon S3 on Outposts</b>
+   *          <note>
+   *             <p>S3 on Outposts only supports VPC-style Access Points.
    *          </p>
-   *          <p>This action: </p>
-   *          <ul>
-   *             <li>
-   *                <p>Requires a virtual private cloud (VPC) configuration as S3 on Outposts only supports VPC style access points.</p>
-   *             </li>
-   *             <li>
-   *                <p>Does not support ACL on S3 on Outposts buckets.</p>
-   *             </li>
-   *             <li>
-   *                <p>Does not support Public Access on S3 on Outposts buckets.</p>
-   *             </li>
-   *             <li>
-   *                <p>Does not support object lock for S3 on Outposts buckets.</p>
-   *             </li>
-   *          </ul>
-   *          <p>For more information, see
-   *       <a href="AmazonS3/latest/dev/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon Simple Storage Service Developer Guide </i>.</p>
+   *             <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">
+   *          Accessing Amazon S3 on Outposts using virtual private cloud (VPC) only Access Points</a> in
+   *          the <i>Amazon Simple Storage Service User Guide</i>.</p>
+   *          </note>
    *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request and an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPoint.html#API_control_CreateAccessPoint_Examples">Examples</a> section.</p>
    *          <p></p>
    *          <p>The following actions are related to <code>CreateAccessPoint</code>:</p>
@@ -263,30 +300,76 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
+   * <p>Creates an Object Lambda Access Point. For more information, see
+   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/transforming-objects.html">Transforming objects with Object Lambda Access Points</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
+   *          <p>The following actions are related to <code>CreateAccessPointForObjectLambda</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPointForObjectLambda.html">DeleteAccessPointForObjectLambda</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointForObjectLambda.html">GetAccessPointForObjectLambda</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPointsForObjectLambda.html">ListAccessPointsForObjectLambda</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  public createAccessPointForObjectLambda(
+    args: CreateAccessPointForObjectLambdaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAccessPointForObjectLambdaCommandOutput>;
+  public createAccessPointForObjectLambda(
+    args: CreateAccessPointForObjectLambdaCommandInput,
+    cb: (err: any, data?: CreateAccessPointForObjectLambdaCommandOutput) => void
+  ): void;
+  public createAccessPointForObjectLambda(
+    args: CreateAccessPointForObjectLambdaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAccessPointForObjectLambdaCommandOutput) => void
+  ): void;
+  public createAccessPointForObjectLambda(
+    args: CreateAccessPointForObjectLambdaCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAccessPointForObjectLambdaCommandOutput) => void),
+    cb?: (err: any, data?: CreateAccessPointForObjectLambdaCommandOutput) => void
+  ): Promise<CreateAccessPointForObjectLambdaCommandOutput> | void {
+    const command = new CreateAccessPointForObjectLambdaCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <note>
-   *             <p>This API operation creates an Amazon S3 on Outposts bucket. To create an S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">Create Bucket</a> in the <i>Amazon Simple Storage Service API</i>.
+   *             <p>This action creates an Amazon S3 on Outposts bucket. To create an S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">Create Bucket</a> in the <i>Amazon Simple Storage Service API</i>.
    *       </p>
    *          </note>
    *          <p>Creates a new Outposts bucket. By creating the bucket, you become the bucket owner. To create an Outposts bucket, you must have S3 on Outposts.
-   *          For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using Amazon S3 on Outposts</a> in <i>Amazon Simple Storage Service Developer Guide</i>.</p>
-   *          <p>Not every string is an acceptable bucket name. For information on bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules">Working with Amazon S3 Buckets</a>.</p>
-   *
-   *          <p>S3 on Outposts buckets do not support </p>
+   *          For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in <i>Amazon Simple Storage Service User Guide</i>.</p>
+   *          <p>Not every string is an acceptable bucket name. For information on bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/BucketRestrictions.html#bucketnamingrules">Working with Amazon S3 Buckets</a>.</p>
+   *          <p>S3 on Outposts buckets support:</p>
    *          <ul>
    *             <li>
-   *                <p>ACLs. Instead, configure access point policies to manage
-   *             access to buckets.</p>
+   *                <p>Tags</p>
    *             </li>
    *             <li>
-   *                <p>Public access. </p>
-   *             </li>
-   *             <li>
-   *                <p>Object Lock</p>
-   *             </li>
-   *             <li>
-   *                <p>Bucket Location constraint</p>
+   *                <p>LifecycleConfigurations for deleting expired objects</p>
    *             </li>
    *          </ul>
+   *          <p>For a complete list of restrictions and Amazon S3 feature limitations on S3 on Outposts,
+   *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OnOutpostsRestrictionsLimitations.html">
+   *             Amazon S3 on Outposts Restrictions and Limitations</a>.</p>
    *          <p>For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
    *          endpoint hostname prefix and <code>x-amz-outpost-id</code> in your API request, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateBucket.html#API_control_CreateBucket_Examples">Examples</a> section.</p>
    *
@@ -346,11 +429,11 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   * <p>S3 Batch Operations performs large-scale Batch Operations on Amazon S3 objects. Batch Operations can run a
-   *          single operation or action on lists of Amazon S3 objects that you specify. For more information,
+   * <p>You can use S3 Batch Operations to perform large-scale batch actions on Amazon S3 objects. Batch Operations can run a
+   *          single action on lists of Amazon S3 objects that you specify. For more information,
    *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">S3 Batch Operations</a> in the
-   *             <i>Amazon Simple Storage Service Developer Guide</i>.</p>
-   *          <p>This operation creates an S3 Batch Operations job.</p>
+   *             <i>Amazon Simple Storage Service User Guide</i>.</p>
+   *          <p>This action creates a S3 Batch Operations job.</p>
    *          <p></p>
    *          <p>Related actions include:</p>
    *          <ul>
@@ -372,6 +455,11 @@ export class S3Control extends S3ControlClient {
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html">UpdateJobStatus</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_JobOperation.html">JobOperation</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -452,6 +540,56 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
+   * <p>Deletes the specified Object Lambda Access Point.</p>
+   *          <p>The following actions are related to <code>DeleteAccessPointForObjectLambda</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPointForObjectLambda.html">CreateAccessPointForObjectLambda</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointForObjectLambda.html">GetAccessPointForObjectLambda</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPointsForObjectLambda.html">ListAccessPointsForObjectLambda</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  public deleteAccessPointForObjectLambda(
+    args: DeleteAccessPointForObjectLambdaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAccessPointForObjectLambdaCommandOutput>;
+  public deleteAccessPointForObjectLambda(
+    args: DeleteAccessPointForObjectLambdaCommandInput,
+    cb: (err: any, data?: DeleteAccessPointForObjectLambdaCommandOutput) => void
+  ): void;
+  public deleteAccessPointForObjectLambda(
+    args: DeleteAccessPointForObjectLambdaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAccessPointForObjectLambdaCommandOutput) => void
+  ): void;
+  public deleteAccessPointForObjectLambda(
+    args: DeleteAccessPointForObjectLambdaCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAccessPointForObjectLambdaCommandOutput) => void),
+    cb?: (err: any, data?: DeleteAccessPointForObjectLambdaCommandOutput) => void
+  ): Promise<DeleteAccessPointForObjectLambdaCommandOutput> | void {
+    const command = new DeleteAccessPointForObjectLambdaCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes the access point policy for the specified access point.</p>
    *          <p></p>
    *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request and an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPointPolicy.html#API_control_DeleteAccessPointPolicy_Examples">Examples</a> section.</p>
@@ -499,14 +637,61 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
+   * <p>Removes the resource policy for an Object Lambda Access Point.</p>
+   *          <p>The following actions are related to <code>DeleteAccessPointPolicyForObjectLambda</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointPolicyForObjectLambda.html">GetAccessPointPolicyForObjectLambda</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutAccessPointPolicyForObjectLambda.html">PutAccessPointPolicyForObjectLambda</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  public deleteAccessPointPolicyForObjectLambda(
+    args: DeleteAccessPointPolicyForObjectLambdaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAccessPointPolicyForObjectLambdaCommandOutput>;
+  public deleteAccessPointPolicyForObjectLambda(
+    args: DeleteAccessPointPolicyForObjectLambdaCommandInput,
+    cb: (err: any, data?: DeleteAccessPointPolicyForObjectLambdaCommandOutput) => void
+  ): void;
+  public deleteAccessPointPolicyForObjectLambda(
+    args: DeleteAccessPointPolicyForObjectLambdaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAccessPointPolicyForObjectLambdaCommandOutput) => void
+  ): void;
+  public deleteAccessPointPolicyForObjectLambda(
+    args: DeleteAccessPointPolicyForObjectLambdaCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteAccessPointPolicyForObjectLambdaCommandOutput) => void),
+    cb?: (err: any, data?: DeleteAccessPointPolicyForObjectLambdaCommandOutput) => void
+  ): Promise<DeleteAccessPointPolicyForObjectLambdaCommandOutput> | void {
+    const command = new DeleteAccessPointPolicyForObjectLambdaCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <note>
-   *             <p>This API operation deletes an Amazon S3 on Outposts bucket. To delete an S3 bucket,
+   *             <p>This action deletes an Amazon S3 on Outposts bucket. To delete an S3 bucket,
    *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html">DeleteBucket</a> in the <i>Amazon Simple Storage Service API</i>.
    *       </p>
    *          </note>
    *          <p>Deletes the Amazon S3 on Outposts bucket. All objects (including all object versions and delete markers) in the
    *          bucket must be deleted before the bucket itself can be deleted.
-   *          For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using Amazon S3 on Outposts</a> in <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in <i>Amazon Simple Storage Service User Guide</i>.</p>
    *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request and an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucket.html#API_control_DeleteBucket_Examples">Examples</a> section.</p>
    *          <p class="title">
    *             <b>Related Resources</b>
@@ -557,22 +742,21 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <note>
-   *             <p>This API action deletes an Amazon S3 on Outposts bucket's lifecycle configuration. To delete an
+   *             <p>This action deletes an Amazon S3 on Outposts bucket's lifecycle configuration. To delete an
    *          S3 bucket's lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketLifecycle.html">DeleteBucketLifecycle</a> in the <i>Amazon Simple Storage Service API</i>.
    *       </p>
    *          </note>
    *          <p>Deletes the lifecycle configuration from the specified Outposts bucket. Amazon S3 on Outposts removes all the lifecycle configuration
    *          rules in the lifecycle subresource associated with the bucket. Your objects never expire, and Amazon S3 on Outposts no longer automatically
    *          deletes any objects on the basis of rules contained in the deleted lifecycle configuration.
-   *          For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using Amazon S3 on Outposts</a> in <i>Amazon Simple Storage Service Developer Guide</i>.</p>
-   *          <p>To use this operation, you must have permission to perform the
+   *          For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in <i>Amazon Simple Storage Service User Guide</i>.</p>
+   *          <p>To use this action, you must have permission to perform the
    *             <code>s3-outposts:DeleteLifecycleConfiguration</code> action. By default, the bucket
    *          owner has this permission and the Outposts bucket owner can grant this permission to
    *          others.</p>
    *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request and an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketLifecycleConfiguration.html#API_control_DeleteBucketLifecycleConfiguration_Examples">Examples</a> section.</p>
    *
-   *          <p>For more information about object expiration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#intro-lifecycle-rules-actions">
-   *          Elements to Describe Lifecycle Actions</a>.</p>
+   *          <p>For more information about object expiration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#intro-lifecycle-rules-actions">Elements to Describe Lifecycle Actions</a>.</p>
    *          <p>Related actions include:</p>
    *          <ul>
    *             <li>
@@ -618,17 +802,17 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <note>
-   *             <p>This API operation deletes an Amazon S3 on Outposts bucket policy. To delete an
+   *             <p>This action deletes an Amazon S3 on Outposts bucket policy. To delete an
    *          S3 bucket policy, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketPolicy.html">DeleteBucketPolicy</a> in the <i>Amazon Simple Storage Service API</i>.
    *       </p>
    *          </note>
-   *          <p>This implementation of the DELETE operation uses the policy subresource to delete the
+   *          <p>This implementation of the DELETE action uses the policy subresource to delete the
    *          policy of a specified Amazon S3 on Outposts bucket. If you are using an identity other than the
    *          root user of the AWS account that owns the bucket, the calling identity must have the
    *             <code>s3-outposts:DeleteBucketPolicy</code> permissions on the specified Outposts bucket
-   *          and belong to the bucket owner's account to use this operation. For more information, see
-   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using Amazon S3 on Outposts</a> in
-   *             <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          and belong to the bucket owner's account to use this action. For more information, see
+   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in
+   *             <i>Amazon Simple Storage Service User Guide</i>.</p>
    *
    *          <p>If you don't have <code>DeleteBucketPolicy</code> permissions, Amazon S3 returns a
    *          <code>403 Access Denied</code> error. If you have the correct permissions, but you're
@@ -637,12 +821,11 @@ export class S3Control extends S3ControlClient {
    *
    *
    *          <important>
-   *             <p>As a security precaution, the root user of the AWS account that owns a bucket can always use this operation,
+   *             <p>As a security precaution, the root user of the AWS account that owns a bucket can always use this action,
    *          even if the policy explicitly denies the root user the ability to perform this action.</p>
    *          </important>
    *
-   *          <p>For more information about bucket policies, see <a href=" https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using Bucket Policies and User
-   *             Policies</a>. </p>
+   *          <p>For more information about bucket policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using Bucket Policies and User Policies</a>. </p>
    *
    *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request and an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketPolicy.html#API_control_DeleteBucketPolicy_Examples">Examples</a> section.</p>
    *
@@ -691,14 +874,14 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <note>
-   *             <p>This operation deletes an Amazon S3 on Outposts bucket's tags. To delete an
+   *             <p>This action deletes an Amazon S3 on Outposts bucket's tags. To delete an
    *          S3 bucket tags, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketTagging.html">DeleteBucketTagging</a> in the <i>Amazon Simple Storage Service API</i>.
    *       </p>
    *          </note>
-   *          <p>Deletes the tags from the Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using Amazon S3 on Outposts</a> in
-   *             <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <p>Deletes the tags from the Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in
+   *             <i>Amazon Simple Storage Service User Guide</i>.</p>
    *
-   *          <p>To use this operation, you must have permission to perform the <code>PutBucketTagging</code> action.
+   *          <p>To use this action, you must have permission to perform the <code>PutBucketTagging</code> action.
    *          By default, the bucket owner has this permission and can grant this permission to others.
    *       </p>
    *
@@ -751,7 +934,7 @@ export class S3Control extends S3ControlClient {
    * <p>Removes the entire tag set from the specified S3 Batch Operations job. To use this operation,
    *          you must have permission to perform the <code>s3:DeleteJobTagging</code> action. For more
    *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags">Controlling access and labeling jobs using tags</a> in the
-   *             <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *             <i>Amazon Simple Storage Service User Guide</i>.</p>
    *          <p></p>
    *          <p>Related actions include:</p>
    *          <ul>
@@ -850,13 +1033,14 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <p>Deletes the Amazon S3 Storage Lens configuration. For more information about S3 Storage Lens, see
-   *          <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Working with Amazon S3 Storage Lens</a> in the
-   *          <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Assessing your storage
+   *             activity and usage with Amazon S3 Storage Lens </a> in the
+   *          <i>Amazon Simple Storage Service User Guide</i>.</p>
    *          <note>
    *             <p>To use this action,
    *          you must have permission to perform the <code>s3:DeleteStorageLensConfiguration</code> action. For more
-   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html#storage_lens_IAM">Setting permissions to use Amazon S3 Storage Lens</a> in the
-   *          <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html">Setting permissions to use Amazon S3 Storage Lens</a> in the
+   *          <i>Amazon Simple Storage Service User Guide</i>.</p>
    *          </note>
    */
   public deleteStorageLensConfiguration(
@@ -890,13 +1074,14 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <p>Deletes the Amazon S3 Storage Lens configuration tags. For more information about S3 Storage Lens, see
-   *          <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Working with Amazon S3 Storage Lens</a> in the
-   *          <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Assessing your storage
+   *             activity and usage with Amazon S3 Storage Lens </a> in the
+   *          <i>Amazon Simple Storage Service User Guide</i>.</p>
    *          <note>
    *             <p>To use this action,
    *          you must have permission to perform the <code>s3:DeleteStorageLensConfigurationTagging</code> action. For more
-   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html#storage_lens_IAM">Setting permissions to use Amazon S3 Storage Lens</a> in the
-   *          <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html">Setting permissions to use Amazon S3 Storage Lens</a> in the
+   *          <i>Amazon Simple Storage Service User Guide</i>.</p>
    *          </note>
    */
   public deleteStorageLensConfigurationTagging(
@@ -933,7 +1118,7 @@ export class S3Control extends S3ControlClient {
   /**
    * <p>Retrieves the configuration parameters and status for a Batch Operations job. For more
    *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">S3 Batch Operations</a> in
-   *          the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          the <i>Amazon Simple Storage Service User Guide</i>.</p>
    *          <p></p>
    *          <p>Related actions include:</p>
    *          <ul>
@@ -1036,6 +1221,98 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
+   * <p>Returns configuration for an Object Lambda Access Point.</p>
+   *          <p>The following actions are related to <code>GetAccessPointConfigurationForObjectLambda</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutAccessPointConfigurationForObjectLambda.html">PutAccessPointConfigurationForObjectLambda</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  public getAccessPointConfigurationForObjectLambda(
+    args: GetAccessPointConfigurationForObjectLambdaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAccessPointConfigurationForObjectLambdaCommandOutput>;
+  public getAccessPointConfigurationForObjectLambda(
+    args: GetAccessPointConfigurationForObjectLambdaCommandInput,
+    cb: (err: any, data?: GetAccessPointConfigurationForObjectLambdaCommandOutput) => void
+  ): void;
+  public getAccessPointConfigurationForObjectLambda(
+    args: GetAccessPointConfigurationForObjectLambdaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAccessPointConfigurationForObjectLambdaCommandOutput) => void
+  ): void;
+  public getAccessPointConfigurationForObjectLambda(
+    args: GetAccessPointConfigurationForObjectLambdaCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetAccessPointConfigurationForObjectLambdaCommandOutput) => void),
+    cb?: (err: any, data?: GetAccessPointConfigurationForObjectLambdaCommandOutput) => void
+  ): Promise<GetAccessPointConfigurationForObjectLambdaCommandOutput> | void {
+    const command = new GetAccessPointConfigurationForObjectLambdaCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns configuration information about the specified Object Lambda Access Point</p>
+   *          <p>The following actions are related to <code>GetAccessPointForObjectLambda</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPointForObjectLambda.html">CreateAccessPointForObjectLambda</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPointForObjectLambda.html">DeleteAccessPointForObjectLambda</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPointsForObjectLambda.html">ListAccessPointsForObjectLambda</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  public getAccessPointForObjectLambda(
+    args: GetAccessPointForObjectLambdaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAccessPointForObjectLambdaCommandOutput>;
+  public getAccessPointForObjectLambda(
+    args: GetAccessPointForObjectLambdaCommandInput,
+    cb: (err: any, data?: GetAccessPointForObjectLambdaCommandOutput) => void
+  ): void;
+  public getAccessPointForObjectLambda(
+    args: GetAccessPointForObjectLambdaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAccessPointForObjectLambdaCommandOutput) => void
+  ): void;
+  public getAccessPointForObjectLambda(
+    args: GetAccessPointForObjectLambdaCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAccessPointForObjectLambdaCommandOutput) => void),
+    cb?: (err: any, data?: GetAccessPointForObjectLambdaCommandOutput) => void
+  ): Promise<GetAccessPointForObjectLambdaCommandOutput> | void {
+    const command = new GetAccessPointForObjectLambdaCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns the access point policy associated with the specified access point.</p>
    *          <p>The following actions are related to <code>GetAccessPointPolicy</code>:</p>
    *          <ul>
@@ -1081,7 +1358,52 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   * <p>Indicates whether the specified access point currently has a policy that allows public access. For more information about public access through access points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-points.html">Managing Data Access with Amazon S3 Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   * <p>Returns the resource policy for an Object Lambda Access Point.</p>
+   *          <p>The following actions are related to <code>GetAccessPointPolicyForObjectLambda</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPointPolicyForObjectLambda.html">DeleteAccessPointPolicyForObjectLambda</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutAccessPointPolicyForObjectLambda.html">PutAccessPointPolicyForObjectLambda</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  public getAccessPointPolicyForObjectLambda(
+    args: GetAccessPointPolicyForObjectLambdaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAccessPointPolicyForObjectLambdaCommandOutput>;
+  public getAccessPointPolicyForObjectLambda(
+    args: GetAccessPointPolicyForObjectLambdaCommandInput,
+    cb: (err: any, data?: GetAccessPointPolicyForObjectLambdaCommandOutput) => void
+  ): void;
+  public getAccessPointPolicyForObjectLambda(
+    args: GetAccessPointPolicyForObjectLambdaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAccessPointPolicyForObjectLambdaCommandOutput) => void
+  ): void;
+  public getAccessPointPolicyForObjectLambda(
+    args: GetAccessPointPolicyForObjectLambdaCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAccessPointPolicyForObjectLambdaCommandOutput) => void),
+    cb?: (err: any, data?: GetAccessPointPolicyForObjectLambdaCommandOutput) => void
+  ): Promise<GetAccessPointPolicyForObjectLambdaCommandOutput> | void {
+    const command = new GetAccessPointPolicyForObjectLambdaCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Indicates whether the specified access point currently has a policy that allows public access. For more information about public access through access points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html">Managing Data Access with Amazon S3 Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    */
   public getAccessPointPolicyStatus(
     args: GetAccessPointPolicyStatusCommandInput,
@@ -1113,11 +1435,48 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   * <p>Gets an Amazon S3 on Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">
-   *          Using Amazon S3 on Outposts</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
-   *          <p>If you are using an identity other than the root user of the AWS account that owns the bucket, the calling identity
-   *          must have the <code>s3-outposts:GetBucket</code> permissions on the specified bucket and belong to the bucket owner's account
-   *          in order to use this operation. Only users from Outposts bucket owner account with the right permissions can perform actions on an Outposts bucket.
+   * <p>Returns the status of the resource policy associated with an Object Lambda Access Point.</p>
+   */
+  public getAccessPointPolicyStatusForObjectLambda(
+    args: GetAccessPointPolicyStatusForObjectLambdaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAccessPointPolicyStatusForObjectLambdaCommandOutput>;
+  public getAccessPointPolicyStatusForObjectLambda(
+    args: GetAccessPointPolicyStatusForObjectLambdaCommandInput,
+    cb: (err: any, data?: GetAccessPointPolicyStatusForObjectLambdaCommandOutput) => void
+  ): void;
+  public getAccessPointPolicyStatusForObjectLambda(
+    args: GetAccessPointPolicyStatusForObjectLambdaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAccessPointPolicyStatusForObjectLambdaCommandOutput) => void
+  ): void;
+  public getAccessPointPolicyStatusForObjectLambda(
+    args: GetAccessPointPolicyStatusForObjectLambdaCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetAccessPointPolicyStatusForObjectLambdaCommandOutput) => void),
+    cb?: (err: any, data?: GetAccessPointPolicyStatusForObjectLambdaCommandOutput) => void
+  ): Promise<GetAccessPointPolicyStatusForObjectLambdaCommandOutput> | void {
+    const command = new GetAccessPointPolicyStatusForObjectLambdaCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets an Amazon S3 on Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">
+   *          Using Amazon S3 on Outposts</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
+   *          <p>If you are using an identity other than the root user of the AWS account
+   *          that owns the Outposts bucket, the calling identity must have the
+   *          <code>s3-outposts:GetBucket</code> permissions on the specified Outposts bucket and
+   *          belong to the Outposts bucket owner's account in order to use this action. Only
+   *          users from Outposts bucket owner account with the right permissions can perform
+   *          actions on an Outposts bucket.
    *       </p>
    *          <p>
    *          If you don't have <code>s3-outposts:GetBucket</code> permissions or you're not using an identity that belongs to the bucket owner's
@@ -1167,21 +1526,19 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <note>
-   *             <p>This operation gets an Amazon S3 on Outposts bucket's lifecycle configuration. To get an
+   *             <p>This action gets an Amazon S3 on Outposts bucket's lifecycle configuration. To get an
    *          S3 bucket's lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html">GetBucketLifecycleConfiguration</a> in the <i>Amazon Simple Storage Service API</i>.
    *       </p>
    *          </note>
    *          <p>Returns the lifecycle configuration information set on the Outposts bucket. For more
-   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using Amazon S3 on Outposts</a> and for
+   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> and for
    *          information about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html"> Object Lifecycle Management</a> in
-   *             <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *             <i>Amazon Simple Storage Service User Guide</i>.</p>
    *
-   *          <p>To use this operation, you must have permission to perform the <code>s3-outposts:GetLifecycleConfiguration</code> action.
+   *          <p>To use this action, you must have permission to perform the <code>s3-outposts:GetLifecycleConfiguration</code> action.
    *          The Outposts bucket owner has this permission, by default. The bucket owner can grant this permission to others. For more
-   *          information about permissions, see
-   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
-   *             Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing Access
-   *                Permissions to Your Amazon S3 Resources</a>.</p>
+   *          information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
+   *             Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to Your Amazon S3 Resources</a>.</p>
    *
    *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request and an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketLifecycleConfiguration.html#API_control_GetBucketLifecycleConfiguration_Examples">Examples</a> section.</p>
    *
@@ -1253,17 +1610,17 @@ export class S3Control extends S3ControlClient {
    *             bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketPolicy.html">GetBucketPolicy</a> in the
    *                <i>Amazon Simple Storage Service API</i>. </p>
    *          </note>
-   *          <p>Returns the policy of a specified Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the
-   *             <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <p>Returns the policy of a specified Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the
+   *             <i>Amazon Simple Storage Service User Guide</i>.</p>
    *          <p>If you are using an identity other than the root user of the AWS account that owns the bucket, the calling identity
-   *       must have the <code>GetBucketPolicy</code> permissions on the specified bucket and belong to the bucket owner's account in order to use this operation.</p>
+   *       must have the <code>GetBucketPolicy</code> permissions on the specified bucket and belong to the bucket owner's account in order to use this action.</p>
    *
    *          <p>Only users from Outposts bucket owner account with the right permissions can perform actions on an Outposts bucket.
    *          If you don't have <code>s3-outposts:GetBucketPolicy</code> permissions or you're not using an identity that belongs to the bucket owner's
    *          account, Amazon S3 returns a <code>403 Access Denied</code> error.</p>
    *
    *          <important>
-   *             <p>As a security precaution, the root user of the AWS account that owns a bucket can always use this operation, even if the policy
+   *             <p>As a security precaution, the root user of the AWS account that owns a bucket can always use this action, even if the policy
    *          explicitly denies the root user the ability to perform this action.</p>
    *          </important>
    *
@@ -1321,14 +1678,14 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <note>
-   *             <p>This operation gets an Amazon S3 on Outposts bucket's tags. To get an
+   *             <p>This action gets an Amazon S3 on Outposts bucket's tags. To get an
    *          S3 bucket tags, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketTagging.html">GetBucketTagging</a> in the <i>Amazon Simple Storage Service API</i>.
    *       </p>
    *          </note>
    *          <p>Returns the tag set associated with the Outposts bucket. For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the
-   *             <i>Amazon Simple Storage Service Developer Guide</i>.</p>
-   *          <p>To use this operation, you must have permission to perform the <code>GetBucketTagging</code> action.
+   *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the
+   *             <i>Amazon Simple Storage Service User Guide</i>.</p>
+   *          <p>To use this action, you must have permission to perform the <code>GetBucketTagging</code> action.
    *          By default, the bucket owner has this permission and can grant this permission to others.</p>
    *
    *          <p>
@@ -1394,7 +1751,7 @@ export class S3Control extends S3ControlClient {
    *          permission to perform the <code>s3:GetJobTagging</code> action. For more information, see
    *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags">Controlling
    *             access and labeling jobs using tags</a> in the
-   *          <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <i>Amazon Simple Storage Service User Guide</i>.</p>
    *          <p></p>
    *          <p>Related actions include:</p>
    *          <ul>
@@ -1493,13 +1850,14 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <p>Gets the Amazon S3 Storage Lens configuration. For more information, see
-   *          <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Working with Amazon S3 Storage Lens</a> in the
-   *          <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Assessing your storage
+   *             activity and usage with Amazon S3 Storage Lens </a> in the
+   *          <i>Amazon Simple Storage Service User Guide</i>.</p>
    *          <note>
    *             <p>To use this action,
    *          you must have permission to perform the <code>s3:GetStorageLensConfiguration</code> action. For more
-   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html#storage_lens_IAM">Setting permissions to use Amazon S3 Storage Lens</a> in the
-   *          <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html">Setting permissions to use Amazon S3 Storage Lens</a> in the
+   *          <i>Amazon Simple Storage Service User Guide</i>.</p>
    *          </note>
    */
   public getStorageLensConfiguration(
@@ -1533,13 +1891,13 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <p>Gets the tags of Amazon S3 Storage Lens configuration. For more information about S3 Storage Lens, see
-   *          <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Working with Amazon S3 Storage Lens</a> in the
-   *          <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Assessing your storage
+   *             activity and usage with Amazon S3 Storage Lens </a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
    *          <note>
    *             <p>To use this action,
    *          you must have permission to perform the <code>s3:GetStorageLensConfigurationTagging</code> action. For more
-   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html#storage_lens_IAM">Setting permissions to use Amazon S3 Storage Lens</a> in the
-   *          <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html">Setting permissions to use Amazon S3 Storage Lens</a> in the
+   *          <i>Amazon Simple Storage Service User Guide</i>.</p>
    *          </note>
    */
   public getStorageLensConfigurationTagging(
@@ -1628,9 +1986,63 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
+   * <p>Returns a list of the access points associated with the Object Lambda Access Point. You
+   *          can retrieve up to 1000 access points per call. If there are more than 1,000
+   *          access points (or the number specified in <code>maxResults</code>, whichever is less), the
+   *          response will include a continuation token that you can use to list the additional access
+   *          points.</p>
+   *          <p>The following actions are related to <code>ListAccessPointsForObjectLambda</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPointForObjectLambda.html">CreateAccessPointForObjectLambda</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPointForObjectLambda.html">DeleteAccessPointForObjectLambda</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointForObjectLambda.html">GetAccessPointForObjectLambda</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  public listAccessPointsForObjectLambda(
+    args: ListAccessPointsForObjectLambdaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAccessPointsForObjectLambdaCommandOutput>;
+  public listAccessPointsForObjectLambda(
+    args: ListAccessPointsForObjectLambdaCommandInput,
+    cb: (err: any, data?: ListAccessPointsForObjectLambdaCommandOutput) => void
+  ): void;
+  public listAccessPointsForObjectLambda(
+    args: ListAccessPointsForObjectLambdaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAccessPointsForObjectLambdaCommandOutput) => void
+  ): void;
+  public listAccessPointsForObjectLambda(
+    args: ListAccessPointsForObjectLambdaCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAccessPointsForObjectLambdaCommandOutput) => void),
+    cb?: (err: any, data?: ListAccessPointsForObjectLambdaCommandOutput) => void
+  ): Promise<ListAccessPointsForObjectLambdaCommandOutput> | void {
+    const command = new ListAccessPointsForObjectLambdaCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists current S3 Batch Operations jobs and jobs that have ended within the last 30 days for
    *          the AWS account making the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">S3 Batch Operations</a> in the
-   *             <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *             <i>Amazon Simple Storage Service User Guide</i>.</p>
    *          <p>Related actions include:</p>
    *          <p></p>
    *          <ul>
@@ -1681,8 +2093,8 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <p>Returns a list of all Outposts buckets in an Outpost that are owned by the authenticated
-   *          sender of the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the
-   *             <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          sender of the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the
+   *             <i>Amazon Simple Storage Service User Guide</i>.</p>
    *          <p>For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
    *          endpoint hostname prefix and <code>x-amz-outpost-id</code> in your request, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListRegionalBuckets.html#API_control_ListRegionalBuckets_Examples">Examples</a> section.</p>
    */
@@ -1717,13 +2129,14 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <p>Gets a list of Amazon S3 Storage Lens configurations. For more information about S3 Storage Lens, see
-   *          <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Working with Amazon S3 Storage Lens</a> in the
-   *          <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Assessing your storage
+   *             activity and usage with Amazon S3 Storage Lens </a> in the
+   *          <i>Amazon Simple Storage Service User Guide</i>.</p>
    *          <note>
    *             <p>To use this action,
    *          you must have permission to perform the <code>s3:ListStorageLensConfigurations</code> action. For more
-   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html#storage_lens_IAM">Setting permissions to use Amazon S3 Storage Lens</a> in the
-   *          <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html">Setting permissions to use Amazon S3 Storage Lens</a> in the
+   *          <i>Amazon Simple Storage Service User Guide</i>.</p>
    *          </note>
    */
   public listStorageLensConfigurations(
@@ -1745,6 +2158,48 @@ export class S3Control extends S3ControlClient {
     cb?: (err: any, data?: ListStorageLensConfigurationsCommandOutput) => void
   ): Promise<ListStorageLensConfigurationsCommandOutput> | void {
     const command = new ListStorageLensConfigurationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Replaces configuration for an Object Lambda Access Point.</p>
+   *          <p>The following actions are related to <code>PutAccessPointConfigurationForObjectLambda</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointConfigurationForObjectLambda.html">GetAccessPointConfigurationForObjectLambda</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  public putAccessPointConfigurationForObjectLambda(
+    args: PutAccessPointConfigurationForObjectLambdaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutAccessPointConfigurationForObjectLambdaCommandOutput>;
+  public putAccessPointConfigurationForObjectLambda(
+    args: PutAccessPointConfigurationForObjectLambdaCommandInput,
+    cb: (err: any, data?: PutAccessPointConfigurationForObjectLambdaCommandOutput) => void
+  ): void;
+  public putAccessPointConfigurationForObjectLambda(
+    args: PutAccessPointConfigurationForObjectLambdaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutAccessPointConfigurationForObjectLambdaCommandOutput) => void
+  ): void;
+  public putAccessPointConfigurationForObjectLambda(
+    args: PutAccessPointConfigurationForObjectLambdaCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: PutAccessPointConfigurationForObjectLambdaCommandOutput) => void),
+    cb?: (err: any, data?: PutAccessPointConfigurationForObjectLambdaCommandOutput) => void
+  ): Promise<PutAccessPointConfigurationForObjectLambdaCommandOutput> | void {
+    const command = new PutAccessPointConfigurationForObjectLambdaCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1804,14 +2259,60 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
+   * <p>Creates or replaces resource policy for an Object Lambda Access Point. For an example policy, see
+   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-create.html#olap-create-cli">Creating Object Lambda Access Points</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
+   *          <p>The following actions are related to <code>PutAccessPointPolicyForObjectLambda</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPointPolicyForObjectLambda.html">DeleteAccessPointPolicyForObjectLambda</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointPolicyForObjectLambda.html">GetAccessPointPolicyForObjectLambda</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  public putAccessPointPolicyForObjectLambda(
+    args: PutAccessPointPolicyForObjectLambdaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutAccessPointPolicyForObjectLambdaCommandOutput>;
+  public putAccessPointPolicyForObjectLambda(
+    args: PutAccessPointPolicyForObjectLambdaCommandInput,
+    cb: (err: any, data?: PutAccessPointPolicyForObjectLambdaCommandOutput) => void
+  ): void;
+  public putAccessPointPolicyForObjectLambda(
+    args: PutAccessPointPolicyForObjectLambdaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutAccessPointPolicyForObjectLambdaCommandOutput) => void
+  ): void;
+  public putAccessPointPolicyForObjectLambda(
+    args: PutAccessPointPolicyForObjectLambdaCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutAccessPointPolicyForObjectLambdaCommandOutput) => void),
+    cb?: (err: any, data?: PutAccessPointPolicyForObjectLambdaCommandOutput) => void
+  ): Promise<PutAccessPointPolicyForObjectLambdaCommandOutput> | void {
+    const command = new PutAccessPointPolicyForObjectLambdaCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <note>
    *             <p>This action puts a lifecycle configuration to an Amazon S3 on Outposts bucket. To put a lifecycle configuration to an S3 bucket,
    *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html">PutBucketLifecycleConfiguration</a> in the <i>Amazon Simple Storage Service API</i>.
    *       </p>
    *          </note>
-   *          <p>Creates a new lifecycle configuration for the Outposts bucket or replaces an existing
+   *          <p>Creates a new lifecycle configuration for the S3 on Outposts bucket or replaces an existing
    *          lifecycle configuration. Outposts buckets only support lifecycle configurations that delete/expire objects
-   *          after a certain period of time and abort incomplete multipart uploads. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Managing Lifecycle Permissions for Amazon S3 on Outposts</a>.</p>
+   *          after a certain period of time and abort incomplete multipart uploads.</p>
    *          <p></p>
    *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request and an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketLifecycleConfiguration.html#API_control_PutBucketLifecycleConfiguration_Examples">Examples</a> section.</p>
    *          <p>The following actions are related to <code>PutBucketLifecycleConfiguration</code>:</p>
@@ -1863,18 +2364,18 @@ export class S3Control extends S3ControlClient {
    *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketPolicy.html">PutBucketPolicy</a> in the <i>Amazon Simple Storage Service API</i>.
    *       </p>
    *          </note>
-   *          <p>Applies an Amazon S3 bucket policy to an Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the
-   *             <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <p>Applies an Amazon S3 bucket policy to an Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the
+   *             <i>Amazon Simple Storage Service User Guide</i>.</p>
    *          <p>If you are using an identity other than the root user of the AWS account that owns the
    *          Outposts bucket, the calling identity must have the <code>PutBucketPolicy</code>
    *          permissions on the specified Outposts bucket and belong to the bucket owner's account in
-   *          order to use this operation.</p>
+   *          order to use this action.</p>
    *
    *          <p>If you don't have <code>PutBucketPolicy</code> permissions, Amazon S3 returns a <code>403 Access Denied</code> error. If you have the correct permissions,
    *          but you're not using an identity that belongs to the bucket owner's account, Amazon S3 returns a <code>405 Method Not Allowed</code> error.</p>
    *
    *          <important>
-   *             <p> As a security precaution, the root user of the AWS account that owns a bucket can always use this operation, even if the policy
+   *             <p> As a security precaution, the root user of the AWS account that owns a bucket can always use this action, even if the policy
    *          explicitly denies the root user the ability to perform this action.
    *       </p>
    *          </important>
@@ -1932,25 +2433,26 @@ export class S3Control extends S3ControlClient {
    *             <p>This action puts tags on an Amazon S3 on Outposts bucket. To put tags on an S3 bucket, see
    *                <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketTagging.html">PutBucketTagging</a> in the <i>Amazon Simple Storage Service API</i>. </p>
    *          </note>
-   *          <p>Sets the tags for an Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the
-   *             <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <p>Sets the tags for an S3 on Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the
+   *             <i>Amazon Simple Storage Service User Guide</i>.</p>
    *          <p>Use tags to organize your AWS bill to reflect your own cost structure. To do this, sign up to get your
    *          AWS account bill with tag key values included. Then, to see the cost of combined resources, organize your
    *          billing information according to resources with the same tag key values. For example, you can tag several
    *          resources with a specific application name, and then organize your billing information to see the total cost
    *          of that application across several services. For more information, see
-   *          <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Cost Allocation and Tagging</a>.</p>
+   *          <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Cost
+   *             allocation and tagging</a>.</p>
    *
    *          <note>
    *             <p>Within a bucket, if you add a tag that has the same key as an existing tag, the new value overwrites
-   *          the old value. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CostAllocTagging.html">Using Cost Allocation in Amazon S3
-   *             Bucket Tags</a>.</p>
+   *          the old value. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CostAllocTagging.html">
+   *             Using cost allocation in Amazon S3 bucket tags</a>.</p>
    *          </note>
-   *          <p>To use this operation, you must have permissions to perform the
+   *          <p>To use this action, you must have permissions to perform the
    *             <code>s3-outposts:PutBucketTagging</code> action. The Outposts bucket owner has this
    *          permission by default and can grant this permission to others. For more information about
-   *          permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources"> Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing Access Permissions to Your Amazon S3
-   *             Resources</a>.</p>
+   *          permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources"> Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing access permissions to your Amazon S3
+   *             resources</a>.</p>
    *
    *          <p>
    *             <code>PutBucketTagging</code> has the following special errors:</p>
@@ -1981,7 +2483,7 @@ export class S3Control extends S3ControlClient {
    *                </p>
    *                <ul>
    *                   <li>
-   *                      <p>Description: A conflicting conditional operation is currently in progress against this
+   *                      <p>Description: A conflicting conditional action is currently in progress against this
    *                      resource. Try again.</p>
    *                   </li>
    *                </ul>
@@ -2048,7 +2550,7 @@ export class S3Control extends S3ControlClient {
    *          the existing tag set, you can either replace the existing tag set entirely, or make changes
    *          within the existing tag set by retrieving the existing tag set using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetJobTagging.html">GetJobTagging</a>, modify that tag set, and use this action to replace the
    *          tag set with the one you modified. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags">Controlling access and
-   *             labeling jobs using tags</a> in the <i>Amazon Simple Storage Service Developer Guide</i>. </p>
+   *             labeling jobs using tags</a> in the <i>Amazon Simple Storage Service User Guide</i>. </p>
    *          <p></p>
    *          <note>
    *             <ul>
@@ -2087,7 +2589,7 @@ export class S3Control extends S3ControlClient {
    *             </ul>
    *          </note>
    *          <p></p>
-   *          <p>To use this operation, you must have permission to perform the <code>s3:PutJobTagging</code> action.</p>
+   *          <p>To use this action, you must have permission to perform the <code>s3:PutJobTagging</code> action.</p>
    *          <p>Related actions include:</p>
    *          <ul>
    *             <li>
@@ -2184,13 +2686,13 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   * <p>Puts an Amazon S3 Storage Lens configuration. For more information about S3 Storage Lens, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Working with
-   *             Amazon S3 Storage Lens</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   * <p>Puts an Amazon S3 Storage Lens configuration. For more information about S3 Storage Lens, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Working with
+   *             Amazon S3 Storage Lens</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
    *          <note>
    *             <p>To use this action,
    *          you must have permission to perform the <code>s3:PutStorageLensConfiguration</code> action. For more
-   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html#storage_lens_IAM">Setting permissions to use Amazon S3 Storage Lens</a> in the
-   *          <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html">Setting permissions to use Amazon S3 Storage Lens</a> in the
+   *          <i>Amazon Simple Storage Service User Guide</i>.</p>
    *          </note>
    */
   public putStorageLensConfiguration(
@@ -2224,13 +2726,14 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <p>Put or replace tags on an existing Amazon S3 Storage Lens configuration. For more information about S3 Storage Lens, see
-   *          <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Working with Amazon S3 Storage Lens</a> in the
-   *          <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Assessing your storage
+   *             activity and usage with Amazon S3 Storage Lens </a> in the
+   *          <i>Amazon Simple Storage Service User Guide</i>.</p>
    *          <note>
    *             <p>To use this action,
    *          you must have permission to perform the <code>s3:PutStorageLensConfigurationTagging</code> action. For more
-   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html#storage_lens_IAM">Setting permissions to use Amazon S3 Storage Lens</a> in the
-   *          <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html">Setting permissions to use Amazon S3 Storage Lens</a> in the
+   *          <i>Amazon Simple Storage Service User Guide</i>.</p>
    *          </note>
    */
   public putStorageLensConfigurationTagging(
@@ -2264,7 +2767,7 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <p>Updates an existing S3 Batch Operations job's priority. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">S3 Batch Operations</a> in the
-   *             <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *             <i>Amazon Simple Storage Service User Guide</i>.</p>
    *          <p></p>
    *          <p>Related actions include:</p>
    *          <ul>
@@ -2320,9 +2823,9 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   * <p>Updates the status for the specified job. Use this operation to confirm that you want to
+   * <p>Updates the status for the specified job. Use this action to confirm that you want to
    *          run a job or to cancel an existing job. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">S3 Batch Operations</a> in the
-   *             <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *             <i>Amazon Simple Storage Service User Guide</i>.</p>
    *          <p></p>
    *          <p>Related actions include:</p>
    *          <ul>

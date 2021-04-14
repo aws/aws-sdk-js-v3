@@ -21,7 +21,8 @@ export type SyncDeploymentJobCommandInput = SyncDeploymentJobRequest;
 export type SyncDeploymentJobCommandOutput = SyncDeploymentJobResponse & __MetadataBearer;
 
 /**
- * <p>Syncrhonizes robots in a fleet to the latest deployment. This is helpful if robots were added after a deployment.</p>
+ * <p>Syncrhonizes robots in a fleet to the latest deployment. This is helpful if robots were
+ *          added after a deployment.</p>
  */
 export class SyncDeploymentJobCommand extends $Command<
   SyncDeploymentJobCommandInput,

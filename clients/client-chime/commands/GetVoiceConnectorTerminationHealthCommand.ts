@@ -25,8 +25,8 @@ export type GetVoiceConnectorTerminationHealthCommandOutput = GetVoiceConnectorT
   __MetadataBearer;
 
 /**
- * <p>Retrieves information about the last time a SIP <code>OPTIONS</code> ping was received
- *       from your SIP infrastructure for the specified Amazon Chime Voice Connector.</p>
+ * <p>Retrieves information about the last time a SIP <code>OPTIONS</code> ping was received from
+ *             your SIP infrastructure for the specified Amazon Chime Voice Connector.</p>
  */
 export class GetVoiceConnectorTerminationHealthCommand extends $Command<
   GetVoiceConnectorTerminationHealthCommandInput,

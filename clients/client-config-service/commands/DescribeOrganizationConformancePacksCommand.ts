@@ -26,9 +26,6 @@ export type DescribeOrganizationConformancePacksCommandOutput = DescribeOrganiza
 
 /**
  * <p>Returns a list of organization conformance packs. </p>
- * 		       <p>Only a master account and a delegated administrator account can call this API.
- * 			When calling this API with a delegated administrator, you must ensure AWS Organizations
- * 				<code>ListDelegatedAdministrator</code> permissions are added.</p>
  * 		       <note>
  *             <p>When you specify the limit and the next token, you receive a paginated response. </p>
  * 			         <p>Limit and next token are not applicable if you specify organization conformance packs names. They are only applicable,

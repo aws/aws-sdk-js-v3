@@ -21,11 +21,7 @@ export type DeleteStudioCommandInput = DeleteStudioInput;
 export type DeleteStudioCommandOutput = __MetadataBearer;
 
 /**
- * <note>
- *             <p>The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject to
- *             change.</p>
- *          </note>
- *          <p>Removes an Amazon EMR Studio from the Studio metadata store.</p>
+ * <p>Removes an Amazon EMR Studio from the Studio metadata store.</p>
  */
 export class DeleteStudioCommand extends $Command<
   DeleteStudioCommandInput,

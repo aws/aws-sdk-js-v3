@@ -21,7 +21,8 @@ export type ListSecurityKeysCommandInput = ListSecurityKeysRequest;
 export type ListSecurityKeysCommandOutput = ListSecurityKeysResponse & __MetadataBearer;
 
 /**
- * <p>Returns a paginated list of all security keys associated with the instance.</p>
+ * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+ *          <p>Returns a paginated list of all security keys associated with the instance.</p>
  */
 export class ListSecurityKeysCommand extends $Command<
   ListSecurityKeysCommandInput,

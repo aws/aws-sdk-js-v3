@@ -17,7 +17,7 @@ export namespace AccessDeniedException {
 }
 
 /**
- * <p>The datastore is in a transition state and the user requested action can not be performed.</p>
+ * <p>The Data Store is in a transition state and the user requested action can not be performed.</p>
  */
 export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
@@ -40,7 +40,7 @@ export enum PreloadDataType {
 }
 
 /**
- * <p> The input properties for the preloaded datastore. Only data preloaded from Synthea is supported.</p>
+ * <p> The input properties for the preloaded Data Store. Only data preloaded from Synthea is supported.</p>
  */
 export interface PreloadDataConfig {
   /**
@@ -57,17 +57,17 @@ export namespace PreloadDataConfig {
 
 export interface CreateFHIRDatastoreRequest {
   /**
-   * <p>The user generated name for the datastore.</p>
+   * <p>The user generated name for the Data Store.</p>
    */
   DatastoreName?: string;
 
   /**
-   * <p>The FHIR version of the datastore. The only supported version is R4.</p>
+   * <p>The FHIR version of the Data Store. The only supported version is R4.</p>
    */
   DatastoreTypeVersion: FHIRVersion | string | undefined;
 
   /**
-   * <p>Optional parameter to preload data upon creation of the datastore. Currently, the only
+   * <p>Optional parameter to preload data upon creation of the Data Store. Currently, the only
    *          supported preloaded data is synthetic data generated from Synthea.</p>
    */
   PreloadDataConfig?: PreloadDataConfig;
@@ -93,25 +93,25 @@ export enum DatastoreStatus {
 
 export interface CreateFHIRDatastoreResponse {
   /**
-   * <p>The AWS-generated datastore id. This id is in the output from the initial datastore
+   * <p>The AWS-generated Data Store id. This id is in the output from the initial Data Store
    *          creation call.</p>
    */
   DatastoreId: string | undefined;
 
   /**
-   * <p>The datastore ARN is generated during the creation of the datastore and can be found in
-   *          the output from the initial datastore creation call.</p>
+   * <p>The datastore ARN is generated during the creation of the Data Store and can be found in
+   *          the output from the initial Data Store creation call.</p>
    */
   DatastoreArn: string | undefined;
 
   /**
-   * <p>The status of the FHIR datastore. Possible statuses are ‘CREATING’, ‘ACTIVE’, ‘DELETING’,
+   * <p>The status of the FHIR Data Store. Possible statuses are ‘CREATING’, ‘ACTIVE’, ‘DELETING’,
    *          ‘DELETED’.</p>
    */
   DatastoreStatus: DatastoreStatus | string | undefined;
 
   /**
-   * <p>The AWS endpoint for the created datastore. For preview, only US-east-1 endpoints are
+   * <p>The AWS endpoint for the created Data Store. For preview, only US-east-1 endpoints are
    *          supported.</p>
    */
   DatastoreEndpoint: string | undefined;
@@ -169,27 +169,27 @@ export namespace ValidationException {
 }
 
 /**
- * <p>The filters applied to datastore query.</p>
+ * <p>The filters applied to Data Store query.</p>
  */
 export interface DatastoreFilter {
   /**
-   * <p>Allows the user to filter datastore results by name.</p>
+   * <p>Allows the user to filter Data Store results by name.</p>
    */
   DatastoreName?: string;
 
   /**
-   * <p>Allows the user to filter datastore results by status.</p>
+   * <p>Allows the user to filter Data Store results by status.</p>
    */
   DatastoreStatus?: DatastoreStatus | string;
 
   /**
-   * <p>A filter that allows the user to set cutoff dates for records. All datastores created
+   * <p>A filter that allows the user to set cutoff dates for records. All Data Stores created
    *          before the specified date will be included in the results. </p>
    */
   CreatedBefore?: Date;
 
   /**
-   * <p>A filter that allows the user to set cutoff dates for records. All datastores created
+   * <p>A filter that allows the user to set cutoff dates for records. All Data Stores created
    *          after the specified date will be included in the results.</p>
    */
   CreatedAfter?: Date;
@@ -202,31 +202,31 @@ export namespace DatastoreFilter {
 }
 
 /**
- * <p>Displays the properties of the datastore, including the ID, Arn, name, and the status of the datastore.</p>
+ * <p>Displays the properties of the Data Store, including the ID, Arn, name, and the status of the Data Store.</p>
  */
 export interface DatastoreProperties {
   /**
-   * <p>The AWS-generated ID number for the datastore.</p>
+   * <p>The AWS-generated ID number for the Data Store.</p>
    */
   DatastoreId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name used in the creation of the datastore.</p>
+   * <p>The Amazon Resource Name used in the creation of the Data Store.</p>
    */
   DatastoreArn: string | undefined;
 
   /**
-   * <p>The user-generated name for the datastore.</p>
+   * <p>The user-generated name for the Data Store.</p>
    */
   DatastoreName?: string;
 
   /**
-   * <p>The status of the datastore. Possible statuses are 'CREATING', 'ACTIVE', 'DELETING', or 'DELETED'.</p>
+   * <p>The status of the Data Store. Possible statuses are 'CREATING', 'ACTIVE', 'DELETING', or 'DELETED'.</p>
    */
   DatastoreStatus: DatastoreStatus | string | undefined;
 
   /**
-   * <p>The time that a datastore was created. </p>
+   * <p>The time that a Data Store was created. </p>
    */
   CreatedAt?: Date;
 
@@ -236,12 +236,12 @@ export interface DatastoreProperties {
   DatastoreTypeVersion: FHIRVersion | string | undefined;
 
   /**
-   * <p>The AWS endpoint for the datastore. Each datastore will have it's own endpoint with datastore ID in the endpoint URL.</p>
+   * <p>The AWS endpoint for the Data Store. Each Data Store will have it's own endpoint with Data Store ID in the endpoint URL.</p>
    */
   DatastoreEndpoint: string | undefined;
 
   /**
-   * <p>The preloaded data configuration for the datastore. Only data preloaded from Synthea is supported.</p>
+   * <p>The preloaded data configuration for the Data Store. Only data preloaded from Synthea is supported.</p>
    */
   PreloadDataConfig?: PreloadDataConfig;
 }
@@ -254,7 +254,7 @@ export namespace DatastoreProperties {
 
 export interface DeleteFHIRDatastoreRequest {
   /**
-   * <p> The AWS-generated ID for the datastore to be deleted.</p>
+   * <p> The AWS-generated ID for the Data Store to be deleted.</p>
    */
   DatastoreId?: string;
 }
@@ -267,7 +267,7 @@ export namespace DeleteFHIRDatastoreRequest {
 
 export interface DeleteFHIRDatastoreResponse {
   /**
-   * <p>The AWS-generated ID for the datastore to be deleted.</p>
+   * <p>The AWS-generated ID for the Data Store to be deleted.</p>
    */
   DatastoreId: string | undefined;
 
@@ -277,13 +277,13 @@ export interface DeleteFHIRDatastoreResponse {
   DatastoreArn: string | undefined;
 
   /**
-   * <p>The status of the datastore that the user has requested to be deleted.
+   * <p>The status of the Data Store that the user has requested to be deleted.
    *       </p>
    */
   DatastoreStatus: DatastoreStatus | string | undefined;
 
   /**
-   * <p>The AWS endpoint for the datastore the user has requested to be deleted.</p>
+   * <p>The AWS endpoint for the Data Store the user has requested to be deleted.</p>
    */
   DatastoreEndpoint: string | undefined;
 }
@@ -295,7 +295,7 @@ export namespace DeleteFHIRDatastoreResponse {
 }
 
 /**
- * <p> The requested datastore was not found.</p>
+ * <p> The requested Data Store was not found.</p>
  */
 export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
@@ -311,7 +311,7 @@ export namespace ResourceNotFoundException {
 
 export interface DescribeFHIRDatastoreRequest {
   /**
-   * <p>The AWS-generated datastore id. This is part of the ‘CreateFHIRDatastore’ output.</p>
+   * <p>The AWS-generated Data Store id. This is part of the ‘CreateFHIRDatastore’ output.</p>
    */
   DatastoreId?: string;
 }
@@ -324,8 +324,8 @@ export namespace DescribeFHIRDatastoreRequest {
 
 export interface DescribeFHIRDatastoreResponse {
   /**
-   * <p>All properties associated with a datastore, including the datastore ID, datastore ARN,
-   *          datastore name, datastore status, created at, datastore type version, and datastore
+   * <p>All properties associated with a Data Store, including the Data Store ID, Data Store ARN,
+   *          Data Store name, Data Store status, created at, Data Store type version, and Data Store
    *          endpoint.</p>
    */
   DatastoreProperties: DatastoreProperties | undefined;
@@ -337,9 +337,142 @@ export namespace DescribeFHIRDatastoreResponse {
   });
 }
 
+export interface DescribeFHIRExportJobRequest {
+  /**
+   * <p>The AWS generated ID for the Data Store from which files are being exported from for an export job.</p>
+   */
+  DatastoreId: string | undefined;
+
+  /**
+   * <p>The AWS generated ID for an export job.</p>
+   */
+  JobId: string | undefined;
+}
+
+export namespace DescribeFHIRExportJobRequest {
+  export const filterSensitiveLog = (obj: DescribeFHIRExportJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum JobStatus {
+  COMPLETED = "COMPLETED",
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  SUBMITTED = "SUBMITTED",
+}
+
+/**
+ * <p>The output data configuration that was supplied when the export job was created.</p>
+ */
+export type OutputDataConfig = OutputDataConfig.S3UriMember | OutputDataConfig.$UnknownMember;
+
+export namespace OutputDataConfig {
+  /**
+   * <p>The S3Uri is the user specified S3 location to which data will be exported from a FHIR Data Store.</p>
+   */
+  export interface S3UriMember {
+    S3Uri: string;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    S3Uri?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    S3Uri: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: OutputDataConfig, visitor: Visitor<T>): T => {
+    if (value.S3Uri !== undefined) return visitor.S3Uri(value.S3Uri);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  export const filterSensitiveLog = (obj: OutputDataConfig): any => {
+    if (obj.S3Uri !== undefined) return { S3Uri: obj.S3Uri };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+  };
+}
+
+/**
+ * <p>The properties of a FHIR export job, including the ID, ARN, name, and the status of the job.</p>
+ */
+export interface ExportJobProperties {
+  /**
+   * <p>The AWS generated ID for an export job.</p>
+   */
+  JobId: string | undefined;
+
+  /**
+   * <p>The user generated name for an export job.</p>
+   */
+  JobName?: string;
+
+  /**
+   * <p>The status of a FHIR export job. Possible statuses are SUBMITTED, IN_PROGRESS, COMPLETED, or FAILED.</p>
+   */
+  JobStatus: JobStatus | string | undefined;
+
+  /**
+   * <p>The time an export job was initiated.</p>
+   */
+  SubmitTime: Date | undefined;
+
+  /**
+   * <p>The time an export job completed.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>The AWS generated ID for the Data Store from which files are being exported for an export job.</p>
+   */
+  DatastoreId: string | undefined;
+
+  /**
+   * <p>The output data configuration that was supplied when the export job was created.</p>
+   */
+  OutputDataConfig: OutputDataConfig | undefined;
+
+  /**
+   * <p>The Amazon Resource Name used during the initiation of the job.</p>
+   */
+  DataAccessRoleArn?: string;
+
+  /**
+   * <p>An explanation of any errors that may have occurred during the export job.</p>
+   */
+  Message?: string;
+}
+
+export namespace ExportJobProperties {
+  export const filterSensitiveLog = (obj: ExportJobProperties): any => ({
+    ...obj,
+    ...(obj.OutputDataConfig && { OutputDataConfig: OutputDataConfig.filterSensitiveLog(obj.OutputDataConfig) }),
+  });
+}
+
+export interface DescribeFHIRExportJobResponse {
+  /**
+   * <p>Displays the properties of the export job, including the ID, Arn, Name, and the status of the job. </p>
+   */
+  ExportJobProperties: ExportJobProperties | undefined;
+}
+
+export namespace DescribeFHIRExportJobResponse {
+  export const filterSensitiveLog = (obj: DescribeFHIRExportJobResponse): any => ({
+    ...obj,
+    ...(obj.ExportJobProperties && {
+      ExportJobProperties: ExportJobProperties.filterSensitiveLog(obj.ExportJobProperties),
+    }),
+  });
+}
+
 export interface DescribeFHIRImportJobRequest {
   /**
-   * <p>The AWS-generated ID of the datastore.</p>
+   * <p>The AWS-generated ID of the Data Store.</p>
    */
   DatastoreId: string | undefined;
 
@@ -390,15 +523,8 @@ export namespace InputDataConfig {
   };
 }
 
-export enum JobStatus {
-  COMPLETED = "COMPLETED",
-  FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
-  SUBMITTED = "SUBMITTED",
-}
-
 /**
- * <p>Displays the properties of the import job, including the ID, Arn, Name, and the status of the datastore.</p>
+ * <p>Displays the properties of the import job, including the ID, Arn, Name, and the status of the Data Store.</p>
  */
 export interface ImportJobProperties {
   /**
@@ -456,7 +582,7 @@ export namespace ImportJobProperties {
 
 export interface DescribeFHIRImportJobResponse {
   /**
-   * <p>The properties of the Import job request, including the ID, ARN, name, and the status of the datastore.</p>
+   * <p>The properties of the Import job request, including the ID, ARN, name, and the status of the job.</p>
    */
   ImportJobProperties: ImportJobProperties | undefined;
 }
@@ -472,17 +598,17 @@ export namespace DescribeFHIRImportJobResponse {
 
 export interface ListFHIRDatastoresRequest {
   /**
-   * <p>Lists all filters associated with a FHIR datastore request.</p>
+   * <p>Lists all filters associated with a FHIR Data Store request.</p>
    */
   Filter?: DatastoreFilter;
 
   /**
-   * <p>Fetches the next page of datastores when results are paginated.</p>
+   * <p>Fetches the next page of Data Stores when results are paginated.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The maximum number of datastores returned in a single page of a
+   * <p>The maximum number of Data Stores returned in a single page of a
    *          ListFHIRDatastoresRequest call.</p>
    */
   MaxResults?: number;
@@ -496,7 +622,7 @@ export namespace ListFHIRDatastoresRequest {
 
 export interface ListFHIRDatastoresResponse {
   /**
-   * <p>All properties associated with the listed datastores.</p>
+   * <p>All properties associated with the listed Data Stores.</p>
    */
   DatastorePropertiesList: DatastoreProperties[] | undefined;
 
@@ -508,6 +634,63 @@ export interface ListFHIRDatastoresResponse {
 
 export namespace ListFHIRDatastoresResponse {
   export const filterSensitiveLog = (obj: ListFHIRDatastoresResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface StartFHIRExportJobRequest {
+  /**
+   * <p>The user generated name for an export job.</p>
+   */
+  JobName?: string;
+
+  /**
+   * <p>The output data configuration that was supplied when the export job was created.</p>
+   */
+  OutputDataConfig: OutputDataConfig | undefined;
+
+  /**
+   * <p>The AWS generated ID for the Data Store from which files are being exported for an export job.</p>
+   */
+  DatastoreId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name used during the initiation of the job.</p>
+   */
+  DataAccessRoleArn: string | undefined;
+
+  /**
+   * <p>An optional user provided token used for ensuring idempotency.</p>
+   */
+  ClientToken?: string;
+}
+
+export namespace StartFHIRExportJobRequest {
+  export const filterSensitiveLog = (obj: StartFHIRExportJobRequest): any => ({
+    ...obj,
+    ...(obj.OutputDataConfig && { OutputDataConfig: OutputDataConfig.filterSensitiveLog(obj.OutputDataConfig) }),
+  });
+}
+
+export interface StartFHIRExportJobResponse {
+  /**
+   * <p>The AWS generated ID for an export job.</p>
+   */
+  JobId: string | undefined;
+
+  /**
+   * <p>The status of a FHIR export job. Possible statuses are SUBMITTED, IN_PROGRESS, COMPLETED, or FAILED.</p>
+   */
+  JobStatus: JobStatus | string | undefined;
+
+  /**
+   * <p>The AWS generated ID for the Data Store from which files are being exported for an export job.</p>
+   */
+  DatastoreId?: string;
+}
+
+export namespace StartFHIRExportJobResponse {
+  export const filterSensitiveLog = (obj: StartFHIRExportJobResponse): any => ({
     ...obj,
   });
 }
@@ -524,7 +707,7 @@ export interface StartFHIRImportJobRequest {
   InputDataConfig: InputDataConfig | undefined;
 
   /**
-   * <p>The AWS-generated datastore ID.</p>
+   * <p>The AWS-generated Data Store ID.</p>
    */
   DatastoreId: string | undefined;
 
@@ -558,7 +741,7 @@ export interface StartFHIRImportJobResponse {
   JobStatus: JobStatus | string | undefined;
 
   /**
-   * <p>The AWS-generated datastore ID.</p>
+   * <p>The AWS-generated Data Store ID.</p>
    */
   DatastoreId?: string;
 }

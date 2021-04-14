@@ -21,7 +21,8 @@ export type GetLifecyclePoliciesCommandInput = GetLifecyclePoliciesRequest;
 export type GetLifecyclePoliciesCommandOutput = GetLifecyclePoliciesResponse & __MetadataBearer;
 
 /**
- * <p>Gets summary information about all or the specified data lifecycle policies.</p> <p>To get complete information about a policy, use <a>GetLifecyclePolicy</a>.</p>
+ * <p>Gets summary information about all or the specified data lifecycle policies.</p>
+ * 		       <p>To get complete information about a policy, use <a>GetLifecyclePolicy</a>.</p>
  */
 export class GetLifecyclePoliciesCommand extends $Command<
   GetLifecyclePoliciesCommandInput,

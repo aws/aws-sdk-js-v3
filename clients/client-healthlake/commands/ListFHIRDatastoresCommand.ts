@@ -21,7 +21,7 @@ export type ListFHIRDatastoresCommandInput = ListFHIRDatastoresRequest;
 export type ListFHIRDatastoresCommandOutput = ListFHIRDatastoresResponse & __MetadataBearer;
 
 /**
- * <p>Lists all FHIR datastores that are in the user’s account, regardless of datastore
+ * <p>Lists all FHIR Data Stores that are in the user’s account, regardless of Data Store
  *          status.</p>
  */
 export class ListFHIRDatastoresCommand extends $Command<

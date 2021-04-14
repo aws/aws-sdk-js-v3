@@ -26,13 +26,13 @@ export type DescribeEventDetailsForOrganizationCommandOutput = DescribeEventDeta
 
 /**
  * <p>Returns detailed information about one or more specified events for one or more accounts
- *          in your organization. Information includes standard event data (Region, service, and so on,
- *          as returned by <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventsForOrganization.html">DescribeEventsForOrganization</a>), a detailed event description, and possible
+ *          in your organization. Information includes standard event data (AWS Region, service, and
+ *          so on, as returned by <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventsForOrganization.html">DescribeEventsForOrganization</a>), a detailed event description, and possible
  *          additional metadata that depends upon the nature of the event. Affected entities are not
  *          included; to retrieve those, use the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntitiesForOrganization.html">DescribeAffectedEntitiesForOrganization</a> operation.</p>
  *          <p>Before you can call this operation, you must first enable AWS Health to work with
- *          AWS Organizations. To do this, call the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html">EnableHealthServiceAccessForOrganization</a>
- *          operation from your organization's master account.</p>
+ *          AWS Organizations. To do this, call the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html">EnableHealthServiceAccessForOrganization</a> operation from your organization's
+ *          management account.</p>
  *          <p>When you call the <code>DescribeEventDetailsForOrganization</code> operation, you
  *          specify the <code>organizationEventDetailFilters</code> object in the request. Depending on
  *          the AWS Health event type, note the following differences:</p>
@@ -51,6 +51,10 @@ export type DescribeEventDetailsForOrganizationCommandOutput = DescribeEventDeta
  *             </li>
  *          </ul>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html">Event</a>.</p>
+ *          <note>
+ *             <p>This operation doesn't support resource-level permissions. You can't use this operation to allow or deny access to specific AWS Health events. For more
+ *                   information, see <a href="https://docs.aws.amazon.com/health/latest/ug/security_iam_id-based-policy-examples.html#resource-action-based-conditions">Resource- and action-based conditions</a> in the <i>AWS Health User Guide</i>.</p>
+ *          </note>
  */
 export class DescribeEventDetailsForOrganizationCommand extends $Command<
   DescribeEventDetailsForOrganizationCommandInput,

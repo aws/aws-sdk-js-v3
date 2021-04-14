@@ -215,9 +215,27 @@ export enum Ac3CodingMode {
   CODING_MODE_3_2_LFE = "CODING_MODE_3_2_LFE",
 }
 
+export enum Ac3DynamicRangeCompressionLine {
+  FILM_LIGHT = "FILM_LIGHT",
+  FILM_STANDARD = "FILM_STANDARD",
+  MUSIC_LIGHT = "MUSIC_LIGHT",
+  MUSIC_STANDARD = "MUSIC_STANDARD",
+  NONE = "NONE",
+  SPEECH = "SPEECH",
+}
+
 export enum Ac3DynamicRangeCompressionProfile {
   FILM_STANDARD = "FILM_STANDARD",
   NONE = "NONE",
+}
+
+export enum Ac3DynamicRangeCompressionRf {
+  FILM_LIGHT = "FILM_LIGHT",
+  FILM_STANDARD = "FILM_STANDARD",
+  MUSIC_LIGHT = "MUSIC_LIGHT",
+  MUSIC_STANDARD = "MUSIC_STANDARD",
+  NONE = "NONE",
+  SPEECH = "SPEECH",
 }
 
 export enum Ac3LfeFilter {
@@ -255,9 +273,19 @@ export interface Ac3Settings {
   Dialnorm?: number;
 
   /**
-   * If set to FILM_STANDARD, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
+   * Choose the Dolby Digital dynamic range control (DRC) profile that MediaConvert uses when encoding the metadata in the Dolby Digital stream for the line operating mode. Related setting: When you use this setting, MediaConvert ignores any value you provide for Dynamic range compression profile (DynamicRangeCompressionProfile). For information about the Dolby Digital DRC operating modes and profiles, see the Dynamic Range Control chapter of the Dolby Metadata Guide at https://developer.dolby.com/globalassets/professional/documents/dolby-metadata-guide.pdf.
+   */
+  DynamicRangeCompressionLine?: Ac3DynamicRangeCompressionLine | string;
+
+  /**
+   * When you want to add Dolby dynamic range compression (DRC) signaling to your output stream, we recommend that you use the mode-specific settings instead of Dynamic range compression profile (DynamicRangeCompressionProfile). The mode-specific settings are Dynamic range compression profile, line mode (dynamicRangeCompressionLine) and Dynamic range compression profile, RF mode (dynamicRangeCompressionRf). Note that when you specify values for all three settings, MediaConvert ignores the value of this setting in favor of the mode-specific settings. If you do use this setting instead of the mode-specific settings, choose None (NONE) to leave out DRC signaling. Keep the default Film standard (FILM_STANDARD) to set the profile to Dolby's film standard profile for all operating modes.
    */
   DynamicRangeCompressionProfile?: Ac3DynamicRangeCompressionProfile | string;
+
+  /**
+   * Choose the Dolby Digital dynamic range control (DRC) profile that MediaConvert uses when encoding the metadata in the Dolby Digital stream for the RF operating mode. Related setting: When you use this setting, MediaConvert ignores any value you provide for Dynamic range compression profile (DynamicRangeCompressionProfile). For information about the Dolby Digital DRC operating modes and profiles, see the Dynamic Range Control chapter of the Dolby Metadata Guide at https://developer.dolby.com/globalassets/professional/documents/dolby-metadata-guide.pdf.
+   */
+  DynamicRangeCompressionRf?: Ac3DynamicRangeCompressionRf | string;
 
   /**
    * Applies a 120Hz lowpass filter to the LFE channel prior to encoding. Only valid with 3_2_LFE coding mode.
@@ -584,12 +612,12 @@ export interface Eac3Settings {
   Dialnorm?: number;
 
   /**
-   * Specify the absolute peak level for a signal with dynamic range compression.
+   * Choose the Dolby Digital dynamic range control (DRC) profile that MediaConvert uses when encoding the metadata in the Dolby Digital stream for the line operating mode. Related setting: When you use this setting, MediaConvert ignores any value you provide for Dynamic range compression profile (DynamicRangeCompressionProfile). For information about the Dolby Digital DRC operating modes and profiles, see the Dynamic Range Control chapter of the Dolby Metadata Guide at https://developer.dolby.com/globalassets/professional/documents/dolby-metadata-guide.pdf.
    */
   DynamicRangeCompressionLine?: Eac3DynamicRangeCompressionLine | string;
 
   /**
-   * Specify how the service limits the audio dynamic range when compressing the audio.
+   * Choose the Dolby Digital dynamic range control (DRC) profile that MediaConvert uses when encoding the metadata in the Dolby Digital stream for the RF operating mode. Related setting: When you use this setting, MediaConvert ignores any value you provide for Dynamic range compression profile (DynamicRangeCompressionProfile). For information about the Dolby Digital DRC operating modes and profiles, see the Dynamic Range Control chapter of the Dolby Metadata Guide at https://developer.dolby.com/globalassets/professional/documents/dolby-metadata-guide.pdf.
    */
   DynamicRangeCompressionRf?: Eac3DynamicRangeCompressionRf | string;
 
@@ -1090,9 +1118,14 @@ export enum AudioLanguageCodeControl {
  */
 export interface OutputChannelMapping {
   /**
-   * List of input channels
+   * Use this setting to specify your remix values when they are integers, such as -10, 0, or 4.
    */
   InputChannels?: number[];
+
+  /**
+   * Use this setting to specify your remix values when they have a decimal component, such as  -10.312, 0.08, or 4.9. MediaConvert rounds your remixing values to the nearest thousandth.
+   */
+  InputChannelsFineTune?: number[];
 }
 
 export namespace OutputChannelMapping {
@@ -1102,11 +1135,11 @@ export namespace OutputChannelMapping {
 }
 
 /**
- * Channel mapping (ChannelMapping) contains the group of fields that hold the remixing value for each channel. Units are in dB. Acceptable values are within the range from -60 (mute) through 6. A setting of 0 passes the input channel unchanged to the output channel (no attenuation or amplification).
+ * Channel mapping (ChannelMapping) contains the group of fields that hold the remixing value for each channel, in dB. Specify remix values to indicate how much of the content from your input audio channel you want in your output audio channels. Each instance of the InputChannels or InputChannelsFineTune array specifies these values for one output channel. Use one instance of this array for each output channel. In the console, each array corresponds to a column in the graphical depiction of the mapping matrix. The rows of the graphical matrix correspond to input channels. Valid values are within the range from -60 (mute) through 6. A setting of 0 passes the input channel unchanged to the output channel (no attenuation or amplification). Use InputChannels or InputChannelsFineTune to specify your remix values. Don't use both.
  */
 export interface ChannelMapping {
   /**
-   * List of output channels
+   * In your JSON job specification, include one child of OutputChannels for each audio channel that you want in your output. Each child should contain one instance of InputChannels or InputChannelsFineTune.
    */
   OutputChannels?: OutputChannelMapping[];
 }
@@ -1122,17 +1155,17 @@ export namespace ChannelMapping {
  */
 export interface RemixSettings {
   /**
-   * Channel mapping (ChannelMapping) contains the group of fields that hold the remixing value for each channel. Units are in dB. Acceptable values are within the range from -60 (mute) through 6. A setting of 0 passes the input channel unchanged to the output channel (no attenuation or amplification).
+   * Channel mapping (ChannelMapping) contains the group of fields that hold the remixing value for each channel, in dB. Specify remix values to indicate how much of the content from your input audio channel you want in your output audio channels. Each instance of the InputChannels or InputChannelsFineTune array specifies these values for one output channel. Use one instance of this array for each output channel. In the console, each array corresponds to a column in the graphical depiction of the mapping matrix. The rows of the graphical matrix correspond to input channels. Valid values are within the range from -60 (mute) through 6. A setting of 0 passes the input channel unchanged to the output channel (no attenuation or amplification). Use InputChannels or InputChannelsFineTune to specify your remix values. Don't use both.
    */
   ChannelMapping?: ChannelMapping;
 
   /**
-   * Specify the number of audio channels from your input that you want to use in your output. With remixing, you might combine or split the data in these channels, so the number of channels in your final output might be different.
+   * Specify the number of audio channels from your input that you want to use in your output. With remixing, you might combine or split the data in these channels, so the number of channels in your final output might be different. If you are doing both input channel mapping and output channel mapping, the number of output channels in your input mapping must be the same as the number of input channels in your output mapping.
    */
   ChannelsIn?: number;
 
   /**
-   * Specify the number of channels in this output after remixing. Valid values: 1, 2, 4, 6, 8... 64. (1 and even numbers to 64.)
+   * Specify the number of channels in this output after remixing. Valid values: 1, 2, 4, 6, 8... 64. (1 and even numbers to 64.) If you are doing both input channel mapping and output channel mapping, the number of output channels in your input mapping must be the same as the number of input channels in your output mapping.
    */
   ChannelsOut?: number;
 }
@@ -1625,13 +1658,34 @@ export enum TtmlStylePassthrough {
  */
 export interface TtmlDestinationSettings {
   /**
-   * Pass through style and position information from a TTML-like input source (TTML, SMPTE-TT) to the TTML output.
+   * Pass through style and position information from a TTML-like input source (TTML, IMSC, SMPTE-TT) to the TTML output.
    */
   StylePassthrough?: TtmlStylePassthrough | string;
 }
 
 export namespace TtmlDestinationSettings {
   export const filterSensitiveLog = (obj: TtmlDestinationSettings): any => ({
+    ...obj,
+  });
+}
+
+export enum WebvttStylePassthrough {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+/**
+ * WEBVTT Destination Settings
+ */
+export interface WebvttDestinationSettings {
+  /**
+   * If your input captions format is teletext or teletext inside of STL, enable this setting to pass through style, color, and position information to your WebVTT output captions.
+   */
+  StylePassthrough?: WebvttStylePassthrough | string;
+}
+
+export namespace WebvttDestinationSettings {
+  export const filterSensitiveLog = (obj: WebvttDestinationSettings): any => ({
     ...obj,
   });
 }
@@ -1679,6 +1733,11 @@ export interface CaptionDestinationSettings {
    * Settings specific to TTML caption outputs, including Pass style information (TtmlStylePassthrough).
    */
   TtmlDestinationSettings?: TtmlDestinationSettings;
+
+  /**
+   * WEBVTT Destination Settings
+   */
+  WebvttDestinationSettings?: WebvttDestinationSettings;
 }
 
 export namespace CaptionDestinationSettings {
@@ -2124,7 +2183,7 @@ export namespace CaptionSourceFramerate {
 }
 
 /**
- * If your input captions are SCC, SMI, SRT, STL, TTML, or IMSC 1.1 in an xml file, specify the URI of the input caption source file. If your caption source is IMSC in an IMF package, use TrackSourceSettings instead of FileSoureSettings.
+ * If your input captions are SCC, SMI, SRT, STL, TTML, WebVTT, or IMSC 1.1 in an xml file, specify the URI of the input caption source file. If your caption source is IMSC in an IMF package, use TrackSourceSettings instead of FileSoureSettings.
  */
 export interface FileSourceSettings {
   /**
@@ -2138,7 +2197,7 @@ export interface FileSourceSettings {
   Framerate?: CaptionSourceFramerate;
 
   /**
-   * External caption file used for loading captions. Accepted file extensions are 'scc', 'ttml', 'dfxp', 'stl', 'srt', 'xml', and 'smi'.
+   * External caption file used for loading captions. Accepted file extensions are 'scc', 'ttml', 'dfxp', 'stl', 'srt', 'xml', 'smi', and 'vtt'.
    */
   SourceFile?: string;
 
@@ -2163,10 +2222,12 @@ export enum CaptionSourceType {
   SCC = "SCC",
   SCTE20 = "SCTE20",
   SMI = "SMI",
+  SMPTE_TT = "SMPTE_TT",
   SRT = "SRT",
   STL = "STL",
   TELETEXT = "TELETEXT",
   TTML = "TTML",
+  WEBVTT = "WEBVTT",
 }
 
 /**
@@ -2221,7 +2282,7 @@ export interface CaptionSourceSettings {
   EmbeddedSourceSettings?: EmbeddedSourceSettings;
 
   /**
-   * If your input captions are SCC, SMI, SRT, STL, TTML, or IMSC 1.1 in an xml file, specify the URI of the input caption source file. If your caption source is IMSC in an IMF package, use TrackSourceSettings instead of FileSoureSettings.
+   * If your input captions are SCC, SMI, SRT, STL, TTML, WebVTT, or IMSC 1.1 in an xml file, specify the URI of the input caption source file. If your caption source is IMSC in an IMF package, use TrackSourceSettings instead of FileSoureSettings.
    */
   FileSourceSettings?: FileSourceSettings;
 
@@ -3519,6 +3580,11 @@ export enum CmafMpdProfile {
   ON_DEMAND_PROFILE = "ON_DEMAND_PROFILE",
 }
 
+export enum CmafPtsOffsetHandlingForBFrames {
+  MATCH_INITIAL_PTS = "MATCH_INITIAL_PTS",
+  ZERO_BASED = "ZERO_BASED",
+}
+
 export enum CmafSegmentControl {
   SEGMENTED_FILES = "SEGMENTED_FILES",
   SINGLE_FILE = "SINGLE_FILE",
@@ -3614,6 +3680,11 @@ export interface CmafGroupSettings {
   MpdProfile?: CmafMpdProfile | string;
 
   /**
+   * Use this setting only when your output video stream has B-frames, which causes the initial presentation time stamp (PTS) to be offset from the initial decode time stamp (DTS). Specify how MediaConvert handles PTS when writing time stamps in output DASH manifests. Choose Match initial PTS (MATCH_INITIAL_PTS) when you want MediaConvert to use the initial PTS as the first time stamp in the manifest. Choose Zero-based (ZERO_BASED) to have MediaConvert ignore the initial PTS in the video stream and instead write the initial time stamp as zero in the manifest. For outputs that don't have B-frames, the time stamps in your DASH manifests start at zero regardless of your choice here.
+   */
+  PtsOffsetHandlingForBFrames?: CmafPtsOffsetHandlingForBFrames | string;
+
+  /**
    * When set to SINGLE_FILE, a single output file is generated, which is internally segmented using the Fragment Length and Segment Length. When set to SEGMENTED_FILES, separate segment files will be created.
    */
   SegmentControl?: CmafSegmentControl | string;
@@ -3648,6 +3719,11 @@ export namespace CmafGroupSettings {
   export const filterSensitiveLog = (obj: CmafGroupSettings): any => ({
     ...obj,
   });
+}
+
+export enum DashIsoGroupAudioChannelConfigSchemeIdUri {
+  DOLBY_CHANNEL_CONFIGURATION = "DOLBY_CHANNEL_CONFIGURATION",
+  MPEG_CHANNEL_CONFIGURATION = "MPEG_CHANNEL_CONFIGURATION",
 }
 
 export enum DashIsoPlaybackDeviceCompatibility {
@@ -3718,6 +3794,11 @@ export enum DashIsoMpdProfile {
   ON_DEMAND_PROFILE = "ON_DEMAND_PROFILE",
 }
 
+export enum DashIsoPtsOffsetHandlingForBFrames {
+  MATCH_INITIAL_PTS = "MATCH_INITIAL_PTS",
+  ZERO_BASED = "ZERO_BASED",
+}
+
 export enum DashIsoSegmentControl {
   SEGMENTED_FILES = "SEGMENTED_FILES",
   SINGLE_FILE = "SINGLE_FILE",
@@ -3736,6 +3817,11 @@ export interface DashIsoGroupSettings {
    * By default, the service creates one .mpd DASH manifest for each DASH ISO output group in your job. This default manifest references every output in the output group. To create additional DASH manifests that reference a subset of the outputs in the output group, specify a list of them here.
    */
   AdditionalManifests?: DashAdditionalManifest[];
+
+  /**
+   * Use this setting only when your audio codec is a Dolby one (AC3, EAC3, or Atmos) and your downstream workflow requires that your DASH manifest use the Dolby channel configuration tag, rather than the MPEG one. For example, you might need to use this to make dynamic ad insertion work. Specify which audio channel configuration scheme ID URI MediaConvert writes in your DASH manifest. Keep the default value, MPEG channel configuration (MPEG_CHANNEL_CONFIGURATION), to have MediaConvert write this: urn:mpeg:mpegB:cicp:ChannelConfiguration. Choose Dolby channel configuration (DOLBY_CHANNEL_CONFIGURATION) to have MediaConvert write this instead: tag:dolby.com,2014:dash:audio_channel_configuration:2011.
+   */
+  AudioChannelConfigSchemeIdUri?: DashIsoGroupAudioChannelConfigSchemeIdUri | string;
 
   /**
    * A partial URI prefix that will be put in the manifest (.mpd) file at the top level BaseURL element. Can be used if streams are delivered from a different URL than the manifest file.
@@ -3781,6 +3867,11 @@ export interface DashIsoGroupSettings {
    * Specify whether your DASH profile is on-demand or main. When you choose Main profile (MAIN_PROFILE), the service signals  urn:mpeg:dash:profile:isoff-main:2011 in your .mpd DASH manifest. When you choose On-demand (ON_DEMAND_PROFILE), the service signals urn:mpeg:dash:profile:isoff-on-demand:2011 in your .mpd. When you choose On-demand, you must also set the output group setting Segment control (SegmentControl) to Single file (SINGLE_FILE).
    */
   MpdProfile?: DashIsoMpdProfile | string;
+
+  /**
+   * Use this setting only when your output video stream has B-frames, which causes the initial presentation time stamp (PTS) to be offset from the initial decode time stamp (DTS). Specify how MediaConvert handles PTS when writing time stamps in output DASH manifests. Choose Match initial PTS (MATCH_INITIAL_PTS) when you want MediaConvert to use the initial PTS as the first time stamp in the manifest. Choose Zero-based (ZERO_BASED) to have MediaConvert ignore the initial PTS in the video stream and instead write the initial time stamp as zero in the manifest. For outputs that don't have B-frames, the time stamps in your DASH manifests start at zero regardless of your choice here.
+   */
+  PtsOffsetHandlingForBFrames?: DashIsoPtsOffsetHandlingForBFrames | string;
 
   /**
    * When set to SINGLE_FILE, a single output file is generated, which is internally segmented using the Fragment Length and Segment Length. When set to SEGMENTED_FILES, separate segment files will be created.
@@ -4241,6 +4332,22 @@ export enum CmfcAudioDuration {
   MATCH_VIDEO_DURATION = "MATCH_VIDEO_DURATION",
 }
 
+export enum CmfcAudioTrackType {
+  ALTERNATE_AUDIO_AUTO_SELECT = "ALTERNATE_AUDIO_AUTO_SELECT",
+  ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT = "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT",
+  ALTERNATE_AUDIO_NOT_AUTO_SELECT = "ALTERNATE_AUDIO_NOT_AUTO_SELECT",
+}
+
+export enum CmfcDescriptiveVideoServiceFlag {
+  DONT_FLAG = "DONT_FLAG",
+  FLAG = "FLAG",
+}
+
+export enum CmfcIFrameOnlyManifest {
+  EXCLUDE = "EXCLUDE",
+  INCLUDE = "INCLUDE",
+}
+
 export enum CmfcScte35Esam {
   INSERT = "INSERT",
   NONE = "NONE",
@@ -4259,6 +4366,31 @@ export interface CmfcSettings {
    * Specify this setting only when your output will be consumed by a downstream repackaging workflow that is sensitive to very small duration differences between video and audio. For this situation, choose Match video duration (MATCH_VIDEO_DURATION). In all other cases, keep the default value, Default codec duration (DEFAULT_CODEC_DURATION). When you choose Match video duration, MediaConvert pads the output audio streams with silence or trims them to ensure that the total duration of each audio stream is at least as long as the total duration of the video stream. After padding or trimming, the audio stream duration is no more than one frame longer than the video stream. MediaConvert applies audio padding or trimming only to the end of the last segment of the output. For unsegmented outputs, MediaConvert adds padding only to the end of the file. When you keep the default value, any minor discrepancies between audio and video duration will depend on your output audio codec.
    */
   AudioDuration?: CmfcAudioDuration | string;
+
+  /**
+   * Specify the audio rendition group for this audio rendition. Specify up to one value for each audio output in your output group. This value appears in your HLS parent manifest in the EXT-X-MEDIA tag of TYPE=AUDIO, as the value for the GROUP-ID attribute. For example, if you specify "audio_aac_1" for Audio group ID, it appears in your manifest like this: #EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio_aac_1". Related setting: To associate the rendition group that this audio track belongs to with a video rendition, include the same value that you provide here for that video output's setting Audio rendition sets (audioRenditionSets).
+   */
+  AudioGroupId?: string;
+
+  /**
+   * List the audio rendition groups that you want included with this video rendition. Use a comma-separated list. For example, say you want to include the audio rendition groups that have the audio group IDs "audio_aac_1" and "audio_dolby". Then you would specify this value: "audio_aac_1, audio_dolby". Related setting: The rendition groups that you include in your comma-separated list should all match values that you specify in the setting Audio group ID (AudioGroupId) for audio renditions in the same output group as this video rendition. Default behavior: If you don't specify anything here and for Audio group ID, MediaConvert puts each audio variant in its own audio rendition group and associates it with every video variant. Each value in your list appears in your HLS parent manifest in the EXT-X-STREAM-INF tag as the value for the AUDIO attribute. To continue the previous example, say that the file name for the child manifest for your video rendition is "amazing_video_1.m3u8". Then, in your parent manifest, each value will appear on separate lines, like this: #EXT-X-STREAM-INF:AUDIO="audio_aac_1"... amazing_video_1.m3u8 #EXT-X-STREAM-INF:AUDIO="audio_dolby"... amazing_video_1.m3u8
+   */
+  AudioRenditionSets?: string;
+
+  /**
+   * Use this setting to control the values that MediaConvert puts in your HLS parent playlist to control how the client player selects which audio track to play. The other options for this setting determine the values that MediaConvert writes for the DEFAULT and AUTOSELECT attributes of the EXT-X-MEDIA entry for the audio variant. For more information about these attributes, see the Apple documentation article https://developer.apple.com/documentation/http_live_streaming/example_playlists_for_http_live_streaming/adding_alternate_media_to_a_playlist. Choose Alternate audio, auto select, default (ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT) to set DEFAULT=YES and AUTOSELECT=YES. Choose this value for only one variant in your output group. Choose Alternate audio, auto select, not default (ALTERNATE_AUDIO_AUTO_SELECT) to set DEFAULT=NO and AUTOSELECT=YES. Choose Alternate Audio, Not Auto Select to set DEFAULT=NO and AUTOSELECT=NO. When you don't specify a value for this setting, MediaConvert defaults to Alternate audio, auto select, default. When there is more than one variant in your output group, you must explicitly choose a value for this setting.
+   */
+  AudioTrackType?: CmfcAudioTrackType | string;
+
+  /**
+   * Specify whether to flag this audio track as descriptive video service (DVS) in your HLS parent manifest. When you choose Flag (FLAG), MediaConvert includes the parameter CHARACTERISTICS="public.accessibility.describes-video" in the EXT-X-MEDIA entry for this track. When you keep the default choice, Don't flag (DONT_FLAG), MediaConvert leaves this parameter out. The DVS flag can help with accessibility on Apple devices. For more information, see the Apple documentation.
+   */
+  DescriptiveVideoServiceFlag?: CmfcDescriptiveVideoServiceFlag | string;
+
+  /**
+   * Choose Include (INCLUDE) to have MediaConvert generate an HLS child manifest that lists only the I-frames for this rendition, in addition to your regular manifest for this rendition. You might use this manifest as part of a workflow that creates preview functions for your video. MediaConvert adds both the I-frame only child manifest and the regular child manifest to the parent manifest. When you don't need the I-frame only child manifest, keep the default value Exclude (EXCLUDE).
+   */
+  IFrameOnlyManifest?: CmfcIFrameOnlyManifest | string;
 
   /**
    * Use this setting only when you specify SCTE-35 markers from ESAM. Choose INSERT to put SCTE-35 markers in this output at the insertion points that you specify in an ESAM XML document. Provide the document in the setting SCC XML (sccXml).
@@ -5072,6 +5204,11 @@ export enum HlsAudioTrackType {
   AUDIO_ONLY_VARIANT_STREAM = "AUDIO_ONLY_VARIANT_STREAM",
 }
 
+export enum HlsDescriptiveVideoServiceFlag {
+  DONT_FLAG = "DONT_FLAG",
+  FLAG = "FLAG",
+}
+
 export enum HlsIFrameOnlyManifest {
   EXCLUDE = "EXCLUDE",
   INCLUDE = "INCLUDE",
@@ -5082,7 +5219,7 @@ export enum HlsIFrameOnlyManifest {
  */
 export interface HlsSettings {
   /**
-   * Specifies the group to which the audio Rendition belongs.
+   * Specifies the group to which the audio rendition belongs.
    */
   AudioGroupId?: string;
 
@@ -5102,7 +5239,12 @@ export interface HlsSettings {
   AudioTrackType?: HlsAudioTrackType | string;
 
   /**
-   * When set to INCLUDE, writes I-Frame Only Manifest in addition to the HLS manifest
+   * Specify whether to flag this audio track as descriptive video service (DVS) in your HLS parent manifest. When you choose Flag (FLAG), MediaConvert includes the parameter CHARACTERISTICS="public.accessibility.describes-video" in the EXT-X-MEDIA entry for this track. When you keep the default choice, Don't flag (DONT_FLAG), MediaConvert leaves this parameter out. The DVS flag can help with accessibility on Apple devices. For more information, see the Apple documentation.
+   */
+  DescriptiveVideoServiceFlag?: HlsDescriptiveVideoServiceFlag | string;
+
+  /**
+   * Choose Include (INCLUDE) to have MediaConvert generate a child manifest that lists only the I-frames for this rendition, in addition to your regular manifest for this rendition. You might use this manifest as part of a workflow that creates preview functions for your video. MediaConvert adds both the I-frame only child manifest and the regular child manifest to the parent manifest. When you don't need the I-frame only child manifest, keep the default value Exclude (EXCLUDE).
    */
   IFrameOnlyManifest?: HlsIFrameOnlyManifest | string;
 
@@ -5269,173 +5411,11 @@ export namespace Av1Settings {
 export enum AvcIntraClass {
   CLASS_100 = "CLASS_100",
   CLASS_200 = "CLASS_200",
+  CLASS_4K_2K = "CLASS_4K_2K",
   CLASS_50 = "CLASS_50",
 }
 
-export enum AvcIntraFramerateControl {
-  INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
-  SPECIFIED = "SPECIFIED",
-}
-
-export enum AvcIntraFramerateConversionAlgorithm {
-  DUPLICATE_DROP = "DUPLICATE_DROP",
-  FRAMEFORMER = "FRAMEFORMER",
-  INTERPOLATE = "INTERPOLATE",
-}
-
-export enum AvcIntraInterlaceMode {
-  BOTTOM_FIELD = "BOTTOM_FIELD",
-  FOLLOW_BOTTOM_FIELD = "FOLLOW_BOTTOM_FIELD",
-  FOLLOW_TOP_FIELD = "FOLLOW_TOP_FIELD",
-  PROGRESSIVE = "PROGRESSIVE",
-  TOP_FIELD = "TOP_FIELD",
-}
-
-export enum AvcIntraSlowPal {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum AvcIntraTelecine {
-  HARD = "HARD",
-  NONE = "NONE",
-}
-
-/**
- * Required when you set your output video codec to AVC-Intra. For more information about the AVC-I settings, see the relevant specification. For detailed information about SD and HD in AVC-I, see https://ieeexplore.ieee.org/document/7290936.
- */
-export interface AvcIntraSettings {
-  /**
-   * Specify the AVC-Intra class of your output. The AVC-Intra class selection determines the output video bit rate depending on the frame rate of the output. Outputs with higher class values have higher bitrates and improved image quality.
-   */
-  AvcIntraClass?: AvcIntraClass | string;
-
-  /**
-   * If you are using the console, use the Framerate setting to specify the frame rate for this output. If you want to keep the same frame rate as the input video, choose Follow source. If you want to do frame rate conversion, choose a frame rate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your frame rate as a fraction. If you are creating your transcoding job specification as a JSON file without the console, use FramerateControl to specify which value the service uses for the frame rate for this output. Choose INITIALIZE_FROM_SOURCE if you want the service to use the frame rate from the input. Choose SPECIFIED if you want the service to use the frame rate you specify in the settings FramerateNumerator and FramerateDenominator.
-   */
-  FramerateControl?: AvcIntraFramerateControl | string;
-
-  /**
-   * Choose the method that you want MediaConvert to use when increasing or decreasing the frame rate. We recommend using drop duplicate (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to 30 fps. For numerically complex conversions, you can use interpolate (INTERPOLATE) to avoid stutter. This results in a smooth picture, but might introduce undesirable video artifacts. For complex frame rate conversions, especially if your source video has already been converted from its original cadence, use FrameFormer (FRAMEFORMER) to do motion-compensated interpolation. FrameFormer chooses the best conversion method frame by frame. Note that using FrameFormer increases the transcoding time and incurs a significant add-on cost.
-   */
-  FramerateConversionAlgorithm?: AvcIntraFramerateConversionAlgorithm | string;
-
-  /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
-   */
-  FramerateDenominator?: number;
-
-  /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
-   */
-  FramerateNumerator?: number;
-
-  /**
-   * Choose the scan line type for the output. Keep the default value, Progressive (PROGRESSIVE) to create a progressive output, regardless of the scan type of your input. Use Top field first (TOP_FIELD) or Bottom field first (BOTTOM_FIELD) to create an output that's interlaced with the same field polarity throughout. Use Follow, default top (FOLLOW_TOP_FIELD) or Follow, default bottom (FOLLOW_BOTTOM_FIELD) to produce outputs with the same field polarity as the source. For jobs that have multiple inputs, the output field polarity might change over the course of the output. Follow behavior depends on the input scan type. If the source is interlaced, the output will be interlaced with the same polarity as the source. If the source is progressive, the output will be interlaced with top field bottom field first, depending on which of the Follow options you choose.
-   */
-  InterlaceMode?: AvcIntraInterlaceMode | string;
-
-  /**
-   * Ignore this setting unless your input frame rate is 23.976 or 24 frames per second (fps). Enable slow PAL to create a 25 fps output. When you enable slow PAL, MediaConvert relabels the video frames to 25 fps and resamples your audio to keep it synchronized with the video. Note that enabling this setting will slightly reduce the duration of your video. Required settings: You must also set Framerate to 25. In your JSON job specification, set (framerateControl) to (SPECIFIED), (framerateNumerator) to 25 and (framerateDenominator) to 1.
-   */
-  SlowPal?: AvcIntraSlowPal | string;
-
-  /**
-   * When you do frame rate conversion from 23.976 frames per second (fps) to 29.97 fps, and your output scan type is interlaced, you can optionally enable hard telecine (HARD) to create a smoother picture. When you keep the default value, None (NONE), MediaConvert does a standard frame rate conversion to 29.97 without doing anything with the field polarity to create a smoother picture.
-   */
-  Telecine?: AvcIntraTelecine | string;
-}
-
-export namespace AvcIntraSettings {
-  export const filterSensitiveLog = (obj: AvcIntraSettings): any => ({
-    ...obj,
-  });
-}
-
-export enum VideoCodec {
-  AV1 = "AV1",
-  AVC_INTRA = "AVC_INTRA",
-  FRAME_CAPTURE = "FRAME_CAPTURE",
-  H_264 = "H_264",
-  H_265 = "H_265",
-  MPEG2 = "MPEG2",
-  PRORES = "PRORES",
-  VC3 = "VC3",
-  VP8 = "VP8",
-  VP9 = "VP9",
-}
-
-/**
- * Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value FRAME_CAPTURE.
- */
-export interface FrameCaptureSettings {
-  /**
-   * Frame capture will encode the first frame of the output stream, then one frame every framerateDenominator/framerateNumerator seconds. For example, settings of framerateNumerator = 1 and framerateDenominator = 3 (a rate of 1/3 frame per second) will capture the first frame, then 1 frame every 3s. Files will be named as filename.n.jpg where n is the 0-based sequence number of each Capture.
-   */
-  FramerateDenominator?: number;
-
-  /**
-   * Frame capture will encode the first frame of the output stream, then one frame every framerateDenominator/framerateNumerator seconds. For example, settings of framerateNumerator = 1 and framerateDenominator = 3 (a rate of 1/3 frame per second) will capture the first frame, then 1 frame every 3s. Files will be named as filename.NNNNNNN.jpg where N is the 0-based frame sequence number zero padded to 7 decimal places.
-   */
-  FramerateNumerator?: number;
-
-  /**
-   * Maximum number of captures (encoded jpg output files).
-   */
-  MaxCaptures?: number;
-
-  /**
-   * JPEG Quality - a higher value equals higher quality.
-   */
-  Quality?: number;
-}
-
-export namespace FrameCaptureSettings {
-  export const filterSensitiveLog = (obj: FrameCaptureSettings): any => ({
-    ...obj,
-  });
-}
-
-export enum H264AdaptiveQuantization {
-  AUTO = "AUTO",
-  HIGH = "HIGH",
-  HIGHER = "HIGHER",
-  LOW = "LOW",
-  MAX = "MAX",
-  MEDIUM = "MEDIUM",
-  OFF = "OFF",
-}
-
-export enum H264CodecLevel {
-  AUTO = "AUTO",
-  LEVEL_1 = "LEVEL_1",
-  LEVEL_1_1 = "LEVEL_1_1",
-  LEVEL_1_2 = "LEVEL_1_2",
-  LEVEL_1_3 = "LEVEL_1_3",
-  LEVEL_2 = "LEVEL_2",
-  LEVEL_2_1 = "LEVEL_2_1",
-  LEVEL_2_2 = "LEVEL_2_2",
-  LEVEL_3 = "LEVEL_3",
-  LEVEL_3_1 = "LEVEL_3_1",
-  LEVEL_3_2 = "LEVEL_3_2",
-  LEVEL_4 = "LEVEL_4",
-  LEVEL_4_1 = "LEVEL_4_1",
-  LEVEL_4_2 = "LEVEL_4_2",
-  LEVEL_5 = "LEVEL_5",
-  LEVEL_5_1 = "LEVEL_5_1",
-  LEVEL_5_2 = "LEVEL_5_2",
-}
-
-export enum H264CodecProfile {
-  BASELINE = "BASELINE",
-  HIGH = "HIGH",
-  HIGH_10BIT = "HIGH_10BIT",
-  HIGH_422 = "HIGH_422",
-  HIGH_422_10BIT = "HIGH_422_10BIT",
-  MAIN = "MAIN",
-}
-
-export enum H264DynamicSubGop {
-  ADAPTIVE = "ADAPTIVE",
-  STATIC = "STATIC",
+export enum AvcIntraUhdQualityTuningLevel {
+  MULTI_PASS = "MULTI_PASS",
+  SINGLE_PASS = "SINGLE_PASS",
 }

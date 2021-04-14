@@ -21,8 +21,8 @@ export type GetResolverRulePolicyCommandInput = GetResolverRulePolicyRequest;
 export type GetResolverRulePolicyCommandOutput = GetResolverRulePolicyResponse & __MetadataBearer;
 
 /**
- * <p>Gets information about a Resolver rule policy. A Resolver rule policy specifies the Resolver operations and resources
- * 			that you want to allow another AWS account to be able to use. </p>
+ * <p>Gets information about the Resolver rule policy for a specified rule. A Resolver rule policy includes the rule that you want to share
+ * 			with another account, the account that you want to share the rule with, and the Resolver operations that you want to allow the account to use. </p>
  */
 export class GetResolverRulePolicyCommand extends $Command<
   GetResolverRulePolicyCommandInput,

@@ -21,7 +21,7 @@ export type StartImagePipelineExecutionCommandInput = StartImagePipelineExecutio
 export type StartImagePipelineExecutionCommandOutput = StartImagePipelineExecutionResponse & __MetadataBearer;
 
 /**
- * <p> Manually triggers a pipeline to create an image. </p>
+ * <p> Manually triggers a pipeline to create an image.</p>
  */
 export class StartImagePipelineExecutionCommand extends $Command<
   StartImagePipelineExecutionCommandInput,

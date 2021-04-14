@@ -21,7 +21,7 @@ export type CreateRecipeCommandInput = CreateRecipeRequest;
 export type CreateRecipeCommandOutput = CreateRecipeResponse & __MetadataBearer;
 
 /**
- * <p>Creates a new AWS Glue DataBrew recipe for the current AWS account.</p>
+ * <p>Creates a new DataBrew recipe.</p>
  */
 export class CreateRecipeCommand extends $Command<
   CreateRecipeCommandInput,

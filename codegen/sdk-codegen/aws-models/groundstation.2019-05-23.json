@@ -16,6 +16,20 @@
         ]
       }
     },
+    "com.amazonaws.groundstation#AntennaDemodDecodeDetails": {
+      "type": "structure",
+      "members": {
+        "outputNode": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Name of an antenna demod decode output node used in a contact.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Details about an antenna demod decode <code>Config</code> used in a contact.</p>"
+      }
+    },
     "com.amazonaws.groundstation#AntennaDownlinkConfig": {
       "type": "structure",
       "members": {
@@ -34,10 +48,10 @@
     "com.amazonaws.groundstation#AntennaDownlinkDemodDecodeConfig": {
       "type": "structure",
       "members": {
-        "decodeConfig": {
-          "target": "com.amazonaws.groundstation#DecodeConfig",
+        "spectrumConfig": {
+          "target": "com.amazonaws.groundstation#SpectrumConfig",
           "traits": {
-            "smithy.api#documentation": "<p>Information about the decode <code>Config</code>.</p>",
+            "smithy.api#documentation": "<p>Information about the spectral <code>Config</code>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -48,10 +62,10 @@
             "smithy.api#required": {}
           }
         },
-        "spectrumConfig": {
-          "target": "com.amazonaws.groundstation#SpectrumConfig",
+        "decodeConfig": {
+          "target": "com.amazonaws.groundstation#DecodeConfig",
           "traits": {
-            "smithy.api#documentation": "<p>Information about the spectral <code>Config</code>.</p>",
+            "smithy.api#documentation": "<p>Information about the decode <code>Config</code>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -63,6 +77,12 @@
     "com.amazonaws.groundstation#AntennaUplinkConfig": {
       "type": "structure",
       "members": {
+        "transmitDisabled": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Whether or not uplink transmit is disabled.</p>"
+          }
+        },
         "spectrumConfig": {
           "target": "com.amazonaws.groundstation#UplinkSpectrumConfig",
           "traits": {
@@ -76,9 +96,6 @@
             "smithy.api#documentation": "<p>EIRP of the target.</p>",
             "smithy.api#required": {}
           }
-        },
-        "transmitDisabled": {
-          "target": "smithy.api#Boolean"
         }
       },
       "traits": {
@@ -130,8 +147,7 @@
           "uri": "/contact/{contactId}",
           "code": 200
         },
-        "smithy.api#idempotent": {},
-        "smithy.api#tags": ["customer"]
+        "smithy.api#idempotent": {}
       }
     },
     "com.amazonaws.groundstation#CancelContactRequest": {
@@ -153,11 +169,11 @@
     "com.amazonaws.groundstation#Config": {
       "type": "resource",
       "identifiers": {
-        "configType": {
-          "target": "com.amazonaws.groundstation#ConfigCapabilityType"
-        },
         "configId": {
           "target": "smithy.api#String"
+        },
+        "configType": {
+          "target": "com.amazonaws.groundstation#ConfigCapabilityType"
         }
       },
       "create": {
@@ -207,16 +223,16 @@
             "name": "ANTENNA_DOWNLINK_DEMOD_DECODE"
           },
           {
-            "value": "tracking",
-            "name": "TRACKING"
+            "value": "antenna-uplink",
+            "name": "ANTENNA_UPLINK"
           },
           {
             "value": "dataflow-endpoint",
             "name": "DATAFLOW_ENDPOINT"
           },
           {
-            "value": "antenna-uplink",
-            "name": "ANTENNA_UPLINK"
+            "value": "tracking",
+            "name": "TRACKING"
           },
           {
             "value": "uplink-echo",
@@ -225,15 +241,26 @@
         ]
       }
     },
+    "com.amazonaws.groundstation#ConfigDetails": {
+      "type": "union",
+      "members": {
+        "endpointDetails": {
+          "target": "com.amazonaws.groundstation#EndpointDetails"
+        },
+        "antennaDemodDecodeDetails": {
+          "target": "com.amazonaws.groundstation#AntennaDemodDecodeDetails",
+          "traits": {
+            "smithy.api#documentation": "<p>Details for antenna demod decode <code>Config</code> in a contact.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Details for certain <code>Config</code> object types in a contact.</p>"
+      }
+    },
     "com.amazonaws.groundstation#ConfigIdResponse": {
       "type": "structure",
       "members": {
-        "configArn": {
-          "target": "com.amazonaws.groundstation#ConfigArn",
-          "traits": {
-            "smithy.api#documentation": "<p>ARN of a <code>Config</code>.</p>"
-          }
-        },
         "configId": {
           "target": "smithy.api#String",
           "traits": {
@@ -244,6 +271,12 @@
           "target": "com.amazonaws.groundstation#ConfigCapabilityType",
           "traits": {
             "smithy.api#documentation": "<p>Type of a <code>Config</code>.</p>"
+          }
+        },
+        "configArn": {
+          "target": "com.amazonaws.groundstation#ConfigArn",
+          "traits": {
+            "smithy.api#documentation": "<p>ARN of a <code>Config</code>.</p>"
           }
         }
       },
@@ -260,12 +293,6 @@
     "com.amazonaws.groundstation#ConfigListItem": {
       "type": "structure",
       "members": {
-        "configArn": {
-          "target": "com.amazonaws.groundstation#ConfigArn",
-          "traits": {
-            "smithy.api#documentation": "<p>ARN of a <code>Config</code>.</p>"
-          }
-        },
         "configId": {
           "target": "smithy.api#String",
           "traits": {
@@ -276,6 +303,12 @@
           "target": "com.amazonaws.groundstation#ConfigCapabilityType",
           "traits": {
             "smithy.api#documentation": "<p>Type of a <code>Config</code>.</p>"
+          }
+        },
+        "configArn": {
+          "target": "com.amazonaws.groundstation#ConfigArn",
+          "traits": {
+            "smithy.api#documentation": "<p>ARN of a <code>Config</code>.</p>"
           }
         },
         "name": {
@@ -298,6 +331,18 @@
             "smithy.api#documentation": "<p>Information about how AWS Ground Station should configure an antenna for downlink during a contact.</p>"
           }
         },
+        "trackingConfig": {
+          "target": "com.amazonaws.groundstation#TrackingConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>Object that determines whether tracking should be used during a contact executed with this <code>Config</code> in the mission profile. </p>"
+          }
+        },
+        "dataflowEndpointConfig": {
+          "target": "com.amazonaws.groundstation#DataflowEndpointConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the dataflow endpoint <code>Config</code>.</p>"
+          }
+        },
         "antennaDownlinkDemodDecodeConfig": {
           "target": "com.amazonaws.groundstation#AntennaDownlinkDemodDecodeConfig",
           "traits": {
@@ -308,18 +353,6 @@
           "target": "com.amazonaws.groundstation#AntennaUplinkConfig",
           "traits": {
             "smithy.api#documentation": "<p>Information about how AWS Ground Station should conﬁgure an antenna for uplink during a contact.</p>"
-          }
-        },
-        "dataflowEndpointConfig": {
-          "target": "com.amazonaws.groundstation#DataflowEndpointConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>Information about the dataflow endpoint <code>Config</code>.</p>"
-          }
-        },
-        "trackingConfig": {
-          "target": "com.amazonaws.groundstation#TrackingConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>Object that determines whether tracking should be used during a contact executed with this <code>Config</code> in the mission profile. </p>"
           }
         },
         "uplinkEchoConfig": {
@@ -370,58 +403,10 @@
             "smithy.api#documentation": "<p>UUID of a contact.</p>"
           }
         },
-        "contactStatus": {
-          "target": "com.amazonaws.groundstation#ContactStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>Status of a contact.</p>"
-          }
-        },
-        "endTime": {
-          "target": "smithy.api#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>End time of a contact.</p>"
-          }
-        },
-        "errorMessage": {
-          "target": "smithy.api#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Error message of a contact.</p>"
-          }
-        },
-        "groundStation": {
-          "target": "smithy.api#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Name of a ground station.</p>"
-          }
-        },
-        "maximumElevation": {
-          "target": "com.amazonaws.groundstation#Elevation",
-          "traits": {
-            "smithy.api#documentation": "<p>Maximum elevation angle of a contact.</p>"
-          }
-        },
         "missionProfileArn": {
           "target": "com.amazonaws.groundstation#MissionProfileArn",
           "traits": {
             "smithy.api#documentation": "<p>ARN of a mission profile.</p>"
-          }
-        },
-        "postPassEndTime": {
-          "target": "smithy.api#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>Amount of time after a contact ends that you’d like to receive a CloudWatch event indicating the pass has finished.</p>"
-          }
-        },
-        "prePassStartTime": {
-          "target": "smithy.api#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>Amount of time prior to contact start you’d like to receive a CloudWatch event indicating an upcoming pass.</p>"
-          }
-        },
-        "region": {
-          "target": "smithy.api#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Region of a contact.</p>"
           }
         },
         "satelliteArn": {
@@ -434,6 +419,54 @@
           "target": "smithy.api#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>Start time of a contact.</p>"
+          }
+        },
+        "endTime": {
+          "target": "smithy.api#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>End time of a contact.</p>"
+          }
+        },
+        "prePassStartTime": {
+          "target": "smithy.api#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>Amount of time prior to contact start you’d like to receive a CloudWatch event indicating an upcoming pass.</p>"
+          }
+        },
+        "postPassEndTime": {
+          "target": "smithy.api#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>Amount of time after a contact ends that you’d like to receive a CloudWatch event indicating the pass has finished.</p>"
+          }
+        },
+        "groundStation": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Name of a ground station.</p>"
+          }
+        },
+        "contactStatus": {
+          "target": "com.amazonaws.groundstation#ContactStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Status of a contact.</p>"
+          }
+        },
+        "errorMessage": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Error message of a contact.</p>"
+          }
+        },
+        "maximumElevation": {
+          "target": "com.amazonaws.groundstation#Elevation",
+          "traits": {
+            "smithy.api#documentation": "<p>Maximum elevation angle of a contact.</p>"
+          }
+        },
+        "region": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Region of a contact.</p>"
           }
         },
         "tags": {
@@ -477,36 +510,24 @@
       "traits": {
         "smithy.api#enum": [
           {
-            "value": "SCHEDULING",
-            "name": "SCHEDULING"
-          },
-          {
-            "value": "FAILED_TO_SCHEDULE",
-            "name": "FAILED_TO_SCHEDULE"
-          },
-          {
-            "value": "SCHEDULED",
-            "name": "SCHEDULED"
-          },
-          {
-            "value": "CANCELLED",
-            "name": "CANCELLED"
+            "value": "AVAILABLE",
+            "name": "AVAILABLE"
           },
           {
             "value": "AWS_CANCELLED",
             "name": "AWS_CANCELLED"
           },
           {
-            "value": "PREPASS",
-            "name": "PREPASS"
+            "value": "AWS_FAILED",
+            "name": "AWS_FAILED"
           },
           {
-            "value": "PASS",
-            "name": "PASS"
+            "value": "CANCELLED",
+            "name": "CANCELLED"
           },
           {
-            "value": "POSTPASS",
-            "name": "POSTPASS"
+            "value": "CANCELLING",
+            "name": "CANCELLING"
           },
           {
             "value": "COMPLETED",
@@ -517,12 +538,28 @@
             "name": "FAILED"
           },
           {
-            "value": "AVAILABLE",
-            "name": "AVAILABLE"
+            "value": "FAILED_TO_SCHEDULE",
+            "name": "FAILED_TO_SCHEDULE"
           },
           {
-            "value": "CANCELLING",
-            "name": "CANCELLING"
+            "value": "PASS",
+            "name": "PASS"
+          },
+          {
+            "value": "POSTPASS",
+            "name": "POSTPASS"
+          },
+          {
+            "value": "PREPASS",
+            "name": "PREPASS"
+          },
+          {
+            "value": "SCHEDULED",
+            "name": "SCHEDULED"
+          },
+          {
+            "value": "SCHEDULING",
+            "name": "SCHEDULING"
           }
         ]
       }
@@ -555,24 +592,23 @@
           "method": "POST",
           "uri": "/config",
           "code": 200
-        },
-        "smithy.api#tags": ["customer", "config"]
+        }
       }
     },
     "com.amazonaws.groundstation#CreateConfigRequest": {
       "type": "structure",
       "members": {
-        "configData": {
-          "target": "com.amazonaws.groundstation#ConfigTypeData",
-          "traits": {
-            "smithy.api#documentation": "<p>Parameters of a <code>Config</code>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "name": {
           "target": "com.amazonaws.groundstation#SafeName",
           "traits": {
             "smithy.api#documentation": "<p>Name of a <code>Config</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "configData": {
+          "target": "com.amazonaws.groundstation#ConfigTypeData",
+          "traits": {
+            "smithy.api#documentation": "<p>Parameters of a <code>Config</code>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -612,8 +648,7 @@
           "method": "POST",
           "uri": "/dataflowEndpointGroup",
           "code": 200
-        },
-        "smithy.api#tags": ["customer"]
+        }
       }
     },
     "com.amazonaws.groundstation#CreateDataflowEndpointGroupRequest": {
@@ -662,17 +697,17 @@
           "method": "POST",
           "uri": "/missionprofile",
           "code": 200
-        },
-        "smithy.api#tags": ["com.amazonaws.groundstation#customer", "com.amazonaws.groundstation#config"]
+        }
       }
     },
     "com.amazonaws.groundstation#CreateMissionProfileRequest": {
       "type": "structure",
       "members": {
-        "contactPostPassDurationSeconds": {
-          "target": "com.amazonaws.groundstation#DurationInSeconds",
+        "name": {
+          "target": "com.amazonaws.groundstation#SafeName",
           "traits": {
-            "smithy.api#documentation": "<p>Amount of time after a contact ends that you’d like to receive a CloudWatch event indicating the pass has finished.</p>"
+            "smithy.api#documentation": "<p>Name of a mission profile.</p>",
+            "smithy.api#required": {}
           }
         },
         "contactPrePassDurationSeconds": {
@@ -681,11 +716,10 @@
             "smithy.api#documentation": "<p>Amount of time prior to contact start you’d like to receive a CloudWatch event indicating an upcoming pass.</p>"
           }
         },
-        "dataflowEdges": {
-          "target": "com.amazonaws.groundstation#DataflowEdgeList",
+        "contactPostPassDurationSeconds": {
+          "target": "com.amazonaws.groundstation#DurationInSeconds",
           "traits": {
-            "smithy.api#documentation": "<p>A list of lists of ARNs. Each list of ARNs is an edge, with a <i>from</i> \n            <code>Config</code> and a <i>to</i>\n            <code>Config</code>.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Amount of time after a contact ends that you’d like to receive a CloudWatch event indicating the pass has finished.</p>"
           }
         },
         "minimumViableContactDurationSeconds": {
@@ -695,17 +729,11 @@
             "smithy.api#required": {}
           }
         },
-        "name": {
-          "target": "com.amazonaws.groundstation#SafeName",
+        "dataflowEdges": {
+          "target": "com.amazonaws.groundstation#DataflowEdgeList",
           "traits": {
-            "smithy.api#documentation": "<p>Name of a mission profile.</p>",
+            "smithy.api#documentation": "<p>A list of lists of ARNs. Each list of ARNs is an edge, with a <i>from</i> \n            <code>Config</code> and a <i>to</i>\n            <code>Config</code>.</p>",
             "smithy.api#required": {}
-          }
-        },
-        "tags": {
-          "target": "com.amazonaws.groundstation#TagsMap",
-          "traits": {
-            "smithy.api#documentation": "<p>Tags assigned to a mission profile.</p>"
           }
         },
         "trackingConfigArn": {
@@ -713,6 +741,12 @@
           "traits": {
             "smithy.api#documentation": "<p>ARN of a tracking <code>Config</code>.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.groundstation#TagsMap",
+          "traits": {
+            "smithy.api#documentation": "<p>Tags assigned to a mission profile.</p>"
           }
         }
       },
@@ -725,18 +759,38 @@
       "traits": {
         "smithy.api#enum": [
           {
-            "value": "REQUIRED",
-            "name": "REQUIRED"
-          },
-          {
             "value": "PREFERRED",
             "name": "PREFERRED"
           },
           {
             "value": "REMOVED",
             "name": "REMOVED"
+          },
+          {
+            "value": "REQUIRED",
+            "name": "REQUIRED"
           }
         ]
+      }
+    },
+    "com.amazonaws.groundstation#DataflowDetail": {
+      "type": "structure",
+      "members": {
+        "source": {
+          "target": "com.amazonaws.groundstation#Source"
+        },
+        "destination": {
+          "target": "com.amazonaws.groundstation#Destination"
+        },
+        "errorMessage": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Error message for a dataflow.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about a dataflow edge used in a contact.</p>"
       }
     },
     "com.amazonaws.groundstation#DataflowEdge": {
@@ -760,31 +814,32 @@
     "com.amazonaws.groundstation#DataflowEndpoint": {
       "type": "structure",
       "members": {
-        "address": {
-          "target": "com.amazonaws.groundstation#SocketAddress",
-          "traits": {
-            "smithy.api#documentation": "<p>Socket address of a dataflow endpoint.</p>"
-          }
-        },
-        "mtu": {
-          "target": "smithy.api#Integer",
-          "traits": {
-            "smithy.api#range": {
-              "min": 1400,
-              "max": 1500
-            }
-          }
-        },
         "name": {
           "target": "com.amazonaws.groundstation#SafeName",
           "traits": {
             "smithy.api#documentation": "<p>Name of a dataflow endpoint.</p>"
           }
         },
+        "address": {
+          "target": "com.amazonaws.groundstation#SocketAddress",
+          "traits": {
+            "smithy.api#documentation": "<p>Socket address of a dataflow endpoint.</p>"
+          }
+        },
         "status": {
           "target": "com.amazonaws.groundstation#EndpointStatus",
           "traits": {
             "smithy.api#documentation": "<p>Status of a dataflow endpoint.</p>"
+          }
+        },
+        "mtu": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.</p>",
+            "smithy.api#range": {
+              "min": 1400,
+              "max": 1500
+            }
           }
         }
       },
@@ -874,21 +929,27 @@
     "com.amazonaws.groundstation#DataflowEndpointListItem": {
       "type": "structure",
       "members": {
-        "dataflowEndpointGroupArn": {
-          "target": "com.amazonaws.groundstation#DataflowEndpointGroupArn",
-          "traits": {
-            "smithy.api#documentation": "<p>ARN of a dataflow endpoint group.</p>"
-          }
-        },
         "dataflowEndpointGroupId": {
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#documentation": "<p>UUID of a dataflow endpoint group.</p>"
           }
+        },
+        "dataflowEndpointGroupArn": {
+          "target": "com.amazonaws.groundstation#DataflowEndpointGroupArn",
+          "traits": {
+            "smithy.api#documentation": "<p>ARN of a dataflow endpoint group.</p>"
+          }
         }
       },
       "traits": {
         "smithy.api#documentation": "<p>Item in a list of <code>DataflowEndpoint</code> groups.</p>"
+      }
+    },
+    "com.amazonaws.groundstation#DataflowList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.groundstation#DataflowDetail"
       }
     },
     "com.amazonaws.groundstation#DecodeConfig": {
@@ -932,8 +993,7 @@
           "uri": "/config/{configType}/{configId}",
           "code": 200
         },
-        "smithy.api#idempotent": {},
-        "smithy.api#tags": ["customer"]
+        "smithy.api#idempotent": {}
       }
     },
     "com.amazonaws.groundstation#DeleteConfigRequest": {
@@ -986,8 +1046,7 @@
           "uri": "/dataflowEndpointGroup/{dataflowEndpointGroupId}",
           "code": 200
         },
-        "smithy.api#idempotent": {},
-        "smithy.api#tags": ["customer"]
+        "smithy.api#idempotent": {}
       }
     },
     "com.amazonaws.groundstation#DeleteDataflowEndpointGroupRequest": {
@@ -1032,8 +1091,7 @@
           "uri": "/missionprofile/{missionProfileId}",
           "code": 200
         },
-        "smithy.api#idempotent": {},
-        "smithy.api#tags": ["customer"]
+        "smithy.api#idempotent": {}
       }
     },
     "com.amazonaws.groundstation#DeleteMissionProfileRequest": {
@@ -1112,8 +1170,7 @@
           "uri": "/contact/{contactId}",
           "code": 200
         },
-        "smithy.api#readonly": {},
-        "smithy.api#tags": ["customer", "config"]
+        "smithy.api#readonly": {}
       }
     },
     "com.amazonaws.groundstation#DescribeContactRequest": {
@@ -1141,58 +1198,10 @@
             "smithy.api#documentation": "<p>UUID of a contact.</p>"
           }
         },
-        "contactStatus": {
-          "target": "com.amazonaws.groundstation#ContactStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>Status of a contact.</p>"
-          }
-        },
-        "endTime": {
-          "target": "smithy.api#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>End time of a contact.</p>"
-          }
-        },
-        "errorMessage": {
-          "target": "smithy.api#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Error message for a contact.</p>"
-          }
-        },
-        "groundStation": {
-          "target": "smithy.api#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Ground station for a contact.</p>"
-          }
-        },
-        "maximumElevation": {
-          "target": "com.amazonaws.groundstation#Elevation",
-          "traits": {
-            "smithy.api#documentation": "<p>Maximum elevation angle of a contact.</p>"
-          }
-        },
         "missionProfileArn": {
           "target": "com.amazonaws.groundstation#MissionProfileArn",
           "traits": {
             "smithy.api#documentation": "<p>ARN of a mission profile.</p>"
-          }
-        },
-        "postPassEndTime": {
-          "target": "smithy.api#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>Amount of time after a contact ends that you’d like to receive a CloudWatch event indicating the pass has finished.</p>"
-          }
-        },
-        "prePassStartTime": {
-          "target": "smithy.api#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>Amount of time prior to contact start you’d like to receive a CloudWatch event indicating an upcoming pass.</p>"
-          }
-        },
-        "region": {
-          "target": "smithy.api#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Region of a contact.</p>"
           }
         },
         "satelliteArn": {
@@ -1207,10 +1216,64 @@
             "smithy.api#documentation": "<p>Start time of a contact.</p>"
           }
         },
+        "endTime": {
+          "target": "smithy.api#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>End time of a contact.</p>"
+          }
+        },
+        "prePassStartTime": {
+          "target": "smithy.api#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>Amount of time prior to contact start you’d like to receive a CloudWatch event indicating an upcoming pass.</p>"
+          }
+        },
+        "postPassEndTime": {
+          "target": "smithy.api#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>Amount of time after a contact ends that you’d like to receive a CloudWatch event indicating the pass has finished.</p>"
+          }
+        },
+        "groundStation": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Ground station for a contact.</p>"
+          }
+        },
+        "contactStatus": {
+          "target": "com.amazonaws.groundstation#ContactStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Status of a contact.</p>"
+          }
+        },
+        "errorMessage": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Error message for a contact.</p>"
+          }
+        },
+        "maximumElevation": {
+          "target": "com.amazonaws.groundstation#Elevation",
+          "traits": {
+            "smithy.api#documentation": "<p>Maximum elevation angle of a contact.</p>"
+          }
+        },
         "tags": {
           "target": "com.amazonaws.groundstation#TagsMap",
           "traits": {
             "smithy.api#documentation": "<p>Tags assigned to a contact.</p>"
+          }
+        },
+        "region": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Region of a contact.</p>"
+          }
+        },
+        "dataflowList": {
+          "target": "com.amazonaws.groundstation#DataflowList",
+          "traits": {
+            "smithy.api#documentation": "<p>List describing source and destination details for each dataflow edge.</p>"
           }
         }
       },
@@ -1223,9 +1286,42 @@
         ]
       }
     },
+    "com.amazonaws.groundstation#Destination": {
+      "type": "structure",
+      "members": {
+        "configType": {
+          "target": "com.amazonaws.groundstation#ConfigCapabilityType",
+          "traits": {
+            "smithy.api#documentation": "<p>Type of a <code>Config</code>.</p>"
+          }
+        },
+        "configId": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>UUID of a <code>Config</code>.</p>"
+          }
+        },
+        "configDetails": {
+          "target": "com.amazonaws.groundstation#ConfigDetails",
+          "traits": {
+            "smithy.api#documentation": "<p>Additional details for a <code>Config</code>, if type is dataflow endpoint or antenna demod decode.</p>"
+          }
+        },
+        "dataflowDestinationRegion": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Region of a dataflow destination.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Dataflow details for the destination side.</p>"
+      }
+    },
     "com.amazonaws.groundstation#DurationInSeconds": {
       "type": "integer",
       "traits": {
+        "smithy.api#box": {},
         "smithy.api#range": {
           "min": 1,
           "max": 21600
@@ -1235,17 +1331,17 @@
     "com.amazonaws.groundstation#Eirp": {
       "type": "structure",
       "members": {
+        "value": {
+          "target": "smithy.api#Double",
+          "traits": {
+            "smithy.api#documentation": "<p>Value of an EIRP. Valid values are between 20.0 to 50.0 dBW.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "units": {
           "target": "com.amazonaws.groundstation#EirpUnits",
           "traits": {
             "smithy.api#documentation": "<p>Units of an EIRP.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "value": {
-          "target": "smithy.api#Double",
-          "traits": {
-            "smithy.api#documentation": "<p>Value of an EIRP.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1268,17 +1364,17 @@
     "com.amazonaws.groundstation#Elevation": {
       "type": "structure",
       "members": {
-        "unit": {
-          "target": "com.amazonaws.groundstation#AngleUnits",
-          "traits": {
-            "smithy.api#documentation": "<p>Elevation angle units.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "value": {
           "target": "smithy.api#Double",
           "traits": {
             "smithy.api#documentation": "<p>Elevation angle value.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "unit": {
+          "target": "com.amazonaws.groundstation#AngleUnits",
+          "traits": {
+            "smithy.api#documentation": "<p>Elevation angle units.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1290,16 +1386,16 @@
     "com.amazonaws.groundstation#EndpointDetails": {
       "type": "structure",
       "members": {
-        "endpoint": {
-          "target": "com.amazonaws.groundstation#DataflowEndpoint",
-          "traits": {
-            "smithy.api#documentation": "<p>A dataflow endpoint.</p>"
-          }
-        },
         "securityDetails": {
           "target": "com.amazonaws.groundstation#SecurityDetails",
           "traits": {
             "smithy.api#documentation": "<p>Endpoint security details.</p>"
+          }
+        },
+        "endpoint": {
+          "target": "com.amazonaws.groundstation#DataflowEndpoint",
+          "traits": {
+            "smithy.api#documentation": "<p>A dataflow endpoint.</p>"
           }
         }
       },
@@ -1343,17 +1439,17 @@
     "com.amazonaws.groundstation#Frequency": {
       "type": "structure",
       "members": {
+        "value": {
+          "target": "smithy.api#Double",
+          "traits": {
+            "smithy.api#documentation": "<p>Frequency value. Valid values are between 2200 to 2300 MHz and 7750 to 8400 MHz for downlink and 2025 to 2120 MHz for uplink.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "units": {
           "target": "com.amazonaws.groundstation#FrequencyUnits",
           "traits": {
             "smithy.api#documentation": "<p>Frequency units.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "value": {
-          "target": "smithy.api#Double",
-          "traits": {
-            "smithy.api#documentation": "<p>Frequency value.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1365,23 +1461,23 @@
     "com.amazonaws.groundstation#FrequencyBandwidth": {
       "type": "structure",
       "members": {
+        "value": {
+          "target": "smithy.api#Double",
+          "traits": {
+            "smithy.api#documentation": "<p>Frequency bandwidth value. AWS Ground Station currently has the following bandwidth limitations:</p>\n            <ul>\n            <li> \n               <p>For <code>AntennaDownlinkDemodDecodeconfig</code>, valid values are between 125 kHz to 650 MHz.</p>\n            </li>\n            <li> \n               <p>For <code>AntennaDownlinkconfig</code>, valid values are between 10 kHz to 54 MHz.</p>\n            </li>\n            <li> \n               <p>For <code>AntennaUplinkConfig</code>, valid values are between 10 kHz to 54 MHz.</p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        },
         "units": {
           "target": "com.amazonaws.groundstation#BandwidthUnits",
           "traits": {
             "smithy.api#documentation": "<p>Frequency bandwidth units.</p>",
             "smithy.api#required": {}
           }
-        },
-        "value": {
-          "target": "smithy.api#Double",
-          "traits": {
-            "smithy.api#documentation": "<p>Frequency bandwidth value.</p>",
-            "smithy.api#required": {}
-          }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Object that describes the frequency bandwidth.</p>"
+        "smithy.api#documentation": "<p>Object that describes the frequency bandwidth. </p>"
       }
     },
     "com.amazonaws.groundstation#FrequencyUnits": {
@@ -1429,8 +1525,7 @@
           "uri": "/config/{configType}/{configId}",
           "code": 200
         },
-        "smithy.api#readonly": {},
-        "smithy.api#tags": ["customer", "config"]
+        "smithy.api#readonly": {}
       }
     },
     "com.amazonaws.groundstation#GetConfigRequest": {
@@ -1460,6 +1555,13 @@
     "com.amazonaws.groundstation#GetConfigResponse": {
       "type": "structure",
       "members": {
+        "configId": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>UUID of a <code>Config</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "configArn": {
           "target": "com.amazonaws.groundstation#ConfigArn",
           "traits": {
@@ -1467,17 +1569,10 @@
             "smithy.api#required": {}
           }
         },
-        "configData": {
-          "target": "com.amazonaws.groundstation#ConfigTypeData",
-          "traits": {
-            "smithy.api#documentation": "<p>Data elements in a <code>Config</code>.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "configId": {
+        "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "<p>UUID of a <code>Config</code>.</p>",
+            "smithy.api#documentation": "<p>Name of a <code>Config</code>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1487,10 +1582,10 @@
             "smithy.api#documentation": "<p>Type of a <code>Config</code>.</p>"
           }
         },
-        "name": {
-          "target": "smithy.api#String",
+        "configData": {
+          "target": "com.amazonaws.groundstation#ConfigTypeData",
           "traits": {
-            "smithy.api#documentation": "<p>Name of a <code>Config</code>.</p>",
+            "smithy.api#documentation": "<p>Data elements in a <code>Config</code>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1531,8 +1626,7 @@
           "uri": "/dataflowEndpointGroup/{dataflowEndpointGroupId}",
           "code": 200
         },
-        "smithy.api#readonly": {},
-        "smithy.api#tags": ["customer"]
+        "smithy.api#readonly": {}
       }
     },
     "com.amazonaws.groundstation#GetDataflowEndpointGroupRequest": {
@@ -1554,16 +1648,16 @@
     "com.amazonaws.groundstation#GetDataflowEndpointGroupResponse": {
       "type": "structure",
       "members": {
-        "dataflowEndpointGroupArn": {
-          "target": "com.amazonaws.groundstation#DataflowEndpointGroupArn",
-          "traits": {
-            "smithy.api#documentation": "<p>ARN of a dataflow endpoint group.</p>"
-          }
-        },
         "dataflowEndpointGroupId": {
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#documentation": "<p>UUID of a dataflow endpoint group.</p>"
+          }
+        },
+        "dataflowEndpointGroupArn": {
+          "target": "com.amazonaws.groundstation#DataflowEndpointGroupArn",
+          "traits": {
+            "smithy.api#documentation": "<p>ARN of a dataflow endpoint group.</p>"
           }
         },
         "endpointsDetails": {
@@ -1609,8 +1703,7 @@
           "uri": "/minute-usage",
           "code": 200
         },
-        "smithy.api#readonly": {},
-        "smithy.api#tags": ["customer"]
+        "smithy.api#readonly": {}
       }
     },
     "com.amazonaws.groundstation#GetMinuteUsageRequest": {
@@ -1638,12 +1731,6 @@
     "com.amazonaws.groundstation#GetMinuteUsageResponse": {
       "type": "structure",
       "members": {
-        "estimatedMinutesRemaining": {
-          "target": "smithy.api#Integer",
-          "traits": {
-            "smithy.api#documentation": "<p>Estimated number of minutes remaining for an account, specific to the month being requested.</p>"
-          }
-        },
         "isReservedMinutesCustomer": {
           "target": "smithy.api#Boolean",
           "traits": {
@@ -1656,16 +1743,22 @@
             "smithy.api#documentation": "<p>Total number of reserved minutes allocated, specific to the month being requested.</p>"
           }
         },
+        "upcomingMinutesScheduled": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>Upcoming minutes scheduled for an account, specific to the month being requested.</p>"
+          }
+        },
         "totalScheduledMinutes": {
           "target": "smithy.api#Integer",
           "traits": {
             "smithy.api#documentation": "<p>Total scheduled minutes for an account, specific to the month being requested.</p>"
           }
         },
-        "upcomingMinutesScheduled": {
+        "estimatedMinutesRemaining": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "<p>Upcoming minutes scheduled for an account, specific to the month being requested.</p>"
+            "smithy.api#documentation": "<p>Estimated number of minutes remaining for an account, specific to the month being requested.</p>"
           }
         }
       },
@@ -1699,8 +1792,7 @@
           "uri": "/missionprofile/{missionProfileId}",
           "code": 200
         },
-        "smithy.api#readonly": {},
-        "smithy.api#tags": ["customer", "config"]
+        "smithy.api#readonly": {}
       }
     },
     "com.amazonaws.groundstation#GetMissionProfileRequest": {
@@ -1722,40 +1814,16 @@
     "com.amazonaws.groundstation#GetMissionProfileResponse": {
       "type": "structure",
       "members": {
-        "contactPostPassDurationSeconds": {
-          "target": "com.amazonaws.groundstation#DurationInSeconds",
+        "missionProfileId": {
+          "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "<p>Amount of time after a contact ends that you’d like to receive a CloudWatch event indicating the pass has finished.</p>"
-          }
-        },
-        "contactPrePassDurationSeconds": {
-          "target": "com.amazonaws.groundstation#DurationInSeconds",
-          "traits": {
-            "smithy.api#documentation": "<p>Amount of time prior to contact start you’d like to receive a CloudWatch event indicating an upcoming pass.</p>"
-          }
-        },
-        "dataflowEdges": {
-          "target": "com.amazonaws.groundstation#DataflowEdgeList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of lists of ARNs. Each list of ARNs is an edge, with a <i>from</i> \n            <code>Config</code> and a <i>to</i> \n            <code>Config</code>.</p>"
-          }
-        },
-        "minimumViableContactDurationSeconds": {
-          "target": "com.amazonaws.groundstation#DurationInSeconds",
-          "traits": {
-            "smithy.api#documentation": "<p>Smallest amount of time in seconds that you’d like to see for an available contact. AWS Ground Station will not present you with contacts shorter than this duration.</p>"
+            "smithy.api#documentation": "<p>UUID of a mission profile.</p>"
           }
         },
         "missionProfileArn": {
           "target": "com.amazonaws.groundstation#MissionProfileArn",
           "traits": {
             "smithy.api#documentation": "<p>ARN of a mission profile.</p>"
-          }
-        },
-        "missionProfileId": {
-          "target": "smithy.api#String",
-          "traits": {
-            "smithy.api#documentation": "<p>UUID of a mission profile.</p>"
           }
         },
         "name": {
@@ -1770,16 +1838,40 @@
             "smithy.api#documentation": "<p>Region of a mission profile.</p>"
           }
         },
-        "tags": {
-          "target": "com.amazonaws.groundstation#TagsMap",
+        "contactPrePassDurationSeconds": {
+          "target": "com.amazonaws.groundstation#DurationInSeconds",
           "traits": {
-            "smithy.api#documentation": "<p>Tags assigned to a mission profile.</p>"
+            "smithy.api#documentation": "<p>Amount of time prior to contact start you’d like to receive a CloudWatch event indicating an upcoming pass.</p>"
+          }
+        },
+        "contactPostPassDurationSeconds": {
+          "target": "com.amazonaws.groundstation#DurationInSeconds",
+          "traits": {
+            "smithy.api#documentation": "<p>Amount of time after a contact ends that you’d like to receive a CloudWatch event indicating the pass has finished.</p>"
+          }
+        },
+        "minimumViableContactDurationSeconds": {
+          "target": "com.amazonaws.groundstation#DurationInSeconds",
+          "traits": {
+            "smithy.api#documentation": "<p>Smallest amount of time in seconds that you’d like to see for an available contact. AWS Ground Station will not present you with contacts shorter than this duration.</p>"
+          }
+        },
+        "dataflowEdges": {
+          "target": "com.amazonaws.groundstation#DataflowEdgeList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of lists of ARNs. Each list of ARNs is an edge, with a <i>from</i> \n            <code>Config</code> and a <i>to</i> \n            <code>Config</code>.</p>"
           }
         },
         "trackingConfigArn": {
           "target": "com.amazonaws.groundstation#ConfigArn",
           "traits": {
             "smithy.api#documentation": "<p>ARN of a tracking <code>Config</code>.</p>"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.groundstation#TagsMap",
+          "traits": {
+            "smithy.api#documentation": "<p>Tags assigned to a mission profile.</p>"
           }
         }
       },
@@ -1818,8 +1910,7 @@
           "uri": "/satellite/{satelliteId}",
           "code": 200
         },
-        "smithy.api#readonly": {},
-        "smithy.api#tags": ["customer", "config"]
+        "smithy.api#readonly": {}
       }
     },
     "com.amazonaws.groundstation#GetSatelliteRequest": {
@@ -1841,16 +1932,10 @@
     "com.amazonaws.groundstation#GetSatelliteResponse": {
       "type": "structure",
       "members": {
-        "groundStations": {
-          "target": "com.amazonaws.groundstation#GroundStationIdList",
+        "satelliteId": {
+          "target": "com.amazonaws.groundstation#Uuid",
           "traits": {
-            "smithy.api#documentation": "<p>A list of ground stations to which the satellite is on-boarded.</p>"
-          }
-        },
-        "noradSatelliteID": {
-          "target": "com.amazonaws.groundstation#noradSatelliteID",
-          "traits": {
-            "smithy.api#documentation": "<p>NORAD satellite ID number.</p>"
+            "smithy.api#documentation": "<p>UUID of a satellite.</p>"
           }
         },
         "satelliteArn": {
@@ -1859,10 +1944,16 @@
             "smithy.api#documentation": "<p>ARN of a satellite.</p>"
           }
         },
-        "satelliteId": {
-          "target": "com.amazonaws.groundstation#Uuid",
+        "noradSatelliteID": {
+          "target": "com.amazonaws.groundstation#noradSatelliteID",
           "traits": {
-            "smithy.api#documentation": "<p>UUID of a satellite.</p>"
+            "smithy.api#documentation": "<p>NORAD satellite ID number.</p>"
+          }
+        },
+        "groundStations": {
+          "target": "com.amazonaws.groundstation#GroundStationIdList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of ground stations to which the satellite is on-boarded.</p>"
           }
         }
       },
@@ -1870,7 +1961,7 @@
         "smithy.api#documentation": "<p/>",
         "smithy.api#references": [
           {
-            "resource": "com.amazonaws.groundstation#Satellite"
+            "resource": "com.amazon.awsgsaascontrolplanelambda.r20190311#Satellite"
           }
         ]
       }
@@ -1917,7 +2008,7 @@
           "sdkId": "GroundStation",
           "arnNamespace": "groundstation",
           "cloudFormationName": "AWSGroundStation",
-          "cloudTrailEventSource": "REPLACE_WITH_EVENT_SOURCE"
+          "cloudTrailEventSource": "groundstation.amazonaws.com"
         },
         "aws.auth#sigv4": {
           "name": "groundstation"
@@ -2045,8 +2136,7 @@
           "items": "configList",
           "pageSize": "maxResults"
         },
-        "smithy.api#readonly": {},
-        "smithy.api#tags": ["customer"]
+        "smithy.api#readonly": {}
       }
     },
     "com.amazonaws.groundstation#ListConfigsRequest": {
@@ -2074,16 +2164,16 @@
     "com.amazonaws.groundstation#ListConfigsResponse": {
       "type": "structure",
       "members": {
-        "configList": {
-          "target": "com.amazonaws.groundstation#ConfigList",
-          "traits": {
-            "smithy.api#documentation": "<p>List of <code>Config</code> items.</p>"
-          }
-        },
         "nextToken": {
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#documentation": "<p>Next token returned in the response of a previous <code>ListConfigs</code> call. Used to get the next page of results.</p>"
+          }
+        },
+        "configList": {
+          "target": "com.amazonaws.groundstation#ConfigList",
+          "traits": {
+            "smithy.api#documentation": "<p>List of <code>Config</code> items.</p>"
           }
         }
       },
@@ -2123,13 +2213,38 @@
           "items": "contactList",
           "pageSize": "maxResults"
         },
-        "smithy.api#readonly": {},
-        "smithy.api#tags": ["customer"]
+        "smithy.api#readonly": {}
       }
     },
     "com.amazonaws.groundstation#ListContactsRequest": {
       "type": "structure",
       "members": {
+        "maxResults": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>Maximum number of contacts returned.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Next token returned in the request of a previous <code>ListContacts</code> call. Used to get the next page of results.</p>"
+          }
+        },
+        "statusList": {
+          "target": "com.amazonaws.groundstation#StatusList",
+          "traits": {
+            "smithy.api#documentation": "<p>Status of a contact reservation.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "startTime": {
+          "target": "smithy.api#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>Start time of a contact.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "endTime": {
           "target": "smithy.api#Timestamp",
           "traits": {
@@ -2143,42 +2258,16 @@
             "smithy.api#documentation": "<p>Name of a ground station.</p>"
           }
         },
-        "maxResults": {
-          "target": "smithy.api#Integer",
-          "traits": {
-            "smithy.api#documentation": "<p>Maximum number of contacts returned.</p>"
-          }
-        },
-        "missionProfileArn": {
-          "target": "com.amazonaws.groundstation#MissionProfileArn",
-          "traits": {
-            "smithy.api#documentation": "<p>ARN of a mission profile.</p>"
-          }
-        },
-        "nextToken": {
-          "target": "smithy.api#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Next token returned in the request of a previous <code>ListContacts</code> call. Used to get the next page of results.</p>"
-          }
-        },
         "satelliteArn": {
           "target": "com.amazonaws.groundstation#satelliteArn",
           "traits": {
             "smithy.api#documentation": "<p>ARN of a satellite.</p>"
           }
         },
-        "startTime": {
-          "target": "smithy.api#Timestamp",
+        "missionProfileArn": {
+          "target": "com.amazonaws.groundstation#MissionProfileArn",
           "traits": {
-            "smithy.api#documentation": "<p>Start time of a contact.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "statusList": {
-          "target": "com.amazonaws.groundstation#StatusList",
-          "traits": {
-            "smithy.api#documentation": "<p>Status of a contact reservation.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>ARN of a mission profile.</p>"
           }
         }
       },
@@ -2189,16 +2278,16 @@
     "com.amazonaws.groundstation#ListContactsResponse": {
       "type": "structure",
       "members": {
-        "contactList": {
-          "target": "com.amazonaws.groundstation#ContactList",
-          "traits": {
-            "smithy.api#documentation": "<p>List of contacts.</p>"
-          }
-        },
         "nextToken": {
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#documentation": "<p>Next token returned in the response of a previous <code>ListContacts</code> call. Used to get the next page of results.</p>"
+          }
+        },
+        "contactList": {
+          "target": "com.amazonaws.groundstation#ContactList",
+          "traits": {
+            "smithy.api#documentation": "<p>List of contacts.</p>"
           }
         }
       },
@@ -2238,8 +2327,7 @@
           "items": "dataflowEndpointGroupList",
           "pageSize": "maxResults"
         },
-        "smithy.api#readonly": {},
-        "smithy.api#tags": ["customer"]
+        "smithy.api#readonly": {}
       }
     },
     "com.amazonaws.groundstation#ListDataflowEndpointGroupsRequest": {
@@ -2267,16 +2355,16 @@
     "com.amazonaws.groundstation#ListDataflowEndpointGroupsResponse": {
       "type": "structure",
       "members": {
-        "dataflowEndpointGroupList": {
-          "target": "com.amazonaws.groundstation#DataflowEndpointGroupList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of dataflow endpoint groups.</p>"
-          }
-        },
         "nextToken": {
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#documentation": "<p>Next token returned in the response of a previous <code>ListDataflowEndpointGroups</code> call. Used to get the next page of results.</p>"
+          }
+        },
+        "dataflowEndpointGroupList": {
+          "target": "com.amazonaws.groundstation#DataflowEndpointGroupList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of dataflow endpoint groups.</p>"
           }
         }
       },
@@ -2316,13 +2404,19 @@
           "items": "groundStationList",
           "pageSize": "maxResults"
         },
-        "smithy.api#readonly": {},
-        "smithy.api#tags": ["provider", "customer"]
+        "smithy.api#readonly": {}
       }
     },
     "com.amazonaws.groundstation#ListGroundStationsRequest": {
       "type": "structure",
       "members": {
+        "satelliteId": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Satellite ID to retrieve on-boarded ground stations.</p>",
+            "smithy.api#httpQuery": "satelliteId"
+          }
+        },
         "maxResults": {
           "target": "smithy.api#Integer",
           "traits": {
@@ -2336,13 +2430,6 @@
             "smithy.api#documentation": "<p>Next token that can be supplied in the next call to get the next page of ground stations.</p>",
             "smithy.api#httpQuery": "nextToken"
           }
-        },
-        "satelliteId": {
-          "target": "smithy.api#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Satellite ID to retrieve on-boarded ground stations.</p>",
-            "smithy.api#httpQuery": "satelliteId"
-          }
         }
       },
       "traits": {
@@ -2352,16 +2439,16 @@
     "com.amazonaws.groundstation#ListGroundStationsResponse": {
       "type": "structure",
       "members": {
-        "groundStationList": {
-          "target": "com.amazonaws.groundstation#GroundStationList",
-          "traits": {
-            "smithy.api#documentation": "<p>List of ground stations.</p>"
-          }
-        },
         "nextToken": {
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#documentation": "<p>Next token that can be supplied in the next call to get the next page of ground stations.</p>"
+          }
+        },
+        "groundStationList": {
+          "target": "com.amazonaws.groundstation#GroundStationList",
+          "traits": {
+            "smithy.api#documentation": "<p>List of ground stations.</p>"
           }
         }
       },
@@ -2401,8 +2488,7 @@
           "items": "missionProfileList",
           "pageSize": "maxResults"
         },
-        "smithy.api#readonly": {},
-        "smithy.api#tags": ["customer"]
+        "smithy.api#readonly": {}
       }
     },
     "com.amazonaws.groundstation#ListMissionProfilesRequest": {
@@ -2430,16 +2516,16 @@
     "com.amazonaws.groundstation#ListMissionProfilesResponse": {
       "type": "structure",
       "members": {
-        "missionProfileList": {
-          "target": "com.amazonaws.groundstation#MissionProfileList",
-          "traits": {
-            "smithy.api#documentation": "<p>List of mission profiles.</p>"
-          }
-        },
         "nextToken": {
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#documentation": "<p>Next token returned in the response of a previous <code>ListMissionProfiles</code> call. Used to get the next page of results.</p>"
+          }
+        },
+        "missionProfileList": {
+          "target": "com.amazonaws.groundstation#MissionProfileList",
+          "traits": {
+            "smithy.api#documentation": "<p>List of mission profiles.</p>"
           }
         }
       },
@@ -2479,8 +2565,7 @@
           "items": "satellites",
           "pageSize": "maxResults"
         },
-        "smithy.api#readonly": {},
-        "smithy.api#tags": ["customer"]
+        "smithy.api#readonly": {}
       }
     },
     "com.amazonaws.groundstation#ListSatellitesRequest": {
@@ -2551,9 +2636,7 @@
           "uri": "/tags/{resourceArn}",
           "code": 200
         },
-        "smithy.api#readonly": {},
-        "smithy.api#suppress": ["TrebuchetMissingPaginatedTrait"],
-        "smithy.api#tags": ["customer", "config"]
+        "smithy.api#readonly": {}
       }
     },
     "com.amazonaws.groundstation#ListTagsForResourceRequest": {
@@ -2650,28 +2733,28 @@
     "com.amazonaws.groundstation#MissionProfileListItem": {
       "type": "structure",
       "members": {
-        "missionProfileArn": {
-          "target": "com.amazonaws.groundstation#MissionProfileArn",
-          "traits": {
-            "smithy.api#documentation": "<p>ARN of a mission profile.</p>"
-          }
-        },
         "missionProfileId": {
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#documentation": "<p>UUID of a mission profile.</p>"
           }
         },
-        "name": {
-          "target": "smithy.api#String",
+        "missionProfileArn": {
+          "target": "com.amazonaws.groundstation#MissionProfileArn",
           "traits": {
-            "smithy.api#documentation": "<p>Name of a mission profile.</p>"
+            "smithy.api#documentation": "<p>ARN of a mission profile.</p>"
           }
         },
         "region": {
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#documentation": "<p>Region of a mission profile.</p>"
+          }
+        },
+        "name": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Name of a mission profile.</p>"
           }
         }
       },
@@ -2684,16 +2767,16 @@
       "traits": {
         "smithy.api#enum": [
           {
-            "value": "RIGHT_HAND",
-            "name": "RIGHT_HAND"
-          },
-          {
             "value": "LEFT_HAND",
             "name": "LEFT_HAND"
           },
           {
             "value": "NONE",
             "name": "NONE"
+          },
+          {
+            "value": "RIGHT_HAND",
+            "name": "RIGHT_HAND"
           }
         ]
       }
@@ -2723,27 +2806,12 @@
           "method": "POST",
           "uri": "/contact",
           "code": 200
-        },
-        "smithy.api#tags": ["customer"]
+        }
       }
     },
     "com.amazonaws.groundstation#ReserveContactRequest": {
       "type": "structure",
       "members": {
-        "endTime": {
-          "target": "smithy.api#Timestamp",
-          "traits": {
-            "smithy.api#documentation": "<p>End time of a contact.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "groundStation": {
-          "target": "smithy.api#String",
-          "traits": {
-            "smithy.api#documentation": "<p>Name of a ground station.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "missionProfileArn": {
           "target": "com.amazonaws.groundstation#MissionProfileArn",
           "traits": {
@@ -2762,6 +2830,20 @@
           "target": "smithy.api#Timestamp",
           "traits": {
             "smithy.api#documentation": "<p>Start time of a contact.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "endTime": {
+          "target": "smithy.api#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>End time of a contact.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "groundStation": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Name of a ground station.</p>",
             "smithy.api#required": {}
           }
         },
@@ -2852,16 +2934,10 @@
     "com.amazonaws.groundstation#SatelliteListItem": {
       "type": "structure",
       "members": {
-        "groundStations": {
-          "target": "com.amazonaws.groundstation#GroundStationIdList",
+        "satelliteId": {
+          "target": "com.amazonaws.groundstation#Uuid",
           "traits": {
-            "smithy.api#documentation": "<p>A list of ground stations to which the satellite is on-boarded.</p>"
-          }
-        },
-        "noradSatelliteID": {
-          "target": "com.amazonaws.groundstation#noradSatelliteID",
-          "traits": {
-            "smithy.api#documentation": "<p>NORAD satellite ID number.</p>"
+            "smithy.api#documentation": "<p>UUID of a satellite.</p>"
           }
         },
         "satelliteArn": {
@@ -2870,10 +2946,16 @@
             "smithy.api#documentation": "<p>ARN of a satellite.</p>"
           }
         },
-        "satelliteId": {
-          "target": "com.amazonaws.groundstation#Uuid",
+        "noradSatelliteID": {
+          "target": "com.amazonaws.groundstation#noradSatelliteID",
           "traits": {
-            "smithy.api#documentation": "<p>UUID of a satellite.</p>"
+            "smithy.api#documentation": "<p>NORAD satellite ID number.</p>"
+          }
+        },
+        "groundStations": {
+          "target": "com.amazonaws.groundstation#GroundStationIdList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of ground stations to which the satellite is on-boarded.</p>"
           }
         }
       },
@@ -2884,10 +2966,10 @@
     "com.amazonaws.groundstation#SecurityDetails": {
       "type": "structure",
       "members": {
-        "roleArn": {
-          "target": "com.amazonaws.groundstation#RoleArn",
+        "subnetIds": {
+          "target": "com.amazonaws.groundstation#SubnetList",
           "traits": {
-            "smithy.api#documentation": "<p>ARN to a role needed for connecting streams to your instances. </p>",
+            "smithy.api#documentation": "<p>A list of subnets where AWS Ground Station places elastic network interfaces to send streams to your instances.</p>",
             "smithy.api#required": {}
           }
         },
@@ -2898,10 +2980,10 @@
             "smithy.api#required": {}
           }
         },
-        "subnetIds": {
-          "target": "com.amazonaws.groundstation#SubnetList",
+        "roleArn": {
+          "target": "com.amazonaws.groundstation#RoleArn",
           "traits": {
-            "smithy.api#documentation": "<p>A list of subnets where AWS Ground Station places elastic network interfaces to send streams to your instances.</p>",
+            "smithy.api#documentation": "<p>ARN to a role needed for connecting streams to your instances. </p>",
             "smithy.api#required": {}
           }
         }
@@ -2938,27 +3020,59 @@
         "smithy.api#documentation": "<p>Information about the socket address.</p>"
       }
     },
+    "com.amazonaws.groundstation#Source": {
+      "type": "structure",
+      "members": {
+        "configType": {
+          "target": "com.amazonaws.groundstation#ConfigCapabilityType",
+          "traits": {
+            "smithy.api#documentation": "<p>Type of a <code>Config</code>.</p>"
+          }
+        },
+        "configId": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>UUID of a <code>Config</code>.</p>"
+          }
+        },
+        "configDetails": {
+          "target": "com.amazonaws.groundstation#ConfigDetails",
+          "traits": {
+            "smithy.api#documentation": "<p>Additional details for a <code>Config</code>, if type is dataflow endpoint or antenna demod decode.</p>"
+          }
+        },
+        "dataflowSourceRegion": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Region of a dataflow source.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Dataflow details for the source side.</p>"
+      }
+    },
     "com.amazonaws.groundstation#SpectrumConfig": {
       "type": "structure",
       "members": {
-        "bandwidth": {
-          "target": "com.amazonaws.groundstation#FrequencyBandwidth",
-          "traits": {
-            "smithy.api#documentation": "<p>Bandwidth of a spectral <code>Config</code>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "centerFrequency": {
           "target": "com.amazonaws.groundstation#Frequency",
           "traits": {
-            "smithy.api#documentation": "<p>Center frequency of a spectral <code>Config</code>.</p>",
+            "smithy.api#documentation": "<p>Center frequency of a spectral <code>Config</code>. Valid values are between 2200 to 2300 MHz and 7750 to 8400 MHz for downlink and 2025 to 2120 MHz for uplink.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "bandwidth": {
+          "target": "com.amazonaws.groundstation#FrequencyBandwidth",
+          "traits": {
+            "smithy.api#documentation": "<p>Bandwidth of a spectral <code>Config</code>. AWS Ground Station currently has the following bandwidth limitations:</p>\n            <ul>\n            <li> \n               <p>For <code>AntennaDownlinkDemodDecodeconfig</code>, valid values are between 125 kHz to 650 MHz.</p>\n            </li>\n            <li> \n               <p>For <code>AntennaDownlinkconfig</code> valid values are between 10 kHz to 54 MHz.</p>\n            </li>\n            <li> \n               <p>For <code>AntennaUplinkConfig</code>, valid values are between 10 kHz to 54 MHz.</p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         },
         "polarization": {
           "target": "com.amazonaws.groundstation#Polarization",
           "traits": {
-            "smithy.api#documentation": "<p>Polarization of a spectral <code>Config</code>.</p>"
+            "smithy.api#documentation": "<p>Polarization of a spectral <code>Config</code>. Capturing both <code>\"RIGHT_HAND\"</code> and <code>\"LEFT_HAND\"</code> polarization requires two separate configs.</p>"
           }
         }
       },
@@ -3009,8 +3123,7 @@
           "method": "POST",
           "uri": "/tags/{resourceArn}",
           "code": 200
-        },
-        "smithy.api#tags": ["customer", "config"]
+        }
       }
     },
     "com.amazonaws.groundstation#TagResourceRequest": {
@@ -3093,8 +3206,7 @@
           "uri": "/tags/{resourceArn}",
           "code": 200
         },
-        "smithy.api#idempotent": {},
-        "smithy.api#tags": ["customer", "config"]
+        "smithy.api#idempotent": {}
       }
     },
     "com.amazonaws.groundstation#UntagResourceRequest": {
@@ -3154,25 +3266,24 @@
           "uri": "/config/{configType}/{configId}",
           "code": 200
         },
-        "smithy.api#idempotent": {},
-        "smithy.api#tags": ["customer"]
+        "smithy.api#idempotent": {}
       }
     },
     "com.amazonaws.groundstation#UpdateConfigRequest": {
       "type": "structure",
       "members": {
-        "configData": {
-          "target": "com.amazonaws.groundstation#ConfigTypeData",
-          "traits": {
-            "smithy.api#documentation": "<p>Parameters of a <code>Config</code>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "configId": {
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#documentation": "<p>UUID of a <code>Config</code>.</p>",
             "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.groundstation#SafeName",
+          "traits": {
+            "smithy.api#documentation": "<p>Name of a <code>Config</code>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -3184,10 +3295,10 @@
             "smithy.api#required": {}
           }
         },
-        "name": {
-          "target": "com.amazonaws.groundstation#SafeName",
+        "configData": {
+          "target": "com.amazonaws.groundstation#ConfigTypeData",
           "traits": {
-            "smithy.api#documentation": "<p>Name of a <code>Config</code>.</p>",
+            "smithy.api#documentation": "<p>Parameters of a <code>Config</code>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -3222,37 +3333,12 @@
           "uri": "/missionprofile/{missionProfileId}",
           "code": 200
         },
-        "smithy.api#idempotent": {},
-        "smithy.api#tags": ["customer"]
+        "smithy.api#idempotent": {}
       }
     },
     "com.amazonaws.groundstation#UpdateMissionProfileRequest": {
       "type": "structure",
       "members": {
-        "contactPostPassDurationSeconds": {
-          "target": "com.amazonaws.groundstation#DurationInSeconds",
-          "traits": {
-            "smithy.api#documentation": "<p>Amount of time after a contact ends that you’d like to receive a CloudWatch event indicating the pass has finished.</p>"
-          }
-        },
-        "contactPrePassDurationSeconds": {
-          "target": "com.amazonaws.groundstation#DurationInSeconds",
-          "traits": {
-            "smithy.api#documentation": "<p>Amount of time after a contact ends that you’d like to receive a CloudWatch event indicating the pass has finished.</p>"
-          }
-        },
-        "dataflowEdges": {
-          "target": "com.amazonaws.groundstation#DataflowEdgeList",
-          "traits": {
-            "smithy.api#documentation": "<p>A list of lists of ARNs. Each list of ARNs is an edge, with a <i>from</i> \n            <code>Config</code> and a <i>to</i> \n            <code>Config</code>.</p>"
-          }
-        },
-        "minimumViableContactDurationSeconds": {
-          "target": "com.amazonaws.groundstation#DurationInSeconds",
-          "traits": {
-            "smithy.api#documentation": "<p>Smallest amount of time in seconds that you’d like to see for an available contact. AWS Ground Station will not present you with contacts shorter than this duration.</p>"
-          }
-        },
         "missionProfileId": {
           "target": "smithy.api#String",
           "traits": {
@@ -3265,6 +3351,30 @@
           "target": "com.amazonaws.groundstation#SafeName",
           "traits": {
             "smithy.api#documentation": "<p>Name of a mission profile.</p>"
+          }
+        },
+        "contactPrePassDurationSeconds": {
+          "target": "com.amazonaws.groundstation#DurationInSeconds",
+          "traits": {
+            "smithy.api#documentation": "<p>Amount of time after a contact ends that you’d like to receive a CloudWatch event indicating the pass has finished.</p>"
+          }
+        },
+        "contactPostPassDurationSeconds": {
+          "target": "com.amazonaws.groundstation#DurationInSeconds",
+          "traits": {
+            "smithy.api#documentation": "<p>Amount of time after a contact ends that you’d like to receive a CloudWatch event indicating the pass has finished.</p>"
+          }
+        },
+        "minimumViableContactDurationSeconds": {
+          "target": "com.amazonaws.groundstation#DurationInSeconds",
+          "traits": {
+            "smithy.api#documentation": "<p>Smallest amount of time in seconds that you’d like to see for an available contact. AWS Ground Station will not present you with contacts shorter than this duration.</p>"
+          }
+        },
+        "dataflowEdges": {
+          "target": "com.amazonaws.groundstation#DataflowEdgeList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of lists of ARNs. Each list of ARNs is an edge, with a <i>from</i> \n            <code>Config</code> and a <i>to</i> \n            <code>Config</code>.</p>"
           }
         },
         "trackingConfigArn": {
@@ -3281,17 +3391,17 @@
     "com.amazonaws.groundstation#UplinkEchoConfig": {
       "type": "structure",
       "members": {
-        "antennaUplinkConfigArn": {
-          "target": "com.amazonaws.groundstation#ConfigArn",
-          "traits": {
-            "smithy.api#documentation": "<p>ARN of an uplink <code>Config</code>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "enabled": {
           "target": "smithy.api#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>Whether or not an uplink <code>Config</code> is enabled.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "antennaUplinkConfigArn": {
+          "target": "com.amazonaws.groundstation#ConfigArn",
+          "traits": {
+            "smithy.api#documentation": "<p>ARN of an uplink <code>Config</code>.</p>",
             "smithy.api#required": {}
           }
         }
@@ -3306,14 +3416,14 @@
         "centerFrequency": {
           "target": "com.amazonaws.groundstation#Frequency",
           "traits": {
-            "smithy.api#documentation": "<p>Center frequency of an uplink spectral <code>Config</code>.</p>",
+            "smithy.api#documentation": "<p>Center frequency of an uplink spectral <code>Config</code>. Valid values are between 2025 to 2120 MHz.</p>",
             "smithy.api#required": {}
           }
         },
         "polarization": {
           "target": "com.amazonaws.groundstation#Polarization",
           "traits": {
-            "smithy.api#documentation": "<p>Polarization of an uplink spectral <code>Config</code>.</p>"
+            "smithy.api#documentation": "<p>Polarization of an uplink spectral <code>Config</code>. Capturing both <code>\"RIGHT_HAND\"</code> and <code>\"LEFT_HAND\"</code> polarization requires two separate configs.</p>"
           }
         }
       },
@@ -3345,8 +3455,8 @@
       "traits": {
         "aws.api#arnReference": {
           "type": "AWS::GroundStation::Satellite",
-          "service": "com.amazonaws.groundstation#GroundStation",
-          "resource": "com.amazonaws.groundstation#Satellite"
+          "service": "com.amazon.awsgsaascontrolplanelambda.r20190311#GroundStation",
+          "resource": "com.amazon.awsgsaascontrolplanelambda.r20190311#Satellite"
         }
       }
     }

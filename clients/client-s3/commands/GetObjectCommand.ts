@@ -45,7 +45,7 @@ export type GetObjectCommandOutput = GetObjectOutput & __MetadataBearer;
  *          <p>If the object you are retrieving is stored in the S3 Glacier or
  *          S3 Glacier Deep Archive storage class, or S3 Intelligent-Tiering Archive or
  *          S3 Intelligent-Tiering Deep Archive tiers, before you can retrieve the object you must first restore a
- *          copy using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html">RestoreObject</a>. Otherwise, this operation returns an
+ *          copy using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html">RestoreObject</a>. Otherwise, this action returns an
  *             <code>InvalidObjectStateError</code> error. For information about restoring archived
  *          objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/restoring-objects.html">Restoring Archived
  *             Objects</a>.</p>
@@ -99,7 +99,7 @@ export type GetObjectCommandOutput = GetObjectOutput & __MetadataBearer;
  *          <p>
  *             <b>Versioning</b>
  *          </p>
- *          <p>By default, the GET operation returns the current version of an object. To return a
+ *          <p>By default, the GET action returns the current version of an object. To return a
  *          different version, use the <code>versionId</code> subresource.</p>
  *
  *          <note>

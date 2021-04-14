@@ -21,8 +21,8 @@ export type ListUsersCommandInput = ListUsersRequest;
 export type ListUsersCommandOutput = ListUsersResponse & __MetadataBearer;
 
 /**
- * <p>Lists the users that belong to the specified Amazon Chime account. You can specify an
- *       email address to list only the user that the email address belongs to.</p>
+ * <p>Lists the users that belong to the specified Amazon Chime account. You can specify an email
+ *             address to list only the user that the email address belongs to.</p>
  */
 export class ListUsersCommand extends $Command<
   ListUsersCommandInput,

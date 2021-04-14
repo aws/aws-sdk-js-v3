@@ -96,6 +96,7 @@ import {
   BadRequestException,
   ClientPolicy,
   ClientPolicyTls,
+  ClientTlsCertificate,
   ConflictException,
   DnsServiceDiscovery,
   Duration,
@@ -138,6 +139,9 @@ import {
   ListenerTlsAcmCertificate,
   ListenerTlsCertificate,
   ListenerTlsFileCertificate,
+  ListenerTlsSdsCertificate,
+  ListenerTlsValidationContext,
+  ListenerTlsValidationContextTrust,
   Logging,
   MatchRange,
   MeshData,
@@ -145,6 +149,7 @@ import {
   MeshSpec,
   MeshStatus,
   NotFoundException,
+  OutlierDetection,
   PortMapping,
   ResourceInUseException,
   ResourceMetadata,
@@ -154,6 +159,8 @@ import {
   RouteStatus,
   ServiceDiscovery,
   ServiceUnavailableException,
+  SubjectAlternativeNameMatchers,
+  SubjectAlternativeNames,
   TagRef,
   TcpRetryPolicyEvent,
   TcpRoute,
@@ -162,6 +169,7 @@ import {
   TlsValidationContext,
   TlsValidationContextAcmTrust,
   TlsValidationContextFileTrust,
+  TlsValidationContextSdsTrust,
   TlsValidationContextTrust,
   TooManyRequestsException,
   TooManyTagsException,
@@ -169,14 +177,22 @@ import {
   VirtualGatewayBackendDefaults,
   VirtualGatewayClientPolicy,
   VirtualGatewayClientPolicyTls,
+  VirtualGatewayClientTlsCertificate,
+  VirtualGatewayConnectionPool,
   VirtualGatewayData,
   VirtualGatewayFileAccessLog,
+  VirtualGatewayGrpcConnectionPool,
   VirtualGatewayHealthCheckPolicy,
+  VirtualGatewayHttp2ConnectionPool,
+  VirtualGatewayHttpConnectionPool,
   VirtualGatewayListener,
   VirtualGatewayListenerTls,
   VirtualGatewayListenerTlsAcmCertificate,
   VirtualGatewayListenerTlsCertificate,
   VirtualGatewayListenerTlsFileCertificate,
+  VirtualGatewayListenerTlsSdsCertificate,
+  VirtualGatewayListenerTlsValidationContext,
+  VirtualGatewayListenerTlsValidationContextTrust,
   VirtualGatewayLogging,
   VirtualGatewayPortMapping,
   VirtualGatewayRef,
@@ -185,12 +201,18 @@ import {
   VirtualGatewayTlsValidationContext,
   VirtualGatewayTlsValidationContextAcmTrust,
   VirtualGatewayTlsValidationContextFileTrust,
+  VirtualGatewayTlsValidationContextSdsTrust,
   VirtualGatewayTlsValidationContextTrust,
+  VirtualNodeConnectionPool,
   VirtualNodeData,
+  VirtualNodeGrpcConnectionPool,
+  VirtualNodeHttp2ConnectionPool,
+  VirtualNodeHttpConnectionPool,
   VirtualNodeRef,
   VirtualNodeServiceProvider,
   VirtualNodeSpec,
   VirtualNodeStatus,
+  VirtualNodeTcpConnectionPool,
   VirtualRouterData,
   VirtualRouterListener,
   VirtualRouterRef,
@@ -5786,6 +5808,9 @@ const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
   const contents: TooManyRequestsException = {
     name: "TooManyRequestsException",
     $fault: "client",
+    $retryable: {
+      throttling: true,
+    },
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined,
   };
@@ -5903,6 +5928,10 @@ const serializeAws_restJson1ClientPolicy = (input: ClientPolicy, context: __Serd
 
 const serializeAws_restJson1ClientPolicyTls = (input: ClientPolicyTls, context: __SerdeContext): any => {
   return {
+    ...(input.certificate !== undefined &&
+      input.certificate !== null && {
+        certificate: serializeAws_restJson1ClientTlsCertificate(input.certificate, context),
+      }),
     ...(input.enforce !== undefined && input.enforce !== null && { enforce: input.enforce }),
     ...(input.ports !== undefined &&
       input.ports !== null && { ports: serializeAws_restJson1PortSet(input.ports, context) }),
@@ -5911,6 +5940,14 @@ const serializeAws_restJson1ClientPolicyTls = (input: ClientPolicyTls, context: 
         validation: serializeAws_restJson1TlsValidationContext(input.validation, context),
       }),
   };
+};
+
+const serializeAws_restJson1ClientTlsCertificate = (input: ClientTlsCertificate, context: __SerdeContext): any => {
+  return ClientTlsCertificate.visit(input, {
+    file: (value) => ({ file: serializeAws_restJson1ListenerTlsFileCertificate(value, context) }),
+    sds: (value) => ({ sds: serializeAws_restJson1ListenerTlsSdsCertificate(value, context) }),
+    _: (name, value) => ({ name: value } as any),
+  });
 };
 
 const serializeAws_restJson1DnsServiceDiscovery = (input: DnsServiceDiscovery, context: __SerdeContext): any => {
@@ -6240,9 +6277,17 @@ const serializeAws_restJson1HttpTimeout = (input: HttpTimeout, context: __SerdeC
 
 const serializeAws_restJson1Listener = (input: Listener, context: __SerdeContext): any => {
   return {
+    ...(input.connectionPool !== undefined &&
+      input.connectionPool !== null && {
+        connectionPool: serializeAws_restJson1VirtualNodeConnectionPool(input.connectionPool, context),
+      }),
     ...(input.healthCheck !== undefined &&
       input.healthCheck !== null && {
         healthCheck: serializeAws_restJson1HealthCheckPolicy(input.healthCheck, context),
+      }),
+    ...(input.outlierDetection !== undefined &&
+      input.outlierDetection !== null && {
+        outlierDetection: serializeAws_restJson1OutlierDetection(input.outlierDetection, context),
       }),
     ...(input.portMapping !== undefined &&
       input.portMapping !== null && { portMapping: serializeAws_restJson1PortMapping(input.portMapping, context) }),
@@ -6281,6 +6326,10 @@ const serializeAws_restJson1ListenerTls = (input: ListenerTls, context: __SerdeC
         certificate: serializeAws_restJson1ListenerTlsCertificate(input.certificate, context),
       }),
     ...(input.mode !== undefined && input.mode !== null && { mode: input.mode }),
+    ...(input.validation !== undefined &&
+      input.validation !== null && {
+        validation: serializeAws_restJson1ListenerTlsValidationContext(input.validation, context),
+      }),
   };
 };
 
@@ -6298,6 +6347,7 @@ const serializeAws_restJson1ListenerTlsCertificate = (input: ListenerTlsCertific
   return ListenerTlsCertificate.visit(input, {
     acm: (value) => ({ acm: serializeAws_restJson1ListenerTlsAcmCertificate(value, context) }),
     file: (value) => ({ file: serializeAws_restJson1ListenerTlsFileCertificate(value, context) }),
+    sds: (value) => ({ sds: serializeAws_restJson1ListenerTlsSdsCertificate(value, context) }),
     _: (name, value) => ({ name: value } as any),
   });
 };
@@ -6311,6 +6361,40 @@ const serializeAws_restJson1ListenerTlsFileCertificate = (
       input.certificateChain !== null && { certificateChain: input.certificateChain }),
     ...(input.privateKey !== undefined && input.privateKey !== null && { privateKey: input.privateKey }),
   };
+};
+
+const serializeAws_restJson1ListenerTlsSdsCertificate = (
+  input: ListenerTlsSdsCertificate,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.secretName !== undefined && input.secretName !== null && { secretName: input.secretName }),
+  };
+};
+
+const serializeAws_restJson1ListenerTlsValidationContext = (
+  input: ListenerTlsValidationContext,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.subjectAlternativeNames !== undefined &&
+      input.subjectAlternativeNames !== null && {
+        subjectAlternativeNames: serializeAws_restJson1SubjectAlternativeNames(input.subjectAlternativeNames, context),
+      }),
+    ...(input.trust !== undefined &&
+      input.trust !== null && { trust: serializeAws_restJson1ListenerTlsValidationContextTrust(input.trust, context) }),
+  };
+};
+
+const serializeAws_restJson1ListenerTlsValidationContextTrust = (
+  input: ListenerTlsValidationContextTrust,
+  context: __SerdeContext
+): any => {
+  return ListenerTlsValidationContextTrust.visit(input, {
+    file: (value) => ({ file: serializeAws_restJson1TlsValidationContextFileTrust(value, context) }),
+    sds: (value) => ({ sds: serializeAws_restJson1TlsValidationContextSdsTrust(value, context) }),
+    _: (name, value) => ({ name: value } as any),
+  });
 };
 
 const serializeAws_restJson1Logging = (input: Logging, context: __SerdeContext): any => {
@@ -6331,6 +6415,21 @@ const serializeAws_restJson1MeshSpec = (input: MeshSpec, context: __SerdeContext
   return {
     ...(input.egressFilter !== undefined &&
       input.egressFilter !== null && { egressFilter: serializeAws_restJson1EgressFilter(input.egressFilter, context) }),
+  };
+};
+
+const serializeAws_restJson1OutlierDetection = (input: OutlierDetection, context: __SerdeContext): any => {
+  return {
+    ...(input.baseEjectionDuration !== undefined &&
+      input.baseEjectionDuration !== null && {
+        baseEjectionDuration: serializeAws_restJson1Duration(input.baseEjectionDuration, context),
+      }),
+    ...(input.interval !== undefined &&
+      input.interval !== null && { interval: serializeAws_restJson1Duration(input.interval, context) }),
+    ...(input.maxEjectionPercent !== undefined &&
+      input.maxEjectionPercent !== null && { maxEjectionPercent: input.maxEjectionPercent }),
+    ...(input.maxServerErrors !== undefined &&
+      input.maxServerErrors !== null && { maxServerErrors: input.maxServerErrors }),
   };
 };
 
@@ -6372,6 +6471,37 @@ const serializeAws_restJson1ServiceDiscovery = (input: ServiceDiscovery, context
     dns: (value) => ({ dns: serializeAws_restJson1DnsServiceDiscovery(value, context) }),
     _: (name, value) => ({ name: value } as any),
   });
+};
+
+const serializeAws_restJson1SubjectAlternativeNameList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_restJson1SubjectAlternativeNameMatchers = (
+  input: SubjectAlternativeNameMatchers,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.exact !== undefined &&
+      input.exact !== null && { exact: serializeAws_restJson1SubjectAlternativeNameList(input.exact, context) }),
+  };
+};
+
+const serializeAws_restJson1SubjectAlternativeNames = (
+  input: SubjectAlternativeNames,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.match !== undefined &&
+      input.match !== null && { match: serializeAws_restJson1SubjectAlternativeNameMatchers(input.match, context) }),
+  };
 };
 
 const serializeAws_restJson1TagKeyList = (input: string[], context: __SerdeContext): any => {
@@ -6444,6 +6574,10 @@ const serializeAws_restJson1TcpTimeout = (input: TcpTimeout, context: __SerdeCon
 
 const serializeAws_restJson1TlsValidationContext = (input: TlsValidationContext, context: __SerdeContext): any => {
   return {
+    ...(input.subjectAlternativeNames !== undefined &&
+      input.subjectAlternativeNames !== null && {
+        subjectAlternativeNames: serializeAws_restJson1SubjectAlternativeNames(input.subjectAlternativeNames, context),
+      }),
     ...(input.trust !== undefined &&
       input.trust !== null && { trust: serializeAws_restJson1TlsValidationContextTrust(input.trust, context) }),
   };
@@ -6474,6 +6608,15 @@ const serializeAws_restJson1TlsValidationContextFileTrust = (
   };
 };
 
+const serializeAws_restJson1TlsValidationContextSdsTrust = (
+  input: TlsValidationContextSdsTrust,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.secretName !== undefined && input.secretName !== null && { secretName: input.secretName }),
+  };
+};
+
 const serializeAws_restJson1TlsValidationContextTrust = (
   input: TlsValidationContextTrust,
   context: __SerdeContext
@@ -6481,6 +6624,7 @@ const serializeAws_restJson1TlsValidationContextTrust = (
   return TlsValidationContextTrust.visit(input, {
     acm: (value) => ({ acm: serializeAws_restJson1TlsValidationContextAcmTrust(value, context) }),
     file: (value) => ({ file: serializeAws_restJson1TlsValidationContextFileTrust(value, context) }),
+    sds: (value) => ({ sds: serializeAws_restJson1TlsValidationContextSdsTrust(value, context) }),
     _: (name, value) => ({ name: value } as any),
   });
 };
@@ -6536,6 +6680,10 @@ const serializeAws_restJson1VirtualGatewayClientPolicyTls = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.certificate !== undefined &&
+      input.certificate !== null && {
+        certificate: serializeAws_restJson1VirtualGatewayClientTlsCertificate(input.certificate, context),
+      }),
     ...(input.enforce !== undefined && input.enforce !== null && { enforce: input.enforce }),
     ...(input.ports !== undefined &&
       input.ports !== null && { ports: serializeAws_restJson1PortSet(input.ports, context) }),
@@ -6546,12 +6694,44 @@ const serializeAws_restJson1VirtualGatewayClientPolicyTls = (
   };
 };
 
+const serializeAws_restJson1VirtualGatewayClientTlsCertificate = (
+  input: VirtualGatewayClientTlsCertificate,
+  context: __SerdeContext
+): any => {
+  return VirtualGatewayClientTlsCertificate.visit(input, {
+    file: (value) => ({ file: serializeAws_restJson1VirtualGatewayListenerTlsFileCertificate(value, context) }),
+    sds: (value) => ({ sds: serializeAws_restJson1VirtualGatewayListenerTlsSdsCertificate(value, context) }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
+const serializeAws_restJson1VirtualGatewayConnectionPool = (
+  input: VirtualGatewayConnectionPool,
+  context: __SerdeContext
+): any => {
+  return VirtualGatewayConnectionPool.visit(input, {
+    grpc: (value) => ({ grpc: serializeAws_restJson1VirtualGatewayGrpcConnectionPool(value, context) }),
+    http: (value) => ({ http: serializeAws_restJson1VirtualGatewayHttpConnectionPool(value, context) }),
+    http2: (value) => ({ http2: serializeAws_restJson1VirtualGatewayHttp2ConnectionPool(value, context) }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
 const serializeAws_restJson1VirtualGatewayFileAccessLog = (
   input: VirtualGatewayFileAccessLog,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.path !== undefined && input.path !== null && { path: input.path }),
+  };
+};
+
+const serializeAws_restJson1VirtualGatewayGrpcConnectionPool = (
+  input: VirtualGatewayGrpcConnectionPool,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.maxRequests !== undefined && input.maxRequests !== null && { maxRequests: input.maxRequests }),
   };
 };
 
@@ -6573,8 +6753,33 @@ const serializeAws_restJson1VirtualGatewayHealthCheckPolicy = (
   };
 };
 
+const serializeAws_restJson1VirtualGatewayHttp2ConnectionPool = (
+  input: VirtualGatewayHttp2ConnectionPool,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.maxRequests !== undefined && input.maxRequests !== null && { maxRequests: input.maxRequests }),
+  };
+};
+
+const serializeAws_restJson1VirtualGatewayHttpConnectionPool = (
+  input: VirtualGatewayHttpConnectionPool,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.maxConnections !== undefined &&
+      input.maxConnections !== null && { maxConnections: input.maxConnections }),
+    ...(input.maxPendingRequests !== undefined &&
+      input.maxPendingRequests !== null && { maxPendingRequests: input.maxPendingRequests }),
+  };
+};
+
 const serializeAws_restJson1VirtualGatewayListener = (input: VirtualGatewayListener, context: __SerdeContext): any => {
   return {
+    ...(input.connectionPool !== undefined &&
+      input.connectionPool !== null && {
+        connectionPool: serializeAws_restJson1VirtualGatewayConnectionPool(input.connectionPool, context),
+      }),
     ...(input.healthCheck !== undefined &&
       input.healthCheck !== null && {
         healthCheck: serializeAws_restJson1VirtualGatewayHealthCheckPolicy(input.healthCheck, context),
@@ -6612,6 +6817,10 @@ const serializeAws_restJson1VirtualGatewayListenerTls = (
         certificate: serializeAws_restJson1VirtualGatewayListenerTlsCertificate(input.certificate, context),
       }),
     ...(input.mode !== undefined && input.mode !== null && { mode: input.mode }),
+    ...(input.validation !== undefined &&
+      input.validation !== null && {
+        validation: serializeAws_restJson1VirtualGatewayListenerTlsValidationContext(input.validation, context),
+      }),
   };
 };
 
@@ -6632,6 +6841,7 @@ const serializeAws_restJson1VirtualGatewayListenerTlsCertificate = (
   return VirtualGatewayListenerTlsCertificate.visit(input, {
     acm: (value) => ({ acm: serializeAws_restJson1VirtualGatewayListenerTlsAcmCertificate(value, context) }),
     file: (value) => ({ file: serializeAws_restJson1VirtualGatewayListenerTlsFileCertificate(value, context) }),
+    sds: (value) => ({ sds: serializeAws_restJson1VirtualGatewayListenerTlsSdsCertificate(value, context) }),
     _: (name, value) => ({ name: value } as any),
   });
 };
@@ -6645,6 +6855,42 @@ const serializeAws_restJson1VirtualGatewayListenerTlsFileCertificate = (
       input.certificateChain !== null && { certificateChain: input.certificateChain }),
     ...(input.privateKey !== undefined && input.privateKey !== null && { privateKey: input.privateKey }),
   };
+};
+
+const serializeAws_restJson1VirtualGatewayListenerTlsSdsCertificate = (
+  input: VirtualGatewayListenerTlsSdsCertificate,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.secretName !== undefined && input.secretName !== null && { secretName: input.secretName }),
+  };
+};
+
+const serializeAws_restJson1VirtualGatewayListenerTlsValidationContext = (
+  input: VirtualGatewayListenerTlsValidationContext,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.subjectAlternativeNames !== undefined &&
+      input.subjectAlternativeNames !== null && {
+        subjectAlternativeNames: serializeAws_restJson1SubjectAlternativeNames(input.subjectAlternativeNames, context),
+      }),
+    ...(input.trust !== undefined &&
+      input.trust !== null && {
+        trust: serializeAws_restJson1VirtualGatewayListenerTlsValidationContextTrust(input.trust, context),
+      }),
+  };
+};
+
+const serializeAws_restJson1VirtualGatewayListenerTlsValidationContextTrust = (
+  input: VirtualGatewayListenerTlsValidationContextTrust,
+  context: __SerdeContext
+): any => {
+  return VirtualGatewayListenerTlsValidationContextTrust.visit(input, {
+    file: (value) => ({ file: serializeAws_restJson1VirtualGatewayTlsValidationContextFileTrust(value, context) }),
+    sds: (value) => ({ sds: serializeAws_restJson1VirtualGatewayTlsValidationContextSdsTrust(value, context) }),
+    _: (name, value) => ({ name: value } as any),
+  });
 };
 
 const serializeAws_restJson1VirtualGatewayLogging = (input: VirtualGatewayLogging, context: __SerdeContext): any => {
@@ -6686,6 +6932,10 @@ const serializeAws_restJson1VirtualGatewayTlsValidationContext = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.subjectAlternativeNames !== undefined &&
+      input.subjectAlternativeNames !== null && {
+        subjectAlternativeNames: serializeAws_restJson1SubjectAlternativeNames(input.subjectAlternativeNames, context),
+      }),
     ...(input.trust !== undefined &&
       input.trust !== null && {
         trust: serializeAws_restJson1VirtualGatewayTlsValidationContextTrust(input.trust, context),
@@ -6718,6 +6968,15 @@ const serializeAws_restJson1VirtualGatewayTlsValidationContextFileTrust = (
   };
 };
 
+const serializeAws_restJson1VirtualGatewayTlsValidationContextSdsTrust = (
+  input: VirtualGatewayTlsValidationContextSdsTrust,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.secretName !== undefined && input.secretName !== null && { secretName: input.secretName }),
+  };
+};
+
 const serializeAws_restJson1VirtualGatewayTlsValidationContextTrust = (
   input: VirtualGatewayTlsValidationContextTrust,
   context: __SerdeContext
@@ -6725,8 +6984,52 @@ const serializeAws_restJson1VirtualGatewayTlsValidationContextTrust = (
   return VirtualGatewayTlsValidationContextTrust.visit(input, {
     acm: (value) => ({ acm: serializeAws_restJson1VirtualGatewayTlsValidationContextAcmTrust(value, context) }),
     file: (value) => ({ file: serializeAws_restJson1VirtualGatewayTlsValidationContextFileTrust(value, context) }),
+    sds: (value) => ({ sds: serializeAws_restJson1VirtualGatewayTlsValidationContextSdsTrust(value, context) }),
     _: (name, value) => ({ name: value } as any),
   });
+};
+
+const serializeAws_restJson1VirtualNodeConnectionPool = (
+  input: VirtualNodeConnectionPool,
+  context: __SerdeContext
+): any => {
+  return VirtualNodeConnectionPool.visit(input, {
+    grpc: (value) => ({ grpc: serializeAws_restJson1VirtualNodeGrpcConnectionPool(value, context) }),
+    http: (value) => ({ http: serializeAws_restJson1VirtualNodeHttpConnectionPool(value, context) }),
+    http2: (value) => ({ http2: serializeAws_restJson1VirtualNodeHttp2ConnectionPool(value, context) }),
+    tcp: (value) => ({ tcp: serializeAws_restJson1VirtualNodeTcpConnectionPool(value, context) }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
+const serializeAws_restJson1VirtualNodeGrpcConnectionPool = (
+  input: VirtualNodeGrpcConnectionPool,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.maxRequests !== undefined && input.maxRequests !== null && { maxRequests: input.maxRequests }),
+  };
+};
+
+const serializeAws_restJson1VirtualNodeHttp2ConnectionPool = (
+  input: VirtualNodeHttp2ConnectionPool,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.maxRequests !== undefined && input.maxRequests !== null && { maxRequests: input.maxRequests }),
+  };
+};
+
+const serializeAws_restJson1VirtualNodeHttpConnectionPool = (
+  input: VirtualNodeHttpConnectionPool,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.maxConnections !== undefined &&
+      input.maxConnections !== null && { maxConnections: input.maxConnections }),
+    ...(input.maxPendingRequests !== undefined &&
+      input.maxPendingRequests !== null && { maxPendingRequests: input.maxPendingRequests }),
+  };
 };
 
 const serializeAws_restJson1VirtualNodeServiceProvider = (
@@ -6755,6 +7058,16 @@ const serializeAws_restJson1VirtualNodeSpec = (input: VirtualNodeSpec, context: 
       input.serviceDiscovery !== null && {
         serviceDiscovery: serializeAws_restJson1ServiceDiscovery(input.serviceDiscovery, context),
       }),
+  };
+};
+
+const serializeAws_restJson1VirtualNodeTcpConnectionPool = (
+  input: VirtualNodeTcpConnectionPool,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.maxConnections !== undefined &&
+      input.maxConnections !== null && { maxConnections: input.maxConnections }),
   };
 };
 
@@ -6936,6 +7249,10 @@ const deserializeAws_restJson1ClientPolicy = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1ClientPolicyTls = (output: any, context: __SerdeContext): ClientPolicyTls => {
   return {
+    certificate:
+      output.certificate !== undefined && output.certificate !== null
+        ? deserializeAws_restJson1ClientTlsCertificate(output.certificate, context)
+        : undefined,
     enforce: output.enforce !== undefined && output.enforce !== null ? output.enforce : undefined,
     ports:
       output.ports !== undefined && output.ports !== null
@@ -6946,6 +7263,20 @@ const deserializeAws_restJson1ClientPolicyTls = (output: any, context: __SerdeCo
         ? deserializeAws_restJson1TlsValidationContext(output.validation, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1ClientTlsCertificate = (output: any, context: __SerdeContext): ClientTlsCertificate => {
+  if (output.file !== undefined && output.file !== null) {
+    return {
+      file: deserializeAws_restJson1ListenerTlsFileCertificate(output.file, context),
+    };
+  }
+  if (output.sds !== undefined && output.sds !== null) {
+    return {
+      sds: deserializeAws_restJson1ListenerTlsSdsCertificate(output.sds, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
 };
 
 const deserializeAws_restJson1DnsServiceDiscovery = (output: any, context: __SerdeContext): DnsServiceDiscovery => {
@@ -7438,9 +7769,17 @@ const deserializeAws_restJson1HttpTimeout = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1Listener = (output: any, context: __SerdeContext): Listener => {
   return {
+    connectionPool:
+      output.connectionPool !== undefined && output.connectionPool !== null
+        ? deserializeAws_restJson1VirtualNodeConnectionPool(output.connectionPool, context)
+        : undefined,
     healthCheck:
       output.healthCheck !== undefined && output.healthCheck !== null
         ? deserializeAws_restJson1HealthCheckPolicy(output.healthCheck, context)
+        : undefined,
+    outlierDetection:
+      output.outlierDetection !== undefined && output.outlierDetection !== null
+        ? deserializeAws_restJson1OutlierDetection(output.outlierDetection, context)
         : undefined,
     portMapping:
       output.portMapping !== undefined && output.portMapping !== null
@@ -7499,6 +7838,10 @@ const deserializeAws_restJson1ListenerTls = (output: any, context: __SerdeContex
         ? deserializeAws_restJson1ListenerTlsCertificate(output.certificate, context)
         : undefined,
     mode: output.mode !== undefined && output.mode !== null ? output.mode : undefined,
+    validation:
+      output.validation !== undefined && output.validation !== null
+        ? deserializeAws_restJson1ListenerTlsValidationContext(output.validation, context)
+        : undefined,
   } as any;
 };
 
@@ -7526,6 +7869,11 @@ const deserializeAws_restJson1ListenerTlsCertificate = (
       file: deserializeAws_restJson1ListenerTlsFileCertificate(output.file, context),
     };
   }
+  if (output.sds !== undefined && output.sds !== null) {
+    return {
+      sds: deserializeAws_restJson1ListenerTlsSdsCertificate(output.sds, context),
+    };
+  }
   return { $unknown: Object.entries(output)[0] };
 };
 
@@ -7538,6 +7886,48 @@ const deserializeAws_restJson1ListenerTlsFileCertificate = (
       output.certificateChain !== undefined && output.certificateChain !== null ? output.certificateChain : undefined,
     privateKey: output.privateKey !== undefined && output.privateKey !== null ? output.privateKey : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1ListenerTlsSdsCertificate = (
+  output: any,
+  context: __SerdeContext
+): ListenerTlsSdsCertificate => {
+  return {
+    secretName: output.secretName !== undefined && output.secretName !== null ? output.secretName : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ListenerTlsValidationContext = (
+  output: any,
+  context: __SerdeContext
+): ListenerTlsValidationContext => {
+  return {
+    subjectAlternativeNames:
+      output.subjectAlternativeNames !== undefined && output.subjectAlternativeNames !== null
+        ? deserializeAws_restJson1SubjectAlternativeNames(output.subjectAlternativeNames, context)
+        : undefined,
+    trust:
+      output.trust !== undefined && output.trust !== null
+        ? deserializeAws_restJson1ListenerTlsValidationContextTrust(output.trust, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ListenerTlsValidationContextTrust = (
+  output: any,
+  context: __SerdeContext
+): ListenerTlsValidationContextTrust => {
+  if (output.file !== undefined && output.file !== null) {
+    return {
+      file: deserializeAws_restJson1TlsValidationContextFileTrust(output.file, context),
+    };
+  }
+  if (output.sds !== undefined && output.sds !== null) {
+    return {
+      sds: deserializeAws_restJson1TlsValidationContextSdsTrust(output.sds, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
 };
 
 const deserializeAws_restJson1Logging = (output: any, context: __SerdeContext): Logging => {
@@ -7616,6 +8006,25 @@ const deserializeAws_restJson1MeshSpec = (output: any, context: __SerdeContext):
 const deserializeAws_restJson1MeshStatus = (output: any, context: __SerdeContext): MeshStatus => {
   return {
     status: output.status !== undefined && output.status !== null ? output.status : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1OutlierDetection = (output: any, context: __SerdeContext): OutlierDetection => {
+  return {
+    baseEjectionDuration:
+      output.baseEjectionDuration !== undefined && output.baseEjectionDuration !== null
+        ? deserializeAws_restJson1Duration(output.baseEjectionDuration, context)
+        : undefined,
+    interval:
+      output.interval !== undefined && output.interval !== null
+        ? deserializeAws_restJson1Duration(output.interval, context)
+        : undefined,
+    maxEjectionPercent:
+      output.maxEjectionPercent !== undefined && output.maxEjectionPercent !== null
+        ? output.maxEjectionPercent
+        : undefined,
+    maxServerErrors:
+      output.maxServerErrors !== undefined && output.maxServerErrors !== null ? output.maxServerErrors : undefined,
   } as any;
 };
 
@@ -7756,6 +8165,41 @@ const deserializeAws_restJson1ServiceDiscovery = (output: any, context: __SerdeC
   return { $unknown: Object.entries(output)[0] };
 };
 
+const deserializeAws_restJson1SubjectAlternativeNameList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const deserializeAws_restJson1SubjectAlternativeNameMatchers = (
+  output: any,
+  context: __SerdeContext
+): SubjectAlternativeNameMatchers => {
+  return {
+    exact:
+      output.exact !== undefined && output.exact !== null
+        ? deserializeAws_restJson1SubjectAlternativeNameList(output.exact, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SubjectAlternativeNames = (
+  output: any,
+  context: __SerdeContext
+): SubjectAlternativeNames => {
+  return {
+    match:
+      output.match !== undefined && output.match !== null
+        ? deserializeAws_restJson1SubjectAlternativeNameMatchers(output.match, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): TagRef[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -7821,6 +8265,10 @@ const deserializeAws_restJson1TcpTimeout = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1TlsValidationContext = (output: any, context: __SerdeContext): TlsValidationContext => {
   return {
+    subjectAlternativeNames:
+      output.subjectAlternativeNames !== undefined && output.subjectAlternativeNames !== null
+        ? deserializeAws_restJson1SubjectAlternativeNames(output.subjectAlternativeNames, context)
+        : undefined,
     trust:
       output.trust !== undefined && output.trust !== null
         ? deserializeAws_restJson1TlsValidationContextTrust(output.trust, context)
@@ -7850,6 +8298,15 @@ const deserializeAws_restJson1TlsValidationContextFileTrust = (
   } as any;
 };
 
+const deserializeAws_restJson1TlsValidationContextSdsTrust = (
+  output: any,
+  context: __SerdeContext
+): TlsValidationContextSdsTrust => {
+  return {
+    secretName: output.secretName !== undefined && output.secretName !== null ? output.secretName : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1TlsValidationContextTrust = (
   output: any,
   context: __SerdeContext
@@ -7862,6 +8319,11 @@ const deserializeAws_restJson1TlsValidationContextTrust = (
   if (output.file !== undefined && output.file !== null) {
     return {
       file: deserializeAws_restJson1TlsValidationContextFileTrust(output.file, context),
+    };
+  }
+  if (output.sds !== undefined && output.sds !== null) {
+    return {
+      sds: deserializeAws_restJson1TlsValidationContextSdsTrust(output.sds, context),
     };
   }
   return { $unknown: Object.entries(output)[0] };
@@ -7922,6 +8384,10 @@ const deserializeAws_restJson1VirtualGatewayClientPolicyTls = (
   context: __SerdeContext
 ): VirtualGatewayClientPolicyTls => {
   return {
+    certificate:
+      output.certificate !== undefined && output.certificate !== null
+        ? deserializeAws_restJson1VirtualGatewayClientTlsCertificate(output.certificate, context)
+        : undefined,
     enforce: output.enforce !== undefined && output.enforce !== null ? output.enforce : undefined,
     ports:
       output.ports !== undefined && output.ports !== null
@@ -7932,6 +8398,45 @@ const deserializeAws_restJson1VirtualGatewayClientPolicyTls = (
         ? deserializeAws_restJson1VirtualGatewayTlsValidationContext(output.validation, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1VirtualGatewayClientTlsCertificate = (
+  output: any,
+  context: __SerdeContext
+): VirtualGatewayClientTlsCertificate => {
+  if (output.file !== undefined && output.file !== null) {
+    return {
+      file: deserializeAws_restJson1VirtualGatewayListenerTlsFileCertificate(output.file, context),
+    };
+  }
+  if (output.sds !== undefined && output.sds !== null) {
+    return {
+      sds: deserializeAws_restJson1VirtualGatewayListenerTlsSdsCertificate(output.sds, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+const deserializeAws_restJson1VirtualGatewayConnectionPool = (
+  output: any,
+  context: __SerdeContext
+): VirtualGatewayConnectionPool => {
+  if (output.grpc !== undefined && output.grpc !== null) {
+    return {
+      grpc: deserializeAws_restJson1VirtualGatewayGrpcConnectionPool(output.grpc, context),
+    };
+  }
+  if (output.http !== undefined && output.http !== null) {
+    return {
+      http: deserializeAws_restJson1VirtualGatewayHttpConnectionPool(output.http, context),
+    };
+  }
+  if (output.http2 !== undefined && output.http2 !== null) {
+    return {
+      http2: deserializeAws_restJson1VirtualGatewayHttp2ConnectionPool(output.http2, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
 };
 
 const deserializeAws_restJson1VirtualGatewayData = (output: any, context: __SerdeContext): VirtualGatewayData => {
@@ -7965,6 +8470,15 @@ const deserializeAws_restJson1VirtualGatewayFileAccessLog = (
   } as any;
 };
 
+const deserializeAws_restJson1VirtualGatewayGrpcConnectionPool = (
+  output: any,
+  context: __SerdeContext
+): VirtualGatewayGrpcConnectionPool => {
+  return {
+    maxRequests: output.maxRequests !== undefined && output.maxRequests !== null ? output.maxRequests : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1VirtualGatewayHealthCheckPolicy = (
   output: any,
   context: __SerdeContext
@@ -7986,6 +8500,29 @@ const deserializeAws_restJson1VirtualGatewayHealthCheckPolicy = (
   } as any;
 };
 
+const deserializeAws_restJson1VirtualGatewayHttp2ConnectionPool = (
+  output: any,
+  context: __SerdeContext
+): VirtualGatewayHttp2ConnectionPool => {
+  return {
+    maxRequests: output.maxRequests !== undefined && output.maxRequests !== null ? output.maxRequests : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1VirtualGatewayHttpConnectionPool = (
+  output: any,
+  context: __SerdeContext
+): VirtualGatewayHttpConnectionPool => {
+  return {
+    maxConnections:
+      output.maxConnections !== undefined && output.maxConnections !== null ? output.maxConnections : undefined,
+    maxPendingRequests:
+      output.maxPendingRequests !== undefined && output.maxPendingRequests !== null
+        ? output.maxPendingRequests
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1VirtualGatewayList = (output: any, context: __SerdeContext): VirtualGatewayRef[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -8002,6 +8539,10 @@ const deserializeAws_restJson1VirtualGatewayListener = (
   context: __SerdeContext
 ): VirtualGatewayListener => {
   return {
+    connectionPool:
+      output.connectionPool !== undefined && output.connectionPool !== null
+        ? deserializeAws_restJson1VirtualGatewayConnectionPool(output.connectionPool, context)
+        : undefined,
     healthCheck:
       output.healthCheck !== undefined && output.healthCheck !== null
         ? deserializeAws_restJson1VirtualGatewayHealthCheckPolicy(output.healthCheck, context)
@@ -8041,6 +8582,10 @@ const deserializeAws_restJson1VirtualGatewayListenerTls = (
         ? deserializeAws_restJson1VirtualGatewayListenerTlsCertificate(output.certificate, context)
         : undefined,
     mode: output.mode !== undefined && output.mode !== null ? output.mode : undefined,
+    validation:
+      output.validation !== undefined && output.validation !== null
+        ? deserializeAws_restJson1VirtualGatewayListenerTlsValidationContext(output.validation, context)
+        : undefined,
   } as any;
 };
 
@@ -8068,6 +8613,11 @@ const deserializeAws_restJson1VirtualGatewayListenerTlsCertificate = (
       file: deserializeAws_restJson1VirtualGatewayListenerTlsFileCertificate(output.file, context),
     };
   }
+  if (output.sds !== undefined && output.sds !== null) {
+    return {
+      sds: deserializeAws_restJson1VirtualGatewayListenerTlsSdsCertificate(output.sds, context),
+    };
+  }
   return { $unknown: Object.entries(output)[0] };
 };
 
@@ -8080,6 +8630,48 @@ const deserializeAws_restJson1VirtualGatewayListenerTlsFileCertificate = (
       output.certificateChain !== undefined && output.certificateChain !== null ? output.certificateChain : undefined,
     privateKey: output.privateKey !== undefined && output.privateKey !== null ? output.privateKey : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1VirtualGatewayListenerTlsSdsCertificate = (
+  output: any,
+  context: __SerdeContext
+): VirtualGatewayListenerTlsSdsCertificate => {
+  return {
+    secretName: output.secretName !== undefined && output.secretName !== null ? output.secretName : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1VirtualGatewayListenerTlsValidationContext = (
+  output: any,
+  context: __SerdeContext
+): VirtualGatewayListenerTlsValidationContext => {
+  return {
+    subjectAlternativeNames:
+      output.subjectAlternativeNames !== undefined && output.subjectAlternativeNames !== null
+        ? deserializeAws_restJson1SubjectAlternativeNames(output.subjectAlternativeNames, context)
+        : undefined,
+    trust:
+      output.trust !== undefined && output.trust !== null
+        ? deserializeAws_restJson1VirtualGatewayListenerTlsValidationContextTrust(output.trust, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1VirtualGatewayListenerTlsValidationContextTrust = (
+  output: any,
+  context: __SerdeContext
+): VirtualGatewayListenerTlsValidationContextTrust => {
+  if (output.file !== undefined && output.file !== null) {
+    return {
+      file: deserializeAws_restJson1VirtualGatewayTlsValidationContextFileTrust(output.file, context),
+    };
+  }
+  if (output.sds !== undefined && output.sds !== null) {
+    return {
+      sds: deserializeAws_restJson1VirtualGatewayTlsValidationContextSdsTrust(output.sds, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
 };
 
 const deserializeAws_restJson1VirtualGatewayLogging = (output: any, context: __SerdeContext): VirtualGatewayLogging => {
@@ -8152,6 +8744,10 @@ const deserializeAws_restJson1VirtualGatewayTlsValidationContext = (
   context: __SerdeContext
 ): VirtualGatewayTlsValidationContext => {
   return {
+    subjectAlternativeNames:
+      output.subjectAlternativeNames !== undefined && output.subjectAlternativeNames !== null
+        ? deserializeAws_restJson1SubjectAlternativeNames(output.subjectAlternativeNames, context)
+        : undefined,
     trust:
       output.trust !== undefined && output.trust !== null
         ? deserializeAws_restJson1VirtualGatewayTlsValidationContextTrust(output.trust, context)
@@ -8181,6 +8777,15 @@ const deserializeAws_restJson1VirtualGatewayTlsValidationContextFileTrust = (
   } as any;
 };
 
+const deserializeAws_restJson1VirtualGatewayTlsValidationContextSdsTrust = (
+  output: any,
+  context: __SerdeContext
+): VirtualGatewayTlsValidationContextSdsTrust => {
+  return {
+    secretName: output.secretName !== undefined && output.secretName !== null ? output.secretName : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1VirtualGatewayTlsValidationContextTrust = (
   output: any,
   context: __SerdeContext
@@ -8193,6 +8798,38 @@ const deserializeAws_restJson1VirtualGatewayTlsValidationContextTrust = (
   if (output.file !== undefined && output.file !== null) {
     return {
       file: deserializeAws_restJson1VirtualGatewayTlsValidationContextFileTrust(output.file, context),
+    };
+  }
+  if (output.sds !== undefined && output.sds !== null) {
+    return {
+      sds: deserializeAws_restJson1VirtualGatewayTlsValidationContextSdsTrust(output.sds, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+const deserializeAws_restJson1VirtualNodeConnectionPool = (
+  output: any,
+  context: __SerdeContext
+): VirtualNodeConnectionPool => {
+  if (output.grpc !== undefined && output.grpc !== null) {
+    return {
+      grpc: deserializeAws_restJson1VirtualNodeGrpcConnectionPool(output.grpc, context),
+    };
+  }
+  if (output.http !== undefined && output.http !== null) {
+    return {
+      http: deserializeAws_restJson1VirtualNodeHttpConnectionPool(output.http, context),
+    };
+  }
+  if (output.http2 !== undefined && output.http2 !== null) {
+    return {
+      http2: deserializeAws_restJson1VirtualNodeHttp2ConnectionPool(output.http2, context),
+    };
+  }
+  if (output.tcp !== undefined && output.tcp !== null) {
+    return {
+      tcp: deserializeAws_restJson1VirtualNodeTcpConnectionPool(output.tcp, context),
     };
   }
   return { $unknown: Object.entries(output)[0] };
@@ -8215,6 +8852,38 @@ const deserializeAws_restJson1VirtualNodeData = (output: any, context: __SerdeCo
         : undefined,
     virtualNodeName:
       output.virtualNodeName !== undefined && output.virtualNodeName !== null ? output.virtualNodeName : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1VirtualNodeGrpcConnectionPool = (
+  output: any,
+  context: __SerdeContext
+): VirtualNodeGrpcConnectionPool => {
+  return {
+    maxRequests: output.maxRequests !== undefined && output.maxRequests !== null ? output.maxRequests : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1VirtualNodeHttp2ConnectionPool = (
+  output: any,
+  context: __SerdeContext
+): VirtualNodeHttp2ConnectionPool => {
+  return {
+    maxRequests: output.maxRequests !== undefined && output.maxRequests !== null ? output.maxRequests : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1VirtualNodeHttpConnectionPool = (
+  output: any,
+  context: __SerdeContext
+): VirtualNodeHttpConnectionPool => {
+  return {
+    maxConnections:
+      output.maxConnections !== undefined && output.maxConnections !== null ? output.maxConnections : undefined,
+    maxPendingRequests:
+      output.maxPendingRequests !== undefined && output.maxPendingRequests !== null
+        ? output.maxPendingRequests
+        : undefined,
   } as any;
 };
 
@@ -8288,6 +8957,16 @@ const deserializeAws_restJson1VirtualNodeSpec = (output: any, context: __SerdeCo
 const deserializeAws_restJson1VirtualNodeStatus = (output: any, context: __SerdeContext): VirtualNodeStatus => {
   return {
     status: output.status !== undefined && output.status !== null ? output.status : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1VirtualNodeTcpConnectionPool = (
+  output: any,
+  context: __SerdeContext
+): VirtualNodeTcpConnectionPool => {
+  return {
+    maxConnections:
+      output.maxConnections !== undefined && output.maxConnections !== null ? output.maxConnections : undefined,
   } as any;
 };
 

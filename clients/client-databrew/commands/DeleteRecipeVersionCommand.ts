@@ -21,7 +21,7 @@ export type DeleteRecipeVersionCommandInput = DeleteRecipeVersionRequest;
 export type DeleteRecipeVersionCommandOutput = DeleteRecipeVersionResponse & __MetadataBearer;
 
 /**
- * <p>Deletes a single version of an AWS Glue DataBrew recipe.</p>
+ * <p>Deletes a single version of a DataBrew recipe.</p>
  */
 export class DeleteRecipeVersionCommand extends $Command<
   DeleteRecipeVersionCommandInput,

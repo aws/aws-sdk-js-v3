@@ -26,6 +26,7 @@ export type GetMemberCommandOutput = GetMemberOutput & __MetadataBearer;
 
 /**
  * <p>Returns detailed information about a member.</p>
+ *          <p>Applies only to Hyperledger Fabric.</p>
  */
 export class GetMemberCommand extends $Command<
   GetMemberCommandInput,

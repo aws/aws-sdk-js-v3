@@ -29,6 +29,8 @@ export namespace AccessEndpoint {
 export enum Action {
   CLIPBOARD_COPY_FROM_LOCAL_DEVICE = "CLIPBOARD_COPY_FROM_LOCAL_DEVICE",
   CLIPBOARD_COPY_TO_LOCAL_DEVICE = "CLIPBOARD_COPY_TO_LOCAL_DEVICE",
+  DOMAIN_PASSWORD_SIGNIN = "DOMAIN_PASSWORD_SIGNIN",
+  DOMAIN_SMART_CARD_SIGNIN = "DOMAIN_SMART_CARD_SIGNIN",
   FILE_DOWNLOAD = "FILE_DOWNLOAD",
   FILE_UPLOAD = "FILE_UPLOAD",
   PRINTING_TO_LOCAL_DEVICE = "PRINTING_TO_LOCAL_DEVICE",
@@ -173,7 +175,7 @@ export namespace ConcurrentModificationException {
 }
 
 /**
- * <p>The image does not support storage connectors.</p>
+ * <p>The image can't be updated because it's not compatible for updates.</p>
  */
 export interface IncompatibleImageException extends __SmithyException, $MetadataBearer {
   name: "IncompatibleImageException";
@@ -732,6 +734,9 @@ export interface CreateFleetRequest {
    * <p>The instance type to use when launching fleet instances. The following instance types are available:</p>
    *         <ul>
    *             <li>
+   *                <p>stream.standard.small</p>
+   *             </li>
+   *             <li>
    *                <p>stream.standard.medium</p>
    *             </li>
    *             <li>
@@ -955,6 +960,8 @@ export enum FleetErrorCode {
   DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME = "DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME",
   DOMAIN_JOIN_NERR_PASSWORD_EXPIRED = "DOMAIN_JOIN_NERR_PASSWORD_EXPIRED",
   DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED = "DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED",
+  FLEET_INSTANCE_PROVISIONING_FAILURE = "FLEET_INSTANCE_PROVISIONING_FAILURE",
+  FLEET_STOPPED = "FLEET_STOPPED",
   IAM_SERVICE_ROLE_IS_MISSING = "IAM_SERVICE_ROLE_IS_MISSING",
   IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION = "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION",
   IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION = "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION",
@@ -1038,6 +1045,9 @@ export interface Fleet {
   /**
    * <p>The instance type to use when launching fleet instances. The following instance types are available:</p>
    *         <ul>
+   *             <li>
+   *                <p>stream.standard.small</p>
+   *             </li>
    *             <li>
    *                <p>stream.standard.medium</p>
    *             </li>
@@ -1294,6 +1304,9 @@ export interface CreateImageBuilderRequest {
    * <p>The instance type to use when launching the image builder. The following instance types are available:</p>
    *         <ul>
    *             <li>
+   *                <p>stream.standard.small</p>
+   *             </li>
+   *             <li>
    *                <p>stream.standard.medium</p>
    *             </li>
    *             <li>
@@ -1507,11 +1520,13 @@ export enum ImageBuilderState {
   DELETING = "DELETING",
   FAILED = "FAILED",
   PENDING = "PENDING",
+  PENDING_QUALIFICATION = "PENDING_QUALIFICATION",
   REBOOTING = "REBOOTING",
   RUNNING = "RUNNING",
   SNAPSHOTTING = "SNAPSHOTTING",
   STOPPED = "STOPPED",
   STOPPING = "STOPPING",
+  UPDATING = "UPDATING",
   UPDATING_AGENT = "UPDATING_AGENT",
 }
 
@@ -1578,6 +1593,9 @@ export interface ImageBuilder {
   /**
    * <p>The instance type for the image builder. The following instance types are available:</p>
    *             <ul>
+   *             <li>
+   *                <p>stream.standard.small</p>
+   *             </li>
    *             <li>
    *                <p>stream.standard.medium</p>
    *             </li>
@@ -2053,7 +2071,7 @@ export interface CreateStreamingURLRequest {
 
   /**
    * <p>The name of the application to launch after the session starts. This is the name that you specified
-   *             as <b>Name</b> in the Image Assistant.</p>
+   *             as <b>Name</b> in the Image Assistant. If your fleet is enabled for the <b>Desktop</b> stream view, you can also choose to launch directly to the operating system desktop. To do so, specify <b>Desktop</b>.</p>
    */
   ApplicationId?: string;
 
@@ -2089,6 +2107,228 @@ export interface CreateStreamingURLResult {
 
 export namespace CreateStreamingURLResult {
   export const filterSensitiveLog = (obj: CreateStreamingURLResult): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateUpdatedImageRequest {
+  /**
+   * <p>The name of the image to update.</p>
+   */
+  existingImageName: string | undefined;
+
+  /**
+   * <p>The name of the new image. The name must be unique within the AWS account and Region.</p>
+   */
+  newImageName: string | undefined;
+
+  /**
+   * <p>The description to display for the new image.</p>
+   */
+  newImageDescription?: string;
+
+  /**
+   * <p>The name to display for the new image.</p>
+   */
+  newImageDisplayName?: string;
+
+  /**
+   * <p>The tags to associate with the new image. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=. </p>
+   *         <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p>
+   *         <p>_ . : / = + \ - @</p>
+   *         <p>If you do not specify a value, the value is set to an empty string.</p>
+   *         <p>For more information about tags, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+   */
+  newImageTags?: { [key: string]: string };
+
+  /**
+   * <p>Indicates whether to display the status of image update availability before AppStream 2.0 initiates the process of creating a new updated image. If this value is set to <code>true</code>, AppStream 2.0 displays whether image updates are available. If this value is set to <code>false</code>, AppStream 2.0 initiates the process of creating a new updated image without displaying whether image updates are available.</p>
+   */
+  dryRun?: boolean;
+}
+
+export namespace CreateUpdatedImageRequest {
+  export const filterSensitiveLog = (obj: CreateUpdatedImageRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the permissions for an image. </p>
+ */
+export interface ImagePermissions {
+  /**
+   * <p>Indicates whether the image can be used for a fleet.</p>
+   */
+  allowFleet?: boolean;
+
+  /**
+   * <p>Indicates whether the image can be used for an image builder.</p>
+   */
+  allowImageBuilder?: boolean;
+}
+
+export namespace ImagePermissions {
+  export const filterSensitiveLog = (obj: ImagePermissions): any => ({
+    ...obj,
+  });
+}
+
+export enum ImageState {
+  AVAILABLE = "AVAILABLE",
+  COPYING = "COPYING",
+  CREATING = "CREATING",
+  DELETING = "DELETING",
+  FAILED = "FAILED",
+  IMPORTING = "IMPORTING",
+  PENDING = "PENDING",
+}
+
+export enum ImageStateChangeReasonCode {
+  IMAGE_BUILDER_NOT_AVAILABLE = "IMAGE_BUILDER_NOT_AVAILABLE",
+  IMAGE_COPY_FAILURE = "IMAGE_COPY_FAILURE",
+  INTERNAL_ERROR = "INTERNAL_ERROR",
+}
+
+/**
+ * <p>Describes the reason why the last image state change occurred.</p>
+ */
+export interface ImageStateChangeReason {
+  /**
+   * <p>The state change reason code.</p>
+   */
+  Code?: ImageStateChangeReasonCode | string;
+
+  /**
+   * <p>The state change reason message.</p>
+   */
+  Message?: string;
+}
+
+export namespace ImageStateChangeReason {
+  export const filterSensitiveLog = (obj: ImageStateChangeReason): any => ({
+    ...obj,
+  });
+}
+
+export enum VisibilityType {
+  PRIVATE = "PRIVATE",
+  PUBLIC = "PUBLIC",
+  SHARED = "SHARED",
+}
+
+/**
+ * <p>Describes an image.</p>
+ */
+export interface Image {
+  /**
+   * <p>The name of the image.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The ARN of the image.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The ARN of the image from which this image was created.</p>
+   */
+  BaseImageArn?: string;
+
+  /**
+   * <p>The image name to display.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>The image starts in the <code>PENDING</code> state. If image creation succeeds, the
+   *             state is <code>AVAILABLE</code>. If image creation fails, the state is <code>FAILED</code>.</p>
+   */
+  State?: ImageState | string;
+
+  /**
+   * <p>Indicates whether the image is public or private.</p>
+   */
+  Visibility?: VisibilityType | string;
+
+  /**
+   * <p>Indicates whether an image builder can be launched from this image.</p>
+   */
+  ImageBuilderSupported?: boolean;
+
+  /**
+   * <p>The name of the image builder that was used to create the private image. If the image is shared, this value is null.</p>
+   */
+  ImageBuilderName?: string;
+
+  /**
+   * <p>The operating system platform of the image.</p>
+   */
+  Platform?: PlatformType | string;
+
+  /**
+   * <p>The description to display.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The reason why the last state change occurred.</p>
+   */
+  StateChangeReason?: ImageStateChangeReason;
+
+  /**
+   * <p>The applications associated with the image.</p>
+   */
+  Applications?: Application[];
+
+  /**
+   * <p>The time the image was created.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * <p>The release date of the public base image.
+   *             For private images, this date is the release date of the base image from which the image was created.</p>
+   */
+  PublicBaseImageReleasedDate?: Date;
+
+  /**
+   * <p>The version of the AppStream 2.0 agent to use for instances that are launched from this image. </p>
+   */
+  AppstreamAgentVersion?: string;
+
+  /**
+   * <p>The permissions to provide to the destination AWS account for the specified image.</p>
+   */
+  ImagePermissions?: ImagePermissions;
+
+  /**
+   * <p>Describes the errors that are returned when a new image can't be created.</p>
+   */
+  ImageErrors?: ResourceError[];
+}
+
+export namespace Image {
+  export const filterSensitiveLog = (obj: Image): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateUpdatedImageResult {
+  /**
+   * <p>Describes an image.</p>
+   */
+  image?: Image;
+
+  /**
+   * <p>Indicates whether a new image can be created.</p>
+   */
+  canUpdateImage?: boolean;
+}
+
+export namespace CreateUpdatedImageResult {
+  export const filterSensitiveLog = (obj: CreateUpdatedImageResult): any => ({
     ...obj,
   });
 }
@@ -2255,161 +2495,6 @@ export interface DeleteImageRequest {
 
 export namespace DeleteImageRequest {
   export const filterSensitiveLog = (obj: DeleteImageRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the permissions for an image. </p>
- */
-export interface ImagePermissions {
-  /**
-   * <p>Indicates whether the image can be used for a fleet.</p>
-   */
-  allowFleet?: boolean;
-
-  /**
-   * <p>Indicates whether the image can be used for an image builder.</p>
-   */
-  allowImageBuilder?: boolean;
-}
-
-export namespace ImagePermissions {
-  export const filterSensitiveLog = (obj: ImagePermissions): any => ({
-    ...obj,
-  });
-}
-
-export enum ImageState {
-  AVAILABLE = "AVAILABLE",
-  COPYING = "COPYING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  PENDING = "PENDING",
-}
-
-export enum ImageStateChangeReasonCode {
-  IMAGE_BUILDER_NOT_AVAILABLE = "IMAGE_BUILDER_NOT_AVAILABLE",
-  IMAGE_COPY_FAILURE = "IMAGE_COPY_FAILURE",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
-}
-
-/**
- * <p>Describes the reason why the last image state change occurred.</p>
- */
-export interface ImageStateChangeReason {
-  /**
-   * <p>The state change reason code.</p>
-   */
-  Code?: ImageStateChangeReasonCode | string;
-
-  /**
-   * <p>The state change reason message.</p>
-   */
-  Message?: string;
-}
-
-export namespace ImageStateChangeReason {
-  export const filterSensitiveLog = (obj: ImageStateChangeReason): any => ({
-    ...obj,
-  });
-}
-
-export enum VisibilityType {
-  PRIVATE = "PRIVATE",
-  PUBLIC = "PUBLIC",
-  SHARED = "SHARED",
-}
-
-/**
- * <p>Describes an image.</p>
- */
-export interface Image {
-  /**
-   * <p>The name of the image.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The ARN of the image.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The ARN of the image from which this image was created.</p>
-   */
-  BaseImageArn?: string;
-
-  /**
-   * <p>The image name to display.</p>
-   */
-  DisplayName?: string;
-
-  /**
-   * <p>The image starts in the <code>PENDING</code> state. If image creation succeeds, the
-   *             state is <code>AVAILABLE</code>. If image creation fails, the state is <code>FAILED</code>.</p>
-   */
-  State?: ImageState | string;
-
-  /**
-   * <p>Indicates whether the image is public or private.</p>
-   */
-  Visibility?: VisibilityType | string;
-
-  /**
-   * <p>Indicates whether an image builder can be launched from this image.</p>
-   */
-  ImageBuilderSupported?: boolean;
-
-  /**
-   * <p>The name of the image builder that was used to create the private image. If the image is shared, this value is null.</p>
-   */
-  ImageBuilderName?: string;
-
-  /**
-   * <p>The operating system platform of the image.</p>
-   */
-  Platform?: PlatformType | string;
-
-  /**
-   * <p>The description to display.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The reason why the last state change occurred.</p>
-   */
-  StateChangeReason?: ImageStateChangeReason;
-
-  /**
-   * <p>The applications associated with the image.</p>
-   */
-  Applications?: Application[];
-
-  /**
-   * <p>The time the image was created.</p>
-   */
-  CreatedTime?: Date;
-
-  /**
-   * <p>The release date of the public base image.
-   *             For private images, this date is the release date of the base image from which the image was created.</p>
-   */
-  PublicBaseImageReleasedDate?: Date;
-
-  /**
-   * <p>The version of the AppStream 2.0 agent to use for instances that are launched from this image. </p>
-   */
-  AppstreamAgentVersion?: string;
-
-  /**
-   * <p>The permissions to provide to the destination AWS account for the specified image.</p>
-   */
-  ImagePermissions?: ImagePermissions;
-}
-
-export namespace Image {
-  export const filterSensitiveLog = (obj: Image): any => ({
     ...obj,
   });
 }
@@ -3663,6 +3748,9 @@ export interface UpdateFleetRequest {
   /**
    * <p>The instance type to use when launching fleet instances. The following instance types are available:</p>
    *         <ul>
+   *             <li>
+   *                <p>stream.standard.small</p>
+   *             </li>
    *             <li>
    *                <p>stream.standard.medium</p>
    *             </li>

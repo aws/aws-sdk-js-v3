@@ -21,8 +21,15 @@ export type GetKeyPolicyCommandInput = GetKeyPolicyRequest;
 export type GetKeyPolicyCommandOutput = GetKeyPolicyResponse & __MetadataBearer;
 
 /**
- * <p>Gets a key policy attached to the specified customer master key (CMK).
- *       You cannot perform this operation on a CMK in a different AWS account.</p>
+ * <p>Gets a key policy attached to the specified customer master key (CMK).</p>
+ *          <p>
+ *             <b>Cross-account use</b>: No. You cannot perform this operation on a CMK in a different AWS account.</p>
+ *
+ *          <p>
+ *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:GetKeyPolicy</a> (key policy)</p>
+ *          <p>
+ *             <b>Related operations</b>: <a>PutKeyPolicy</a>
+ *          </p>
  */
 export class GetKeyPolicyCommand extends $Command<
   GetKeyPolicyCommandInput,

@@ -21,7 +21,9 @@ export type CancelAuditMitigationActionsTaskCommandInput = CancelAuditMitigation
 export type CancelAuditMitigationActionsTaskCommandOutput = CancelAuditMitigationActionsTaskResponse & __MetadataBearer;
 
 /**
- * <p>Cancels a mitigation action task that is in progress. If the task is not in progress, an InvalidRequestException occurs.</p>
+ * <p>Cancels a mitigation action task that is in progress. If the task
+ *       is not
+ *       in progress, an InvalidRequestException occurs.</p>
  */
 export class CancelAuditMitigationActionsTaskCommand extends $Command<
   CancelAuditMitigationActionsTaskCommandInput,

@@ -19,7 +19,8 @@ export type CreateUserCommandOutput = CreateUserResponse & __MetadataBearer;
 
 /**
  * <p>Creates a new IAM user for your AWS account.</p>
- *          <p>The number and size of IAM resources in an AWS account are limited. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS Quotas</a> in the <i>IAM User Guide</i>.</p>
+ *         <p> For information about quotas for the number of IAM users you can create, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS
+ *                 quotas</a> in the <i>IAM User Guide</i>.</p>
  */
 export class CreateUserCommand extends $Command<
   CreateUserCommandInput,

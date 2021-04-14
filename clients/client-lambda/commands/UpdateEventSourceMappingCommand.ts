@@ -21,8 +21,7 @@ export type UpdateEventSourceMappingCommandInput = UpdateEventSourceMappingReque
 export type UpdateEventSourceMappingCommandOutput = EventSourceMappingConfiguration & __MetadataBearer;
 
 /**
- * <p>Updates an event source mapping. You can change the function that AWS Lambda invokes, or pause invocation and
- *       resume later from the same location.</p>
+ * <p>Updates an event source mapping. You can change the function that AWS Lambda invokes, or pause invocation and resume later from the same location.</p>
  *          <p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p>
  *          <ul>
  *             <li>

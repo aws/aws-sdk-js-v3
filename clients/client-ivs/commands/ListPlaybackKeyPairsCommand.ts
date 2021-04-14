@@ -21,7 +21,8 @@ export type ListPlaybackKeyPairsCommandInput = ListPlaybackKeyPairsRequest;
 export type ListPlaybackKeyPairsCommandOutput = ListPlaybackKeyPairsResponse & __MetadataBearer;
 
 /**
- * <p>Gets summary information about playback key pairs.</p>
+ * <p>Gets summary information about playback key pairs. For more information, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html">Setting Up Private
+ *         Channels</a> in the <i>Amazon IVS User Guide</i>.</p>
  */
 export class ListPlaybackKeyPairsCommand extends $Command<
   ListPlaybackKeyPairsCommandInput,

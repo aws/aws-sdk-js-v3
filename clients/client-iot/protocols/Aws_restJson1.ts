@@ -36,6 +36,10 @@ import {
   CancelCertificateTransferCommandInput,
   CancelCertificateTransferCommandOutput,
 } from "../commands/CancelCertificateTransferCommand";
+import {
+  CancelDetectMitigationActionsTaskCommandInput,
+  CancelDetectMitigationActionsTaskCommandOutput,
+} from "../commands/CancelDetectMitigationActionsTaskCommand";
 import { CancelJobCommandInput, CancelJobCommandOutput } from "../commands/CancelJobCommand";
 import { CancelJobExecutionCommandInput, CancelJobExecutionCommandOutput } from "../commands/CancelJobExecutionCommand";
 import {
@@ -56,6 +60,7 @@ import {
   CreateCertificateFromCsrCommandInput,
   CreateCertificateFromCsrCommandOutput,
 } from "../commands/CreateCertificateFromCsrCommand";
+import { CreateCustomMetricCommandInput, CreateCustomMetricCommandOutput } from "../commands/CreateCustomMetricCommand";
 import { CreateDimensionCommandInput, CreateDimensionCommandOutput } from "../commands/CreateDimensionCommand";
 import {
   CreateDomainConfigurationCommandInput,
@@ -125,6 +130,7 @@ import {
   DeleteCACertificateCommandOutput,
 } from "../commands/DeleteCACertificateCommand";
 import { DeleteCertificateCommandInput, DeleteCertificateCommandOutput } from "../commands/DeleteCertificateCommand";
+import { DeleteCustomMetricCommandInput, DeleteCustomMetricCommandOutput } from "../commands/DeleteCustomMetricCommand";
 import { DeleteDimensionCommandInput, DeleteDimensionCommandOutput } from "../commands/DeleteDimensionCommand";
 import {
   DeleteDomainConfigurationCommandInput,
@@ -212,9 +218,17 @@ import {
   DescribeCertificateCommandOutput,
 } from "../commands/DescribeCertificateCommand";
 import {
+  DescribeCustomMetricCommandInput,
+  DescribeCustomMetricCommandOutput,
+} from "../commands/DescribeCustomMetricCommand";
+import {
   DescribeDefaultAuthorizerCommandInput,
   DescribeDefaultAuthorizerCommandOutput,
 } from "../commands/DescribeDefaultAuthorizerCommand";
+import {
+  DescribeDetectMitigationActionsTaskCommandInput,
+  DescribeDetectMitigationActionsTaskCommandOutput,
+} from "../commands/DescribeDetectMitigationActionsTaskCommand";
 import { DescribeDimensionCommandInput, DescribeDimensionCommandOutput } from "../commands/DescribeDimensionCommand";
 import {
   DescribeDomainConfigurationCommandInput,
@@ -275,6 +289,10 @@ import {
 } from "../commands/DetachThingPrincipalCommand";
 import { DisableTopicRuleCommandInput, DisableTopicRuleCommandOutput } from "../commands/DisableTopicRuleCommand";
 import { EnableTopicRuleCommandInput, EnableTopicRuleCommandOutput } from "../commands/EnableTopicRuleCommand";
+import {
+  GetBehaviorModelTrainingSummariesCommandInput,
+  GetBehaviorModelTrainingSummariesCommandOutput,
+} from "../commands/GetBehaviorModelTrainingSummariesCommand";
 import { GetCardinalityCommandInput, GetCardinalityCommandOutput } from "../commands/GetCardinalityCommand";
 import {
   GetEffectivePoliciesCommandInput,
@@ -334,6 +352,15 @@ import {
   ListCertificatesByCACommandOutput,
 } from "../commands/ListCertificatesByCACommand";
 import { ListCertificatesCommandInput, ListCertificatesCommandOutput } from "../commands/ListCertificatesCommand";
+import { ListCustomMetricsCommandInput, ListCustomMetricsCommandOutput } from "../commands/ListCustomMetricsCommand";
+import {
+  ListDetectMitigationActionsExecutionsCommandInput,
+  ListDetectMitigationActionsExecutionsCommandOutput,
+} from "../commands/ListDetectMitigationActionsExecutionsCommand";
+import {
+  ListDetectMitigationActionsTasksCommandInput,
+  ListDetectMitigationActionsTasksCommandOutput,
+} from "../commands/ListDetectMitigationActionsTasksCommand";
 import { ListDimensionsCommandInput, ListDimensionsCommandOutput } from "../commands/ListDimensionsCommand";
 import {
   ListDomainConfigurationsCommandInput,
@@ -492,6 +519,10 @@ import {
   StartAuditMitigationActionsTaskCommandOutput,
 } from "../commands/StartAuditMitigationActionsTaskCommand";
 import {
+  StartDetectMitigationActionsTaskCommandInput,
+  StartDetectMitigationActionsTaskCommandOutput,
+} from "../commands/StartDetectMitigationActionsTaskCommand";
+import {
   StartOnDemandAuditTaskCommandInput,
   StartOnDemandAuditTaskCommandOutput,
 } from "../commands/StartOnDemandAuditTaskCommand";
@@ -529,6 +560,7 @@ import {
   UpdateCACertificateCommandOutput,
 } from "../commands/UpdateCACertificateCommand";
 import { UpdateCertificateCommandInput, UpdateCertificateCommandOutput } from "../commands/UpdateCertificateCommand";
+import { UpdateCustomMetricCommandInput, UpdateCustomMetricCommandOutput } from "../commands/UpdateCustomMetricCommand";
 import { UpdateDimensionCommandInput, UpdateDimensionCommandOutput } from "../commands/UpdateDimensionCommand";
 import {
   UpdateDomainConfigurationCommandInput,
@@ -653,15 +685,16 @@ import {
   IotEventsAction,
   IotSiteWiseAction,
   JobExecutionsRolloutConfig,
+  KafkaAction,
   KeyPair,
   KinesisAction,
   LambdaAction,
   LimitExceededException,
+  MachineLearningDetectionConfig,
   MalformedPolicyException,
   MetricDimension,
   MetricToRetain,
   MetricValue,
-  MitigationAction,
   MitigationActionParams,
   NonCompliantResource,
   OTAUpdateFile,
@@ -695,7 +728,6 @@ import {
   StepFunctionsAction,
   StreamFile,
   Tag,
-  TaskStatistics,
   TaskStatisticsForAuditCheck,
   ThingGroupProperties,
   ThingTypeProperties,
@@ -713,9 +745,13 @@ import {
   UpdateDeviceCertificateParams,
   VersionConflictException,
   VersionsLimitExceededException,
+  ViolationEventAdditionalInfo,
+  VpcDestinationConfiguration,
+  VpcDestinationProperties,
   _Stream,
 } from "../models/models_0";
 import {
+  BehaviorModelTrainingSummary,
   BillingGroupMetadata,
   CACertificate,
   CACertificateDescription,
@@ -724,17 +760,19 @@ import {
   CertificateDescription,
   CertificateValidity,
   Configuration,
+  DetectMitigationActionExecution,
+  DetectMitigationActionsTaskStatistics,
+  DetectMitigationActionsTaskSummary,
+  DetectMitigationActionsTaskTarget,
   DomainConfigurationSummary,
   EffectivePolicy,
   ErrorInfo,
   EventType,
   Field,
   GroupNameAndArn,
-  HttpContext,
   HttpUrlDestinationSummary,
   IndexNotReadyException,
   InvalidAggregationException,
-  InvalidResponseException,
   Job,
   JobExecution,
   JobExecutionStatusDetails,
@@ -745,9 +783,8 @@ import {
   JobSummary,
   LogTarget,
   LogTargetConfiguration,
-  LoggingOptionsPayload,
+  MitigationAction,
   MitigationActionIdentifier,
-  MqttContext,
   NotConfiguredException,
   OTAUpdateInfo,
   OTAUpdateSummary,
@@ -758,7 +795,6 @@ import {
   ProvisioningTemplateVersionSummary,
   RegistrationCodeValidationException,
   RegistrationConfig,
-  ResourceRegistrationFailureException,
   RoleAliasDescription,
   ScheduledAuditMetadata,
   SecurityProfileIdentifier,
@@ -768,11 +804,8 @@ import {
   Statistics,
   StreamInfo,
   StreamSummary,
-  TaskAlreadyExistsException,
+  TaskStatistics,
   ThingAttribute,
-  ThingConnectivity,
-  ThingDocument,
-  ThingGroupDocument,
   ThingGroupIndexingConfiguration,
   ThingGroupMetadata,
   ThingIndexingConfiguration,
@@ -783,8 +816,23 @@ import {
   TopicRuleListItem,
   TransferData,
   ViolationEvent,
+  ViolationEventOccurrenceRange,
+  VpcDestinationSummary,
 } from "../models/models_1";
-import { TlsContext, TransferConflictException, ValidationError } from "../models/models_2";
+import {
+  HttpContext,
+  InvalidResponseException,
+  LoggingOptionsPayload,
+  MqttContext,
+  ResourceRegistrationFailureException,
+  TaskAlreadyExistsException,
+  ThingConnectivity,
+  ThingDocument,
+  ThingGroupDocument,
+  TlsContext,
+  TransferConflictException,
+  ValidationError,
+} from "../models/models_2";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
@@ -1137,6 +1185,34 @@ export const serializeAws_restJson1CancelCertificateTransferCommand = async (
   });
 };
 
+export const serializeAws_restJson1CancelDetectMitigationActionsTaskCommand = async (
+  input: CancelDetectMitigationActionsTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/detect/mitigationactions/tasks/{taskId}/cancel";
+  if (input.taskId !== undefined) {
+    const labelValue: string = input.taskId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: taskId.");
+    }
+    resolvedPath = resolvedPath.replace("{taskId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: taskId.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1CancelJobCommand = async (
   input: CancelJobCommandInput,
   context: __SerdeContext
@@ -1421,6 +1497,43 @@ export const serializeAws_restJson1CreateCertificateFromCsrCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateCustomMetricCommand = async (
+  input: CreateCustomMetricCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = "/custom-metric/{metricName}";
+  if (input.metricName !== undefined) {
+    const labelValue: string = input.metricName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: metricName.");
+    }
+    resolvedPath = resolvedPath.replace("{metricName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: metricName.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
+    ...(input.displayName !== undefined && input.displayName !== null && { displayName: input.displayName }),
+    ...(input.metricType !== undefined && input.metricType !== null && { metricType: input.metricType }),
+    ...(input.tags !== undefined &&
+      input.tags !== null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -2444,6 +2557,34 @@ export const serializeAws_restJson1DeleteCertificateCommand = async (
   });
 };
 
+export const serializeAws_restJson1DeleteCustomMetricCommand = async (
+  input: DeleteCustomMetricCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/custom-metric/{metricName}";
+  if (input.metricName !== undefined) {
+    const labelValue: string = input.metricName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: metricName.");
+    }
+    resolvedPath = resolvedPath.replace("{metricName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: metricName.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DeleteDimensionCommand = async (
   input: DeleteDimensionCommandInput,
   context: __SerdeContext
@@ -3398,6 +3539,34 @@ export const serializeAws_restJson1DescribeCertificateCommand = async (
   });
 };
 
+export const serializeAws_restJson1DescribeCustomMetricCommand = async (
+  input: DescribeCustomMetricCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/custom-metric/{metricName}";
+  if (input.metricName !== undefined) {
+    const labelValue: string = input.metricName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: metricName.");
+    }
+    resolvedPath = resolvedPath.replace("{metricName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: metricName.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DescribeDefaultAuthorizerCommand = async (
   input: DescribeDefaultAuthorizerCommandInput,
   context: __SerdeContext
@@ -3406,6 +3575,34 @@ export const serializeAws_restJson1DescribeDefaultAuthorizerCommand = async (
   let resolvedPath = "/default-authorizer";
   let body: any;
   body = "";
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeDetectMitigationActionsTaskCommand = async (
+  input: DescribeDetectMitigationActionsTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/detect/mitigationactions/tasks/{taskId}";
+  if (input.taskId !== undefined) {
+    const labelValue: string = input.taskId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: taskId.");
+    }
+    resolvedPath = resolvedPath.replace("{taskId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: taskId.");
+  }
+  let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -4112,6 +4309,31 @@ export const serializeAws_restJson1EnableTopicRuleCommand = async (
   });
 };
 
+export const serializeAws_restJson1GetBehaviorModelTrainingSummariesCommand = async (
+  input: GetBehaviorModelTrainingSummariesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/behavior-model-training/summaries";
+  const query: any = {
+    ...(input.securityProfileName !== undefined && { securityProfileName: input.securityProfileName }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1GetCardinalityCommand = async (
   input: GetCardinalityCommandInput,
   context: __SerdeContext
@@ -4500,6 +4722,8 @@ export const serializeAws_restJson1ListActiveViolationsCommand = async (
   const query: any = {
     ...(input.thingName !== undefined && { thingName: input.thingName }),
     ...(input.securityProfileName !== undefined && { securityProfileName: input.securityProfileName }),
+    ...(input.behaviorCriteriaType !== undefined && { behaviorCriteriaType: input.behaviorCriteriaType }),
+    ...(input.listSuppressedAlerts !== undefined && { listSuppressedAlerts: input.listSuppressedAlerts.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
@@ -4824,6 +5048,85 @@ export const serializeAws_restJson1ListCertificatesByCACommand = async (
     ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
     ...(input.marker !== undefined && { marker: input.marker }),
     ...(input.ascendingOrder !== undefined && { isAscendingOrder: input.ascendingOrder.toString() }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListCustomMetricsCommand = async (
+  input: ListCustomMetricsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/custom-metrics";
+  const query: any = {
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListDetectMitigationActionsExecutionsCommand = async (
+  input: ListDetectMitigationActionsExecutionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/detect/mitigationactions/executions";
+  const query: any = {
+    ...(input.taskId !== undefined && { taskId: input.taskId }),
+    ...(input.violationId !== undefined && { violationId: input.violationId }),
+    ...(input.thingName !== undefined && { thingName: input.thingName }),
+    ...(input.startTime !== undefined && { startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString() }),
+    ...(input.endTime !== undefined && { endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString() }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListDetectMitigationActionsTasksCommand = async (
+  input: ListDetectMitigationActionsTasksCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/detect/mitigationactions/tasks";
+  const query: any = {
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.startTime !== undefined && { startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString() }),
+    ...(input.endTime !== undefined && { endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5334,6 +5637,7 @@ export const serializeAws_restJson1ListSecurityProfilesCommand = async (
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.dimensionName !== undefined && { dimensionName: input.dimensionName }),
+    ...(input.metricName !== undefined && { metricName: input.metricName }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5654,6 +5958,9 @@ export const serializeAws_restJson1ListThingsCommand = async (
     ...(input.attributeName !== undefined && { attributeName: input.attributeName }),
     ...(input.attributeValue !== undefined && { attributeValue: input.attributeValue }),
     ...(input.thingTypeName !== undefined && { thingTypeName: input.thingTypeName }),
+    ...(input.usePrefixAttributeValue !== undefined && {
+      usePrefixAttributeValue: input.usePrefixAttributeValue.toString(),
+    }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5847,6 +6154,8 @@ export const serializeAws_restJson1ListViolationEventsCommand = async (
     ...(input.endTime !== undefined && { endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString() }),
     ...(input.thingName !== undefined && { thingName: input.thingName }),
     ...(input.securityProfileName !== undefined && { securityProfileName: input.securityProfileName }),
+    ...(input.behaviorCriteriaType !== undefined && { behaviorCriteriaType: input.behaviorCriteriaType }),
+    ...(input.listSuppressedAlerts !== undefined && { listSuppressedAlerts: input.listSuppressedAlerts.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
@@ -6322,6 +6631,58 @@ export const serializeAws_restJson1StartAuditMitigationActionsTaskCommand = asyn
     hostname,
     port,
     method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1StartDetectMitigationActionsTaskCommand = async (
+  input: StartDetectMitigationActionsTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = "/detect/mitigationactions/tasks/{taskId}";
+  if (input.taskId !== undefined) {
+    const labelValue: string = input.taskId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: taskId.");
+    }
+    resolvedPath = resolvedPath.replace("{taskId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: taskId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.actions !== undefined &&
+      input.actions !== null && {
+        actions: serializeAws_restJson1DetectMitigationActionsToExecuteList(input.actions, context),
+      }),
+    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
+    ...(input.includeOnlyActiveViolations !== undefined &&
+      input.includeOnlyActiveViolations !== null && { includeOnlyActiveViolations: input.includeOnlyActiveViolations }),
+    ...(input.includeSuppressedAlerts !== undefined &&
+      input.includeSuppressedAlerts !== null && { includeSuppressedAlerts: input.includeSuppressedAlerts }),
+    ...(input.target !== undefined &&
+      input.target !== null && {
+        target: serializeAws_restJson1DetectMitigationActionsTaskTarget(input.target, context),
+      }),
+    ...(input.violationEventOccurrenceRange !== undefined &&
+      input.violationEventOccurrenceRange !== null && {
+        violationEventOccurrenceRange: serializeAws_restJson1ViolationEventOccurrenceRange(
+          input.violationEventOccurrenceRange,
+          context
+        ),
+      }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
     headers,
     path: resolvedPath,
     body,
@@ -6804,6 +7165,39 @@ export const serializeAws_restJson1UpdateCertificateCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateCustomMetricCommand = async (
+  input: UpdateCustomMetricCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = "/custom-metric/{metricName}";
+  if (input.metricName !== undefined) {
+    const labelValue: string = input.metricName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: metricName.");
+    }
+    resolvedPath = resolvedPath.replace("{metricName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: metricName.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.displayName !== undefined && input.displayName !== null && { displayName: input.displayName }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -8434,6 +8828,81 @@ const deserializeAws_restJson1CancelCertificateTransferCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1CancelDetectMitigationActionsTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelDetectMitigationActionsTaskCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CancelDetectMitigationActionsTaskCommandError(output, context);
+  }
+  const contents: CancelDetectMitigationActionsTaskCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CancelDetectMitigationActionsTaskCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelDetectMitigationActionsTaskCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iot#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iot#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iot#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iot#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1CancelJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -9137,6 +9606,97 @@ const deserializeAws_restJson1CreateCertificateFromCsrCommandError = async (
     case "com.amazonaws.iot#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1CreateCustomMetricCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCustomMetricCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateCustomMetricCommandError(output, context);
+  }
+  const contents: CreateCustomMetricCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    metricArn: undefined,
+    metricName: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.metricArn !== undefined && data.metricArn !== null) {
+    contents.metricArn = data.metricArn;
+  }
+  if (data.metricName !== undefined && data.metricName !== null) {
+    contents.metricName = data.metricName;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateCustomMetricCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCustomMetricCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iot#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iot#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.iot#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.iot#ResourceAlreadyExistsException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iot#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -11850,6 +12410,73 @@ const deserializeAws_restJson1DeleteCertificateCommandError = async (
     case "com.amazonaws.iot#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DeleteCustomMetricCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCustomMetricCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteCustomMetricCommandError(output, context);
+  }
+  const contents: DeleteCustomMetricCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteCustomMetricCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCustomMetricCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iot#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iot#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iot#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -14716,6 +15343,105 @@ const deserializeAws_restJson1DescribeCertificateCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DescribeCustomMetricCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCustomMetricCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeCustomMetricCommandError(output, context);
+  }
+  const contents: DescribeCustomMetricCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    creationDate: undefined,
+    displayName: undefined,
+    lastModifiedDate: undefined,
+    metricArn: undefined,
+    metricName: undefined,
+    metricType: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.creationDate !== undefined && data.creationDate !== null) {
+    contents.creationDate = new Date(Math.round(data.creationDate * 1000));
+  }
+  if (data.displayName !== undefined && data.displayName !== null) {
+    contents.displayName = data.displayName;
+  }
+  if (data.lastModifiedDate !== undefined && data.lastModifiedDate !== null) {
+    contents.lastModifiedDate = new Date(Math.round(data.lastModifiedDate * 1000));
+  }
+  if (data.metricArn !== undefined && data.metricArn !== null) {
+    contents.metricArn = data.metricArn;
+  }
+  if (data.metricName !== undefined && data.metricName !== null) {
+    contents.metricName = data.metricName;
+  }
+  if (data.metricType !== undefined && data.metricType !== null) {
+    contents.metricType = data.metricType;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeCustomMetricCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCustomMetricCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iot#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iot#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iot#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iot#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DescribeDefaultAuthorizerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -14790,6 +15516,85 @@ const deserializeAws_restJson1DescribeDefaultAuthorizerCommandError = async (
     case "com.amazonaws.iot#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DescribeDetectMitigationActionsTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDetectMitigationActionsTaskCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeDetectMitigationActionsTaskCommandError(output, context);
+  }
+  const contents: DescribeDetectMitigationActionsTaskCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    taskSummary: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.taskSummary !== undefined && data.taskSummary !== null) {
+    contents.taskSummary = deserializeAws_restJson1DetectMitigationActionsTaskSummary(data.taskSummary, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeDetectMitigationActionsTaskCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDetectMitigationActionsTaskCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iot#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iot#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iot#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iot#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -17185,6 +17990,89 @@ const deserializeAws_restJson1EnableTopicRuleCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1GetBehaviorModelTrainingSummariesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetBehaviorModelTrainingSummariesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetBehaviorModelTrainingSummariesCommandError(output, context);
+  }
+  const contents: GetBehaviorModelTrainingSummariesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    nextToken: undefined,
+    summaries: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = data.nextToken;
+  }
+  if (data.summaries !== undefined && data.summaries !== null) {
+    contents.summaries = deserializeAws_restJson1BehaviorModelTrainingSummaries(data.summaries, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetBehaviorModelTrainingSummariesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetBehaviorModelTrainingSummariesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iot#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iot#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iot#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iot#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1GetCardinalityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -19555,6 +20443,234 @@ const deserializeAws_restJson1ListCertificatesByCACommandError = async (
     case "com.amazonaws.iot#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListCustomMetricsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCustomMetricsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListCustomMetricsCommandError(output, context);
+  }
+  const contents: ListCustomMetricsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    metricNames: undefined,
+    nextToken: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.metricNames !== undefined && data.metricNames !== null) {
+    contents.metricNames = deserializeAws_restJson1MetricNames(data.metricNames, context);
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = data.nextToken;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListCustomMetricsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCustomMetricsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iot#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iot#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iot#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListDetectMitigationActionsExecutionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDetectMitigationActionsExecutionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListDetectMitigationActionsExecutionsCommandError(output, context);
+  }
+  const contents: ListDetectMitigationActionsExecutionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    actionsExecutions: undefined,
+    nextToken: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.actionsExecutions !== undefined && data.actionsExecutions !== null) {
+    contents.actionsExecutions = deserializeAws_restJson1DetectMitigationActionExecutionList(
+      data.actionsExecutions,
+      context
+    );
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = data.nextToken;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListDetectMitigationActionsExecutionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDetectMitigationActionsExecutionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iot#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iot#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iot#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListDetectMitigationActionsTasksCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDetectMitigationActionsTasksCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListDetectMitigationActionsTasksCommandError(output, context);
+  }
+  const contents: ListDetectMitigationActionsTasksCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    nextToken: undefined,
+    tasks: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = data.nextToken;
+  }
+  if (data.tasks !== undefined && data.tasks !== null) {
+    contents.tasks = deserializeAws_restJson1DetectMitigationActionsTaskSummaryList(data.tasks, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListDetectMitigationActionsTasksCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDetectMitigationActionsTasksCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iot#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iot#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iot#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -24244,6 +25360,93 @@ const deserializeAws_restJson1StartAuditMitigationActionsTaskCommandError = asyn
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1StartDetectMitigationActionsTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartDetectMitigationActionsTaskCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1StartDetectMitigationActionsTaskCommandError(output, context);
+  }
+  const contents: StartDetectMitigationActionsTaskCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    taskId: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.taskId !== undefined && data.taskId !== null) {
+    contents.taskId = data.taskId;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1StartDetectMitigationActionsTaskCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartDetectMitigationActionsTaskCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iot#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iot#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.iot#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TaskAlreadyExistsException":
+    case "com.amazonaws.iot#TaskAlreadyExistsException":
+      response = {
+        ...(await deserializeAws_restJson1TaskAlreadyExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iot#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1StartOnDemandAuditTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -25481,6 +26684,105 @@ const deserializeAws_restJson1UpdateCertificateCommandError = async (
     case "com.amazonaws.iot#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UpdateCustomMetricCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCustomMetricCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateCustomMetricCommandError(output, context);
+  }
+  const contents: UpdateCustomMetricCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    creationDate: undefined,
+    displayName: undefined,
+    lastModifiedDate: undefined,
+    metricArn: undefined,
+    metricName: undefined,
+    metricType: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.creationDate !== undefined && data.creationDate !== null) {
+    contents.creationDate = new Date(Math.round(data.creationDate * 1000));
+  }
+  if (data.displayName !== undefined && data.displayName !== null) {
+    contents.displayName = data.displayName;
+  }
+  if (data.lastModifiedDate !== undefined && data.lastModifiedDate !== null) {
+    contents.lastModifiedDate = new Date(Math.round(data.lastModifiedDate * 1000));
+  }
+  if (data.metricArn !== undefined && data.metricArn !== null) {
+    contents.metricArn = data.metricArn;
+  }
+  if (data.metricName !== undefined && data.metricName !== null) {
+    contents.metricName = data.metricName;
+  }
+  if (data.metricType !== undefined && data.metricType !== null) {
+    contents.metricType = data.metricType;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateCustomMetricCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCustomMetricCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iot#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iot#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iot#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iot#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -27595,6 +28897,8 @@ const serializeAws_restJson1Action = (input: Action, context: __SerdeContext): a
       input.iotSiteWise !== null && {
         iotSiteWise: serializeAws_restJson1IotSiteWiseAction(input.iotSiteWise, context),
       }),
+    ...(input.kafka !== undefined &&
+      input.kafka !== null && { kafka: serializeAws_restJson1KafkaAction(input.kafka, context) }),
     ...(input.kinesis !== undefined &&
       input.kinesis !== null && { kinesis: serializeAws_restJson1KinesisAction(input.kinesis, context) }),
     ...(input.lambda !== undefined &&
@@ -28006,6 +29310,8 @@ const serializeAws_restJson1Behavior = (input: Behavior, context: __SerdeContext
         metricDimension: serializeAws_restJson1MetricDimension(input.metricDimension, context),
       }),
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.suppressAlerts !== undefined &&
+      input.suppressAlerts !== null && { suppressAlerts: input.suppressAlerts }),
   };
 };
 
@@ -28023,6 +29329,10 @@ const serializeAws_restJson1BehaviorCriteria = (input: BehaviorCriteria, context
       }),
     ...(input.durationSeconds !== undefined &&
       input.durationSeconds !== null && { durationSeconds: input.durationSeconds }),
+    ...(input.mlDetectionConfig !== undefined &&
+      input.mlDetectionConfig !== null && {
+        mlDetectionConfig: serializeAws_restJson1MachineLearningDetectionConfig(input.mlDetectionConfig, context),
+      }),
     ...(input.statisticalThreshold !== undefined &&
       input.statisticalThreshold !== null && {
         statisticalThreshold: serializeAws_restJson1StatisticalThreshold(input.statisticalThreshold, context),
@@ -28059,6 +29369,18 @@ const serializeAws_restJson1Cidrs = (input: string[], context: __SerdeContext): 
       }
       return entry;
     });
+};
+
+const serializeAws_restJson1ClientProperties = (input: { [key: string]: string }, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
 };
 
 const serializeAws_restJson1CloudwatchAlarmAction = (input: CloudwatchAlarmAction, context: __SerdeContext): any => {
@@ -28166,6 +29488,32 @@ const serializeAws_restJson1DetailsMap = (input: { [key: string]: string }, cont
       [key]: value,
     };
   }, {});
+};
+
+const serializeAws_restJson1DetectMitigationActionsTaskTarget = (
+  input: DetectMitigationActionsTaskTarget,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.behaviorName !== undefined && input.behaviorName !== null && { behaviorName: input.behaviorName }),
+    ...(input.securityProfileName !== undefined &&
+      input.securityProfileName !== null && { securityProfileName: input.securityProfileName }),
+    ...(input.violationIds !== undefined &&
+      input.violationIds !== null && {
+        violationIds: serializeAws_restJson1TargetViolationIdsForDetectMitigationActions(input.violationIds, context),
+      }),
+  };
+};
+
+const serializeAws_restJson1DetectMitigationActionsToExecuteList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1DimensionStringValues = (input: string[], context: __SerdeContext): any => {
@@ -28422,6 +29770,20 @@ const serializeAws_restJson1JobTargets = (input: string[], context: __SerdeConte
     });
 };
 
+const serializeAws_restJson1KafkaAction = (input: KafkaAction, context: __SerdeContext): any => {
+  return {
+    ...(input.clientProperties !== undefined &&
+      input.clientProperties !== null && {
+        clientProperties: serializeAws_restJson1ClientProperties(input.clientProperties, context),
+      }),
+    ...(input.destinationArn !== undefined &&
+      input.destinationArn !== null && { destinationArn: input.destinationArn }),
+    ...(input.key !== undefined && input.key !== null && { key: input.key }),
+    ...(input.partition !== undefined && input.partition !== null && { partition: input.partition }),
+    ...(input.topic !== undefined && input.topic !== null && { topic: input.topic }),
+  };
+};
+
 const serializeAws_restJson1KinesisAction = (input: KinesisAction, context: __SerdeContext): any => {
   return {
     ...(input.partitionKey !== undefined && input.partitionKey !== null && { partitionKey: input.partitionKey }),
@@ -28450,6 +29812,16 @@ const serializeAws_restJson1LogTarget = (input: LogTarget, context: __SerdeConte
   };
 };
 
+const serializeAws_restJson1MachineLearningDetectionConfig = (
+  input: MachineLearningDetectionConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.confidenceLevel !== undefined &&
+      input.confidenceLevel !== null && { confidenceLevel: input.confidenceLevel }),
+  };
+};
+
 const serializeAws_restJson1MetricDimension = (input: MetricDimension, context: __SerdeContext): any => {
   return {
     ...(input.dimensionName !== undefined && input.dimensionName !== null && { dimensionName: input.dimensionName }),
@@ -28472,8 +29844,13 @@ const serializeAws_restJson1MetricValue = (input: MetricValue, context: __SerdeC
     ...(input.cidrs !== undefined &&
       input.cidrs !== null && { cidrs: serializeAws_restJson1Cidrs(input.cidrs, context) }),
     ...(input.count !== undefined && input.count !== null && { count: input.count }),
+    ...(input.number !== undefined && input.number !== null && { number: input.number }),
+    ...(input.numbers !== undefined &&
+      input.numbers !== null && { numbers: serializeAws_restJson1NumberList(input.numbers, context) }),
     ...(input.ports !== undefined &&
       input.ports !== null && { ports: serializeAws_restJson1Ports(input.ports, context) }),
+    ...(input.strings !== undefined &&
+      input.strings !== null && { strings: serializeAws_restJson1StringList(input.strings, context) }),
   };
 };
 
@@ -28538,6 +29915,17 @@ const serializeAws_restJson1MqttContext = (input: MqttContext, context: __SerdeC
     ...(input.password !== undefined && input.password !== null && { password: context.base64Encoder(input.password) }),
     ...(input.username !== undefined && input.username !== null && { username: input.username }),
   };
+};
+
+const serializeAws_restJson1NumberList = (input: number[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1OTAUpdateFile = (input: OTAUpdateFile, context: __SerdeContext): any => {
@@ -28820,6 +30208,17 @@ const serializeAws_restJson1SearchableAttributes = (input: string[], context: __
     });
 };
 
+const serializeAws_restJson1SecurityGroupList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_restJson1ServerCertificateArns = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -28926,6 +30325,28 @@ const serializeAws_restJson1StreamFiles = (input: StreamFile[], context: __Serde
     });
 };
 
+const serializeAws_restJson1StringList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_restJson1SubnetIdList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
@@ -28967,6 +30388,20 @@ const serializeAws_restJson1TargetAuditCheckNames = (input: string[], context: _
 };
 
 const serializeAws_restJson1Targets = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_restJson1TargetViolationIdsForDetectMitigationActions = (
+  input: string[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -29117,6 +30552,10 @@ const serializeAws_restJson1TopicRuleDestinationConfiguration = (
           context
         ),
       }),
+    ...(input.vpcConfiguration !== undefined &&
+      input.vpcConfiguration !== null && {
+        vpcConfiguration: serializeAws_restJson1VpcDestinationConfiguration(input.vpcConfiguration, context),
+      }),
   };
 };
 
@@ -29149,6 +30588,34 @@ const serializeAws_restJson1UpdateDeviceCertificateParams = (
 ): any => {
   return {
     ...(input.action !== undefined && input.action !== null && { action: input.action }),
+  };
+};
+
+const serializeAws_restJson1ViolationEventOccurrenceRange = (
+  input: ViolationEventOccurrenceRange,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.endTime !== undefined &&
+      input.endTime !== null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
+    ...(input.startTime !== undefined &&
+      input.startTime !== null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
+  };
+};
+
+const serializeAws_restJson1VpcDestinationConfiguration = (
+  input: VpcDestinationConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
+    ...(input.securityGroups !== undefined &&
+      input.securityGroups !== null && {
+        securityGroups: serializeAws_restJson1SecurityGroupList(input.securityGroups, context),
+      }),
+    ...(input.subnetIds !== undefined &&
+      input.subnetIds !== null && { subnetIds: serializeAws_restJson1SubnetIdList(input.subnetIds, context) }),
+    ...(input.vpcId !== undefined && input.vpcId !== null && { vpcId: input.vpcId }),
   };
 };
 
@@ -29233,6 +30700,10 @@ const deserializeAws_restJson1Action = (output: any, context: __SerdeContext): A
       output.iotSiteWise !== undefined && output.iotSiteWise !== null
         ? deserializeAws_restJson1IotSiteWiseAction(output.iotSiteWise, context)
         : undefined,
+    kafka:
+      output.kafka !== undefined && output.kafka !== null
+        ? deserializeAws_restJson1KafkaAction(output.kafka, context)
+        : undefined,
     kinesis:
       output.kinesis !== undefined && output.kinesis !== null
         ? deserializeAws_restJson1KinesisAction(output.kinesis, context)
@@ -29300,6 +30771,10 @@ const deserializeAws_restJson1ActiveViolation = (output: any, context: __SerdeCo
         ? output.securityProfileName
         : undefined,
     thingName: output.thingName !== undefined && output.thingName !== null ? output.thingName : undefined,
+    violationEventAdditionalInfo:
+      output.violationEventAdditionalInfo !== undefined && output.violationEventAdditionalInfo !== null
+        ? deserializeAws_restJson1ViolationEventAdditionalInfo(output.violationEventAdditionalInfo, context)
+        : undefined,
     violationId: output.violationId !== undefined && output.violationId !== null ? output.violationId : undefined,
     violationStartTime:
       output.violationStartTime !== undefined && output.violationStartTime !== null
@@ -29992,6 +31467,8 @@ const deserializeAws_restJson1Behavior = (output: any, context: __SerdeContext):
         ? deserializeAws_restJson1MetricDimension(output.metricDimension, context)
         : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    suppressAlerts:
+      output.suppressAlerts !== undefined && output.suppressAlerts !== null ? output.suppressAlerts : undefined,
   } as any;
 };
 
@@ -30011,6 +31488,10 @@ const deserializeAws_restJson1BehaviorCriteria = (output: any, context: __SerdeC
         : undefined,
     durationSeconds:
       output.durationSeconds !== undefined && output.durationSeconds !== null ? output.durationSeconds : undefined,
+    mlDetectionConfig:
+      output.mlDetectionConfig !== undefined && output.mlDetectionConfig !== null
+        ? deserializeAws_restJson1MachineLearningDetectionConfig(output.mlDetectionConfig, context)
+        : undefined,
     statisticalThreshold:
       output.statisticalThreshold !== undefined && output.statisticalThreshold !== null
         ? deserializeAws_restJson1StatisticalThreshold(output.statisticalThreshold, context)
@@ -30018,6 +31499,46 @@ const deserializeAws_restJson1BehaviorCriteria = (output: any, context: __SerdeC
     value:
       output.value !== undefined && output.value !== null
         ? deserializeAws_restJson1MetricValue(output.value, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1BehaviorModelTrainingSummaries = (
+  output: any,
+  context: __SerdeContext
+): BehaviorModelTrainingSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1BehaviorModelTrainingSummary(entry, context);
+    });
+};
+
+const deserializeAws_restJson1BehaviorModelTrainingSummary = (
+  output: any,
+  context: __SerdeContext
+): BehaviorModelTrainingSummary => {
+  return {
+    behaviorName: output.behaviorName !== undefined && output.behaviorName !== null ? output.behaviorName : undefined,
+    datapointsCollectionPercentage:
+      output.datapointsCollectionPercentage !== undefined && output.datapointsCollectionPercentage !== null
+        ? output.datapointsCollectionPercentage
+        : undefined,
+    lastModelRefreshDate:
+      output.lastModelRefreshDate !== undefined && output.lastModelRefreshDate !== null
+        ? new Date(Math.round(output.lastModelRefreshDate * 1000))
+        : undefined,
+    modelStatus: output.modelStatus !== undefined && output.modelStatus !== null ? output.modelStatus : undefined,
+    securityProfileName:
+      output.securityProfileName !== undefined && output.securityProfileName !== null
+        ? output.securityProfileName
+        : undefined,
+    trainingDataCollectionStartDate:
+      output.trainingDataCollectionStartDate !== undefined && output.trainingDataCollectionStartDate !== null
+        ? new Date(Math.round(output.trainingDataCollectionStartDate * 1000))
         : undefined,
   } as any;
 };
@@ -30220,6 +31741,18 @@ const deserializeAws_restJson1Cidrs = (output: any, context: __SerdeContext): st
     });
 };
 
+const deserializeAws_restJson1ClientProperties = (output: any, context: __SerdeContext): { [key: string]: string } => {
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
+};
+
 const deserializeAws_restJson1CloudwatchAlarmAction = (output: any, context: __SerdeContext): CloudwatchAlarmAction => {
   return {
     alarmName: output.alarmName !== undefined && output.alarmName !== null ? output.alarmName : undefined,
@@ -30345,6 +31878,130 @@ const deserializeAws_restJson1DetailsMap = (output: any, context: __SerdeContext
       [key]: value,
     };
   }, {});
+};
+
+const deserializeAws_restJson1DetectMitigationActionExecution = (
+  output: any,
+  context: __SerdeContext
+): DetectMitigationActionExecution => {
+  return {
+    actionName: output.actionName !== undefined && output.actionName !== null ? output.actionName : undefined,
+    errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
+    executionEndDate:
+      output.executionEndDate !== undefined && output.executionEndDate !== null
+        ? new Date(Math.round(output.executionEndDate * 1000))
+        : undefined,
+    executionStartDate:
+      output.executionStartDate !== undefined && output.executionStartDate !== null
+        ? new Date(Math.round(output.executionStartDate * 1000))
+        : undefined,
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    taskId: output.taskId !== undefined && output.taskId !== null ? output.taskId : undefined,
+    thingName: output.thingName !== undefined && output.thingName !== null ? output.thingName : undefined,
+    violationId: output.violationId !== undefined && output.violationId !== null ? output.violationId : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DetectMitigationActionExecutionList = (
+  output: any,
+  context: __SerdeContext
+): DetectMitigationActionExecution[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DetectMitigationActionExecution(entry, context);
+    });
+};
+
+const deserializeAws_restJson1DetectMitigationActionsTaskStatistics = (
+  output: any,
+  context: __SerdeContext
+): DetectMitigationActionsTaskStatistics => {
+  return {
+    actionsExecuted:
+      output.actionsExecuted !== undefined && output.actionsExecuted !== null ? output.actionsExecuted : undefined,
+    actionsFailed:
+      output.actionsFailed !== undefined && output.actionsFailed !== null ? output.actionsFailed : undefined,
+    actionsSkipped:
+      output.actionsSkipped !== undefined && output.actionsSkipped !== null ? output.actionsSkipped : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DetectMitigationActionsTaskSummary = (
+  output: any,
+  context: __SerdeContext
+): DetectMitigationActionsTaskSummary => {
+  return {
+    actionsDefinition:
+      output.actionsDefinition !== undefined && output.actionsDefinition !== null
+        ? deserializeAws_restJson1MitigationActionList(output.actionsDefinition, context)
+        : undefined,
+    onlyActiveViolationsIncluded:
+      output.onlyActiveViolationsIncluded !== undefined && output.onlyActiveViolationsIncluded !== null
+        ? output.onlyActiveViolationsIncluded
+        : undefined,
+    suppressedAlertsIncluded:
+      output.suppressedAlertsIncluded !== undefined && output.suppressedAlertsIncluded !== null
+        ? output.suppressedAlertsIncluded
+        : undefined,
+    target:
+      output.target !== undefined && output.target !== null
+        ? deserializeAws_restJson1DetectMitigationActionsTaskTarget(output.target, context)
+        : undefined,
+    taskEndTime:
+      output.taskEndTime !== undefined && output.taskEndTime !== null
+        ? new Date(Math.round(output.taskEndTime * 1000))
+        : undefined,
+    taskId: output.taskId !== undefined && output.taskId !== null ? output.taskId : undefined,
+    taskStartTime:
+      output.taskStartTime !== undefined && output.taskStartTime !== null
+        ? new Date(Math.round(output.taskStartTime * 1000))
+        : undefined,
+    taskStatistics:
+      output.taskStatistics !== undefined && output.taskStatistics !== null
+        ? deserializeAws_restJson1DetectMitigationActionsTaskStatistics(output.taskStatistics, context)
+        : undefined,
+    taskStatus: output.taskStatus !== undefined && output.taskStatus !== null ? output.taskStatus : undefined,
+    violationEventOccurrenceRange:
+      output.violationEventOccurrenceRange !== undefined && output.violationEventOccurrenceRange !== null
+        ? deserializeAws_restJson1ViolationEventOccurrenceRange(output.violationEventOccurrenceRange, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DetectMitigationActionsTaskSummaryList = (
+  output: any,
+  context: __SerdeContext
+): DetectMitigationActionsTaskSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DetectMitigationActionsTaskSummary(entry, context);
+    });
+};
+
+const deserializeAws_restJson1DetectMitigationActionsTaskTarget = (
+  output: any,
+  context: __SerdeContext
+): DetectMitigationActionsTaskTarget => {
+  return {
+    behaviorName: output.behaviorName !== undefined && output.behaviorName !== null ? output.behaviorName : undefined,
+    securityProfileName:
+      output.securityProfileName !== undefined && output.securityProfileName !== null
+        ? output.securityProfileName
+        : undefined,
+    violationIds:
+      output.violationIds !== undefined && output.violationIds !== null
+        ? deserializeAws_restJson1TargetViolationIdsForDetectMitigationActions(output.violationIds, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1DimensionNames = (output: any, context: __SerdeContext): string[] => {
@@ -30966,6 +32623,20 @@ const deserializeAws_restJson1JobTargets = (output: any, context: __SerdeContext
     });
 };
 
+const deserializeAws_restJson1KafkaAction = (output: any, context: __SerdeContext): KafkaAction => {
+  return {
+    clientProperties:
+      output.clientProperties !== undefined && output.clientProperties !== null
+        ? deserializeAws_restJson1ClientProperties(output.clientProperties, context)
+        : undefined,
+    destinationArn:
+      output.destinationArn !== undefined && output.destinationArn !== null ? output.destinationArn : undefined,
+    key: output.key !== undefined && output.key !== null ? output.key : undefined,
+    partition: output.partition !== undefined && output.partition !== null ? output.partition : undefined,
+    topic: output.topic !== undefined && output.topic !== null ? output.topic : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1KeyPair = (output: any, context: __SerdeContext): KeyPair => {
   return {
     PrivateKey: output.PrivateKey !== undefined && output.PrivateKey !== null ? output.PrivateKey : undefined,
@@ -31021,12 +32692,33 @@ const deserializeAws_restJson1LogTargetConfigurations = (
     });
 };
 
+const deserializeAws_restJson1MachineLearningDetectionConfig = (
+  output: any,
+  context: __SerdeContext
+): MachineLearningDetectionConfig => {
+  return {
+    confidenceLevel:
+      output.confidenceLevel !== undefined && output.confidenceLevel !== null ? output.confidenceLevel : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1MetricDimension = (output: any, context: __SerdeContext): MetricDimension => {
   return {
     dimensionName:
       output.dimensionName !== undefined && output.dimensionName !== null ? output.dimensionName : undefined,
     operator: output.operator !== undefined && output.operator !== null ? output.operator : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1MetricNames = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1MetricToRetain = (output: any, context: __SerdeContext): MetricToRetain => {
@@ -31046,9 +32738,18 @@ const deserializeAws_restJson1MetricValue = (output: any, context: __SerdeContex
         ? deserializeAws_restJson1Cidrs(output.cidrs, context)
         : undefined,
     count: output.count !== undefined && output.count !== null ? output.count : undefined,
+    number: output.number !== undefined && output.number !== null ? output.number : undefined,
+    numbers:
+      output.numbers !== undefined && output.numbers !== null
+        ? deserializeAws_restJson1NumberList(output.numbers, context)
+        : undefined,
     ports:
       output.ports !== undefined && output.ports !== null
         ? deserializeAws_restJson1Ports(output.ports, context)
+        : undefined,
+    strings:
+      output.strings !== undefined && output.strings !== null
+        ? deserializeAws_restJson1StringList(output.strings, context)
         : undefined,
   } as any;
 };
@@ -31170,6 +32871,17 @@ const deserializeAws_restJson1NonCompliantResource = (output: any, context: __Se
         : undefined,
     resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1NumberList = (output: any, context: __SerdeContext): number[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1OTAUpdateFile = (output: any, context: __SerdeContext): OTAUpdateFile => {
@@ -31816,6 +33528,17 @@ const deserializeAws_restJson1SearchableAttributes = (output: any, context: __Se
     });
 };
 
+const deserializeAws_restJson1SecurityGroupList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const deserializeAws_restJson1SecurityProfileIdentifier = (
   output: any,
   context: __SerdeContext
@@ -32088,6 +33811,17 @@ const deserializeAws_restJson1StreamSummary = (output: any, context: __SerdeCont
   } as any;
 };
 
+const deserializeAws_restJson1StringList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const deserializeAws_restJson1StringMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
     if (value === null) {
@@ -32098,6 +33832,17 @@ const deserializeAws_restJson1StringMap = (output: any, context: __SerdeContext)
       [key]: value,
     };
   }, {});
+};
+
+const deserializeAws_restJson1SubnetIdList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
@@ -32130,6 +33875,20 @@ const deserializeAws_restJson1TargetAuditCheckNames = (output: any, context: __S
 };
 
 const deserializeAws_restJson1Targets = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const deserializeAws_restJson1TargetViolationIdsForDetectMitigationActions = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -32545,12 +34304,24 @@ const deserializeAws_restJson1TopicRule = (output: any, context: __SerdeContext)
 const deserializeAws_restJson1TopicRuleDestination = (output: any, context: __SerdeContext): TopicRuleDestination => {
   return {
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? new Date(Math.round(output.createdAt * 1000))
+        : undefined,
     httpUrlProperties:
       output.httpUrlProperties !== undefined && output.httpUrlProperties !== null
         ? deserializeAws_restJson1HttpUrlDestinationProperties(output.httpUrlProperties, context)
         : undefined,
+    lastUpdatedAt:
+      output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
+        ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        : undefined,
     status: output.status !== undefined && output.status !== null ? output.status : undefined,
     statusReason: output.statusReason !== undefined && output.statusReason !== null ? output.statusReason : undefined,
+    vpcProperties:
+      output.vpcProperties !== undefined && output.vpcProperties !== null
+        ? deserializeAws_restJson1VpcDestinationProperties(output.vpcProperties, context)
+        : undefined,
   } as any;
 };
 
@@ -32574,12 +34345,24 @@ const deserializeAws_restJson1TopicRuleDestinationSummary = (
 ): TopicRuleDestinationSummary => {
   return {
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? new Date(Math.round(output.createdAt * 1000))
+        : undefined,
     httpUrlSummary:
       output.httpUrlSummary !== undefined && output.httpUrlSummary !== null
         ? deserializeAws_restJson1HttpUrlDestinationSummary(output.httpUrlSummary, context)
         : undefined,
+    lastUpdatedAt:
+      output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
+        ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        : undefined,
     status: output.status !== undefined && output.status !== null ? output.status : undefined,
     statusReason: output.statusReason !== undefined && output.statusReason !== null ? output.statusReason : undefined,
+    vpcDestinationSummary:
+      output.vpcDestinationSummary !== undefined && output.vpcDestinationSummary !== null
+        ? deserializeAws_restJson1VpcDestinationSummary(output.vpcDestinationSummary, context)
+        : undefined,
   } as any;
 };
 
@@ -32677,6 +34460,10 @@ const deserializeAws_restJson1ViolationEvent = (output: any, context: __SerdeCon
         ? output.securityProfileName
         : undefined,
     thingName: output.thingName !== undefined && output.thingName !== null ? output.thingName : undefined,
+    violationEventAdditionalInfo:
+      output.violationEventAdditionalInfo !== undefined && output.violationEventAdditionalInfo !== null
+        ? deserializeAws_restJson1ViolationEventAdditionalInfo(output.violationEventAdditionalInfo, context)
+        : undefined,
     violationEventTime:
       output.violationEventTime !== undefined && output.violationEventTime !== null
         ? new Date(Math.round(output.violationEventTime * 1000))
@@ -32689,6 +34476,30 @@ const deserializeAws_restJson1ViolationEvent = (output: any, context: __SerdeCon
   } as any;
 };
 
+const deserializeAws_restJson1ViolationEventAdditionalInfo = (
+  output: any,
+  context: __SerdeContext
+): ViolationEventAdditionalInfo => {
+  return {
+    confidenceLevel:
+      output.confidenceLevel !== undefined && output.confidenceLevel !== null ? output.confidenceLevel : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ViolationEventOccurrenceRange = (
+  output: any,
+  context: __SerdeContext
+): ViolationEventOccurrenceRange => {
+  return {
+    endTime:
+      output.endTime !== undefined && output.endTime !== null ? new Date(Math.round(output.endTime * 1000)) : undefined,
+    startTime:
+      output.startTime !== undefined && output.startTime !== null
+        ? new Date(Math.round(output.startTime * 1000))
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1ViolationEvents = (output: any, context: __SerdeContext): ViolationEvent[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -32698,6 +34509,39 @@ const deserializeAws_restJson1ViolationEvents = (output: any, context: __SerdeCo
       }
       return deserializeAws_restJson1ViolationEvent(entry, context);
     });
+};
+
+const deserializeAws_restJson1VpcDestinationProperties = (
+  output: any,
+  context: __SerdeContext
+): VpcDestinationProperties => {
+  return {
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
+    securityGroups:
+      output.securityGroups !== undefined && output.securityGroups !== null
+        ? deserializeAws_restJson1SecurityGroupList(output.securityGroups, context)
+        : undefined,
+    subnetIds:
+      output.subnetIds !== undefined && output.subnetIds !== null
+        ? deserializeAws_restJson1SubnetIdList(output.subnetIds, context)
+        : undefined,
+    vpcId: output.vpcId !== undefined && output.vpcId !== null ? output.vpcId : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1VpcDestinationSummary = (output: any, context: __SerdeContext): VpcDestinationSummary => {
+  return {
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
+    securityGroups:
+      output.securityGroups !== undefined && output.securityGroups !== null
+        ? deserializeAws_restJson1SecurityGroupList(output.securityGroups, context)
+        : undefined,
+    subnetIds:
+      output.subnetIds !== undefined && output.subnetIds !== null
+        ? deserializeAws_restJson1SubnetIdList(output.subnetIds, context)
+        : undefined,
+    vpcId: output.vpcId !== undefined && output.vpcId !== null ? output.vpcId : undefined,
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

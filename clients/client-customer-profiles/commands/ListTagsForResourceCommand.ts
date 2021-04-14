@@ -21,9 +21,8 @@ export type ListTagsForResourceCommandInput = ListTagsForResourceRequest;
 export type ListTagsForResourceCommandOutput = ListTagsForResourceResponse & __MetadataBearer;
 
 /**
- * <p>Displays the tags associated with an Amazon Connect Customer Profiles resource. In
- *          Connect Customer Profiles, domains, profile object types, and integrations can be
- *          tagged.</p>
+ * <p>Displays the tags associated with an Amazon Connect Customer Profiles resource. In Connect
+ *          Customer Profiles, domains, profile object types, and integrations can be tagged.</p>
  */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,

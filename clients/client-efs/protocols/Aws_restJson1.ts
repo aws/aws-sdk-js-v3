@@ -64,6 +64,7 @@ import {
   AccessPointDescription,
   AccessPointLimitExceeded,
   AccessPointNotFound,
+  AvailabilityZonesMismatch,
   BackupPolicy,
   BadRequest,
   CreationInfo,
@@ -153,6 +154,9 @@ export const serializeAws_restJson1CreateFileSystemCommand = async (
   let resolvedPath = "/2015-02-01/file-systems";
   let body: any;
   body = JSON.stringify({
+    ...(input.AvailabilityZoneName !== undefined &&
+      input.AvailabilityZoneName !== null && { AvailabilityZoneName: input.AvailabilityZoneName }),
+    ...(input.Backup !== undefined && input.Backup !== null && { Backup: input.Backup }),
     CreationToken: input.CreationToken ?? generateIdempotencyToken(),
     ...(input.Encrypted !== undefined && input.Encrypted !== null && { Encrypted: input.Encrypted }),
     ...(input.KmsKeyId !== undefined && input.KmsKeyId !== null && { KmsKeyId: input.KmsKeyId }),
@@ -1030,6 +1034,8 @@ export const deserializeAws_restJson1CreateFileSystemCommand = async (
   }
   const contents: CreateFileSystemCommandOutput = {
     $metadata: deserializeMetadata(output),
+    AvailabilityZoneId: undefined,
+    AvailabilityZoneName: undefined,
     CreationTime: undefined,
     CreationToken: undefined,
     Encrypted: undefined,
@@ -1047,6 +1053,12 @@ export const deserializeAws_restJson1CreateFileSystemCommand = async (
     ThroughputMode: undefined,
   };
   const data: any = await parseBody(output.body, context);
+  if (data.AvailabilityZoneId !== undefined && data.AvailabilityZoneId !== null) {
+    contents.AvailabilityZoneId = data.AvailabilityZoneId;
+  }
+  if (data.AvailabilityZoneName !== undefined && data.AvailabilityZoneName !== null) {
+    contents.AvailabilityZoneName = data.AvailabilityZoneName;
+  }
   if (data.CreationTime !== undefined && data.CreationTime !== null) {
     contents.CreationTime = new Date(Math.round(data.CreationTime * 1000));
   }
@@ -1155,6 +1167,14 @@ const deserializeAws_restJson1CreateFileSystemCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "UnsupportedAvailabilityZone":
+    case "com.amazonaws.efs#UnsupportedAvailabilityZone":
+      response = {
+        ...(await deserializeAws_restJson1UnsupportedAvailabilityZoneResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -1238,6 +1258,14 @@ const deserializeAws_restJson1CreateMountTargetCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AvailabilityZonesMismatch":
+    case "com.amazonaws.efs#AvailabilityZonesMismatch":
+      response = {
+        ...(await deserializeAws_restJson1AvailabilityZonesMismatchResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "BadRequest":
     case "com.amazonaws.efs#BadRequest":
       response = {
@@ -2999,6 +3027,8 @@ export const deserializeAws_restJson1UpdateFileSystemCommand = async (
   }
   const contents: UpdateFileSystemCommandOutput = {
     $metadata: deserializeMetadata(output),
+    AvailabilityZoneId: undefined,
+    AvailabilityZoneName: undefined,
     CreationTime: undefined,
     CreationToken: undefined,
     Encrypted: undefined,
@@ -3016,6 +3046,12 @@ export const deserializeAws_restJson1UpdateFileSystemCommand = async (
     ThroughputMode: undefined,
   };
   const data: any = await parseBody(output.body, context);
+  if (data.AvailabilityZoneId !== undefined && data.AvailabilityZoneId !== null) {
+    contents.AvailabilityZoneId = data.AvailabilityZoneId;
+  }
+  if (data.AvailabilityZoneName !== undefined && data.AvailabilityZoneName !== null) {
+    contents.AvailabilityZoneName = data.AvailabilityZoneName;
+  }
   if (data.CreationTime !== undefined && data.CreationTime !== null) {
     contents.CreationTime = new Date(Math.round(data.CreationTime * 1000));
   }
@@ -3201,6 +3237,27 @@ const deserializeAws_restJson1AccessPointNotFoundResponse = async (
 ): Promise<AccessPointNotFound> => {
   const contents: AccessPointNotFound = {
     name: "AccessPointNotFound",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ErrorCode: undefined,
+    Message: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.ErrorCode !== undefined && data.ErrorCode !== null) {
+    contents.ErrorCode = data.ErrorCode;
+  }
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = data.Message;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1AvailabilityZonesMismatchResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AvailabilityZonesMismatch> => {
+  const contents: AvailabilityZonesMismatch = {
+    name: "AvailabilityZonesMismatch",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ErrorCode: undefined,
@@ -3886,6 +3943,14 @@ const deserializeAws_restJson1CreationInfo = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1FileSystemDescription = (output: any, context: __SerdeContext): FileSystemDescription => {
   return {
+    AvailabilityZoneId:
+      output.AvailabilityZoneId !== undefined && output.AvailabilityZoneId !== null
+        ? output.AvailabilityZoneId
+        : undefined,
+    AvailabilityZoneName:
+      output.AvailabilityZoneName !== undefined && output.AvailabilityZoneName !== null
+        ? output.AvailabilityZoneName
+        : undefined,
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))

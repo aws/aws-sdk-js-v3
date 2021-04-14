@@ -914,6 +914,42 @@ export namespace IotSiteWiseAction {
 }
 
 /**
+ * <p>Send messages to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) or self-managed Apache Kafka cluster.</p>
+ */
+export interface KafkaAction {
+  /**
+   * <p>The ARN of Kafka action's VPC <code>TopicRuleDestination</code>.</p>
+   */
+  destinationArn: string | undefined;
+
+  /**
+   * <p>The Kafka topic for messages to be sent to the Kafka broker.</p>
+   */
+  topic: string | undefined;
+
+  /**
+   * <p>The Kafka message key.</p>
+   */
+  key?: string;
+
+  /**
+   * <p>The Kafka message partition.</p>
+   */
+  partition?: string;
+
+  /**
+   * <p>Properties of the Apache Kafka producer client.</p>
+   */
+  clientProperties: { [key: string]: string } | undefined;
+}
+
+export namespace KafkaAction {
+  export const filterSensitiveLog = (obj: KafkaAction): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Describes an action to write data to an Amazon Kinesis stream.</p>
  */
 export interface KinesisAction {
@@ -1346,6 +1382,11 @@ export interface Action {
    * <p>Send data to an HTTPS endpoint.</p>
    */
   http?: HttpAction;
+
+  /**
+   * <p>Send messages to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) or self-managed Apache Kafka cluster.</p>
+   */
+  kafka?: KafkaAction;
 }
 
 export namespace Action {
@@ -1366,25 +1407,55 @@ export enum ComparisonOperator {
   GREATER_THAN_EQUALS = "greater-than-equals",
   IN_CIDR_SET = "in-cidr-set",
   IN_PORT_SET = "in-port-set",
+  IN_SET = "in-set",
   LESS_THAN = "less-than",
   LESS_THAN_EQUALS = "less-than-equals",
   NOT_IN_CIDR_SET = "not-in-cidr-set",
   NOT_IN_PORT_SET = "not-in-port-set",
+  NOT_IN_SET = "not-in-set",
+}
+
+export enum ConfidenceLevel {
+  HIGH = "HIGH",
+  LOW = "LOW",
+  MEDIUM = "MEDIUM",
 }
 
 /**
- * <p>A statistical ranking (percentile) which indicates a threshold value by which a behavior
- *           is determined to be in compliance or in violation of the behavior.</p>
+ * <p>
+ *             The configuration of an ML Detect Security Profile.
+ *         </p>
+ */
+export interface MachineLearningDetectionConfig {
+  /**
+   * <p>
+   *             The sensitivity of anomalous behavior evaluation. Can be <code>Low</code>, <code>Medium</code>, or <code>High</code>.
+   *         </p>
+   */
+  confidenceLevel: ConfidenceLevel | string | undefined;
+}
+
+export namespace MachineLearningDetectionConfig {
+  export const filterSensitiveLog = (obj: MachineLearningDetectionConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A statistical ranking (percentile) that
+ *       indicates a threshold value by which a behavior is determined to be in compliance or in
+ *       violation of the behavior.</p>
  */
 export interface StatisticalThreshold {
   /**
-   * <p>The percentile which resolves to a threshold value by which compliance with a behavior is
-   *           determined. Metrics are collected over the specified period (<code>durationSeconds</code>) from
-   *           all reporting devices in your account and statistical ranks are calculated. Then, the measurements
-   *           from a device are collected over the same period. If the accumulated measurements from the device
-   *           fall above or below (<code>comparisonOperator</code>) the value associated with the percentile
-   *           specified, then the device is considered to be in compliance with the behavior, otherwise a
-   *           violation occurs.</p>
+   * <p>The percentile that
+   *       resolves to a threshold value by which compliance with a behavior is determined. Metrics are
+   *       collected over the specified period (<code>durationSeconds</code>) from all reporting devices
+   *       in your account and statistical ranks are calculated. Then, the measurements from a device are
+   *       collected over the same period. If the accumulated measurements from the device fall above or
+   *       below (<code>comparisonOperator</code>) the value associated with the percentile specified,
+   *       then the device is considered to be in compliance with the behavior, otherwise a violation
+   *       occurs.</p>
    */
   statistic?: string;
 }
@@ -1416,6 +1487,27 @@ export interface MetricValue {
    *           to specify that set to be compared with the <code>metric</code>.</p>
    */
   ports?: number[];
+
+  /**
+   * <p>
+   *             The numeral value of a metric.
+   *         </p>
+   */
+  number?: number;
+
+  /**
+   * <p>
+   *             The numeral values of a metric.
+   *         </p>
+   */
+  numbers?: number[];
+
+  /**
+   * <p>
+   *             The string values of a metric.
+   *         </p>
+   */
+  strings?: string[];
 }
 
 export namespace MetricValue {
@@ -1430,7 +1522,29 @@ export namespace MetricValue {
 export interface BehaviorCriteria {
   /**
    * <p>The operator that relates the thing measured (<code>metric</code>) to the criteria
-   *           (containing a <code>value</code> or <code>statisticalThreshold</code>).</p>
+   *           (containing a <code>value</code> or <code>statisticalThreshold</code>). Valid operators include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>string-list</code>: <code>in-set</code> and <code>not-in-set</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>number-list</code>: <code>in-set</code> and <code>not-in-set</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ip-address-list</code>: <code>in-cidr-set</code> and <code>not-in-cidr-set</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>number</code>: <code>less-than</code>, <code>less-than-equals</code>, <code>greater-than</code>, and <code>greater-than-equals</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   comparisonOperator?: ComparisonOperator | string;
 
@@ -1440,12 +1554,12 @@ export interface BehaviorCriteria {
   value?: MetricValue;
 
   /**
-   * <p>Use this to specify the time duration over which the behavior is evaluated,
-   *           for those criteria which have a time dimension (for example, <code>NUM_MESSAGES_SENT</code>).
-   *           For a <code>statisticalThreshhold</code> metric comparison, measurements from all devices are
-   *           accumulated over this time duration before being used to calculate percentiles, and later,
-   *           measurements from an individual device are also accumulated over this time duration before being
-   *           given a percentile rank.</p>
+   * <p>Use this to specify the time duration over which the behavior is evaluated, for those criteria that
+   *       have a time dimension (for example, <code>NUM_MESSAGES_SENT</code>). For a
+   *         <code>statisticalThreshhold</code> metric comparison, measurements from all devices are
+   *       accumulated over this time duration before being used to calculate percentiles, and later,
+   *       measurements from an individual device are also accumulated over this time duration before
+   *       being given a percentile rank. Cannot be used with list-based metric datatypes.</p>
    */
   durationSeconds?: number;
 
@@ -1463,10 +1577,18 @@ export interface BehaviorCriteria {
   consecutiveDatapointsToClear?: number;
 
   /**
-   * <p>A statistical ranking (percentile) which indicates a threshold value by which a behavior
-   *           is determined to be in compliance or in violation of the behavior.</p>
+   * <p>A statistical ranking (percentile)that
+   *       indicates a threshold value by which a behavior is determined to be in compliance or in
+   *       violation of the behavior.</p>
    */
   statisticalThreshold?: StatisticalThreshold;
+
+  /**
+   * <p>
+   *             The configuration of an ML Detect
+   *         </p>
+   */
+  mlDetectionConfig?: MachineLearningDetectionConfig;
 }
 
 export namespace BehaviorCriteria {
@@ -1506,7 +1628,8 @@ export namespace MetricDimension {
  */
 export interface Behavior {
   /**
-   * <p>The name you have given to the behavior.</p>
+   * <p>The name
+   *       you've given to the behavior.</p>
    */
   name: string | undefined;
 
@@ -1516,7 +1639,8 @@ export interface Behavior {
   metric?: string;
 
   /**
-   * <p>The dimension for a metric in your behavior. For example, using a <code>TOPIC_FILTER</code> dimension, you can narrow down the scope of the metric only to MQTT topics whose name match the pattern specified in the dimension.</p>
+   * <p>The dimension for a metric in your behavior. For example, using a
+   *                 <code>TOPIC_FILTER</code> dimension, you can narrow down the scope of the metric to only MQTT topics where the name matches the pattern specified in the dimension. This can't be used with custom metrics.</p>
    */
   metricDimension?: MetricDimension;
 
@@ -1525,10 +1649,37 @@ export interface Behavior {
    *           the <code>metric</code>.</p>
    */
   criteria?: BehaviorCriteria;
+
+  /**
+   * <p>
+   *             Suppresses alerts.
+   *         </p>
+   */
+  suppressAlerts?: boolean;
 }
 
 export namespace Behavior {
   export const filterSensitiveLog = (obj: Behavior): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *             The details of a violation event.
+ *         </p>
+ */
+export interface ViolationEventAdditionalInfo {
+  /**
+   * <p>
+   *             The sensitivity of anomalous behavior evaluation. Can be <code>Low</code>, <code>Medium</code>, or <code>High</code>.
+   *         </p>
+   */
+  confidenceLevel?: ConfidenceLevel | string;
+}
+
+export namespace ViolationEventAdditionalInfo {
+  export const filterSensitiveLog = (obj: ViolationEventAdditionalInfo): any => ({
     ...obj,
   });
 }
@@ -1548,19 +1699,26 @@ export interface ActiveViolation {
   thingName?: string;
 
   /**
-   * <p>The security profile whose behavior is in violation.</p>
+   * <p>The security profile with the behavior is in violation.</p>
    */
   securityProfileName?: string;
 
   /**
-   * <p>The behavior which is being violated.</p>
+   * <p>The behavior that is being violated.</p>
    */
   behavior?: Behavior;
 
   /**
-   * <p>The value of the metric (the measurement) which caused the most recent violation.</p>
+   * <p>The value of the metric (the measurement) that caused the most recent violation.</p>
    */
   lastViolationValue?: MetricValue;
+
+  /**
+   * <p>
+   *             The details of a violation event.
+   *         </p>
+   */
+  violationEventAdditionalInfo?: ViolationEventAdditionalInfo;
 
   /**
    * <p>The time the most recent violation occurred.</p>
@@ -1589,7 +1747,7 @@ export interface MetricToRetain {
   metric: string | undefined;
 
   /**
-   * <p>The dimension of a metric.</p>
+   * <p>The dimension of a metric. This can't be used with custom metrics.</p>
    */
   metricDimension?: MetricDimension;
 }
@@ -1605,12 +1763,12 @@ export namespace MetricToRetain {
  */
 export interface AddThingsToThingGroupParams {
   /**
-   * <p>The list of groups to which you want to add the things that triggered the mitigation action. You can add a thing to a maximum of 10 groups, but you cannot add a thing to more than one group in the same hierarchy.</p>
+   * <p>The list of groups to which you want to add the things that triggered the mitigation action. You can add a thing to a maximum of 10 groups, but you can't add a thing to more than one group in the same hierarchy.</p>
    */
   thingGroupNames: string[] | undefined;
 
   /**
-   * <p>Specifies if this mitigation action can move the things that triggered the mitigation action even if they are part of one or more dynamic things groups.</p>
+   * <p>Specifies if this mitigation action can move the things that triggered the mitigation action even if they are part of one or more dynamic thing groups.</p>
    */
   overrideDynamicGroups?: boolean;
 }
@@ -1706,7 +1864,7 @@ export namespace AddThingToThingGroupResponse {
  */
 export interface AlertTarget {
   /**
-   * <p>The ARN of the notification target to which alerts are sent.</p>
+   * <p>The Amazon Resource Name (ARN) of the notification target to which alerts are sent.</p>
    */
   alertTargetArn: string | undefined;
 
@@ -2474,9 +2632,7 @@ export enum AuditNotificationType {
 }
 
 /**
- * <p>
- *             Filters out specific findings of a Device Defender audit.
- *         </p>
+ * <p> Filters out specific findings of a Device Defender audit. </p>
  */
 export interface AuditSuppression {
   /**
@@ -2847,6 +3003,29 @@ export interface CancelCertificateTransferRequest {
 
 export namespace CancelCertificateTransferRequest {
   export const filterSensitiveLog = (obj: CancelCertificateTransferRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CancelDetectMitigationActionsTaskRequest {
+  /**
+   * <p>
+   *       The unique identifier of the task.
+   *     </p>
+   */
+  taskId: string | undefined;
+}
+
+export namespace CancelDetectMitigationActionsTaskRequest {
+  export const filterSensitiveLog = (obj: CancelDetectMitigationActionsTaskRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CancelDetectMitigationActionsTaskResponse {}
+
+export namespace CancelDetectMitigationActionsTaskResponse {
+  export const filterSensitiveLog = (obj: CancelDetectMitigationActionsTaskResponse): any => ({
     ...obj,
   });
 }
@@ -3333,6 +3512,84 @@ export namespace CreateCertificateFromCsrResponse {
   });
 }
 
+export enum CustomMetricType {
+  IP_ADDRESS_LIST = "ip-address-list",
+  NUMBER = "number",
+  NUMBER_LIST = "number-list",
+  STRING_LIST = "string-list",
+}
+
+export interface CreateCustomMetricRequest {
+  /**
+   * <p> The name of the custom metric. This will be used in the metric report submitted from the device/thing. Shouldn't begin with <code>aws:</code>.
+   *       Cannot be updated
+   *       once defined.</p>
+   */
+  metricName: string | undefined;
+
+  /**
+   * <p>
+   *       Field
+   *       represents a friendly name in the console for the custom metric;
+   *       it
+   *       doesn't have to be unique. Don't use this name as the metric identifier in
+   *       the device metric report. Can be updated once defined.</p>
+   */
+  displayName?: string;
+
+  /**
+   * <p>
+   *       The type of the custom metric. Types include <code>string-list</code>, <code>ip-address-list</code>, <code>number-list</code>, and <code>number</code>.
+   *     </p>
+   */
+  metricType: CustomMetricType | string | undefined;
+
+  /**
+   * <p>
+   *       Metadata that can be used to manage the custom metric.
+   *     </p>
+   */
+  tags?: Tag[];
+
+  /**
+   * <p>Each custom
+   *       metric must have a unique client request token. If you try to create a new custom metric that
+   *       already exists with a different token,
+   *       an exception
+   *       occurs. If you omit this value, AWS SDKs will automatically generate a unique client request. </p>
+   */
+  clientRequestToken?: string;
+}
+
+export namespace CreateCustomMetricRequest {
+  export const filterSensitiveLog = (obj: CreateCustomMetricRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateCustomMetricResponse {
+  /**
+   * <p>
+   *       The name of the custom metric to be used in the metric report.
+   *     </p>
+   */
+  metricName?: string;
+
+  /**
+   * <p>
+   *       The Amazon Resource Number (ARN) of the custom metric, e.g. <code>arn:<i>aws-partition</i>:iot:<i>region</i>:<i>accountId</i>:custommetric/<i>metricName</i>
+   *             </code>
+   *          </p>
+   */
+  metricArn?: string;
+}
+
+export namespace CreateCustomMetricResponse {
+  export const filterSensitiveLog = (obj: CreateCustomMetricResponse): any => ({
+    ...obj,
+  });
+}
+
 export enum DimensionType {
   TOPIC_FILTER = "TOPIC_FILTER",
 }
@@ -3378,7 +3635,10 @@ export interface CreateDimensionResponse {
   name?: string;
 
   /**
-   * <p>The ARN (Amazon resource name) of the created dimension.</p>
+   * <p>The Amazon Resource Name
+   *       (ARN)
+   *       of
+   *       the created dimension.</p>
    */
   arn?: string;
 }
@@ -3930,12 +4190,12 @@ export enum LogLevel {
  */
 export interface EnableIoTLoggingParams {
   /**
-   * <p>The ARN of the IAM role used for logging.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role used for logging.</p>
    */
   roleArnForLogging: string | undefined;
 
   /**
-   * <p>Specifies the types of information to be logged.</p>
+   * <p>Specifies the type of information to be logged.</p>
    */
   logLevel: LogLevel | string | undefined;
 }
@@ -3991,7 +4251,7 @@ export enum CACertificateUpdateAction {
  */
 export interface UpdateCACertificateParams {
   /**
-   * <p>The action that you want to apply to the CA cerrtificate. The only supported value is <code>DEACTIVATE</code>.</p>
+   * <p>The action that you want to apply to the CA certificate. The only supported value is <code>DEACTIVATE</code>.</p>
    */
   action: CACertificateUpdateAction | string | undefined;
 }
@@ -4011,7 +4271,7 @@ export enum DeviceCertificateUpdateAction {
  */
 export interface UpdateDeviceCertificateParams {
   /**
-   * <p>The action that you want to apply to the device cerrtificate. The only supported value is <code>DEACTIVATE</code>.</p>
+   * <p>The action that you want to apply to the device certificate. The only supported value is <code>DEACTIVATE</code>.</p>
    */
   action: DeviceCertificateUpdateAction | string | undefined;
 }
@@ -4052,7 +4312,7 @@ export interface MitigationActionParams {
   enableIoTLoggingParams?: EnableIoTLoggingParams;
 
   /**
-   * <p>Parameters to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.</p>
+   * <p>Parameters to define a mitigation action that publishes findings to Amazon Simple Notification Service (Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.</p>
    */
   publishFindingToSnsParams?: PublishFindingToSnsParams;
 }
@@ -5126,24 +5386,33 @@ export enum DayOfWeek {
 
 export interface CreateScheduledAuditRequest {
   /**
-   * <p>How often the scheduled audit takes place. Can be one of "DAILY", "WEEKLY",
-   *             "BIWEEKLY" or "MONTHLY". The start time of each audit is determined by
-   *             the system.</p>
+   * <p>How often the scheduled audit takes
+   *       place, either
+   *       <code>DAILY</code>,
+   *       <code>WEEKLY</code>, <code>BIWEEKLY</code> or <code>MONTHLY</code>. The start time of each audit is
+   *       determined by the system.</p>
    */
   frequency: AuditFrequency | string | undefined;
 
   /**
-   * <p>The day of the month on which the scheduled audit takes place. Can be "1"
-   *             through "31" or "LAST". This field is required if the "frequency" parameter is
-   *             set to "MONTHLY". If days 29-31 are specified, and the month does not have that many
-   *             days, the audit takes place on the "LAST" day of the month.</p>
+   * <p>The day of the month on which the scheduled audit takes place.
+   *       This
+   *       can be "1" through "31" or "LAST". This field is required if the "frequency"
+   *       parameter is set to <code>MONTHLY</code>. If days
+   *       29
+   *       to 31 are specified, and the month
+   *       doesn't
+   *       have that many days, the audit takes place on the <code>LAST</code> day of the month.</p>
    */
   dayOfMonth?: string;
 
   /**
-   * <p>The day of the week on which the scheduled audit takes place. Can be one of
-   *             "SUN", "MON", "TUE", "WED", "THU", "FRI", or "SAT". This field is required if the
-   *             "frequency" parameter is set to "WEEKLY" or "BIWEEKLY".</p>
+   * <p>The day of the week on which the scheduled audit takes
+   *       place,
+   *       either
+   *       <code>SUN</code>,
+   *       <code>MON</code>, <code>TUE</code>, <code>WED</code>, <code>THU</code>, <code>FRI</code>, or <code>SAT</code>. This field is required if the <code>frequency</code>
+   *       parameter is set to <code>WEEKLY</code> or <code>BIWEEKLY</code>.</p>
    */
   dayOfWeek?: DayOfWeek | string;
 
@@ -5215,12 +5484,12 @@ export interface CreateSecurityProfileRequest {
    *          </p>
    *          <p>A list of metrics whose data is retained (stored). By default, data is retained
    *         for any metric used in the profile's <code>behaviors</code>, but it is also retained for
-   *         any metric specified here.</p>
+   *         any metric specified here. Can be used with custom metrics; cannot be used with dimensions.</p>
    */
   additionalMetricsToRetain?: string[];
 
   /**
-   * <p>A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's <code>behaviors</code>, but it is also retained for any metric specified here.</p>
+   * <p>A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's <code>behaviors</code>, but it is also retained for any metric specified here. Can be used with custom metrics; cannot be used with dimensions.</p>
    */
   additionalMetricsToRetainV2?: MetricToRetain[];
 
@@ -5637,6 +5906,37 @@ export namespace HttpUrlDestinationConfiguration {
 }
 
 /**
+ * <p>The configuration information for a virtual private cloud (VPC) destination.</p>
+ */
+export interface VpcDestinationConfiguration {
+  /**
+   * <p>The subnet IDs of the VPC destination.</p>
+   */
+  subnetIds: string[] | undefined;
+
+  /**
+   * <p>The security groups of the VPC destination.</p>
+   */
+  securityGroups?: string[];
+
+  /**
+   * <p>The ID of the VPC.</p>
+   */
+  vpcId: string | undefined;
+
+  /**
+   * <p>The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).</p>
+   */
+  roleArn: string | undefined;
+}
+
+export namespace VpcDestinationConfiguration {
+  export const filterSensitiveLog = (obj: VpcDestinationConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Configuration of the topic rule destination.</p>
  */
 export interface TopicRuleDestinationConfiguration {
@@ -5644,6 +5944,11 @@ export interface TopicRuleDestinationConfiguration {
    * <p>Configuration of the HTTP URL.</p>
    */
   httpUrlConfiguration?: HttpUrlDestinationConfiguration;
+
+  /**
+   * <p>Configuration of the virtual private cloud (VPC) connection.</p>
+   */
+  vpcConfiguration?: VpcDestinationConfiguration;
 }
 
 export namespace TopicRuleDestinationConfiguration {
@@ -5682,10 +5987,42 @@ export namespace HttpUrlDestinationProperties {
 }
 
 export enum TopicRuleDestinationStatus {
+  DELETING = "DELETING",
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
   ERROR = "ERROR",
   IN_PROGRESS = "IN_PROGRESS",
+}
+
+/**
+ * <p>The properties of a virtual private cloud (VPC) destination.</p>
+ */
+export interface VpcDestinationProperties {
+  /**
+   * <p>The subnet IDs of the VPC destination.</p>
+   */
+  subnetIds?: string[];
+
+  /**
+   * <p>The security groups of the VPC destination.</p>
+   */
+  securityGroups?: string[];
+
+  /**
+   * <p>The ID of the VPC.</p>
+   */
+  vpcId?: string;
+
+  /**
+   * <p>The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).</p>
+   */
+  roleArn?: string;
+}
+
+export namespace VpcDestinationProperties {
+  export const filterSensitiveLog = (obj: VpcDestinationProperties): any => ({
+    ...obj,
+  });
 }
 
 /**
@@ -5734,6 +6071,16 @@ export interface TopicRuleDestination {
   status?: TopicRuleDestinationStatus | string;
 
   /**
+   * <p>The date and time when the topic rule destination was created.</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The date and time when the topic rule destination was last updated.</p>
+   */
+  lastUpdatedAt?: Date;
+
+  /**
    * <p>Additional details or reason why the topic rule destination is in the current
    *          status.</p>
    */
@@ -5743,6 +6090,11 @@ export interface TopicRuleDestination {
    * <p>Properties of the HTTP URL.</p>
    */
   httpUrlProperties?: HttpUrlDestinationProperties;
+
+  /**
+   * <p>Properties of the virtual private cloud (VPC) connection.</p>
+   */
+  vpcProperties?: VpcDestinationProperties;
 }
 
 export namespace TopicRuleDestination {
@@ -5952,6 +6304,29 @@ export namespace DeleteCertificateRequest {
   });
 }
 
+export interface DeleteCustomMetricRequest {
+  /**
+   * <p>
+   *       The name of the custom metric.
+   *     </p>
+   */
+  metricName: string | undefined;
+}
+
+export namespace DeleteCustomMetricRequest {
+  export const filterSensitiveLog = (obj: DeleteCustomMetricRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteCustomMetricResponse {}
+
+export namespace DeleteCustomMetricResponse {
+  export const filterSensitiveLog = (obj: DeleteCustomMetricResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteDimensionRequest {
   /**
    * <p>The unique identifier for the dimension that you want to delete.</p>
@@ -6141,12 +6516,14 @@ export interface DeleteOTAUpdateRequest {
   otaUpdateId: string | undefined;
 
   /**
-   * <p>Specifies if the stream associated with an OTA update should be deleted when the OTA update is deleted.</p>
+   * <p>When true, the stream created by the OTAUpdate process is deleted when the OTA update is deleted.
+   *             Ignored if the stream specified in the OTAUpdate is supplied by the user.</p>
    */
   deleteStream?: boolean;
 
   /**
-   * <p>Specifies if the AWS Job associated with the OTA update should be deleted when the OTA update is deleted.</p>
+   * <p>When true, deletes the AWS job created by the OTAUpdate process even if it is "IN_PROGRESS". Otherwise, if the
+   *             job is not in a terminal state ("COMPLETED" or "CANCELED") an exception will occur. The default is false.</p>
    */
   forceDeleteAWSJob?: boolean;
 }
@@ -6507,310 +6884,6 @@ export interface DeleteV2LoggingLevelRequest {
 
 export namespace DeleteV2LoggingLevelRequest {
   export const filterSensitiveLog = (obj: DeleteV2LoggingLevelRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The input for the DeprecateThingType operation.</p>
- */
-export interface DeprecateThingTypeRequest {
-  /**
-   * <p>The name of the thing type to deprecate.</p>
-   */
-  thingTypeName: string | undefined;
-
-  /**
-   * <p>Whether to undeprecate a deprecated thing type. If <b>true</b>, the thing type will not be deprecated anymore and you can
-   * 			associate it with things.</p>
-   */
-  undoDeprecate?: boolean;
-}
-
-export namespace DeprecateThingTypeRequest {
-  export const filterSensitiveLog = (obj: DeprecateThingTypeRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The output for the DeprecateThingType operation.</p>
- */
-export interface DeprecateThingTypeResponse {}
-
-export namespace DeprecateThingTypeResponse {
-  export const filterSensitiveLog = (obj: DeprecateThingTypeResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeAccountAuditConfigurationRequest {}
-
-export namespace DescribeAccountAuditConfigurationRequest {
-  export const filterSensitiveLog = (obj: DescribeAccountAuditConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeAccountAuditConfigurationResponse {
-  /**
-   * <p>The ARN of the role that grants permission to AWS IoT to access information
-   *             about your devices, policies, certificates, and other items as required when
-   *             performing an audit.</p>
-   *           <p>On the first call to <code>UpdateAccountAuditConfiguration</code>,
-   *             this parameter is required.</p>
-   */
-  roleArn?: string;
-
-  /**
-   * <p>Information about the targets to which audit notifications are sent for
-   *             this account.</p>
-   */
-  auditNotificationTargetConfigurations?: { [key: string]: AuditNotificationTarget };
-
-  /**
-   * <p>Which audit checks are enabled and disabled for this account.</p>
-   */
-  auditCheckConfigurations?: { [key: string]: AuditCheckConfiguration };
-}
-
-export namespace DescribeAccountAuditConfigurationResponse {
-  export const filterSensitiveLog = (obj: DescribeAccountAuditConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeAuditFindingRequest {
-  /**
-   * <p>A unique identifier for a single audit finding. You can use this identifier to apply mitigation actions to the finding.</p>
-   */
-  findingId: string | undefined;
-}
-
-export namespace DescribeAuditFindingRequest {
-  export const filterSensitiveLog = (obj: DescribeAuditFindingRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeAuditFindingResponse {
-  /**
-   * <p>The findings (results) of the audit.</p>
-   */
-  finding?: AuditFinding;
-}
-
-export namespace DescribeAuditFindingResponse {
-  export const filterSensitiveLog = (obj: DescribeAuditFindingResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeAuditMitigationActionsTaskRequest {
-  /**
-   * <p>The unique identifier for the audit mitigation task.</p>
-   */
-  taskId: string | undefined;
-}
-
-export namespace DescribeAuditMitigationActionsTaskRequest {
-  export const filterSensitiveLog = (obj: DescribeAuditMitigationActionsTaskRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes which changes should be applied as part of a mitigation action.</p>
- */
-export interface MitigationAction {
-  /**
-   * <p>A user-friendly name for the mitigation action.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>A unique identifier for the mitigation action.</p>
-   */
-  id?: string;
-
-  /**
-   * <p>The IAM role ARN used to apply this mitigation action.</p>
-   */
-  roleArn?: string;
-
-  /**
-   * <p>The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.</p>
-   */
-  actionParams?: MitigationActionParams;
-}
-
-export namespace MitigationAction {
-  export const filterSensitiveLog = (obj: MitigationAction): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeAuditMitigationActionsTaskResponse {
-  /**
-   * <p>The current status of the task.</p>
-   */
-  taskStatus?: AuditMitigationActionsTaskStatus | string;
-
-  /**
-   * <p>The date and time when the task was started.</p>
-   */
-  startTime?: Date;
-
-  /**
-   * <p>The date and time when the task was completed or canceled.</p>
-   */
-  endTime?: Date;
-
-  /**
-   * <p>Aggregate counts of the results when the mitigation tasks were applied to the findings for this audit mitigation actions task.</p>
-   */
-  taskStatistics?: { [key: string]: TaskStatisticsForAuditCheck };
-
-  /**
-   * <p>Identifies the findings to which the mitigation actions are applied. This can be by audit checks, by audit task, or a set of findings.</p>
-   */
-  target?: AuditMitigationActionsTaskTarget;
-
-  /**
-   * <p>Specifies the mitigation actions that should be applied to specific audit checks.</p>
-   */
-  auditCheckToActionsMapping?: { [key: string]: string[] };
-
-  /**
-   * <p>Specifies the mitigation actions and their parameters that are applied as part of this task.</p>
-   */
-  actionsDefinition?: MitigationAction[];
-}
-
-export namespace DescribeAuditMitigationActionsTaskResponse {
-  export const filterSensitiveLog = (obj: DescribeAuditMitigationActionsTaskResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeAuditSuppressionRequest {
-  /**
-   * <p>An audit check name. Checks must be enabled
-   *         for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list
-   *         of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code>
-   *         to select which checks are enabled.)</p>
-   */
-  checkName: string | undefined;
-
-  /**
-   * <p>Information that identifies the noncompliant resource.</p>
-   */
-  resourceIdentifier: ResourceIdentifier | undefined;
-}
-
-export namespace DescribeAuditSuppressionRequest {
-  export const filterSensitiveLog = (obj: DescribeAuditSuppressionRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeAuditSuppressionResponse {
-  /**
-   * <p>An audit check name. Checks must be enabled
-   *         for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list
-   *         of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code>
-   *         to select which checks are enabled.)</p>
-   */
-  checkName?: string;
-
-  /**
-   * <p>Information that identifies the noncompliant resource.</p>
-   */
-  resourceIdentifier?: ResourceIdentifier;
-
-  /**
-   * <p>
-   *       The epoch timestamp in seconds at which this suppression expires.
-   *     </p>
-   */
-  expirationDate?: Date;
-
-  /**
-   * <p>
-   *       Indicates whether a suppression should exist indefinitely or not.
-   *     </p>
-   */
-  suppressIndefinitely?: boolean;
-
-  /**
-   * <p>
-   *       The description of the audit suppression.
-   *     </p>
-   */
-  description?: string;
-}
-
-export namespace DescribeAuditSuppressionResponse {
-  export const filterSensitiveLog = (obj: DescribeAuditSuppressionResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeAuditTaskRequest {
-  /**
-   * <p>The ID of the audit whose information you want to get.</p>
-   */
-  taskId: string | undefined;
-}
-
-export namespace DescribeAuditTaskRequest {
-  export const filterSensitiveLog = (obj: DescribeAuditTaskRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Statistics for the checks performed during the audit.</p>
- */
-export interface TaskStatistics {
-  /**
-   * <p>The number of checks in this audit.</p>
-   */
-  totalChecks?: number;
-
-  /**
-   * <p>The number of checks in progress.</p>
-   */
-  inProgressChecks?: number;
-
-  /**
-   * <p>The number of checks waiting for data collection.</p>
-   */
-  waitingForDataCollectionChecks?: number;
-
-  /**
-   * <p>The number of checks that found compliant resources.</p>
-   */
-  compliantChecks?: number;
-
-  /**
-   * <p>The number of checks that found noncompliant resources.</p>
-   */
-  nonCompliantChecks?: number;
-
-  /**
-   * <p>The number of checks.</p>
-   */
-  failedChecks?: number;
-
-  /**
-   * <p>The number of checks that did not run because the audit was canceled.</p>
-   */
-  canceledChecks?: number;
-}
-
-export namespace TaskStatistics {
-  export const filterSensitiveLog = (obj: TaskStatistics): any => ({
     ...obj,
   });
 }

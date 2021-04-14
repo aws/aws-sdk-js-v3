@@ -977,7 +977,7 @@ export interface ProductInformationFilter {
   /**
    * <p>Filter value.</p>
    */
-  ProductInformationFilterValue: string[] | undefined;
+  ProductInformationFilterValue?: string[];
 
   /**
    * <p>Logical operator.</p>

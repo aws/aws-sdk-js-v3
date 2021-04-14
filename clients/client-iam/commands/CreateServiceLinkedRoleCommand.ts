@@ -22,14 +22,14 @@ export type CreateServiceLinkedRoleCommandOutput = CreateServiceLinkedRoleRespon
 
 /**
  * <p>Creates an IAM role that is linked to a specific AWS service. The service controls
- *          the attached policies and when the role can be deleted. This helps ensure that the service
- *          is not broken by an unexpectedly changed or deleted role, which could put your AWS
- *          resources into an unknown state. Allowing the service to control the role helps improve
- *          service stability and proper cleanup when a service and its role are no longer needed. For
- *          more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html">Using Service-Linked Roles</a>
- *          in the <i>IAM User Guide</i>. </p>
- *          <p>To attach a policy to this service-linked role, you must make the request using the
- *          AWS service that depends on this role.</p>
+ *             the attached policies and when the role can be deleted. This helps ensure that the
+ *             service is not broken by an unexpectedly changed or deleted role, which could put your
+ *             AWS resources into an unknown state. Allowing the service to control the role helps
+ *             improve service stability and proper cleanup when a service and its role are no longer
+ *             needed. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html">Using service-linked
+ *                 roles</a> in the <i>IAM User Guide</i>. </p>
+ *         <p>To attach a policy to this service-linked role, you must make the request using the
+ *             AWS service that depends on this role.</p>
  */
 export class CreateServiceLinkedRoleCommand extends $Command<
   CreateServiceLinkedRoleCommandInput,

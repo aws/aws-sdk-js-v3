@@ -21,9 +21,9 @@ export type ListAccountsCommandInput = ListAccountsRequest;
 export type ListAccountsCommandOutput = ListAccountsResponse & __MetadataBearer;
 
 /**
- * <p>Lists the Amazon Chime accounts under the administrator's AWS account. You can filter
- *       accounts by account name prefix. To find out which Amazon Chime account a user belongs to, you
- *       can filter by the user's email address, which returns one account result.</p>
+ * <p>Lists the Amazon Chime accounts under the administrator's AWS account. You can filter accounts
+ *             by account name prefix. To find out which Amazon Chime account a user belongs to, toucan
+ *             filter by the user's email address, which returns one account result.</p>
  */
 export class ListAccountsCommand extends $Command<
   ListAccountsCommandInput,

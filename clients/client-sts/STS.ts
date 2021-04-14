@@ -47,38 +47,13 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 export class STS extends STSClient {
   /**
    * <p>Returns a set of temporary security credentials that you can use to access AWS
-   *          resources that you might not normally have access to. These temporary credentials consist
-   *          of an access key ID, a secret access key, and a security token. Typically, you use
-   *             <code>AssumeRole</code> within your account or for cross-account access. For a
-   *          comparison of <code>AssumeRole</code> with other API operations that produce temporary
-   *          credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting Temporary Security
-   *             Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison">Comparing the
-   *             AWS STS API operations</a> in the <i>IAM User Guide</i>.</p>
-   *          <important>
-   *             <p>You cannot use AWS account root user credentials to call <code>AssumeRole</code>.
-   *             You must use credentials for an IAM user or an IAM role to call
-   *                <code>AssumeRole</code>.</p>
-   *          </important>
-   *          <p>For cross-account access, imagine that you own multiple accounts and need to access
-   *          resources in each account. You could create long-term credentials in each account to access
-   *          those resources. However, managing all those credentials and remembering which one can
-   *          access which account can be time consuming. Instead, you can create one set of long-term
-   *          credentials in one account. Then use temporary security credentials to access all the other
-   *          accounts by assuming roles in those accounts. For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM Roles</a> in the
-   *             <i>IAM User Guide</i>. </p>
-   *          <p>
-   *             <b>Session Duration</b>
-   *          </p>
-   *          <p>By default, the temporary security credentials created by <code>AssumeRole</code> last
-   *          for one hour. However, you can use the optional <code>DurationSeconds</code> parameter to
-   *          specify the duration of your session. You can provide a value from 900 seconds (15 minutes)
-   *          up to the maximum session duration setting for the role. This setting can have a value from
-   *          1 hour to 12 hours. To learn how to view the maximum value for your role, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session">View the
-   *             Maximum Session Duration Setting for a Role</a> in the
-   *             <i>IAM User Guide</i>. The maximum session duration limit applies when
-   *          you use the <code>AssumeRole*</code> API operations or the <code>assume-role*</code> CLI
-   *          commands. However the limit does not apply when you use those operations to create a
-   *          console URL. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html">Using IAM Roles</a> in the
+   *             resources that you might not normally have access to. These temporary credentials
+   *             consist of an access key ID, a secret access key, and a security token. Typically, you
+   *             use <code>AssumeRole</code> within your account or for cross-account access. For a
+   *             comparison of <code>AssumeRole</code> with other API operations that produce temporary
+   *             credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting Temporary Security
+   *                 Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison">Comparing
+   *                 the AWS STS API operations</a> in the
    *             <i>IAM User Guide</i>.</p>
    *          <p>
    *             <b>Permissions</b>
@@ -90,7 +65,7 @@ export class STS extends STSClient {
    *          <p>(Optional) You can pass inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session policies</a> to
    *          this operation. You can pass a single JSON policy document to use as an inline session
    *          policy. You can also specify up to 10 managed policies to use as managed session policies.
-   *          The plain text that you use for both inline and managed session policies can't exceed 2,048
+   *          The plaintext that you use for both inline and managed session policies can't exceed 2,048
    *          characters. Passing policies to this operation returns new
    *          temporary credentials. The resulting session's permissions are the intersection of the
    *          role's identity-based policy and the session policies. You can use the role's temporary
@@ -207,6 +182,17 @@ export class STS extends STSClient {
    *          commands. However the limit does not apply when you use those operations to create a
    *          console URL. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html">Using IAM Roles</a> in the
    *             <i>IAM User Guide</i>.</p>
+   *          <note>
+   *            <p>
+   *                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-role-chaining">Role chaining</a> limits your AWS CLI or AWS API
+   *                role session to a maximum of one hour. When you use the <code>AssumeRole</code> API
+   *                operation to assume a role, you can specify the duration of your role session with
+   *                the <code>DurationSeconds</code> parameter. You can specify a parameter value of up
+   *                to 43200 seconds (12 hours), depending on the maximum session duration setting for
+   *                your role. However, if you assume a role using role chaining and provide a
+   *                <code>DurationSeconds</code> parameter value greater than one hour, the
+   *                operation fails.</p>
+   *          </note>
    *          <p>
    *             <b>Permissions</b>
    *          </p>
@@ -217,7 +203,7 @@ export class STS extends STSClient {
    *          <p>(Optional) You can pass inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session policies</a> to
    *          this operation. You can pass a single JSON policy document to use as an inline session
    *          policy. You can also specify up to 10 managed policies to use as managed session policies.
-   *          The plain text that you use for both inline and managed session policies can't exceed 2,048
+   *          The plaintext that you use for both inline and managed session policies can't exceed 2,048
    *          characters. Passing policies to this operation returns new
    *          temporary credentials. The resulting session's permissions are the intersection of the
    *          role's identity-based policy and the session policies. You can use the role's temporary
@@ -244,7 +230,7 @@ export class STS extends STSClient {
    *          session tags. Each session tag consists of a key name and an associated value. For more
    *          information about session tags, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html">Passing Session Tags in STS</a> in the
    *             <i>IAM User Guide</i>.</p>
-   *          <p>You can pass up to 50 session tags. The plain text session tag keys can’t exceed 128
+   *          <p>You can pass up to 50 session tags. The plaintext session tag keys can’t exceed 128
    *          characters and the values can’t exceed 256 characters. For these and additional limits, see
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length">IAM
    *             and STS Character Limits</a> in the <i>IAM User Guide</i>.</p>
@@ -252,14 +238,14 @@ export class STS extends STSClient {
    *          <note>
    *             <p>An AWS conversion compresses the passed session policies and session tags into a
    *             packed binary format that has a separate limit. Your request can fail for this limit
-   *             even if your plain text meets the other requirements. The <code>PackedPolicySize</code>
+   *             even if your plaintext meets the other requirements. The <code>PackedPolicySize</code>
    *             response element indicates by percentage how close the policies and tags for your
    *             request are to the upper size limit.
    *             </p>
    *          </note>
-   *
-   *          <p>You can pass a session tag with the same key as a tag that is attached to the role. When
-   *          you do, session tags override the role's tags with the same key.</p>
+   *          <p>You can pass a session tag with the same key as a tag that is
+   *          attached to the role. When you do, session tags override the role's tags with the same
+   *          key.</p>
    *          <p>An administrator must grant you the permissions necessary to pass session tags. The
    *          administrator can also create granular permissions to allow you to pass only specific
    *          session tags. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_attribute-based-access-control.html">Tutorial: Using Tags
@@ -383,7 +369,7 @@ export class STS extends STSClient {
    *          <p>(Optional) You can pass inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session policies</a> to
    *          this operation. You can pass a single JSON policy document to use as an inline session
    *          policy. You can also specify up to 10 managed policies to use as managed session policies.
-   *          The plain text that you use for both inline and managed session policies can't exceed 2,048
+   *          The plaintext that you use for both inline and managed session policies can't exceed 2,048
    *          characters. Passing policies to this operation returns new
    *          temporary credentials. The resulting session's permissions are the intersection of the
    *          role's identity-based policy and the session policies. You can use the role's temporary
@@ -399,7 +385,7 @@ export class STS extends STSClient {
    *          session tags. Each session tag consists of a key name and an associated value. For more
    *          information about session tags, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html">Passing Session Tags in STS</a> in the
    *             <i>IAM User Guide</i>.</p>
-   *          <p>You can pass up to 50 session tags. The plain text session tag keys can’t exceed 128
+   *          <p>You can pass up to 50 session tags. The plaintext session tag keys can’t exceed 128
    *          characters and the values can’t exceed 256 characters. For these and additional limits, see
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length">IAM
    *             and STS Character Limits</a> in the <i>IAM User Guide</i>.</p>
@@ -407,14 +393,14 @@ export class STS extends STSClient {
    *          <note>
    *             <p>An AWS conversion compresses the passed session policies and session tags into a
    *             packed binary format that has a separate limit. Your request can fail for this limit
-   *             even if your plain text meets the other requirements. The <code>PackedPolicySize</code>
+   *             even if your plaintext meets the other requirements. The <code>PackedPolicySize</code>
    *             response element indicates by percentage how close the policies and tags for your
    *             request are to the upper size limit.
    *             </p>
    *          </note>
-   *
-   *          <p>You can pass a session tag with the same key as a tag that is attached to the role. When
-   *          you do, the session tag overrides the role tag with the same key.</p>
+   *          <p>You can pass a session tag with the same key as a tag that is
+   *          attached to the role. When you do, the session tag overrides the role tag with the same
+   *          key.</p>
    *          <p>An administrator must grant you the permissions necessary to pass session tags. The
    *          administrator can also create granular permissions to allow you to pass only specific
    *          session tags. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_attribute-based-access-control.html">Tutorial: Using Tags
@@ -434,7 +420,7 @@ export class STS extends STSClient {
    *          <important>
    *             <p>Calling <code>AssumeRoleWithWebIdentity</code> can result in an entry in your
    *             AWS CloudTrail logs. The entry includes the <a href="http://openid.net/specs/openid-connect-core-1_0.html#Claims">Subject</a> of
-   *             the provided Web Identity Token. We recommend that you avoid using any personally
+   *             the provided web identity token. We recommend that you avoid using any personally
    *             identifiable information (PII) in this field. For example, you could instead use a GUID
    *             or a pairwise identifier, as <a href="http://openid.net/specs/openid-connect-core-1_0.html#SubjectIDTypes">suggested
    *                in the OIDC specification</a>.</p>
@@ -448,8 +434,7 @@ export class STS extends STSClient {
    *             </li>
    *             <li>
    *                <p>
-   *                   <a href="https://aws.amazon.com/blogs/aws/the-aws-web-identity-federation-playground/">
-   *                   Web Identity Federation Playground</a>. Walk through the process of
+   *                   <a href="https://aws.amazon.com/blogs/aws/the-aws-web-identity-federation-playground/"> Web Identity Federation Playground</a>. Walk through the process of
    *                authenticating through Login with Amazon, Facebook, or Google, getting temporary
    *                security credentials, and then using those credentials to make a request to AWS.
    *             </p>
@@ -568,23 +553,23 @@ export class STS extends STSClient {
 
   /**
    * <p>Returns the account identifier for the specified access key ID.</p>
-   *          <p>Access keys consist of two parts: an access key ID (for example,
-   *             <code>AKIAIOSFODNN7EXAMPLE</code>) and a secret access key (for example,
-   *             <code>wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY</code>). For more information about
-   *          access keys, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html">Managing Access Keys for IAM
-   *             Users</a> in the <i>IAM User Guide</i>.</p>
-   *          <p>When you pass an access key ID to this operation, it returns the ID of the AWS account
-   *          to which the keys belong. Access key IDs beginning with <code>AKIA</code> are long-term
-   *          credentials for an IAM user or the AWS account root user. Access key IDs beginning with
-   *             <code>ASIA</code> are temporary credentials that are created using STS operations. If
-   *          the account in the response belongs to you, you can sign in as the root user and review
-   *          your root user access keys. Then, you can pull a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_getting-report.html">credentials report</a> to
-   *          learn which IAM user owns the keys. To learn who requested the temporary credentials for
-   *          an <code>ASIA</code> access key, view the STS events in your <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html">CloudTrail logs</a> in the
-   *             <i>IAM User Guide</i>.</p>
-   *          <p>This operation does not indicate the state of the access key. The key might be active,
-   *          inactive, or deleted. Active keys might not have permissions to perform an operation.
-   *          Providing a deleted access key might return an error that the key doesn't exist.</p>
+   *         <p>Access keys consist of two parts: an access key ID (for example,
+   *                 <code>AKIAIOSFODNN7EXAMPLE</code>) and a secret access key (for example,
+   *                 <code>wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY</code>). For more information about
+   *             access keys, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html">Managing Access Keys for IAM
+   *                 Users</a> in the <i>IAM User Guide</i>.</p>
+   *         <p>When you pass an access key ID to this operation, it returns the ID of the AWS
+   *             account to which the keys belong. Access key IDs beginning with <code>AKIA</code> are
+   *             long-term credentials for an IAM user or the AWS account root user. Access key IDs
+   *             beginning with <code>ASIA</code> are temporary credentials that are created using STS
+   *             operations. If the account in the response belongs to you, you can sign in as the root
+   *             user and review your root user access keys. Then, you can pull a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_getting-report.html">credentials report</a> to learn which IAM user owns the keys. To learn who
+   *             requested the temporary credentials for an <code>ASIA</code> access key, view the STS
+   *             events in your <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html">CloudTrail logs</a> in the
+   *                 <i>IAM User Guide</i>.</p>
+   *         <p>This operation does not indicate the state of the access key. The key might be active,
+   *             inactive, or deleted. Active keys might not have permissions to perform an operation.
+   *             Providing a deleted access key might return an error that the key doesn't exist.</p>
    */
   public getAccessKeyInfo(
     args: GetAccessKeyInfoCommandInput,
@@ -617,15 +602,15 @@ export class STS extends STSClient {
 
   /**
    * <p>Returns details about the IAM user or role whose credentials are used to call the
-   *          operation.</p>
-   *          <note>
+   *             operation.</p>
+   *         <note>
    *             <p>No permissions are required to perform this operation. If an administrator adds a
-   *             policy to your IAM user or role that explicitly denies access to the
-   *                <code>sts:GetCallerIdentity</code> action, you can still perform this operation.
-   *             Permissions are not required because the same information is returned when an IAM user
-   *             or role is denied access. To view an example response, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_access-denied-delete-mfa">I Am Not Authorized to Perform: iam:DeleteVirtualMFADevice</a> in the
-   *                <i>IAM User Guide</i>.</p>
-   *          </note>
+   *                 policy to your IAM user or role that explicitly denies access to the
+   *                     <code>sts:GetCallerIdentity</code> action, you can still perform this operation.
+   *                 Permissions are not required because the same information is returned when an IAM
+   *                 user or role is denied access. To view an example response, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_access-denied-delete-mfa">I Am Not Authorized to Perform: iam:DeleteVirtualMFADevice</a> in the
+   *                     <i>IAM User Guide</i>.</p>
+   *         </note>
    */
   public getCallerIdentity(
     args: GetCallerIdentityCommandInput,
@@ -694,7 +679,7 @@ export class STS extends STSClient {
    *          AWS service except the following:</p>
    *          <ul>
    *             <li>
-   *                <p>You cannot call any IAM operations using the AWS CLI or the AWS API.  </p>
+   *                <p>You cannot call any IAM operations using the AWS CLI or the AWS API. </p>
    *             </li>
    *             <li>
    *                <p>You cannot call any STS operations except <code>GetCallerIdentity</code>.</p>
@@ -703,7 +688,7 @@ export class STS extends STSClient {
    *          <p>You must pass an inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session policy</a> to
    *          this operation. You can pass a single JSON policy document to use as an inline session
    *          policy. You can also specify up to 10 managed policies to use as managed session policies.
-   *          The plain text that you use for both inline and managed session policies can't exceed 2,048
+   *          The plaintext that you use for both inline and managed session policies can't exceed 2,048
    *          characters.</p>
    *          <p>Though the session policy parameters are optional, if you do not pass a policy, then the
    *          resulting federated user session has no permissions. When you pass session policies, the
@@ -724,18 +709,78 @@ export class STS extends STSClient {
    *          <p>(Optional) You can pass tag key-value pairs to your session. These are called session
    *          tags. For more information about session tags, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html">Passing Session Tags in STS</a> in the
    *             <i>IAM User Guide</i>.</p>
-   *          <p>An administrator must grant you the permissions necessary to pass session tags. The
-   *          administrator can also create granular permissions to allow you to pass only specific
-   *          session tags. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_attribute-based-access-control.html">Tutorial: Using Tags
-   *             for Attribute-Based Access Control</a> in the
-   *          <i>IAM User Guide</i>.</p>
-   *          <p>Tag key–value pairs are not case sensitive, but case is preserved. This means that you
-   *          cannot have separate <code>Department</code> and <code>department</code> tag keys. Assume
-   *          that the user that you are federating has the
-   *             <code>Department</code>=<code>Marketing</code> tag and you pass the
-   *             <code>department</code>=<code>engineering</code> session tag. <code>Department</code>
-   *          and <code>department</code> are not saved as separate tags, and the session tag passed in
-   *          the request takes precedence over the user tag.</p>
+   *         <note>
+   *             <p>You can create a mobile-based or browser-based app that can authenticate users
+   *                 using a web identity provider like Login with Amazon, Facebook, Google, or an OpenID
+   *                 Connect-compatible identity provider. In this case, we recommend that you use <a href="http://aws.amazon.com/cognito/">Amazon Cognito</a> or
+   *                     <code>AssumeRoleWithWebIdentity</code>. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_assumerolewithwebidentity">Federation Through a Web-based Identity Provider</a> in the
+   *                     <i>IAM User Guide</i>.</p>
+   *         </note>
+   *         <p>You can also call <code>GetFederationToken</code> using the security credentials of an
+   *             AWS account root user, but we do not recommend it. Instead, we recommend that you
+   *             create an IAM user for the purpose of the proxy application. Then attach a policy to
+   *             the IAM user that limits federated users to only the actions and resources that they
+   *             need to access. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html">IAM Best Practices</a> in the
+   *                 <i>IAM User Guide</i>. </p>
+   *         <p>
+   *             <b>Session duration</b>
+   *          </p>
+   *         <p>The temporary credentials are valid for the specified duration, from 900 seconds (15
+   *             minutes) up to a maximum of 129,600 seconds (36 hours). The default session duration is
+   *             43,200 seconds (12 hours). Temporary credentials that are obtained by using AWS
+   *             account root user credentials have a maximum duration of 3,600 seconds (1 hour).</p>
+   *         <p>
+   *             <b>Permissions</b>
+   *         </p>
+   *         <p>You can use the temporary credentials created by <code>GetFederationToken</code> in
+   *             any AWS service except the following:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>You cannot call any IAM operations using the AWS CLI or the AWS API.
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>You cannot call any STS operations except
+   *                     <code>GetCallerIdentity</code>.</p>
+   *             </li>
+   *          </ul>
+   *         <p>You must pass an inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session policy</a> to
+   *             this operation. You can pass a single JSON policy document to use as an inline session
+   *             policy. You can also specify up to 10 managed policies to use as managed session
+   *             policies. The plain text that you use for both inline and managed session policies can't
+   *             exceed 2,048 characters.</p>
+   *         <p>Though the session policy parameters are optional, if you do not pass a policy, then
+   *             the resulting federated user session has no permissions. When you pass session policies,
+   *             the session permissions are the intersection of the IAM user policies and the session
+   *             policies that you pass. This gives you a way to further restrict the permissions for a
+   *             federated user. You cannot use session policies to grant more permissions than those
+   *             that are defined in the permissions policy of the IAM user. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session Policies</a>
+   *             in the <i>IAM User Guide</i>. For information about using
+   *                 <code>GetFederationToken</code> to create temporary security credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getfederationtoken">GetFederationToken—Federation Through a Custom Identity Broker</a>. </p>
+   *         <p>You can use the credentials to access a resource that has a resource-based policy. If
+   *             that policy specifically references the federated user session in the
+   *                 <code>Principal</code> element of the policy, the session has the permissions
+   *             allowed by the policy. These permissions are granted in addition to the permissions
+   *             granted by the session policies.</p>
+   *         <p>
+   *             <b>Tags</b>
+   *          </p>
+   *         <p>(Optional) You can pass tag key-value pairs to your session. These are called session
+   *             tags. For more information about session tags, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html">Passing Session Tags in STS</a> in
+   *             the <i>IAM User Guide</i>.</p>
+   *         <p>An administrator must grant you the permissions necessary to pass session tags. The
+   *             administrator can also create granular permissions to allow you to pass only specific
+   *             session tags. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_attribute-based-access-control.html">Tutorial: Using
+   *                 Tags for Attribute-Based Access Control</a> in the
+   *                 <i>IAM User Guide</i>.</p>
+   *         <p>Tag key–value pairs are not case sensitive, but case is preserved. This means that you
+   *             cannot have separate <code>Department</code> and <code>department</code> tag keys.
+   *             Assume that the user that you are federating has the
+   *                 <code>Department</code>=<code>Marketing</code> tag and you pass the
+   *                 <code>department</code>=<code>engineering</code> session tag.
+   *                 <code>Department</code> and <code>department</code> are not saved as separate tags,
+   *             and the session tag passed in the request takes precedence over the user tag.</p>
    */
   public getFederationToken(
     args: GetFederationTokenCommandInput,

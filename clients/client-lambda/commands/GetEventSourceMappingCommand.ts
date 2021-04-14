@@ -21,8 +21,7 @@ export type GetEventSourceMappingCommandInput = GetEventSourceMappingRequest;
 export type GetEventSourceMappingCommandOutput = EventSourceMappingConfiguration & __MetadataBearer;
 
 /**
- * <p>Returns details about an event source mapping. You can get the identifier of a mapping from the output of
- *       <a>ListEventSourceMappings</a>.</p>
+ * <p>Returns details about an event source mapping. You can get the identifier of a mapping from the output of <a>ListEventSourceMappings</a>.</p>
  */
 export class GetEventSourceMappingCommand extends $Command<
   GetEventSourceMappingCommandInput,

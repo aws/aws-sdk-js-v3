@@ -26,8 +26,8 @@ export type DeleteListenerCommandOutput = DeleteListenerOutput & __MetadataBeare
 
 /**
  * <p>Deletes the specified listener.</p>
- *          <p>Alternatively, your listener is deleted when you delete the load balancer to which it
- *       is attached.</p>
+ *          <p>Alternatively, your listener is deleted when you delete the load balancer to which it is
+ *         attached.</p>
  */
 export class DeleteListenerCommand extends $Command<
   DeleteListenerCommandInput,

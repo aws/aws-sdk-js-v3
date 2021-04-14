@@ -21,7 +21,8 @@ export type BatchGetApplicationRevisionsCommandInput = BatchGetApplicationRevisi
 export type BatchGetApplicationRevisionsCommandOutput = BatchGetApplicationRevisionsOutput & __MetadataBearer;
 
 /**
- * <p>Gets information about one or more application revisions. The maximum number of application revisions that can be returned is 25.</p>
+ * <p>Gets information about one or more application revisions. The maximum number of
+ *             application revisions that can be returned is 25.</p>
  */
 export class BatchGetApplicationRevisionsCommand extends $Command<
   BatchGetApplicationRevisionsCommandInput,

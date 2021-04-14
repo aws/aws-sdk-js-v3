@@ -26,7 +26,8 @@ export type DescribeReportCreationCommandOutput = DescribeReportCreationOutput &
 
 /**
  * <p>Describes the status of the <code>StartReportCreation</code> operation. </p>
- *         <p>You can call this operation only from the organization's master account and from the us-east-1 Region.</p>
+ *         <p>You can call this operation only from the organization's
+ *     management account and from the us-east-1 Region.</p>
  */
 export class DescribeReportCreationCommand extends $Command<
   DescribeReportCreationCommandInput,

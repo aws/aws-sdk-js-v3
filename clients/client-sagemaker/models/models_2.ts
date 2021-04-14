@@ -39,14 +39,11 @@ import {
   LabelingJobInputConfig,
   MetadataProperties,
   ModelApprovalStatus,
-  ModelMetrics,
-  ModelPackageValidationSpecification,
   OfflineStoreConfig,
   OnlineStoreConfig,
   OutputDataConfig,
   ResourceConfig,
   ResourceLimits,
-  SourceAlgorithmSpecification,
   StoppingCondition,
   Tag,
   TransformInput,
@@ -64,11 +61,6 @@ import {
   DebugRuleConfiguration,
   DebugRuleEvaluationStatus,
   DeploymentConfig,
-  DesiredWeightAndCapacity,
-  Device,
-  DeviceFleetSummary,
-  DeviceStats,
-  DeviceSummary,
   DomainStatus,
   EdgePackagingJobStatus,
   EndpointStatus,
@@ -84,13 +76,14 @@ import {
   LabelCounters,
   LabelingJobOutput,
   LabelingJobStatus,
-  MemberDefinition,
   MetricData,
   ModelArtifacts,
   ModelClientConfig,
+  ModelMetrics,
   ModelPackageGroupStatus,
   ModelPackageStatus,
   ModelPackageStatusDetails,
+  ModelPackageValidationSpecification,
   MonitoringExecutionSummary,
   MonitoringScheduleConfig,
   MonitoringType,
@@ -98,11 +91,9 @@ import {
   NotebookInstanceAcceleratorType,
   NotebookInstanceLifecycleHook,
   NotebookInstanceStatus,
-  NotificationConfiguration,
   ObjectiveStatusCounters,
   OfflineStoreStatus,
   OfflineStoreStatusValue,
-  OidcConfig,
   PipelineExecutionStatus,
   PipelineStatus,
   ProcessingInput,
@@ -117,7 +108,7 @@ import {
   ScheduleStatus,
   SecondaryStatus,
   SecondaryStatusTransition,
-  SourceIpConfig,
+  SourceAlgorithmSpecification,
   SubscribedWorkteam,
   TensorBoardOutputConfig,
   TrainingJobStatus,
@@ -134,6 +125,214 @@ import {
   Workteam,
   _InstanceType,
 } from "./models_1";
+
+export interface DescribeWorkteamResponse {
+  /**
+   * <p>A <code>Workteam</code> instance that contains information about the work team.
+   *         </p>
+   */
+  Workteam: Workteam | undefined;
+}
+
+export namespace DescribeWorkteamResponse {
+  export const filterSensitiveLog = (obj: DescribeWorkteamResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies weight and capacity values for a production variant.</p>
+ */
+export interface DesiredWeightAndCapacity {
+  /**
+   * <p>The name of the
+   *             variant
+   *             to update.</p>
+   */
+  VariantName: string | undefined;
+
+  /**
+   * <p>The variant's weight.</p>
+   */
+  DesiredWeight?: number;
+
+  /**
+   * <p>The variant's capacity.</p>
+   */
+  DesiredInstanceCount?: number;
+}
+
+export namespace DesiredWeightAndCapacity {
+  export const filterSensitiveLog = (obj: DesiredWeightAndCapacity): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information of a particular device.</p>
+ */
+export interface Device {
+  /**
+   * <p>The name of the device.</p>
+   */
+  DeviceName: string | undefined;
+
+  /**
+   * <p>Description of the device.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>AWS Internet of Things (IoT) object name.</p>
+   */
+  IotThingName?: string;
+}
+
+export namespace Device {
+  export const filterSensitiveLog = (obj: Device): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Summary of the device fleet.</p>
+ */
+export interface DeviceFleetSummary {
+  /**
+   * <p>Amazon Resource Name (ARN) of the device fleet.</p>
+   */
+  DeviceFleetArn: string | undefined;
+
+  /**
+   * <p>Name of the device fleet.</p>
+   */
+  DeviceFleetName: string | undefined;
+
+  /**
+   * <p>Timestamp of when the device fleet was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>Timestamp of when the device fleet was last updated.</p>
+   */
+  LastModifiedTime?: Date;
+}
+
+export namespace DeviceFleetSummary {
+  export const filterSensitiveLog = (obj: DeviceFleetSummary): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Status of devices.</p>
+ */
+export interface DeviceStats {
+  /**
+   * <p>The number of devices connected with a heartbeat.</p>
+   */
+  ConnectedDeviceCount: number | undefined;
+
+  /**
+   * <p>The number of registered devices.</p>
+   */
+  RegisteredDeviceCount: number | undefined;
+}
+
+export namespace DeviceStats {
+  export const filterSensitiveLog = (obj: DeviceStats): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Summary of model on edge device.</p>
+ */
+export interface EdgeModelSummary {
+  /**
+   * <p>The name of the model.</p>
+   */
+  ModelName: string | undefined;
+
+  /**
+   * <p>The version model.</p>
+   */
+  ModelVersion: string | undefined;
+}
+
+export namespace EdgeModelSummary {
+  export const filterSensitiveLog = (obj: EdgeModelSummary): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Summary of the device.</p>
+ */
+export interface DeviceSummary {
+  /**
+   * <p>The unique identifier of the device.</p>
+   */
+  DeviceName: string | undefined;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the device.</p>
+   */
+  DeviceArn: string | undefined;
+
+  /**
+   * <p>A description of the device.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The name of the fleet the device belongs to.</p>
+   */
+  DeviceFleetName?: string;
+
+  /**
+   * <p>The AWS Internet of Things (IoT) object thing name associated with the device..</p>
+   */
+  IotThingName?: string;
+
+  /**
+   * <p>The timestamp of the last registration or de-reregistration.</p>
+   */
+  RegistrationTime?: Date;
+
+  /**
+   * <p>The last heartbeat received from the device.</p>
+   */
+  LatestHeartbeat?: Date;
+
+  /**
+   * <p>Models on the device.</p>
+   */
+  Models?: EdgeModelSummary[];
+}
+
+export namespace DeviceSummary {
+  export const filterSensitiveLog = (obj: DeviceSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface DisableSagemakerServicecatalogPortfolioInput {}
+
+export namespace DisableSagemakerServicecatalogPortfolioInput {
+  export const filterSensitiveLog = (obj: DisableSagemakerServicecatalogPortfolioInput): any => ({
+    ...obj,
+  });
+}
+
+export interface DisableSagemakerServicecatalogPortfolioOutput {}
+
+export namespace DisableSagemakerServicecatalogPortfolioOutput {
+  export const filterSensitiveLog = (obj: DisableSagemakerServicecatalogPortfolioOutput): any => ({
+    ...obj,
+  });
+}
 
 export interface DisassociateTrialComponentRequest {
   /**
@@ -2256,32 +2455,33 @@ export namespace ListAutoMLJobsResponse {
 
 export interface ListCandidatesForAutoMLJobRequest {
   /**
-   * <p>List the Candidates created for the job by providing the job's name.</p>
+   * <p>List the candidates created for the job by providing the job's name.</p>
    */
   AutoMLJobName: string | undefined;
 
   /**
-   * <p>List the Candidates for the job and filter by status.</p>
+   * <p>List the candidates for the job and filter by status.</p>
    */
   StatusEquals?: CandidateStatus | string;
 
   /**
-   * <p>List the Candidates for the job and filter by candidate name.</p>
+   * <p>List the candidates for the job and filter by candidate name.</p>
    */
   CandidateNameEquals?: string;
 
   /**
-   * <p>The sort order for the results. The default is Ascending.</p>
+   * <p>The sort order for the results. The default is <code>Ascending</code>.</p>
    */
   SortOrder?: AutoMLSortOrder | string;
 
   /**
-   * <p>The parameter by which to sort the results. The default is Descending.</p>
+   * <p>The parameter by which to sort the results. The default is
+   *          <code>Descending</code>.</p>
    */
   SortBy?: CandidateSortBy | string;
 
   /**
-   * <p>List the job's Candidates up to a specified limit.</p>
+   * <p>List the job's candidates up to a specified limit.</p>
    */
   MaxResults?: number;
 
@@ -7087,7 +7287,7 @@ export interface ProcessingJob {
   ProcessingInputs?: ProcessingInput[];
 
   /**
-   * <p>The output configuration for the processing job.</p>
+   * <p>Configuration for uploading output from the processing container.</p>
    */
   ProcessingOutputConfig?: ProcessingOutputConfig;
 
@@ -7103,7 +7303,8 @@ export interface ProcessingJob {
   ProcessingResources?: ProcessingResources;
 
   /**
-   * <p>Specifies a time limit for how long the processing job is allowed to run.</p>
+   * <p>Configures conditions under which the processing job should be stopped, such as how long
+   *             the processing job has been running. After the condition is met, the processing job is stopped.</p>
    */
   StoppingCondition?: ProcessingStoppingCondition;
 
@@ -7760,10 +7961,15 @@ export interface TrainingJob {
   DebugRuleEvaluationStatuses?: DebugRuleEvaluationStatus[];
 
   /**
+   * <p>The environment variables to set in the Docker container.</p>
+   */
+  Environment?: { [key: string]: string };
+
+  /**
    * <p>An array of key-value pairs. You can use tags to categorize your AWS resources in
-   *            different ways, for example, by purpose, owner, or environment. For more information,
-   *            see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
-   *                Resources</a>.</p>
+   *             different ways, for example, by purpose, owner, or environment. For more information,
+   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
+   *                 Resources</a>.</p>
    */
   Tags?: Tag[];
 }
@@ -8874,13 +9080,12 @@ export interface UpdateEndpointInput {
   EndpointConfigName: string | undefined;
 
   /**
-   * <p>When updating endpoint resources, enables or disables the retention of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VariantProperty.html">variant
-   *             properties</a>, such as the instance count or the variant weight. To retain the variant
-   *             properties of an endpoint when updating it, set <code>RetainAllVariantProperties</code>
-   *             to <code>true</code>. To use the variant properties specified in a new
-   *                 <code>EndpointConfig</code> call when updating an endpoint, set
-   *                 <code>RetainAllVariantProperties</code> to <code>false</code>. The default is
-   *                 <code>false</code>.</p>
+   * <p>When updating endpoint resources, enables or disables the retention of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VariantProperty.html">variant properties</a>, such as the instance count or the variant weight. To
+   *             retain the variant properties of an endpoint when updating it, set
+   *                 <code>RetainAllVariantProperties</code> to <code>true</code>. To use the variant
+   *             properties specified in a new <code>EndpointConfig</code> call when updating an
+   *             endpoint, set <code>RetainAllVariantProperties</code> to <code>false</code>. The default
+   *             is <code>false</code>.</p>
    */
   RetainAllVariantProperties?: boolean;
 
@@ -9395,245 +9600,6 @@ export interface UpdateTrialRequest {
 
 export namespace UpdateTrialRequest {
   export const filterSensitiveLog = (obj: UpdateTrialRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateTrialResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the trial.</p>
-   */
-  TrialArn?: string;
-}
-
-export namespace UpdateTrialResponse {
-  export const filterSensitiveLog = (obj: UpdateTrialResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateTrialComponentRequest {
-  /**
-   * <p>The name of the component to update.</p>
-   */
-  TrialComponentName: string | undefined;
-
-  /**
-   * <p>The name of the component as displayed. The name doesn't need to be unique. If
-   *         <code>DisplayName</code> isn't specified, <code>TrialComponentName</code> is
-   *       displayed.</p>
-   */
-  DisplayName?: string;
-
-  /**
-   * <p>The new status of the component.</p>
-   */
-  Status?: TrialComponentStatus;
-
-  /**
-   * <p>When the component started.</p>
-   */
-  StartTime?: Date;
-
-  /**
-   * <p>When the component ended.</p>
-   */
-  EndTime?: Date;
-
-  /**
-   * <p>Replaces all of the component's hyperparameters with the specified hyperparameters.</p>
-   */
-  Parameters?: { [key: string]: TrialComponentParameterValue };
-
-  /**
-   * <p>The hyperparameters to remove from the component.</p>
-   */
-  ParametersToRemove?: string[];
-
-  /**
-   * <p>Replaces all of the component's input artifacts with the specified artifacts.</p>
-   */
-  InputArtifacts?: { [key: string]: TrialComponentArtifact };
-
-  /**
-   * <p>The input artifacts to remove from the component.</p>
-   */
-  InputArtifactsToRemove?: string[];
-
-  /**
-   * <p>Replaces all of the component's output artifacts with the specified artifacts.</p>
-   */
-  OutputArtifacts?: { [key: string]: TrialComponentArtifact };
-
-  /**
-   * <p>The output artifacts to remove from the component.</p>
-   */
-  OutputArtifactsToRemove?: string[];
-}
-
-export namespace UpdateTrialComponentRequest {
-  export const filterSensitiveLog = (obj: UpdateTrialComponentRequest): any => ({
-    ...obj,
-    ...(obj.Parameters && {
-      Parameters: Object.entries(obj.Parameters).reduce(
-        (acc: any, [key, value]: [string, TrialComponentParameterValue]) => ({
-          ...acc,
-          [key]: TrialComponentParameterValue.filterSensitiveLog(value),
-        }),
-        {}
-      ),
-    }),
-  });
-}
-
-export interface UpdateTrialComponentResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the trial component.</p>
-   */
-  TrialComponentArn?: string;
-}
-
-export namespace UpdateTrialComponentResponse {
-  export const filterSensitiveLog = (obj: UpdateTrialComponentResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateUserProfileRequest {
-  /**
-   * <p>The domain ID.</p>
-   */
-  DomainId: string | undefined;
-
-  /**
-   * <p>The user profile name.</p>
-   */
-  UserProfileName: string | undefined;
-
-  /**
-   * <p>A collection of settings.</p>
-   */
-  UserSettings?: UserSettings;
-}
-
-export namespace UpdateUserProfileRequest {
-  export const filterSensitiveLog = (obj: UpdateUserProfileRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateUserProfileResponse {
-  /**
-   * <p>The user profile Amazon Resource Name (ARN).</p>
-   */
-  UserProfileArn?: string;
-}
-
-export namespace UpdateUserProfileResponse {
-  export const filterSensitiveLog = (obj: UpdateUserProfileResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateWorkforceRequest {
-  /**
-   * <p>The name of the private workforce that you want to update. You can find your workforce
-   *         name by using the  operation.</p>
-   */
-  WorkforceName: string | undefined;
-
-  /**
-   * <p>A list of one to ten worker IP address ranges (<a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>) that can be used to
-   *             access tasks assigned to this workforce.</p>
-   *         <p>Maximum: Ten CIDR values</p>
-   */
-  SourceIpConfig?: SourceIpConfig;
-
-  /**
-   * <p>Use this parameter to update your OIDC Identity Provider (IdP)
-   *       configuration for a workforce made using your own IdP.</p>
-   */
-  OidcConfig?: OidcConfig;
-}
-
-export namespace UpdateWorkforceRequest {
-  export const filterSensitiveLog = (obj: UpdateWorkforceRequest): any => ({
-    ...obj,
-    ...(obj.OidcConfig && { OidcConfig: OidcConfig.filterSensitiveLog(obj.OidcConfig) }),
-  });
-}
-
-export interface UpdateWorkforceResponse {
-  /**
-   * <p>A single private workforce. You can create one private work force in each AWS Region. By default,
-   *             any workforce-related API operation used in a specific region will apply to the
-   *             workforce created in that region. To learn how to create a private workforce, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html">Create a Private Workforce</a>.</p>
-   */
-  Workforce: Workforce | undefined;
-}
-
-export namespace UpdateWorkforceResponse {
-  export const filterSensitiveLog = (obj: UpdateWorkforceResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateWorkteamRequest {
-  /**
-   * <p>The name of the work team to update.</p>
-   */
-  WorkteamName: string | undefined;
-
-  /**
-   * <p>A list of <code>MemberDefinition</code> objects that contains objects that identify
-   *             the workers that make up the work team. </p>
-   *         <p>Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP).
-   *             For private workforces created using Amazon Cognito use
-   *             <code>CognitoMemberDefinition</code>. For workforces created using your own OIDC identity
-   *             provider (IdP) use <code>OidcMemberDefinition</code>. You should not provide input
-   *             for both of these parameters in a single request.</p>
-   *         <p>For workforces created using Amazon Cognito, private work teams correspond to Amazon Cognito
-   *                 <i>user groups</i> within the user pool used to create a workforce. All of the
-   *                 <code>CognitoMemberDefinition</code> objects that make up the member definition must
-   *             have the same <code>ClientId</code> and <code>UserPool</code> values. To add a Amazon
-   *             Cognito user group to an existing worker pool, see <a href="">Adding groups to a User
-   *                 Pool</a>. For more information about user pools, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html">Amazon Cognito User
-   *                 Pools</a>.</p>
-   *         <p>For workforces created using your own OIDC IdP, specify the user groups that you want
-   *             to include in your private work team in <code>OidcMemberDefinition</code> by listing
-   *             those groups in <code>Groups</code>. Be aware that user groups that are already in the
-   *             work team must also be listed in <code>Groups</code> when you make this request to
-   *             remain on the work team. If you do not include these user groups, they will no longer be
-   *             associated with the work team you update. </p>
-   */
-  MemberDefinitions?: MemberDefinition[];
-
-  /**
-   * <p>An updated description for the work team.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Configures SNS topic notifications for available or expiring work items</p>
-   */
-  NotificationConfiguration?: NotificationConfiguration;
-}
-
-export namespace UpdateWorkteamRequest {
-  export const filterSensitiveLog = (obj: UpdateWorkteamRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateWorkteamResponse {
-  /**
-   * <p>A <code>Workteam</code> object that describes the updated work team.</p>
-   */
-  Workteam: Workteam | undefined;
-}
-
-export namespace UpdateWorkteamResponse {
-  export const filterSensitiveLog = (obj: UpdateWorkteamResponse): any => ({
     ...obj,
   });
 }

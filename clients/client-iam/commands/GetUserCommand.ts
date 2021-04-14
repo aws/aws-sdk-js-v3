@@ -19,9 +19,9 @@ export type GetUserCommandOutput = GetUserResponse & __MetadataBearer;
 
 /**
  * <p>Retrieves information about the specified IAM user, including the user's creation
- *          date, path, unique ID, and ARN.</p>
- *          <p>If you do not specify a user name, IAM determines the user name implicitly based on
- *          the AWS access key ID used to sign the request to this API.</p>
+ *             date, path, unique ID, and ARN.</p>
+ *         <p>If you do not specify a user name, IAM determines the user name implicitly based on
+ *             the AWS access key ID used to sign the request to this operation.</p>
  */
 export class GetUserCommand extends $Command<GetUserCommandInput, GetUserCommandOutput, IAMClientResolvedConfig> {
   // Start section: command_properties

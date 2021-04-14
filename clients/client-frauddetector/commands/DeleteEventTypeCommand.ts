@@ -23,7 +23,7 @@ export type DeleteEventTypeCommandOutput = DeleteEventTypeResult & __MetadataBea
 /**
  * <p>Deletes an event type.</p>
  * 	        <p>You cannot delete an event type that is used in a detector or a model.</p>
- * 	        <p>When you delete an entity type, Amazon Fraud Detector permanently deletes that entity type from the evaluation history, and the data is no longer stored in Amazon Fraud Detector.</p>
+ * 	        <p>When you delete an entity type, Amazon Fraud Detector permanently deletes that entity type and the data is no longer stored in Amazon Fraud Detector.</p>
  */
 export class DeleteEventTypeCommand extends $Command<
   DeleteEventTypeCommandInput,

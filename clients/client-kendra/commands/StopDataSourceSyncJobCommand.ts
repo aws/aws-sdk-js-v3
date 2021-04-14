@@ -21,8 +21,8 @@ export type StopDataSourceSyncJobCommandInput = StopDataSourceSyncJobRequest;
 export type StopDataSourceSyncJobCommandOutput = __MetadataBearer;
 
 /**
- * <p>Stops a running synchronization job. You can't stop a scheduled synchronization
- *       job.</p>
+ * <p>Stops a running synchronization job. You can't stop a scheduled
+ *       synchronization job.</p>
  */
 export class StopDataSourceSyncJobCommand extends $Command<
   StopDataSourceSyncJobCommandInput,

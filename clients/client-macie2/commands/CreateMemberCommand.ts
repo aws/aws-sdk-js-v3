@@ -21,7 +21,7 @@ export type CreateMemberCommandInput = CreateMemberRequest;
 export type CreateMemberCommandOutput = CreateMemberResponse & __MetadataBearer;
 
 /**
- * <p>Associates an account with an Amazon Macie master account.</p>
+ * <p>Associates an account with an Amazon Macie administrator account.</p>
  */
 export class CreateMemberCommand extends $Command<
   CreateMemberCommandInput,

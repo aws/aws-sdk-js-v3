@@ -22,11 +22,11 @@ export type DeletePolicyVersionCommandOutput = __MetadataBearer;
 
 /**
  * <p>Deletes the specified version from the specified managed policy.</p>
- *          <p>You cannot delete the default version from a policy using this API. To delete the
- *          default version from a policy, use <a>DeletePolicy</a>. To find out which
- *          version of a policy is marked as the default version, use <a>ListPolicyVersions</a>.</p>
- *          <p>For information about versions for managed policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for Managed
- *             Policies</a> in the <i>IAM User Guide</i>.</p>
+ *         <p>You cannot delete the default version from a policy using this operation. To delete
+ *             the default version from a policy, use <a>DeletePolicy</a>. To find out which
+ *             version of a policy is marked as the default version, use <a>ListPolicyVersions</a>.</p>
+ *         <p>For information about versions for managed policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for managed
+ *                 policies</a> in the <i>IAM User Guide</i>.</p>
  */
 export class DeletePolicyVersionCommand extends $Command<
   DeletePolicyVersionCommandInput,

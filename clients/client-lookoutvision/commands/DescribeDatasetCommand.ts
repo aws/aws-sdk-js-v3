@@ -22,6 +22,8 @@ export type DescribeDatasetCommandOutput = DescribeDatasetResponse & __MetadataB
 
 /**
  * <p>Describe an Amazon Lookout for Vision dataset.</p>
+ *          <p>This operation requires permissions to perform the
+ *          <code>lookoutvision:DescribeDataset</code> operation.</p>
  */
 export class DescribeDatasetCommand extends $Command<
   DescribeDatasetCommandInput,

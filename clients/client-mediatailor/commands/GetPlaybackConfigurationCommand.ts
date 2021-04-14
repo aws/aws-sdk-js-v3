@@ -21,7 +21,7 @@ export type GetPlaybackConfigurationCommandInput = GetPlaybackConfigurationReque
 export type GetPlaybackConfigurationCommandOutput = GetPlaybackConfigurationResponse & __MetadataBearer;
 
 /**
- * <p>Returns the playback configuration for the specified name. </p>
+ * <p>Returns the playback configuration for the specified name.</p>
  */
 export class GetPlaybackConfigurationCommand extends $Command<
   GetPlaybackConfigurationCommandInput,

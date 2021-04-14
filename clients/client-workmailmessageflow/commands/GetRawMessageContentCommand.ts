@@ -25,7 +25,7 @@ export type GetRawMessageContentCommandInput = GetRawMessageContentRequest;
 export type GetRawMessageContentCommandOutput = GetRawMessageContentResponse & __MetadataBearer;
 
 /**
- * <p>Retrieves the raw content of an in-transit email message, in MIME format. </p>
+ * <p>Retrieves the raw content of an in-transit email message, in MIME format.</p>
  */
 export class GetRawMessageContentCommand extends $Command<
   GetRawMessageContentCommandInput,

@@ -21,7 +21,7 @@ export type StartJobRunCommandInput = StartJobRunRequest;
 export type StartJobRunCommandOutput = StartJobRunResponse & __MetadataBearer;
 
 /**
- * <p>Runs an AWS Glue DataBrew job that exists in the current AWS account.</p>
+ * <p>Runs a DataBrew job.</p>
  */
 export class StartJobRunCommand extends $Command<
   StartJobRunCommandInput,

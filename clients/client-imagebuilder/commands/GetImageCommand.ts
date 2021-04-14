@@ -21,7 +21,7 @@ export type GetImageCommandInput = GetImageRequest;
 export type GetImageCommandOutput = GetImageResponse & __MetadataBearer;
 
 /**
- * <p> Gets an image. </p>
+ * <p> Gets an image.</p>
  */
 export class GetImageCommand extends $Command<
   GetImageCommandInput,

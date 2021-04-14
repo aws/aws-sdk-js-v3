@@ -11,11 +11,11 @@ export interface AddAttributesActivity {
   name: string | undefined;
 
   /**
-   * <p>A list of 1-50 <code>AttributeNameMapping</code> objects that map an existing attribute
-   *       to a new attribute.</p>
+   * <p>A list of 1-50 <code>AttributeNameMapping</code> objects that map an existing attribute to
+   *       a new attribute.</p>
    *          <note>
-   *             <p>The existing attributes remain in the message, so if you want to remove the originals, use
-   *           <code>RemoveAttributeActivity</code>.</p>
+   *             <p>The existing attributes remain in the message, so if you want to remove the originals,
+   *         use <code>RemoveAttributeActivity</code>.</p>
    *          </note>
    */
   attributes: { [key: string]: string } | undefined;
@@ -263,8 +263,8 @@ export interface CustomerManagedChannelS3Storage {
   keyPrefix?: string;
 
   /**
-   * <p>The ARN of the role that grants AWS IoT Analytics permission to interact with your
-   *       Amazon S3 resources.</p>
+   * <p>The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon
+   *       S3 resources.</p>
    */
   roleArn: string | undefined;
 }
@@ -326,8 +326,8 @@ export interface RetentionPeriod {
   unlimited?: boolean;
 
   /**
-   * <p>The number of days that message data is kept. The <code>unlimited</code> parameter must
-   *       be false.</p>
+   * <p>The number of days that message data is kept. The <code>unlimited</code> parameter must be
+   *       false.</p>
    */
   numberOfDays?: number;
 }
@@ -459,8 +459,7 @@ export enum ComputeType {
 }
 
 /**
- * <p>The configuration of the resource used to execute the
- *       <code>containerAction</code>.</p>
+ * <p>The configuration of the resource used to execute the <code>containerAction</code>.</p>
  */
 export interface ResourceConfiguration {
   /**
@@ -484,8 +483,7 @@ export namespace ResourceConfiguration {
 }
 
 /**
- * <p>The dataset whose latest contents are used as input to the notebook or
- *       application.</p>
+ * <p>The dataset whose latest contents are used as input to the notebook or application.</p>
  */
 export interface DatasetContentVersionValue {
   /**
@@ -506,8 +504,8 @@ export namespace DatasetContentVersionValue {
  */
 export interface OutputFileUriValue {
   /**
-   * <p>The URI of the location where dataset contents are stored, usually the URI of a file in
-   *       an S3 bucket.</p>
+   * <p>The URI of the location where dataset contents are stored, usually the URI of a file in an
+   *       S3 bucket.</p>
    */
   fileName: string | undefined;
 }
@@ -519,8 +517,8 @@ export namespace OutputFileUriValue {
 }
 
 /**
- * <p>An instance of a variable to be passed to the <code>containerAction</code> execution.
- *       Each variable must have a name and a value given by one of <code>stringValue</code>,
+ * <p>An instance of a variable to be passed to the <code>containerAction</code> execution. Each
+ *       variable must have a name and a value given by one of <code>stringValue</code>,
  *         <code>datasetContentVersionValue</code>, or <code>outputFileUriValue</code>.</p>
  */
 export interface Variable {
@@ -540,8 +538,7 @@ export interface Variable {
   doubleValue?: number;
 
   /**
-   * <p>The value of the variable as a structure that specifies a dataset content
-   *       version.</p>
+   * <p>The value of the variable as a structure that specifies a dataset content version.</p>
    */
   datasetContentVersionValue?: DatasetContentVersionValue;
 
@@ -596,7 +593,8 @@ export namespace ContainerDatasetAction {
 }
 
 /**
- * <p>Used to limit data to that which has arrived since the last execution of the action.</p>
+ * <p>Used to limit data to that which has arrived since the last execution of the
+ *       action.</p>
  */
 export interface DeltaTime {
   /**
@@ -630,7 +628,8 @@ export namespace DeltaTime {
  */
 export interface QueryFilter {
   /**
-   * <p>Used to limit data to that which has arrived since the last execution of the action.</p>
+   * <p>Used to limit data to that which has arrived since the last execution of the
+   *       action.</p>
    */
   deltaTime?: DeltaTime;
 }
@@ -663,12 +662,13 @@ export namespace SqlQueryDatasetAction {
 }
 
 /**
- * <p>A <code>DatasetAction</code> object that specifies how data set contents are
- *       automatically created.</p>
+ * <p>A <code>DatasetAction</code> object that specifies how data set contents are automatically
+ *       created.</p>
  */
 export interface DatasetAction {
   /**
-   * <p>The name of the data set action by which data set contents are automatically created.</p>
+   * <p>The name of the data set action by which data set contents are automatically
+   *       created.</p>
    */
   actionName?: string;
 
@@ -716,7 +716,7 @@ export namespace IotEventsDestinationConfiguration {
 
 /**
  * <p>Configuration information for coordination with AWS Glue, a fully managed extract,
- *       transform and load  (ETL) service.</p>
+ *       transform and load (ETL) service.</p>
  */
 export interface GlueConfiguration {
   /**
@@ -741,7 +741,7 @@ export namespace GlueConfiguration {
 
 /**
  * <p>Configuration information for delivery of dataset contents to Amazon Simple Storage
- *         Service (Amazon S3).</p>
+ *       Service (Amazon S3).</p>
  */
 export interface S3DestinationConfiguration {
   /**
@@ -773,8 +773,8 @@ export interface S3DestinationConfiguration {
    *          <note>
    *             <p>If you don't use <code>!{iotanalytics:versionId}</code> to specify the key, you might
    *         get duplicate keys. For example, you might have two dataset contents with the same
-   *           <code>scheduleTime</code> but different <code>versionId</code>s.
-   *         This means that one dataset content overwrites the other. </p>
+   *           <code>scheduleTime</code> but different <code>versionId</code>s. This means that one
+   *         dataset content overwrites the other. </p>
    *          </note>
    */
   key: string | undefined;
@@ -786,8 +786,8 @@ export interface S3DestinationConfiguration {
   glueConfiguration?: GlueConfiguration;
 
   /**
-   * <p>The ARN of the role that grants AWS IoT Analytics permission to interact with your
-   *       Amazon S3 and AWS Glue resources.</p>
+   * <p>The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon
+   *       S3 and AWS Glue resources.</p>
    */
   roleArn: string | undefined;
 }
@@ -847,18 +847,19 @@ export namespace DatasetContentDeliveryRule {
  *          <p>
  *             <a href="https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html">
  *                <code>DeltaTime</code>
- *             </a> specifies a time interval.
- *       You can use <code>DeltaTime</code> to create dataset contents with data that has arrived in the data store since the last execution.
- *       For an example of <code>DeltaTime</code>, see <a href="https://docs.aws.amazon.com/iotanalytics/latest/userguide/automate-create-dataset.html#automate-example6">
- *         Creating a SQL dataset with a delta window (CLI)</a> in the <i>AWS IoT Analytics User Guide</i>.</p>
+ *             </a> specifies a time interval. You can use
+ *         <code>DeltaTime</code> to create dataset contents with data that has arrived in the data
+ *       store since the last execution. For an example of <code>DeltaTime</code>, see <a href="https://docs.aws.amazon.com/iotanalytics/latest/userguide/automate-create-dataset.html#automate-example6"> Creating
+ *         a SQL dataset with a delta window (CLI)</a> in the
+ *         <i>AWS IoT Analytics User Guide</i>.</p>
  */
 export interface DeltaTimeSessionWindowConfiguration {
   /**
-   * <p>A time interval. You can use <code>timeoutInMinutes</code> so that AWS IoT Analytics can batch up late data notifications
-   *       that have been generated since the last execution. AWS IoT Analytics sends one batch of notifications to Amazon CloudWatch Events at one time.</p>
-   *          <p>For more information about how to write a timestamp expression,
-   *       see <a href="https://prestodb.io/docs/0.172/functions/datetime.html">Date and Time Functions and Operators</a>,
-   *       in the <i>Presto 0.172 Documentation</i>.</p>
+   * <p>A time interval. You can use <code>timeoutInMinutes</code> so that AWS IoT Analytics can batch up late
+   *       data notifications that have been generated since the last execution. AWS IoT Analytics sends one batch of
+   *       notifications to Amazon CloudWatch Events at one time.</p>
+   *          <p>For more information about how to write a timestamp expression, see <a href="https://prestodb.io/docs/0.172/functions/datetime.html">Date and Time Functions and
+   *         Operators</a>, in the <i>Presto 0.172 Documentation</i>.</p>
    */
   timeoutInMinutes: number | undefined;
 }
@@ -930,10 +931,9 @@ export namespace TriggeringDataset {
  */
 export interface Schedule {
   /**
-   * <p>The expression that defines when to trigger an update.
-   *         For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html">Schedule Expressions for
-   *         Rules</a> in the <i>Amazon CloudWatch Events User
-   *       Guide</i>.</p>
+   * <p>The expression that defines when to trigger an update. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html">Schedule
+   *         Expressions for Rules</a> in the <i>Amazon CloudWatch Events User
+   *         Guide</i>.</p>
    */
   expression?: string;
 }
@@ -955,7 +955,8 @@ export interface DatasetTrigger {
   schedule?: Schedule;
 
   /**
-   * <p>The data set whose content creation triggers the creation of this data set's contents.</p>
+   * <p>The data set whose content creation triggers the creation of this data set's
+   *       contents.</p>
    */
   dataset?: TriggeringDataset;
 }
@@ -976,8 +977,8 @@ export interface VersioningConfiguration {
   unlimited?: boolean;
 
   /**
-   * <p>How many versions of dataset contents are kept. The <code>unlimited</code> parameter
-   *       must be <code>false</code>.</p>
+   * <p>How many versions of dataset contents are kept. The <code>unlimited</code> parameter must
+   *       be <code>false</code>.</p>
    */
   maxVersions?: number;
 }
@@ -1000,9 +1001,9 @@ export interface CreateDatasetRequest {
   actions: DatasetAction[] | undefined;
 
   /**
-   * <p>A list of triggers. A trigger causes data set contents to be populated at a specified
-   *       time interval or when another data set's contents are created. The list of triggers can be
-   *       empty or contain up to five <code>DataSetTrigger</code> objects.</p>
+   * <p>A list of triggers. A trigger causes data set contents to be populated at a specified time
+   *       interval or when another data set's contents are created. The list of triggers can be empty or
+   *       contain up to five <code>DataSetTrigger</code> objects.</p>
    */
   triggers?: DatasetTrigger[];
 
@@ -1013,20 +1014,19 @@ export interface CreateDatasetRequest {
   contentDeliveryRules?: DatasetContentDeliveryRule[];
 
   /**
-   * <p>Optional. How long, in days, versions of dataset contents are kept for the dataset. If
-   *       not specified or set to <code>null</code>, versions of dataset contents are retained for at
-   *       most 90 days. The number of versions of dataset contents retained is determined by the
+   * <p>Optional. How long, in days, versions of dataset contents are kept for the dataset. If not
+   *       specified or set to <code>null</code>, versions of dataset contents are retained for at most
+   *       90 days. The number of versions of dataset contents retained is determined by the
    *         <code>versioningConfiguration</code> parameter. For more information, see <a href="https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions">Keeping Multiple Versions of AWS IoT Analytics Data Sets</a> in the <i>AWS IoT
    *         Analytics User Guide</i>.</p>
    */
   retentionPeriod?: RetentionPeriod;
 
   /**
-   * <p>Optional. How many versions of dataset contents are kept. If not specified or set to
-   *       null, only the latest version plus the latest succeeded version (if they are different) are
-   *       kept for the time period specified by the <code>retentionPeriod</code> parameter. For more
-   *       information, see
-   *         <a href="https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions">Keeping Multiple Versions of AWS IoT Analytics Data Sets</a> in the <i>AWS IoT
+   * <p>Optional. How many versions of dataset contents are kept. If not specified or set to null,
+   *       only the latest version plus the latest succeeded version (if they are different) are kept for
+   *       the time period specified by the <code>retentionPeriod</code> parameter. For more information,
+   *       see <a href="https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions">Keeping Multiple Versions of AWS IoT Analytics Data Sets</a> in the <i>AWS IoT
    *         Analytics User Guide</i>.</p>
    */
   versioningConfiguration?: VersioningConfiguration;
@@ -1038,8 +1038,8 @@ export interface CreateDatasetRequest {
 
   /**
    * <p>A list of data rules that send notifications to Amazon CloudWatch, when data arrives late. To
-   *       specify <code>lateDataRules</code>, the dataset must use a <a href="https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html">DeltaTimer</a>
-   *       filter.</p>
+   *   specify <code>lateDataRules</code>, the dataset must use a <a href="https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html">DeltaTimer</a>
+   *   filter.</p>
    */
   lateDataRules?: LateDataRule[];
 }
@@ -1125,8 +1125,8 @@ export interface CustomerManagedDatastoreS3Storage {
   keyPrefix?: string;
 
   /**
-   * <p>The ARN of the role that grants AWS IoT Analytics permission to interact with your
-   *       Amazon S3 resources.</p>
+   * <p>The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon
+   *       S3 resources.</p>
    */
   roleArn: string | undefined;
 }
@@ -1138,9 +1138,9 @@ export namespace CustomerManagedDatastoreS3Storage {
 }
 
 /**
- * <p>Use this to store data store data in an S3 bucket managed by AWS IoT Analytics. You
- *       cannot change the choice of service-managed or customer-managed S3 storage after the data
- *       store is created.</p>
+ * <p>Use this to store data store data in an S3 bucket managed by AWS IoT Analytics. You cannot
+ *       change the choice of service-managed or customer-managed S3 storage after the data store is
+ *       created.</p>
  */
 export interface ServiceManagedDatastoreS3Storage {}
 
@@ -1163,9 +1163,9 @@ export type DatastoreStorage =
 
 export namespace DatastoreStorage {
   /**
-   * <p>Use this to store data store data in an S3 bucket managed by AWS IoT Analytics. You
-   *       cannot change the choice of service-managed or customer-managed S3 storage after the data
-   *       store is created.</p>
+   * <p>Use this to store data store data in an S3 bucket managed by AWS IoT Analytics. You cannot
+   *       change the choice of service-managed or customer-managed S3 storage after the data store is
+   *       created.</p>
    */
   export interface ServiceManagedS3Member {
     serviceManagedS3: ServiceManagedDatastoreS3Storage;
@@ -1212,6 +1212,96 @@ export namespace DatastoreStorage {
   };
 }
 
+/**
+ * <p>Contains the configuration information of the JSON format.</p>
+ */
+export interface JsonConfiguration {}
+
+export namespace JsonConfiguration {
+  export const filterSensitiveLog = (obj: JsonConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information about a column that stores your data.</p>
+ */
+export interface Column {
+  /**
+   * <p>The name of the column.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of data. For more information about the supported data types, see <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html">Common data types</a>
+   *       in the <i>AWS Glue Developer Guide</i>.</p>
+   */
+  type: string | undefined;
+}
+
+export namespace Column {
+  export const filterSensitiveLog = (obj: Column): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information needed to define a schema.</p>
+ */
+export interface SchemaDefinition {
+  /**
+   * <p>Specifies one or more columns that store your data.</p>
+   *          <p>Each schema can have up to 100 columns. Each column can have up to 100 nested types</p>
+   */
+  columns?: Column[];
+}
+
+export namespace SchemaDefinition {
+  export const filterSensitiveLog = (obj: SchemaDefinition): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the configuration information of the Parquet format.</p>
+ */
+export interface ParquetConfiguration {
+  /**
+   * <p>Information needed to define a schema.</p>
+   */
+  schemaDefinition?: SchemaDefinition;
+}
+
+export namespace ParquetConfiguration {
+  export const filterSensitiveLog = (obj: ParquetConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the configuration information of file formats. AWS IoT Analytics data stores support JSON
+ *       and <a href="https://parquet.apache.org/">Parquet</a>.</p>
+ *          <p>The default file format is JSON. You can specify only one format.</p>
+ *          <p>You can't change the file format after you create the data store.</p>
+ */
+export interface FileFormatConfiguration {
+  /**
+   * <p>Contains the configuration information of the JSON format.</p>
+   */
+  jsonConfiguration?: JsonConfiguration;
+
+  /**
+   * <p>Contains the configuration information of the Parquet format.</p>
+   */
+  parquetConfiguration?: ParquetConfiguration;
+}
+
+export namespace FileFormatConfiguration {
+  export const filterSensitiveLog = (obj: FileFormatConfiguration): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateDatastoreRequest {
   /**
    * <p>The name of the data store.</p>
@@ -1236,6 +1326,14 @@ export interface CreateDatastoreRequest {
    * <p>Metadata which can be used to manage the data store.</p>
    */
   tags?: Tag[];
+
+  /**
+   * <p>Contains the configuration information of file formats. AWS IoT Analytics data stores support JSON
+   *       and <a href="https://parquet.apache.org/">Parquet</a>.</p>
+   *          <p>The default file format is JSON. You can specify only one format.</p>
+   *          <p>You can't change the file format after you create the data store.</p>
+   */
+  fileFormatConfiguration?: FileFormatConfiguration;
 }
 
 export namespace CreateDatastoreRequest {
@@ -1367,8 +1465,7 @@ export interface DeviceShadowEnrichActivity {
   attribute: string | undefined;
 
   /**
-   * <p>The name of the IoT device whose shadow information is added to
-   *           the message.</p>
+   * <p>The name of the IoT device whose shadow information is added to the message.</p>
    */
   thingName: string | undefined;
 
@@ -1400,7 +1497,7 @@ export interface FilterActivity {
 
   /**
    * <p>An expression that looks like a SQL WHERE clause that must return a Boolean value.
-   *         Messages that satisfy the condition are passed to the next activity. </p>
+   *       Messages that satisfy the condition are passed to the next activity. </p>
    */
   filter: string | undefined;
 
@@ -1464,7 +1561,8 @@ export interface MathActivity {
   attribute: string | undefined;
 
   /**
-   * <p>An expression that uses one or more existing attributes and must return an integer value.</p>
+   * <p>An expression that uses one or more existing attributes and must return an integer
+   *       value.</p>
    */
   math: string | undefined;
 
@@ -1507,8 +1605,8 @@ export namespace RemoveAttributesActivity {
 }
 
 /**
- * <p>Creates a new message using only the specified attributes
- *         from the original message.</p>
+ * <p>Creates a new message using only the specified attributes from the original
+ *       message.</p>
  */
 export interface SelectAttributesActivity {
   /**
@@ -1564,7 +1662,7 @@ export interface PipelineActivity {
 
   /**
    * <p>Creates a new message using only the specified attributes from the original message.
-   *      </p>
+   *     </p>
    */
   selectAttributes?: SelectAttributesActivity;
 
@@ -1574,8 +1672,8 @@ export interface PipelineActivity {
   filter?: FilterActivity;
 
   /**
-   * <p>Computes an arithmetic expression using the message's attributes and adds
-   *        it to the message.</p>
+   * <p>Computes an arithmetic expression using the message's attributes and adds it to the
+   *       message.</p>
    */
   math?: MathActivity;
 
@@ -1603,7 +1701,7 @@ export interface CreatePipelineRequest {
   pipelineName: string | undefined;
 
   /**
-   * <p>A list of  <code>PipelineActivity</code> objects. Activities perform transformations on
+   * <p>A list of <code>PipelineActivity</code> objects. Activities perform transformations on
    *       your messages, such as removing, renaming or adding message attributes; filtering messages
    *       based on attribute values; invoking your Lambda functions on messages for advanced processing;
    *       or performing mathematical transformations to normalize device data.</p>
@@ -1611,15 +1709,8 @@ export interface CreatePipelineRequest {
    *         <code>channel</code> and a <code>datastore</code> activity. Each entry in the list must
    *       contain only one activity. For example:</p>
    *          <p>
-   *             <code>pipelineActivities = [
-   *   {
-   *     "channel": { ... }
-   *   },
-   *   {
-   *     "lambda": { ... }
-   *   },
-   *   ...
-   * ]</code>
+   *             <code>pipelineActivities = [ { "channel": { ... } }, { "lambda": { ... } }, ...
+   *       ]</code>
    *          </p>
    */
   pipelineActivities: PipelineActivity[] | undefined;
@@ -1734,7 +1825,7 @@ export interface DescribeChannelRequest {
 
   /**
    * <p>If true, additional statistical information about the channel is included in the response.
-   *          This feature cannot be used with a channel whose S3 storage is customer-managed.</p>
+   *       This feature cannot be used with a channel whose S3 storage is customer-managed.</p>
    */
   includeStatistics?: boolean;
 }
@@ -1752,8 +1843,8 @@ export enum ChannelStatus {
 }
 
 /**
- * <p>A collection of data from an MQTT topic.
- *         Channels archive the raw, unprocessed messages before publishing the data to a pipeline.</p>
+ * <p>A collection of data from an MQTT topic. Channels archive the raw, unprocessed messages
+ *       before publishing the data to a pipeline.</p>
  */
 export interface Channel {
   /**
@@ -1797,7 +1888,7 @@ export interface Channel {
   /**
    * <p>The last time when a new message arrived in the channel.</p>
    *          <p>AWS IoT Analytics updates this value at most once per minute for one channel.
-   *       Hence, the <code>lastMessageArrivalTime</code> value is an approximation.</p>
+   *   Hence, the <code>lastMessageArrivalTime</code> value is an approximation.</p>
    *          <p>This feature only applies to messages that arrived in the data store after October 23, 2020. </p>
    */
   lastMessageArrivalTime?: Date;
@@ -1937,19 +2028,18 @@ export interface Dataset {
   retentionPeriod?: RetentionPeriod;
 
   /**
-   * <p>Optional. How many versions of dataset contents are kept. If not specified or set to
-   *       null, only the latest version plus the latest succeeded version (if they are different) are
-   *       kept for the time period specified by the <code>retentionPeriod</code> parameter. For more
-   *       information, see
-   *         <a href="https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions">Keeping Multiple Versions of AWS IoT Analytics Data Sets</a> in the <i>AWS IoT
+   * <p>Optional. How many versions of dataset contents are kept. If not specified or set to null,
+   *       only the latest version plus the latest succeeded version (if they are different) are kept for
+   *       the time period specified by the <code>retentionPeriod</code> parameter. For more information,
+   *       see <a href="https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions">Keeping Multiple Versions of AWS IoT Analytics Data Sets</a> in the <i>AWS IoT
    *         Analytics User Guide</i>.</p>
    */
   versioningConfiguration?: VersioningConfiguration;
 
   /**
    * <p>A list of data rules that send notifications to Amazon CloudWatch, when data arrives late. To
-   *       specify <code>lateDataRules</code>, the dataset must use a <a href="https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html">DeltaTimer</a>
-   *       filter.</p>
+   *   specify <code>lateDataRules</code>, the dataset must use a <a href="https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html">DeltaTimer</a>
+   *   filter.</p>
    */
   lateDataRules?: LateDataRule[];
 }
@@ -1980,8 +2070,9 @@ export interface DescribeDatastoreRequest {
   datastoreName: string | undefined;
 
   /**
-   * <p>If true, additional statistical information about the data store is included in the response.
-   *          This feature cannot be used with a data store whose S3 storage is customer-managed.</p>
+   * <p>If true, additional statistical information about the data store is included in the
+   *       response. This feature cannot be used with a data store whose S3 storage is
+   *       customer-managed.</p>
    */
   includeStatistics?: boolean;
 }
@@ -2058,10 +2149,18 @@ export interface Datastore {
   /**
    * <p>The last time when a new message arrived in the data store.</p>
    *          <p>AWS IoT Analytics updates this value at most once per minute for one data store.
-   *       Hence, the <code>lastMessageArrivalTime</code> value is an approximation.</p>
+   *   Hence, the <code>lastMessageArrivalTime</code> value is an approximation.</p>
    *          <p>This feature only applies to messages that arrived in the data store after October 23, 2020. </p>
    */
   lastMessageArrivalTime?: Date;
+
+  /**
+   * <p>Contains the configuration information of file formats. AWS IoT Analytics data stores support JSON
+   *       and <a href="https://parquet.apache.org/">Parquet</a>.</p>
+   *          <p>The default file format is JSON. You can specify only one format.</p>
+   *          <p>You can't change the file format after you create the data store.</p>
+   */
+  fileFormatConfiguration?: FileFormatConfiguration;
 }
 
 export namespace Datastore {
@@ -2124,8 +2223,7 @@ export enum LoggingLevel {
  */
 export interface LoggingOptions {
   /**
-   * <p>The ARN of the role that grants permission to AWS IoT Analytics to
-   *           perform logging.</p>
+   * <p>The ARN of the role that grants permission to AWS IoT Analytics to perform logging.</p>
    */
   roleArn: string | undefined;
 
@@ -2184,8 +2282,7 @@ export enum ReprocessingStatus {
  */
 export interface ReprocessingSummary {
   /**
-   * <p>The <code>reprocessingId</code> returned by
-   *       <code>StartPipelineReprocessing</code>.</p>
+   * <p>The <code>reprocessingId</code> returned by <code>StartPipelineReprocessing</code>.</p>
    */
   id?: string;
 
@@ -2267,10 +2364,9 @@ export interface GetDatasetContentRequest {
   datasetName: string | undefined;
 
   /**
-   * <p>The version of the data set whose contents are retrieved. You can also use
-   *          the strings "$LATEST" or "$LATEST_SUCCEEDED" to retrieve the contents of the
-   *          latest or latest successfully completed data set. If not specified, "$LATEST_SUCCEEDED"
-   *          is the default.</p>
+   * <p>The version of the data set whose contents are retrieved. You can also use the strings
+   *       "$LATEST" or "$LATEST_SUCCEEDED" to retrieve the contents of the latest or latest successfully
+   *       completed data set. If not specified, "$LATEST_SUCCEEDED" is the default.</p>
    */
   versionId?: string;
 }
@@ -2332,7 +2428,7 @@ export namespace DatasetContentStatus {
 
 export interface GetDatasetContentResponse {
   /**
-   * <p>A list of  <code>DatasetEntry</code> objects.</p>
+   * <p>A list of <code>DatasetEntry</code> objects.</p>
    */
   entries?: DatasetEntry[];
 
@@ -2389,8 +2485,8 @@ export interface CustomerManagedChannelS3StorageSummary {
   keyPrefix?: string;
 
   /**
-   * <p>The ARN of the role that grants AWS IoT Analytics permission to interact with your
-   *       Amazon S3 resources.</p>
+   * <p>The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon
+   *       S3 resources.</p>
    */
   roleArn?: string;
 }
@@ -2465,7 +2561,7 @@ export interface ChannelSummary {
   /**
    * <p>The last time when a new message arrived in the channel.</p>
    *          <p>AWS IoT Analytics updates this value at most once per minute for one channel.
-   *       Hence, the <code>lastMessageArrivalTime</code> value is an approximation.</p>
+   *   Hence, the <code>lastMessageArrivalTime</code> value is an approximation.</p>
    *          <p>This feature only applies to messages that arrived in the data store after October 23, 2020. </p>
    */
   lastMessageArrivalTime?: Date;
@@ -2479,13 +2575,13 @@ export namespace ChannelSummary {
 
 export interface ListChannelsResponse {
   /**
-   * <p>A list of  <code>ChannelSummary</code> objects.</p>
+   * <p>A list of <code>ChannelSummary</code> objects.</p>
    */
   channelSummaries?: ChannelSummary[];
 
   /**
-   * <p>The token to retrieve the next set of results, or <code>null</code> if there are no
-   *           more results.</p>
+   * <p>The token to retrieve the next set of results, or <code>null</code> if there are no more
+   *       results.</p>
    */
   nextToken?: string;
 }
@@ -2514,8 +2610,8 @@ export interface ListDatasetContentsRequest {
 
   /**
    * <p>A filter to limit results to those data set contents whose creation is scheduled on or
-   *        after the given time. See the field <code>triggers.schedule</code> in the <code>CreateDataset</code>
-   *        request. (timestamp)</p>
+   *       after the given time. See the field <code>triggers.schedule</code> in the
+   *         <code>CreateDataset</code> request. (timestamp)</p>
    */
   scheduledOnOrAfter?: Date;
 
@@ -2576,8 +2672,8 @@ export interface ListDatasetContentsResponse {
   datasetContentSummaries?: DatasetContentSummary[];
 
   /**
-   * <p>The token to retrieve the next set of results, or <code>null</code> if there are no
-   *            more results.</p>
+   * <p>The token to retrieve the next set of results, or <code>null</code> if there are no more
+   *       results.</p>
    */
   nextToken?: string;
 }
@@ -2659,8 +2755,8 @@ export interface DatasetSummary {
 
   /**
    * <p>A list of triggers. A trigger causes data set content to be populated at a specified time
-   *        interval or when another data set is populated. The list of triggers can be empty or contain up
-   *        to five <code>DataSetTrigger</code> objects</p>
+   *       interval or when another data set is populated. The list of triggers can be empty or contain
+   *       up to five <code>DataSetTrigger</code> objects</p>
    */
   triggers?: DatasetTrigger[];
 
@@ -2683,8 +2779,8 @@ export interface ListDatasetsResponse {
   datasetSummaries?: DatasetSummary[];
 
   /**
-   * <p>The token to retrieve the next set of results, or <code>null</code> if there are no
-   *           more results.</p>
+   * <p>The token to retrieve the next set of results, or <code>null</code> if there are no more
+   *       results.</p>
    */
   nextToken?: string;
 }
@@ -2731,8 +2827,8 @@ export interface CustomerManagedDatastoreS3StorageSummary {
   keyPrefix?: string;
 
   /**
-   * <p>The ARN of the role that grants AWS IoT Analytics permission to interact with your
-   *       Amazon S3 resources.</p>
+   * <p>The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon
+   *       S3 resources.</p>
    */
   roleArn?: string;
 }
@@ -2775,6 +2871,11 @@ export namespace DatastoreStorageSummary {
   });
 }
 
+export enum FileFormatType {
+  JSON = "JSON",
+  PARQUET = "PARQUET",
+}
+
 /**
  * <p>A summary of information about a data store.</p>
  */
@@ -2807,10 +2908,15 @@ export interface DatastoreSummary {
   /**
    * <p>The last time when a new message arrived in the data store.</p>
    *          <p>AWS IoT Analytics updates this value at most once per minute for one data store.
-   *       Hence, the <code>lastMessageArrivalTime</code> value is an approximation.</p>
+   *   Hence, the <code>lastMessageArrivalTime</code> value is an approximation.</p>
    *          <p>This feature only applies to messages that arrived in the data store after October 23, 2020. </p>
    */
   lastMessageArrivalTime?: Date;
+
+  /**
+   * <p>The file format of the data in the data store.</p>
+   */
+  fileFormatType?: FileFormatType | string;
 }
 
 export namespace DatastoreSummary {
@@ -2826,8 +2932,8 @@ export interface ListDatastoresResponse {
   datastoreSummaries?: DatastoreSummary[];
 
   /**
-   * <p>The token to retrieve the next set of results, or <code>null</code> if there are no
-   *           more results.</p>
+   * <p>The token to retrieve the next set of results, or <code>null</code> if there are no more
+   *       results.</p>
    */
   nextToken?: string;
 }
@@ -2895,8 +3001,8 @@ export interface ListPipelinesResponse {
   pipelineSummaries?: PipelineSummary[];
 
   /**
-   * <p>The token to retrieve the next set of results, or <code>null</code> if there are no
-   *           more results.</p>
+   * <p>The token to retrieve the next set of results, or <code>null</code> if there are no more
+   *       results.</p>
    */
   nextToken?: string;
 }
@@ -2970,9 +3076,9 @@ export namespace RunPipelineActivityRequest {
 
 export interface RunPipelineActivityResponse {
   /**
-   * <p>The enriched or transformed sample message payloads as base64-encoded strings.
-   *           (The results of running the pipeline activity on each input sample message payload,
-   *           encoded in base64.)</p>
+   * <p>The enriched or transformed sample message payloads as base64-encoded strings. (The
+   *       results of running the pipeline activity on each input sample message payload, encoded in
+   *       base64.)</p>
    */
   payloads?: Uint8Array[];
 
@@ -3019,14 +3125,31 @@ export namespace SampleChannelDataRequest {
 
 export interface SampleChannelDataResponse {
   /**
-   * <p>The list of message samples.  Each sample message is returned as a base64-encoded
-   *           string.</p>
+   * <p>The list of message samples. Each sample message is returned as a base64-encoded
+   *       string.</p>
    */
   payloads?: Uint8Array[];
 }
 
 export namespace SampleChannelDataResponse {
   export const filterSensitiveLog = (obj: SampleChannelDataResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies one or more sets of channel messages.</p>
+ */
+export interface ChannelMessages {
+  /**
+   * <p>Specifies one or more keys that identify the Amazon Simple Storage Service (Amazon S3) objects that save your
+   *       channel messages.</p>
+   */
+  s3Paths?: string[];
+}
+
+export namespace ChannelMessages {
+  export const filterSensitiveLog = (obj: ChannelMessages): any => ({
     ...obj,
   });
 }
@@ -3039,13 +3162,24 @@ export interface StartPipelineReprocessingRequest {
 
   /**
    * <p>The start time (inclusive) of raw message data that is reprocessed.</p>
+   *          <p>If you specify a value for the <code>startTime</code> parameter, you must not use the
+   *         <code>channelMessages</code> object.</p>
    */
   startTime?: Date;
 
   /**
    * <p>The end time (exclusive) of raw message data that is reprocessed.</p>
+   *          <p>If you specify a value for the <code>endTime</code> parameter, you must not use the
+   *         <code>channelMessages</code> object.</p>
    */
   endTime?: Date;
+
+  /**
+   * <p>Specifies one or more sets of channel messages that you want to reprocess.</p>
+   *          <p>If you use the <code>channelMessages</code> object, you must not specify a value for
+   *         <code>startTime</code> and <code>endTime</code>.</p>
+   */
+  channelMessages?: ChannelMessages;
 }
 
 export namespace StartPipelineReprocessingRequest {
@@ -3134,8 +3268,8 @@ export interface UpdateChannelRequest {
   channelStorage?: ChannelStorage;
 
   /**
-   * <p>How long, in days, message data is kept for the channel. The retention period cannot be updated
-   *         if the channel's S3 storage is customer-managed.</p>
+   * <p>How long, in days, message data is kept for the channel. The retention period cannot be
+   *       updated if the channel's S3 storage is customer-managed.</p>
    */
   retentionPeriod?: RetentionPeriod;
 }
@@ -3158,8 +3292,8 @@ export interface UpdateDatasetRequest {
   actions: DatasetAction[] | undefined;
 
   /**
-   * <p>A list of <code>DatasetTrigger</code> objects. The list can be empty or can contain up
-   *       to five <code>DatasetTrigger</code> objects.</p>
+   * <p>A list of <code>DatasetTrigger</code> objects. The list can be empty or can contain up to
+   *       five <code>DatasetTrigger</code> objects.</p>
    */
   triggers?: DatasetTrigger[];
 
@@ -3175,19 +3309,18 @@ export interface UpdateDatasetRequest {
   retentionPeriod?: RetentionPeriod;
 
   /**
-   * <p>Optional. How many versions of dataset contents are kept. If not specified or set to
-   *       null, only the latest version plus the latest succeeded version (if they are different) are
-   *       kept for the time period specified by the <code>retentionPeriod</code> parameter. For more
-   *       information, see
-   *         <a href="https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions">Keeping Multiple Versions of AWS IoT Analytics Data Sets</a> in the <i>AWS IoT
+   * <p>Optional. How many versions of dataset contents are kept. If not specified or set to null,
+   *       only the latest version plus the latest succeeded version (if they are different) are kept for
+   *       the time period specified by the <code>retentionPeriod</code> parameter. For more information,
+   *       see <a href="https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions">Keeping Multiple Versions of AWS IoT Analytics Data Sets</a> in the <i>AWS IoT
    *         Analytics User Guide</i>.</p>
    */
   versioningConfiguration?: VersioningConfiguration;
 
   /**
    * <p>A list of data rules that send notifications to Amazon CloudWatch, when data arrives late. To
-   *       specify <code>lateDataRules</code>, the dataset must use a <a href="https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html">DeltaTimer</a>
-   *       filter.</p>
+   *   specify <code>lateDataRules</code>, the dataset must use a <a href="https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html">DeltaTimer</a>
+   *   filter.</p>
    */
   lateDataRules?: LateDataRule[];
 }
@@ -3205,8 +3338,8 @@ export interface UpdateDatastoreRequest {
   datastoreName: string | undefined;
 
   /**
-   * <p>How long, in days, message data is kept for the data store. The retention period cannot be updated
-   *         if the data store's S3 storage is customer-managed.</p>
+   * <p>How long, in days, message data is kept for the data store. The retention period cannot be
+   *       updated if the data store's S3 storage is customer-managed.</p>
    */
   retentionPeriod?: RetentionPeriod;
 
@@ -3217,6 +3350,14 @@ export interface UpdateDatastoreRequest {
    *       is created.</p>
    */
   datastoreStorage?: DatastoreStorage;
+
+  /**
+   * <p>Contains the configuration information of file formats. AWS IoT Analytics data stores support JSON
+   *       and <a href="https://parquet.apache.org/">Parquet</a>.</p>
+   *          <p>The default file format is JSON. You can specify only one format.</p>
+   *          <p>You can't change the file format after you create the data store.</p>
+   */
+  fileFormatConfiguration?: FileFormatConfiguration;
 }
 
 export namespace UpdateDatastoreRequest {
@@ -3241,15 +3382,8 @@ export interface UpdatePipelineRequest {
    *         <code>channel</code> and a <code>datastore</code> activity. Each entry in the list must
    *       contain only one activity. For example:</p>
    *          <p>
-   *             <code>pipelineActivities = [
-   *   {
-   *     "channel": { ... }
-   *   },
-   *   {
-   *     "lambda": { ... }
-   *   },
-   *   ...
-   * ]</code>
+   *             <code>pipelineActivities = [ { "channel": { ... } }, { "lambda": { ... } }, ...
+   *       ]</code>
    *          </p>
    */
   pipelineActivities: PipelineActivity[] | undefined;

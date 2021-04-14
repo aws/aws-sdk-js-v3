@@ -23,88 +23,45 @@ export type DescribeFleetPortSettingsCommandOutput = DescribeFleetPortSettingsOu
 /**
  * <p>Retrieves a fleet's inbound connection permissions. Connection permissions specify the
  *             range of IP addresses and port settings that incoming traffic can use to access server
- *             processes in the fleet. Game sessions that are running on instances in the fleet use
- *             connections that fall in this range. </p>
- *         <p>To get a fleet's inbound connection permissions, specify the fleet's unique
- *             identifier. If successful, a collection of <a>IpPermission</a> objects is
- *             returned for the requested fleet ID. If the requested fleet has been deleted, the result
- *             set is empty.</p>
+ *             processes in the fleet. Game sessions that are running on instances in the fleet must
+ *             use connections that fall in this range.</p>
+ *         <p>This operation can be used in the following ways: </p>
+ *         <ul>
+ *             <li>
+ *                 <p>To retrieve the inbound connection permissions for a fleet, identify the
+ *                     fleet's unique identifier. </p>
+ *             </li>
+ *             <li>
+ *                 <p>To check the status of recent updates to a fleet remote location, specify
+ *                     the fleet ID and a location. Port setting updates can take time to
+ *                     propagate across all locations. </p>
+ *             </li>
+ *          </ul>
+ *         <p>If successful, a set of <a>IpPermission</a> objects is returned for the
+ *             requested fleet ID. When a location is specified, a pending status is included. If the
+ *             requested fleet has been deleted, the result set is empty.</p>
  *         <p>
  *             <b>Learn more</b>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift Fleets</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift fleets</a>
  *          </p>
  *         <p>
- *             <b>Related operations</b>
+ *             <b>Related actions</b>
  *          </p>
- *         <ul>
- *             <li>
- *                <p>
- *                   <a>CreateFleet</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListFleets</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteFleet</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>Describe fleets:</p>
- *                         <ul>
- *                   <li>
- *                      <p>
- *                         <a>DescribeFleetAttributes</a>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <a>DescribeFleetCapacity</a>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <a>DescribeFleetPortSettings</a>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <a>DescribeFleetUtilization</a>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <a>DescribeRuntimeConfiguration</a>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <a>DescribeEC2InstanceLimits</a>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <a>DescribeFleetEvents</a>
- *                      </p>
- *                   </li>
- *                </ul>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateFleetAttributes</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>StartFleetActions</a> or <a>StopFleetActions</a>
- *                </p>
- *             </li>
- *          </ul>
+ *                     <p>
+ *             <a>ListFleets</a> |
+ *                     <a>DescribeEC2InstanceLimits</a> |
+ *                     <a>DescribeFleetAttributes</a> |
+ *                     <a>DescribeFleetCapacity</a> |
+ *                     <a>DescribeFleetEvents</a> |
+ *                     <a>DescribeFleetLocationAttributes</a> |
+ *                     <a>DescribeFleetPortSettings</a> |
+ *                     <a>DescribeFleetUtilization</a> |
+ *                     <a>DescribeRuntimeConfiguration</a> |
+ *                     <a>DescribeScalingPolicies</a> |
+ *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          </p>
  */
 export class DescribeFleetPortSettingsCommand extends $Command<
   DescribeFleetPortSettingsCommandInput,

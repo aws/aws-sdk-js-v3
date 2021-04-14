@@ -21,9 +21,7 @@ export type ListServicesCommandInput = ListServicesRequest;
 export type ListServicesCommandOutput = ListServicesResponse & __MetadataBearer;
 
 /**
- * <p>Lists the AWS services available in Service Quotas. Not all AWS services are available in
- *       Service Quotas. To list the see the list of the service quotas for a specific service, use
- *         <a>ListServiceQuotas</a>.</p>
+ * <p>Lists the names and codes for the services integrated with Service Quotas.</p>
  */
 export class ListServicesCommand extends $Command<
   ListServicesCommandInput,

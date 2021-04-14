@@ -21,7 +21,7 @@ export type DescribeGlobalReplicationGroupsCommandInput = DescribeGlobalReplicat
 export type DescribeGlobalReplicationGroupsCommandOutput = DescribeGlobalReplicationGroupsResult & __MetadataBearer;
 
 /**
- * <p>Returns information about a particular global replication group. If no identifier is specified, returns information about all Global Datastores. </p>
+ * <p>Returns information about a particular global replication group. If no identifier is specified, returns information about all Global datastores. </p>
  */
 export class DescribeGlobalReplicationGroupsCommand extends $Command<
   DescribeGlobalReplicationGroupsCommandInput,

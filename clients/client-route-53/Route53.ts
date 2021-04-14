@@ -1,5 +1,10 @@
 import { Route53Client } from "./Route53Client";
 import {
+  ActivateKeySigningKeyCommand,
+  ActivateKeySigningKeyCommandInput,
+  ActivateKeySigningKeyCommandOutput,
+} from "./commands/ActivateKeySigningKeyCommand";
+import {
   AssociateVPCWithHostedZoneCommand,
   AssociateVPCWithHostedZoneCommandInput,
   AssociateVPCWithHostedZoneCommandOutput,
@@ -24,6 +29,11 @@ import {
   CreateHostedZoneCommandInput,
   CreateHostedZoneCommandOutput,
 } from "./commands/CreateHostedZoneCommand";
+import {
+  CreateKeySigningKeyCommand,
+  CreateKeySigningKeyCommandInput,
+  CreateKeySigningKeyCommandOutput,
+} from "./commands/CreateKeySigningKeyCommand";
 import {
   CreateQueryLoggingConfigCommand,
   CreateQueryLoggingConfigCommandInput,
@@ -55,6 +65,11 @@ import {
   CreateVPCAssociationAuthorizationCommandOutput,
 } from "./commands/CreateVPCAssociationAuthorizationCommand";
 import {
+  DeactivateKeySigningKeyCommand,
+  DeactivateKeySigningKeyCommandInput,
+  DeactivateKeySigningKeyCommandOutput,
+} from "./commands/DeactivateKeySigningKeyCommand";
+import {
   DeleteHealthCheckCommand,
   DeleteHealthCheckCommandInput,
   DeleteHealthCheckCommandOutput,
@@ -64,6 +79,11 @@ import {
   DeleteHostedZoneCommandInput,
   DeleteHostedZoneCommandOutput,
 } from "./commands/DeleteHostedZoneCommand";
+import {
+  DeleteKeySigningKeyCommand,
+  DeleteKeySigningKeyCommandInput,
+  DeleteKeySigningKeyCommandOutput,
+} from "./commands/DeleteKeySigningKeyCommand";
 import {
   DeleteQueryLoggingConfigCommand,
   DeleteQueryLoggingConfigCommandInput,
@@ -90,10 +110,20 @@ import {
   DeleteVPCAssociationAuthorizationCommandOutput,
 } from "./commands/DeleteVPCAssociationAuthorizationCommand";
 import {
+  DisableHostedZoneDNSSECCommand,
+  DisableHostedZoneDNSSECCommandInput,
+  DisableHostedZoneDNSSECCommandOutput,
+} from "./commands/DisableHostedZoneDNSSECCommand";
+import {
   DisassociateVPCFromHostedZoneCommand,
   DisassociateVPCFromHostedZoneCommandInput,
   DisassociateVPCFromHostedZoneCommandOutput,
 } from "./commands/DisassociateVPCFromHostedZoneCommand";
+import {
+  EnableHostedZoneDNSSECCommand,
+  EnableHostedZoneDNSSECCommandInput,
+  EnableHostedZoneDNSSECCommandOutput,
+} from "./commands/EnableHostedZoneDNSSECCommand";
 import {
   GetAccountLimitCommand,
   GetAccountLimitCommandInput,
@@ -105,6 +135,7 @@ import {
   GetCheckerIpRangesCommandInput,
   GetCheckerIpRangesCommandOutput,
 } from "./commands/GetCheckerIpRangesCommand";
+import { GetDNSSECCommand, GetDNSSECCommandInput, GetDNSSECCommandOutput } from "./commands/GetDNSSECCommand";
 import {
   GetGeoLocationCommand,
   GetGeoLocationCommandInput,
@@ -286,6 +317,39 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  * <p>Amazon Route 53 is a highly available and scalable Domain Name System (DNS) web service.</p>
  */
 export class Route53 extends Route53Client {
+  /**
+   * <p>Activates a key-signing key (KSK) so that it can be used for signing by DNSSEC. This operation changes the
+   * 			KSK status to <code>ACTIVE</code>.</p>
+   */
+  public activateKeySigningKey(
+    args: ActivateKeySigningKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ActivateKeySigningKeyCommandOutput>;
+  public activateKeySigningKey(
+    args: ActivateKeySigningKeyCommandInput,
+    cb: (err: any, data?: ActivateKeySigningKeyCommandOutput) => void
+  ): void;
+  public activateKeySigningKey(
+    args: ActivateKeySigningKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ActivateKeySigningKeyCommandOutput) => void
+  ): void;
+  public activateKeySigningKey(
+    args: ActivateKeySigningKeyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ActivateKeySigningKeyCommandOutput) => void),
+    cb?: (err: any, data?: ActivateKeySigningKeyCommandOutput) => void
+  ): Promise<ActivateKeySigningKeyCommandOutput> | void {
+    const command = new ActivateKeySigningKeyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Associates an Amazon VPC with a private hosted zone. </p>
    * 		       <important>
@@ -594,6 +658,38 @@ export class Route53 extends Route53Client {
     cb?: (err: any, data?: CreateHostedZoneCommandOutput) => void
   ): Promise<CreateHostedZoneCommandOutput> | void {
     const command = new CreateHostedZoneCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a new key-signing key (KSK) associated with a hosted zone. You can only have two KSKs per hosted zone.</p>
+   */
+  public createKeySigningKey(
+    args: CreateKeySigningKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateKeySigningKeyCommandOutput>;
+  public createKeySigningKey(
+    args: CreateKeySigningKeyCommandInput,
+    cb: (err: any, data?: CreateKeySigningKeyCommandOutput) => void
+  ): void;
+  public createKeySigningKey(
+    args: CreateKeySigningKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateKeySigningKeyCommandOutput) => void
+  ): void;
+  public createKeySigningKey(
+    args: CreateKeySigningKeyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateKeySigningKeyCommandOutput) => void),
+    cb?: (err: any, data?: CreateKeySigningKeyCommandOutput) => void
+  ): Promise<CreateKeySigningKeyCommandOutput> | void {
+    const command = new CreateKeySigningKeyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -979,6 +1075,39 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * <p>Deactivates a key-signing key (KSK) so that it will not be used for signing by DNSSEC. This operation changes the
+   * 			KSK status to <code>INACTIVE</code>.</p>
+   */
+  public deactivateKeySigningKey(
+    args: DeactivateKeySigningKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeactivateKeySigningKeyCommandOutput>;
+  public deactivateKeySigningKey(
+    args: DeactivateKeySigningKeyCommandInput,
+    cb: (err: any, data?: DeactivateKeySigningKeyCommandOutput) => void
+  ): void;
+  public deactivateKeySigningKey(
+    args: DeactivateKeySigningKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeactivateKeySigningKeyCommandOutput) => void
+  ): void;
+  public deactivateKeySigningKey(
+    args: DeactivateKeySigningKeyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeactivateKeySigningKeyCommandOutput) => void),
+    cb?: (err: any, data?: DeactivateKeySigningKeyCommandOutput) => void
+  ): Promise<DeactivateKeySigningKeyCommandOutput> | void {
+    const command = new DeactivateKeySigningKeyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a health check.</p>
    * 		       <important>
    * 			         <p>Amazon Route 53 does not prevent you from deleting a health check even if the health check is associated with one or more
@@ -1083,6 +1212,39 @@ export class Route53 extends Route53Client {
     cb?: (err: any, data?: DeleteHostedZoneCommandOutput) => void
   ): Promise<DeleteHostedZoneCommandOutput> | void {
     const command = new DeleteHostedZoneCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a key-signing key (KSK). Before you can delete a KSK, you must deactivate it. The KSK must be
+   * 		deactived before you can delete it regardless of whether the hosted zone is enabled for DNSSEC signing.</p>
+   */
+  public deleteKeySigningKey(
+    args: DeleteKeySigningKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteKeySigningKeyCommandOutput>;
+  public deleteKeySigningKey(
+    args: DeleteKeySigningKeyCommandInput,
+    cb: (err: any, data?: DeleteKeySigningKeyCommandOutput) => void
+  ): void;
+  public deleteKeySigningKey(
+    args: DeleteKeySigningKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteKeySigningKeyCommandOutput) => void
+  ): void;
+  public deleteKeySigningKey(
+    args: DeleteKeySigningKeyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteKeySigningKeyCommandOutput) => void),
+    cb?: (err: any, data?: DeleteKeySigningKeyCommandOutput) => void
+  ): Promise<DeleteKeySigningKeyCommandOutput> | void {
+    const command = new DeleteKeySigningKeyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1289,6 +1451,39 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * <p>Disables DNSSEC signing in a specific hosted zone. This action does not deactivate any key-signing keys (KSKs)
+   * 		that are active in the hosted zone.</p>
+   */
+  public disableHostedZoneDNSSEC(
+    args: DisableHostedZoneDNSSECCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableHostedZoneDNSSECCommandOutput>;
+  public disableHostedZoneDNSSEC(
+    args: DisableHostedZoneDNSSECCommandInput,
+    cb: (err: any, data?: DisableHostedZoneDNSSECCommandOutput) => void
+  ): void;
+  public disableHostedZoneDNSSEC(
+    args: DisableHostedZoneDNSSECCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableHostedZoneDNSSECCommandOutput) => void
+  ): void;
+  public disableHostedZoneDNSSEC(
+    args: DisableHostedZoneDNSSECCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableHostedZoneDNSSECCommandOutput) => void),
+    cb?: (err: any, data?: DisableHostedZoneDNSSECCommandOutput) => void
+  ): Promise<DisableHostedZoneDNSSECCommandOutput> | void {
+    const command = new DisableHostedZoneDNSSECCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Disassociates an Amazon Virtual Private Cloud (Amazon VPC) from an Amazon Route 53 private hosted zone. Note the following:</p>
    * 		       <ul>
    *             <li>
@@ -1330,6 +1525,38 @@ export class Route53 extends Route53Client {
     cb?: (err: any, data?: DisassociateVPCFromHostedZoneCommandOutput) => void
   ): Promise<DisassociateVPCFromHostedZoneCommandOutput> | void {
     const command = new DisassociateVPCFromHostedZoneCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Enables DNSSEC signing in a specific hosted zone.</p>
+   */
+  public enableHostedZoneDNSSEC(
+    args: EnableHostedZoneDNSSECCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableHostedZoneDNSSECCommandOutput>;
+  public enableHostedZoneDNSSEC(
+    args: EnableHostedZoneDNSSECCommandInput,
+    cb: (err: any, data?: EnableHostedZoneDNSSECCommandOutput) => void
+  ): void;
+  public enableHostedZoneDNSSEC(
+    args: EnableHostedZoneDNSSECCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableHostedZoneDNSSECCommandOutput) => void
+  ): void;
+  public enableHostedZoneDNSSEC(
+    args: EnableHostedZoneDNSSECCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableHostedZoneDNSSECCommandOutput) => void),
+    cb?: (err: any, data?: EnableHostedZoneDNSSECCommandOutput) => void
+  ): Promise<EnableHostedZoneDNSSECCommandOutput> | void {
+    const command = new EnableHostedZoneDNSSECCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1420,7 +1647,8 @@ export class Route53 extends Route53Client {
   }
 
   /**
-   * <important>
+   * <p>Route 53 does not perform authorization for this API because it retrieves information that is already available to the public.</p>
+   * 	        <important>
    * 			         <p>
    *                <code>GetCheckerIpRanges</code> still works, but we recommend that you download
    * 			ip-ranges.json, which includes IP address ranges for all AWS services. For more information, see
@@ -1458,8 +1686,35 @@ export class Route53 extends Route53Client {
   }
 
   /**
+   * <p>Returns information about DNSSEC for a specific hosted zone, including the key-signing keys (KSKs) in the hosted zone.</p>
+   */
+  public getDNSSEC(args: GetDNSSECCommandInput, options?: __HttpHandlerOptions): Promise<GetDNSSECCommandOutput>;
+  public getDNSSEC(args: GetDNSSECCommandInput, cb: (err: any, data?: GetDNSSECCommandOutput) => void): void;
+  public getDNSSEC(
+    args: GetDNSSECCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDNSSECCommandOutput) => void
+  ): void;
+  public getDNSSEC(
+    args: GetDNSSECCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDNSSECCommandOutput) => void),
+    cb?: (err: any, data?: GetDNSSECCommandOutput) => void
+  ): Promise<GetDNSSECCommandOutput> | void {
+    const command = new GetDNSSECCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets information about whether a specified geographic location is supported for Amazon Route 53 geolocation
    * 			resource record sets.</p>
+   * 	        <p>Route 53 does not perform authorization for this API because it retrieves information that is already available to the public.</p>
    *
    * 		       <p>Use the following syntax to determine whether a continent is supported for geolocation:</p>
    * 		       <p>
@@ -1952,7 +2207,8 @@ export class Route53 extends Route53Client {
    * <p>Retrieves a list of supported geographic locations.</p>
    * 		       <p>Countries are listed first, and continents are listed last. If Amazon Route 53 supports subdivisions for a country (for example, states or provinces),
    * 			the subdivisions for that country are listed in alphabetical order immediately after the corresponding country.</p>
-   * 		       <p>For a list of supported geolocation codes, see the
+   * 	        <p>Route 53 does not perform authorization for this API because it retrieves information that is already available to the public.</p>
+   * 	        <p>For a list of supported geolocation codes, see the
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GeoLocation.html">GeoLocation</a> data type.</p>
    */
   public listGeoLocations(
@@ -2213,7 +2469,7 @@ export class Route53 extends Route53Client {
   /**
    * <p>Lists the resource record sets in a specified hosted zone.</p>
    * 		       <p>
-   *             <code>ListResourceRecordSets</code> returns up to 100 resource record sets at a time in ASCII order,
+   *             <code>ListResourceRecordSets</code> returns up to 300 resource record sets at a time in ASCII order,
    * 			beginning at a position specified by the <code>name</code> and <code>type</code> elements.</p>
    *
    * 		       <p>

@@ -38,6 +38,11 @@ import {
   CreateStreamingURLCommandOutput,
 } from "./commands/CreateStreamingURLCommand";
 import {
+  CreateUpdatedImageCommand,
+  CreateUpdatedImageCommandInput,
+  CreateUpdatedImageCommandOutput,
+} from "./commands/CreateUpdatedImageCommand";
+import {
   CreateUsageReportSubscriptionCommand,
   CreateUsageReportSubscriptionCommandInput,
   CreateUsageReportSubscriptionCommandOutput,
@@ -493,6 +498,41 @@ export class AppStream extends AppStreamClient {
     cb?: (err: any, data?: CreateStreamingURLCommandOutput) => void
   ): Promise<CreateStreamingURLCommandOutput> | void {
     const command = new CreateStreamingURLCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a new image with the latest Windows operating system updates, driver updates, and AppStream 2.0 agent software.</p>
+   *
+   *         <p>For more information, see the "Update an Image by Using
+   *             Managed AppStream 2.0 Image Updates" section in <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/administer-images.html">Administer Your AppStream 2.0 Images</a>, in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+   */
+  public createUpdatedImage(
+    args: CreateUpdatedImageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateUpdatedImageCommandOutput>;
+  public createUpdatedImage(
+    args: CreateUpdatedImageCommandInput,
+    cb: (err: any, data?: CreateUpdatedImageCommandOutput) => void
+  ): void;
+  public createUpdatedImage(
+    args: CreateUpdatedImageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateUpdatedImageCommandOutput) => void
+  ): void;
+  public createUpdatedImage(
+    args: CreateUpdatedImageCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUpdatedImageCommandOutput) => void),
+    cb?: (err: any, data?: CreateUpdatedImageCommandOutput) => void
+  ): Promise<CreateUpdatedImageCommandOutput> | void {
+    const command = new CreateUpdatedImageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -26,7 +26,7 @@ export type CreateDatasetImportJobCommandOutput = CreateDatasetImportJobResponse
  *       AWS Identity and Access Management (IAM) role that has permission to read from the data source, as Amazon Personalize makes a
  *       copy of your data and processes it in an internal AWS system.</p>
  *          <important>
- *             <p>The dataset import job replaces any previous data in the dataset.</p>
+ *             <p>The dataset import job replaces any existing data in the dataset that you imported in bulk.</p>
  *          </important>
  *          <p>
  *             <b>Status</b>

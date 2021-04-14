@@ -16,8 +16,8 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  */
 export class TranscribeStreaming extends TranscribeStreamingClient {
   /**
-   * <p>Starts a bidirectional HTTP/2 stream where audio is streamed to Amazon Transcribe Medical and the transcription
-   *             results are streamed to your application.</p>
+   * <p>Starts a bidirectional HTTP/2 stream where audio is streamed to Amazon Transcribe Medical and the
+   *             transcription results are streamed to your application.</p>
    */
   public startMedicalStreamTranscription(
     args: StartMedicalStreamTranscriptionCommandInput,

@@ -58,6 +58,12 @@ import { StartTaskExecutionCommandInput, StartTaskExecutionCommandOutput } from 
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateAgentCommandInput, UpdateAgentCommandOutput } from "./commands/UpdateAgentCommand";
+import { UpdateLocationNfsCommandInput, UpdateLocationNfsCommandOutput } from "./commands/UpdateLocationNfsCommand";
+import {
+  UpdateLocationObjectStorageCommandInput,
+  UpdateLocationObjectStorageCommandOutput,
+} from "./commands/UpdateLocationObjectStorageCommand";
+import { UpdateLocationSmbCommandInput, UpdateLocationSmbCommandOutput } from "./commands/UpdateLocationSmbCommand";
 import { UpdateTaskCommandInput, UpdateTaskCommandOutput } from "./commands/UpdateTaskCommand";
 import {
   UpdateTaskExecutionCommandInput,
@@ -145,6 +151,9 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAgentCommandInput
+  | UpdateLocationNfsCommandInput
+  | UpdateLocationObjectStorageCommandInput
+  | UpdateLocationSmbCommandInput
   | UpdateTaskCommandInput
   | UpdateTaskExecutionCommandInput;
 
@@ -179,6 +188,9 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAgentCommandOutput
+  | UpdateLocationNfsCommandOutput
+  | UpdateLocationObjectStorageCommandOutput
+  | UpdateLocationSmbCommandOutput
   | UpdateTaskCommandOutput
   | UpdateTaskExecutionCommandOutput;
 

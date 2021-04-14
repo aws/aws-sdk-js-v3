@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ResetInstanceAttributeRequest } from "../models/models_4";
+import { ResetInstanceAttributeRequest } from "../models/models_5";
 import {
   deserializeAws_ec2ResetInstanceAttributeCommand,
   serializeAws_ec2ResetInstanceAttributeCommand,

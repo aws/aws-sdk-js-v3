@@ -343,10 +343,20 @@ import {
   CreatePlacementGroupCommandOutput,
 } from "./commands/CreatePlacementGroupCommand";
 import {
+  CreateReplaceRootVolumeTaskCommand,
+  CreateReplaceRootVolumeTaskCommandInput,
+  CreateReplaceRootVolumeTaskCommandOutput,
+} from "./commands/CreateReplaceRootVolumeTaskCommand";
+import {
   CreateReservedInstancesListingCommand,
   CreateReservedInstancesListingCommandInput,
   CreateReservedInstancesListingCommandOutput,
 } from "./commands/CreateReservedInstancesListingCommand";
+import {
+  CreateRestoreImageTaskCommand,
+  CreateRestoreImageTaskCommandInput,
+  CreateRestoreImageTaskCommandOutput,
+} from "./commands/CreateRestoreImageTaskCommand";
 import { CreateRouteCommand, CreateRouteCommandInput, CreateRouteCommandOutput } from "./commands/CreateRouteCommand";
 import {
   CreateRouteTableCommand,
@@ -373,6 +383,11 @@ import {
   CreateSpotDatafeedSubscriptionCommandInput,
   CreateSpotDatafeedSubscriptionCommandOutput,
 } from "./commands/CreateSpotDatafeedSubscriptionCommand";
+import {
+  CreateStoreImageTaskCommand,
+  CreateStoreImageTaskCommandInput,
+  CreateStoreImageTaskCommandOutput,
+} from "./commands/CreateStoreImageTaskCommand";
 import {
   CreateSubnetCommand,
   CreateSubnetCommandInput,
@@ -774,6 +789,11 @@ import {
   DescribeAccountAttributesCommandOutput,
 } from "./commands/DescribeAccountAttributesCommand";
 import {
+  DescribeAddressesAttributeCommand,
+  DescribeAddressesAttributeCommandInput,
+  DescribeAddressesAttributeCommandOutput,
+} from "./commands/DescribeAddressesAttributeCommand";
+import {
   DescribeAddressesCommand,
   DescribeAddressesCommandInput,
   DescribeAddressesCommandOutput,
@@ -1124,6 +1144,11 @@ import {
   DescribeRegionsCommandOutput,
 } from "./commands/DescribeRegionsCommand";
 import {
+  DescribeReplaceRootVolumeTasksCommand,
+  DescribeReplaceRootVolumeTasksCommandInput,
+  DescribeReplaceRootVolumeTasksCommandOutput,
+} from "./commands/DescribeReplaceRootVolumeTasksCommand";
+import {
   DescribeReservedInstancesCommand,
   DescribeReservedInstancesCommandInput,
   DescribeReservedInstancesCommandOutput,
@@ -1213,6 +1238,11 @@ import {
   DescribeStaleSecurityGroupsCommandInput,
   DescribeStaleSecurityGroupsCommandOutput,
 } from "./commands/DescribeStaleSecurityGroupsCommand";
+import {
+  DescribeStoreImageTasksCommand,
+  DescribeStoreImageTasksCommandInput,
+  DescribeStoreImageTasksCommandOutput,
+} from "./commands/DescribeStoreImageTasksCommand";
 import {
   DescribeSubnetsCommand,
   DescribeSubnetsCommandInput,
@@ -1399,6 +1429,11 @@ import {
   DisableFastSnapshotRestoresCommandOutput,
 } from "./commands/DisableFastSnapshotRestoresCommand";
 import {
+  DisableSerialConsoleAccessCommand,
+  DisableSerialConsoleAccessCommandInput,
+  DisableSerialConsoleAccessCommandOutput,
+} from "./commands/DisableSerialConsoleAccessCommand";
+import {
   DisableTransitGatewayRouteTablePropagationCommand,
   DisableTransitGatewayRouteTablePropagationCommandInput,
   DisableTransitGatewayRouteTablePropagationCommandOutput,
@@ -1473,6 +1508,11 @@ import {
   EnableFastSnapshotRestoresCommandInput,
   EnableFastSnapshotRestoresCommandOutput,
 } from "./commands/EnableFastSnapshotRestoresCommand";
+import {
+  EnableSerialConsoleAccessCommand,
+  EnableSerialConsoleAccessCommandInput,
+  EnableSerialConsoleAccessCommandOutput,
+} from "./commands/EnableSerialConsoleAccessCommand";
 import {
   EnableTransitGatewayRouteTablePropagationCommand,
   EnableTransitGatewayRouteTablePropagationCommandInput,
@@ -1560,6 +1600,11 @@ import {
   GetEbsEncryptionByDefaultCommandOutput,
 } from "./commands/GetEbsEncryptionByDefaultCommand";
 import {
+  GetFlowLogsIntegrationTemplateCommand,
+  GetFlowLogsIntegrationTemplateCommandInput,
+  GetFlowLogsIntegrationTemplateCommandOutput,
+} from "./commands/GetFlowLogsIntegrationTemplateCommand";
+import {
   GetGroupsForCapacityReservationCommand,
   GetGroupsForCapacityReservationCommandInput,
   GetGroupsForCapacityReservationCommandOutput,
@@ -1594,6 +1639,11 @@ import {
   GetReservedInstancesExchangeQuoteCommandInput,
   GetReservedInstancesExchangeQuoteCommandOutput,
 } from "./commands/GetReservedInstancesExchangeQuoteCommand";
+import {
+  GetSerialConsoleAccessStatusCommand,
+  GetSerialConsoleAccessStatusCommandInput,
+  GetSerialConsoleAccessStatusCommandOutput,
+} from "./commands/GetSerialConsoleAccessStatusCommand";
 import {
   GetTransitGatewayAttachmentPropagationsCommand,
   GetTransitGatewayAttachmentPropagationsCommandInput,
@@ -1645,6 +1695,11 @@ import {
   ImportVolumeCommandInput,
   ImportVolumeCommandOutput,
 } from "./commands/ImportVolumeCommand";
+import {
+  ModifyAddressAttributeCommand,
+  ModifyAddressAttributeCommandInput,
+  ModifyAddressAttributeCommandOutput,
+} from "./commands/ModifyAddressAttributeCommand";
 import {
   ModifyAvailabilityZoneGroupCommand,
   ModifyAvailabilityZoneGroupCommandInput,
@@ -1988,6 +2043,11 @@ import {
   RequestSpotInstancesCommandOutput,
 } from "./commands/RequestSpotInstancesCommand";
 import {
+  ResetAddressAttributeCommand,
+  ResetAddressAttributeCommandInput,
+  ResetAddressAttributeCommandOutput,
+} from "./commands/ResetAddressAttributeCommand";
+import {
   ResetEbsDefaultKmsKeyIdCommand,
   ResetEbsDefaultKmsKeyIdCommandInput,
   ResetEbsDefaultKmsKeyIdCommandOutput,
@@ -2136,9 +2196,12 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <fullname>Amazon Elastic Compute Cloud</fullname>
- *          <p>Amazon Elastic Compute Cloud (Amazon EC2) provides secure and resizable computing capacity in the AWS cloud.
- *           Using Amazon EC2 eliminates the need to invest in hardware up front, so you can develop and
- *           deploy applications faster.</p>
+ *          <p>Amazon Elastic Compute Cloud (Amazon EC2) provides secure and resizable computing capacity in the AWS Cloud.
+ *           Using Amazon EC2 eliminates the need to invest in hardware up front, so you can develop and deploy applications
+ *           faster. Amazon Virtual Private Cloud (Amazon VPC) enables you to provision a logically isolated section of the
+ *           AWS Cloud where you can launch AWS resources in a virtual network that you've defined. Amazon Elastic Block Store
+ *           (Amazon EBS) provides block level storage volumes for use with EC2 instances. EBS volumes are highly available
+ *           and reliable storage volumes that can be attached to any running instance and used like a hard drive.</p>
  *          <p>To learn more, see the following resources:</p>
  *          <ul>
  *             <li>
@@ -2146,7 +2209,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *                </p>
  *             </li>
  *             <li>
- *                <p>Amazon EBS: <a href="http://aws.amazon.com/ebs">Amazon EBS product page</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html">Amazon EBS documentation</a>
+ *                <p>Amazon EBS: <a href="http://aws.amazon.com/ebs">Amazon EBS product page</a>, <a href="http://aws.amazon.com/documentation/ebs">Amazon EBS documentation</a>
  *                </p>
  *             </li>
  *             <li>
@@ -2732,13 +2795,13 @@ export class EC2 extends EC2Client {
    * 			information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html">AWS Certificate
    * 				Manager for Nitro Enclaves</a> in the <i>AWS Nitro Enclaves User Guide</i>.</p>
    *
-   * 		       <p>When the IAM role is associated with the ACM certificate, places the certificate, certificate chain, and encrypted
-   * 			private key in an Amazon S3 bucket that only the associated IAM role can access. The private key of the certificate
+   * 		       <p>When the IAM role is associated with the ACM certificate, the certificate, certificate chain, and encrypted
+   * 			private key are placed in an Amazon S3 bucket that only the associated IAM role can access. The private key of the certificate
    * 			is encrypted with an AWS-managed KMS customer master (CMK) that has an attached attestation-based CMK policy.</p>
    *
    * 		       <p>To enable the IAM role to access the Amazon S3 object, you must grant it permission to call <code>s3:GetObject</code>
    * 			on the Amazon S3 bucket returned by the command. To enable the IAM role to access the AWS KMS CMK, you must
-   * 			grant it permission to call <code>kms:Decrypt</code> on AWS KMS CMK returned by the command. For more
+   * 			grant it permission to call <code>kms:Decrypt</code> on the AWS KMS CMK returned by the command. For more
    * 			information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html#add-policy">
    * 				Grant the role permission to access the certificate and encryption key</a> in the
    * 			<i>AWS Nitro Enclaves User Guide</i>.</p>
@@ -3670,10 +3733,26 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Initiates the copy of an AMI from the specified source Region to the current Region. You specify the destination Region by using its endpoint when making the request.</p>
-   *          <p>Copies of encrypted backing snapshots for the AMI are encrypted. Copies of unencrypted backing snapshots
-   *        remain unencrypted, unless you set <code>Encrypted</code> during the copy operation. You cannot create an unencrypted
-   *        copy of an encrypted backing snapshot.</p>
+   * <p>Initiates the copy of an AMI. You can copy an AMI from one Region to another, or from a
+   *       Region to an AWS Outpost. You can't copy an AMI from an Outpost to a Region, from one Outpost
+   *       to another, or within the same Outpost. To copy an AMI to another partition, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html">CreateStoreImageTask</a>.</p>
+   *
+   *      	   <p>To copy an AMI from one Region to another, specify the source Region using the
+   *      		<b>SourceRegion</b> parameter, and specify the
+   *      		destination Region using its endpoint. Copies of encrypted backing snapshots for
+   *      		the AMI are encrypted. Copies of unencrypted backing snapshots remain unencrypted,
+   *      		unless you set <code>Encrypted</code> during the copy operation. You cannot
+   *      		create an unencrypted copy of an encrypted backing snapshot.</p>
+   *
+   *    	     <p>To copy an AMI from a Region to an Outpost, specify the source Region using the
+   *    		<b>SourceRegion</b> parameter, and specify the
+   *    		ARN of the destination Outpost using <b>DestinationOutpostArn</b>.
+   *    		Backing snapshots copied to an Outpost are encrypted by default using the default
+   *    		encryption key for the Region, or a different key that you specify in the request using
+   *    		<b>KmsKeyId</b>. Outposts do not support unencrypted
+   *    		snapshots. For more information, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami">
+   *    			Amazon EBS local snapshots on Outposts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *
    *          <p>For more information about the prerequisites and limits when copying an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html">Copying an AMI</a>
    *         in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
@@ -3701,15 +3780,25 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Copies a point-in-time snapshot of an EBS volume and stores it in Amazon S3. You can copy the
-   *       snapshot within the same Region or from one Region to another. You can use the snapshot to
-   *       create EBS volumes or Amazon Machine Images (AMIs).</p>
-   *          <p>Copies of encrypted EBS snapshots remain encrypted. Copies of unencrypted snapshots remain
-   *       unencrypted, unless you enable encryption for the snapshot copy operation. By default, encrypted
-   *       snapshot copies use the default AWS Key Management Service (AWS KMS) customer master key (CMK); however, you can specify a
-   *       different CMK.</p>
-   *          <p>To copy an encrypted snapshot that has been shared from another account, you must have
-   *       permissions for the CMK used to encrypt the snapshot.</p>
+   * <p>Copies a point-in-time snapshot of an EBS volume and stores it in Amazon S3. You can copy a
+   *       snapshot within the same Region, from one Region to another, or from a Region to an Outpost.
+   *       You can't copy a snapshot from an Outpost to a Region, from one Outpost to another, or within
+   *       the same Outpost.</p>
+   *          <p>You can use the snapshot to create EBS volumes or Amazon Machine Images (AMIs).</p>
+   *
+   *
+   *          <p>When copying snapshots to a Region, copies of encrypted EBS snapshots remain encrypted.
+   *     	Copies of unencrypted snapshots remain unencrypted, unless you enable encryption for the
+   *     	snapshot copy operation. By default, encrypted snapshot copies use the default AWS Key Management Service (AWS KMS)
+   *     	customer master key (CMK); however, you can specify a different CMK. To copy an encrypted
+   *     	snapshot that has been shared from another account, you must have permissions for the CMK
+   *     	used to encrypt the snapshot.</p>
+   *
+   *   	      <p>Snapshots copied to an Outpost are encrypted by default using the default
+   *   		encryption key for the Region, or a different key that you specify in the request using
+   *   		<b>KmsKeyId</b>. Outposts do not support unencrypted
+   *   		snapshots. For more information, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami">
+   *   			Amazon EBS local snapshots on Outposts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          <p>Snapshots created by copying another snapshot have an arbitrary volume ID that should not
    *       be used for any purpose.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html">Copying an Amazon EBS snapshot</a> in the
@@ -4265,8 +4354,15 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that is either running or stopped.</p>
-   *          <p>If you customized your instance with instance store volumes or EBS volumes in addition to the root device volume, the new AMI contains block device mapping information for those volumes. When you launch an instance from this new AMI, the instance automatically launches with those additional volumes.</p>
+   * <p>Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance
+   *      	that is either running or stopped.</p>
+   *
+   *
+   *
+   *
+   *    	     <p>If you customized your instance with instance store volumes or EBS volumes in addition to the root device volume, the
+   *      	new AMI contains block device mapping information for those volumes. When you launch an instance from this new AMI,
+   *      	the instance automatically launches with those additional volumes.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Creating Amazon EBS-Backed Linux AMIs</a>
    * 				in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
@@ -4295,9 +4391,9 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Exports a running or stopped instance to an Amazon S3 bucket.</p>
-   *          <p>For information about the supported operating systems, image formats, and known limitations for the types of
-   *    instances you can export, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html">Exporting an Instance as
-   *     a VM Using VM Import/Export</a> in the <i>VM Import/Export User Guide</i>.</p>
+   *          <p>For information about the supported operating systems, image formats, and known limitations
+   *    for the types of instances you can export, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html">Exporting an instance as a VM Using VM Import/Export</a>
+   *    in the <i>VM Import/Export User Guide</i>.</p>
    */
   public createInstanceExportTask(
     args: CreateInstanceExportTaskCommandInput,
@@ -4830,6 +4926,43 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Creates a root volume replacement task for an Amazon EC2 instance. The root volume
+   *       can either be restored to its initial launch state, or it can be restored using a
+   *       specific snapshot.</p>
+   *
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/">Replace a root volume</a>
+   *       in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  public createReplaceRootVolumeTask(
+    args: CreateReplaceRootVolumeTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateReplaceRootVolumeTaskCommandOutput>;
+  public createReplaceRootVolumeTask(
+    args: CreateReplaceRootVolumeTaskCommandInput,
+    cb: (err: any, data?: CreateReplaceRootVolumeTaskCommandOutput) => void
+  ): void;
+  public createReplaceRootVolumeTask(
+    args: CreateReplaceRootVolumeTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateReplaceRootVolumeTaskCommandOutput) => void
+  ): void;
+  public createReplaceRootVolumeTask(
+    args: CreateReplaceRootVolumeTaskCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateReplaceRootVolumeTaskCommandOutput) => void),
+    cb?: (err: any, data?: CreateReplaceRootVolumeTaskCommandOutput) => void
+  ): Promise<CreateReplaceRootVolumeTaskCommandOutput> | void {
+    const command = new CreateReplaceRootVolumeTaskCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a listing for Amazon EC2 Standard Reserved Instances to be sold in the Reserved Instance
    * 			Marketplace. You can submit one Standard Reserved Instance listing at a time. To get a list of your
    * 			Standard Reserved Instances, you can use the <a>DescribeReservedInstances</a> operation.</p>
@@ -4866,6 +4999,43 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: CreateReservedInstancesListingCommandOutput) => void
   ): Promise<CreateReservedInstancesListingCommandOutput> | void {
     const command = new CreateReservedInstancesListingCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts a task that restores an AMI from an S3 object that was previously created by using
+   *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html">CreateStoreImageTask</a>.</p>
+   *          <p>To use this API, you must have the required permissions. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions">Permissions for storing and restoring AMIs using S3</a> in the
+   *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html">Store and restore an AMI using
+   *       S3</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  public createRestoreImageTask(
+    args: CreateRestoreImageTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRestoreImageTaskCommandOutput>;
+  public createRestoreImageTask(
+    args: CreateRestoreImageTaskCommandInput,
+    cb: (err: any, data?: CreateRestoreImageTaskCommandOutput) => void
+  ): void;
+  public createRestoreImageTask(
+    args: CreateRestoreImageTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRestoreImageTaskCommandOutput) => void
+  ): void;
+  public createRestoreImageTask(
+    args: CreateRestoreImageTaskCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRestoreImageTaskCommandOutput) => void),
+    cb?: (err: any, data?: CreateRestoreImageTaskCommandOutput) => void
+  ): Promise<CreateRestoreImageTaskCommandOutput> | void {
+    const command = new CreateRestoreImageTaskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -5004,8 +5174,15 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Creates a snapshot of an EBS volume and stores it in Amazon S3. You can use snapshots for
-   *       backups, to make copies of EBS volumes, and to save data before shutting down an
-   *       instance.</p>
+   *   	backups, to make copies of EBS volumes, and to save data before shutting down an
+   *   	instance.</p>
+   *
+   *
+   *          <p>You can create snapshots of volumes in a Region and volumes on an Outpost. If you
+   *     	create a snapshot of a volume in a Region, the snapshot must be stored in the same
+   *     	Region as the volume. If you create a snapshot of a volume on an Outpost, the snapshot
+   *     	can be stored on the same Outpost as the volume, or in the Region for that Outpost.</p>
+   *
    *          <p>When a snapshot is created, any AWS Marketplace product codes that are associated with the
    *       source volume are propagated to the snapshot.</p>
    *          <p>You can take a snapshot of an attached volume that is in use. However, snapshots only
@@ -5059,6 +5236,12 @@ export class EC2 extends EC2Client {
    *     Volumes are chosen by specifying an instance. Any attached volumes will produce one snapshot
    *     each that is crash-consistent across the instance. Boot volumes can be excluded by changing the
    *     parameters. </p>
+   *
+   *          <p>You can create multi-volume snapshots of instances in a Region and instances on an
+   *   	Outpost. If you create snapshots from an instance in a Region, the snapshots must be stored
+   *   	in the same Region as the instance. If you create snapshots from an instance on an Outpost,
+   *   	the snapshots can be stored on the same Outpost as the instance, or in the Region for that
+   *   	Outpost.</p>
    */
   public createSnapshots(
     args: CreateSnapshotsCommandInput,
@@ -5114,6 +5297,42 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: CreateSpotDatafeedSubscriptionCommandOutput) => void
   ): Promise<CreateSpotDatafeedSubscriptionCommandOutput> | void {
     const command = new CreateSpotDatafeedSubscriptionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Stores an AMI as a single object in an S3 bucket.</p>
+   *          <p>To use this API, you must have the required permissions. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions">Permissions for storing and restoring AMIs using S3</a> in the
+   *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html">Store and restore an AMI using
+   *         S3</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  public createStoreImageTask(
+    args: CreateStoreImageTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateStoreImageTaskCommandOutput>;
+  public createStoreImageTask(
+    args: CreateStoreImageTaskCommandInput,
+    cb: (err: any, data?: CreateStoreImageTaskCommandOutput) => void
+  ): void;
+  public createStoreImageTask(
+    args: CreateStoreImageTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateStoreImageTaskCommandOutput) => void
+  ): void;
+  public createStoreImageTask(
+    args: CreateStoreImageTaskCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateStoreImageTaskCommandOutput) => void),
+    cb?: (err: any, data?: CreateStoreImageTaskCommandOutput) => void
+  ): Promise<CreateStoreImageTaskCommandOutput> | void {
+    const command = new CreateStoreImageTaskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -7620,9 +7839,31 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Deletes one or more specified VPC endpoints. Deleting a gateway endpoint also deletes
-   *             the endpoint routes in the route tables that were associated with the endpoint. Deleting
-   *             an interface endpoint or a Gateway Load Balancer endpoint deletes the endpoint network interfaces. Gateway Load Balancer endpoints can only be deleted if the routes that are associated with the endpoint are deleted.</p>
+   * <p>Deletes one or more specified VPC endpoints. You can delete any of the following types of VPC endpoints.  </p>
+   *         <ul>
+   *             <li>
+   *                <p>Gateway endpoint,</p>
+   *             </li>
+   *             <li>
+   *                <p>Gateway Load Balancer endpoint,</p>
+   *             </li>
+   *             <li>
+   *                <p>Interface endpoint</p>
+   *             </li>
+   *          </ul>
+   *         <p>The following rules apply when you delete a VPC endpoint:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>When you delete a gateway endpoint, we delete the endpoint routes in the route tables that are associated with the endpoint.</p>
+   *             </li>
+   *             <li>
+   *                 <p>When you delete a Gateway Load Balancer endpoint, we delete the endpoint network interfaces. </p>
+   *                 <p>You can only delete Gateway Load Balancer endpoints when the routes that are associated with the endpoint are deleted.</p>
+   *             </li>
+   *             <li>
+   *                 <p>When you delete an interface endpoint, we delete the  endpoint network interfaces.</p>
+   *             </li>
+   *          </ul>
    */
   public deleteVpcEndpoints(
     args: DeleteVpcEndpointsCommandInput,
@@ -8091,6 +8332,38 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: DescribeAddressesCommandOutput) => void
   ): Promise<DescribeAddressesCommandOutput> | void {
     const command = new DescribeAddressesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes the attributes of the specified Elastic IP addresses. For requirements, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS">Using reverse DNS for email applications</a>.</p>
+   */
+  public describeAddressesAttribute(
+    args: DescribeAddressesAttributeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAddressesAttributeCommandOutput>;
+  public describeAddressesAttribute(
+    args: DescribeAddressesAttributeCommandInput,
+    cb: (err: any, data?: DescribeAddressesAttributeCommandOutput) => void
+  ): void;
+  public describeAddressesAttribute(
+    args: DescribeAddressesAttributeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAddressesAttributeCommandOutput) => void
+  ): void;
+  public describeAddressesAttribute(
+    args: DescribeAddressesAttributeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAddressesAttributeCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAddressesAttributeCommandOutput) => void
+  ): Promise<DescribeAddressesAttributeCommandOutput> | void {
+    const command = new DescribeAddressesAttributeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -10523,6 +10796,40 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Describes a root volume replacement task. For more information, see
+   *       <a href="https://docs.aws.amazon.com/">Replace a root volume</a> in the
+   *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  public describeReplaceRootVolumeTasks(
+    args: DescribeReplaceRootVolumeTasksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeReplaceRootVolumeTasksCommandOutput>;
+  public describeReplaceRootVolumeTasks(
+    args: DescribeReplaceRootVolumeTasksCommandInput,
+    cb: (err: any, data?: DescribeReplaceRootVolumeTasksCommandOutput) => void
+  ): void;
+  public describeReplaceRootVolumeTasks(
+    args: DescribeReplaceRootVolumeTasksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeReplaceRootVolumeTasksCommandOutput) => void
+  ): void;
+  public describeReplaceRootVolumeTasks(
+    args: DescribeReplaceRootVolumeTasksCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeReplaceRootVolumeTasksCommandOutput) => void),
+    cb?: (err: any, data?: DescribeReplaceRootVolumeTasksCommandOutput) => void
+  ): Promise<DescribeReplaceRootVolumeTasksCommandOutput> | void {
+    const command = new DescribeReplaceRootVolumeTasksCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Describes one or more of the Reserved Instances that you purchased.</p>
    *          <p>For more information about Reserved Instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html">Reserved
    * 				Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -11132,8 +11439,9 @@ export class EC2 extends EC2Client {
    * <p>Describes the Spot price history. For more information, see
    * 		<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-history.html">Spot Instance pricing history</a>
    *         in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
-   * 	        <p>When you specify a start and end time, this operation returns the prices of the instance types within the time range that you specified and the time when the price changed.
-   * 	        The price is valid within the time period that you specified; the response merely indicates the last time that the price changed.</p>
+   *         <p>When you specify a start and end time, the operation returns the prices of the
+   *             instance types within that time range. It also returns the last price change before the
+   *             start time, which is the effective price as of the start time.</p>
    */
   public describeSpotPriceHistory(
     args: DescribeSpotPriceHistoryCommandInput,
@@ -11186,6 +11494,49 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: DescribeStaleSecurityGroupsCommandOutput) => void
   ): Promise<DescribeStaleSecurityGroupsCommandOutput> | void {
     const command = new DescribeStaleSecurityGroupsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes the progress of the AMI store tasks. You can describe the store tasks for
+   *       specified AMIs. If you don't specify the AMIs, you get a paginated list of store tasks from
+   *       the last 31 days.</p>
+   *          <p>For each AMI task, the response indicates if the task is <code>InProgress</code>,
+   *         <code>Completed</code>, or <code>Failed</code>. For tasks <code>InProgress</code>, the
+   *       response shows the estimated progress as a percentage.</p>
+   *          <p>Tasks are listed in reverse chronological order. Currently, only tasks from the past 31
+   *       days can be viewed.</p>
+   *          <p>To use this API, you must have the required permissions. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions">Permissions for storing and restoring AMIs using S3</a> in the
+   *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html">Store and restore an AMI using
+   *         S3</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  public describeStoreImageTasks(
+    args: DescribeStoreImageTasksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeStoreImageTasksCommandOutput>;
+  public describeStoreImageTasks(
+    args: DescribeStoreImageTasksCommandInput,
+    cb: (err: any, data?: DescribeStoreImageTasksCommandOutput) => void
+  ): void;
+  public describeStoreImageTasks(
+    args: DescribeStoreImageTasksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeStoreImageTasksCommandOutput) => void
+  ): void;
+  public describeStoreImageTasks(
+    args: DescribeStoreImageTasksCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStoreImageTasksCommandOutput) => void),
+    cb?: (err: any, data?: DescribeStoreImageTasksCommandOutput) => void
+  ): Promise<DescribeStoreImageTasksCommandOutput> | void {
+    const command = new DescribeStoreImageTasksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -12069,13 +12420,13 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Describes available services to which you can create a VPC endpoint.</p>
-   *         <p>When the service provider  and the consumer have different accounts  multiple
+   *         <p>When the service provider and the consumer have different accounts in multiple
    *             Availability Zones, and the consumer views the VPC endpoint service information, the
    *             response only includes the common Availability Zones. For example, when the service
    *             provider account uses <code>us-east-1a</code> and <code>us-east-1c</code> and the
-   *             consumer uses <code>us-east-1a</code> and us-east-1a and us-east-1b, the response
-   *             includes the VPC endpoint services in the common Availability Zone,
-   *                 <code>us-east-1a</code>.</p>
+   *             consumer uses <code>us-east-1a</code> and <code>us-east-1b</code>, the response includes
+   *             the VPC endpoint services in the common Availability Zone,
+   *             <code>us-east-1a</code>.</p>
    */
   public describeVpcEndpointServices(
     args: DescribeVpcEndpointServicesCommandInput,
@@ -12464,6 +12815,41 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: DisableFastSnapshotRestoresCommandOutput) => void
   ): Promise<DisableFastSnapshotRestoresCommandOutput> | void {
     const command = new DisableFastSnapshotRestoresCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Disables access to the EC2 serial console of all instances for your account. By default,
+   * 			access to the EC2 serial console is disabled for your account. For more information, see
+   * 				<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-access-to-serial-console.html#serial-console-account-access">Manage account access to the EC2 serial console</a> in the <i>Amazon EC2
+   * 				User Guide</i>.</p>
+   */
+  public disableSerialConsoleAccess(
+    args: DisableSerialConsoleAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableSerialConsoleAccessCommandOutput>;
+  public disableSerialConsoleAccess(
+    args: DisableSerialConsoleAccessCommandInput,
+    cb: (err: any, data?: DisableSerialConsoleAccessCommandOutput) => void
+  ): void;
+  public disableSerialConsoleAccess(
+    args: DisableSerialConsoleAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableSerialConsoleAccessCommandOutput) => void
+  ): void;
+  public disableSerialConsoleAccess(
+    args: DisableSerialConsoleAccessCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableSerialConsoleAccessCommandOutput) => void),
+    cb?: (err: any, data?: DisableSerialConsoleAccessCommandOutput) => void
+  ): Promise<DisableSerialConsoleAccessCommandOutput> | void {
+    const command = new DisableSerialConsoleAccessCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -12939,7 +13325,7 @@ export class EC2 extends EC2Client {
   /**
    * <p>Enables EBS encryption by default for your account in the current Region.</p>
    *          <p>After you enable encryption by default, the EBS volumes that you create are
-   *       are always encrypted, either using the default CMK or the CMK that you specified
+   *       always encrypted, either using the default CMK or the CMK that you specified
    *       when you created each volume. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a> in the
    *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          <p>You can specify the default CMK for encryption by default using <a>ModifyEbsDefaultKmsKeyId</a>
@@ -13006,6 +13392,40 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: EnableFastSnapshotRestoresCommandOutput) => void
   ): Promise<EnableFastSnapshotRestoresCommandOutput> | void {
     const command = new EnableFastSnapshotRestoresCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Enables access to the EC2 serial console of all instances for your account. By default,
+   * 			access to the EC2 serial console is disabled for your account. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-access-to-serial-console.html#serial-console-account-access">Manage account access to the EC2 serial console</a>
+   * 			in the <i>Amazon EC2 User Guide</i>.</p>
+   */
+  public enableSerialConsoleAccess(
+    args: EnableSerialConsoleAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableSerialConsoleAccessCommandOutput>;
+  public enableSerialConsoleAccess(
+    args: EnableSerialConsoleAccessCommandInput,
+    cb: (err: any, data?: EnableSerialConsoleAccessCommandOutput) => void
+  ): void;
+  public enableSerialConsoleAccess(
+    args: EnableSerialConsoleAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableSerialConsoleAccessCommandOutput) => void
+  ): void;
+  public enableSerialConsoleAccess(
+    args: EnableSerialConsoleAccessCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableSerialConsoleAccessCommandOutput) => void),
+    cb?: (err: any, data?: EnableSerialConsoleAccessCommandOutput) => void
+  ): Promise<EnableSerialConsoleAccessCommandOutput> | void {
+    const command = new EnableSerialConsoleAccessCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -13261,8 +13681,9 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Exports an Amazon Machine Image (AMI) to a VM file. For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport_image.html">Exporting a VM Directory from an Amazon Machine Image
-   *     (AMI)</a> in the <i>VM Import/Export User Guide</i>.</p>
+   * <p>Exports an Amazon Machine Image (AMI) to a VM file. For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport_image.html">Exporting a VM
+   *     directly from an Amazon Machine Image (AMI)</a> in the
+   *     <i>VM Import/Export User Guide</i>.</p>
    */
   public exportImage(args: ExportImageCommandInput, options?: __HttpHandlerOptions): Promise<ExportImageCommandOutput>;
   public exportImage(args: ExportImageCommandInput, cb: (err: any, data?: ExportImageCommandOutput) => void): void;
@@ -13642,6 +14063,55 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Generates a CloudFormation template that streamlines and automates the integration of VPC flow logs
+   *             with Amazon Athena. This make it easier for you to query and gain insights from VPC flow logs data.
+   *             Based on the information that you provide, we configure resources in the template to do the following:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Create a table in Athena that maps fields to a custom log format</p>
+   *             </li>
+   *             <li>
+   *                 <p>Create a Lambda function that updates the table with new partitions on a daily, weekly, or
+   *                     monthly basis</p>
+   *             </li>
+   *             <li>
+   *                 <p>Create a table partitioned between two timestamps in the past</p>
+   *             </li>
+   *             <li>
+   *                 <p>Create a set of named queries in Athena that you can use to get started quickly</p>
+   *             </li>
+   *          </ul>
+   */
+  public getFlowLogsIntegrationTemplate(
+    args: GetFlowLogsIntegrationTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFlowLogsIntegrationTemplateCommandOutput>;
+  public getFlowLogsIntegrationTemplate(
+    args: GetFlowLogsIntegrationTemplateCommandInput,
+    cb: (err: any, data?: GetFlowLogsIntegrationTemplateCommandOutput) => void
+  ): void;
+  public getFlowLogsIntegrationTemplate(
+    args: GetFlowLogsIntegrationTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetFlowLogsIntegrationTemplateCommandOutput) => void
+  ): void;
+  public getFlowLogsIntegrationTemplate(
+    args: GetFlowLogsIntegrationTemplateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFlowLogsIntegrationTemplateCommandOutput) => void),
+    cb?: (err: any, data?: GetFlowLogsIntegrationTemplateCommandOutput) => void
+  ): Promise<GetFlowLogsIntegrationTemplateCommandOutput> | void {
+    const command = new GetFlowLogsIntegrationTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists the resource groups to which a Capacity Reservation has been added.</p>
    */
   public getGroupsForCapacityReservation(
@@ -13888,6 +14358,41 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Retrieves the access status of your account to the EC2 serial console of all instances. By
+   * 			default, access to the EC2 serial console is disabled for your account. For more
+   * 			information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-access-to-serial-console.html#serial-console-account-access">Manage account access to the EC2 serial console</a> in the <i>Amazon EC2
+   * 				User Guide</i>.</p>
+   */
+  public getSerialConsoleAccessStatus(
+    args: GetSerialConsoleAccessStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSerialConsoleAccessStatusCommandOutput>;
+  public getSerialConsoleAccessStatus(
+    args: GetSerialConsoleAccessStatusCommandInput,
+    cb: (err: any, data?: GetSerialConsoleAccessStatusCommandOutput) => void
+  ): void;
+  public getSerialConsoleAccessStatus(
+    args: GetSerialConsoleAccessStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSerialConsoleAccessStatusCommandOutput) => void
+  ): void;
+  public getSerialConsoleAccessStatus(
+    args: GetSerialConsoleAccessStatusCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSerialConsoleAccessStatusCommandOutput) => void),
+    cb?: (err: any, data?: GetSerialConsoleAccessStatusCommandOutput) => void
+  ): Promise<GetSerialConsoleAccessStatusCommandOutput> | void {
+    const command = new GetSerialConsoleAccessStatusCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists the route tables to which the specified resource attachment propagates routes.</p>
    */
   public getTransitGatewayAttachmentPropagations(
@@ -14093,9 +14598,9 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Import single or multi-volume disk images or EBS snapshots into an Amazon Machine Image (AMI). For more
-   *    information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html">Importing a VM as an
-   *     Image Using VM Import/Export</a> in the <i>VM Import/Export User Guide</i>.</p>
+   * <p>Import single or multi-volume disk images or EBS snapshots into an Amazon Machine Image (AMI).</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html">Importing a
+   *    VM as an image using VM Import/Export</a> in the <i>VM Import/Export User Guide</i>.</p>
    */
   public importImage(args: ImportImageCommandInput, options?: __HttpHandlerOptions): Promise<ImportImageCommandOutput>;
   public importImage(args: ImportImageCommandInput, cb: (err: any, data?: ImportImageCommandOutput) => void): void;
@@ -14121,10 +14626,12 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Creates an import instance task using metadata from the specified disk image. <code>ImportInstance</code> only
-   *    supports single-volume VMs. To import multi-volume VMs, use <a>ImportImage</a>. For more information, see
-   *     <a href="https://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ec2-cli-vmimport-export.html">Importing a
-   *     Virtual Machine Using the Amazon EC2 CLI</a>.</p>
+   * <p>Creates an import instance task using metadata from the specified disk image.</p>
+   *          <p>This API action supports only single-volume VMs. To import multi-volume VMs, use <a>ImportImage</a>
+   *    instead.</p>
+   *          <p>This API action is not supported by the AWS Command Line Interface (AWS CLI). For
+   *    information about using the Amazon EC2 CLI, which is deprecated, see
+   *    <a href="https://awsdocs.s3.amazonaws.com/EC2/ec2-clt.pdf#UsingVirtualMachinesinAmazonEC2">Importing a VM to Amazon EC2</a> in the <i>Amazon EC2 CLI Reference</i> PDF file.</p>
    *          <p>For information about the import manifest referenced by this API action, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html">VM Import Manifest</a>.</p>
    */
   public importInstance(
@@ -14195,6 +14702,8 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Imports a disk into an EBS snapshot.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-import-snapshot.html">Importing a disk as a snapshot using VM Import/Export</a> in the
+   *    <i>VM Import/Export User Guide</i>.</p>
    */
   public importSnapshot(
     args: ImportSnapshotCommandInput,
@@ -14226,8 +14735,12 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Creates an import volume task using metadata from the specified disk image.For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/importing-your-volumes-into-amazon-ebs.html">Importing
-   *     Disks to Amazon EBS</a>.</p>
+   * <p>Creates an import volume task using metadata from the specified disk image.</p>
+   *          <p>This API action supports only single-volume VMs. To import multi-volume VMs, use
+   *    <a>ImportImage</a> instead. To import a disk to a snapshot, use
+   *    <a>ImportSnapshot</a> instead.</p>
+   *          <p>This API action is not supported by the AWS Command Line Interface (AWS CLI). For
+   *    information about using the Amazon EC2 CLI, which is deprecated, see <a href="https://awsdocs.s3.amazonaws.com/EC2/ec2-clt.pdf#importing-your-volumes-into-amazon-ebs">Importing Disks to Amazon EBS</a> in the <i>Amazon EC2 CLI Reference</i> PDF file.</p>
    *          <p>For information about the import manifest referenced by this API action, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html">VM Import Manifest</a>.</p>
    */
   public importVolume(
@@ -14246,6 +14759,38 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: ImportVolumeCommandOutput) => void
   ): Promise<ImportVolumeCommandOutput> | void {
     const command = new ImportVolumeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Modifies an attribute of the specified Elastic IP address. For requirements, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS">Using reverse DNS for email applications</a>.</p>
+   */
+  public modifyAddressAttribute(
+    args: ModifyAddressAttributeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyAddressAttributeCommandOutput>;
+  public modifyAddressAttribute(
+    args: ModifyAddressAttributeCommandInput,
+    cb: (err: any, data?: ModifyAddressAttributeCommandOutput) => void
+  ): void;
+  public modifyAddressAttribute(
+    args: ModifyAddressAttributeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyAddressAttributeCommandOutput) => void
+  ): void;
+  public modifyAddressAttribute(
+    args: ModifyAddressAttributeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyAddressAttributeCommandOutput) => void),
+    cb?: (err: any, data?: ModifyAddressAttributeCommandOutput) => void
+  ): Promise<ModifyAddressAttributeCommandOutput> | void {
+    const command = new ModifyAddressAttributeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -16208,14 +16753,27 @@ export class EC2 extends EC2Client {
    *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html">Creating your
    *         own AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          <note>
-   *             <p>For Amazon EBS-backed instances, <a>CreateImage</a> creates and registers the AMI in a single request, so you don't have to register the AMI yourself.</p>
+   *             <p>For Amazon EBS-backed instances, <a>CreateImage</a> creates and registers
+   *          	the AMI in a single request, so you don't have to register the AMI yourself.</p>
    *          </note>
    *
-   *          <p>You can also use <code>RegisterImage</code> to create an Amazon EBS-backed Linux AMI from
-   *       a snapshot of a root device volume. You specify the snapshot using the block device mapping.
-   *       For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-launch-snapshot.html">Launching a Linux instance from
-   *         a backup</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          <p>If needed, you can deregister an AMI at any time. Any modifications you make to an AMI backed by an instance store volume invalidates its registration.
+   *        If you make changes to an image, deregister the previous image and register the new image.</p>
    *
+   *          <p>
+   *             <b>Register a snapshot of a root device volume</b>
+   *          </p>
+   *          <p>You can use <code>RegisterImage</code> to create an Amazon EBS-backed Linux AMI from
+   *        a snapshot of a root device volume. You specify the snapshot using a block device mapping.
+   *        You can't set the encryption state of the volume using the block device mapping. If the
+   *        snapshot is encrypted, or encryption by default is enabled, the root volume of an instance
+   *        launched from the AMI is encrypted.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot">Create a Linux AMI from a snapshot</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html">Use encryption with EBS-backed AMIs</a>
+   *        in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *
+   *          <p>
+   *             <b>AWS Marketplace product codes</b>
+   *          </p>
    *          <p>If any snapshots have AWS Marketplace product codes, they are copied to the new
    *       AMI.</p>
    *          <p>Windows and some Linux distributions, such as Red Hat Enterprise Linux (RHEL) and SUSE
@@ -16240,8 +16798,6 @@ export class EC2 extends EC2Client {
    *       code, the Reserved Instance will not be applied to the On-Demand Instance. For information
    *       about how to obtain the platform details and billing information of an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Obtaining billing
    *         information</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   *          <p>If needed, you can deregister an AMI at any time. Any modifications you make to an AMI backed by an instance store volume invalidates its registration.
-   *        If you make changes to an image, deregister the previous image and register the new image.</p>
    */
   public registerImage(
     args: RegisterImageCommandInput,
@@ -16950,6 +17506,38 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: RequestSpotInstancesCommandOutput) => void
   ): Promise<RequestSpotInstancesCommandOutput> | void {
     const command = new RequestSpotInstancesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Resets the attribute of the specified IP address. For requirements, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS">Using reverse DNS for email applications</a>.</p>
+   */
+  public resetAddressAttribute(
+    args: ResetAddressAttributeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ResetAddressAttributeCommandOutput>;
+  public resetAddressAttribute(
+    args: ResetAddressAttributeCommandInput,
+    cb: (err: any, data?: ResetAddressAttributeCommandOutput) => void
+  ): void;
+  public resetAddressAttribute(
+    args: ResetAddressAttributeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ResetAddressAttributeCommandOutput) => void
+  ): void;
+  public resetAddressAttribute(
+    args: ResetAddressAttributeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResetAddressAttributeCommandOutput) => void),
+    cb?: (err: any, data?: ResetAddressAttributeCommandOutput) => void
+  ): Promise<ResetAddressAttributeCommandOutput> | void {
+    const command = new ResetAddressAttributeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

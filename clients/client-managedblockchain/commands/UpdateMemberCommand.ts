@@ -26,6 +26,7 @@ export type UpdateMemberCommandOutput = UpdateMemberOutput & __MetadataBearer;
 
 /**
  * <p>Updates a member configuration with new parameters.</p>
+ *          <p>Applies only to Hyperledger Fabric.</p>
  */
 export class UpdateMemberCommand extends $Command<
   UpdateMemberCommandInput,

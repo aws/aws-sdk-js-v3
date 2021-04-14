@@ -21,7 +21,7 @@ export type ListRoutingProfileQueuesCommandInput = ListRoutingProfileQueuesReque
 export type ListRoutingProfileQueuesCommandOutput = ListRoutingProfileQueuesResponse & __MetadataBearer;
 
 /**
- * <p>List the queues associated with a routing profile.</p>
+ * <p>Lists the queues associated with a routing profile.</p>
  */
 export class ListRoutingProfileQueuesCommand extends $Command<
   ListRoutingProfileQueuesCommandInput,

@@ -21,7 +21,7 @@ export type UpdateSipRuleCommandInput = UpdateSipRuleRequest;
 export type UpdateSipRuleCommandOutput = UpdateSipRuleResponse & __MetadataBearer;
 
 /**
- * <p>Updates the details for the specified SIP rule.</p>
+ * <p>Updates the details of the specified SIP rule.</p>
  */
 export class UpdateSipRuleCommand extends $Command<
   UpdateSipRuleCommandInput,

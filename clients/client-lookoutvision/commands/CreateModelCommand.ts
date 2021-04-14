@@ -32,6 +32,9 @@ export type CreateModelCommandOutput = CreateModelResponse & __MetadataBearer;
  *        the model. </p>
  *          <p>After training completes, the evaluation metrics are stored at the location specified in
  *         <code>OutputConfig</code>.  </p>
+ *          <p>This operation requires permissions to perform the
+ *          <code>lookoutvision:CreateModel</code> operation. If you want to tag your model, you also require
+ *          permission to the <code>lookoutvision:TagResource</code> operation.</p>
  */
 export class CreateModelCommand extends $Command<
   CreateModelCommandInput,

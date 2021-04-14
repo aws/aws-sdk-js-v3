@@ -2,7 +2,7 @@ import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
- * <p>A value or list of parameter values.</p>
+ * <p>A value or list of parameter values. </p>
  */
 export interface ParameterValue {
   /**
@@ -133,18 +133,18 @@ export namespace PipelineNotFoundException {
 
 /**
  * <p>Tags are key/value pairs defined by a user and associated with a pipeline to control access. AWS Data Pipeline allows you to associate ten tags per pipeline.
- *             For more information, see <a href="https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.</p>
+ *             For more information, see <a href="http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.</p>
  */
 export interface Tag {
   /**
    * <p>The key name of a tag defined by a user.
-   *             For more information, see <a href="https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.</p>
+   *             For more information, see <a href="http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.</p>
    */
   key: string | undefined;
 
   /**
    * <p>The optional value portion of a tag defined by a user.
-   *             For more information, see <a href="https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.</p>
+   *             For more information, see <a href="http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.</p>
    */
   value: string | undefined;
 }
@@ -192,7 +192,8 @@ export namespace AddTagsOutput {
  */
 export interface CreatePipelineInput {
   /**
-   * <p>The name for the pipeline. You can use the same name for multiple pipelines associated with your AWS account, because AWS Data Pipeline assigns each pipeline a unique pipeline identifier.</p>
+   * <p>The name for the pipeline. You can use the same name for multiple pipelines associated with your AWS account,
+   *             because AWS Data Pipeline assigns each pipeline a unique pipeline identifier.</p>
    */
   name: string | undefined;
 
@@ -215,7 +216,7 @@ export interface CreatePipelineInput {
 
   /**
    * <p>A list of tags to associate with the pipeline at creation. Tags let you control access to pipelines.
-   *             For more information, see <a href="https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html">Controlling User Access to Pipelines</a>
+   *             For more information, see <a href="http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html">Controlling User Access to Pipelines</a>
    *             in the <i>AWS Data Pipeline Developer Guide</i>.</p>
    */
   tags?: Tag[];
@@ -449,7 +450,7 @@ export interface PipelineDescription {
 
   /**
    * <p>A list of tags to associated with a pipeline. Tags let you control access to pipelines.
-   *             For more information, see <a href="https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.</p>
+   *             For more information, see <a href="http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html">Controlling User Access to Pipelines</a> in the <i>AWS Data Pipeline Developer Guide</i>.</p>
    */
   tags?: Tag[];
 }
@@ -519,7 +520,7 @@ export namespace EvaluateExpressionOutput {
 }
 
 /**
- * <p>The specified task was not found.</p>
+ * <p>The specified task was not found. </p>
  */
 export interface TaskNotFoundException extends __SmithyException, $MetadataBearer {
   name: "TaskNotFoundException";
@@ -585,7 +586,7 @@ export namespace ParameterAttribute {
  */
 export interface ParameterObject {
   /**
-   * <p>The ID of the parameter object.</p>
+   * <p>The ID of the parameter object. </p>
    */
   id: string | undefined;
 
@@ -695,9 +696,9 @@ export namespace ListPipelinesOutput {
 }
 
 /**
- * <p>Identity information for the EC2 instance that is hosting the task runner. You can get this value by calling a metadata URI from the EC2 instance.
- *             For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html">Instance Metadata</a> in the <i>Amazon Elastic Compute Cloud User Guide.</i>
- *             Passing in this value proves that your task runner is running on an EC2 instance, and ensures the proper AWS Data Pipeline service charges are applied to your pipeline.</p>
+ * <p><p>Identity information for the EC2 instance that is hosting the task runner. You can get this value by calling a metadata URI from the EC2 instance.
+ *             For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html">Instance Metadata</a> in the <i>Amazon Elastic Compute Cloud User Guide.</i>
+ *             Passing in this value proves that your task runner is running on an EC2 instance, and ensures the proper AWS Data Pipeline service charges are applied to your pipeline.</p></p>
  */
 export interface InstanceIdentity {
   /**
@@ -734,7 +735,7 @@ export interface PollForTaskInput {
   hostname?: string;
 
   /**
-   * <p>Identity information for the EC2 instance that is hosting the task runner. You can get this value from the instance using <code>http://169.254.169.254/latest/meta-data/instance-id</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html">Instance Metadata</a> in the <i>Amazon Elastic Compute Cloud User Guide.</i> Passing in this value proves that your task runner is running on an EC2 instance, and ensures the proper AWS Data Pipeline service charges are applied to your pipeline.</p>
+   * <p>Identity information for the EC2 instance that is hosting the task runner. You can get this value from the instance using <code>http://169.254.169.254/latest/meta-data/instance-id</code>. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html">Instance Metadata</a> in the <i>Amazon Elastic Compute Cloud User Guide.</i> Passing in this value proves that your task runner is running on an EC2 instance, and ensures the proper AWS Data Pipeline service charges are applied to your pipeline.</p>
    */
   instanceIdentity?: InstanceIdentity;
 }
@@ -910,57 +911,31 @@ export interface Operator {
    * <p>
    *             The logical operation to be performed: equal (<code>EQ</code>), equal reference (<code>REF_EQ</code>), less than or equal (<code>LE</code>), greater than or equal (<code>GE</code>), or between (<code>BETWEEN</code>). Equal reference (<code>REF_EQ</code>) can be used only with reference fields. The other comparison types can be used only with String fields. The comparison types you can use apply only to certain object fields, as detailed below.
    *         </p>
-   *         <p>The comparison operators EQ and REF_EQ act on the following fields:</p>
+   *         <p>
+   *           The comparison operators EQ and REF_EQ act on the following fields:
+   *         </p>
    *         <ul>
-   *             <li>
-   *                <p>name</p>
-   *             </li>
-   *             <li>
-   *                <p>@sphere</p>
-   *             </li>
-   *             <li>
-   *                <p>parent</p>
-   *             </li>
-   *             <li>
-   *                <p>@componentParent</p>
-   *             </li>
-   *             <li>
-   *                <p>@instanceParent</p>
-   *             </li>
-   *             <li>
-   *                <p>@status</p>
-   *             </li>
-   *             <li>
-   *                <p>@scheduledStartTime</p>
-   *             </li>
-   *             <li>
-   *                <p>@scheduledEndTime</p>
-   *             </li>
-   *             <li>
-   *                <p>@actualStartTime</p>
-   *             </li>
-   *             <li>
-   *                <p>@actualEndTime</p>
-   *             </li>
-   *          </ul>
+   *             <li>name</li>
+   *             <li>@sphere</li>
+   *             <li>parent</li>
+   *             <li>@componentParent</li>
+   *             <li>@instanceParent</li>
+   *             <li>@status</li>
+   *             <li>@scheduledStartTime</li>
+   *             <li>@scheduledEndTime</li>
+   *             <li>@actualStartTime</li>
+   *             <li>@actualEndTime</li>
+   *         </ul>
    *
    *         <p>
    *             The comparison operators <code>GE</code>, <code>LE</code>, and <code>BETWEEN</code> act on the following fields:
    *         </p>
    *         <ul>
-   *             <li>
-   *                <p>@scheduledStartTime</p>
-   *             </li>
-   *             <li>
-   *                <p>@scheduledEndTime</p>
-   *             </li>
-   *             <li>
-   *                <p>@actualStartTime</p>
-   *             </li>
-   *             <li>
-   *                <p>@actualEndTime</p>
-   *             </li>
-   *          </ul>
+   *             <li>@scheduledStartTime</li>
+   *             <li>@scheduledEndTime</li>
+   *             <li>@actualStartTime</li>
+   *             <li>@actualEndTime</li>
+   *         </ul>
    *         <p>Note that fields beginning with the at sign (@) are read-only and set by the web service. When you name fields, you should choose names containing only alpha-numeric values, as symbols may be reserved by AWS Data Pipeline. User-defined fields that you add to a pipeline should prefix their name with the string "my".</p>
    */
   type?: OperatorType | string;
@@ -978,7 +953,7 @@ export namespace Operator {
 }
 
 /**
- * <p>A comparison that is used to determine whether a query should return this object.</p>
+ * <p>A comparision that is used to determine whether a query should return this object.</p>
  */
 export interface Selector {
   /**
@@ -1156,7 +1131,9 @@ export namespace ReportTaskProgressOutput {
  */
 export interface ReportTaskRunnerHeartbeatInput {
   /**
-   * <p>The ID of the task runner. This value should be unique across your AWS account. In the case of AWS Data Pipeline Task Runner launched on a resource managed by AWS Data Pipeline, the web service provides a unique identifier when it launches the application. If you have written a custom task runner, you should assign a unique identifier for the task runner.</p>
+   * <p>The ID of the task runner. This value should be unique across your AWS account. In the case of AWS Data Pipeline Task Runner
+   *             launched on a resource managed by AWS Data Pipeline, the web service provides a unique identifier when it launches the application.
+   *             If you have written a custom task runner, you should assign a unique identifier for the task runner.</p>
    */
   taskrunnerId: string | undefined;
 
@@ -1243,17 +1220,20 @@ export interface SetTaskStatusInput {
   taskStatus: TaskStatus | string | undefined;
 
   /**
-   * <p>If an error occurred during the task, this value specifies the error code. This value is set on the physical attempt object. It is used to display error information to the user. It should not start with string "Service_" which is reserved by the system.</p>
+   * <p>If an error occurred during the task, this value specifies the error code. This value is set on the physical attempt object.
+   *             It is used to display error information to the user. It should not start with string "Service_" which is reserved by the system.</p>
    */
   errorId?: string;
 
   /**
-   * <p>If an error occurred during the task, this value specifies a text description of the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value.</p>
+   * <p>If an error occurred during the task, this value specifies a text description of the error. This value is set on the physical attempt object.
+   *             It is used to display error information to the user. The web service does not parse this value.</p>
    */
   errorMessage?: string;
 
   /**
-   * <p>If an error occurred during the task, this value specifies the stack trace associated with the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value.</p>
+   * <p>If an error occurred during the task, this value specifies the stack trace associated with the error. This value is set on the physical attempt object.
+   *             It is used to display error information to the user. The web service does not parse this value.</p>
    */
   errorStackTrace?: string;
 }

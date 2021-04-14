@@ -23,6 +23,8 @@ export type ListDatasetEntriesCommandOutput = ListDatasetEntriesResponse & __Met
 /**
  * <p>Lists the JSON Lines within a dataset. An Amazon Lookout for Vision JSON Line contains the anomaly
  *       information for a single image, including the image location and the assigned label.</p>
+ *          <p>This operation requires permissions to perform the
+ *          <code>lookoutvision:ListDatasetEntries</code> operation.</p>
  */
 export class ListDatasetEntriesCommand extends $Command<
   ListDatasetEntriesCommandInput,

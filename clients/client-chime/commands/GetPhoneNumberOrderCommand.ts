@@ -21,8 +21,8 @@ export type GetPhoneNumberOrderCommandInput = GetPhoneNumberOrderRequest;
 export type GetPhoneNumberOrderCommandOutput = GetPhoneNumberOrderResponse & __MetadataBearer;
 
 /**
- * <p>Retrieves details for the specified phone number order, such as order creation
- *       timestamp, phone numbers in E.164 format, product type, and order status.</p>
+ * <p>Retrieves details for the specified phone number order, such as the order creation timestamp, phone
+ *             numbers in E.164 format, product type, and order status.</p>
  */
 export class GetPhoneNumberOrderCommand extends $Command<
   GetPhoneNumberOrderCommandInput,

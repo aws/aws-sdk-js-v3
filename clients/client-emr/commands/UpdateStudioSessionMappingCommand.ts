@@ -21,11 +21,7 @@ export type UpdateStudioSessionMappingCommandInput = UpdateStudioSessionMappingI
 export type UpdateStudioSessionMappingCommandOutput = __MetadataBearer;
 
 /**
- * <note>
- *             <p>The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject to
- *             change.</p>
- *          </note>
- *          <p>Updates the session policy attached to the user or group for the specified Amazon EMR
+ * <p>Updates the session policy attached to the user or group for the specified Amazon EMR
  *          Studio.</p>
  */
 export class UpdateStudioSessionMappingCommand extends $Command<

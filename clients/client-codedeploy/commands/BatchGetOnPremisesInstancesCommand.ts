@@ -21,7 +21,8 @@ export type BatchGetOnPremisesInstancesCommandInput = BatchGetOnPremisesInstance
 export type BatchGetOnPremisesInstancesCommandOutput = BatchGetOnPremisesInstancesOutput & __MetadataBearer;
 
 /**
- * <p>Gets information about one or more on-premises instances. The maximum number of on-premises instances that can be returned is 25.</p>
+ * <p>Gets information about one or more on-premises instances. The maximum number of
+ *             on-premises instances that can be returned is 25.</p>
  */
 export class BatchGetOnPremisesInstancesCommand extends $Command<
   BatchGetOnPremisesInstancesCommandInput,

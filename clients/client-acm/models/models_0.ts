@@ -2,6 +2,22 @@ import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
+ * <p>You do not have access
+ *       required to perform this action.</p>
+ */
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
+  name: "AccessDeniedException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace AccessDeniedException {
+  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>A key-value pair that identifies or specifies metadata about an ACM resource.</p>
  */
 export interface Tag {
@@ -31,7 +47,7 @@ export interface AddTagsToCertificateRequest {
    *             <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code>
    *          </p>
    *
-   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>. </p>
+   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>.</p>
    */
   CertificateArn: string | undefined;
 
@@ -120,6 +136,22 @@ export interface TagPolicyException extends __SmithyException, $MetadataBearer {
 
 export namespace TagPolicyException {
   export const filterSensitiveLog = (obj: TagPolicyException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The request was denied
+ *       because it exceeded a quota.</p>
+ */
+export interface ThrottlingException extends __SmithyException, $MetadataBearer {
+  name: "ThrottlingException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ThrottlingException {
+  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
 }
@@ -504,8 +536,8 @@ export enum CertificateType {
 export interface CertificateDetail {
   /**
    * <p>The Amazon Resource Name (ARN) of the certificate. For more information about ARNs, see
-   *         <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS
-   *         Service Namespaces</a> in the <i>AWS General Reference</i>.</p>
+   *         <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in
+   *       the <i>AWS General Reference</i>.</p>
    */
   CertificateArn?: string;
 
@@ -547,8 +579,7 @@ export interface CertificateDetail {
   Issuer?: string;
 
   /**
-   * <p>The time at which the certificate was requested. This value exists only when the
-   *       certificate type is <code>AMAZON_ISSUED</code>. </p>
+   * <p>The time at which the certificate was requested.</p>
    */
   CreatedAt?: Date;
 
@@ -682,7 +713,7 @@ export interface DeleteCertificateRequest {
    *          <p>
    *             <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code>
    *          </p>
-   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
+   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>.</p>
    */
   CertificateArn: string | undefined;
 }
@@ -716,7 +747,7 @@ export interface DescribeCertificateRequest {
    *          <p>
    *             <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code>
    *          </p>
-   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
+   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>.</p>
    */
   CertificateArn: string | undefined;
 }
@@ -809,13 +840,47 @@ export namespace RequestInProgressException {
   });
 }
 
+/**
+ * <p>Object containing
+ *       expiration events options associated with an AWS account.</p>
+ */
+export interface ExpiryEventsConfiguration {
+  /**
+   * <p>Specifies the number of days prior to certificate expiration when ACM starts generating
+   *         <code>EventBridge</code> events. ACM sends one event per day per certificate until the
+   *       certificate expires. By default, accounts receive events starting 45 days before certificate
+   *       expiration.</p>
+   */
+  DaysBeforeExpiry?: number;
+}
+
+export namespace ExpiryEventsConfiguration {
+  export const filterSensitiveLog = (obj: ExpiryEventsConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export interface GetAccountConfigurationResponse {
+  /**
+   * <p>Expiration events
+   *       configuration options associated with the AWS account.</p>
+   */
+  ExpiryEvents?: ExpiryEventsConfiguration;
+}
+
+export namespace GetAccountConfigurationResponse {
+  export const filterSensitiveLog = (obj: GetAccountConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface GetCertificateRequest {
   /**
    * <p>String that contains a certificate ARN in the following format:</p>
    *          <p>
    *             <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code>
    *          </p>
-   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
+   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>.</p>
    */
   CertificateArn: string | undefined;
 }
@@ -834,7 +899,8 @@ export interface GetCertificateResponse {
 
   /**
    * <p>Certificates forming the requested certificate's chain of trust. The chain consists of the
-   *       certificate of the issuing CA and the intermediate certificates of any other subordinate CAs. </p>
+   *       certificate of the issuing CA and the intermediate certificates of any other subordinate CAs.
+   *     </p>
    */
   CertificateChain?: string;
 }
@@ -943,10 +1009,11 @@ export interface Filters {
 
   /**
    * <p>Specify one or more algorithms that can be used to generate key pairs.</p>
-   *          <p>Default filtering returns only <code>RSA_2048</code> certificates. To return other
-   *       certificate types, provide the desired type signatures in a comma-separated list. For example,
-   *         <code>"keyTypes": ["RSA_2048,RSA_4096"]</code>  returns both <code>RSA_2048</code> and
-   *         <code>RSA_4096</code> certificates.</p>
+   *          <p>Default filtering returns only <code>RSA_1024</code> and <code>RSA_2048</code>
+   *       certificates that have at least one domain. To return other certificate types, provide the
+   *       desired type signatures in a comma-separated list. For example, <code>"keyTypes":
+   *         ["RSA_2048,RSA_4096"]</code> returns both <code>RSA_2048</code> and <code>RSA_4096</code>
+   *       certificates.</p>
    */
   keyTypes?: (KeyAlgorithm | string)[];
 }
@@ -1003,7 +1070,7 @@ export interface CertificateSummary {
    *             <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code>
    *          </p>
    *
-   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>. </p>
+   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>.</p>
    */
   CertificateArn?: string;
 
@@ -1046,7 +1113,7 @@ export interface ListTagsForCertificateRequest {
    *          <p>
    *             <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code>
    *          </p>
-   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>. </p>
+   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>.</p>
    */
   CertificateArn: string | undefined;
 }
@@ -1070,6 +1137,63 @@ export namespace ListTagsForCertificateResponse {
   });
 }
 
+/**
+ * <p>You are trying to
+ *       update a resource or configuration that is already being created or updated. Wait for the
+ *       previous operation to finish and try again.</p>
+ */
+export interface ConflictException extends __SmithyException, $MetadataBearer {
+  name: "ConflictException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ConflictException {
+  export const filterSensitiveLog = (obj: ConflictException): any => ({
+    ...obj,
+  });
+}
+
+export interface PutAccountConfigurationRequest {
+  /**
+   * <p>Specifies expiration
+   *       events associated with an account.</p>
+   */
+  ExpiryEvents?: ExpiryEventsConfiguration;
+
+  /**
+   * <p>Customer-chosen string
+   *       used to distinguish between calls to <code>PutAccountConfiguration</code>. Idempotency tokens
+   *       time out after one hour. If you call <code>PutAccountConfiguration</code> multiple times with
+   *       the same unexpired idempotency token, ACM treats it as the same request and returns the
+   *       original result. If you change the idempotency token for each call, ACM treats each call as
+   *       a new request.</p>
+   */
+  IdempotencyToken: string | undefined;
+}
+
+export namespace PutAccountConfigurationRequest {
+  export const filterSensitiveLog = (obj: PutAccountConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The supplied input
+ *       failed to satisfy constraints of an AWS service.</p>
+ */
+export interface ValidationException extends __SmithyException, $MetadataBearer {
+  name: "ValidationException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ValidationException {
+  export const filterSensitiveLog = (obj: ValidationException): any => ({
+    ...obj,
+  });
+}
+
 export interface RemoveTagsFromCertificateRequest {
   /**
    * <p>String that contains the ARN of the ACM Certificate with one or more tags that you want
@@ -1079,7 +1203,7 @@ export interface RemoveTagsFromCertificateRequest {
    *             <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code>
    *          </p>
    *
-   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>. </p>
+   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>.</p>
    */
   CertificateArn: string | undefined;
 
@@ -1102,7 +1226,7 @@ export interface RenewCertificateRequest {
    *          <p>
    *             <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code>
    *          </p>
-   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
+   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>.</p>
    */
   CertificateArn: string | undefined;
 }

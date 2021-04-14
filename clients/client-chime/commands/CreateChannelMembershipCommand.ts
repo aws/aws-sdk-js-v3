@@ -21,8 +21,9 @@ export type CreateChannelMembershipCommandInput = CreateChannelMembershipRequest
 export type CreateChannelMembershipCommandOutput = CreateChannelMembershipResponse & __MetadataBearer;
 
 /**
- * <p>Adds a user to a channel. The <code>InvitedBy</code> response field is derived from the request header.
- *            A channel member can:</p>
+ * <p>Adds a user to a channel. The <code>InvitedBy</code> response field is derived from the
+ *             request header. A channel member can:</p>
+ *
  *          <ul>
  *             <li>
  *                <p>List messages</p>
@@ -40,7 +41,9 @@ export type CreateChannelMembershipCommandOutput = CreateChannelMembershipRespon
  *                <p>Leave the channel</p>
  *             </li>
  *          </ul>
+ *
  *          <p>Privacy settings impact this action as follows:</p>
+ *
  *          <ul>
  *             <li>
  *                <p>Public Channels: You do not need to be a member to list messages, but you must be a member to send messages.</p>
@@ -49,6 +52,11 @@ export type CreateChannelMembershipCommandOutput = CreateChannelMembershipRespon
  *                <p>Private Channels: You must be a member to list or send messages.</p>
  *             </li>
  *          </ul>
+ *
+ *          <note>
+ *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
+ *         the API call as the value in the header.</p>
+ *          </note>
  */
 export class CreateChannelMembershipCommand extends $Command<
   CreateChannelMembershipCommandInput,

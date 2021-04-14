@@ -133,9 +133,23 @@ export namespace Column {
   });
 }
 
+/**
+ * <p>The unique ID of the schema in the AWS Glue schema registry.</p>
+ */
 export interface SchemaId {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p>
+   */
   SchemaArn?: string;
+
+  /**
+   * <p>The name of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p>
+   */
   SchemaName?: string;
+
+  /**
+   * <p>The name of the schema registry that contains the schema.</p>
+   */
   RegistryName?: string;
 }
 
@@ -3105,6 +3119,9 @@ export namespace CreateClassifierResponse {
 export enum ConnectionPropertyKey {
   CONFIG_FILES = "CONFIG_FILES",
   CONNECTION_URL = "CONNECTION_URL",
+  CONNECTOR_CLASS_NAME = "CONNECTOR_CLASS_NAME",
+  CONNECTOR_TYPE = "CONNECTOR_TYPE",
+  CONNECTOR_URL = "CONNECTOR_URL",
   CUSTOM_JDBC_CERT = "CUSTOM_JDBC_CERT",
   CUSTOM_JDBC_CERT_STRING = "CUSTOM_JDBC_CERT_STRING",
   ENCRYPTED_PASSWORD = "ENCRYPTED_PASSWORD",
@@ -3122,13 +3139,16 @@ export enum ConnectionPropertyKey {
   KAFKA_SSL_ENABLED = "KAFKA_SSL_ENABLED",
   PASSWORD = "PASSWORD",
   PORT = "PORT",
+  SECRET_ID = "SECRET_ID",
   SKIP_CUSTOM_JDBC_CERT_VALIDATION = "SKIP_CUSTOM_JDBC_CERT_VALIDATION",
   USER_NAME = "USERNAME",
 }
 
 export enum ConnectionType {
+  CUSTOM = "CUSTOM",
   JDBC = "JDBC",
   KAFKA = "KAFKA",
+  MARKETPLACE = "MARKETPLACE",
   MONGODB = "MONGODB",
   NETWORK = "NETWORK",
   SFTP = "SFTP",
@@ -3194,6 +3214,14 @@ export interface ConnectionInput {
    *             <li>
    *                <p>
    *                   <code>NETWORK</code> - Designates a network connection to a data source within an Amazon Virtual Private Cloud environment (Amazon VPC).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MARKETPLACE</code> - Uses configuration settings contained in a connector purchased from AWS Marketplace to read from and write to data stores that are not natively supported by AWS Glue.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CUSTOM</code> - Uses configuration settings contained in a custom connector to read from and write to data stores that are not natively supported by AWS Glue.</p>
    *             </li>
    *          </ul>
    *          <p>SFTP is not supported.</p>
@@ -6966,6 +6994,22 @@ export interface Connection {
    *             <li>
    *                <p>
    *                   <code>KAFKA_SKIP_CUSTOM_CERT_VALIDATION</code> - Whether to skip the validation of the CA cert file or not. AWS Glue validates for three algorithms: SHA256withRSA, SHA384withRSA and SHA512withRSA. Default value is "false".</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SECRET_ID</code> - The secret ID used for the secret manager of credentials.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CONNECTOR_URL</code> - The connector URL for a MARKETPLACE or CUSTOM connection.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CONNECTOR_TYPE</code> - The connector type for a MARKETPLACE or CUSTOM connection.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CONNECTOR_CLASS_NAME</code> - The connector class name for a MARKETPLACE or CUSTOM connection.</p>
    *             </li>
    *          </ul>
    */

@@ -174,7 +174,8 @@ export class AppMesh extends AppMeshClient {
   /**
    * <p>Creates a gateway route.</p>
    *          <p>A gateway route is attached to a virtual gateway and routes traffic to an existing
-   *          virtual service. If a route matches a request, it can distribute traffic to a target virtual service.</p>
+   *          virtual service. If a route matches a request, it can distribute traffic to a target
+   *          virtual service.</p>
    *          <p>For more information about gateway routes, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/gateway-routes.html">Gateway routes</a>.</p>
    */
   public createGatewayRoute(
@@ -271,8 +272,9 @@ export class AppMesh extends AppMeshClient {
    *          <p>A virtual gateway allows resources outside your mesh to communicate to resources that
    *          are inside your mesh. The virtual gateway represents an Envoy proxy running in an Amazon ECS
    *          task, in a Kubernetes service, or on an Amazon EC2 instance. Unlike a virtual node, which
-   *          represents an Envoy running with an application, a virtual gateway represents Envoy deployed by itself.</p>
-   *          <p>For more information about virtual gateways, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_gateways.html">Virtual gateways</a>.</p>
+   *          represents an Envoy running with an application, a virtual gateway represents Envoy
+   *          deployed by itself.</p>
+   *          <p>For more information about virtual gateways, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_gateways.html">Virtual gateways</a>. </p>
    */
   public createVirtualGateway(
     args: CreateVirtualGatewayCommandInput,
@@ -313,18 +315,21 @@ export class AppMesh extends AppMeshClient {
    *          expects. Any virtual service that your virtual node expects to communicate to is specified
    *          as a <code>backend</code>.</p>
    *          <p>The response metadata for your new virtual node contains the <code>arn</code> that is
-   *          associated with the virtual node. Set this value (either the full ARN or the truncated
-   *          resource name: for example, <code>mesh/default/virtualNode/simpleapp</code>) as the
-   *             <code>APPMESH_VIRTUAL_NODE_NAME</code> environment variable for your task group's Envoy
+   *          associated with the virtual node. Set this value to the full ARN; for example,
+   *             <code>arn:aws:appmesh:us-west-2:123456789012:myMesh/default/virtualNode/myApp</code>)
+   *          as the <code>APPMESH_RESOURCE_ARN</code> environment variable for your task group's Envoy
    *          proxy container in your task definition or pod spec. This is then mapped to the
    *             <code>node.id</code> and <code>node.cluster</code> Envoy parameters.</p>
    *          <note>
-   *             <p>If you require your Envoy stats or tracing to use a different name, you can override
-   *             the <code>node.cluster</code> value that is set by
-   *                <code>APPMESH_VIRTUAL_NODE_NAME</code> with the
-   *                <code>APPMESH_VIRTUAL_NODE_CLUSTER</code> environment variable.</p>
+   *             <p>By default, App Mesh uses the name of the resource you specified in
+   *                <code>APPMESH_RESOURCE_ARN</code> when Envoy is referring to itself in metrics and
+   *             traces. You can override this behavior by setting the
+   *                <code>APPMESH_RESOURCE_CLUSTER</code> environment variable with your own name.</p>
+   *             <p>AWS Cloud Map is not available in the eu-south-1 Region.</p>
    *          </note>
-   *          <p>For more information about virtual nodes, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_nodes.html">Virtual nodes</a>.</p>
+   *          <p>For more information about virtual nodes, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_nodes.html">Virtual nodes</a>. You must be using <code>1.15.0</code> or later of the Envoy image when
+   *          setting these variables. For more information about App Mesh Envoy variables, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/envoy.html">Envoy image</a> in
+   *          the AWS App Mesh User Guide.</p>
    */
   public createVirtualNode(
     args: CreateVirtualNodeCommandInput,

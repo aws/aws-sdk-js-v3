@@ -21,8 +21,8 @@ export type SendProjectSessionActionCommandInput = SendProjectSessionActionReque
 export type SendProjectSessionActionCommandOutput = SendProjectSessionActionResponse & __MetadataBearer;
 
 /**
- * <p>Performs a recipe step within an interactive AWS Glue DataBrew session that's
- *             currently open.</p>
+ * <p>Performs a recipe step within an interactive DataBrew session that's currently
+ *             open.</p>
  */
 export class SendProjectSessionActionCommand extends $Command<
   SendProjectSessionActionCommandInput,

@@ -21,7 +21,7 @@ export type ListImagesCommandInput = ListImagesRequest;
 export type ListImagesCommandOutput = ListImagesResponse & __MetadataBearer;
 
 /**
- * <p> Returns the list of images that you have access to. </p>
+ * <p> Returns the list of images that you have access to.</p>
  */
 export class ListImagesCommand extends $Command<
   ListImagesCommandInput,

@@ -27,6 +27,7 @@ export type TagResourceCommandOutput = TagResourceResponse & __MetadataBearer;
 /**
  * <p>Assigns one or more tags (key-value pairs) to the specified resource.</p>
  *          <p>Each tag consists of a key and an optional value. If a tag with the same key is already associated with the resource, this action updates its value.</p>
+ *          <p>This operation returns an empty response if the call was successful.</p>
  */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,

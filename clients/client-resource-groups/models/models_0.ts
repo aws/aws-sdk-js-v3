@@ -17,50 +17,22 @@ export namespace BadRequestException {
 }
 
 /**
- * <p>A parameter for a group configuration item.</p>
+ * <p>A parameter for a group configuration item. For details about group service
+ *             configuration syntax, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for resource
+ *                 groups</a>.</p>
  */
 export interface GroupConfigurationParameter {
   /**
-   * <p>The name of the group configuration parameter.</p>
-   *         <p>You can specify the following string values:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>For configuration item type <code>AWS::ResourceGroups::Generic</code>:</p>
-   *                 <ul>
-   *                   <li>
-   *                         <p>
-   *                         <code>allowed-resource-types</code>
-   *                      </p>
-   *                         <p>Specifies the types of resources that you can add to this group by
-   *                             using the <a>GroupResources</a> operation.</p>
-   *                     </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                 <p>For configuration item type
-   *                     <code>AWS::EC2::CapacityReservationPool</code>:</p>
-   *                 <ul>
-   *                   <li>
-   *                         <p>None - This configuration item type doesn't support any
-   *                             parameters.</p>
-   *                     </li>
-   *                </ul>
-   *                 <p>For more information about EC2 capacity reservation groups, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html#create-cr-group">Working with capacity reservation groups</a> in the <i>EC2
-   *                         Users Guide</i>.</p>
-   *             </li>
-   *          </ul>
+   * <p>The name of the group configuration parameter. For the list of parameters that you can
+   *             use with each configuration item type, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html#about-slg-types">Supported resource types and
+   *                 parameters</a>.</p>
    */
   Name: string | undefined;
 
   /**
-   * <p>The values of for this parameter.</p>
-   *         <p>You can specify the following string value:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>For item type <code>allowed-resource-types</code>: the only supported
-   *                     parameter value is <code>AWS::EC2::CapacityReservation</code>.</p>
-   *             </li>
-   *          </ul>
+   * <p>The value or values to be used for the specified parameter. For the list of values you
+   *             can use with each parameter, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html#about-slg-types">Supported resource types and
+   *                 parameters</a>.</p>
    */
   Values?: string[];
 }
@@ -72,33 +44,23 @@ export namespace GroupConfigurationParameter {
 }
 
 /**
- * <p>An item in a group configuration. A group configuration can have one or more
- *             items.</p>
+ * <p>An item in a group configuration. A group service configuration can have one or more
+ *             items. For details about group service configuration syntax, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for
+ *                 resource groups</a>.</p>
  */
 export interface GroupConfigurationItem {
   /**
    * <p>Specifies the type of group configuration item. Each item must have a unique value for
-   *                 <code>type</code>.</p>
-   *         <p>You can specify the following string values:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>AWS::EC2::CapacityReservationPool</code>
-   *                </p>
-   *                 <p>For more information about EC2 capacity reservation groups, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html#create-cr-group">Working with capacity reservation groups</a> in the <i>EC2
-   *                         Users Guide</i>.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>AWS::ResourceGroups::Generic</code> - Supports parameters that configure
-   *                     the behavior of resource groups of any type.</p>
-   *             </li>
-   *          </ul>
+   *                 <code>type</code>. For the list of types that you can specify for a configuration
+   *             item, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html#about-slg-types">Supported resource types and
+   *                 parameters</a>.</p>
    */
   Type: string | undefined;
 
   /**
-   * <p>A collection of parameters for this group configuration item.</p>
+   * <p>A collection of parameters for this group configuration item. For the list of
+   *             parameters that you can use with each configuration item type, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html#about-slg-types">Supported
+   *                 resource types and parameters</a>.</p>
    */
   Parameters?: GroupConfigurationParameter[];
 }
@@ -122,26 +84,26 @@ export enum QueryType {
  *             string as a parameter to the AWS CLI or an SDK API, you might need to 'escape' the
  *             string into a single line. For example, see the <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-quoting-strings.html">Quoting
  *                 strings</a> in the <i>AWS CLI User Guide</i>.</p>
- *                 <p>
+ *         <p>
  *             <b>Example 1</b>
  *          </p>
- *                 <p>The following generic example shows a resource query JSON string that includes
- *                     only resources that meet the following criteria:</p>
- *                 <ul>
+ *         <p>The following generic example shows a resource query JSON string that includes only
+ *             resources that meet the following criteria:</p>
+ *         <ul>
  *             <li>
- *                         <p>The resource type must be either <code>resource_type1</code> or
- *                                 <code>resource_type2</code>.</p>
- *                     </li>
+ *                 <p>The resource type must be either <code>resource_type1</code> or
+ *                         <code>resource_type2</code>.</p>
+ *             </li>
  *             <li>
- *                         <p>The resource must have a tag <code>Key1</code> with a value of either
- *                                 <code>ValueA</code> or <code>ValueB</code>.</p>
- *                     </li>
+ *                 <p>The resource must have a tag <code>Key1</code> with a value of either
+ *                         <code>ValueA</code> or <code>ValueB</code>.</p>
+ *             </li>
  *             <li>
- *                         <p>The resource must have a tag <code>Key2</code> with a value of either
- *                                 <code>ValueC</code> or <code>ValueD</code>.</p>
- *                     </li>
+ *                 <p>The resource must have a tag <code>Key2</code> with a value of either
+ *                         <code>ValueC</code> or <code>ValueD</code>.</p>
+ *             </li>
  *          </ul>
- *                 <p>
+ *         <p>
  *             <code>{
  *     "Type": "TAG_FILTERS_1_0",
  *     "Query": {
@@ -176,10 +138,9 @@ export enum QueryType {
  *         <p>
  *             <b>Example 2</b>
  *          </p>
- *         <p>The following example shows a resource query JSON string that includes only
- *                     Amazon EC2 instances that are tagged <code>Stage</code> with a value of
- *                         <code>Test</code>.</p>
- *                 <p>
+ *         <p>The following example shows a resource query JSON string that includes only Amazon EC2
+ *             instances that are tagged <code>Stage</code> with a value of <code>Test</code>.</p>
+ *         <p>
  *             <code>{
  *     "Type": "TAG_FILTERS_1_0",
  *     "Query": "{
@@ -191,9 +152,9 @@ export enum QueryType {
  *         <p>
  *             <b>Example 3</b>
  *          </p>
- *         <p>The following example shows a resource query JSON string that includes
- *                     resource of any supported type as long as it is tagged <code>Stage</code> with a
- *                     value of <code>Prod</code>.</p>
+ *         <p>The following example shows a resource query JSON string that includes resource of any
+ *             supported type as long as it is tagged <code>Stage</code> with a value of
+ *                 <code>Prod</code>.</p>
  *         <p>
  *             <code>{
  *     "Type": "TAG_FILTERS_1_0",
@@ -206,9 +167,8 @@ export enum QueryType {
  *         <p>
  *             <b>Example 4</b>
  *          </p>
- *         <p>The following example shows a resource query JSON string that includes only
- *                     Amazon EC2 instances and Amazon S3 buckets that are part of the specified AWS CloudFormation
- *                     stack.</p>
+ *         <p>The following example shows a resource query JSON string that includes only Amazon EC2
+ *             instances and Amazon S3 buckets that are part of the specified AWS CloudFormation stack.</p>
  *         <p>
  *             <code>{
  *     "Type": "CLOUDFORMATION_STACK_1_0",
@@ -321,10 +281,11 @@ export interface CreateGroupInput {
   Description?: string;
 
   /**
-   * <p>The resource query that determines which AWS resources are members of this
-   *             group.</p>
+   * <p>The resource query that determines which AWS resources are members of this group.
+   *             For more information about resource queries, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag">Create
+   *                 a tag-based group in Resource Groups</a>. </p>
    *         <note>
-   *             <p>You can specify either a <code>ResourceQuery</code> or a
+   *             <p>A resource group can contain either a <code>ResourceQuery</code> or a
    *                     <code>Configuration</code>, but not both.</p>
    *         </note>
    */
@@ -338,10 +299,12 @@ export interface CreateGroupInput {
   /**
    * <p>A configuration associates the resource group with an AWS service and specifies how
    *             the service can interact with the resources in the group. A configuration is an array of
-   *                 <a>GroupConfigurationItem</a> elements.</p>
+   *                 <a>GroupConfigurationItem</a> elements. For details about the syntax of
+   *             service configurations, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for resource
+   *                 groups</a>.</p>
    *         <note>
-   *             <p>You can specify either a <code>Configuration</code> or a
-   *                     <code>ResourceQuery</code> in a group, but not both.</p>
+   *             <p>A resource group can contain either a <code>Configuration</code> or a
+   *                     <code>ResourceQuery</code>, but not both.</p>
    *         </note>
    */
   Configuration?: GroupConfigurationItem[];
@@ -362,8 +325,7 @@ export namespace CreateGroupInput {
  *                   <a>ResourceQuery</a> - Use a resource query to specify a set of tag
  *                     keys and values. All resources in the same AWS Region and AWS account that
  *                     have those keys with the same values are included in the group. You can add a
- *                     resource query when you create the
- *                     group.</p>
+ *                     resource query when you create the group, or later by using the <a>PutGroupConfiguration</a> operation.</p>
  *             </li>
  *             <li>
  *                 <p>
@@ -406,8 +368,9 @@ export enum GroupConfigurationStatus {
  * <p>A service configuration associated with a resource group. The configuration options
  *             are determined by the AWS service that defines the <code>Type</code>, and specifies
  *             which resources can be included in the group. You can add a service configuration when
- *             you create the
- *             group.</p>
+ *             you create the group by using <a>CreateGroup</a>, or later by using the <a>PutGroupConfiguration</a> operation. For details about group service
+ *             configuration syntax, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for resource
+ *                 groups</a>.</p>
  */
 export interface GroupConfiguration {
   /**
@@ -445,7 +408,9 @@ export interface CreateGroupOutput {
   Group?: Group;
 
   /**
-   * <p>The resource query associated with the group.</p>
+   * <p>The resource query associated with the group. For more information about resource
+   *             queries, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag">Create
+   *                 a tag-based group in Resource Groups</a>. </p>
    */
   ResourceQuery?: ResourceQuery;
 
@@ -455,16 +420,9 @@ export interface CreateGroupOutput {
   Tags?: { [key: string]: string };
 
   /**
-   * <p>The service configuration associated with the resource group. AWS Resource Groups
-   *             supports adding service configurations for the following resource group types:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>AWS::EC2::CapacityReservationPool</code> - Amazon EC2 capacity
-   *                     reservation pools. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html#create-cr-group">Working with capacity reservation groups</a> in the <i>EC2 Users
-   *                         Guide</i>.</p>
-   *             </li>
-   *          </ul>
+   * <p>The service configuration associated with the resource group. For details about the
+   *             syntax of a service configuration, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for resource
+   *                 groups</a>.</p>
    */
   GroupConfiguration?: GroupConfiguration;
 }
@@ -540,7 +498,7 @@ export interface DeleteGroupInput {
   /**
    * @deprecated
    *
-   * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
+   * <p>Deprecated - don't use this parameter. Use <code>Group</code> instead.</p>
    */
   GroupName?: string;
 
@@ -588,7 +546,7 @@ export interface GetGroupInput {
   /**
    * @deprecated
    *
-   * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
+   * <p>Deprecated - don't use this parameter. Use <code>Group</code> instead.</p>
    */
   GroupName?: string;
 
@@ -632,7 +590,9 @@ export namespace GetGroupConfigurationInput {
 
 export interface GetGroupConfigurationOutput {
   /**
-   * <p>The configuration associated with the specified group.</p>
+   * <p>The service configuration associated with the specified group. For details about the
+   *             service configuration syntax, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for resource
+   *                 groups</a>.</p>
    */
   GroupConfiguration?: GroupConfiguration;
 }
@@ -689,7 +649,9 @@ export namespace GroupQuery {
 
 export interface GetGroupQueryOutput {
   /**
-   * <p>The resource query associated with the specified group.</p>
+   * <p>The resource query associated with the specified group. For more information about
+   *             resource queries, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag">Create
+   *                 a tag-based group in Resource Groups</a>.</p>
    */
   GroupQuery?: GroupQuery;
 }
@@ -775,18 +737,46 @@ export namespace FailedResource {
   });
 }
 
+/**
+ * <p>A structure that identifies a resource that is currently pending addition to the group
+ *             as a member. Adding a resource to a resource group happens asynchronously as a
+ *             background task and this one isn't completed yet.</p>
+ */
+export interface PendingResource {
+  /**
+   * <p>The Amazon resource name (ARN) of the resource that's in a pending state.</p>
+   */
+  ResourceArn?: string;
+}
+
+export namespace PendingResource {
+  export const filterSensitiveLog = (obj: PendingResource): any => ({
+    ...obj,
+  });
+}
+
 export interface GroupResourcesOutput {
   /**
-   * <p>The ARNs of the resources that were successfully added to the group by this
+   * <p>A list of ARNs of resources that were successfully added to the group by this
    *             operation.</p>
    */
   Succeeded?: string[];
 
   /**
-   * <p>The ARNs of the resources that failed to be added to the group by this
+   * <p>A list of ARNs of any resources that failed to be added to the group by this
    *             operation.</p>
    */
   Failed?: FailedResource[];
+
+  /**
+   * <p>A list of ARNs of any resources that are still in the process of being added to the
+   *             group by this operation. These pending additions continue asynchronously. You can check
+   *             the status of pending additions by using the <code>
+   *                <a>ListGroupResources</a>
+   *             </code> operation, and checking the <code>Resources</code> array in the response
+   *             and the <code>Status</code> field of each object in that array. </p>
+   */
+  Pending?: PendingResource[];
 }
 
 export namespace GroupResourcesOutput {
@@ -826,7 +816,14 @@ export interface ListGroupResourcesInput {
   /**
    * @deprecated
    *
-   * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
+   * <important>
+   *             <p>
+   *                <i>
+   *                   <b>Deprecated - don't use this parameter. Use the
+   *                             <code>Group</code> request field instead.</b>
+   *                </i>
+   *             </p>
+   *         </important>
    */
   GroupName?: string;
 
@@ -932,7 +929,7 @@ export namespace QueryError {
 }
 
 /**
- * <p>The ARN of a resource, and its resource type.</p>
+ * <p>A structure that contains the ARN of a resource and its resource type.</p>
  */
 export interface ResourceIdentifier {
   /**
@@ -952,10 +949,76 @@ export namespace ResourceIdentifier {
   });
 }
 
+export enum ResourceStatusValue {
+  Pending = "PENDING",
+}
+
+/**
+ * <p>A structure that identifies the current group membership status for a resource. Adding
+ *             a resource to a resource group is performed asynchronously as a background task. A
+ *                 <code>PENDING</code> status indicates, for this resource, that the process isn't
+ *             completed yet.</p>
+ */
+export interface ResourceStatus {
+  /**
+   * <p>The current status.</p>
+   */
+  Name?: ResourceStatusValue | string;
+}
+
+export namespace ResourceStatus {
+  export const filterSensitiveLog = (obj: ResourceStatus): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A structure returned by the <a>ListGroupResources</a> operation that
+ *             contains identity and group membership status information for one of the resources in
+ *             the group.</p>
+ */
+export interface ListGroupResourcesItem {
+  /**
+   * <p>A structure that contains the ARN of a resource and its resource type.</p>
+   */
+  Identifier?: ResourceIdentifier;
+
+  /**
+   * <p>A structure that contains the status of this resource's membership in the
+   *             group.</p>
+   *         <note>
+   *             <p>This field is present in the response only if the group is of type
+   *                     <code>AWS::EC2::HostManagement</code>.</p>
+   *         </note>
+   */
+  Status?: ResourceStatus;
+}
+
+export namespace ListGroupResourcesItem {
+  export const filterSensitiveLog = (obj: ListGroupResourcesItem): any => ({
+    ...obj,
+  });
+}
+
 export interface ListGroupResourcesOutput {
   /**
-   * <p>The ARNs and resource types of resources that are members of the group that you
-   *             specified.</p>
+   * <p>An array of resources from which you can determine each resource's identity, type, and
+   *             group membership status.</p>
+   */
+  Resources?: ListGroupResourcesItem[];
+
+  /**
+   * @deprecated
+   *
+   * <important>
+   *             <p>
+   *                <b>
+   *                   <i>Deprecated - don't use this parameter. Use the
+   *                             <code>Resources</code> response field
+   *                 instead.</i>
+   *                </b>
+   *             </p>
+   *         </important>
    */
   ResourceIdentifiers?: ResourceIdentifier[];
 
@@ -1047,7 +1110,14 @@ export interface ListGroupsInput {
    *                     supported values are:</p>
    *                 <ul>
    *                   <li>
-   *                         <p>AWS:EC2::CapacityReservationPool</p>
+   *                         <p>
+   *                         <code>AWS:EC2::CapacityReservationPool</code>
+   *                      </p>
+   *                     </li>
+   *                   <li>
+   *                         <p>
+   *                         <code>AWS:EC2::HostManagement</code>
+   *                      </p>
    *                     </li>
    *                </ul>
    *             </li>
@@ -1113,8 +1183,15 @@ export interface ListGroupsOutput {
   /**
    * @deprecated
    *
-   * <p>This output element is deprecated and shouldn't be used. Refer to
-   *                 <code>GroupIdentifiers</code> instead.</p>
+   * <important>
+   *             <p>
+   *                <i>
+   *                   <b>Deprecated - don't use this field. Use the
+   *                             <code>GroupIdentifiers</code> response field
+   *                     instead.</b>
+   *                </i>
+   *             </p>
+   *         </important>
    */
   Groups?: Group[];
 
@@ -1129,6 +1206,41 @@ export interface ListGroupsOutput {
 
 export namespace ListGroupsOutput {
   export const filterSensitiveLog = (obj: ListGroupsOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface PutGroupConfigurationInput {
+  /**
+   * <p>The name or ARN of the resource group with the configuration that you want to
+   *             update.</p>
+   */
+  Group?: string;
+
+  /**
+   * <p>The new configuration to associate with the specified group. A configuration
+   *             associates the resource group with an AWS service and specifies how the service can
+   *             interact with the resources in the group. A configuration is an array of <a>GroupConfigurationItem</a> elements.</p>
+   *         <p>For information about the syntax of a service configuration, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for
+   *                 resource groups</a>.</p>
+   *         <note>
+   *             <p>A resource group can contain either a <code>Configuration</code> or a
+   *                     <code>ResourceQuery</code>, but not both.</p>
+   *         </note>
+   */
+  Configuration?: GroupConfigurationItem[];
+}
+
+export namespace PutGroupConfigurationInput {
+  export const filterSensitiveLog = (obj: PutGroupConfigurationInput): any => ({
+    ...obj,
+  });
+}
+
+export interface PutGroupConfigurationOutput {}
+
+export namespace PutGroupConfigurationOutput {
+  export const filterSensitiveLog = (obj: PutGroupConfigurationOutput): any => ({
     ...obj,
   });
 }
@@ -1254,14 +1366,26 @@ export namespace UngroupResourcesInput {
 
 export interface UngroupResourcesOutput {
   /**
-   * <p>The ARNs of the resources that were successfully removed from the group.</p>
+   * <p>A list of resources that were successfully removed from the group by this
+   *             operation.</p>
    */
   Succeeded?: string[];
 
   /**
-   * <p>The resources that failed to be removed from the group.</p>
+   * <p>A list of any resources that failed to be removed from the group by this
+   *             operation.</p>
    */
   Failed?: FailedResource[];
+
+  /**
+   * <p>A list of any resources that are still in the process of being removed from the group
+   *             by this operation. These pending removals continue asynchronously. You can check the
+   *             status of pending removals by using the <code>
+   *                <a>ListGroupResources</a>
+   *             </code> operation. After the resource is successfully removed, it no longer
+   *             appears in the response.</p>
+   */
+  Pending?: PendingResource[];
 }
 
 export namespace UngroupResourcesOutput {
@@ -1362,6 +1486,10 @@ export interface UpdateGroupQueryInput {
   /**
    * <p>The resource query to determine which AWS resources are members of this resource
    *             group.</p>
+   *         <note>
+   *             <p>A resource group can contain either a <code>Configuration</code> or a
+   *                     <code>ResourceQuery</code>, but not both.</p>
+   *         </note>
    */
   ResourceQuery: ResourceQuery | undefined;
 }

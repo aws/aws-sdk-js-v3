@@ -21,7 +21,7 @@ export type DeleteMemberCommandInput = DeleteMemberRequest;
 export type DeleteMemberCommandOutput = DeleteMemberResponse & __MetadataBearer;
 
 /**
- * <p>Deletes the association between an Amazon Macie master account and an account.</p>
+ * <p>Deletes the association between an Amazon Macie administrator account and an account.</p>
  */
 export class DeleteMemberCommand extends $Command<
   DeleteMemberCommandInput,

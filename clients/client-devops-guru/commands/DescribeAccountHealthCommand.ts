@@ -20,6 +20,12 @@ import {
 export type DescribeAccountHealthCommandInput = DescribeAccountHealthRequest;
 export type DescribeAccountHealthCommandOutput = DescribeAccountHealthResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *    		Returns the number of open reactive insights, the number of open proactive insights, and the number of metrics analyzed in your AWS account.
+ *    		Use these numbers to gauge the health of operations in your AWS account.
+ *    	</p>
+ */
 export class DescribeAccountHealthCommand extends $Command<
   DescribeAccountHealthCommandInput,
   DescribeAccountHealthCommandOutput,

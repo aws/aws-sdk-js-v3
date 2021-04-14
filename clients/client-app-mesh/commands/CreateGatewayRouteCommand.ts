@@ -23,7 +23,8 @@ export type CreateGatewayRouteCommandOutput = CreateGatewayRouteOutput & __Metad
 /**
  * <p>Creates a gateway route.</p>
  *          <p>A gateway route is attached to a virtual gateway and routes traffic to an existing
- *          virtual service. If a route matches a request, it can distribute traffic to a target virtual service.</p>
+ *          virtual service. If a route matches a request, it can distribute traffic to a target
+ *          virtual service.</p>
  *          <p>For more information about gateway routes, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/gateway-routes.html">Gateway routes</a>.</p>
  */
 export class CreateGatewayRouteCommand extends $Command<

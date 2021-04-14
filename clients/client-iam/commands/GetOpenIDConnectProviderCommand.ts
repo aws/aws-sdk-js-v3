@@ -22,7 +22,7 @@ export type GetOpenIDConnectProviderCommandOutput = GetOpenIDConnectProviderResp
 
 /**
  * <p>Returns information about the specified OpenID Connect (OIDC) provider resource object
- *          in IAM.</p>
+ *             in IAM.</p>
  */
 export class GetOpenIDConnectProviderCommand extends $Command<
   GetOpenIDConnectProviderCommandInput,

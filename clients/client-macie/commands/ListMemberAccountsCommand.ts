@@ -21,8 +21,7 @@ export type ListMemberAccountsCommandInput = ListMemberAccountsRequest;
 export type ListMemberAccountsCommandOutput = ListMemberAccountsResult & __MetadataBearer;
 
 /**
- * <p>Lists all Amazon Macie Classic member accounts for the current Amazon Macie Classic
- *       master account.</p>
+ * <p>Lists all Amazon Macie Classic member accounts for the current Macie Classic administrator account.</p>
  */
 export class ListMemberAccountsCommand extends $Command<
   ListMemberAccountsCommandInput,

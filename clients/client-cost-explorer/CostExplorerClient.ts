@@ -37,6 +37,7 @@ import {
   GetCostAndUsageWithResourcesCommandInput,
   GetCostAndUsageWithResourcesCommandOutput,
 } from "./commands/GetCostAndUsageWithResourcesCommand";
+import { GetCostCategoriesCommandInput, GetCostCategoriesCommandOutput } from "./commands/GetCostCategoriesCommand";
 import { GetCostForecastCommandInput, GetCostForecastCommandOutput } from "./commands/GetCostForecastCommand";
 import { GetDimensionValuesCommandInput, GetDimensionValuesCommandOutput } from "./commands/GetDimensionValuesCommand";
 import {
@@ -157,6 +158,7 @@ export type ServiceInputTypes =
   | GetAnomalySubscriptionsCommandInput
   | GetCostAndUsageCommandInput
   | GetCostAndUsageWithResourcesCommandInput
+  | GetCostCategoriesCommandInput
   | GetCostForecastCommandInput
   | GetDimensionValuesCommandInput
   | GetReservationCoverageCommandInput
@@ -188,6 +190,7 @@ export type ServiceOutputTypes =
   | GetAnomalySubscriptionsCommandOutput
   | GetCostAndUsageCommandOutput
   | GetCostAndUsageWithResourcesCommandOutput
+  | GetCostCategoriesCommandOutput
   | GetCostForecastCommandOutput
   | GetDimensionValuesCommandOutput
   | GetReservationCoverageCommandOutput

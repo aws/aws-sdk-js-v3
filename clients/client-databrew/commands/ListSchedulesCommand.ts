@@ -21,7 +21,7 @@ export type ListSchedulesCommandInput = ListSchedulesRequest;
 export type ListSchedulesCommandOutput = ListSchedulesResponse & __MetadataBearer;
 
 /**
- * <p>Lists the AWS Glue DataBrew schedules in the current AWS account.</p>
+ * <p>Lists the DataBrew schedules that are defined.</p>
  */
 export class ListSchedulesCommand extends $Command<
   ListSchedulesCommandInput,

@@ -21,8 +21,8 @@ export type TagResourceCommandInput = TagResourceRequest;
 export type TagResourceCommandOutput = TagResourceResponse & __MetadataBearer;
 
 /**
- * <p>Adds to or modifies the tags of the given resource. Tags are metadata that can be used
- *       to manage a resource.</p>
+ * <p>Adds to or modifies the tags of the given resource. Tags are metadata that can be used to
+ *       manage a resource.</p>
  */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,

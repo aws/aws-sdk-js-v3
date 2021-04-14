@@ -25,16 +25,16 @@ export type PutScheduledActionCommandInput = PutScheduledActionRequest;
 export type PutScheduledActionCommandOutput = PutScheduledActionResponse & __MetadataBearer;
 
 /**
- * <p>Creates or updates a scheduled action for an Application Auto Scaling scalable target.</p>
+ * <p>Creates or updates a scheduled action for an Application Auto Scaling scalable target. </p>
  *          <p>Each scalable target is identified by a service namespace, resource ID, and scalable
  *          dimension. A scheduled action applies to the scalable target identified by those three
  *          attributes. You cannot create a scheduled action until you have registered the resource as
  *          a scalable target.</p>
  *          <p>When start and end times are specified with a recurring schedule using a cron expression
- *          or rates, they form the boundaries of when the recurring action starts and stops.</p>
+ *          or rates, they form the boundaries for when the recurring action starts and stops.</p>
  *          <p>To update a scheduled action, specify the parameters that you want to change. If you
  *          don't specify start and end times, the old values are deleted.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html">Scheduled Scaling</a> in the <i>Application Auto Scaling User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html">Scheduled scaling</a> in the <i>Application Auto Scaling User Guide</i>.</p>
  *          <note>
  *             <p>If a scalable target is deregistered, the scalable target is no longer available to
  *             run scheduled actions. Any scheduled actions that were specified for the scalable target

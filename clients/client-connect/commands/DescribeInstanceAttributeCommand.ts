@@ -21,7 +21,8 @@ export type DescribeInstanceAttributeCommandInput = DescribeInstanceAttributeReq
 export type DescribeInstanceAttributeCommandOutput = DescribeInstanceAttributeResponse & __MetadataBearer;
 
 /**
- * <p>Describes the specified instance attribute.</p>
+ * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+ *          <p>Describes the specified instance attribute.</p>
  */
 export class DescribeInstanceAttributeCommand extends $Command<
   DescribeInstanceAttributeCommandInput,

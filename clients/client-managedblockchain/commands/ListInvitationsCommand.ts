@@ -25,7 +25,8 @@ export type ListInvitationsCommandInput = ListInvitationsInput;
 export type ListInvitationsCommandOutput = ListInvitationsOutput & __MetadataBearer;
 
 /**
- * <p>Returns a listing of all invitations for the current AWS account.</p>
+ * <p>Returns a list of all invitations for the current AWS account.</p>
+ *          <p>Applies only to Hyperledger Fabric.</p>
  */
 export class ListInvitationsCommand extends $Command<
   ListInvitationsCommandInput,

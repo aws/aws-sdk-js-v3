@@ -72,7 +72,7 @@ export type AssumeRoleWithWebIdentityCommandOutput = AssumeRoleWithWebIdentityRe
  *          <p>(Optional) You can pass inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session policies</a> to
  *          this operation. You can pass a single JSON policy document to use as an inline session
  *          policy. You can also specify up to 10 managed policies to use as managed session policies.
- *          The plain text that you use for both inline and managed session policies can't exceed 2,048
+ *          The plaintext that you use for both inline and managed session policies can't exceed 2,048
  *          characters. Passing policies to this operation returns new
  *          temporary credentials. The resulting session's permissions are the intersection of the
  *          role's identity-based policy and the session policies. You can use the role's temporary
@@ -88,7 +88,7 @@ export type AssumeRoleWithWebIdentityCommandOutput = AssumeRoleWithWebIdentityRe
  *          session tags. Each session tag consists of a key name and an associated value. For more
  *          information about session tags, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html">Passing Session Tags in STS</a> in the
  *             <i>IAM User Guide</i>.</p>
- *          <p>You can pass up to 50 session tags. The plain text session tag keys can’t exceed 128
+ *          <p>You can pass up to 50 session tags. The plaintext session tag keys can’t exceed 128
  *          characters and the values can’t exceed 256 characters. For these and additional limits, see
  *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length">IAM
  *             and STS Character Limits</a> in the <i>IAM User Guide</i>.</p>
@@ -96,14 +96,14 @@ export type AssumeRoleWithWebIdentityCommandOutput = AssumeRoleWithWebIdentityRe
  *          <note>
  *             <p>An AWS conversion compresses the passed session policies and session tags into a
  *             packed binary format that has a separate limit. Your request can fail for this limit
- *             even if your plain text meets the other requirements. The <code>PackedPolicySize</code>
+ *             even if your plaintext meets the other requirements. The <code>PackedPolicySize</code>
  *             response element indicates by percentage how close the policies and tags for your
  *             request are to the upper size limit.
  *             </p>
  *          </note>
- *
- *          <p>You can pass a session tag with the same key as a tag that is attached to the role. When
- *          you do, the session tag overrides the role tag with the same key.</p>
+ *          <p>You can pass a session tag with the same key as a tag that is
+ *          attached to the role. When you do, the session tag overrides the role tag with the same
+ *          key.</p>
  *          <p>An administrator must grant you the permissions necessary to pass session tags. The
  *          administrator can also create granular permissions to allow you to pass only specific
  *          session tags. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_attribute-based-access-control.html">Tutorial: Using Tags
@@ -123,7 +123,7 @@ export type AssumeRoleWithWebIdentityCommandOutput = AssumeRoleWithWebIdentityRe
  *          <important>
  *             <p>Calling <code>AssumeRoleWithWebIdentity</code> can result in an entry in your
  *             AWS CloudTrail logs. The entry includes the <a href="http://openid.net/specs/openid-connect-core-1_0.html#Claims">Subject</a> of
- *             the provided Web Identity Token. We recommend that you avoid using any personally
+ *             the provided web identity token. We recommend that you avoid using any personally
  *             identifiable information (PII) in this field. For example, you could instead use a GUID
  *             or a pairwise identifier, as <a href="http://openid.net/specs/openid-connect-core-1_0.html#SubjectIDTypes">suggested
  *                in the OIDC specification</a>.</p>
@@ -137,8 +137,7 @@ export type AssumeRoleWithWebIdentityCommandOutput = AssumeRoleWithWebIdentityRe
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://aws.amazon.com/blogs/aws/the-aws-web-identity-federation-playground/">
- *                   Web Identity Federation Playground</a>. Walk through the process of
+ *                   <a href="https://aws.amazon.com/blogs/aws/the-aws-web-identity-federation-playground/"> Web Identity Federation Playground</a>. Walk through the process of
  *                authenticating through Login with Amazon, Facebook, or Google, getting temporary
  *                security credentials, and then using those credentials to make a request to AWS.
  *             </p>

@@ -30,7 +30,15 @@ export type DescribeAffectedEntitiesCommandOutput = DescribeAffectedEntitiesResp
  *             <code>lastUpdatedTime</code> of the entity, starting with the most recent.</p>
  *
  *          <note>
- *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the next request to return more results.</p>
+ *             <ul>
+ *                <li>
+ *                   <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the next request to return more results.</p>
+ *                </li>
+ *                <li>
+ *                   <p>This operation supports resource-level permissions. You can use this operation to allow or deny access to specific AWS Health events. For more
+ *                   information, see <a href="https://docs.aws.amazon.com/health/latest/ug/security_iam_id-based-policy-examples.html#resource-action-based-conditions">Resource- and action-based conditions</a> in the <i>AWS Health User Guide</i>.</p>
+ *                </li>
+ *             </ul>
  *          </note>
  */
 export class DescribeAffectedEntitiesCommand extends $Command<

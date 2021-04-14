@@ -21,7 +21,7 @@ export type GetMessagingSessionEndpointCommandInput = GetMessagingSessionEndpoin
 export type GetMessagingSessionEndpointCommandOutput = GetMessagingSessionEndpointResponse & __MetadataBearer;
 
 /**
- * <p>The endpoint for the messaging session.</p>
+ * <p>The details of the endpoint for the messaging session.</p>
  */
 export class GetMessagingSessionEndpointCommand extends $Command<
   GetMessagingSessionEndpointCommandInput,

@@ -22,8 +22,9 @@ export type GetAccountSummaryCommandOutput = GetAccountSummaryResponse & __Metad
 
 /**
  * <p>Retrieves information about IAM entity usage and IAM quotas in the AWS
- *          account.</p>
- *          <p>The number and size of IAM resources in an AWS account are limited. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS Quotas</a> in the <i>IAM User Guide</i>.</p>
+ *             account.</p>
+ *         <p> For information about IAM quotas, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS quotas</a> in the
+ *                 <i>IAM User Guide</i>.</p>
  */
 export class GetAccountSummaryCommand extends $Command<
   GetAccountSummaryCommandInput,

@@ -145,6 +145,19 @@ export namespace ConnectorAuthenticationException {
 
 /**
  * <p>
+ *       The connector metadata specific to Amazon Connect Customer Profiles.
+ *     </p>
+ */
+export interface CustomerProfilesMetadata {}
+
+export namespace CustomerProfilesMetadata {
+  export const filterSensitiveLog = (obj: CustomerProfilesMetadata): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
  *   The connector metadata specific to Datadog.
  * </p>
  */
@@ -198,6 +211,26 @@ export interface GoogleAnalyticsMetadata {
 
 export namespace GoogleAnalyticsMetadata {
   export const filterSensitiveLog = (obj: GoogleAnalyticsMetadata): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *       The connector metadata specific to Amazon Honeycode.
+ *     </p>
+ */
+export interface HoneycodeMetadata {
+  /**
+   * <p>
+   *       The desired authorization scope for the Amazon Honeycode account.
+   *     </p>
+   */
+  oAuthScopes?: string[];
+}
+
+export namespace HoneycodeMetadata {
+  export const filterSensitiveLog = (obj: HoneycodeMetadata): any => ({
     ...obj,
   });
 }
@@ -530,6 +563,20 @@ export interface ConnectorMetadata {
    *     </p>
    */
   Upsolver?: UpsolverMetadata;
+
+  /**
+   * <p>
+   *       The connector metadata specific to Amazon Connect Customer Profiles.
+   *     </p>
+   */
+  CustomerProfiles?: CustomerProfilesMetadata;
+
+  /**
+   * <p>
+   *       The connector metadata specific to Amazon Honeycode.
+   *     </p>
+   */
+  Honeycode?: HoneycodeMetadata;
 }
 
 export namespace ConnectorMetadata {
@@ -540,11 +587,14 @@ export namespace ConnectorMetadata {
 
 export enum ConnectorType {
   AMPLITUDE = "Amplitude",
+  CUSTOMERPROFILES = "CustomerProfiles",
   DATADOG = "Datadog",
   DYNATRACE = "Dynatrace",
   EVENTBRIDGE = "EventBridge",
   GOOGLEANALYTICS = "Googleanalytics",
+  HONEYCODE = "Honeycode",
   INFORNEXUS = "Infornexus",
+  LOOKOUTMETRICS = "LookoutMetrics",
   MARKETO = "Marketo",
   REDSHIFT = "Redshift",
   S3 = "S3",
@@ -1331,6 +1381,19 @@ export namespace GoogleAnalyticsConnectorProfileProperties {
 
 /**
  * <p>
+ *       The connector-specific properties required when using Amazon Honeycode.
+ *     </p>
+ */
+export interface HoneycodeConnectorProfileProperties {}
+
+export namespace HoneycodeConnectorProfileProperties {
+  export const filterSensitiveLog = (obj: HoneycodeConnectorProfileProperties): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
  *   The connector-specific profile properties required by Infor Nexus.
  * </p>
  */
@@ -1641,6 +1704,13 @@ export interface ConnectorProfileProperties {
 
   /**
    * <p>
+   *       The connector-specific properties required by Amazon Honeycode.
+   *     </p>
+   */
+  Honeycode?: HoneycodeConnectorProfileProperties;
+
+  /**
+   * <p>
    *   The connector-specific properties required by Infor Nexus.
    * </p>
    */
@@ -1885,6 +1955,41 @@ export namespace GoogleAnalyticsConnectorProfileCredentials {
   export const filterSensitiveLog = (obj: GoogleAnalyticsConnectorProfileCredentials): any => ({
     ...obj,
     ...(obj.clientSecret && { clientSecret: SENSITIVE_STRING }),
+    ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
+  });
+}
+
+/**
+ * <p>
+ *       The connector-specific credentials required when using Amazon Honeycode.
+ *     </p>
+ */
+export interface HoneycodeConnectorProfileCredentials {
+  /**
+   * <p>
+   *       The credentials used to access protected Amazon Honeycode resources.
+   *     </p>
+   */
+  accessToken?: string;
+
+  /**
+   * <p>
+   *       The credentials used to acquire new access tokens.
+   *     </p>
+   */
+  refreshToken?: string;
+
+  /**
+   * <p>
+   *  Used by select connectors for which the OAuth workflow is supported, such as Salesforce, Google Analytics, Marketo, Zendesk, and Slack.
+   * </p>
+   */
+  oAuthRequest?: ConnectorOAuthRequest;
+}
+
+export namespace HoneycodeConnectorProfileCredentials {
+  export const filterSensitiveLog = (obj: HoneycodeConnectorProfileCredentials): any => ({
+    ...obj,
     ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
   });
 }
@@ -2291,6 +2396,13 @@ export interface ConnectorProfileCredentials {
 
   /**
    * <p>
+   *       The connector-specific credentials required when using Amazon Honeycode.
+   *     </p>
+   */
+  Honeycode?: HoneycodeConnectorProfileCredentials;
+
+  /**
+   * <p>
    *   The connector-specific credentials required when using Infor Nexus.
    * </p>
    */
@@ -2374,6 +2486,7 @@ export namespace ConnectorProfileCredentials {
     ...(obj.GoogleAnalytics && {
       GoogleAnalytics: GoogleAnalyticsConnectorProfileCredentials.filterSensitiveLog(obj.GoogleAnalytics),
     }),
+    ...(obj.Honeycode && { Honeycode: HoneycodeConnectorProfileCredentials.filterSensitiveLog(obj.Honeycode) }),
     ...(obj.InforNexus && { InforNexus: InforNexusConnectorProfileCredentials.filterSensitiveLog(obj.InforNexus) }),
     ...(obj.Marketo && { Marketo: MarketoConnectorProfileCredentials.filterSensitiveLog(obj.Marketo) }),
     ...(obj.Redshift && { Redshift: RedshiftConnectorProfileCredentials.filterSensitiveLog(obj.Redshift) }),
@@ -2545,6 +2658,33 @@ export namespace ValidationException {
 
 /**
  * <p>
+ *       The properties that are applied when Amazon Connect Customer Profiles is used as a destination.
+ *     </p>
+ */
+export interface CustomerProfilesDestinationProperties {
+  /**
+   * <p>
+   *       The unique name of the Amazon Connect Customer Profiles domain.
+   *     </p>
+   */
+  domainName: string | undefined;
+
+  /**
+   * <p>
+   *       The object specified in the Amazon Connect Customer Profiles flow destination.
+   *     </p>
+   */
+  objectTypeName?: string;
+}
+
+export namespace CustomerProfilesDestinationProperties {
+  export const filterSensitiveLog = (obj: CustomerProfilesDestinationProperties): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
  *   The settings that determine how Amazon AppFlow handles an error when placing data in the destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. <code>ErrorHandlingConfig</code> is a part of the destination connector details.
  *
  * </p>
@@ -2602,6 +2742,47 @@ export interface EventBridgeDestinationProperties {
 
 export namespace EventBridgeDestinationProperties {
   export const filterSensitiveLog = (obj: EventBridgeDestinationProperties): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *       The properties that are applied when Amazon Honeycode is used as a destination.
+ *     </p>
+ */
+export interface HoneycodeDestinationProperties {
+  /**
+   * <p>
+   *       The object specified in the Amazon Honeycode flow destination.
+   *     </p>
+   */
+  object: string | undefined;
+
+  /**
+   * <p>
+   *   The settings that determine how Amazon AppFlow handles an error when placing data in the destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. <code>ErrorHandlingConfig</code> is a part of the destination connector details.
+   *
+   * </p>
+   */
+  errorHandlingConfig?: ErrorHandlingConfig;
+}
+
+export namespace HoneycodeDestinationProperties {
+  export const filterSensitiveLog = (obj: HoneycodeDestinationProperties): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *       The properties that are applied when Amazon Lookout for Metrics is used as a destination.
+ *     </p>
+ */
+export interface LookoutMetricsDestinationProperties {}
+
+export namespace LookoutMetricsDestinationProperties {
+  export const filterSensitiveLog = (obj: LookoutMetricsDestinationProperties): any => ({
     ...obj,
   });
 }
@@ -2675,14 +2856,14 @@ export enum PrefixType {
 export interface PrefixConfig {
   /**
    * <p>
-   *       Determines the level of granularity that's included in the prefix.
+   *       Determines the format of the prefix, and whether it applies to the file name, file path, or both.
    *     </p>
    */
   prefixType?: PrefixType | string;
 
   /**
    * <p>
-   * Determines the format of the prefix, and whether it applies to the file name, file path, or both.
+   *       Determines the level of granularity that's included in the prefix.
    *     </p>
    */
   prefixFormat?: PrefixFormat | string;
@@ -2912,6 +3093,37 @@ export namespace UpsolverDestinationProperties {
   });
 }
 
+export interface ZendeskDestinationProperties {
+  object: string | undefined;
+  /**
+   * <p>
+   *       A list of field names that can be used as an ID field when performing a write operation.
+   *     </p>
+   */
+  idFieldNames?: string[];
+
+  /**
+   * <p>
+   *   The settings that determine how Amazon AppFlow handles an error when placing data in the destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. <code>ErrorHandlingConfig</code> is a part of the destination connector details.
+   *
+   * </p>
+   */
+  errorHandlingConfig?: ErrorHandlingConfig;
+
+  /**
+   * <p>
+   *       The possible write operations in the destination connector. When this value is not provided, this defaults to the <code>INSERT</code> operation.
+   *     </p>
+   */
+  writeOperationType?: WriteOperationType | string;
+}
+
+export namespace ZendeskDestinationProperties {
+  export const filterSensitiveLog = (obj: ZendeskDestinationProperties): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>
  *   This stores the information that is required to query a particular connector.
@@ -2955,10 +3167,33 @@ export interface DestinationConnectorProperties {
 
   /**
    * <p>
+   *       The properties required to query Amazon Lookout for Metrics.
+   *     </p>
+   */
+  LookoutMetrics?: LookoutMetricsDestinationProperties;
+
+  /**
+   * <p>
    *       The properties required to query Upsolver.
    *     </p>
    */
   Upsolver?: UpsolverDestinationProperties;
+
+  /**
+   * <p>
+   *       The properties required to query Amazon Honeycode.
+   *     </p>
+   */
+  Honeycode?: HoneycodeDestinationProperties;
+
+  /**
+   * <p>
+   *       The properties required to query Amazon Connect Customer Profiles.
+   *     </p>
+   */
+  CustomerProfiles?: CustomerProfilesDestinationProperties;
+
+  Zendesk?: ZendeskDestinationProperties;
 }
 
 export namespace DestinationConnectorProperties {
@@ -3570,10 +3805,24 @@ export interface ScheduledTriggerProperties {
 
   /**
    * <p>
-   * Specifies the time zone used when referring to the date and time of a scheduled-triggered flow.
+   *   Specifies the time zone used when referring to the date and time of a scheduled-triggered flow, such as <code>America/New_York</code>.
    * </p>
    */
   timezone?: string;
+
+  /**
+   * <p>
+   * Specifies the optional offset that is added to the time interval for a schedule-triggered flow.
+   * </p>
+   */
+  scheduleOffset?: number;
+
+  /**
+   * <p>
+   *       Specifies the date range for the records to import from the connector in the first flow run.
+   *     </p>
+   */
+  firstExecutionFrom?: Date;
 }
 
 export namespace ScheduledTriggerProperties {
@@ -4261,6 +4510,20 @@ export interface ExecutionRecord {
    * </p>
    */
   lastUpdatedAt?: Date;
+
+  /**
+   * <p>
+   * The timestamp that determines the first new or updated record to be transferred in the flow run.
+   * </p>
+   */
+  dataPullStartTime?: Date;
+
+  /**
+   * <p>
+   * The timestamp that indicates the last new or updated record to be transferred in the flow run.
+   * </p>
+   */
+  dataPullEndTime?: Date;
 }
 
 export namespace ExecutionRecord {

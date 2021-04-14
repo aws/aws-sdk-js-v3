@@ -21,8 +21,8 @@ export type ListArchivesCommandInput = ListArchivesRequest;
 export type ListArchivesCommandOutput = ListArchivesResponse & __MetadataBearer;
 
 /**
- * <p>Lists your archives. You can either list all the archives or you can provide a prefix
- *             to match to the archive names. Filter parameters are exclusive.</p>
+ * <p>Lists your archives. You can either list all the archives or you can provide a prefix to
+ *       match to the archive names. Filter parameters are exclusive.</p>
  */
 export class ListArchivesCommand extends $Command<
   ListArchivesCommandInput,

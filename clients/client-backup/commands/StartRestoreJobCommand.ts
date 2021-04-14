@@ -21,7 +21,7 @@ export type StartRestoreJobCommandInput = StartRestoreJobInput;
 export type StartRestoreJobCommandOutput = StartRestoreJobOutput & __MetadataBearer;
 
 /**
- * <p>Recovers the saved resource identified by an Amazon Resource Name (ARN). </p>
+ * <p>Recovers the saved resource identified by an Amazon Resource Name (ARN).</p>
  */
 export class StartRestoreJobCommand extends $Command<
   StartRestoreJobCommandInput,

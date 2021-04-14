@@ -22,18 +22,9 @@ export type PutObjectRetentionCommandInput = PutObjectRetentionRequest;
 export type PutObjectRetentionCommandOutput = PutObjectRetentionOutput & __MetadataBearer;
 
 /**
- * <p>Places an Object Retention configuration on an object.</p>
- *          <p>This action is not supported by Amazon S3 on Outposts.</p>
- *          <p class="title">
- *             <b>Related Resources</b>
+ * <p>Places an Object Retention configuration on an object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking Objects</a>.
  *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking Objects</a>
- *                </p>
- *             </li>
- *          </ul>
+ *          <p>This action is not supported by Amazon S3 on Outposts.</p>
  */
 export class PutObjectRetentionCommand extends $Command<
   PutObjectRetentionCommandInput,

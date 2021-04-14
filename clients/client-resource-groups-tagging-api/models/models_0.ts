@@ -276,21 +276,23 @@ export enum GroupByAttribute {
 
 export interface GetComplianceSummaryInput {
   /**
-   * <p>The target identifiers (usually, specific account IDs) to limit the output by. If you
-   *             use this parameter, the count of returned noncompliant resources includes only resources
-   *             with the specified target IDs.</p>
+   * <p>Specifies target identifiers (usually, specific account IDs) to limit the output by.
+   *             If you use this parameter, the count of returned noncompliant resources includes only
+   *             resources with the specified target IDs.</p>
    */
   TargetIdFilters?: string[];
 
   /**
-   * <p>A list of Regions to limit the output by. If you use this parameter, the count of
-   *             returned noncompliant resources includes only resources in the specified Regions.</p>
+   * <p>Specifies a list of AWS Regions to limit the output by. If you use this parameter,
+   *             the count of returned noncompliant resources includes only resources in the specified
+   *             Regions.</p>
    */
   RegionFilters?: string[];
 
   /**
-   * <p>The constraints on the resources that you want returned. The format of each resource
-   *             type is <code>service[:resourceType]</code>. For example, specifying a resource type of
+   * <p>Specifies that you want the response to include information for only resources of the
+   *             specified types. The format of each resource type is
+   *             <code>service[:resourceType]</code>. For example, specifying a resource type of
    *                 <code>ec2</code> returns all Amazon EC2 resources (which includes EC2 instances).
    *             Specifying a resource type of <code>ec2:instance</code> returns only EC2 instances. </p>
    *         <p>The string for each service name and resource type is the same as that embedded in a
@@ -298,44 +300,48 @@ export interface GetComplianceSummaryInput {
    *                 Reference</i> for the following:</p>
    *         <ul>
    *             <li>
-   *                 <p>For a list of service name strings, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">AWS Service Namespaces</a>.</p>
+   *                 <p>For a list of service name strings, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">AWS Service Namespaces</a>.</p>
    *             </li>
    *             <li>
-   *                 <p>For resource type strings, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arns-syntax">Example ARNs</a>.</p>
+   *                 <p>For resource type strings, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arns-syntax">Example
+   *                         ARNs</a>.</p>
    *             </li>
    *             <li>
-   *                 <p>For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-   *                         Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
+   *                 <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names
+   *                         (ARNs) and AWS Service Namespaces</a>.</p>
    *             </li>
    *          </ul>
-   *         <p>You can specify multiple resource types by using an array. The array can include up to
-   *             100 items. Note that the length constraint requirement applies to each resource type
-   *             filter. </p>
+   *         <p>You can specify multiple resource types by using a comma separated array. The array
+   *             can include up to 100 items. Note that the length constraint requirement applies to each
+   *             resource type filter. </p>
    */
   ResourceTypeFilters?: string[];
 
   /**
-   * <p>A list of tag keys to limit the output by. If you use this parameter, the count of
-   *             returned noncompliant resources includes only resources that have the specified tag
-   *             keys.</p>
+   * <p>Specifies that you want the response to include information for only resources that
+   *             have tags with the specified tag keys. If you use this parameter, the count of returned
+   *             noncompliant resources includes only resources that have the specified tag keys.</p>
    */
   TagKeyFilters?: string[];
 
   /**
-   * <p>A list of attributes to group the counts of noncompliant resources by. If supplied,
-   *             the counts are sorted by those attributes.</p>
+   * <p>Specifies a list of attributes to group the counts of noncompliant resources by. If
+   *             supplied, the counts are sorted by those attributes.</p>
    */
   GroupBy?: (GroupByAttribute | string)[];
 
   /**
-   * <p>A limit that restricts the number of results that are returned per page.</p>
+   * <p>Specifies the maximum number of results to be returned in each page. A
+   *     query can return fewer than this maximum, even if there are more results still to return. You
+   *     should always check the <code>PaginationToken</code> response value to see if there are more
+   *     results. You can specify a minimum of 1 and a maximum value of 100.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>A string that indicates that additional data is available. Leave this value empty for
-   *             your initial request. If the response includes a <code>PaginationToken</code>, use that
-   *             string for this value to request an additional page of data.</p>
+   * <p>Specifies a <code>PaginationToken</code> response value from a
+   *     previous request to indicate that you want the next page of results. Leave this parameter empty
+   *     in your initial request.</p>
    */
   PaginationToken?: string;
 }
@@ -401,9 +407,9 @@ export interface GetComplianceSummaryOutput {
   SummaryList?: Summary[];
 
   /**
-   * <p>A string that indicates that the response contains more data than can be returned in a
-   *             single response. To receive additional data, specify this string for the
-   *                 <code>PaginationToken</code> value in a subsequent request.</p>
+   * <p>A string that indicates that there is more data available than this
+   *     response contains. To receive the next part of the response, specify this response value
+   *     as the <code>PaginationToken</code> value in the request for the next page.</p>
    */
   PaginationToken?: string;
 }
@@ -438,31 +444,28 @@ export namespace TagFilter {
 
 export interface GetResourcesInput {
   /**
-   * <p>A string that indicates that additional data is available. Leave this value empty for
-   *             your initial request. If the response includes a <code>PaginationToken</code>, use that
-   *             string for this value to request an additional page of data.</p>
+   * <p>Specifies a <code>PaginationToken</code> response value from a
+   *     previous request to indicate that you want the next page of results. Leave this parameter empty
+   *     in your initial request.</p>
    */
   PaginationToken?: string;
 
   /**
-   * <p>A list of TagFilters (keys and values). Each TagFilter specified must contain a key
-   *             with values as optional. A request can include up to 50 keys, and each key can include
-   *             up to 20 values. </p>
+   * <p>Specifies a list of TagFilters (keys and values) to restrict the output to only those
+   *             resources that have the specified tag and, if included, the specified value. Each
+   *                 <code>TagFilter</code> must contain a key with values optional. A request can
+   *             include up to 50 keys, and each key can include up to 20 values. </p>
    *         <p>Note the following when deciding how to use TagFilters:</p>
    *         <ul>
    *             <li>
-   *                 <p>If you <i>do</i> specify a TagFilter, the response returns only
-   *                     those resources that are currently associated with the specified tag. </p>
-   *             </li>
-   *             <li>
-   *                 <p>If you <i>don't</i> specify a TagFilter, the response includes
-   *                     all resources that were ever associated with tags. Resources that currently
-   *                     don't have associated tags are shown with an empty tag set, like this:
-   *                         <code>"Tags": []</code>.</p>
+   *                 <p>If you <i>don't</i> specify a <code>TagFilter</code>, the
+   *                     response includes all resources that are currently tagged or ever had a tag.
+   *                     Resources that currently don't have tags are shown with an empty tag set, like
+   *                     this: <code>"Tags": []</code>.</p>
    *             </li>
    *             <li>
    *                 <p>If you specify more than one filter in a single request, the response returns
-   *                     only those resources that satisfy all specified filters.</p>
+   *                     only those resources that satisfy all filters.</p>
    *             </li>
    *             <li>
    *                 <p>If you specify a filter that contains more than one value for a key, the
@@ -471,26 +474,35 @@ export interface GetResourcesInput {
    *             </li>
    *             <li>
    *                 <p>If you don't specify any values for a key, the response returns resources that
-   *                     are tagged with that key irrespective of the value.</p>
-   *                 <p>For example, for filters: filter1 = {key1, {value1}}, filter2 = {key2,
-   *                     {value2,value3,value4}} , filter3 = {key3}:</p>
+   *                     are tagged with that key and any or no value.</p>
+   *                 <p>For example, for the following filters: <code>filter1= {keyA,{value1}}</code>,
+   *                         <code>filter2={keyB,{value2,value3,value4}}</code>, <code>filter3=
+   *                         {keyC}</code>:</p>
    *                 <ul>
    *                   <li>
-   *                         <p>GetResources( {filter1} ) returns resources tagged with
-   *                             key1=value1</p>
+   *                         <p>
+   *                         <code>GetResources({filter1})</code> returns resources tagged with
+   *                                 <code>key1=value1</code>
+   *                      </p>
    *                     </li>
    *                   <li>
-   *                         <p>GetResources( {filter2} ) returns resources tagged with key2=value2 or
-   *                             key2=value3 or key2=value4</p>
+   *                         <p>
+   *                         <code>GetResources({filter2})</code> returns resources tagged with
+   *                                 <code>key2=value2</code> or <code>key2=value3</code> or
+   *                                 <code>key2=value4</code>
+   *                      </p>
    *                     </li>
    *                   <li>
-   *                         <p>GetResources( {filter3} ) returns resources tagged with any tag
-   *                             containing key3 as its tag key, irrespective of its value</p>
+   *                         <p>
+   *                         <code>GetResources({filter3})</code> returns resources tagged with any
+   *                             tag with the key <code>key3</code>, and with any or no value</p>
    *                     </li>
    *                   <li>
-   *                         <p>GetResources( {filter1,filter2,filter3} ) returns resources tagged
-   *                             with ( key1=value1) and ( key2=value2 or key2=value3 or key2=value4) and
-   *                             (key3, irrespective of the value)</p>
+   *                         <p>
+   *                         <code>GetResources({filter1,filter2,filter3})</code> returns resources
+   *                             tagged with <code>(key1=value1) and (key2=value2 or key2=value3 or
+   *                                 key2=value4) and (key3, any or no value)</code>
+   *                      </p>
    *                     </li>
    *                </ul>
    *             </li>
@@ -499,17 +511,18 @@ export interface GetResourcesInput {
   TagFilters?: TagFilter[];
 
   /**
-   * <p>A limit that restricts the number of resources returned by GetResources in paginated
-   *             output. You can set ResourcesPerPage to a minimum of 1 item and the maximum of 100
-   *             items. </p>
+   * <p>Specifies the maximum number of results to be returned in each page. A
+   *     query can return fewer than this maximum, even if there are more results still to return. You
+   *     should always check the <code>PaginationToken</code> response value to see if there are more
+   *     results. You can specify a minimum of 1 and a maximum value of 100.</p>
    */
   ResourcesPerPage?: number;
 
   /**
    * <p>AWS recommends using <code>ResourcesPerPage</code> instead of this parameter.</p>
    *         <p>A limit that restricts the number of tags (key and value pairs) returned by
-   *             GetResources in paginated output. A resource with no tags is counted as having one tag
-   *             (one key and value pair).</p>
+   *                 <code>GetResources</code> in paginated output. A resource with no tags is counted as
+   *             having one tag (one key and value pair).</p>
    *         <p>
    *             <code>GetResources</code> does not split a resource and its associated tags across
    *             pages. If the specified <code>TagsPerPage</code> would cause such a break, a
@@ -520,31 +533,22 @@ export interface GetResourcesInput {
    *             will consist of three pages. The first page displays the first 10 resources, each with
    *             its 10 tags. The second page displays the next 10 resources, each with its 10 tags. The
    *             third page displays the remaining 2 resources, each with its 10 tags.</p>
-   *         <p>You can set <code>TagsPerPage</code> to a minimum of 100 items and the maximum of 500
+   *         <p>You can set <code>TagsPerPage</code> to a minimum of 100 items up to a maximum of 500
    *             items.</p>
    */
   TagsPerPage?: number;
 
   /**
-   * <p>The constraints on the resources that you want returned. The format of each resource
-   *             type is <code>service[:resourceType]</code>. For example, specifying a resource type of
-   *                 <code>ec2</code> returns all Amazon EC2 resources (which includes EC2 instances).
-   *             Specifying a resource type of <code>ec2:instance</code> returns only EC2 instances. </p>
+   * <p>Specifies the resource types that you want included in the response. The format of
+   *             each resource type is <code>service[:resourceType]</code>. For example, specifying a
+   *             resource type of <code>ec2</code> returns all Amazon EC2 resources (which includes EC2
+   *             instances). Specifying a resource type of <code>ec2:instance</code> returns only EC2
+   *             instances. </p>
    *         <p>The string for each service name and resource type is the same as that embedded in a
    *             resource's Amazon Resource Name (ARN). Consult the <i>AWS General
    *                 Reference</i> for the following:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>For a list of service name strings, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">AWS Service Namespaces</a>.</p>
-   *             </li>
-   *             <li>
-   *                 <p>For resource type strings, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arns-syntax">Example ARNs</a>.</p>
-   *             </li>
-   *             <li>
-   *                 <p>For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-   *                         Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
-   *             </li>
-   *          </ul>
+   *         <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
+   *                 AWS Service Namespaces</a>.</p>
    *         <p>You can specify multiple resource types by using an array. The array can include up to
    *             100 items. Note that the length constraint requirement applies to each resource type
    *             filter. </p>
@@ -566,6 +570,21 @@ export interface GetResourcesInput {
    *             is also set to <code>true</code>.</p>
    */
   ExcludeCompliantResources?: boolean;
+
+  /**
+   * <p>Specifies a list of ARNs of resources for which you want to retrieve tag data. You
+   *             can't specify both this parameter and any of the pagination parameters
+   *                 (<code>ResourcesPerPage</code>, <code>TagsPerPage</code>,
+   *                 <code>PaginationToken</code>) in the same request. If you specify both, you get an
+   *                 <code>Invalid Parameter</code> exception.</p>
+   *         <p>If a resource specified by this parameter doesn't exist, it doesn't generate an error;
+   *             it simply isn't included in the response.</p>
+   *         <p>An ARN (Amazon Resource Name) uniquely identifies a resource. For more information,
+   *             see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+   *                 Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS
+   *                 General Reference</i>.</p>
+   */
+  ResourceARNList?: string[];
 }
 
 export namespace GetResourcesInput {
@@ -628,14 +647,15 @@ export namespace ResourceTagMapping {
 
 export interface GetResourcesOutput {
   /**
-   * <p>A string that indicates that the response contains more data than can be returned in a
-   *             single response. To receive additional data, specify this string for the
-   *                 <code>PaginationToken</code> value in a subsequent request.</p>
+   * <p>A string that indicates that there is more data available than this
+   *     response contains. To receive the next part of the response, specify this response value
+   *     as the <code>PaginationToken</code> value in the request for the next page.</p>
    */
   PaginationToken?: string;
 
   /**
-   * <p>A list of resource ARNs and the tags (keys and values) associated with each.</p>
+   * <p>A list of resource ARNs and the tags (keys and values) associated with
+   *     those ARNs.</p>
    */
   ResourceTagMappingList?: ResourceTagMapping[];
 }
@@ -664,13 +684,11 @@ export namespace PaginationTokenExpiredException {
 
 export interface GetTagKeysInput {
   /**
-   * <p>A string that indicates that additional data is available. Leave this value empty for
-   *             your initial request. If the response includes a <code>PaginationToken</code>, use that
-   *             string for this value to request an additional page of data.</p>
+   * <p>Specifies a <code>PaginationToken</code> response value from a
+   *     previous request to indicate that you want the next page of results. Leave this parameter empty
+   *     in your initial request.</p>
    */
   PaginationToken?: string;
-
-  MaxResults?: number;
 }
 
 export namespace GetTagKeysInput {
@@ -681,9 +699,9 @@ export namespace GetTagKeysInput {
 
 export interface GetTagKeysOutput {
   /**
-   * <p>A string that indicates that the response contains more data than can be returned in a
-   *             single response. To receive additional data, specify this string for the
-   *                 <code>PaginationToken</code> value in a subsequent request.</p>
+   * <p>A string that indicates that there is more data available than this
+   *     response contains. To receive the next part of the response, specify this response value
+   *     as the <code>PaginationToken</code> value in the request for the next page.</p>
    */
   PaginationToken?: string;
 
@@ -701,19 +719,17 @@ export namespace GetTagKeysOutput {
 
 export interface GetTagValuesInput {
   /**
-   * <p>A string that indicates that additional data is available. Leave this value empty for
-   *             your initial request. If the response includes a <code>PaginationToken</code>, use that
-   *             string for this value to request an additional page of data.</p>
+   * <p>Specifies a <code>PaginationToken</code> response value from a
+   *     previous request to indicate that you want the next page of results. Leave this parameter empty
+   *     in your initial request.</p>
    */
   PaginationToken?: string;
 
   /**
-   * <p>The key for which you want to list all existing values in the specified Region for the
-   *             AWS account.</p>
+   * <p>Specifies the tag key for which you want to list all existing values that are
+   *             currently used in the specified AWS Region for the calling AWS account.</p>
    */
   Key: string | undefined;
-
-  MaxResults?: number;
 }
 
 export namespace GetTagValuesInput {
@@ -724,14 +740,15 @@ export namespace GetTagValuesInput {
 
 export interface GetTagValuesOutput {
   /**
-   * <p>A string that indicates that the response contains more data than can be returned in a
-   *             single response. To receive additional data, specify this string for the
-   *                 <code>PaginationToken</code> value in a subsequent request.</p>
+   * <p>A string that indicates that there is more data available than this
+   *     response contains. To receive the next part of the response, specify this response value
+   *     as the <code>PaginationToken</code> value in the request for the next page.</p>
    */
   PaginationToken?: string;
 
   /**
-   * <p>A list of all tag values for the specified key in the AWS account.</p>
+   * <p>A list of all tag values for the specified key currently used in the specified AWS
+   *             Region for the calling AWS account.</p>
    */
   TagValues?: string[];
 }
@@ -770,16 +787,17 @@ export namespace StartReportCreationOutput {
 
 export interface TagResourcesInput {
   /**
-   * <p>A list of ARNs. An ARN (Amazon Resource Name) uniquely identifies a resource. For more
-   *             information, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   *                 Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General
-   *                 Reference</i>.</p>
+   * <p>Specifies the list of ARNs of the resources that you want to apply tags to.</p>
+   *         <p>An ARN (Amazon Resource Name) uniquely identifies a resource. For more information,
+   *             see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+   *                 Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS
+   *                 General Reference</i>.</p>
    */
   ResourceARNList: string[] | undefined;
 
   /**
-   * <p>The tags that you want to add to the specified resources. A tag consists of a key and
-   *             a value that you define.</p>
+   * <p>Specifies a list of tags that you want to add to the specified resources. A tag
+   *             consists of a key and a value that you define.</p>
    */
   Tags: { [key: string]: string } | undefined;
 }
@@ -808,15 +826,17 @@ export namespace TagResourcesOutput {
 
 export interface UntagResourcesInput {
   /**
-   * <p>A list of ARNs. An ARN (Amazon Resource Name) uniquely identifies a resource. For more
-   *             information, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   *                 Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General
-   *                 Reference</i>.</p>
+   * <p>Specifies a list of ARNs of the resources that you want to remove tags from.</p>
+   *         <p>An ARN (Amazon Resource Name) uniquely identifies a resource. For more information,
+   *             see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+   *                 Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS
+   *                 General Reference</i>.</p>
    */
   ResourceARNList: string[] | undefined;
 
   /**
-   * <p>A list of the tag keys that you want to remove from the specified resources.</p>
+   * <p>Specifies a list of tag keys that you want to remove from the specified
+   *             resources.</p>
    */
   TagKeys: string[] | undefined;
 }
@@ -829,8 +849,10 @@ export namespace UntagResourcesInput {
 
 export interface UntagResourcesOutput {
   /**
-   * <p>Details of resources that could not be untagged. An error code, status code, and error
-   *             message are returned for each failed item. </p>
+   * <p>A map containing a key-value pair for each failed item that couldn't be untagged. The
+   *             key is the ARN of the failed resource. The value is a <code>FailureInfo</code> object
+   *             that contains an error code, a status code, and an error message. If there are no
+   *             errors, the <code>FailedResourcesMap</code> is empty.</p>
    */
   FailedResourcesMap?: { [key: string]: FailureInfo };
 }

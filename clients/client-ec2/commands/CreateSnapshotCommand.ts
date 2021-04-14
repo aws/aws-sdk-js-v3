@@ -19,8 +19,15 @@ export type CreateSnapshotCommandOutput = Snapshot & __MetadataBearer;
 
 /**
  * <p>Creates a snapshot of an EBS volume and stores it in Amazon S3. You can use snapshots for
- *       backups, to make copies of EBS volumes, and to save data before shutting down an
- *       instance.</p>
+ *   	backups, to make copies of EBS volumes, and to save data before shutting down an
+ *   	instance.</p>
+ *
+ *
+ *          <p>You can create snapshots of volumes in a Region and volumes on an Outpost. If you
+ *     	create a snapshot of a volume in a Region, the snapshot must be stored in the same
+ *     	Region as the volume. If you create a snapshot of a volume on an Outpost, the snapshot
+ *     	can be stored on the same Outpost as the volume, or in the Region for that Outpost.</p>
+ *
  *          <p>When a snapshot is created, any AWS Marketplace product codes that are associated with the
  *       source volume are propagated to the snapshot.</p>
  *          <p>You can take a snapshot of an attached volume that is in use. However, snapshots only

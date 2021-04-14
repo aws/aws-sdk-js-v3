@@ -10,6 +10,10 @@ import { GetTagsCommandInput, GetTagsCommandOutput } from "../commands/GetTagsCo
 import { GroupResourcesCommandInput, GroupResourcesCommandOutput } from "../commands/GroupResourcesCommand";
 import { ListGroupResourcesCommandInput, ListGroupResourcesCommandOutput } from "../commands/ListGroupResourcesCommand";
 import { ListGroupsCommandInput, ListGroupsCommandOutput } from "../commands/ListGroupsCommand";
+import {
+  PutGroupConfigurationCommandInput,
+  PutGroupConfigurationCommandOutput,
+} from "../commands/PutGroupConfigurationCommand";
 import { SearchResourcesCommandInput, SearchResourcesCommandOutput } from "../commands/SearchResourcesCommand";
 import { TagCommandInput, TagCommandOutput } from "../commands/TagCommand";
 import { UngroupResourcesCommandInput, UngroupResourcesCommandOutput } from "../commands/UngroupResourcesCommand";
@@ -28,12 +32,15 @@ import {
   GroupIdentifier,
   GroupQuery,
   InternalServerErrorException,
+  ListGroupResourcesItem,
   MethodNotAllowedException,
   NotFoundException,
+  PendingResource,
   QueryError,
   ResourceFilter,
   ResourceIdentifier,
   ResourceQuery,
+  ResourceStatus,
   TooManyRequestsException,
   UnauthorizedException,
 } from "../models/models_0";
@@ -293,6 +300,34 @@ export const serializeAws_restJson1ListGroupsCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1PutGroupConfigurationCommand = async (
+  input: PutGroupConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = "/put-group-configuration";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Configuration !== undefined &&
+      input.Configuration !== null && {
+        Configuration: serializeAws_restJson1GroupConfigurationList(input.Configuration, context),
+      }),
+    ...(input.Group !== undefined && input.Group !== null && { Group: input.Group }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -1064,11 +1099,15 @@ export const deserializeAws_restJson1GroupResourcesCommand = async (
   const contents: GroupResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     Failed: undefined,
+    Pending: undefined,
     Succeeded: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Failed !== undefined && data.Failed !== null) {
     contents.Failed = deserializeAws_restJson1FailedResourceList(data.Failed, context);
+  }
+  if (data.Pending !== undefined && data.Pending !== null) {
+    contents.Pending = deserializeAws_restJson1PendingResourceList(data.Pending, context);
   }
   if (data.Succeeded !== undefined && data.Succeeded !== null) {
     contents.Succeeded = deserializeAws_restJson1ResourceArnList(data.Succeeded, context);
@@ -1165,6 +1204,7 @@ export const deserializeAws_restJson1ListGroupResourcesCommand = async (
     NextToken: undefined,
     QueryErrors: undefined,
     ResourceIdentifiers: undefined,
+    Resources: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined && data.NextToken !== null) {
@@ -1175,6 +1215,9 @@ export const deserializeAws_restJson1ListGroupResourcesCommand = async (
   }
   if (data.ResourceIdentifiers !== undefined && data.ResourceIdentifiers !== null) {
     contents.ResourceIdentifiers = deserializeAws_restJson1ResourceIdentifierList(data.ResourceIdentifiers, context);
+  }
+  if (data.Resources !== undefined && data.Resources !== null) {
+    contents.Resources = deserializeAws_restJson1ListGroupResourcesItemList(data.Resources, context);
   }
   return Promise.resolve(contents);
 };
@@ -1330,6 +1373,97 @@ const deserializeAws_restJson1ListGroupsCommandError = async (
     case "com.amazonaws.resourcegroups#MethodNotAllowedException":
       response = {
         ...(await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.resourcegroups#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1PutGroupConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutGroupConfigurationCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return deserializeAws_restJson1PutGroupConfigurationCommandError(output, context);
+  }
+  const contents: PutGroupConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1PutGroupConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutGroupConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.resourcegroups#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.resourcegroups#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.resourcegroups#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "MethodNotAllowedException":
+    case "com.amazonaws.resourcegroups#MethodNotAllowedException":
+      response = {
+        ...(await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.resourcegroups#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1571,11 +1705,15 @@ export const deserializeAws_restJson1UngroupResourcesCommand = async (
   const contents: UngroupResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     Failed: undefined,
+    Pending: undefined,
     Succeeded: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Failed !== undefined && data.Failed !== null) {
     contents.Failed = deserializeAws_restJson1FailedResourceList(data.Failed, context);
+  }
+  if (data.Pending !== undefined && data.Pending !== null) {
+    contents.Pending = deserializeAws_restJson1PendingResourceList(data.Pending, context);
   }
   if (data.Succeeded !== undefined && data.Succeeded !== null) {
     contents.Succeeded = deserializeAws_restJson1ResourceArnList(data.Succeeded, context);
@@ -2379,6 +2517,53 @@ const deserializeAws_restJson1GroupQuery = (output: any, context: __SerdeContext
   } as any;
 };
 
+const deserializeAws_restJson1ListGroupResourcesItem = (
+  output: any,
+  context: __SerdeContext
+): ListGroupResourcesItem => {
+  return {
+    Identifier:
+      output.Identifier !== undefined && output.Identifier !== null
+        ? deserializeAws_restJson1ResourceIdentifier(output.Identifier, context)
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? deserializeAws_restJson1ResourceStatus(output.Status, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ListGroupResourcesItemList = (
+  output: any,
+  context: __SerdeContext
+): ListGroupResourcesItem[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ListGroupResourcesItem(entry, context);
+    });
+};
+
+const deserializeAws_restJson1PendingResource = (output: any, context: __SerdeContext): PendingResource => {
+  return {
+    ResourceArn: output.ResourceArn !== undefined && output.ResourceArn !== null ? output.ResourceArn : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1PendingResourceList = (output: any, context: __SerdeContext): PendingResource[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1PendingResource(entry, context);
+    });
+};
+
 const deserializeAws_restJson1QueryError = (output: any, context: __SerdeContext): QueryError => {
   return {
     ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
@@ -2430,6 +2615,12 @@ const deserializeAws_restJson1ResourceQuery = (output: any, context: __SerdeCont
   return {
     Query: output.Query !== undefined && output.Query !== null ? output.Query : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ResourceStatus = (output: any, context: __SerdeContext): ResourceStatus => {
+  return {
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
   } as any;
 };
 

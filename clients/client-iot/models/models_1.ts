@@ -3,6 +3,7 @@ import {
   Action,
   ActiveViolation,
   AlertTarget,
+  AuditCheckConfiguration,
   AuditCheckDetails,
   AuditFinding,
   AuditFrequency,
@@ -11,12 +12,11 @@ import {
   AuditMitigationActionsTaskMetadata,
   AuditMitigationActionsTaskStatus,
   AuditMitigationActionsTaskTarget,
+  AuditNotificationTarget,
   AuditSuppression,
   AuditTaskMetadata,
   AuditTaskStatus,
   AuditTaskType,
-  AuthInfo,
-  AuthResult,
   AuthorizerConfig,
   AuthorizerDescription,
   AuthorizerStatus,
@@ -26,6 +26,7 @@ import {
   AwsJobPresignedUrlConfig,
   Behavior,
   BillingGroupProperties,
+  CustomMetricType,
   DayOfWeek,
   DimensionType,
   JobExecutionsRolloutConfig,
@@ -45,16 +46,320 @@ import {
   StreamFile,
   Tag,
   TargetSelection,
-  TaskStatistics,
+  TaskStatisticsForAuditCheck,
   ThingGroupProperties,
   ThingTypeProperties,
   TimeoutConfig,
   TopicRuleDestination,
   TopicRuleDestinationStatus,
-  TopicRulePayload,
+  ViolationEventAdditionalInfo,
 } from "./models_0";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+/**
+ * <p>The input for the DeprecateThingType operation.</p>
+ */
+export interface DeprecateThingTypeRequest {
+  /**
+   * <p>The name of the thing type to deprecate.</p>
+   */
+  thingTypeName: string | undefined;
+
+  /**
+   * <p>Whether to undeprecate a deprecated thing type. If <b>true</b>, the thing type will not be deprecated anymore and you can
+   * 			associate it with things.</p>
+   */
+  undoDeprecate?: boolean;
+}
+
+export namespace DeprecateThingTypeRequest {
+  export const filterSensitiveLog = (obj: DeprecateThingTypeRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The output for the DeprecateThingType operation.</p>
+ */
+export interface DeprecateThingTypeResponse {}
+
+export namespace DeprecateThingTypeResponse {
+  export const filterSensitiveLog = (obj: DeprecateThingTypeResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeAccountAuditConfigurationRequest {}
+
+export namespace DescribeAccountAuditConfigurationRequest {
+  export const filterSensitiveLog = (obj: DescribeAccountAuditConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeAccountAuditConfigurationResponse {
+  /**
+   * <p>The ARN of the role that grants permission to AWS IoT to access information
+   *             about your devices, policies, certificates, and other items as required when
+   *             performing an audit.</p>
+   *           <p>On the first call to <code>UpdateAccountAuditConfiguration</code>,
+   *             this parameter is required.</p>
+   */
+  roleArn?: string;
+
+  /**
+   * <p>Information about the targets to which audit notifications are sent for
+   *             this account.</p>
+   */
+  auditNotificationTargetConfigurations?: { [key: string]: AuditNotificationTarget };
+
+  /**
+   * <p>Which audit checks are enabled and disabled for this account.</p>
+   */
+  auditCheckConfigurations?: { [key: string]: AuditCheckConfiguration };
+}
+
+export namespace DescribeAccountAuditConfigurationResponse {
+  export const filterSensitiveLog = (obj: DescribeAccountAuditConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeAuditFindingRequest {
+  /**
+   * <p>A unique identifier for a single audit finding. You can use this identifier to apply mitigation actions to the finding.</p>
+   */
+  findingId: string | undefined;
+}
+
+export namespace DescribeAuditFindingRequest {
+  export const filterSensitiveLog = (obj: DescribeAuditFindingRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeAuditFindingResponse {
+  /**
+   * <p>The findings (results) of the audit.</p>
+   */
+  finding?: AuditFinding;
+}
+
+export namespace DescribeAuditFindingResponse {
+  export const filterSensitiveLog = (obj: DescribeAuditFindingResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeAuditMitigationActionsTaskRequest {
+  /**
+   * <p>The unique identifier for the audit mitigation task.</p>
+   */
+  taskId: string | undefined;
+}
+
+export namespace DescribeAuditMitigationActionsTaskRequest {
+  export const filterSensitiveLog = (obj: DescribeAuditMitigationActionsTaskRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes which changes should be applied as part of a mitigation action.</p>
+ */
+export interface MitigationAction {
+  /**
+   * <p>A user-friendly name for the mitigation action.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>A unique identifier for the mitigation action.</p>
+   */
+  id?: string;
+
+  /**
+   * <p>The IAM role ARN used to apply this mitigation action.</p>
+   */
+  roleArn?: string;
+
+  /**
+   * <p>The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.</p>
+   */
+  actionParams?: MitigationActionParams;
+}
+
+export namespace MitigationAction {
+  export const filterSensitiveLog = (obj: MitigationAction): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeAuditMitigationActionsTaskResponse {
+  /**
+   * <p>The current status of the task.</p>
+   */
+  taskStatus?: AuditMitigationActionsTaskStatus | string;
+
+  /**
+   * <p>The date and time when the task was started.</p>
+   */
+  startTime?: Date;
+
+  /**
+   * <p>The date and time when the task was completed or canceled.</p>
+   */
+  endTime?: Date;
+
+  /**
+   * <p>Aggregate counts of the results when the mitigation tasks were applied to the findings for this audit mitigation actions task.</p>
+   */
+  taskStatistics?: { [key: string]: TaskStatisticsForAuditCheck };
+
+  /**
+   * <p>Identifies the findings to which the mitigation actions are applied. This can be by audit checks, by audit task, or a set of findings.</p>
+   */
+  target?: AuditMitigationActionsTaskTarget;
+
+  /**
+   * <p>Specifies the mitigation actions that should be applied to specific audit checks.</p>
+   */
+  auditCheckToActionsMapping?: { [key: string]: string[] };
+
+  /**
+   * <p>Specifies the mitigation actions and their parameters that are applied as part of this task.</p>
+   */
+  actionsDefinition?: MitigationAction[];
+}
+
+export namespace DescribeAuditMitigationActionsTaskResponse {
+  export const filterSensitiveLog = (obj: DescribeAuditMitigationActionsTaskResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeAuditSuppressionRequest {
+  /**
+   * <p>An audit check name. Checks must be enabled
+   *         for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list
+   *         of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code>
+   *         to select which checks are enabled.)</p>
+   */
+  checkName: string | undefined;
+
+  /**
+   * <p>Information that identifies the noncompliant resource.</p>
+   */
+  resourceIdentifier: ResourceIdentifier | undefined;
+}
+
+export namespace DescribeAuditSuppressionRequest {
+  export const filterSensitiveLog = (obj: DescribeAuditSuppressionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeAuditSuppressionResponse {
+  /**
+   * <p>An audit check name. Checks must be enabled
+   *         for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list
+   *         of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code>
+   *         to select which checks are enabled.)</p>
+   */
+  checkName?: string;
+
+  /**
+   * <p>Information that identifies the noncompliant resource.</p>
+   */
+  resourceIdentifier?: ResourceIdentifier;
+
+  /**
+   * <p>
+   *       The epoch timestamp in seconds at which this suppression expires.
+   *     </p>
+   */
+  expirationDate?: Date;
+
+  /**
+   * <p>
+   *       Indicates whether a suppression should exist indefinitely or not.
+   *     </p>
+   */
+  suppressIndefinitely?: boolean;
+
+  /**
+   * <p>
+   *       The description of the audit suppression.
+   *     </p>
+   */
+  description?: string;
+}
+
+export namespace DescribeAuditSuppressionResponse {
+  export const filterSensitiveLog = (obj: DescribeAuditSuppressionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeAuditTaskRequest {
+  /**
+   * <p>The ID of the audit whose information you want to get.</p>
+   */
+  taskId: string | undefined;
+}
+
+export namespace DescribeAuditTaskRequest {
+  export const filterSensitiveLog = (obj: DescribeAuditTaskRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Statistics for the checks performed during the audit.</p>
+ */
+export interface TaskStatistics {
+  /**
+   * <p>The number of checks in this audit.</p>
+   */
+  totalChecks?: number;
+
+  /**
+   * <p>The number of checks in progress.</p>
+   */
+  inProgressChecks?: number;
+
+  /**
+   * <p>The number of checks waiting for data collection.</p>
+   */
+  waitingForDataCollectionChecks?: number;
+
+  /**
+   * <p>The number of checks that found compliant resources.</p>
+   */
+  compliantChecks?: number;
+
+  /**
+   * <p>The number of checks that found noncompliant resources.</p>
+   */
+  nonCompliantChecks?: number;
+
+  /**
+   * <p>The number of checks.</p>
+   */
+  failedChecks?: number;
+
+  /**
+   * <p>The number of checks that did not run because the audit was canceled.</p>
+   */
+  canceledChecks?: number;
+}
+
+export namespace TaskStatistics {
+  export const filterSensitiveLog = (obj: TaskStatistics): any => ({
+    ...obj,
+  });
+}
 
 export interface DescribeAuditTaskResponse {
   /**
@@ -503,6 +808,71 @@ export namespace DescribeCertificateResponse {
   });
 }
 
+export interface DescribeCustomMetricRequest {
+  /**
+   * <p>
+   *       The name of the custom metric.
+   *     </p>
+   */
+  metricName: string | undefined;
+}
+
+export namespace DescribeCustomMetricRequest {
+  export const filterSensitiveLog = (obj: DescribeCustomMetricRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeCustomMetricResponse {
+  /**
+   * <p>
+   *       The name of the custom metric.
+   *     </p>
+   */
+  metricName?: string;
+
+  /**
+   * <p>
+   *       The Amazon Resource Number (ARN) of the custom metric.
+   *     </p>
+   */
+  metricArn?: string;
+
+  /**
+   * <p>
+   *       The type of the custom metric. Types include <code>string-list</code>, <code>ip-address-list</code>, <code>number-list</code>, and <code>number</code>.
+   *     </p>
+   */
+  metricType?: CustomMetricType | string;
+
+  /**
+   * <p>
+   *       Field represents a friendly name in the console for the custom metric; doesn't have to be unique. Don't use this name as the metric identifier in the device metric report. Can be updated.
+   *     </p>
+   */
+  displayName?: string;
+
+  /**
+   * <p>
+   *       The creation date of the custom metric in milliseconds since epoch.
+   *     </p>
+   */
+  creationDate?: Date;
+
+  /**
+   * <p>
+   *       The time the custom metric was last modified in milliseconds since epoch.
+   *     </p>
+   */
+  lastModifiedDate?: Date;
+}
+
+export namespace DescribeCustomMetricResponse {
+  export const filterSensitiveLog = (obj: DescribeCustomMetricResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeDefaultAuthorizerRequest {}
 
 export namespace DescribeDefaultAuthorizerRequest {
@@ -520,6 +890,221 @@ export interface DescribeDefaultAuthorizerResponse {
 
 export namespace DescribeDefaultAuthorizerResponse {
   export const filterSensitiveLog = (obj: DescribeDefaultAuthorizerResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeDetectMitigationActionsTaskRequest {
+  /**
+   * <p>
+   *       The unique identifier of the task.
+   *     </p>
+   */
+  taskId: string | undefined;
+}
+
+export namespace DescribeDetectMitigationActionsTaskRequest {
+  export const filterSensitiveLog = (obj: DescribeDetectMitigationActionsTaskRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *             The target of a mitigation action task.
+ *         </p>
+ */
+export interface DetectMitigationActionsTaskTarget {
+  /**
+   * <p>
+   *             The unique identifiers of the violations.
+   *         </p>
+   */
+  violationIds?: string[];
+
+  /**
+   * <p>
+   *             The name of the security profile.
+   *         </p>
+   */
+  securityProfileName?: string;
+
+  /**
+   * <p>
+   *             The name of the behavior.
+   *         </p>
+   */
+  behaviorName?: string;
+}
+
+export namespace DetectMitigationActionsTaskTarget {
+  export const filterSensitiveLog = (obj: DetectMitigationActionsTaskTarget): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *             The statistics of a mitigation action task.
+ *         </p>
+ */
+export interface DetectMitigationActionsTaskStatistics {
+  /**
+   * <p>
+   *             The actions that were performed.
+   *         </p>
+   */
+  actionsExecuted?: number;
+
+  /**
+   * <p>
+   *             The actions that were skipped.
+   *         </p>
+   */
+  actionsSkipped?: number;
+
+  /**
+   * <p>
+   *             The actions that failed.
+   *         </p>
+   */
+  actionsFailed?: number;
+}
+
+export namespace DetectMitigationActionsTaskStatistics {
+  export const filterSensitiveLog = (obj: DetectMitigationActionsTaskStatistics): any => ({
+    ...obj,
+  });
+}
+
+export enum DetectMitigationActionsTaskStatus {
+  CANCELED = "CANCELED",
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  SUCCESSFUL = "SUCCESSFUL",
+}
+
+/**
+ * <p>
+ *             Specifies the time period of which violation events occurred between.
+ *         </p>
+ */
+export interface ViolationEventOccurrenceRange {
+  /**
+   * <p>
+   *             The start date and time of a time period in which violation events occurred.
+   *         </p>
+   */
+  startTime: Date | undefined;
+
+  /**
+   * <p>
+   *             The end date and time of a time period in which violation events occurred.
+   *         </p>
+   */
+  endTime: Date | undefined;
+}
+
+export namespace ViolationEventOccurrenceRange {
+  export const filterSensitiveLog = (obj: ViolationEventOccurrenceRange): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *             The summary of the mitigation action tasks.
+ *         </p>
+ */
+export interface DetectMitigationActionsTaskSummary {
+  /**
+   * <p>
+   *             The unique identifier of the task.
+   *         </p>
+   */
+  taskId?: string;
+
+  /**
+   * <p>
+   *             The status of the task.
+   *         </p>
+   */
+  taskStatus?: DetectMitigationActionsTaskStatus | string;
+
+  /**
+   * <p>
+   *             The date the task started.
+   *         </p>
+   */
+  taskStartTime?: Date;
+
+  /**
+   * <p>
+   *             The date the task ended.
+   *         </p>
+   */
+  taskEndTime?: Date;
+
+  /**
+   * <p>
+   *             Specifies the ML Detect findings to which the mitigation actions are applied.
+   *         </p>
+   */
+  target?: DetectMitigationActionsTaskTarget;
+
+  /**
+   * <p>
+   *             Specifies the time period of which violation events occurred between.
+   *         </p>
+   */
+  violationEventOccurrenceRange?: ViolationEventOccurrenceRange;
+
+  /**
+   * <p>
+   *             Includes only active violations.
+   *         </p>
+   */
+  onlyActiveViolationsIncluded?: boolean;
+
+  /**
+   * <p>
+   *             Includes suppressed alerts.
+   *         </p>
+   */
+  suppressedAlertsIncluded?: boolean;
+
+  /**
+   * <p>
+   *             The definition of the actions.
+   *         </p>
+   */
+  actionsDefinition?: MitigationAction[];
+
+  /**
+   * <p>
+   *             The statistics of a mitigation action task.
+   *         </p>
+   */
+  taskStatistics?: DetectMitigationActionsTaskStatistics;
+}
+
+export namespace DetectMitigationActionsTaskSummary {
+  export const filterSensitiveLog = (obj: DetectMitigationActionsTaskSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeDetectMitigationActionsTaskResponse {
+  /**
+   * <p>
+   *       The description of a task.
+   *     </p>
+   */
+  taskSummary?: DetectMitigationActionsTaskSummary;
+}
+
+export namespace DescribeDetectMitigationActionsTaskResponse {
+  export const filterSensitiveLog = (obj: DescribeDetectMitigationActionsTaskResponse): any => ({
     ...obj,
   });
 }
@@ -544,7 +1129,10 @@ export interface DescribeDimensionResponse {
   name?: string;
 
   /**
-   * <p>The ARN (Amazon resource name) for the dimension.</p>
+   * <p>The Amazon Resource Name
+   *       (ARN)
+   *       for
+   *       the dimension.</p>
    */
   arn?: string;
 
@@ -1490,22 +2078,30 @@ export namespace DescribeScheduledAuditRequest {
 
 export interface DescribeScheduledAuditResponse {
   /**
-   * <p>How often the scheduled audit takes place. One of "DAILY", "WEEKLY",
-   *             "BIWEEKLY", or "MONTHLY". The start time of each audit is determined by
-   *             the system.</p>
+   * <p>How often the scheduled audit takes
+   *       place, either
+   *       one of <code>DAILY</code>,
+   *             <code>WEEKLY</code>, <code>BIWEEKLY</code>, or <code>MONTHLY</code>. The start time of each audit is determined by the
+   *       system.</p>
    */
   frequency?: AuditFrequency | string;
 
   /**
-   * <p>The day of the month on which the scheduled audit takes place. Will be "1"
-   *             through "31" or "LAST". If days 29-31 are specified, and the month does not have that many
-   *             days, the audit takes place on the "LAST" day of the month.</p>
+   * <p>The day of the month on which the scheduled audit takes place.
+   *       This is
+   *       will be <code>1</code>
+   *             through <code>31</code> or <code>LAST</code>. If days
+   *       <code>29</code>-<code>31</code>
+   *       are specified, and the month does not have that many days, the audit takes place on the <code>LAST</code>
+   *       day of the month.</p>
    */
   dayOfMonth?: string;
 
   /**
-   * <p>The day of the week on which the scheduled audit takes place. One of
-   *             "SUN", "MON", "TUE", "WED", "THU", "FRI", or "SAT".</p>
+   * <p>The day of the week on which the scheduled audit takes
+   *       place,
+   *       either one of
+   *             <code>SUN</code>, <code>MON</code>, <code>TUE</code>, <code>WED</code>, <code>THU</code>, <code>FRI</code>, or <code>SAT</code>.</p>
    */
   dayOfWeek?: DayOfWeek | string;
 
@@ -1536,7 +2132,8 @@ export namespace DescribeScheduledAuditResponse {
 
 export interface DescribeSecurityProfileRequest {
   /**
-   * <p>The name of the security profile whose information you want to get.</p>
+   * <p>The name of the security profile
+   *       whose information you want to get.</p>
    */
   securityProfileName: string | undefined;
 }
@@ -1578,16 +2175,23 @@ export interface DescribeSecurityProfileResponse {
    * @deprecated
    *
    * <p>
-   *             <i>Please use <a>DescribeSecurityProfileResponse$additionalMetricsToRetainV2</a> instead.</i>
+   *             <i>Please use
+   *           <a>DescribeSecurityProfileResponse$additionalMetricsToRetainV2</a>
+   *         instead.</i>
    *          </p>
-   *          <p>A list of metrics whose data is retained (stored). By default, data is retained
-   *         for any metric used in the profile's <code>behaviors</code>, but it is also retained for
-   *         any metric specified here.</p>
+   *          <p>A list of metrics
+   *       whose data is retained (stored). By default, data is retained for any metric
+   *       used in the profile's <code>behaviors</code>, but
+   *       it is
+   *       also retained for any metric specified here.</p>
    */
   additionalMetricsToRetain?: string[];
 
   /**
-   * <p>A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.</p>
+   * <p>A list of metrics whose data is retained (stored). By default, data is retained for any
+   *       metric used in the profile's behaviors, but
+   *       it is
+   *       also retained for any metric specified here.</p>
    */
   additionalMetricsToRetainV2?: MetricToRetain[];
 
@@ -2191,6 +2795,118 @@ export interface EnableTopicRuleRequest {
 
 export namespace EnableTopicRuleRequest {
   export const filterSensitiveLog = (obj: EnableTopicRuleRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetBehaviorModelTrainingSummariesRequest {
+  /**
+   * <p>
+   *       The name of the security profile.
+   *     </p>
+   */
+  securityProfileName?: string;
+
+  /**
+   * <p>
+   *       The maximum number of results to return at one time. The default is 25.
+   *     </p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>
+   *       The token for the next set of results.
+   *     </p>
+   */
+  nextToken?: string;
+}
+
+export namespace GetBehaviorModelTrainingSummariesRequest {
+  export const filterSensitiveLog = (obj: GetBehaviorModelTrainingSummariesRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum ModelStatus {
+  ACTIVE = "ACTIVE",
+  EXPIRED = "EXPIRED",
+  PENDING_BUILD = "PENDING_BUILD",
+}
+
+/**
+ * <p>
+ *             The summary of an ML Detect behavior model.
+ *         </p>
+ */
+export interface BehaviorModelTrainingSummary {
+  /**
+   * <p>
+   *             The name of the security profile.
+   *         </p>
+   */
+  securityProfileName?: string;
+
+  /**
+   * <p>
+   *             The name of the behavior.
+   *         </p>
+   */
+  behaviorName?: string;
+
+  /**
+   * <p>
+   *             The date a training model started collecting data.
+   *         </p>
+   */
+  trainingDataCollectionStartDate?: Date;
+
+  /**
+   * <p>
+   *             The status of the behavior model.
+   *         </p>
+   */
+  modelStatus?: ModelStatus | string;
+
+  /**
+   * <p>
+   *             The percentage of datapoints collected.
+   *         </p>
+   */
+  datapointsCollectionPercentage?: number;
+
+  /**
+   * <p>
+   *             The date the model was last refreshed.
+   *         </p>
+   */
+  lastModelRefreshDate?: Date;
+}
+
+export namespace BehaviorModelTrainingSummary {
+  export const filterSensitiveLog = (obj: BehaviorModelTrainingSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface GetBehaviorModelTrainingSummariesResponse {
+  /**
+   * <p>
+   *       A list of all ML Detect behaviors and their model status for a given Security Profile.
+   *     </p>
+   */
+  summaries?: BehaviorModelTrainingSummary[];
+
+  /**
+   * <p>
+   *       A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results.
+   *     </p>
+   */
+  nextToken?: string;
+}
+
+export namespace GetBehaviorModelTrainingSummariesResponse {
+  export const filterSensitiveLog = (obj: GetBehaviorModelTrainingSummariesResponse): any => ({
     ...obj,
   });
 }
@@ -3171,6 +3887,12 @@ export namespace NotConfiguredException {
   });
 }
 
+export enum BehaviorCriteriaType {
+  MACHINE_LEARNING = "MACHINE_LEARNING",
+  STATIC = "STATIC",
+  STATISTICAL = "STATISTICAL",
+}
+
 export interface ListActiveViolationsRequest {
   /**
    * <p>The name of the thing whose active violations are listed.</p>
@@ -3181,6 +3903,20 @@ export interface ListActiveViolationsRequest {
    * <p>The name of the Device Defender security profile for which violations are listed.</p>
    */
   securityProfileName?: string;
+
+  /**
+   * <p>
+   *       The criteria for a behavior.
+   *     </p>
+   */
+  behaviorCriteriaType?: BehaviorCriteriaType | string;
+
+  /**
+   * <p>
+   *       A list of all suppressed alerts.
+   *     </p>
+   */
+  listSuppressedAlerts?: boolean;
 
   /**
    * <p>The token for the next set of results.</p>
@@ -3880,6 +4616,271 @@ export interface ListCertificatesByCAResponse {
 
 export namespace ListCertificatesByCAResponse {
   export const filterSensitiveLog = (obj: ListCertificatesByCAResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListCustomMetricsRequest {
+  /**
+   * <p>
+   *       The token for the next set of results.
+   *     </p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>
+   *       The maximum number of results to return at one time. The default is 25.
+   *     </p>
+   */
+  maxResults?: number;
+}
+
+export namespace ListCustomMetricsRequest {
+  export const filterSensitiveLog = (obj: ListCustomMetricsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListCustomMetricsResponse {
+  /**
+   * <p>
+   *       The name of the custom metric.
+   *     </p>
+   */
+  metricNames?: string[];
+
+  /**
+   * <p>
+   *       A token that can be used to retrieve the next set of results,
+   *       or <code>null</code> if there are no additional results.
+   *     </p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListCustomMetricsResponse {
+  export const filterSensitiveLog = (obj: ListCustomMetricsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListDetectMitigationActionsExecutionsRequest {
+  /**
+   * <p>
+   *       The unique identifier of the task.
+   *     </p>
+   */
+  taskId?: string;
+
+  /**
+   * <p>
+   *       The unique identifier of the violation.
+   *     </p>
+   */
+  violationId?: string;
+
+  /**
+   * <p>
+   *       The name of the thing whose mitigation actions are listed.
+   *     </p>
+   */
+  thingName?: string;
+
+  /**
+   * <p>
+   *       A filter to limit results to those found after the specified time. You must
+   *       specify either the startTime and endTime or the taskId, but not both.
+   *     </p>
+   */
+  startTime?: Date;
+
+  /**
+   * <p>
+   *       The end of the time period for which ML Detect mitigation actions executions are returned.
+   *     </p>
+   */
+  endTime?: Date;
+
+  /**
+   * <p>
+   *       The maximum number of results to return at one time. The default is 25.
+   *     </p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>
+   *       The token for the next set of results.
+   *     </p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListDetectMitigationActionsExecutionsRequest {
+  export const filterSensitiveLog = (obj: ListDetectMitigationActionsExecutionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum DetectMitigationActionExecutionStatus {
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  SKIPPED = "SKIPPED",
+  SUCCESSFUL = "SUCCESSFUL",
+}
+
+/**
+ * <p>
+ *             Describes which mitigation actions should be executed.
+ *         </p>
+ */
+export interface DetectMitigationActionExecution {
+  /**
+   * <p>
+   *             The unique identifier of the task.
+   *         </p>
+   */
+  taskId?: string;
+
+  /**
+   * <p>
+   *             The unique identifier of the violation.
+   *         </p>
+   */
+  violationId?: string;
+
+  /**
+   * <p>
+   *             The friendly name that uniquely identifies the mitigation action.
+   *         </p>
+   */
+  actionName?: string;
+
+  /**
+   * <p>
+   *             The name of the thing.
+   *         </p>
+   */
+  thingName?: string;
+
+  /**
+   * <p>
+   *             The date a mitigation action was started.
+   *         </p>
+   */
+  executionStartDate?: Date;
+
+  /**
+   * <p>
+   *             The date a mitigation action ended.
+   *         </p>
+   */
+  executionEndDate?: Date;
+
+  /**
+   * <p>
+   *             The status of a mitigation action.
+   *         </p>
+   */
+  status?: DetectMitigationActionExecutionStatus | string;
+
+  /**
+   * <p>
+   *             The error code of a mitigation action.
+   *         </p>
+   */
+  errorCode?: string;
+
+  /**
+   * <p>
+   *             The message of a mitigation action.
+   *         </p>
+   */
+  message?: string;
+}
+
+export namespace DetectMitigationActionExecution {
+  export const filterSensitiveLog = (obj: DetectMitigationActionExecution): any => ({
+    ...obj,
+  });
+}
+
+export interface ListDetectMitigationActionsExecutionsResponse {
+  /**
+   * <p>
+   *       List of actions executions.
+   *     </p>
+   */
+  actionsExecutions?: DetectMitigationActionExecution[];
+
+  /**
+   * <p>
+   *       A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results.
+   *     </p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListDetectMitigationActionsExecutionsResponse {
+  export const filterSensitiveLog = (obj: ListDetectMitigationActionsExecutionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListDetectMitigationActionsTasksRequest {
+  /**
+   * <p>The maximum number of results to return at one time. The default is 25.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>
+   *       The token for the next set of results.
+   *     </p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>
+   *       A filter to limit results to those found after the specified time. You must
+   *       specify either the startTime and endTime or the taskId, but not both.
+   *     </p>
+   */
+  startTime: Date | undefined;
+
+  /**
+   * <p>
+   *       The end of the time period for which ML Detect mitigation actions tasks are returned.
+   *     </p>
+   */
+  endTime: Date | undefined;
+}
+
+export namespace ListDetectMitigationActionsTasksRequest {
+  export const filterSensitiveLog = (obj: ListDetectMitigationActionsTasksRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListDetectMitigationActionsTasksResponse {
+  /**
+   * <p>
+   *       The collection of ML Detect mitigation tasks that matched the filter criteria.
+   *     </p>
+   */
+  tasks?: DetectMitigationActionsTaskSummary[];
+
+  /**
+   * <p>
+   *       A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results.
+   *     </p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListDetectMitigationActionsTasksResponse {
+  export const filterSensitiveLog = (obj: ListDetectMitigationActionsTasksResponse): any => ({
     ...obj,
   });
 }
@@ -5117,9 +6118,17 @@ export interface ListSecurityProfilesRequest {
   maxResults?: number;
 
   /**
-   * <p>A filter to limit results to the security profiles that use the defined dimension.</p>
+   * <p>A filter to limit results to the security profiles that use the defined dimension.
+   *       Cannot be used with <code>metricName</code>
+   *          </p>
    */
   dimensionName?: string;
+
+  /**
+   * <p> The name of the custom metric.
+   *       Cannot be used with <code>dimensionName</code>. </p>
+   */
+  metricName?: string;
 }
 
 export namespace ListSecurityProfilesRequest {
@@ -5133,7 +6142,7 @@ export namespace ListSecurityProfilesRequest {
  */
 export interface SecurityProfileIdentifier {
   /**
-   * <p>The name you have given to the security profile.</p>
+   * <p>The name you've given to the security profile.</p>
    */
   name: string | undefined;
 
@@ -5722,6 +6731,15 @@ export interface ListThingsRequest {
    * <p>The name of the thing type used to search for things.</p>
    */
   thingTypeName?: string;
+
+  /**
+   * <p>When <code>true</code>, the action returns the thing resources with attribute values
+   *                      that start with the <code>attributeValue</code> provided.</p>
+   *             <p>When <code>false</code>, or not present, the action returns only the thing
+   * 			resources with attribute values that match the entire <code>attributeValue</code>
+   * 			provided. </p>
+   */
+  usePrefixAttributeValue?: boolean;
 }
 
 export namespace ListThingsRequest {
@@ -6000,6 +7018,37 @@ export namespace HttpUrlDestinationSummary {
 }
 
 /**
+ * <p>The summary of a virtual private cloud (VPC) destination.</p>
+ */
+export interface VpcDestinationSummary {
+  /**
+   * <p>The subnet IDs of the VPC destination.</p>
+   */
+  subnetIds?: string[];
+
+  /**
+   * <p>The security groups of the VPC destination.</p>
+   */
+  securityGroups?: string[];
+
+  /**
+   * <p>The ID of the VPC.</p>
+   */
+  vpcId?: string;
+
+  /**
+   * <p>The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).</p>
+   */
+  roleArn?: string;
+}
+
+export namespace VpcDestinationSummary {
+  export const filterSensitiveLog = (obj: VpcDestinationSummary): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Information about the topic rule destination.</p>
  */
 export interface TopicRuleDestinationSummary {
@@ -6045,6 +7094,16 @@ export interface TopicRuleDestinationSummary {
   status?: TopicRuleDestinationStatus | string;
 
   /**
+   * <p>The date and time when the topic rule destination was created.</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The date and time when the topic rule destination was last updated.</p>
+   */
+  lastUpdatedAt?: Date;
+
+  /**
    * <p>The reason the topic rule destination is in the current status.</p>
    */
   statusReason?: string;
@@ -6053,6 +7112,11 @@ export interface TopicRuleDestinationSummary {
    * <p>Information about the HTTP URL.</p>
    */
   httpUrlSummary?: HttpUrlDestinationSummary;
+
+  /**
+   * <p>Information about the virtual private cloud (VPC) connection.</p>
+   */
+  vpcDestinationSummary?: VpcDestinationSummary;
 }
 
 export namespace TopicRuleDestinationSummary {
@@ -6277,6 +7341,20 @@ export interface ListViolationEventsRequest {
   securityProfileName?: string;
 
   /**
+   * <p>
+   *       The criteria for a behavior.
+   *     </p>
+   */
+  behaviorCriteriaType?: BehaviorCriteriaType | string;
+
+  /**
+   * <p>
+   *       A list of all suppressed alerts.
+   *     </p>
+   */
+  listSuppressedAlerts?: boolean;
+
+  /**
    * <p>The token for the next set of results.</p>
    */
   nextToken?: string;
@@ -6319,7 +7397,7 @@ export interface ViolationEvent {
   securityProfileName?: string;
 
   /**
-   * <p>The behavior which was violated.</p>
+   * <p>The behavior that was violated.</p>
    */
   behavior?: Behavior;
 
@@ -6327,6 +7405,13 @@ export interface ViolationEvent {
    * <p>The value of the metric (the measurement).</p>
    */
   metricValue?: MetricValue;
+
+  /**
+   * <p>
+   *             The details of a violation event.
+   *         </p>
+   */
+  violationEventAdditionalInfo?: ViolationEventAdditionalInfo;
 
   /**
    * <p>The type of violation event.</p>
@@ -6578,744 +7663,6 @@ export interface RegisterThingRequest {
 
 export namespace RegisterThingRequest {
   export const filterSensitiveLog = (obj: RegisterThingRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface RegisterThingResponse {
-  /**
-   * <p>The certificate data, in PEM format.</p>
-   */
-  certificatePem?: string;
-
-  /**
-   * <p>ARNs for the generated resources.</p>
-   */
-  resourceArns?: { [key: string]: string };
-}
-
-export namespace RegisterThingResponse {
-  export const filterSensitiveLog = (obj: RegisterThingResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The resource registration failed.</p>
- */
-export interface ResourceRegistrationFailureException extends __SmithyException, $MetadataBearer {
-  name: "ResourceRegistrationFailureException";
-  $fault: "client";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace ResourceRegistrationFailureException {
-  export const filterSensitiveLog = (obj: ResourceRegistrationFailureException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The input for the RejectCertificateTransfer operation.</p>
- */
-export interface RejectCertificateTransferRequest {
-  /**
-   * <p>The ID of the certificate. (The last part of the certificate ARN contains the
-   *          certificate ID.)</p>
-   */
-  certificateId: string | undefined;
-
-  /**
-   * <p>The reason the certificate transfer was rejected.</p>
-   */
-  rejectReason?: string;
-}
-
-export namespace RejectCertificateTransferRequest {
-  export const filterSensitiveLog = (obj: RejectCertificateTransferRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface RemoveThingFromBillingGroupRequest {
-  /**
-   * <p>The name of the billing group.</p>
-   */
-  billingGroupName?: string;
-
-  /**
-   * <p>The ARN of the billing group.</p>
-   */
-  billingGroupArn?: string;
-
-  /**
-   * <p>The name of the thing to be removed from the billing group.</p>
-   */
-  thingName?: string;
-
-  /**
-   * <p>The ARN of the thing to be removed from the billing group.</p>
-   */
-  thingArn?: string;
-}
-
-export namespace RemoveThingFromBillingGroupRequest {
-  export const filterSensitiveLog = (obj: RemoveThingFromBillingGroupRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface RemoveThingFromBillingGroupResponse {}
-
-export namespace RemoveThingFromBillingGroupResponse {
-  export const filterSensitiveLog = (obj: RemoveThingFromBillingGroupResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface RemoveThingFromThingGroupRequest {
-  /**
-   * <p>The group name.</p>
-   */
-  thingGroupName?: string;
-
-  /**
-   * <p>The group ARN.</p>
-   */
-  thingGroupArn?: string;
-
-  /**
-   * <p>The name of the thing to remove from the group.</p>
-   */
-  thingName?: string;
-
-  /**
-   * <p>The ARN of the thing to remove from the group.</p>
-   */
-  thingArn?: string;
-}
-
-export namespace RemoveThingFromThingGroupRequest {
-  export const filterSensitiveLog = (obj: RemoveThingFromThingGroupRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface RemoveThingFromThingGroupResponse {}
-
-export namespace RemoveThingFromThingGroupResponse {
-  export const filterSensitiveLog = (obj: RemoveThingFromThingGroupResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The input for the ReplaceTopicRule operation.</p>
- */
-export interface ReplaceTopicRuleRequest {
-  /**
-   * <p>The name of the rule.</p>
-   */
-  ruleName: string | undefined;
-
-  /**
-   * <p>The rule payload.</p>
-   */
-  topicRulePayload: TopicRulePayload | undefined;
-}
-
-export namespace ReplaceTopicRuleRequest {
-  export const filterSensitiveLog = (obj: ReplaceTopicRuleRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface SearchIndexRequest {
-  /**
-   * <p>The search index name.</p>
-   */
-  indexName?: string;
-
-  /**
-   * <p>The search query string.</p>
-   */
-  queryString: string | undefined;
-
-  /**
-   * <p>The token used to get the next set of results, or <code>null</code> if there are no additional
-   *       results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return at one time.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>The query version.</p>
-   */
-  queryVersion?: string;
-}
-
-export namespace SearchIndexRequest {
-  export const filterSensitiveLog = (obj: SearchIndexRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The thing group search index document.</p>
- */
-export interface ThingGroupDocument {
-  /**
-   * <p>The thing group name.</p>
-   */
-  thingGroupName?: string;
-
-  /**
-   * <p>The thing group ID.</p>
-   */
-  thingGroupId?: string;
-
-  /**
-   * <p>The thing group description.</p>
-   */
-  thingGroupDescription?: string;
-
-  /**
-   * <p>The thing group attributes.</p>
-   */
-  attributes?: { [key: string]: string };
-
-  /**
-   * <p>Parent group names.</p>
-   */
-  parentGroupNames?: string[];
-}
-
-export namespace ThingGroupDocument {
-  export const filterSensitiveLog = (obj: ThingGroupDocument): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The connectivity status of the thing.</p>
- */
-export interface ThingConnectivity {
-  /**
-   * <p>True if the thing is connected to the AWS IoT service; false if it is not
-   *       connected.</p>
-   */
-  connected?: boolean;
-
-  /**
-   * <p>The epoch time (in milliseconds) when the thing last connected or disconnected. If the
-   *       thing has been disconnected for more than a few weeks, the time value might be missing.</p>
-   */
-  timestamp?: number;
-}
-
-export namespace ThingConnectivity {
-  export const filterSensitiveLog = (obj: ThingConnectivity): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The thing search index document.</p>
- */
-export interface ThingDocument {
-  /**
-   * <p>The thing name.</p>
-   */
-  thingName?: string;
-
-  /**
-   * <p>The thing ID.</p>
-   */
-  thingId?: string;
-
-  /**
-   * <p>The thing type name.</p>
-   */
-  thingTypeName?: string;
-
-  /**
-   * <p>Thing group names.</p>
-   */
-  thingGroupNames?: string[];
-
-  /**
-   * <p>The attributes.</p>
-   */
-  attributes?: { [key: string]: string };
-
-  /**
-   * <p>The shadow.</p>
-   */
-  shadow?: string;
-
-  /**
-   * <p>Indicates whether the thing is connected to the AWS IoT service.</p>
-   */
-  connectivity?: ThingConnectivity;
-}
-
-export namespace ThingDocument {
-  export const filterSensitiveLog = (obj: ThingDocument): any => ({
-    ...obj,
-  });
-}
-
-export interface SearchIndexResponse {
-  /**
-   * <p>The token used to get the next set of results, or <code>null</code> if there are no additional
-   *       results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The things that match the search query.</p>
-   */
-  things?: ThingDocument[];
-
-  /**
-   * <p>The thing groups that match the search query.</p>
-   */
-  thingGroups?: ThingGroupDocument[];
-}
-
-export namespace SearchIndexResponse {
-  export const filterSensitiveLog = (obj: SearchIndexResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface SetDefaultAuthorizerRequest {
-  /**
-   * <p>The authorizer name.</p>
-   */
-  authorizerName: string | undefined;
-}
-
-export namespace SetDefaultAuthorizerRequest {
-  export const filterSensitiveLog = (obj: SetDefaultAuthorizerRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface SetDefaultAuthorizerResponse {
-  /**
-   * <p>The authorizer name.</p>
-   */
-  authorizerName?: string;
-
-  /**
-   * <p>The authorizer ARN.</p>
-   */
-  authorizerArn?: string;
-}
-
-export namespace SetDefaultAuthorizerResponse {
-  export const filterSensitiveLog = (obj: SetDefaultAuthorizerResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The input for the SetDefaultPolicyVersion operation.</p>
- */
-export interface SetDefaultPolicyVersionRequest {
-  /**
-   * <p>The policy name.</p>
-   */
-  policyName: string | undefined;
-
-  /**
-   * <p>The policy version ID.</p>
-   */
-  policyVersionId: string | undefined;
-}
-
-export namespace SetDefaultPolicyVersionRequest {
-  export const filterSensitiveLog = (obj: SetDefaultPolicyVersionRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the logging options payload.</p>
- */
-export interface LoggingOptionsPayload {
-  /**
-   * <p>The ARN of the IAM role that grants access.</p>
-   */
-  roleArn: string | undefined;
-
-  /**
-   * <p>The log level.</p>
-   */
-  logLevel?: LogLevel | string;
-}
-
-export namespace LoggingOptionsPayload {
-  export const filterSensitiveLog = (obj: LoggingOptionsPayload): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The input for the SetLoggingOptions operation.</p>
- */
-export interface SetLoggingOptionsRequest {
-  /**
-   * <p>The logging options payload.</p>
-   */
-  loggingOptionsPayload: LoggingOptionsPayload | undefined;
-}
-
-export namespace SetLoggingOptionsRequest {
-  export const filterSensitiveLog = (obj: SetLoggingOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface SetV2LoggingLevelRequest {
-  /**
-   * <p>The log target.</p>
-   */
-  logTarget: LogTarget | undefined;
-
-  /**
-   * <p>The log level.</p>
-   */
-  logLevel: LogLevel | string | undefined;
-}
-
-export namespace SetV2LoggingLevelRequest {
-  export const filterSensitiveLog = (obj: SetV2LoggingLevelRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface SetV2LoggingOptionsRequest {
-  /**
-   * <p>The ARN of the role that allows IoT to write to Cloudwatch logs.</p>
-   */
-  roleArn?: string;
-
-  /**
-   * <p>The default logging level.</p>
-   */
-  defaultLogLevel?: LogLevel | string;
-
-  /**
-   * <p>If true all logs are disabled. The default is false.</p>
-   */
-  disableAllLogs?: boolean;
-}
-
-export namespace SetV2LoggingOptionsRequest {
-  export const filterSensitiveLog = (obj: SetV2LoggingOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface StartAuditMitigationActionsTaskRequest {
-  /**
-   * <p>A unique identifier for the task. You can use this identifier to check the status of the task or to cancel it.</p>
-   */
-  taskId: string | undefined;
-
-  /**
-   * <p>Specifies the audit findings to which the mitigation actions are applied. You can apply them to a type of audit check, to all findings from an audit, or to a speecific set of findings.</p>
-   */
-  target: AuditMitigationActionsTaskTarget | undefined;
-
-  /**
-   * <p>For an audit check, specifies which mitigation actions to apply. Those actions must be defined in your AWS account.</p>
-   */
-  auditCheckToActionsMapping: { [key: string]: string[] } | undefined;
-
-  /**
-   * <p>Each audit mitigation task must have a unique client request token. If you try to start a new task with the same token as a task that already exists, an exception occurs. If you omit this value, a unique client request token is generated automatically.</p>
-   */
-  clientRequestToken?: string;
-}
-
-export namespace StartAuditMitigationActionsTaskRequest {
-  export const filterSensitiveLog = (obj: StartAuditMitigationActionsTaskRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface StartAuditMitigationActionsTaskResponse {
-  /**
-   * <p>The unique identifier for the audit mitigation task. This matches the <code>taskId</code> that you specified in the request.</p>
-   */
-  taskId?: string;
-}
-
-export namespace StartAuditMitigationActionsTaskResponse {
-  export const filterSensitiveLog = (obj: StartAuditMitigationActionsTaskResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>This exception occurs if you attempt to start a task with the same task-id as an existing task but with a different clientRequestToken.</p>
- */
-export interface TaskAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "TaskAlreadyExistsException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace TaskAlreadyExistsException {
-  export const filterSensitiveLog = (obj: TaskAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
-export interface StartOnDemandAuditTaskRequest {
-  /**
-   * <p>Which checks are performed during the audit. The checks you specify must be enabled
-   *             for your account or an exception occurs. Use <code>DescribeAccountAuditConfiguration</code>
-   *             to see the list of all checks, including those that are enabled or
-   *             <code>UpdateAccountAuditConfiguration</code> to select which checks are enabled.</p>
-   */
-  targetCheckNames: string[] | undefined;
-}
-
-export namespace StartOnDemandAuditTaskRequest {
-  export const filterSensitiveLog = (obj: StartOnDemandAuditTaskRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface StartOnDemandAuditTaskResponse {
-  /**
-   * <p>The ID of the on-demand audit you started.</p>
-   */
-  taskId?: string;
-}
-
-export namespace StartOnDemandAuditTaskResponse {
-  export const filterSensitiveLog = (obj: StartOnDemandAuditTaskResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface StartThingRegistrationTaskRequest {
-  /**
-   * <p>The provisioning template.</p>
-   */
-  templateBody: string | undefined;
-
-  /**
-   * <p>The S3 bucket that contains the input file.</p>
-   */
-  inputFileBucket: string | undefined;
-
-  /**
-   * <p>The name of input file within the S3 bucket. This file contains a newline delimited
-   * 			JSON file. Each line contains the parameter values to provision one device
-   * 			(thing).</p>
-   */
-  inputFileKey: string | undefined;
-
-  /**
-   * <p>The IAM role ARN that grants permission the input file.</p>
-   */
-  roleArn: string | undefined;
-}
-
-export namespace StartThingRegistrationTaskRequest {
-  export const filterSensitiveLog = (obj: StartThingRegistrationTaskRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface StartThingRegistrationTaskResponse {
-  /**
-   * <p>The bulk thing provisioning task ID.</p>
-   */
-  taskId?: string;
-}
-
-export namespace StartThingRegistrationTaskResponse {
-  export const filterSensitiveLog = (obj: StartThingRegistrationTaskResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface StopThingRegistrationTaskRequest {
-  /**
-   * <p>The bulk thing provisioning task ID.</p>
-   */
-  taskId: string | undefined;
-}
-
-export namespace StopThingRegistrationTaskRequest {
-  export const filterSensitiveLog = (obj: StopThingRegistrationTaskRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface StopThingRegistrationTaskResponse {}
-
-export namespace StopThingRegistrationTaskResponse {
-  export const filterSensitiveLog = (obj: StopThingRegistrationTaskResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface TagResourceRequest {
-  /**
-   * <p>The ARN of the resource.</p>
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>The new or modified tags for the resource.</p>
-   */
-  tags: Tag[] | undefined;
-}
-
-export namespace TagResourceRequest {
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface TestAuthorizationRequest {
-  /**
-   * <p>The principal. Valid principals are CertificateArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:cert/<i>certificateId</i>), thingGroupArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:thinggroup/<i>groupName</i>) and CognitoId (<i>region</i>:<i>id</i>).</p>
-   */
-  principal?: string;
-
-  /**
-   * <p>The Cognito identity pool ID.</p>
-   */
-  cognitoIdentityPoolId?: string;
-
-  /**
-   * <p>A list of authorization info objects. Simulating authorization will create a response
-   *          for each <code>authInfo</code> object in the list.</p>
-   */
-  authInfos: AuthInfo[] | undefined;
-
-  /**
-   * <p>The MQTT client ID.</p>
-   */
-  clientId?: string;
-
-  /**
-   * <p>When testing custom authorization, the policies specified here are treated as if they
-   *          are attached to the principal being authorized.</p>
-   */
-  policyNamesToAdd?: string[];
-
-  /**
-   * <p>When testing custom authorization, the policies specified here are treated as if they
-   *          are not attached to the principal being authorized.</p>
-   */
-  policyNamesToSkip?: string[];
-}
-
-export namespace TestAuthorizationRequest {
-  export const filterSensitiveLog = (obj: TestAuthorizationRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface TestAuthorizationResponse {
-  /**
-   * <p>The authentication results.</p>
-   */
-  authResults?: AuthResult[];
-}
-
-export namespace TestAuthorizationResponse {
-  export const filterSensitiveLog = (obj: TestAuthorizationResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The response is invalid.</p>
- */
-export interface InvalidResponseException extends __SmithyException, $MetadataBearer {
-  name: "InvalidResponseException";
-  $fault: "client";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidResponseException {
-  export const filterSensitiveLog = (obj: InvalidResponseException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Specifies the HTTP context to use for the test authorizer request.</p>
- */
-export interface HttpContext {
-  /**
-   * <p>The header keys and values in an HTTP authorization request.</p>
-   */
-  headers?: { [key: string]: string };
-
-  /**
-   * <p>The query string keys and values in an HTTP authorization request.</p>
-   */
-  queryString?: string;
-}
-
-export namespace HttpContext {
-  export const filterSensitiveLog = (obj: HttpContext): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Specifies the MQTT context to use for the test authorizer request</p>
- */
-export interface MqttContext {
-  /**
-   * <p>The value of the <code>username</code> key in an MQTT authorization request.</p>
-   */
-  username?: string;
-
-  /**
-   * <p>The value of the <code>password</code> key in an MQTT authorization request.</p>
-   */
-  password?: Uint8Array;
-
-  /**
-   * <p>The value of the <code>clientId</code> key in an MQTT authorization request.</p>
-   */
-  clientId?: string;
-}
-
-export namespace MqttContext {
-  export const filterSensitiveLog = (obj: MqttContext): any => ({
     ...obj,
   });
 }

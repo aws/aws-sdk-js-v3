@@ -21,7 +21,8 @@ export type AssociateApprovedOriginCommandInput = AssociateApprovedOriginRequest
 export type AssociateApprovedOriginCommandOutput = __MetadataBearer;
 
 /**
- * <p>Associates an approved origin to an Amazon Connect instance.</p>
+ * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+ *          <p>Associates an approved origin to an Amazon Connect instance.</p>
  */
 export class AssociateApprovedOriginCommand extends $Command<
   AssociateApprovedOriginCommandInput,

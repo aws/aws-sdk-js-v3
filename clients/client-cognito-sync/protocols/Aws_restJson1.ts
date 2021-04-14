@@ -48,7 +48,6 @@ import {
   InvalidConfigurationException,
   InvalidLambdaFunctionOutputException,
   InvalidParameterException,
-  LambdaSocketTimeoutException,
   LambdaThrottledException,
   LimitExceededException,
   NotAuthorizedException,
@@ -366,7 +365,7 @@ export const serializeAws_restJson1ListDatasetsCommand = async (
   }
   const query: any = {
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2278,14 +2277,6 @@ const deserializeAws_restJson1UpdateRecordsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
-    case "LambdaSocketTimeoutException":
-    case "com.amazonaws.cognitosync#LambdaSocketTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1LambdaSocketTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "LambdaThrottledException":
     case "com.amazonaws.cognitosync#LambdaThrottledException":
       response = {
@@ -2470,23 +2461,6 @@ const deserializeAws_restJson1InvalidParameterExceptionResponse = async (
   return contents;
 };
 
-const deserializeAws_restJson1LambdaSocketTimeoutExceptionResponse = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<LambdaSocketTimeoutException> => {
-  const contents: LambdaSocketTimeoutException = {
-    name: "LambdaSocketTimeoutException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
-  const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
-    contents.message = data.message;
-  }
-  return contents;
-};
-
 const deserializeAws_restJson1LambdaThrottledExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -2602,8 +2576,6 @@ const serializeAws_restJson1ApplicationArnList = (input: string[], context: __Se
 
 const serializeAws_restJson1CognitoStreams = (input: CognitoStreams, context: __SerdeContext): any => {
   return {
-    ...(input.DisabledReason !== undefined &&
-      input.DisabledReason !== null && { DisabledReason: input.DisabledReason }),
     ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
     ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
     ...(input.StreamingStatus !== undefined &&
@@ -2670,8 +2642,6 @@ const deserializeAws_restJson1ApplicationArnList = (output: any, context: __Serd
 
 const deserializeAws_restJson1CognitoStreams = (output: any, context: __SerdeContext): CognitoStreams => {
   return {
-    DisabledReason:
-      output.DisabledReason !== undefined && output.DisabledReason !== null ? output.DisabledReason : undefined,
     RoleArn: output.RoleArn !== undefined && output.RoleArn !== null ? output.RoleArn : undefined,
     StreamName: output.StreamName !== undefined && output.StreamName !== null ? output.StreamName : undefined,
     StreamingStatus:

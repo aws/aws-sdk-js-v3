@@ -21,7 +21,7 @@ export type GetPolicyCommandOutput = GetPolicyResponse & __MetadataBearer;
  * <p>Retrieves the resource-based policy attached to a private CA. If either the private CA
  * 			resource or the policy cannot be found, this action returns a
  * 				<code>ResourceNotFoundException</code>. </p>
- * 		       <p>The policy can be attached or updated with <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_PutPolicy.html">PutPolicy</a> and removed with <a href="acm-pca/latest/APIReference/API_DeletePolicy.html">DeletePolicy</a>.</p>
+ * 		       <p>The policy can be attached or updated with <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_PutPolicy.html">PutPolicy</a> and removed with <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeletePolicy.html">DeletePolicy</a>.</p>
  * 		       <p class="title">
  *             <b>About Policies</b>
  *          </p>
@@ -29,7 +29,7 @@ export type GetPolicyCommandOutput = GetPolicyResponse & __MetadataBearer;
  *             <li>
  * 			            <p>A policy grants access on a private CA to an AWS customer account, to AWS Organizations, or to
  * 			an AWS Organizations unit. Policies are under the control of a CA administrator. For more information,
- * 			see <a href="acm-pca/latest/userguide/pca-rbp.html">Using a Resource Based Policy with ACM Private CA</a>.</p>
+ * 			see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-rbp.html">Using a Resource Based Policy with ACM Private CA</a>.</p>
  * 		          </li>
  *             <li>
  * 			            <p>A policy permits a user of AWS Certificate Manager (ACM) to issue ACM certificates
@@ -45,8 +45,8 @@ export type GetPolicyCommandOutput = GetPolicyResponse & __MetadataBearer;
  * 		          </li>
  *             <li>
  * 			            <p>Updates made in AWS Resource Manager (RAM) are reflected in policies. For more information,
- * 			see <a href="acm-pca/latest/userguide/pca-ram.html">Using AWS Resource Access Manager
- * 			(RAM) with ACM Private CA</a>.</p>
+ * 			see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-ram.html">Attach a Policy for Cross-Account
+ * 			Access</a>.</p>
  * 		          </li>
  *          </ul>
  */

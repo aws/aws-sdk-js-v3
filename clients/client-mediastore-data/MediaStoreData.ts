@@ -82,7 +82,7 @@ export class MediaStoreData extends MediaStoreDataClient {
   }
 
   /**
-   * <p>Downloads the object at the specified path.</p>
+   * <p>Downloads the object at the specified path. If the object’s upload availability is set to <code>streaming</code>, AWS Elemental MediaStore downloads the object even if it’s still uploading the object.</p>
    */
   public getObject(args: GetObjectCommandInput, options?: __HttpHandlerOptions): Promise<GetObjectCommandOutput>;
   public getObject(args: GetObjectCommandInput, cb: (err: any, data?: GetObjectCommandOutput) => void): void;
@@ -135,7 +135,7 @@ export class MediaStoreData extends MediaStoreDataClient {
   }
 
   /**
-   * <p>Uploads an object to the specified path. Object sizes are limited to 25 MB.</p>
+   * <p>Uploads an object to the specified path. Object sizes are limited to 25 MB for standard upload availability and 10 MB for streaming upload availability.</p>
    */
   public putObject(args: PutObjectCommandInput, options?: __HttpHandlerOptions): Promise<PutObjectCommandOutput>;
   public putObject(args: PutObjectCommandInput, cb: (err: any, data?: PutObjectCommandOutput) => void): void;

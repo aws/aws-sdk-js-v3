@@ -45,6 +45,9 @@ export type ImportCertificateCommandOutput = ImportCertificateResponse & __Metad
  *           by a password or a passphrase.</p>
  *             </li>
  *             <li>
+ *                <p>The private key must be no larger than 5 KB (5,120 bytes).</p>
+ *             </li>
+ *             <li>
  *                <p>If the certificate you are importing is not self-signed, you must enter its
  *           certificate chain.</p>
  *             </li>
@@ -67,14 +70,15 @@ export type ImportCertificateCommandOutput = ImportCertificateResponse & __Metad
  *             </li>
  *             <li>
  *                <p>To import a new certificate, omit the <code>CertificateArn</code> argument. Include
- *           this argument only when you want to replace a previously imported certifica</p>
+ *           this argument only when you want to replace a previously imported certificate.</p>
  *             </li>
  *             <li>
  *                <p>When you import a certificate by using the CLI, you must specify the certificate, the
  *           certificate chain, and the private key by their file names preceded by
- *             <code>file://</code>. For example, you can specify a certificate saved in the
- *             <code>C:\temp</code> folder as <code>file://C:\temp\certificate_to_import.pem</code>. If
- *           you are making an HTTP or HTTPS Query request, include these arguments as BLOBs. </p>
+ *             <code>fileb://</code>. For example, you can specify a certificate saved in the
+ *             <code>C:\temp</code> folder as <code>fileb://C:\temp\certificate_to_import.pem</code>.
+ *           If you are making an HTTP or HTTPS Query request, include these arguments as BLOBs.
+ *         </p>
  *             </li>
  *             <li>
  *                <p>When you import a certificate by using an SDK, you must specify the certificate, the

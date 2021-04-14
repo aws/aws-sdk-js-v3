@@ -21,8 +21,8 @@ export type StartSimulationJobBatchCommandInput = StartSimulationJobBatchRequest
 export type StartSimulationJobBatchCommandOutput = StartSimulationJobBatchResponse & __MetadataBearer;
 
 /**
- * <p>Starts a new simulation job batch. The batch is defined using one or more <code>SimulationJobRequest</code> objects.
- *       </p>
+ * <p>Starts a new simulation job batch. The batch is defined using one or more
+ *             <code>SimulationJobRequest</code> objects. </p>
  */
 export class StartSimulationJobBatchCommand extends $Command<
   StartSimulationJobBatchCommandInput,

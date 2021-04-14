@@ -21,7 +21,7 @@ export type ListPlaybackConfigurationsCommandInput = ListPlaybackConfigurationsR
 export type ListPlaybackConfigurationsCommandOutput = ListPlaybackConfigurationsResponse & __MetadataBearer;
 
 /**
- * <p>Returns a list of the playback configurations defined in AWS Elemental MediaTailor. You can specify a maximum number of configurations to return at a time. The default maximum is 50. Results are returned in pagefuls. If MediaTailor has more configurations than the specified maximum, it provides parameters in the response that you can use to retrieve the next pageful. </p>
+ * <p>Returns a list of the playback configurations defined in AWS Elemental MediaTailor. You can specify a maximum number of configurations to return at a time. The default maximum is 50. Results are returned in pagefuls. If MediaTailor has more configurations than the specified maximum, it provides parameters in the response that you can use to retrieve the next pageful.</p>
  */
 export class ListPlaybackConfigurationsCommand extends $Command<
   ListPlaybackConfigurationsCommandInput,

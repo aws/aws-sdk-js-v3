@@ -24,7 +24,7 @@ export type CreateSnapshotCommandOutput = CreateSnapshotOutput & __MetadataBeare
  * <p>Initiates a snapshot of a volume.</p>
  *
  *          <p>AWS Storage Gateway provides the ability to back up point-in-time snapshots of your data
- *          to Amazon Simple Storage (Amazon S3) for durable off-site recovery, as well as import the
+ *          to Amazon Simple Storage (Amazon S3) for durable off-site recovery, and also import the
  *          data to an Amazon Elastic Block Store (EBS) volume in Amazon Elastic Compute Cloud (EC2).
  *          You can take snapshots of your gateway volume on a scheduled or ad hoc basis. This API
  *          enables you to take an ad hoc snapshot. For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#SchedulingSnapshot">Editing a

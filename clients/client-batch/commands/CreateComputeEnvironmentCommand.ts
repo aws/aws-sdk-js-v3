@@ -26,24 +26,25 @@ export type CreateComputeEnvironmentCommandOutput = CreateComputeEnvironmentResp
  *     <code>UNMANAGED</code> compute environments can only use EC2 resources.</p>
  *          <p>In a managed compute environment, AWS Batch manages the capacity and instance types of the compute resources
  *    within the environment. This is based on the compute resource specification that you define or the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">launch template</a> that you
- *    specify when you create the compute environment. You can choose either to use EC2 On-Demand Instances and EC2 Spot
- *    Instances, or to use Fargate and Fargate Spot capacity in your managed compute environment. You can optionally
- *    set a maximum price so that Spot Instances only launch when the Spot Instance price is below a specified percentage
- *    of the On-Demand price.</p>
+ *    specify when you create the compute environment. Either, you can choose to use EC2 On-Demand Instances and EC2 Spot
+ *    Instances. Or, you can use Fargate and Fargate Spot capacity in your managed compute environment. You can
+ *    optionally set a maximum price so that Spot Instances only launch
+ *    when
+ *    the Spot Instance price is less than a specified percentage of the On-Demand price.</p>
+ *
  *          <note>
- *             <p>Multi-node parallel jobs are not supported on Spot Instances.</p>
+ *             <p>Multi-node parallel jobs aren't supported on Spot Instances.</p>
  *          </note>
  *          <p>In an unmanaged compute environment, you can manage your own EC2 compute resources and have a lot of flexibility
- *    with how you configure your compute resources. For example, you can use custom AMI. However, you need to verify that
- *    your AMI meets the Amazon ECS container instance AMI specification. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container_instance_AMIs.html">container instance AMIs</a> in the
- *     <i>Amazon Elastic Container Service Developer Guide</i>. After you have created your unmanaged compute environment, you can use the
- *     <a>DescribeComputeEnvironments</a> operation to find the Amazon ECS cluster that is associated with it. Then,
- *    manually launch your container instances into that Amazon ECS cluster. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_container_instance.html">Launching an Amazon ECS
- *     container instance</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ *    with how you configure your compute resources. For example, you can use custom AMIs. However, you must verify that
+ *    each of your AMIs meet the Amazon ECS container instance AMI specification. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container_instance_AMIs.html">container instance AMIs</a> in the
+ *     <i>Amazon Elastic Container Service Developer Guide</i>. After you created your unmanaged compute environment, you can use the <a>DescribeComputeEnvironments</a> operation to find the Amazon ECS cluster that's associated with it. Then, launch
+ *    your container instances into that Amazon ECS cluster. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_container_instance.html">Launching an Amazon ECS container instance</a> in the
+ *     <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  *          <note>
- *             <p>AWS Batch doesn't upgrade the AMIs in a compute environment after it's created. For example, it doesn't update
- *     the AMIs when a newer version of the Amazon ECS-optimized AMI is available. Therefore, you're responsible for the
- *     management of the guest operating system (including updates and security patches) and any additional application
+ *             <p>AWS Batch doesn't upgrade the AMIs in a compute environment after the environment is created. For example, it
+ *     doesn't update the AMIs when a newer version of the Amazon ECS optimized AMI is available. Therefore, you're responsible
+ *     for managing the guest operating system (including its updates and security patches) and any additional application
  *     software or utilities that you install on the compute resources. To use a new AMI for your AWS Batch jobs, complete
  *     these steps:</p>
  *             <ol>

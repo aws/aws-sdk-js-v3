@@ -18,6 +18,7 @@ import {
 import { DeleteScheduleCommandInput, DeleteScheduleCommandOutput } from "../commands/DeleteScheduleCommand";
 import { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "../commands/DescribeDatasetCommand";
 import { DescribeJobCommandInput, DescribeJobCommandOutput } from "../commands/DescribeJobCommand";
+import { DescribeJobRunCommandInput, DescribeJobRunCommandOutput } from "../commands/DescribeJobRunCommand";
 import { DescribeProjectCommandInput, DescribeProjectCommandOutput } from "../commands/DescribeProjectCommand";
 import { DescribeRecipeCommandInput, DescribeRecipeCommandOutput } from "../commands/DescribeRecipeCommand";
 import { DescribeScheduleCommandInput, DescribeScheduleCommandOutput } from "../commands/DescribeScheduleCommand";
@@ -55,16 +56,26 @@ import {
   AccessDeniedException,
   ConditionExpression,
   ConflictException,
+  CsvOptions,
+  CsvOutputOptions,
   DataCatalogInputDefinition,
+  DatabaseInputDefinition,
   Dataset,
+  DatasetParameter,
+  DatetimeOptions,
   ExcelOptions,
+  FilesLimit,
+  FilterExpression,
   FormatOptions,
   Input,
   InternalServerException,
   Job,
   JobRun,
+  JobSample,
   JsonOptions,
   Output,
+  OutputFormatOptions,
+  PathOptions,
   Project,
   Recipe,
   RecipeAction,
@@ -137,6 +148,7 @@ export const serializeAws_restJson1CreateDatasetCommand = async (
   let resolvedPath = "/datasets";
   let body: any;
   body = JSON.stringify({
+    ...(input.Format !== undefined && input.Format !== null && { Format: input.Format }),
     ...(input.FormatOptions !== undefined &&
       input.FormatOptions !== null && {
         FormatOptions: serializeAws_restJson1FormatOptions(input.FormatOptions, context),
@@ -144,6 +156,8 @@ export const serializeAws_restJson1CreateDatasetCommand = async (
     ...(input.Input !== undefined &&
       input.Input !== null && { Input: serializeAws_restJson1Input(input.Input, context) }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.PathOptions !== undefined &&
+      input.PathOptions !== null && { PathOptions: serializeAws_restJson1PathOptions(input.PathOptions, context) }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -173,6 +187,8 @@ export const serializeAws_restJson1CreateProfileJobCommand = async (
       input.EncryptionKeyArn !== null && { EncryptionKeyArn: input.EncryptionKeyArn }),
     ...(input.EncryptionMode !== undefined &&
       input.EncryptionMode !== null && { EncryptionMode: input.EncryptionMode }),
+    ...(input.JobSample !== undefined &&
+      input.JobSample !== null && { JobSample: serializeAws_restJson1JobSample(input.JobSample, context) }),
     ...(input.LogSubscription !== undefined &&
       input.LogSubscription !== null && { LogSubscription: input.LogSubscription }),
     ...(input.MaxCapacity !== undefined && input.MaxCapacity !== null && { MaxCapacity: input.MaxCapacity }),
@@ -519,6 +535,43 @@ export const serializeAws_restJson1DescribeJobCommand = async (
     resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeJobRunCommand = async (
+  input: DescribeJobRunCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/jobs/{Name}/jobRun/{RunId}";
+  if (input.Name !== undefined) {
+    const labelValue: string = input.Name;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Name.");
+    }
+    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Name.");
+  }
+  if (input.RunId !== undefined) {
+    const labelValue: string = input.RunId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: RunId.");
+    }
+    resolvedPath = resolvedPath.replace("{RunId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: RunId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1086,12 +1139,15 @@ export const serializeAws_restJson1UpdateDatasetCommand = async (
   }
   let body: any;
   body = JSON.stringify({
+    ...(input.Format !== undefined && input.Format !== null && { Format: input.Format }),
     ...(input.FormatOptions !== undefined &&
       input.FormatOptions !== null && {
         FormatOptions: serializeAws_restJson1FormatOptions(input.FormatOptions, context),
       }),
     ...(input.Input !== undefined &&
       input.Input !== null && { Input: serializeAws_restJson1Input(input.Input, context) }),
+    ...(input.PathOptions !== undefined &&
+      input.PathOptions !== null && { PathOptions: serializeAws_restJson1PathOptions(input.PathOptions, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1128,6 +1184,8 @@ export const serializeAws_restJson1UpdateProfileJobCommand = async (
       input.EncryptionKeyArn !== null && { EncryptionKeyArn: input.EncryptionKeyArn }),
     ...(input.EncryptionMode !== undefined &&
       input.EncryptionMode !== null && { EncryptionMode: input.EncryptionMode }),
+    ...(input.JobSample !== undefined &&
+      input.JobSample !== null && { JobSample: serializeAws_restJson1JobSample(input.JobSample, context) }),
     ...(input.LogSubscription !== undefined &&
       input.LogSubscription !== null && { LogSubscription: input.LogSubscription }),
     ...(input.MaxCapacity !== undefined && input.MaxCapacity !== null && { MaxCapacity: input.MaxCapacity }),
@@ -1485,6 +1543,38 @@ const deserializeAws_restJson1CreateProfileJobCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.databrew#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.databrew#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.databrew#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.databrew#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ValidationException":
     case "com.amazonaws.databrew#ValidationException":
       response = {
@@ -1690,6 +1780,38 @@ const deserializeAws_restJson1CreateRecipeJobCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.databrew#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.databrew#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.databrew#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.databrew#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ValidationException":
     case "com.amazonaws.databrew#ValidationException":
       response = {
@@ -1745,6 +1867,22 @@ const deserializeAws_restJson1CreateScheduleCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.databrew#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.databrew#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ValidationException":
     case "com.amazonaws.databrew#ValidationException":
       response = {
@@ -1800,6 +1938,14 @@ const deserializeAws_restJson1DeleteDatasetCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.databrew#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceNotFoundException":
     case "com.amazonaws.databrew#ResourceNotFoundException":
       response = {
@@ -1863,6 +2009,14 @@ const deserializeAws_restJson1DeleteJobCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.databrew#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceNotFoundException":
     case "com.amazonaws.databrew#ResourceNotFoundException":
       response = {
@@ -1926,6 +2080,14 @@ const deserializeAws_restJson1DeleteProjectCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.databrew#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceNotFoundException":
     case "com.amazonaws.databrew#ResourceNotFoundException":
       response = {
@@ -1993,6 +2155,14 @@ const deserializeAws_restJson1DeleteRecipeVersionCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.databrew#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceNotFoundException":
     case "com.amazonaws.databrew#ResourceNotFoundException":
       response = {
@@ -2100,11 +2270,13 @@ export const deserializeAws_restJson1DescribeDatasetCommand = async (
     $metadata: deserializeMetadata(output),
     CreateDate: undefined,
     CreatedBy: undefined,
+    Format: undefined,
     FormatOptions: undefined,
     Input: undefined,
     LastModifiedBy: undefined,
     LastModifiedDate: undefined,
     Name: undefined,
+    PathOptions: undefined,
     ResourceArn: undefined,
     Source: undefined,
     Tags: undefined,
@@ -2115,6 +2287,9 @@ export const deserializeAws_restJson1DescribeDatasetCommand = async (
   }
   if (data.CreatedBy !== undefined && data.CreatedBy !== null) {
     contents.CreatedBy = data.CreatedBy;
+  }
+  if (data.Format !== undefined && data.Format !== null) {
+    contents.Format = data.Format;
   }
   if (data.FormatOptions !== undefined && data.FormatOptions !== null) {
     contents.FormatOptions = deserializeAws_restJson1FormatOptions(data.FormatOptions, context);
@@ -2130,6 +2305,9 @@ export const deserializeAws_restJson1DescribeDatasetCommand = async (
   }
   if (data.Name !== undefined && data.Name !== null) {
     contents.Name = data.Name;
+  }
+  if (data.PathOptions !== undefined && data.PathOptions !== null) {
+    contents.PathOptions = deserializeAws_restJson1PathOptions(data.PathOptions, context);
   }
   if (data.ResourceArn !== undefined && data.ResourceArn !== null) {
     contents.ResourceArn = data.ResourceArn;
@@ -2202,6 +2380,7 @@ export const deserializeAws_restJson1DescribeJobCommand = async (
     DatasetName: undefined,
     EncryptionKeyArn: undefined,
     EncryptionMode: undefined,
+    JobSample: undefined,
     LastModifiedBy: undefined,
     LastModifiedDate: undefined,
     LogSubscription: undefined,
@@ -2232,6 +2411,9 @@ export const deserializeAws_restJson1DescribeJobCommand = async (
   }
   if (data.EncryptionMode !== undefined && data.EncryptionMode !== null) {
     contents.EncryptionMode = data.EncryptionMode;
+  }
+  if (data.JobSample !== undefined && data.JobSample !== null) {
+    contents.JobSample = deserializeAws_restJson1JobSample(data.JobSample, context);
   }
   if (data.LastModifiedBy !== undefined && data.LastModifiedBy !== null) {
     contents.LastModifiedBy = data.LastModifiedBy;
@@ -2282,6 +2464,125 @@ const deserializeAws_restJson1DescribeJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.databrew#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.databrew#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DescribeJobRunCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeJobRunCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeJobRunCommandError(output, context);
+  }
+  const contents: DescribeJobRunCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Attempt: undefined,
+    CompletedOn: undefined,
+    DatasetName: undefined,
+    ErrorMessage: undefined,
+    ExecutionTime: undefined,
+    JobName: undefined,
+    JobSample: undefined,
+    LogGroupName: undefined,
+    LogSubscription: undefined,
+    Outputs: undefined,
+    RecipeReference: undefined,
+    RunId: undefined,
+    StartedBy: undefined,
+    StartedOn: undefined,
+    State: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.Attempt !== undefined && data.Attempt !== null) {
+    contents.Attempt = data.Attempt;
+  }
+  if (data.CompletedOn !== undefined && data.CompletedOn !== null) {
+    contents.CompletedOn = new Date(Math.round(data.CompletedOn * 1000));
+  }
+  if (data.DatasetName !== undefined && data.DatasetName !== null) {
+    contents.DatasetName = data.DatasetName;
+  }
+  if (data.ErrorMessage !== undefined && data.ErrorMessage !== null) {
+    contents.ErrorMessage = data.ErrorMessage;
+  }
+  if (data.ExecutionTime !== undefined && data.ExecutionTime !== null) {
+    contents.ExecutionTime = data.ExecutionTime;
+  }
+  if (data.JobName !== undefined && data.JobName !== null) {
+    contents.JobName = data.JobName;
+  }
+  if (data.JobSample !== undefined && data.JobSample !== null) {
+    contents.JobSample = deserializeAws_restJson1JobSample(data.JobSample, context);
+  }
+  if (data.LogGroupName !== undefined && data.LogGroupName !== null) {
+    contents.LogGroupName = data.LogGroupName;
+  }
+  if (data.LogSubscription !== undefined && data.LogSubscription !== null) {
+    contents.LogSubscription = data.LogSubscription;
+  }
+  if (data.Outputs !== undefined && data.Outputs !== null) {
+    contents.Outputs = deserializeAws_restJson1OutputList(data.Outputs, context);
+  }
+  if (data.RecipeReference !== undefined && data.RecipeReference !== null) {
+    contents.RecipeReference = deserializeAws_restJson1RecipeReference(data.RecipeReference, context);
+  }
+  if (data.RunId !== undefined && data.RunId !== null) {
+    contents.RunId = data.RunId;
+  }
+  if (data.StartedBy !== undefined && data.StartedBy !== null) {
+    contents.StartedBy = data.StartedBy;
+  }
+  if (data.StartedOn !== undefined && data.StartedOn !== null) {
+    contents.StartedOn = new Date(Math.round(data.StartedOn * 1000));
+  }
+  if (data.State !== undefined && data.State !== null) {
+    contents.State = data.State;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeJobRunCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeJobRunCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -3174,6 +3475,14 @@ const deserializeAws_restJson1PublishRecipeCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.databrew#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ValidationException":
     case "com.amazonaws.databrew#ValidationException":
       response = {
@@ -3308,10 +3617,26 @@ const deserializeAws_restJson1StartJobRunCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.databrew#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceNotFoundException":
     case "com.amazonaws.databrew#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.databrew#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3375,10 +3700,26 @@ const deserializeAws_restJson1StartProjectSessionCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.databrew#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceNotFoundException":
     case "com.amazonaws.databrew#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.databrew#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3635,6 +3976,14 @@ const deserializeAws_restJson1UpdateDatasetCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.databrew#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceNotFoundException":
     case "com.amazonaws.databrew#ResourceNotFoundException":
       response = {
@@ -3698,6 +4047,22 @@ const deserializeAws_restJson1UpdateProfileJobCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.databrew#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.databrew#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ValidationException":
     case "com.amazonaws.databrew#ValidationException":
       response = {
@@ -3883,6 +4248,22 @@ const deserializeAws_restJson1UpdateRecipeJobCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.databrew#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.databrew#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ValidationException":
     case "com.amazonaws.databrew#ValidationException":
       response = {
@@ -3938,6 +4319,22 @@ const deserializeAws_restJson1UpdateScheduleCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.databrew#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.databrew#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ValidationException":
     case "com.amazonaws.databrew#ValidationException":
       response = {
@@ -4095,6 +4492,35 @@ const serializeAws_restJson1ConditionExpressionList = (input: ConditionExpressio
     });
 };
 
+const serializeAws_restJson1CsvOptions = (input: CsvOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.Delimiter !== undefined && input.Delimiter !== null && { Delimiter: input.Delimiter }),
+    ...(input.HeaderRow !== undefined && input.HeaderRow !== null && { HeaderRow: input.HeaderRow }),
+  };
+};
+
+const serializeAws_restJson1CsvOutputOptions = (input: CsvOutputOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.Delimiter !== undefined && input.Delimiter !== null && { Delimiter: input.Delimiter }),
+  };
+};
+
+const serializeAws_restJson1DatabaseInputDefinition = (
+  input: DatabaseInputDefinition,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DatabaseTableName !== undefined &&
+      input.DatabaseTableName !== null && { DatabaseTableName: input.DatabaseTableName }),
+    ...(input.GlueConnectionName !== undefined &&
+      input.GlueConnectionName !== null && { GlueConnectionName: input.GlueConnectionName }),
+    ...(input.TempDirectory !== undefined &&
+      input.TempDirectory !== null && {
+        TempDirectory: serializeAws_restJson1S3Location(input.TempDirectory, context),
+      }),
+  };
+};
+
 const serializeAws_restJson1DataCatalogInputDefinition = (
   input: DataCatalogInputDefinition,
   context: __SerdeContext
@@ -4110,8 +4536,32 @@ const serializeAws_restJson1DataCatalogInputDefinition = (
   };
 };
 
+const serializeAws_restJson1DatasetParameter = (input: DatasetParameter, context: __SerdeContext): any => {
+  return {
+    ...(input.CreateColumn !== undefined && input.CreateColumn !== null && { CreateColumn: input.CreateColumn }),
+    ...(input.DatetimeOptions !== undefined &&
+      input.DatetimeOptions !== null && {
+        DatetimeOptions: serializeAws_restJson1DatetimeOptions(input.DatetimeOptions, context),
+      }),
+    ...(input.Filter !== undefined &&
+      input.Filter !== null && { Filter: serializeAws_restJson1FilterExpression(input.Filter, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+  };
+};
+
+const serializeAws_restJson1DatetimeOptions = (input: DatetimeOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.Format !== undefined && input.Format !== null && { Format: input.Format }),
+    ...(input.LocaleCode !== undefined && input.LocaleCode !== null && { LocaleCode: input.LocaleCode }),
+    ...(input.TimezoneOffset !== undefined &&
+      input.TimezoneOffset !== null && { TimezoneOffset: input.TimezoneOffset }),
+  };
+};
+
 const serializeAws_restJson1ExcelOptions = (input: ExcelOptions, context: __SerdeContext): any => {
   return {
+    ...(input.HeaderRow !== undefined && input.HeaderRow !== null && { HeaderRow: input.HeaderRow }),
     ...(input.SheetIndexes !== undefined &&
       input.SheetIndexes !== null && {
         SheetIndexes: serializeAws_restJson1SheetIndexList(input.SheetIndexes, context),
@@ -4121,8 +4571,25 @@ const serializeAws_restJson1ExcelOptions = (input: ExcelOptions, context: __Serd
   };
 };
 
+const serializeAws_restJson1FilesLimit = (input: FilesLimit, context: __SerdeContext): any => {
+  return {
+    ...(input.MaxFiles !== undefined && input.MaxFiles !== null && { MaxFiles: input.MaxFiles }),
+    ...(input.Order !== undefined && input.Order !== null && { Order: input.Order }),
+    ...(input.OrderedBy !== undefined && input.OrderedBy !== null && { OrderedBy: input.OrderedBy }),
+  };
+};
+
+const serializeAws_restJson1FilterExpression = (input: FilterExpression, context: __SerdeContext): any => {
+  return {
+    ...(input.Expression !== undefined && input.Expression !== null && { Expression: input.Expression }),
+    ...(input.ValuesMap !== undefined &&
+      input.ValuesMap !== null && { ValuesMap: serializeAws_restJson1ValuesMap(input.ValuesMap, context) }),
+  };
+};
+
 const serializeAws_restJson1FormatOptions = (input: FormatOptions, context: __SerdeContext): any => {
   return {
+    ...(input.Csv !== undefined && input.Csv !== null && { Csv: serializeAws_restJson1CsvOptions(input.Csv, context) }),
     ...(input.Excel !== undefined &&
       input.Excel !== null && { Excel: serializeAws_restJson1ExcelOptions(input.Excel, context) }),
     ...(input.Json !== undefined &&
@@ -4150,6 +4617,10 @@ const serializeAws_restJson1Input = (input: Input, context: __SerdeContext): any
           context
         ),
       }),
+    ...(input.DatabaseInputDefinition !== undefined &&
+      input.DatabaseInputDefinition !== null && {
+        DatabaseInputDefinition: serializeAws_restJson1DatabaseInputDefinition(input.DatabaseInputDefinition, context),
+      }),
     ...(input.S3InputDefinition !== undefined &&
       input.S3InputDefinition !== null && {
         S3InputDefinition: serializeAws_restJson1S3Location(input.S3InputDefinition, context),
@@ -4168,6 +4639,13 @@ const serializeAws_restJson1JobNameList = (input: string[], context: __SerdeCont
     });
 };
 
+const serializeAws_restJson1JobSample = (input: JobSample, context: __SerdeContext): any => {
+  return {
+    ...(input.Mode !== undefined && input.Mode !== null && { Mode: input.Mode }),
+    ...(input.Size !== undefined && input.Size !== null && { Size: input.Size }),
+  };
+};
+
 const serializeAws_restJson1JsonOptions = (input: JsonOptions, context: __SerdeContext): any => {
   return {
     ...(input.MultiLine !== undefined && input.MultiLine !== null && { MultiLine: input.MultiLine }),
@@ -4179,6 +4657,10 @@ const serializeAws_restJson1Output = (input: Output, context: __SerdeContext): a
     ...(input.CompressionFormat !== undefined &&
       input.CompressionFormat !== null && { CompressionFormat: input.CompressionFormat }),
     ...(input.Format !== undefined && input.Format !== null && { Format: input.Format }),
+    ...(input.FormatOptions !== undefined &&
+      input.FormatOptions !== null && {
+        FormatOptions: serializeAws_restJson1OutputFormatOptions(input.FormatOptions, context),
+      }),
     ...(input.Location !== undefined &&
       input.Location !== null && { Location: serializeAws_restJson1S3Location(input.Location, context) }),
     ...(input.Overwrite !== undefined && input.Overwrite !== null && { Overwrite: input.Overwrite }),
@@ -4186,6 +4668,13 @@ const serializeAws_restJson1Output = (input: Output, context: __SerdeContext): a
       input.PartitionColumns !== null && {
         PartitionColumns: serializeAws_restJson1ColumnNameList(input.PartitionColumns, context),
       }),
+  };
+};
+
+const serializeAws_restJson1OutputFormatOptions = (input: OutputFormatOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.Csv !== undefined &&
+      input.Csv !== null && { Csv: serializeAws_restJson1CsvOutputOptions(input.Csv, context) }),
   };
 };
 
@@ -4208,6 +4697,34 @@ const serializeAws_restJson1ParameterMap = (input: { [key: string]: string }, co
     return {
       ...acc,
       [key]: value,
+    };
+  }, {});
+};
+
+const serializeAws_restJson1PathOptions = (input: PathOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.FilesLimit !== undefined &&
+      input.FilesLimit !== null && { FilesLimit: serializeAws_restJson1FilesLimit(input.FilesLimit, context) }),
+    ...(input.LastModifiedDateCondition !== undefined &&
+      input.LastModifiedDateCondition !== null && {
+        LastModifiedDateCondition: serializeAws_restJson1FilterExpression(input.LastModifiedDateCondition, context),
+      }),
+    ...(input.Parameters !== undefined &&
+      input.Parameters !== null && { Parameters: serializeAws_restJson1PathParametersMap(input.Parameters, context) }),
+  };
+};
+
+const serializeAws_restJson1PathParametersMap = (
+  input: { [key: string]: DatasetParameter },
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: DatasetParameter }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_restJson1DatasetParameter(value, context),
     };
   }, {});
 };
@@ -4308,6 +4825,18 @@ const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context:
   }, {});
 };
 
+const serializeAws_restJson1ValuesMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
+};
+
 const serializeAws_restJson1ViewFrame = (input: ViewFrame, context: __SerdeContext): any => {
   return {
     ...(input.ColumnRange !== undefined && input.ColumnRange !== null && { ColumnRange: input.ColumnRange }),
@@ -4353,6 +4882,39 @@ const deserializeAws_restJson1ConditionExpressionList = (
     });
 };
 
+const deserializeAws_restJson1CsvOptions = (output: any, context: __SerdeContext): CsvOptions => {
+  return {
+    Delimiter: output.Delimiter !== undefined && output.Delimiter !== null ? output.Delimiter : undefined,
+    HeaderRow: output.HeaderRow !== undefined && output.HeaderRow !== null ? output.HeaderRow : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1CsvOutputOptions = (output: any, context: __SerdeContext): CsvOutputOptions => {
+  return {
+    Delimiter: output.Delimiter !== undefined && output.Delimiter !== null ? output.Delimiter : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DatabaseInputDefinition = (
+  output: any,
+  context: __SerdeContext
+): DatabaseInputDefinition => {
+  return {
+    DatabaseTableName:
+      output.DatabaseTableName !== undefined && output.DatabaseTableName !== null
+        ? output.DatabaseTableName
+        : undefined,
+    GlueConnectionName:
+      output.GlueConnectionName !== undefined && output.GlueConnectionName !== null
+        ? output.GlueConnectionName
+        : undefined,
+    TempDirectory:
+      output.TempDirectory !== undefined && output.TempDirectory !== null
+        ? deserializeAws_restJson1S3Location(output.TempDirectory, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1DataCatalogInputDefinition = (
   output: any,
   context: __SerdeContext
@@ -4376,6 +4938,7 @@ const deserializeAws_restJson1Dataset = (output: any, context: __SerdeContext): 
         ? new Date(Math.round(output.CreateDate * 1000))
         : undefined,
     CreatedBy: output.CreatedBy !== undefined && output.CreatedBy !== null ? output.CreatedBy : undefined,
+    Format: output.Format !== undefined && output.Format !== null ? output.Format : undefined,
     FormatOptions:
       output.FormatOptions !== undefined && output.FormatOptions !== null
         ? deserializeAws_restJson1FormatOptions(output.FormatOptions, context)
@@ -4391,6 +4954,10 @@ const deserializeAws_restJson1Dataset = (output: any, context: __SerdeContext): 
         ? new Date(Math.round(output.LastModifiedDate * 1000))
         : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    PathOptions:
+      output.PathOptions !== undefined && output.PathOptions !== null
+        ? deserializeAws_restJson1PathOptions(output.PathOptions, context)
+        : undefined,
     ResourceArn: output.ResourceArn !== undefined && output.ResourceArn !== null ? output.ResourceArn : undefined,
     Source: output.Source !== undefined && output.Source !== null ? output.Source : undefined,
     Tags:
@@ -4411,8 +4978,34 @@ const deserializeAws_restJson1DatasetList = (output: any, context: __SerdeContex
     });
 };
 
+const deserializeAws_restJson1DatasetParameter = (output: any, context: __SerdeContext): DatasetParameter => {
+  return {
+    CreateColumn: output.CreateColumn !== undefined && output.CreateColumn !== null ? output.CreateColumn : undefined,
+    DatetimeOptions:
+      output.DatetimeOptions !== undefined && output.DatetimeOptions !== null
+        ? deserializeAws_restJson1DatetimeOptions(output.DatetimeOptions, context)
+        : undefined,
+    Filter:
+      output.Filter !== undefined && output.Filter !== null
+        ? deserializeAws_restJson1FilterExpression(output.Filter, context)
+        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DatetimeOptions = (output: any, context: __SerdeContext): DatetimeOptions => {
+  return {
+    Format: output.Format !== undefined && output.Format !== null ? output.Format : undefined,
+    LocaleCode: output.LocaleCode !== undefined && output.LocaleCode !== null ? output.LocaleCode : undefined,
+    TimezoneOffset:
+      output.TimezoneOffset !== undefined && output.TimezoneOffset !== null ? output.TimezoneOffset : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1ExcelOptions = (output: any, context: __SerdeContext): ExcelOptions => {
   return {
+    HeaderRow: output.HeaderRow !== undefined && output.HeaderRow !== null ? output.HeaderRow : undefined,
     SheetIndexes:
       output.SheetIndexes !== undefined && output.SheetIndexes !== null
         ? deserializeAws_restJson1SheetIndexList(output.SheetIndexes, context)
@@ -4424,8 +5017,30 @@ const deserializeAws_restJson1ExcelOptions = (output: any, context: __SerdeConte
   } as any;
 };
 
+const deserializeAws_restJson1FilesLimit = (output: any, context: __SerdeContext): FilesLimit => {
+  return {
+    MaxFiles: output.MaxFiles !== undefined && output.MaxFiles !== null ? output.MaxFiles : undefined,
+    Order: output.Order !== undefined && output.Order !== null ? output.Order : undefined,
+    OrderedBy: output.OrderedBy !== undefined && output.OrderedBy !== null ? output.OrderedBy : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1FilterExpression = (output: any, context: __SerdeContext): FilterExpression => {
+  return {
+    Expression: output.Expression !== undefined && output.Expression !== null ? output.Expression : undefined,
+    ValuesMap:
+      output.ValuesMap !== undefined && output.ValuesMap !== null
+        ? deserializeAws_restJson1ValuesMap(output.ValuesMap, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1FormatOptions = (output: any, context: __SerdeContext): FormatOptions => {
   return {
+    Csv:
+      output.Csv !== undefined && output.Csv !== null
+        ? deserializeAws_restJson1CsvOptions(output.Csv, context)
+        : undefined,
     Excel:
       output.Excel !== undefined && output.Excel !== null
         ? deserializeAws_restJson1ExcelOptions(output.Excel, context)
@@ -4442,6 +5057,10 @@ const deserializeAws_restJson1Input = (output: any, context: __SerdeContext): In
     DataCatalogInputDefinition:
       output.DataCatalogInputDefinition !== undefined && output.DataCatalogInputDefinition !== null
         ? deserializeAws_restJson1DataCatalogInputDefinition(output.DataCatalogInputDefinition, context)
+        : undefined,
+    DatabaseInputDefinition:
+      output.DatabaseInputDefinition !== undefined && output.DatabaseInputDefinition !== null
+        ? deserializeAws_restJson1DatabaseInputDefinition(output.DatabaseInputDefinition, context)
         : undefined,
     S3InputDefinition:
       output.S3InputDefinition !== undefined && output.S3InputDefinition !== null
@@ -4463,6 +5082,10 @@ const deserializeAws_restJson1Job = (output: any, context: __SerdeContext): Job 
       output.EncryptionKeyArn !== undefined && output.EncryptionKeyArn !== null ? output.EncryptionKeyArn : undefined,
     EncryptionMode:
       output.EncryptionMode !== undefined && output.EncryptionMode !== null ? output.EncryptionMode : undefined,
+    JobSample:
+      output.JobSample !== undefined && output.JobSample !== null
+        ? deserializeAws_restJson1JobSample(output.JobSample, context)
+        : undefined,
     LastModifiedBy:
       output.LastModifiedBy !== undefined && output.LastModifiedBy !== null ? output.LastModifiedBy : undefined,
     LastModifiedDate:
@@ -4528,6 +5151,10 @@ const deserializeAws_restJson1JobRun = (output: any, context: __SerdeContext): J
     ExecutionTime:
       output.ExecutionTime !== undefined && output.ExecutionTime !== null ? output.ExecutionTime : undefined,
     JobName: output.JobName !== undefined && output.JobName !== null ? output.JobName : undefined,
+    JobSample:
+      output.JobSample !== undefined && output.JobSample !== null
+        ? deserializeAws_restJson1JobSample(output.JobSample, context)
+        : undefined,
     LogGroupName: output.LogGroupName !== undefined && output.LogGroupName !== null ? output.LogGroupName : undefined,
     LogSubscription:
       output.LogSubscription !== undefined && output.LogSubscription !== null ? output.LogSubscription : undefined,
@@ -4560,6 +5187,13 @@ const deserializeAws_restJson1JobRunList = (output: any, context: __SerdeContext
     });
 };
 
+const deserializeAws_restJson1JobSample = (output: any, context: __SerdeContext): JobSample => {
+  return {
+    Mode: output.Mode !== undefined && output.Mode !== null ? output.Mode : undefined,
+    Size: output.Size !== undefined && output.Size !== null ? output.Size : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1JsonOptions = (output: any, context: __SerdeContext): JsonOptions => {
   return {
     MultiLine: output.MultiLine !== undefined && output.MultiLine !== null ? output.MultiLine : undefined,
@@ -4573,6 +5207,10 @@ const deserializeAws_restJson1Output = (output: any, context: __SerdeContext): O
         ? output.CompressionFormat
         : undefined,
     Format: output.Format !== undefined && output.Format !== null ? output.Format : undefined,
+    FormatOptions:
+      output.FormatOptions !== undefined && output.FormatOptions !== null
+        ? deserializeAws_restJson1OutputFormatOptions(output.FormatOptions, context)
+        : undefined,
     Location:
       output.Location !== undefined && output.Location !== null
         ? deserializeAws_restJson1S3Location(output.Location, context)
@@ -4581,6 +5219,15 @@ const deserializeAws_restJson1Output = (output: any, context: __SerdeContext): O
     PartitionColumns:
       output.PartitionColumns !== undefined && output.PartitionColumns !== null
         ? deserializeAws_restJson1ColumnNameList(output.PartitionColumns, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1OutputFormatOptions = (output: any, context: __SerdeContext): OutputFormatOptions => {
+  return {
+    Csv:
+      output.Csv !== undefined && output.Csv !== null
+        ? deserializeAws_restJson1CsvOutputOptions(output.Csv, context)
         : undefined,
   } as any;
 };
@@ -4604,6 +5251,38 @@ const deserializeAws_restJson1ParameterMap = (output: any, context: __SerdeConte
     return {
       ...acc,
       [key]: value,
+    };
+  }, {});
+};
+
+const deserializeAws_restJson1PathOptions = (output: any, context: __SerdeContext): PathOptions => {
+  return {
+    FilesLimit:
+      output.FilesLimit !== undefined && output.FilesLimit !== null
+        ? deserializeAws_restJson1FilesLimit(output.FilesLimit, context)
+        : undefined,
+    LastModifiedDateCondition:
+      output.LastModifiedDateCondition !== undefined && output.LastModifiedDateCondition !== null
+        ? deserializeAws_restJson1FilterExpression(output.LastModifiedDateCondition, context)
+        : undefined,
+    Parameters:
+      output.Parameters !== undefined && output.Parameters !== null
+        ? deserializeAws_restJson1PathParametersMap(output.Parameters, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1PathParametersMap = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: DatasetParameter } => {
+  return Object.entries(output).reduce((acc: { [key: string]: DatasetParameter }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: deserializeAws_restJson1DatasetParameter(value, context),
     };
   }, {});
 };
@@ -4842,6 +5521,18 @@ const deserializeAws_restJson1SheetNameList = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
+};
+
+const deserializeAws_restJson1ValuesMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;

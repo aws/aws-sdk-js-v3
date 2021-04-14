@@ -24,6 +24,7 @@ import {
   CreateMultiplexProgramCommandInput,
   CreateMultiplexProgramCommandOutput,
 } from "./commands/CreateMultiplexProgramCommand";
+import { CreatePartnerInputCommandInput, CreatePartnerInputCommandOutput } from "./commands/CreatePartnerInputCommand";
 import { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
 import { DeleteChannelCommandInput, DeleteChannelCommandOutput } from "./commands/DeleteChannelCommand";
 import { DeleteInputCommandInput, DeleteInputCommandOutput } from "./commands/DeleteInputCommand";
@@ -176,6 +177,7 @@ export type ServiceInputTypes =
   | CreateInputSecurityGroupCommandInput
   | CreateMultiplexCommandInput
   | CreateMultiplexProgramCommandInput
+  | CreatePartnerInputCommandInput
   | CreateTagsCommandInput
   | DeleteChannelCommandInput
   | DeleteInputCommandInput
@@ -233,6 +235,7 @@ export type ServiceOutputTypes =
   | CreateInputSecurityGroupCommandOutput
   | CreateMultiplexCommandOutput
   | CreateMultiplexProgramCommandOutput
+  | CreatePartnerInputCommandOutput
   | CreateTagsCommandOutput
   | DeleteChannelCommandOutput
   | DeleteInputCommandOutput

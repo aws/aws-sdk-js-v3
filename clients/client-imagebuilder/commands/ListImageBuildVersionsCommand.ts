@@ -21,7 +21,7 @@ export type ListImageBuildVersionsCommandInput = ListImageBuildVersionsRequest;
 export type ListImageBuildVersionsCommandOutput = ListImageBuildVersionsResponse & __MetadataBearer;
 
 /**
- * <p> Returns a list of image build versions. </p>
+ * <p> Returns a list of image build versions.</p>
  */
 export class ListImageBuildVersionsCommand extends $Command<
   ListImageBuildVersionsCommandInput,

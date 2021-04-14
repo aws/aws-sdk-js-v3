@@ -28,9 +28,9 @@ export type CreateDatasetCommandOutput = CreateDatasetResponse & __MetadataBeare
  *         <p>To have a project with separate training and test datasets, call <code>CreateDataset</code> twice.
  *            On the first call, specify <code>train</code> for the value of
  *            <code>DatasetType</code>. On the second call, specify <code>test</code> for the value of
- *            <code>DatasetType</code>.
- *
- *          of dataset with </p>
+ *            <code>DatasetType</code>. </p>
+ *         <p>This operation requires permissions to perform the
+ *            <code>lookoutvision:CreateDataset</code> operation.</p>
  */
 export class CreateDatasetCommand extends $Command<
   CreateDatasetCommandInput,

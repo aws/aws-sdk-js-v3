@@ -25,7 +25,10 @@ export type SendSSHPublicKeyCommandInput = SendSSHPublicKeyRequest;
 export type SendSSHPublicKeyCommandOutput = SendSSHPublicKeyResponse & __MetadataBearer;
 
 /**
- * <p>Pushes an SSH public key to a particular OS user on a given EC2 instance for 60 seconds.</p>
+ * <p>Pushes an SSH public key to the specified EC2 instance for use by the specified user.
+ *             The key remains for 60 seconds. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Connect-using-EC2-Instance-Connect.html">Connect to
+ *                 your Linux instance using EC2 Instance Connect</a> in the <i>Amazon EC2
+ *                 User Guide</i>.</p>
  */
 export class SendSSHPublicKeyCommand extends $Command<
   SendSSHPublicKeyCommandInput,

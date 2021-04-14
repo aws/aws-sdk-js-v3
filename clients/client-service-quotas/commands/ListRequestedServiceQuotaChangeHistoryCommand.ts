@@ -25,7 +25,7 @@ export type ListRequestedServiceQuotaChangeHistoryCommandOutput = ListRequestedS
   __MetadataBearer;
 
 /**
- * <p>Requests a list of the changes to quotas for a service.</p>
+ * <p>Retrieves the quota increase requests for the specified service.</p>
  */
 export class ListRequestedServiceQuotaChangeHistoryCommand extends $Command<
   ListRequestedServiceQuotaChangeHistoryCommandInput,

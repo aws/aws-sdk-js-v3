@@ -1,4 +1,5 @@
 import {
+  ArchiveGroupSettings,
   AudioDescription,
   BatchFailedResultModel,
   BatchSuccessfulResultModel,
@@ -10,6 +11,9 @@ import {
   ChannelSummary,
   DeviceSettingsSyncState,
   DeviceUpdateStatus,
+  FrameCaptureGroupSettings,
+  Hdr10Settings,
+  HlsGroupSettings,
   Input,
   InputAttachment,
   InputClass,
@@ -38,6 +42,9 @@ import {
   LogLevel,
   MediaConnectFlow,
   MediaConnectFlowRequest,
+  MediaPackageGroupSettings,
+  MsSmoothGroupSettings,
+  MultiplexGroupSettings,
   MultiplexOutputDestination,
   MultiplexProgramPipelineDetail,
   MultiplexProgramSummary,
@@ -46,13 +53,203 @@ import {
   Offering,
   OfferingDurationUnits,
   OfferingType,
+  Output,
   OutputDestination,
-  OutputGroup,
   ReservationResourceSpecification,
+  VpcOutputSettingsDescription,
 } from "./models_0";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
+
+export enum RtmpAdMarkers {
+  ON_CUE_POINT_SCTE35 = "ON_CUE_POINT_SCTE35",
+}
+
+export enum AuthenticationScheme {
+  AKAMAI = "AKAMAI",
+  COMMON = "COMMON",
+}
+
+export enum RtmpCacheFullBehavior {
+  DISCONNECT_IMMEDIATELY = "DISCONNECT_IMMEDIATELY",
+  WAIT_FOR_SERVER = "WAIT_FOR_SERVER",
+}
+
+export enum RtmpCaptionData {
+  ALL = "ALL",
+  FIELD1_608 = "FIELD1_608",
+  FIELD1_AND_FIELD2_608 = "FIELD1_AND_FIELD2_608",
+}
+
+export enum InputLossActionForRtmpOut {
+  EMIT_OUTPUT = "EMIT_OUTPUT",
+  PAUSE_OUTPUT = "PAUSE_OUTPUT",
+}
+
+/**
+ * Rtmp Group Settings
+ */
+export interface RtmpGroupSettings {
+  /**
+   * Choose the ad marker type for this output group. MediaLive will create a message based on the content of each SCTE-35 message, format it for that marker type, and insert it in the datastream.
+   */
+  AdMarkers?: (RtmpAdMarkers | string)[];
+
+  /**
+   * Authentication scheme to use when connecting with CDN
+   */
+  AuthenticationScheme?: AuthenticationScheme | string;
+
+  /**
+   * Controls behavior when content cache fills up. If remote origin server stalls the RTMP connection and does not accept content fast enough the 'Media Cache' will fill up. When the cache reaches the duration specified by cacheLength the cache will stop accepting new content. If set to disconnectImmediately, the RTMP output will force a disconnect. Clear the media cache, and reconnect after restartDelay seconds. If set to waitForServer, the RTMP output will wait up to 5 minutes to allow the origin server to begin accepting data again.
+   */
+  CacheFullBehavior?: RtmpCacheFullBehavior | string;
+
+  /**
+   * Cache length, in seconds, is used to calculate buffer size.
+   */
+  CacheLength?: number;
+
+  /**
+   * Controls the types of data that passes to onCaptionInfo outputs.  If set to 'all' then 608 and 708 carried DTVCC data will be passed.  If set to 'field1AndField2608' then DTVCC data will be stripped out, but 608 data from both fields will be passed. If set to 'field1608' then only the data carried in 608 from field 1 video will be passed.
+   */
+  CaptionData?: RtmpCaptionData | string;
+
+  /**
+   * Controls the behavior of this RTMP group if input becomes unavailable.
+   *
+   * - emitOutput: Emit a slate until input returns.
+   * - pauseOutput: Stop transmitting data until input returns. This does not close the underlying RTMP connection.
+   */
+  InputLossAction?: InputLossActionForRtmpOut | string;
+
+  /**
+   * If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
+   */
+  RestartDelay?: number;
+}
+
+export namespace RtmpGroupSettings {
+  export const filterSensitiveLog = (obj: RtmpGroupSettings): any => ({
+    ...obj,
+  });
+}
+
+export enum InputLossActionForUdpOut {
+  DROP_PROGRAM = "DROP_PROGRAM",
+  DROP_TS = "DROP_TS",
+  EMIT_PROGRAM = "EMIT_PROGRAM",
+}
+
+export enum UdpTimedMetadataId3Frame {
+  NONE = "NONE",
+  PRIV = "PRIV",
+  TDRL = "TDRL",
+}
+
+/**
+ * Udp Group Settings
+ */
+export interface UdpGroupSettings {
+  /**
+   * Specifies behavior of last resort when input video is lost, and no more backup inputs are available. When dropTs is selected the entire transport stream will stop being emitted.  When dropProgram is selected the program can be dropped from the transport stream (and replaced with null packets to meet the TS bitrate requirement).  Or, when emitProgram is chosen the transport stream will continue to be produced normally with repeat frames, black frames, or slate frames substituted for the absent input video.
+   */
+  InputLossAction?: InputLossActionForUdpOut | string;
+
+  /**
+   * Indicates ID3 frame that has the timecode.
+   */
+  TimedMetadataId3Frame?: UdpTimedMetadataId3Frame | string;
+
+  /**
+   * Timed Metadata interval in seconds.
+   */
+  TimedMetadataId3Period?: number;
+}
+
+export namespace UdpGroupSettings {
+  export const filterSensitiveLog = (obj: UdpGroupSettings): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * Output Group Settings
+ */
+export interface OutputGroupSettings {
+  /**
+   * Archive Group Settings
+   */
+  ArchiveGroupSettings?: ArchiveGroupSettings;
+
+  /**
+   * Frame Capture Group Settings
+   */
+  FrameCaptureGroupSettings?: FrameCaptureGroupSettings;
+
+  /**
+   * Hls Group Settings
+   */
+  HlsGroupSettings?: HlsGroupSettings;
+
+  /**
+   * Media Package Group Settings
+   */
+  MediaPackageGroupSettings?: MediaPackageGroupSettings;
+
+  /**
+   * Ms Smooth Group Settings
+   */
+  MsSmoothGroupSettings?: MsSmoothGroupSettings;
+
+  /**
+   * Multiplex Group Settings
+   */
+  MultiplexGroupSettings?: MultiplexGroupSettings;
+
+  /**
+   * Rtmp Group Settings
+   */
+  RtmpGroupSettings?: RtmpGroupSettings;
+
+  /**
+   * Udp Group Settings
+   */
+  UdpGroupSettings?: UdpGroupSettings;
+}
+
+export namespace OutputGroupSettings {
+  export const filterSensitiveLog = (obj: OutputGroupSettings): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * Output groups for this Live Event. Output groups contain information about where streams should be distributed.
+ */
+export interface OutputGroup {
+  /**
+   * Custom output group name optionally defined by the user.  Only letters, numbers, and the underscore character allowed; only 32 characters allowed.
+   */
+  Name?: string;
+
+  /**
+   * Settings associated with the output group.
+   */
+  OutputGroupSettings: OutputGroupSettings | undefined;
+
+  /**
+   * Placeholder documentation for __listOfOutput
+   */
+  Outputs: Output[] | undefined;
+}
+
+export namespace OutputGroup {
+  export const filterSensitiveLog = (obj: OutputGroup): any => ({
+    ...obj,
+  });
+}
 
 /**
  * Runtime details of a pipeline when a channel is running.
@@ -67,6 +264,16 @@ export interface PipelineDetail {
    * The name of the input switch schedule action that occurred most recently and that resulted in the switch to the current input attachment for this pipeline.
    */
   ActiveInputSwitchActionName?: string;
+
+  /**
+   * The name of the motion graphics activate action that occurred most recently and that resulted in the current graphics URI for this pipeline.
+   */
+  ActiveMotionGraphicsActionName?: string;
+
+  /**
+   * The current URI being used for HTML5 motion graphics for this pipeline.
+   */
+  ActiveMotionGraphicsUri?: string;
 
   /**
    * Pipeline ID
@@ -362,6 +569,48 @@ export interface InputSwitchScheduleActionSettings {
 
 export namespace InputSwitchScheduleActionSettings {
   export const filterSensitiveLog = (obj: InputSwitchScheduleActionSettings): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * Settings to specify the rendering of motion graphics into the video stream.
+ */
+export interface MotionGraphicsActivateScheduleActionSettings {
+  /**
+   * Duration (in milliseconds) that motion graphics should render on to the video stream. Leaving out this property or setting to 0 will result in rendering continuing until a deactivate action is processed.
+   */
+  Duration?: number;
+
+  /**
+   * Key used to extract the password from EC2 Parameter store
+   */
+  PasswordParam?: string;
+
+  /**
+   * URI of the HTML5 content to be rendered into the live stream.
+   */
+  Url?: string;
+
+  /**
+   * Documentation update needed
+   */
+  Username?: string;
+}
+
+export namespace MotionGraphicsActivateScheduleActionSettings {
+  export const filterSensitiveLog = (obj: MotionGraphicsActivateScheduleActionSettings): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * Settings to specify the ending of rendering motion graphics into the video stream.
+ */
+export interface MotionGraphicsDeactivateScheduleActionSettings {}
+
+export namespace MotionGraphicsDeactivateScheduleActionSettings {
+  export const filterSensitiveLog = (obj: MotionGraphicsDeactivateScheduleActionSettings): any => ({
     ...obj,
   });
 }
@@ -698,6 +947,16 @@ export interface ScheduleActionSettings {
   InputSwitchSettings?: InputSwitchScheduleActionSettings;
 
   /**
+   * Action to activate a motion graphics image overlay
+   */
+  MotionGraphicsImageActivateSettings?: MotionGraphicsActivateScheduleActionSettings;
+
+  /**
+   * Action to deactivate a motion graphics image overlay
+   */
+  MotionGraphicsImageDeactivateSettings?: MotionGraphicsDeactivateScheduleActionSettings;
+
+  /**
    * Action to pause or unpause one or both channel pipelines
    */
   PauseStateSettings?: PauseStateScheduleActionSettings;
@@ -908,7 +1167,7 @@ export interface FrameCaptureSettings {
   /**
    * The frequency at which to capture frames for inclusion in the output. May be specified in either seconds or milliseconds, as specified by captureIntervalUnits.
    */
-  CaptureInterval: number | undefined;
+  CaptureInterval?: number;
 
   /**
    * Unit for the frame capture interval.
@@ -1405,7 +1664,7 @@ export interface H264Settings {
   Slices?: number;
 
   /**
-   * Softness. Selects quantizer matrix, larger values reduce high-frequency content in the encoded image.
+   * Softness. Selects quantizer matrix, larger values reduce high-frequency content in the encoded image.  If not set to zero, must be greater than 15.
    */
   Softness?: number;
 
@@ -1460,31 +1719,6 @@ export enum H265AlternativeTransferFunction {
 export enum H265ColorMetadata {
   IGNORE = "IGNORE",
   INSERT = "INSERT",
-}
-
-/**
- * Hdr10 Settings
- */
-export interface Hdr10Settings {
-  /**
-   * Maximum Content Light Level
-   * An integer metadata value defining the maximum light level, in nits,
-   * of any single pixel within an encoded HDR video stream or file.
-   */
-  MaxCll?: number;
-
-  /**
-   * Maximum Frame Average Light Level
-   * An integer metadata value defining the maximum average light level, in nits,
-   * for any single frame within an encoded HDR video stream or file.
-   */
-  MaxFall?: number;
-}
-
-export namespace Hdr10Settings {
-  export const filterSensitiveLog = (obj: Hdr10Settings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2806,6 +3040,59 @@ export namespace GlobalConfiguration {
   });
 }
 
+export enum MotionGraphicsInsertion {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+/**
+ * Html Motion Graphics Settings
+ */
+export interface HtmlMotionGraphicsSettings {}
+
+export namespace HtmlMotionGraphicsSettings {
+  export const filterSensitiveLog = (obj: HtmlMotionGraphicsSettings): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * Motion Graphics Settings
+ */
+export interface MotionGraphicsSettings {
+  /**
+   * Html Motion Graphics Settings
+   */
+  HtmlMotionGraphicsSettings?: HtmlMotionGraphicsSettings;
+}
+
+export namespace MotionGraphicsSettings {
+  export const filterSensitiveLog = (obj: MotionGraphicsSettings): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * Motion Graphics Configuration
+ */
+export interface MotionGraphicsConfiguration {
+  /**
+   * Motion Graphics Insertion
+   */
+  MotionGraphicsInsertion?: MotionGraphicsInsertion | string;
+
+  /**
+   * Motion Graphics Settings
+   */
+  MotionGraphicsSettings: MotionGraphicsSettings | undefined;
+}
+
+export namespace MotionGraphicsConfiguration {
+  export const filterSensitiveLog = (obj: MotionGraphicsConfiguration): any => ({
+    ...obj,
+  });
+}
+
 export enum NielsenPcmToId3TaggingState {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
@@ -2900,6 +3187,11 @@ export interface EncoderSettings {
    * Configuration settings that apply to the event as a whole.
    */
   GlobalConfiguration?: GlobalConfiguration;
+
+  /**
+   * Settings for motion graphics.
+   */
+  MotionGraphicsConfiguration?: MotionGraphicsConfiguration;
 
   /**
    * Nielsen configuration settings.
@@ -3013,6 +3305,11 @@ export interface Channel {
    * A collection of key-value pairs.
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * Settings for VPC output
+   */
+  Vpc?: VpcOutputSettingsDescription;
 }
 
 export namespace Channel {
@@ -3023,6 +3320,36 @@ export namespace Channel {
 
 export enum ContentType {
   image_jpeg = "image/jpeg",
+}
+
+/**
+ * The properties for a private VPC Output
+ * When this property is specified, the output egress addresses will be created in a user specified VPC
+ */
+export interface VpcOutputSettings {
+  /**
+   * List of public address allocation ids to associate with ENIs that will be created in Output VPC.
+   * Must specify one for SINGLE_PIPELINE, two for STANDARD channels
+   */
+  PublicAddressAllocationIds?: string[];
+
+  /**
+   * A list of up to 5 EC2 VPC security group IDs to attach to the Output VPC network interfaces.
+   * If none are specified then the VPC default security group will be used
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * A list of VPC subnet IDs from the same VPC.
+   * If STANDARD channel, subnet IDs must be mapped to two unique availability zones (AZ).
+   */
+  SubnetIds: string[] | undefined;
+}
+
+export namespace VpcOutputSettings {
+  export const filterSensitiveLog = (obj: VpcOutputSettings): any => ({
+    ...obj,
+  });
 }
 
 /**
@@ -3091,6 +3418,11 @@ export interface CreateChannelRequest {
    * A collection of key-value pairs.
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * Settings for VPC output
+   */
+  Vpc?: VpcOutputSettings;
 }
 
 export namespace CreateChannelRequest {
@@ -3681,6 +4013,49 @@ export namespace CreateMultiplexProgramResponse {
 }
 
 /**
+ * A request to create a partner input
+ */
+export interface CreatePartnerInputRequest {
+  /**
+   * Unique ID of the input.
+   */
+  InputId: string | undefined;
+
+  /**
+   * Unique identifier of the request to ensure the request is handled
+   * exactly once in case of retries.
+   */
+  RequestId?: string;
+
+  /**
+   * A collection of key-value pairs.
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace CreatePartnerInputRequest {
+  export const filterSensitiveLog = (obj: CreatePartnerInputRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * Placeholder documentation for CreatePartnerInputResponse
+ */
+export interface CreatePartnerInputResponse {
+  /**
+   * Placeholder documentation for Input
+   */
+  Input?: Input;
+}
+
+export namespace CreatePartnerInputResponse {
+  export const filterSensitiveLog = (obj: CreatePartnerInputResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
  * Placeholder documentation for CreateTagsRequest
  */
 export interface CreateTagsRequest {
@@ -3802,6 +4177,11 @@ export interface DeleteChannelResponse {
    * A collection of key-value pairs.
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * Settings for VPC output
+   */
+  Vpc?: VpcOutputSettingsDescription;
 }
 
 export namespace DeleteChannelResponse {
@@ -4264,6 +4644,11 @@ export interface DescribeChannelResponse {
    * A collection of key-value pairs.
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * Settings for VPC output
+   */
+  Vpc?: VpcOutputSettingsDescription;
 }
 
 export namespace DescribeChannelResponse {
@@ -4322,6 +4707,11 @@ export interface DescribeInputResponse {
    * Settings for the input devices.
    */
   InputDevices?: InputDeviceSettings[];
+
+  /**
+   * A list of IDs for all Inputs which are partners of this one.
+   */
+  InputPartnerIds?: string[];
 
   /**
    * Certain pull input sources can be dynamic, meaning that they can have their URL's dynamically changes
@@ -5673,6 +6063,11 @@ export interface StartChannelResponse {
    * A collection of key-value pairs.
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * Settings for VPC output
+   */
+  Vpc?: VpcOutputSettingsDescription;
 }
 
 export namespace StartChannelResponse {
@@ -5859,6 +6254,11 @@ export interface StopChannelResponse {
    * A collection of key-value pairs.
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * Settings for VPC output
+   */
+  Vpc?: VpcOutputSettingsDescription;
 }
 
 export namespace StopChannelResponse {
@@ -5957,6 +6357,11 @@ export interface TransferInputDeviceRequest {
    * The AWS account ID (12 digits) for the recipient of the device transfer.
    */
   TargetCustomerId?: string;
+
+  /**
+   * The target AWS region to transfer the device.
+   */
+  TargetRegion?: string;
 
   /**
    * An optional message for the recipient. Maximum 280 characters.

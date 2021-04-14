@@ -21,10 +21,12 @@ export type CreateCertificateCommandInput = CreateCertificateRequest;
 export type CreateCertificateCommandOutput = CreateCertificateResult & __MetadataBearer;
 
 /**
- * <p>Creates an SSL/TLS certificate for a Amazon Lightsail content delivery network (CDN)
- *       distribution.</p>
- *          <p>After the certificate is created, use the <code>AttachCertificateToDistribution</code>
- *       action to attach the certificate to your distribution.</p>
+ * <p>Creates an SSL/TLS certificate for an Amazon Lightsail content delivery network (CDN)
+ *       distribution and a container service.</p>
+ *          <p>After the certificate is valid, use the <code>AttachCertificateToDistribution</code>
+ *       action to use the certificate and its domains with your distribution. Or use the
+ *         <code>UpdateContainerService</code> action to use the certificate and its domains with your
+ *       container service.</p>
  *          <important>
  *             <p>Only certificates created in the <code>us-east-1</code> AWS Region can be attached to
  *         Lightsail distributions. Lightsail distributions are global resources that can reference

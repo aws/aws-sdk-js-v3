@@ -29,35 +29,17 @@ export type CreateClusterCommandOutput = CreateClusterResponse & __MetadataBeare
  *             own set of Amazon EC2 instances.</p>
  *         <p>The cluster control plane is provisioned across multiple Availability Zones and
  *             fronted by an Elastic Load Balancing Network Load Balancer. Amazon EKS also provisions elastic network interfaces in your VPC
- *             subnets to provide connectivity from the control plane instances to the worker nodes
- *             (for example, to support <code>kubectl exec</code>, <code>logs</code>, and
- *                 <code>proxy</code> data flows).</p>
- *         <p>Amazon EKS worker nodes run in your AWS account and connect to your cluster's control
- *             plane via the Kubernetes API server endpoint and a certificate file that is created for
- *             your cluster.</p>
- *         <p>You can use the <code>endpointPublicAccess</code> and
- *                 <code>endpointPrivateAccess</code> parameters to enable or disable public and
- *             private access to your cluster's Kubernetes API server endpoint. By default, public
- *             access is enabled, and private access is disabled. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS Cluster
- *                 Endpoint Access Control</a> in the <i>
- *                <i>Amazon EKS User Guide</i>
- *             </i>. </p>
- *         <p>You can use the <code>logging</code> parameter to enable or disable exporting the
- *             Kubernetes control plane logs for your cluster to CloudWatch Logs. By default, cluster control
- *             plane logs aren't exported to CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon EKS
- *                 Cluster Control Plane Logs</a> in the
- *             <i>
- *                <i>Amazon EKS User Guide</i>
- *             </i>.</p>
- *         <note>
- *             <p>CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported
- *                 control plane logs. For more information, see <a href="http://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch Pricing</a>.</p>
- *         </note>
- *         <p>Cluster creation typically takes between 10 and 15 minutes. After you create an Amazon EKS
- *             cluster, you must configure your Kubernetes tooling to communicate with the API server
- *             and launch worker nodes into your cluster. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html">Managing Cluster
- *                 Authentication</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html">Launching Amazon EKS Worker Nodes</a> in the
- *             <i>Amazon EKS User Guide</i>.</p>
+ *             subnets to provide connectivity from the control plane instances to the nodes (for
+ *             example, to support <code>kubectl exec</code>, <code>logs</code>, and <code>proxy</code>
+ *             data flows).</p>
+ *         <p>Amazon EKS nodes run in your AWS account and connect to your cluster's control plane via
+ *             the Kubernetes API server endpoint and a certificate file that is created for your
+ *             cluster.</p>
+ *
+ *         <p>Cluster creation typically takes several minutes. After you create an Amazon EKS cluster,
+ *             you must configure your Kubernetes tooling to communicate with the API server and launch
+ *             nodes into your cluster. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html">Managing Cluster
+ *                 Authentication</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html">Launching Amazon EKS nodes</a> in the <i>Amazon EKS User Guide</i>.</p>
  */
 export class CreateClusterCommand extends $Command<
   CreateClusterCommandInput,

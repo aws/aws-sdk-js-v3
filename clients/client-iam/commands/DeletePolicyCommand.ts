@@ -19,29 +19,30 @@ export type DeletePolicyCommandOutput = __MetadataBearer;
 
 /**
  * <p>Deletes the specified managed policy.</p>
- *          <p>Before you can delete a managed policy, you must first detach the policy from all users,
- *          groups, and roles that it is attached to. In addition, you must delete all the policy's
- *          versions. The following steps describe the process for deleting a managed policy:</p>
- *          <ul>
+ *         <p>Before you can delete a managed policy, you must first detach the policy from all
+ *             users, groups, and roles that it is attached to. In addition, you must delete all the
+ *             policy's versions. The following steps describe the process for deleting a managed
+ *             policy:</p>
+ *         <ul>
  *             <li>
- *                <p>Detach the policy from all users, groups, and roles that the policy is attached
- *                to, using the <a>DetachUserPolicy</a>, <a>DetachGroupPolicy</a>, or <a>DetachRolePolicy</a> API operations. To list all the users,
- *                groups, and roles that a policy is attached to, use <a>ListEntitiesForPolicy</a>.</p>
+ *                 <p>Detach the policy from all users, groups, and roles that the policy is
+ *                     attached to, using <a>DetachUserPolicy</a>, <a>DetachGroupPolicy</a>, or <a>DetachRolePolicy</a>. To
+ *                     list all the users, groups, and roles that a policy is attached to, use <a>ListEntitiesForPolicy</a>.</p>
  *             </li>
  *             <li>
- *                <p>Delete all versions of the policy using <a>DeletePolicyVersion</a>. To
- *                list the policy's versions, use <a>ListPolicyVersions</a>. You cannot use
- *                   <a>DeletePolicyVersion</a> to delete the version that is marked as the
- *                default version. You delete the policy's default version in the next step of the
- *                process.</p>
+ *                 <p>Delete all versions of the policy using <a>DeletePolicyVersion</a>.
+ *                     To list the policy's versions, use <a>ListPolicyVersions</a>. You
+ *                     cannot use <a>DeletePolicyVersion</a> to delete the version that is
+ *                     marked as the default version. You delete the policy's default version in the
+ *                     next step of the process.</p>
  *             </li>
  *             <li>
- *                <p>Delete the policy (this automatically deletes the policy's default version) using
- *                this API.</p>
+ *                 <p>Delete the policy (this automatically deletes the policy's default version)
+ *                     using this operation.</p>
  *             </li>
  *          </ul>
- *          <p>For information about managed policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline
- *             Policies</a> in the <i>IAM User Guide</i>.</p>
+ *         <p>For information about managed policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
+ *                 policies</a> in the <i>IAM User Guide</i>.</p>
  */
 export class DeletePolicyCommand extends $Command<
   DeletePolicyCommandInput,

@@ -22,14 +22,14 @@ export type ListGroupPoliciesCommandOutput = ListGroupPoliciesResponse & __Metad
 
 /**
  * <p>Lists the names of the inline policies that are embedded in the specified IAM
- *          group.</p>
- *          <p>An IAM group can also have managed policies attached to it. To list the managed
- *          policies that are attached to a group, use <a>ListAttachedGroupPolicies</a>. For
- *          more information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline
- *             Policies</a> in the <i>IAM User Guide</i>.</p>
- *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
- *          parameters. If there are no inline policies embedded with the specified group, the
- *          operation returns an empty list.</p>
+ *             group.</p>
+ *         <p>An IAM group can also have managed policies attached to it. To list the managed
+ *             policies that are attached to a group, use <a>ListAttachedGroupPolicies</a>.
+ *             For more information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
+ *                 policies</a> in the <i>IAM User Guide</i>.</p>
+ *         <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
+ *             parameters. If there are no inline policies embedded with the specified group, the
+ *             operation returns an empty list.</p>
  */
 export class ListGroupPoliciesCommand extends $Command<
   ListGroupPoliciesCommandInput,

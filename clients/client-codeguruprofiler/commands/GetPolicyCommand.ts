@@ -21,7 +21,9 @@ export type GetPolicyCommandInput = GetPolicyRequest;
 export type GetPolicyCommandOutput = GetPolicyResponse & __MetadataBearer;
 
 /**
- * <p>Gets the profiling group policy.</p>
+ * <p>
+ *             Returns the JSON-formatted resource-based policy on a profiling group.
+ *         </p>
  */
 export class GetPolicyCommand extends $Command<
   GetPolicyCommandInput,

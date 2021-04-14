@@ -21,7 +21,7 @@ export type CreateDatasetCommandInput = CreateDatasetRequest;
 export type CreateDatasetCommandOutput = CreateDatasetResponse & __MetadataBearer;
 
 /**
- * <p>Creates a new AWS Glue DataBrew dataset for this AWS account.</p>
+ * <p>Creates a new DataBrew dataset.</p>
  */
 export class CreateDatasetCommand extends $Command<
   CreateDatasetCommandInput,

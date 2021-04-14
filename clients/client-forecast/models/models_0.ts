@@ -2099,9 +2099,7 @@ export interface DescribeDatasetImportJobResponse {
   DataSize?: number;
 
   /**
-   * <p>The status of the dataset import job. The status is reflected in the status of the
-   *       dataset. For example, when the import job status is <code>CREATE_IN_PROGRESS</code>, the
-   *       status of the dataset is <code>UPDATE_IN_PROGRESS</code>. States include:</p>
+   * <p>The status of the dataset import job. States include:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2120,6 +2118,11 @@ export interface DescribeDatasetImportJobResponse {
    *             <code>DELETE_FAILED</code>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
+   *                </p>
+   *             </li>
    *          </ul>
    */
   Status?: string;
@@ -2135,16 +2138,23 @@ export interface DescribeDatasetImportJobResponse {
   CreationTime?: Date;
 
   /**
-   * <p>The last time that the dataset was modified. The time depends on the status of the job, as
-   *       follows:</p>
+   * <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>CREATE_PENDING</code> - The same time as <code>CreationTime</code>.</p>
+   *                   <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_STOPPED</code> - When the job stopped.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2212,13 +2222,18 @@ export interface DescribeForecastResponse {
    *             <li>
    *                <p>
    *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
-   *             <code>CREATE_FAILED</code>
+   *           <code>CREATE_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
-   *             <code>DELETE_FAILED</code>
+   *           <code>DELETE_FAILED</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -2240,10 +2255,30 @@ export interface DescribeForecastResponse {
   CreationTime?: Date;
 
   /**
-   * <p>Initially, the same as <code>CreationTime</code> (status is <code>CREATE_PENDING</code>).
-   *       Updated when inference (creating the forecast) starts (status changed to
-   *         <code>CREATE_IN_PROGRESS</code>), and when inference is complete (status changed to
-   *         <code>ACTIVE</code>) or fails (status changed to <code>CREATE_FAILED</code>).</p>
+   * <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_STOPPED</code> - When the job stopped.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or
+   *           failed.</p>
+   *             </li>
+   *          </ul>
    */
   LastModificationTime?: Date;
 }
@@ -2304,13 +2339,18 @@ export interface DescribeForecastExportJobResponse {
    *             <li>
    *                <p>
    *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
-   *             <code>CREATE_FAILED</code>
+   *           <code>CREATE_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
-   *             <code>DELETE_FAILED</code>
+   *           <code>DELETE_FAILED</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -2327,7 +2367,30 @@ export interface DescribeForecastExportJobResponse {
   CreationTime?: Date;
 
   /**
-   * <p>When the last successful export job finished.</p>
+   * <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_STOPPED</code> - When the job stopped.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or
+   *           failed.</p>
+   *             </li>
+   *          </ul>
    */
   LastModificationTime?: Date;
 }
@@ -2544,19 +2607,18 @@ export interface DescribePredictorResponse {
    *             <li>
    *                <p>
    *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
-   *             <code>CREATE_FAILED</code>
+   *           <code>CREATE_FAILED</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
-   *             <code>DELETE_FAILED</code>
+   *           <code>DELETE_FAILED</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>UPDATE_PENDING</code>, <code>UPDATE_IN_PROGRESS</code>,
-   *             <code>UPDATE_FAILED</code>
+   *                   <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -2578,11 +2640,30 @@ export interface DescribePredictorResponse {
   CreationTime?: Date;
 
   /**
-   * <p>Initially, the same as <code>CreationTime</code> (when the status is
-   *         <code>CREATE_PENDING</code>). This value is updated when training starts (when the status
-   *       changes to <code>CREATE_IN_PROGRESS</code>), and when training has completed (when the status
-   *       changes to <code>ACTIVE</code>) or fails (when the status changes to
-   *         <code>CREATE_FAILED</code>).</p>
+   * <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_STOPPED</code> - When the job stopped.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or
+   *           failed.</p>
+   *             </li>
+   *          </ul>
    */
   LastModificationTime?: Date;
 }
@@ -2638,38 +2719,25 @@ export interface DescribePredictorBacktestExportJobResponse {
    *         <ul>
    *             <li>
    *                 <p>
-   *                     <code>ACTIVE</code>
-   *                 </p>
+   *                   <code>ACTIVE</code>
+   *                </p>
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>CREATE_PENDING</code>
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>CREATE_IN_PROGRESS</code>
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                 <p>
+   *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
    *                     <code>CREATE_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
    *                 </p>
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>DELETE_PENDING</code>
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>DELETE_IN_PROGRESS</code>
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                 <p>
+   *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
    *                     <code>DELETE_FAILED</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *          </ul>
    */
@@ -2681,7 +2749,30 @@ export interface DescribePredictorBacktestExportJobResponse {
   CreationTime?: Date;
 
   /**
-   * <p>When the last successful export job finished.</p>
+   * <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>CREATE_STOPPING</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>CREATE_STOPPED</code> - When the job stopped.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or
+   *                     failed.</p>
+   *             </li>
+   *          </ul>
    */
   LastModificationTime?: Date;
 }
@@ -3093,9 +3184,7 @@ export interface DatasetImportJobSummary {
   DataSource?: DataSource;
 
   /**
-   * <p>The status of the dataset import job. The status is reflected in the status of the
-   *       dataset. For example, when the import job status is <code>CREATE_IN_PROGRESS</code>, the
-   *       status of the dataset is <code>UPDATE_IN_PROGRESS</code>. States include:</p>
+   * <p>The status of the dataset import job. States include:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -3105,13 +3194,18 @@ export interface DatasetImportJobSummary {
    *             <li>
    *                <p>
    *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
-   *             <code>CREATE_FAILED</code>
+   *           <code>CREATE_FAILED</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
-   *             <code>DELETE_FAILED</code>
+   *           <code>DELETE_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -3129,16 +3223,23 @@ export interface DatasetImportJobSummary {
   CreationTime?: Date;
 
   /**
-   * <p>The last time that the dataset was modified. The time depends on the status of the job, as
-   *       follows:</p>
+   * <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>CREATE_PENDING</code> - The same time as <code>CreationTime</code>.</p>
+   *                   <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_STOPPED</code> - When the job stopped.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3348,13 +3449,18 @@ export interface ForecastExportJobSummary {
    *             <li>
    *                <p>
    *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
-   *             <code>CREATE_FAILED</code>
+   *           <code>CREATE_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
-   *             <code>DELETE_FAILED</code>
+   *           <code>DELETE_FAILED</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -3376,7 +3482,30 @@ export interface ForecastExportJobSummary {
   CreationTime?: Date;
 
   /**
-   * <p>When the last successful export job finished.</p>
+   * <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_STOPPED</code> - When the job stopped.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or
+   *           failed.</p>
+   *             </li>
+   *          </ul>
    */
   LastModificationTime?: Date;
 }
@@ -3497,13 +3626,18 @@ export interface ForecastSummary {
    *             <li>
    *                <p>
    *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
-   *             <code>CREATE_FAILED</code>
+   *           <code>CREATE_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
-   *             <code>DELETE_FAILED</code>
+   *           <code>DELETE_FAILED</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -3525,10 +3659,30 @@ export interface ForecastSummary {
   CreationTime?: Date;
 
   /**
-   * <p>Initially, the same as <code>CreationTime</code> (status is <code>CREATE_PENDING</code>).
-   *       Updated when inference (creating the forecast) starts (status changed to
-   *         <code>CREATE_IN_PROGRESS</code>), and when inference is complete (status changed to
-   *         <code>ACTIVE</code>) or fails (status changed to <code>CREATE_FAILED</code>).</p>
+   * <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_STOPPED</code> - When the job stopped.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or
+   *           failed.</p>
+   *             </li>
+   *          </ul>
    */
   LastModificationTime?: Date;
 }
@@ -3590,7 +3744,7 @@ export interface ListPredictorBacktestExportJobsRequest {
    *             <li>
    *                     <p>
    *                   <code>Key</code> - The name of the parameter to filter on. Valid values are
-   *                         <code>PredictorBacktestExportJobArn</code> and <code>Status</code>.</p>
+   *                         <code>PredictorArn</code> and <code>Status</code>.</p>
    *                 </li>
    *             <li>
    *                     <p>
@@ -3634,38 +3788,25 @@ export interface PredictorBacktestExportJobSummary {
    *         <ul>
    *             <li>
    *                 <p>
-   *                     <code>ACTIVE</code>
-   *                 </p>
+   *                   <code>ACTIVE</code>
+   *                </p>
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>CREATE_PENDING</code>
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>CREATE_IN_PROGRESS</code>
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                 <p>
+   *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
    *                     <code>CREATE_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
    *                 </p>
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>DELETE_PENDING</code>
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>DELETE_IN_PROGRESS</code>
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                 <p>
+   *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
    *                     <code>DELETE_FAILED</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *          </ul>
    */
@@ -3682,7 +3823,30 @@ export interface PredictorBacktestExportJobSummary {
   CreationTime?: Date;
 
   /**
-   * <p>When the last successful export job finished.</p>
+   * <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>CREATE_STOPPING</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>CREATE_STOPPED</code> - When the job stopped.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or
+   *                     failed.</p>
+   *             </li>
+   *          </ul>
    */
   LastModificationTime?: Date;
 }
@@ -3798,19 +3962,18 @@ export interface PredictorSummary {
    *             <li>
    *                <p>
    *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
-   *             <code>CREATE_FAILED</code>
+   *           <code>CREATE_FAILED</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
-   *             <code>DELETE_FAILED</code>
+   *           <code>DELETE_FAILED</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>UPDATE_PENDING</code>, <code>UPDATE_IN_PROGRESS</code>,
-   *             <code>UPDATE_FAILED</code>
+   *                   <code>CREATE_STOPPING</code>, <code>CREATE_STOPPED</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -3832,10 +3995,30 @@ export interface PredictorSummary {
   CreationTime?: Date;
 
   /**
-   * <p>Initially, the same as <code>CreationTime</code> (status is <code>CREATE_PENDING</code>).
-   *       Updated when training starts (status changed to <code>CREATE_IN_PROGRESS</code>), and when
-   *       training is complete (status changed to <code>ACTIVE</code>) or fails (status changed to
-   *         <code>CREATE_FAILED</code>).</p>
+   * <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_PENDING</code> - The <code>CreationTime</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_STOPPING</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_STOPPED</code> - When the job stopped.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or
+   *           failed.</p>
+   *             </li>
+   *          </ul>
    */
   LastModificationTime?: Date;
 }
@@ -3889,6 +4072,22 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
     ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
+  });
+}
+
+export interface StopResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies the resource to stop. The supported ARNs
+   *          are <code>DatasetImportJobArn</code>, <code>PredictorArn</code>,
+   *             <code>PredictorBacktestExportJobArn</code>, <code>ForecastArn</code>, and
+   *             <code>ForecastExportJobArn</code>. </p>
+   */
+  ResourceArn: string | undefined;
+}
+
+export namespace StopResourceRequest {
+  export const filterSensitiveLog = (obj: StopResourceRequest): any => ({
+    ...obj,
   });
 }
 

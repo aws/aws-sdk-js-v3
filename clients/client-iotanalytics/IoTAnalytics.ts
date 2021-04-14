@@ -254,8 +254,8 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   * <p>Creates a channel. A channel collects data from an MQTT topic and archives the
-   *           raw, unprocessed messages before publishing the data to a pipeline.</p>
+   * <p>Creates a channel. A channel collects data from an MQTT topic and archives the raw,
+   *       unprocessed messages before publishing the data to a pipeline.</p>
    */
   public createChannel(
     args: CreateChannelCommandInput,
@@ -323,8 +323,8 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   * <p>Creates the content of a data set by applying a <code>queryAction</code> (a SQL query)
-   *       or a <code>containerAction</code> (executing a containerized application).</p>
+   * <p>Creates the content of a data set by applying a <code>queryAction</code> (a SQL query) or
+   *       a <code>containerAction</code> (executing a containerized application).</p>
    */
   public createDatasetContent(
     args: CreateDatasetContentCommandInput,
@@ -388,10 +388,10 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   * <p>Creates a pipeline. A pipeline consumes messages from a channel and allows
-   *           you to process the messages before storing them in a data store. You must specify both a
-   *           <code>channel</code> and a <code>datastore</code> activity and, optionally, as many
-   *           as 23 additional activities in the <code>pipelineActivities</code> array.</p>
+   * <p>Creates a pipeline. A pipeline consumes messages from a channel and allows you to process
+   *       the messages before storing them in a data store. You must specify both a <code>channel</code>
+   *       and a <code>datastore</code> activity and, optionally, as many as 23 additional activities in
+   *       the <code>pipelineActivities</code> array.</p>
    */
   public createPipeline(
     args: CreatePipelineCommandInput,
@@ -1032,7 +1032,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
 
   /**
    * <p>Retrieves a sample of messages from the specified channel ingested during the specified
-   *           timeframe. Up to 10 messages can be retrieved.</p>
+   *       timeframe. Up to 10 messages can be retrieved.</p>
    */
   public sampleChannelData(
     args: SampleChannelDataCommandInput,
@@ -1096,8 +1096,8 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   * <p>Adds to or modifies the tags of the given resource. Tags are metadata that can be used
-   *       to manage a resource.</p>
+   * <p>Adds to or modifies the tags of the given resource. Tags are metadata that can be used to
+   *       manage a resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -1251,9 +1251,9 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   * <p>Updates the settings of a pipeline. You must specify both a
-   *           <code>channel</code> and a <code>datastore</code> activity and, optionally, as many
-   *           as 23 additional activities in the <code>pipelineActivities</code> array.</p>
+   * <p>Updates the settings of a pipeline. You must specify both a <code>channel</code> and a
+   *         <code>datastore</code> activity and, optionally, as many as 23 additional activities in the
+   *         <code>pipelineActivities</code> array.</p>
    */
   public updatePipeline(
     args: UpdatePipelineCommandInput,

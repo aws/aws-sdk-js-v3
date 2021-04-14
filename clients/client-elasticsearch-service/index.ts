@@ -12,6 +12,8 @@ export * from "./commands/DeleteElasticsearchServiceRoleCommand";
 export * from "./commands/DeleteInboundCrossClusterSearchConnectionCommand";
 export * from "./commands/DeleteOutboundCrossClusterSearchConnectionCommand";
 export * from "./commands/DeletePackageCommand";
+export * from "./commands/DescribeDomainAutoTunesCommand";
+export * from "./pagination/DescribeDomainAutoTunesPaginator";
 export * from "./commands/DescribeElasticsearchDomainCommand";
 export * from "./commands/DescribeElasticsearchDomainConfigCommand";
 export * from "./commands/DescribeElasticsearchDomainsCommand";

@@ -31,6 +31,10 @@ export type CreateCustomRoutingAcceleratorCommandOutput = CreateCustomRoutingAcc
  * 			traffic. To enable all destinations to receive traffic, or to specify individual port
  * 			mappings that can receive traffic, see the <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/API_AllowCustomRoutingTraffic.html">
  * 				AllowCustomRoutingTraffic</a> operation.</p>
+ * 	        <important>
+ * 		          <p>Global Accelerator is a global service that supports endpoints in multiple AWS Regions but you must specify the
+ * 			US West (Oregon) Region to create or update accelerators.</p>
+ * 	        </important>
  */
 export class CreateCustomRoutingAcceleratorCommand extends $Command<
   CreateCustomRoutingAcceleratorCommandInput,

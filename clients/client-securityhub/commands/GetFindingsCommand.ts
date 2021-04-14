@@ -1,6 +1,5 @@
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
-import { GetFindingsRequest } from "../models/models_0";
-import { GetFindingsResponse } from "../models/models_1";
+import { GetFindingsRequest, GetFindingsResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1GetFindingsCommand,
   serializeAws_restJson1GetFindingsCommand,

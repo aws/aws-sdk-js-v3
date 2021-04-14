@@ -4,6 +4,10 @@ import { AddTagsToResourceCommandInput, AddTagsToResourceCommandOutput } from ".
 import { AddUploadBufferCommandInput, AddUploadBufferCommandOutput } from "../commands/AddUploadBufferCommand";
 import { AddWorkingStorageCommandInput, AddWorkingStorageCommandOutput } from "../commands/AddWorkingStorageCommand";
 import { AssignTapePoolCommandInput, AssignTapePoolCommandOutput } from "../commands/AssignTapePoolCommand";
+import {
+  AssociateFileSystemCommandInput,
+  AssociateFileSystemCommandOutput,
+} from "../commands/AssociateFileSystemCommand";
 import { AttachVolumeCommandInput, AttachVolumeCommandOutput } from "../commands/AttachVolumeCommand";
 import { CancelArchivalCommandInput, CancelArchivalCommandOutput } from "../commands/CancelArchivalCommand";
 import { CancelRetrievalCommandInput, CancelRetrievalCommandOutput } from "../commands/CancelRetrievalCommand";
@@ -72,6 +76,10 @@ import {
   DescribeChapCredentialsCommandOutput,
 } from "../commands/DescribeChapCredentialsCommand";
 import {
+  DescribeFileSystemAssociationsCommandInput,
+  DescribeFileSystemAssociationsCommandOutput,
+} from "../commands/DescribeFileSystemAssociationsCommand";
+import {
   DescribeGatewayInformationCommandInput,
   DescribeGatewayInformationCommandOutput,
 } from "../commands/DescribeGatewayInformationCommand";
@@ -119,12 +127,20 @@ import {
 } from "../commands/DescribeWorkingStorageCommand";
 import { DetachVolumeCommandInput, DetachVolumeCommandOutput } from "../commands/DetachVolumeCommand";
 import { DisableGatewayCommandInput, DisableGatewayCommandOutput } from "../commands/DisableGatewayCommand";
+import {
+  DisassociateFileSystemCommandInput,
+  DisassociateFileSystemCommandOutput,
+} from "../commands/DisassociateFileSystemCommand";
 import { JoinDomainCommandInput, JoinDomainCommandOutput } from "../commands/JoinDomainCommand";
 import {
   ListAutomaticTapeCreationPoliciesCommandInput,
   ListAutomaticTapeCreationPoliciesCommandOutput,
 } from "../commands/ListAutomaticTapeCreationPoliciesCommand";
 import { ListFileSharesCommandInput, ListFileSharesCommandOutput } from "../commands/ListFileSharesCommand";
+import {
+  ListFileSystemAssociationsCommandInput,
+  ListFileSystemAssociationsCommandOutput,
+} from "../commands/ListFileSystemAssociationsCommand";
 import { ListGatewaysCommandInput, ListGatewaysCommandOutput } from "../commands/ListGatewaysCommand";
 import { ListLocalDisksCommandInput, ListLocalDisksCommandOutput } from "../commands/ListLocalDisksCommand";
 import {
@@ -188,6 +204,10 @@ import {
   UpdateChapCredentialsCommandOutput,
 } from "../commands/UpdateChapCredentialsCommand";
 import {
+  UpdateFileSystemAssociationCommandInput,
+  UpdateFileSystemAssociationCommandOutput,
+} from "../commands/UpdateFileSystemAssociationCommand";
+import {
   UpdateGatewayInformationCommandInput,
   UpdateGatewayInformationCommandOutput,
 } from "../commands/UpdateGatewayInformationCommand";
@@ -230,6 +250,8 @@ import {
   AddWorkingStorageOutput,
   AssignTapePoolInput,
   AssignTapePoolOutput,
+  AssociateFileSystemInput,
+  AssociateFileSystemOutput,
   AttachVolumeInput,
   AttachVolumeOutput,
   AutomaticTapeCreationPolicyInfo,
@@ -292,6 +314,8 @@ import {
   DescribeCachediSCSIVolumesOutput,
   DescribeChapCredentialsInput,
   DescribeChapCredentialsOutput,
+  DescribeFileSystemAssociationsInput,
+  DescribeFileSystemAssociationsOutput,
   DescribeGatewayInformationInput,
   DescribeGatewayInformationOutput,
   DescribeMaintenanceStartTimeInput,
@@ -323,8 +347,12 @@ import {
   DeviceiSCSIAttributes,
   DisableGatewayInput,
   DisableGatewayOutput,
+  DisassociateFileSystemInput,
+  DisassociateFileSystemOutput,
   Disk,
   FileShareInfo,
+  FileSystemAssociationInfo,
+  FileSystemAssociationSummary,
   GatewayInfo,
   InternalServerError,
   InvalidGatewayRequestException,
@@ -334,6 +362,8 @@ import {
   ListAutomaticTapeCreationPoliciesOutput,
   ListFileSharesInput,
   ListFileSharesOutput,
+  ListFileSystemAssociationsInput,
+  ListFileSystemAssociationsOutput,
   ListGatewaysInput,
   ListGatewaysOutput,
   ListLocalDisksInput,
@@ -393,6 +423,8 @@ import {
   UpdateBandwidthRateLimitScheduleOutput,
   UpdateChapCredentialsInput,
   UpdateChapCredentialsOutput,
+  UpdateFileSystemAssociationInput,
+  UpdateFileSystemAssociationOutput,
   UpdateGatewayInformationInput,
   UpdateGatewayInformationOutput,
   UpdateGatewaySoftwareNowInput,
@@ -501,6 +533,19 @@ export const serializeAws_json1_1AssignTapePoolCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AssignTapePoolInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1AssociateFileSystemCommand = async (
+  input: AssociateFileSystemCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "StorageGateway_20130630.AssociateFileSystem",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1AssociateFileSystemInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -868,6 +913,19 @@ export const serializeAws_json1_1DescribeChapCredentialsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DescribeFileSystemAssociationsCommand = async (
+  input: DescribeFileSystemAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "StorageGateway_20130630.DescribeFileSystemAssociations",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeFileSystemAssociationsInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DescribeGatewayInformationCommand = async (
   input: DescribeGatewayInformationCommandInput,
   context: __SerdeContext
@@ -1063,6 +1121,19 @@ export const serializeAws_json1_1DisableGatewayCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DisassociateFileSystemCommand = async (
+  input: DisassociateFileSystemCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "StorageGateway_20130630.DisassociateFileSystem",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DisassociateFileSystemInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1JoinDomainCommand = async (
   input: JoinDomainCommandInput,
   context: __SerdeContext
@@ -1099,6 +1170,19 @@ export const serializeAws_json1_1ListFileSharesCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListFileSharesInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListFileSystemAssociationsCommand = async (
+  input: ListFileSystemAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "StorageGateway_20130630.ListFileSystemAssociations",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListFileSystemAssociationsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1398,6 +1482,19 @@ export const serializeAws_json1_1UpdateChapCredentialsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateChapCredentialsInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateFileSystemAssociationCommand = async (
+  input: UpdateFileSystemAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "StorageGateway_20130630.UpdateFileSystemAssociation",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateFileSystemAssociationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1849,6 +1946,68 @@ const deserializeAws_json1_1AssignTapePoolCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssignTapePoolCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.storagegateway#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidGatewayRequestException":
+    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1AssociateFileSystemCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateFileSystemCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1AssociateFileSystemCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1AssociateFileSystemOutput(data, context);
+  const response: AssociateFileSystemCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1AssociateFileSystemCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateFileSystemCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -3642,6 +3801,68 @@ const deserializeAws_json1_1DescribeChapCredentialsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DescribeFileSystemAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFileSystemAssociationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeFileSystemAssociationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeFileSystemAssociationsOutput(data, context);
+  const response: DescribeFileSystemAssociationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeFileSystemAssociationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFileSystemAssociationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.storagegateway#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidGatewayRequestException":
+    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DescribeGatewayInformationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4572,6 +4793,68 @@ const deserializeAws_json1_1DisableGatewayCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DisassociateFileSystemCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateFileSystemCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DisassociateFileSystemCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DisassociateFileSystemOutput(data, context);
+  const response: DisassociateFileSystemCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DisassociateFileSystemCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateFileSystemCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.storagegateway#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidGatewayRequestException":
+    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1JoinDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4717,6 +5000,68 @@ const deserializeAws_json1_1ListFileSharesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFileSharesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.storagegateway#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidGatewayRequestException":
+    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListFileSystemAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFileSystemAssociationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListFileSystemAssociationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListFileSystemAssociationsOutput(data, context);
+  const response: ListFileSystemAssociationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListFileSystemAssociationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFileSystemAssociationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -6184,6 +6529,68 @@ const deserializeAws_json1_1UpdateChapCredentialsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1UpdateFileSystemAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateFileSystemAssociationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateFileSystemAssociationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateFileSystemAssociationOutput(data, context);
+  const response: UpdateFileSystemAssociationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateFileSystemAssociationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateFileSystemAssociationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.storagegateway#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidGatewayRequestException":
+    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1UpdateGatewayInformationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -6842,6 +7249,26 @@ const serializeAws_json1_1AssignTapePoolInput = (input: AssignTapePoolInput, con
   };
 };
 
+const serializeAws_json1_1AssociateFileSystemInput = (
+  input: AssociateFileSystemInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AuditDestinationARN !== undefined &&
+      input.AuditDestinationARN !== null && { AuditDestinationARN: input.AuditDestinationARN }),
+    ...(input.CacheAttributes !== undefined &&
+      input.CacheAttributes !== null && {
+        CacheAttributes: serializeAws_json1_1CacheAttributes(input.CacheAttributes, context),
+      }),
+    ...(input.ClientToken !== undefined && input.ClientToken !== null && { ClientToken: input.ClientToken }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
+    ...(input.LocationARN !== undefined && input.LocationARN !== null && { LocationARN: input.LocationARN }),
+    ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.UserName !== undefined && input.UserName !== null && { UserName: input.UserName }),
+  };
+};
+
 const serializeAws_json1_1AttachVolumeInput = (input: AttachVolumeInput, context: __SerdeContext): any => {
   return {
     ...(input.DiskId !== undefined && input.DiskId !== null && { DiskId: input.DiskId }),
@@ -7002,9 +7429,7 @@ const serializeAws_json1_1CreateSMBFileShareInput = (input: CreateSMBFileShareIn
     ...(input.AccessBasedEnumeration !== undefined &&
       input.AccessBasedEnumeration !== null && { AccessBasedEnumeration: input.AccessBasedEnumeration }),
     ...(input.AdminUserList !== undefined &&
-      input.AdminUserList !== null && {
-        AdminUserList: serializeAws_json1_1FileShareUserList(input.AdminUserList, context),
-      }),
+      input.AdminUserList !== null && { AdminUserList: serializeAws_json1_1UserList(input.AdminUserList, context) }),
     ...(input.AuditDestinationARN !== undefined &&
       input.AuditDestinationARN !== null && { AuditDestinationARN: input.AuditDestinationARN }),
     ...(input.Authentication !== undefined &&
@@ -7024,7 +7449,7 @@ const serializeAws_json1_1CreateSMBFileShareInput = (input: CreateSMBFileShareIn
       input.GuessMIMETypeEnabled !== null && { GuessMIMETypeEnabled: input.GuessMIMETypeEnabled }),
     ...(input.InvalidUserList !== undefined &&
       input.InvalidUserList !== null && {
-        InvalidUserList: serializeAws_json1_1FileShareUserList(input.InvalidUserList, context),
+        InvalidUserList: serializeAws_json1_1UserList(input.InvalidUserList, context),
       }),
     ...(input.KMSEncrypted !== undefined && input.KMSEncrypted !== null && { KMSEncrypted: input.KMSEncrypted }),
     ...(input.KMSKey !== undefined && input.KMSKey !== null && { KMSKey: input.KMSKey }),
@@ -7038,9 +7463,7 @@ const serializeAws_json1_1CreateSMBFileShareInput = (input: CreateSMBFileShareIn
     ...(input.SMBACLEnabled !== undefined && input.SMBACLEnabled !== null && { SMBACLEnabled: input.SMBACLEnabled }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
     ...(input.ValidUserList !== undefined &&
-      input.ValidUserList !== null && {
-        ValidUserList: serializeAws_json1_1FileShareUserList(input.ValidUserList, context),
-      }),
+      input.ValidUserList !== null && { ValidUserList: serializeAws_json1_1UserList(input.ValidUserList, context) }),
   };
 };
 
@@ -7274,6 +7697,21 @@ const serializeAws_json1_1DescribeChapCredentialsInput = (
   };
 };
 
+const serializeAws_json1_1DescribeFileSystemAssociationsInput = (
+  input: DescribeFileSystemAssociationsInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FileSystemAssociationARNList !== undefined &&
+      input.FileSystemAssociationARNList !== null && {
+        FileSystemAssociationARNList: serializeAws_json1_1FileSystemAssociationARNList(
+          input.FileSystemAssociationARNList,
+          context
+        ),
+      }),
+  };
+};
+
 const serializeAws_json1_1DescribeGatewayInformationInput = (
   input: DescribeGatewayInformationInput,
   context: __SerdeContext
@@ -7420,6 +7858,17 @@ const serializeAws_json1_1DisableGatewayInput = (input: DisableGatewayInput, con
   };
 };
 
+const serializeAws_json1_1DisassociateFileSystemInput = (
+  input: DisassociateFileSystemInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FileSystemAssociationARN !== undefined &&
+      input.FileSystemAssociationARN !== null && { FileSystemAssociationARN: input.FileSystemAssociationARN }),
+    ...(input.ForceDelete !== undefined && input.ForceDelete !== null && { ForceDelete: input.ForceDelete }),
+  };
+};
+
 const serializeAws_json1_1DiskIds = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -7453,7 +7902,7 @@ const serializeAws_json1_1FileShareClientList = (input: string[], context: __Ser
     });
 };
 
-const serializeAws_json1_1FileShareUserList = (input: string[], context: __SerdeContext): any => {
+const serializeAws_json1_1FileSystemAssociationARNList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -7513,6 +7962,17 @@ const serializeAws_json1_1ListAutomaticTapeCreationPoliciesInput = (
 };
 
 const serializeAws_json1_1ListFileSharesInput = (input: ListFileSharesInput, context: __SerdeContext): any => {
+  return {
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.Marker !== undefined && input.Marker !== null && { Marker: input.Marker }),
+  };
+};
+
+const serializeAws_json1_1ListFileSystemAssociationsInput = (
+  input: ListFileSystemAssociationsInput,
+  context: __SerdeContext
+): any => {
   return {
     ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
     ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
@@ -7807,6 +8267,24 @@ const serializeAws_json1_1UpdateChapCredentialsInput = (
   };
 };
 
+const serializeAws_json1_1UpdateFileSystemAssociationInput = (
+  input: UpdateFileSystemAssociationInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AuditDestinationARN !== undefined &&
+      input.AuditDestinationARN !== null && { AuditDestinationARN: input.AuditDestinationARN }),
+    ...(input.CacheAttributes !== undefined &&
+      input.CacheAttributes !== null && {
+        CacheAttributes: serializeAws_json1_1CacheAttributes(input.CacheAttributes, context),
+      }),
+    ...(input.FileSystemAssociationARN !== undefined &&
+      input.FileSystemAssociationARN !== null && { FileSystemAssociationARN: input.FileSystemAssociationARN }),
+    ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
+    ...(input.UserName !== undefined && input.UserName !== null && { UserName: input.UserName }),
+  };
+};
+
 const serializeAws_json1_1UpdateGatewayInformationInput = (
   input: UpdateGatewayInformationInput,
   context: __SerdeContext
@@ -7877,9 +8355,7 @@ const serializeAws_json1_1UpdateSMBFileShareInput = (input: UpdateSMBFileShareIn
     ...(input.AccessBasedEnumeration !== undefined &&
       input.AccessBasedEnumeration !== null && { AccessBasedEnumeration: input.AccessBasedEnumeration }),
     ...(input.AdminUserList !== undefined &&
-      input.AdminUserList !== null && {
-        AdminUserList: serializeAws_json1_1FileShareUserList(input.AdminUserList, context),
-      }),
+      input.AdminUserList !== null && { AdminUserList: serializeAws_json1_1UserList(input.AdminUserList, context) }),
     ...(input.AuditDestinationARN !== undefined &&
       input.AuditDestinationARN !== null && { AuditDestinationARN: input.AuditDestinationARN }),
     ...(input.CacheAttributes !== undefined &&
@@ -7896,7 +8372,7 @@ const serializeAws_json1_1UpdateSMBFileShareInput = (input: UpdateSMBFileShareIn
       input.GuessMIMETypeEnabled !== null && { GuessMIMETypeEnabled: input.GuessMIMETypeEnabled }),
     ...(input.InvalidUserList !== undefined &&
       input.InvalidUserList !== null && {
-        InvalidUserList: serializeAws_json1_1FileShareUserList(input.InvalidUserList, context),
+        InvalidUserList: serializeAws_json1_1UserList(input.InvalidUserList, context),
       }),
     ...(input.KMSEncrypted !== undefined && input.KMSEncrypted !== null && { KMSEncrypted: input.KMSEncrypted }),
     ...(input.KMSKey !== undefined && input.KMSKey !== null && { KMSKey: input.KMSKey }),
@@ -7907,9 +8383,7 @@ const serializeAws_json1_1UpdateSMBFileShareInput = (input: UpdateSMBFileShareIn
     ...(input.RequesterPays !== undefined && input.RequesterPays !== null && { RequesterPays: input.RequesterPays }),
     ...(input.SMBACLEnabled !== undefined && input.SMBACLEnabled !== null && { SMBACLEnabled: input.SMBACLEnabled }),
     ...(input.ValidUserList !== undefined &&
-      input.ValidUserList !== null && {
-        ValidUserList: serializeAws_json1_1FileShareUserList(input.ValidUserList, context),
-      }),
+      input.ValidUserList !== null && { ValidUserList: serializeAws_json1_1UserList(input.ValidUserList, context) }),
   };
 };
 
@@ -7957,6 +8431,17 @@ const serializeAws_json1_1UpdateVTLDeviceTypeInput = (
     ...(input.DeviceType !== undefined && input.DeviceType !== null && { DeviceType: input.DeviceType }),
     ...(input.VTLDeviceARN !== undefined && input.VTLDeviceARN !== null && { VTLDeviceARN: input.VTLDeviceARN }),
   };
+};
+
+const serializeAws_json1_1UserList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1VolumeARNs = (input: string[], context: __SerdeContext): any => {
@@ -8020,6 +8505,18 @@ const deserializeAws_json1_1AddWorkingStorageOutput = (
 const deserializeAws_json1_1AssignTapePoolOutput = (output: any, context: __SerdeContext): AssignTapePoolOutput => {
   return {
     TapeARN: output.TapeARN !== undefined && output.TapeARN !== null ? output.TapeARN : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AssociateFileSystemOutput = (
+  output: any,
+  context: __SerdeContext
+): AssociateFileSystemOutput => {
+  return {
+    FileSystemAssociationARN:
+      output.FileSystemAssociationARN !== undefined && output.FileSystemAssociationARN !== null
+        ? output.FileSystemAssociationARN
+        : undefined,
   } as any;
 };
 
@@ -8499,6 +8996,18 @@ const deserializeAws_json1_1DescribeChapCredentialsOutput = (
   } as any;
 };
 
+const deserializeAws_json1_1DescribeFileSystemAssociationsOutput = (
+  output: any,
+  context: __SerdeContext
+): DescribeFileSystemAssociationsOutput => {
+  return {
+    FileSystemAssociationInfoList:
+      output.FileSystemAssociationInfoList !== undefined && output.FileSystemAssociationInfoList !== null
+        ? deserializeAws_json1_1FileSystemAssociationInfoList(output.FileSystemAssociationInfoList, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DescribeGatewayInformationOutput = (
   output: any,
   context: __SerdeContext
@@ -8762,6 +9271,18 @@ const deserializeAws_json1_1DisableGatewayOutput = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_json1_1DisassociateFileSystemOutput = (
+  output: any,
+  context: __SerdeContext
+): DisassociateFileSystemOutput => {
+  return {
+    FileSystemAssociationARN:
+      output.FileSystemAssociationARN !== undefined && output.FileSystemAssociationARN !== null
+        ? output.FileSystemAssociationARN
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1Disk = (output: any, context: __SerdeContext): Disk => {
   return {
     DiskAllocationResource:
@@ -8864,14 +9385,80 @@ const deserializeAws_json1_1FileShareInfoList = (output: any, context: __SerdeCo
     });
 };
 
-const deserializeAws_json1_1FileShareUserList = (output: any, context: __SerdeContext): string[] => {
+const deserializeAws_json1_1FileSystemAssociationInfo = (
+  output: any,
+  context: __SerdeContext
+): FileSystemAssociationInfo => {
+  return {
+    AuditDestinationARN:
+      output.AuditDestinationARN !== undefined && output.AuditDestinationARN !== null
+        ? output.AuditDestinationARN
+        : undefined,
+    CacheAttributes:
+      output.CacheAttributes !== undefined && output.CacheAttributes !== null
+        ? deserializeAws_json1_1CacheAttributes(output.CacheAttributes, context)
+        : undefined,
+    FileSystemAssociationARN:
+      output.FileSystemAssociationARN !== undefined && output.FileSystemAssociationARN !== null
+        ? output.FileSystemAssociationARN
+        : undefined,
+    FileSystemAssociationStatus:
+      output.FileSystemAssociationStatus !== undefined && output.FileSystemAssociationStatus !== null
+        ? output.FileSystemAssociationStatus
+        : undefined,
+    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+    LocationARN: output.LocationARN !== undefined && output.LocationARN !== null ? output.LocationARN : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1FileSystemAssociationInfoList = (
+  output: any,
+  context: __SerdeContext
+): FileSystemAssociationInfo[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      return entry;
+      return deserializeAws_json1_1FileSystemAssociationInfo(entry, context);
+    });
+};
+
+const deserializeAws_json1_1FileSystemAssociationSummary = (
+  output: any,
+  context: __SerdeContext
+): FileSystemAssociationSummary => {
+  return {
+    FileSystemAssociationARN:
+      output.FileSystemAssociationARN !== undefined && output.FileSystemAssociationARN !== null
+        ? output.FileSystemAssociationARN
+        : undefined,
+    FileSystemAssociationId:
+      output.FileSystemAssociationId !== undefined && output.FileSystemAssociationId !== null
+        ? output.FileSystemAssociationId
+        : undefined,
+    FileSystemAssociationStatus:
+      output.FileSystemAssociationStatus !== undefined && output.FileSystemAssociationStatus !== null
+        ? output.FileSystemAssociationStatus
+        : undefined,
+    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1FileSystemAssociationSummaryList = (
+  output: any,
+  context: __SerdeContext
+): FileSystemAssociationSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1FileSystemAssociationSummary(entry, context);
     });
 };
 
@@ -8977,6 +9564,20 @@ const deserializeAws_json1_1ListFileSharesOutput = (output: any, context: __Serd
     FileShareInfoList:
       output.FileShareInfoList !== undefined && output.FileShareInfoList !== null
         ? deserializeAws_json1_1FileShareInfoList(output.FileShareInfoList, context)
+        : undefined,
+    Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
+    NextMarker: output.NextMarker !== undefined && output.NextMarker !== null ? output.NextMarker : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ListFileSystemAssociationsOutput = (
+  output: any,
+  context: __SerdeContext
+): ListFileSystemAssociationsOutput => {
+  return {
+    FileSystemAssociationSummaryList:
+      output.FileSystemAssociationSummaryList !== undefined && output.FileSystemAssociationSummaryList !== null
+        ? deserializeAws_json1_1FileSystemAssociationSummaryList(output.FileSystemAssociationSummaryList, context)
         : undefined,
     Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
     NextMarker: output.NextMarker !== undefined && output.NextMarker !== null ? output.NextMarker : undefined,
@@ -9273,7 +9874,7 @@ const deserializeAws_json1_1SMBFileShareInfo = (output: any, context: __SerdeCon
         : undefined,
     AdminUserList:
       output.AdminUserList !== undefined && output.AdminUserList !== null
-        ? deserializeAws_json1_1FileShareUserList(output.AdminUserList, context)
+        ? deserializeAws_json1_1UserList(output.AdminUserList, context)
         : undefined,
     AuditDestinationARN:
       output.AuditDestinationARN !== undefined && output.AuditDestinationARN !== null
@@ -9304,7 +9905,7 @@ const deserializeAws_json1_1SMBFileShareInfo = (output: any, context: __SerdeCon
         : undefined,
     InvalidUserList:
       output.InvalidUserList !== undefined && output.InvalidUserList !== null
-        ? deserializeAws_json1_1FileShareUserList(output.InvalidUserList, context)
+        ? deserializeAws_json1_1UserList(output.InvalidUserList, context)
         : undefined,
     KMSEncrypted: output.KMSEncrypted !== undefined && output.KMSEncrypted !== null ? output.KMSEncrypted : undefined,
     KMSKey: output.KMSKey !== undefined && output.KMSKey !== null ? output.KMSKey : undefined,
@@ -9325,7 +9926,7 @@ const deserializeAws_json1_1SMBFileShareInfo = (output: any, context: __SerdeCon
       output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
     ValidUserList:
       output.ValidUserList !== undefined && output.ValidUserList !== null
-        ? deserializeAws_json1_1FileShareUserList(output.ValidUserList, context)
+        ? deserializeAws_json1_1UserList(output.ValidUserList, context)
         : undefined,
   } as any;
 };
@@ -9625,6 +10226,18 @@ const deserializeAws_json1_1UpdateChapCredentialsOutput = (
   } as any;
 };
 
+const deserializeAws_json1_1UpdateFileSystemAssociationOutput = (
+  output: any,
+  context: __SerdeContext
+): UpdateFileSystemAssociationOutput => {
+  return {
+    FileSystemAssociationARN:
+      output.FileSystemAssociationARN !== undefined && output.FileSystemAssociationARN !== null
+        ? output.FileSystemAssociationARN
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1UpdateGatewayInformationOutput = (
   output: any,
   context: __SerdeContext
@@ -9705,6 +10318,17 @@ const deserializeAws_json1_1UpdateVTLDeviceTypeOutput = (
   return {
     VTLDeviceARN: output.VTLDeviceARN !== undefined && output.VTLDeviceARN !== null ? output.VTLDeviceARN : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1UserList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1VolumeInfo = (output: any, context: __SerdeContext): VolumeInfo => {

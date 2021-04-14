@@ -22,7 +22,21 @@ export type CreateGroupCommandOutput = CreateGroupOutput & __MetadataBearer;
 
 /**
  * <p>Creates a resource group with the specified name and description. You can optionally
- *             include a resource query, or a service configuration.</p>
+ *             include a resource query, or a service configuration. For more information about
+ *             constructing a resource query, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag">Create a tag-based group in Resource Groups</a>. For more
+ *             information about service configurations, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for resource
+ *                 groups</a>.</p>
+ *          <p>
+ *             <b>Minimum permissions</b>
+ *          </p>
+ *          <p>To run this command, you must have the following permissions:</p>
+ *          <ul>
+ *             <li>
+ *                 <p>
+ *                   <code>resource-groups:CreateGroup</code>
+ *                </p>
+ *             </li>
+ *          </ul>
  */
 export class CreateGroupCommand extends $Command<
   CreateGroupCommandInput,

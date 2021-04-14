@@ -698,6 +698,29 @@ export namespace GetMLTransformRequest {
 }
 
 /**
+ * <p>A structure containing the column name and column importance score for a column. </p>
+ *
+ * 	        <p>Column importance helps you understand how columns contribute to your model, by identifying which columns in your records are more important than others.</p>
+ */
+export interface ColumnImportance {
+  /**
+   * <p>The name of a column.</p>
+   */
+  ColumnName?: string;
+
+  /**
+   * <p>The column importance score for the column, as a decimal.</p>
+   */
+  Importance?: number;
+}
+
+export namespace ColumnImportance {
+  export const filterSensitiveLog = (obj: ColumnImportance): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>The confusion matrix shows you what your transform is predicting accurately and what types of errors it is making.</p>
  *
  * 	        <p>For more information, see <a href="https://en.wikipedia.org/wiki/Confusion_matrix">Confusion matrix</a> in Wikipedia.</p>
@@ -772,6 +795,11 @@ export interface FindMatchesMetrics {
    * 	        <p>For more information, see <a href="https://en.wikipedia.org/wiki/Confusion_matrix">Confusion matrix</a> in Wikipedia.</p>
    */
   ConfusionMatrix?: ConfusionMatrix;
+
+  /**
+   * <p>A list of <code>ColumnImportance</code> structures containing column importance metrics, sorted in order of descending importance.</p>
+   */
+  ColumnImportances?: ColumnImportance[];
 }
 
 export namespace FindMatchesMetrics {
@@ -1642,6 +1670,8 @@ export interface GetPartitionsRequest {
    * <p>The maximum number of partitions to return in a single response.</p>
    */
   MaxResults?: number;
+
+  ExcludeColumnSchema?: boolean;
 }
 
 export namespace GetPartitionsRequest {
@@ -1857,9 +1887,10 @@ export namespace GetResourcePoliciesResponse {
 
 export interface GetResourcePolicyRequest {
   /**
-   * <p>The ARN of the AWS Glue resource for the resource policy to be retrieved. For more
-   *       information about AWS Glue resource ARNs, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-aws-glue-arn-id">AWS Glue ARN string pattern</a>
-   *          </p>
+   * <p>The ARN of the AWS Glue resource for which to retrieve the resource policy. If not
+   *       supplied, the Data Catalog resource policy is returned. Use <code>GetResourcePolicies</code>
+   *       to view all existing resource policies. For more information see <a href="https://docs.aws.amazon.com/glue/latest/dg/glue-specifying-resource-arns.html">Specifying AWS Glue Resource ARNs</a>.
+   *     </p>
    */
   ResourceArn?: string;
 }
@@ -2051,8 +2082,18 @@ export namespace GetSchemaByDefinitionResponse {
   });
 }
 
+/**
+ * <p>A structure containing the schema version information.</p>
+ */
 export interface SchemaVersionNumber {
+  /**
+   * <p>The latest version available for the schema.</p>
+   */
   LatestVersion?: boolean;
+
+  /**
+   * <p>The version number of the schema.</p>
+   */
   VersionNumber?: number;
 }
 
@@ -3572,9 +3613,7 @@ export interface PutResourcePolicyRequest {
   PolicyInJson: string | undefined;
 
   /**
-   * <p>The ARN of the AWS Glue resource for the resource policy to be set. For more
-   *       information about AWS Glue resource ARNs, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-aws-glue-arn-id">AWS Glue ARN string pattern</a>
-   *          </p>
+   * <p>Do not use. For internal use only.</p>
    */
   ResourceArn?: string;
 
@@ -3588,14 +3627,25 @@ export interface PutResourcePolicyRequest {
   /**
    * <p>A value of <code>MUST_EXIST</code> is used to update a policy. A value of
    *         <code>NOT_EXIST</code> is used to create a new policy. If a value of <code>NONE</code> or a
-   *       null value is used, the call will not depend on the existence of a policy.</p>
+   *       null value is used, the call does not depend on the existence of a policy.</p>
    */
   PolicyExistsCondition?: ExistCondition | string;
 
   /**
-   * <p>Allows you to specify if you want to use both resource-level and account/catalog-level resource policies. A resource-level policy is a policy attached to an individual resource such as a database or a table.</p>
-   *
-   * 	        <p>The default value of <code>NO</code> indicates that resource-level policies cannot co-exist with an account-level policy. A value of <code>YES</code> means the use of both resource-level and account/catalog-level resource policies is allowed.</p>
+   * <p>If <code>'TRUE'</code>, indicates that you are using both methods to grant cross-account
+   *       access to Data Catalog resources:</p>
+   *          <ul>
+   *             <li>
+   *                <p>By directly updating the resource policy with <code>PutResourePolicy</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>By using the <b>Grant permissions</b> command on the AWS
+   *           Management Console.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Must be set to <code>'TRUE'</code> if you have already used the Management Console to
+   *       grant cross-account access, otherwise the call fails. Default is 'FALSE'.</p>
    */
   EnableHybrid?: EnableHybridValues | string;
 }
@@ -3788,6 +3838,27 @@ export namespace QuerySchemaVersionMetadataInput {
 }
 
 /**
+ * <p>A structure containing other metadata for a schema version belonging to the same metadata key.</p>
+ */
+export interface OtherMetadataValueListItem {
+  /**
+   * <p>The metadata key’s corresponding value for the other metadata belonging to the same metadata key.</p>
+   */
+  MetadataValue?: string;
+
+  /**
+   * <p>The time at which the entry was created.</p>
+   */
+  CreatedTime?: string;
+}
+
+export namespace OtherMetadataValueListItem {
+  export const filterSensitiveLog = (obj: OtherMetadataValueListItem): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>A structure containing metadata information for a schema version.</p>
  */
 export interface MetadataInfo {
@@ -3800,6 +3871,11 @@ export interface MetadataInfo {
    * <p>The time at which the entry was created.</p>
    */
   CreatedTime?: string;
+
+  /**
+   * <p>Other metadata belonging to the same metadata key.</p>
+   */
+  OtherMetadataValueList?: OtherMetadataValueListItem[];
 }
 
 export namespace MetadataInfo {

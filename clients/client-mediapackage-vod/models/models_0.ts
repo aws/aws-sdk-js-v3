@@ -547,6 +547,22 @@ export namespace Authorization {
 }
 
 /**
+ * Configure egress access logging.
+ */
+export interface EgressAccessLogs {
+  /**
+   * Customize the log group name.
+   */
+  LogGroupName?: string;
+}
+
+export namespace EgressAccessLogs {
+  export const filterSensitiveLog = (obj: EgressAccessLogs): any => ({
+    ...obj,
+  });
+}
+
+/**
  * A MediaPackage VOD PackagingGroup resource.
  */
 export interface PackagingGroup {
@@ -566,6 +582,11 @@ export interface PackagingGroup {
   DomainName?: string;
 
   /**
+   * Configure egress access logging.
+   */
+  EgressAccessLogs?: EgressAccessLogs;
+
+  /**
    * The ID of the PackagingGroup.
    */
   Id?: string;
@@ -578,6 +599,155 @@ export interface PackagingGroup {
 
 export namespace PackagingGroup {
   export const filterSensitiveLog = (obj: PackagingGroup): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * The option to configure log subscription.
+ */
+export interface ConfigureLogsRequest {
+  /**
+   * Configure egress access logging.
+   */
+  EgressAccessLogs?: EgressAccessLogs;
+
+  /**
+   * The ID of a MediaPackage VOD PackagingGroup resource.
+   */
+  Id: string | undefined;
+}
+
+export namespace ConfigureLogsRequest {
+  export const filterSensitiveLog = (obj: ConfigureLogsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ConfigureLogsResponse {
+  /**
+   * The ARN of the PackagingGroup.
+   */
+  Arn?: string;
+
+  /**
+   * CDN Authorization credentials
+   */
+  Authorization?: Authorization;
+
+  /**
+   * The fully qualified domain name for Assets in the PackagingGroup.
+   */
+  DomainName?: string;
+
+  /**
+   * Configure egress access logging.
+   */
+  EgressAccessLogs?: EgressAccessLogs;
+
+  /**
+   * The ID of the PackagingGroup.
+   */
+  Id?: string;
+
+  /**
+   * A collection of tags associated with a resource
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace ConfigureLogsResponse {
+  export const filterSensitiveLog = (obj: ConfigureLogsResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * The client is not authorized to access the requested resource.
+ */
+export interface ForbiddenException extends __SmithyException, $MetadataBearer {
+  name: "ForbiddenException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace ForbiddenException {
+  export const filterSensitiveLog = (obj: ForbiddenException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * An unexpected error occurred.
+ */
+export interface InternalServerErrorException extends __SmithyException, $MetadataBearer {
+  name: "InternalServerErrorException";
+  $fault: "server";
+  Message?: string;
+}
+
+export namespace InternalServerErrorException {
+  export const filterSensitiveLog = (obj: InternalServerErrorException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * The requested resource does not exist.
+ */
+export interface NotFoundException extends __SmithyException, $MetadataBearer {
+  name: "NotFoundException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace NotFoundException {
+  export const filterSensitiveLog = (obj: NotFoundException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * An unexpected error occurred.
+ */
+export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
+  name: "ServiceUnavailableException";
+  $fault: "server";
+  Message?: string;
+}
+
+export namespace ServiceUnavailableException {
+  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * The client has exceeded their resource or throttling limits.
+ */
+export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
+  name: "TooManyRequestsException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyRequestsException {
+  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * The parameters sent in the request are not valid.
+ */
+export interface UnprocessableEntityException extends __SmithyException, $MetadataBearer {
+  name: "UnprocessableEntityException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace UnprocessableEntityException {
+  export const filterSensitiveLog = (obj: UnprocessableEntityException): any => ({
     ...obj,
   });
 }
@@ -672,96 +842,6 @@ export interface CreateAssetResponse {
 
 export namespace CreateAssetResponse {
   export const filterSensitiveLog = (obj: CreateAssetResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * The client is not authorized to access the requested resource.
- */
-export interface ForbiddenException extends __SmithyException, $MetadataBearer {
-  name: "ForbiddenException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace ForbiddenException {
-  export const filterSensitiveLog = (obj: ForbiddenException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * An unexpected error occurred.
- */
-export interface InternalServerErrorException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerErrorException";
-  $fault: "server";
-  Message?: string;
-}
-
-export namespace InternalServerErrorException {
-  export const filterSensitiveLog = (obj: InternalServerErrorException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * The requested resource does not exist.
- */
-export interface NotFoundException extends __SmithyException, $MetadataBearer {
-  name: "NotFoundException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace NotFoundException {
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * An unexpected error occurred.
- */
-export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "ServiceUnavailableException";
-  $fault: "server";
-  Message?: string;
-}
-
-export namespace ServiceUnavailableException {
-  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * The client has exceeded their resource or throttling limits.
- */
-export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyRequestsException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace TooManyRequestsException {
-  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * The parameters sent in the request are not valid.
- */
-export interface UnprocessableEntityException extends __SmithyException, $MetadataBearer {
-  name: "UnprocessableEntityException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace UnprocessableEntityException {
-  export const filterSensitiveLog = (obj: UnprocessableEntityException): any => ({
     ...obj,
   });
 }
@@ -870,6 +950,11 @@ export interface CreatePackagingGroupRequest {
   Authorization?: Authorization;
 
   /**
+   * Configure egress access logging.
+   */
+  EgressAccessLogs?: EgressAccessLogs;
+
+  /**
    * The ID of the PackagingGroup.
    */
   Id: string | undefined;
@@ -901,6 +986,11 @@ export interface CreatePackagingGroupResponse {
    * The fully qualified domain name for Assets in the PackagingGroup.
    */
   DomainName?: string;
+
+  /**
+   * Configure egress access logging.
+   */
+  EgressAccessLogs?: EgressAccessLogs;
 
   /**
    * The ID of the PackagingGroup.
@@ -1139,6 +1229,11 @@ export interface DescribePackagingGroupResponse {
   DomainName?: string;
 
   /**
+   * Configure egress access logging.
+   */
+  EgressAccessLogs?: EgressAccessLogs;
+
+  /**
    * The ID of the PackagingGroup.
    */
   Id?: string;
@@ -1371,6 +1466,11 @@ export interface UpdatePackagingGroupResponse {
    * The fully qualified domain name for Assets in the PackagingGroup.
    */
   DomainName?: string;
+
+  /**
+   * Configure egress access logging.
+   */
+  EgressAccessLogs?: EgressAccessLogs;
 
   /**
    * The ID of the PackagingGroup.

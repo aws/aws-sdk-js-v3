@@ -21,7 +21,7 @@ export type GetInfrastructureConfigurationCommandInput = GetInfrastructureConfig
 export type GetInfrastructureConfigurationCommandOutput = GetInfrastructureConfigurationResponse & __MetadataBearer;
 
 /**
- * <p> Gets an infrastructure configuration. </p>
+ * <p> Gets an infrastructure configuration.</p>
  */
 export class GetInfrastructureConfigurationCommand extends $Command<
   GetInfrastructureConfigurationCommandInput,

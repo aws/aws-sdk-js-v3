@@ -22,11 +22,11 @@ export type ListMultipartUploadsCommandInput = ListMultipartUploadsRequest;
 export type ListMultipartUploadsCommandOutput = ListMultipartUploadsOutput & __MetadataBearer;
 
 /**
- * <p>This operation lists in-progress multipart uploads. An in-progress multipart upload is a
+ * <p>This action lists in-progress multipart uploads. An in-progress multipart upload is a
  *          multipart upload that has been initiated using the Initiate Multipart Upload request, but
  *          has not yet been completed or aborted.</p>
  *
- *          <p>This operation returns at most 1,000 multipart uploads in the response. 1,000 multipart
+ *          <p>This action returns at most 1,000 multipart uploads in the response. 1,000 multipart
  *          uploads is the maximum number of uploads a response can include, which is also the default
  *          value. You can further limit the number of uploads in a response by specifying the
  *             <code>max-uploads</code> parameter in the response. If additional multipart uploads
@@ -42,7 +42,7 @@ export type ListMultipartUploadsCommandOutput = ListMultipartUploadsOutput & __M
  *          <p>For more information on multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html">Uploading Objects Using Multipart
  *             Upload</a>.</p>
  *
- *          <p>For information on permissions required to use the multipart upload API, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload API and
+ *          <p>For information on permissions required to use the multipart upload API, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload and
  *          Permissions</a>.</p>
  *
  *          <p>The following operations are related to <code>ListMultipartUploads</code>:</p>

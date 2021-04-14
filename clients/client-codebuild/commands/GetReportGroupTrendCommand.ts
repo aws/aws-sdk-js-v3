@@ -20,6 +20,9 @@ import {
 export type GetReportGroupTrendCommandInput = GetReportGroupTrendInput;
 export type GetReportGroupTrendCommandOutput = GetReportGroupTrendOutput & __MetadataBearer;
 
+/**
+ * <p>Analyzes and accumulates test report values for the specified test reports.</p>
+ */
 export class GetReportGroupTrendCommand extends $Command<
   GetReportGroupTrendCommandInput,
   GetReportGroupTrendCommandOutput,

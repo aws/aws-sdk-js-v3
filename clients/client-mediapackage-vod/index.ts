@@ -1,5 +1,6 @@
 export * from "./MediaPackageVodClient";
 export * from "./MediaPackageVod";
+export * from "./commands/ConfigureLogsCommand";
 export * from "./commands/CreateAssetCommand";
 export * from "./commands/CreatePackagingConfigurationCommand";
 export * from "./commands/CreatePackagingGroupCommand";

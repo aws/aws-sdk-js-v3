@@ -4896,6 +4896,8 @@ const serializeAws_json1_1CreateCustomRoutingAcceleratorRequest = (
     ...(input.Enabled !== undefined && input.Enabled !== null && { Enabled: input.Enabled }),
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
     ...(input.IpAddressType !== undefined && input.IpAddressType !== null && { IpAddressType: input.IpAddressType }),
+    ...(input.IpAddresses !== undefined &&
+      input.IpAddresses !== null && { IpAddresses: serializeAws_json1_1IpAddresses(input.IpAddresses, context) }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };

@@ -20,6 +20,12 @@ import {
 export type UpdateResourceCollectionCommandInput = UpdateResourceCollectionRequest;
 export type UpdateResourceCollectionCommandOutput = UpdateResourceCollectionResponse & __MetadataBearer;
 
+/**
+ * <p> Updates the collection of resources that DevOps Guru analyzes.
+ * 			The one type of AWS resource collection supported is AWS CloudFormation stacks. DevOps Guru can be configured to analyze
+ *       	only the AWS resources that are defined in the stacks. This method also creates the IAM role required for you
+ * 			to use DevOps Guru. </p>
+ */
 export class UpdateResourceCollectionCommand extends $Command<
   UpdateResourceCollectionCommandInput,
   UpdateResourceCollectionCommandOutput,

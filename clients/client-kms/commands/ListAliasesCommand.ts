@@ -21,11 +21,11 @@ export type ListAliasesCommandInput = ListAliasesRequest;
 export type ListAliasesCommandOutput = ListAliasesResponse & __MetadataBearer;
 
 /**
- * <p>Gets a list of aliases in the caller's AWS account and region. You cannot list aliases in
- *       other accounts. For more information about aliases, see <a>CreateAlias</a>.</p>
- *          <p>By default, the ListAliases command returns all aliases in the account and region. To get
- *       only the aliases that point to a particular customer master key (CMK), use the
- *         <code>KeyId</code> parameter.</p>
+ * <p>Gets a list of aliases in the caller's AWS account and region. For more information about
+ *       aliases, see <a>CreateAlias</a>.</p>
+ *          <p>By default, the <code>ListAliases</code> operation returns all aliases in the account and
+ *       region. To get only the aliases associated with a particular customer master key (CMK), use
+ *       the <code>KeyId</code> parameter.</p>
  *          <p>The <code>ListAliases</code> response can include aliases that you created and associated
  *       with your customer managed CMKs, and aliases that AWS created and associated with AWS managed
  *       CMKs in your account. You can recognize AWS aliases because their names have the format
@@ -35,6 +35,34 @@ export type ListAliasesCommandOutput = ListAliasesResponse & __MetadataBearer;
  *       that AWS creates in your account, including predefined aliases, do not count against your
  *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#aliases-limit">AWS KMS aliases
  *         quota</a>.</p>
+ *          <p>
+ *             <b>Cross-account use</b>: No. <code>ListAliases</code> does not
+ *       return aliases in other AWS accounts.</p>
+ *
+ *
+ *          <p>
+ *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ListAliases</a> (IAM policy)</p>
+ *          <p>For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-alias.html#alias-access">Controlling access to aliases</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ *          <p>
+ *             <b>Related operations:</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateAlias</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteAlias</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UpdateAlias</a>
+ *                </p>
+ *             </li>
+ *          </ul>
  */
 export class ListAliasesCommand extends $Command<
   ListAliasesCommandInput,

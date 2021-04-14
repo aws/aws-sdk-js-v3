@@ -424,8 +424,8 @@ export class Organizations extends OrganizationsClient {
    *                 <code>organizations:TagResource</code> permission.</p>
    *         <p>AWS Organizations preconfigures the new member account with a role (named
    *                 <code>OrganizationAccountAccessRole</code> by default) that grants users in the
-   *             management account administrator permissions in the new member account. Principals in the
-   *             management account can assume the role. AWS Organizations clones the company name and address
+   *             management account administrator permissions in the new member account. Principals in
+   *             the management account can assume the role. AWS Organizations clones the company name and address
    *             information for the new account from the organization's management account.</p>
    *         <p>This operation can be called only from the organization's management account.</p>
    *         <p>For more information about creating accounts, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_create.html">Creating
@@ -549,12 +549,13 @@ export class Organizations extends OrganizationsClient {
    *             commercial account associated with the GovCloud account, rather than the GovCloud
    *             account itself. To add tags to the GovCloud account, call the <a>TagResource</a> operation in the GovCloud Region after the new GovCloud
    *             account exists.</p>
-   *         <p>You call this action from the management account of your organization in the commercial
-   *             Region to create a standalone AWS account in the AWS GovCloud (US) Region. After the
-   *             account is created, the management account of an organization in the AWS GovCloud (US)
-   *             Region can invite it to that organization. For more information on inviting standalone
-   *             accounts in the AWS GovCloud (US) to join an organization, see <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS Organizations</a> in the
-   *                 <i>AWS GovCloud User Guide.</i>
+   *         <p>You call this action from the management account of your organization in the
+   *             commercial Region to create a standalone AWS account in the AWS GovCloud (US)
+   *             Region. After the account is created, the management account of an organization in the
+   *             AWS GovCloud (US) Region can invite it to that organization. For more information on
+   *             inviting standalone accounts in the AWS GovCloud (US) to join an organization, see
+   *                 <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS Organizations</a> in
+   *             the <i>AWS GovCloud User Guide.</i>
    *          </p>
    *         <p>Calling <code>CreateGovCloudAccount</code> is an asynchronous request that AWS
    *             performs in the background. Because <code>CreateGovCloudAccount</code> operates
@@ -585,9 +586,9 @@ export class Organizations extends OrganizationsClient {
    *             management account in the organization in the commercial Region to assume it. An AWS
    *             GovCloud (US) account is then created and associated with the commercial account that
    *             you just created. A role is also created in the new AWS GovCloud (US) account that can
-   *             be assumed by the AWS GovCloud (US) account that is associated with the
-   *             management account of the commercial organization. For more information and to view a
-   *             diagram that explains how account access works, see <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS Organizations</a> in the
+   *             be assumed by the AWS GovCloud (US) account that is associated with the management
+   *             account of the commercial organization. For more information and to view a diagram that
+   *             explains how account access works, see <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS Organizations</a> in the
    *                 <i>AWS GovCloud User Guide.</i>
    *          </p>
    *
@@ -936,7 +937,7 @@ export class Organizations extends OrganizationsClient {
    *         </important>
    *         <p>You can run this action only for AWS services that support this
    *     feature. For a current list of services that support it, see the column <i>Supports
-   *     Delegated Administrator</i> in the table at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrated-services-list.html">AWS Services that you can use with
+   *     Delegated Administrator</i> in the table at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services_list.html">AWS Services that you can use with
    *     AWS Organizations</a> in the <i>AWS Organizations User Guide.</i>
    *          </p>
    *         <p>This operation can be called only from the organization's management account.</p>
@@ -1275,19 +1276,51 @@ export class Organizations extends OrganizationsClient {
    *             perform operations on your behalf on any new accounts in your organization. The service
    *             can still perform operations in older accounts until the service completes its clean-up
    *             from AWS Organizations.</p>
-   *         <p></p>
    *         <important>
-   *             <p>We recommend that you disable integration between AWS Organizations and the specified AWS
-   *                 service by using the console or commands that are provided by the specified service.
-   *                 Doing so ensures that the other service is aware that it can clean up any resources
-   *                 that are required only for the integration. How the service cleans up its resources
-   *                 in the organization's accounts depends on that service. For more information, see
-   *                 the documentation for the other AWS service.</p>
+   *             <p>We <b>
+   *                   <i>strongly recommend</i>
+   *                </b> that
+   *                 you don't use this command to disable integration between AWS Organizations and the specified
+   *                 AWS service. Instead, use the console or commands that are provided by the
+   *                 specified service. This lets the trusted service perform any required initialization
+   *                 when enabling trusted access, such as creating any required resources and any
+   *                 required clean up of resources when disabling trusted access. </p>
+   *             <p>For information about how to disable trusted service access to your organization
+   *                 using the trusted service, see the <b>Learn more</b> link
+   *                 under the <b>Supports Trusted Access</b> column at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services_list.html">AWS
+   *                     services that you can use with AWS Organizations</a>. on this page.</p>
+   *             <p>If you disable access by using this command, it causes the following actions to
+   *                 occur:</p>
+   *             <ul>
+   *                <li>
+   *                     <p>The service can no longer create a service-linked role in the accounts in
+   *                         your organization. This means that the service can't perform operations on
+   *                         your behalf on any new accounts in your organization. The service can still
+   *                         perform operations in older accounts until the service completes its
+   *                         clean-up from AWS Organizations. </p>
+   *                 </li>
+   *                <li>
+   *                     <p>The service can no longer perform tasks in the member accounts in the
+   *                         organization, unless those operations are explicitly permitted by the IAM
+   *                         policies that are attached to your roles. This includes any data aggregation
+   *                         from the member accounts to the management account, or to a delegated
+   *                         administrator account, where relevant.</p>
+   *                 </li>
+   *                <li>
+   *                     <p>Some services detect this and clean up any remaining data or resources
+   *                         related to the integration, while other services stop accessing the
+   *                         organization but leave any historical data and configuration in place to
+   *                         support a possible re-enabling of the integration.</p>
+   *                 </li>
+   *             </ul>
+   *             <p>Using the other service's console or commands to disable the integration ensures
+   *                 that the other service is aware that it can clean up any resources that are required
+   *                 only for the integration. How the service cleans up its resources in the
+   *                 organization's accounts depends on that service. For more information, see the
+   *                 documentation for the other AWS service. </p>
    *         </important>
    *         <p>After you perform the <code>DisableAWSServiceAccess</code> operation, the specified
-   *             service can no longer perform operations in your organization's accounts unless the
-   *             operations are explicitly permitted by the IAM policies that are attached to your
-   *             roles.</p>
+   *             service can no longer perform operations in your organization's accounts </p>
    *         <p>For more information about integrating other services with AWS Organizations, including the
    *             list of services that work with Organizations, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Integrating AWS Organizations with Other
    *                 AWS Services</a> in the <i>AWS Organizations User Guide.</i>
@@ -1522,12 +1555,12 @@ export class Organizations extends OrganizationsClient {
    *         <important>
    *             <ul>
    *                <li>
-   *                     <p>You can invite AWS accounts only from the same seller as the
-   *                         management account. For example, if your organization's management account was
-   *                         created by Amazon Internet Services Pvt. Ltd (AISPL), an AWS seller in
-   *                         India, you can invite only other AISPL accounts to your organization. You
-   *                         can't combine accounts from AISPL and AWS or from any other AWS seller.
-   *                         For more information, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/useconsolidatedbilliing-India.html">Consolidated
+   *                     <p>You can invite AWS accounts only from the same seller as the management
+   *                         account. For example, if your organization's management account was created
+   *                         by Amazon Internet Services Pvt. Ltd (AISPL), an AWS seller in India, you
+   *                         can invite only other AISPL accounts to your organization. You can't combine
+   *                         accounts from AISPL and AWS or from any other AWS seller. For more
+   *                         information, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/useconsolidatedbilliing-India.html">Consolidated
    *                             Billing in India</a>.</p>
    *                 </li>
    *                <li>
@@ -1580,8 +1613,8 @@ export class Organizations extends OrganizationsClient {
    *         <important>
    *             <ul>
    *                <li>
-   *                     <p>The management account in an organization with all features enabled can set
-   *                         service control policies (SCPs) that can restrict what administrators of
+   *                     <p>The management account in an organization with all features enabled can
+   *                         set service control policies (SCPs) that can restrict what administrators of
    *                         member accounts can do. This includes preventing them from successfully
    *                         calling <code>LeaveOrganization</code> and leaving the organization.</p>
    *                 </li>
@@ -1611,6 +1644,12 @@ export class Organizations extends OrganizationsClient {
    *                             yet been provided</a> in the
    *                         <i>AWS Organizations User Guide.</i>
    *                   </p>
+   *                 </li>
+   *                <li>
+   *                     <p>The account that you want to leave must not be a delegated administrator
+   *                         account for any AWS service enabled for your organization. If the account is
+   *                         a delegated administrator, you must first change the delegated administrator
+   *                         account to another account that is remaining in the organization.</p>
    *                 </li>
    *                <li>
    *                     <p>You can leave an organization only after you enable IAM user access to
@@ -2363,7 +2402,7 @@ export class Organizations extends OrganizationsClient {
    *             requires IAM permissions to access and administer the AWS service.</p>
    *         <p>You can run this action only for AWS services that support this
    *     feature. For a current list of services that support it, see the column <i>Supports
-   *     Delegated Administrator</i> in the table at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrated-services-list.html">AWS Services that you can use with
+   *     Delegated Administrator</i> in the table at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services_list.html">AWS Services that you can use with
    *     AWS Organizations</a> in the <i>AWS Organizations User Guide.</i>
    *          </p>
    *         <p>This operation can be called only from the organization's management account.</p>
@@ -2421,6 +2460,12 @@ export class Organizations extends OrganizationsClient {
    *                             yet been provided</a> in the
    *                         <i>AWS Organizations User Guide.</i>
    *                   </p>
+   *                 </li>
+   *                <li>
+   *                     <p>The account that you want to leave must not be a delegated administrator
+   *                         account for any AWS service enabled for your organization. If the account is
+   *                         a delegated administrator, you must first change the delegated administrator
+   *                         account to another account that is remaining in the organization.</p>
    *                 </li>
    *                <li>
    *                     <p>After the account leaves the organization, all tags that were attached to

@@ -21,9 +21,20 @@ export type PutKeyPolicyCommandInput = PutKeyPolicyRequest;
 export type PutKeyPolicyCommandOutput = __MetadataBearer;
 
 /**
- * <p>Attaches a key policy to the specified customer master key (CMK).
- *       You cannot perform this operation on a CMK in a different AWS account.</p>
- *          <p>For more information about key policies, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Key Policies</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ * <p>Attaches a key policy to the specified customer master key (CMK). </p>
+ *          <p>For more information about key policies, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Key Policies</a> in the <i>AWS Key Management Service Developer Guide</i>.
+ *       For help writing and formatting a JSON policy document, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM JSON Policy Reference</a> in the <i>
+ *                <i>IAM User Guide</i>
+ *             </i>. For examples of adding a key policy in multiple programming languages,
+ *       see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-key-policies.html#put-policy">Setting a key policy</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ *          <p>
+ *             <b>Cross-account use</b>: No. You cannot perform this operation on a CMK in a different AWS account.</p>
+ *
+ *          <p>
+ *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:PutKeyPolicy</a> (key policy)</p>
+ *          <p>
+ *             <b>Related operations</b>: <a>GetKeyPolicy</a>
+ *          </p>
  */
 export class PutKeyPolicyCommand extends $Command<
   PutKeyPolicyCommandInput,

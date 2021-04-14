@@ -22,6 +22,8 @@ export type ListModelsCommandOutput = ListModelsResponse & __MetadataBearer;
 
 /**
  * <p>Lists the versions of a model in an Amazon Lookout for Vision project.</p>
+ *          <p>This operation requires permissions to perform the
+ *          <code>lookoutvision:ListModels</code> operation.</p>
  */
 export class ListModelsCommand extends $Command<
   ListModelsCommandInput,

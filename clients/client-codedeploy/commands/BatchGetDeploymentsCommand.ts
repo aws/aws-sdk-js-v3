@@ -21,7 +21,8 @@ export type BatchGetDeploymentsCommandInput = BatchGetDeploymentsInput;
 export type BatchGetDeploymentsCommandOutput = BatchGetDeploymentsOutput & __MetadataBearer;
 
 /**
- * <p>Gets information about one or more deployments. The maximum number of deployments that can be returned is 25.</p>
+ * <p>Gets information about one or more deployments. The maximum number of deployments that
+ *             can be returned is 25.</p>
  */
 export class BatchGetDeploymentsCommand extends $Command<
   BatchGetDeploymentsCommandInput,

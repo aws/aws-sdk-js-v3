@@ -20,8 +20,6 @@ import {
   LaunchTemplateEnclaveOptionsRequest,
   LaunchTemplateHibernationOptionsRequest,
   LaunchTemplateIamInstanceProfileSpecificationRequest,
-  LaunchTemplateInstanceMarketOptionsRequest,
-  LaunchTemplateLicenseConfigurationRequest,
   MarketType,
   ReservedInstancesListing,
   ResourceType,
@@ -44,6 +42,82 @@ import {
   VpcPeeringConnection,
   _InstanceType,
 } from "./models_0";
+
+/**
+ * <p>The options for Spot Instances.</p>
+ */
+export interface LaunchTemplateSpotMarketOptionsRequest {
+  /**
+   * <p>The maximum hourly price you're willing to pay for the Spot Instances.</p>
+   */
+  MaxPrice?: string;
+
+  /**
+   * <p>The Spot Instance request type.</p>
+   */
+  SpotInstanceType?: SpotInstanceType | string;
+
+  /**
+   * <p>The required duration for the Spot Instances (also known as Spot blocks), in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).</p>
+   */
+  BlockDurationMinutes?: number;
+
+  /**
+   * <p>The end date of the request.
+   *             For a one-time request, the request remains active until all instances launch, the request is canceled, or this date is reached.
+   *             If the request is persistent, it remains active until it is canceled or this date and time is reached.
+   *             The default end date is 7 days from the current date.</p>
+   */
+  ValidUntil?: Date;
+
+  /**
+   * <p>The behavior when a Spot Instance is interrupted. The default is <code>terminate</code>.</p>
+   */
+  InstanceInterruptionBehavior?: InstanceInterruptionBehavior | string;
+}
+
+export namespace LaunchTemplateSpotMarketOptionsRequest {
+  export const filterSensitiveLog = (obj: LaunchTemplateSpotMarketOptionsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The market (purchasing) option for the instances.</p>
+ */
+export interface LaunchTemplateInstanceMarketOptionsRequest {
+  /**
+   * <p>The market type.</p>
+   */
+  MarketType?: MarketType | string;
+
+  /**
+   * <p>The options for Spot Instances.</p>
+   */
+  SpotOptions?: LaunchTemplateSpotMarketOptionsRequest;
+}
+
+export namespace LaunchTemplateInstanceMarketOptionsRequest {
+  export const filterSensitiveLog = (obj: LaunchTemplateInstanceMarketOptionsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a license configuration.</p>
+ */
+export interface LaunchTemplateLicenseConfigurationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the license configuration.</p>
+   */
+  LicenseConfigurationArn?: string;
+}
+
+export namespace LaunchTemplateLicenseConfigurationRequest {
+  export const filterSensitiveLog = (obj: LaunchTemplateLicenseConfigurationRequest): any => ({
+    ...obj,
+  });
+}
 
 export type LaunchTemplateInstanceMetadataEndpointState = "disabled" | "enabled";
 
@@ -340,7 +414,7 @@ export interface RequestLaunchTemplateData {
   EbsOptimized?: boolean;
 
   /**
-   * <p>The IAM instance profile.</p>
+   * <p>The name or Amazon Resource Name (ARN) of an IAM instance profile.</p>
    */
   IamInstanceProfile?: LaunchTemplateIamInstanceProfileSpecificationRequest;
 
@@ -785,7 +859,7 @@ export interface LaunchTemplateBlockDeviceMapping {
   Ebs?: LaunchTemplateEbsBlockDevice;
 
   /**
-   * <p>Suppresses the specified device included in the block device mapping of the AMI.</p>
+   * <p>To omit the device from the block device mapping, specify an empty string.</p>
    */
   NoDevice?: string;
 }
@@ -1537,16 +1611,16 @@ export interface CreateLocalGatewayRouteRequest {
   LocalGatewayRouteTableId: string | undefined;
 
   /**
-   * <p>The ID of the virtual interface group.</p>
-   */
-  LocalGatewayVirtualInterfaceGroupId: string | undefined;
-
-  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>The ID of the virtual interface group.</p>
+   */
+  LocalGatewayVirtualInterfaceGroupId: string | undefined;
 }
 
 export namespace CreateLocalGatewayRouteRequest {
@@ -1853,11 +1927,6 @@ export namespace CreateManagedPrefixListResult {
 
 export interface CreateNatGatewayRequest {
   /**
-   * <p>The allocation ID of an Elastic IP address to associate with the NAT gateway. If the Elastic IP address is associated with another resource, you must first disassociate it.</p>
-   */
-  AllocationId: string | undefined;
-
-  /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    * 			request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure
    * 				Idempotency</a>.</p>
@@ -1881,6 +1950,11 @@ export interface CreateNatGatewayRequest {
    * <p>The tags to assign to the NAT gateway.</p>
    */
   TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>The allocation ID of an Elastic IP address to associate with the NAT gateway. If the Elastic IP address is associated with another resource, you must first disassociate it.</p>
+   */
+  AllocationId: string | undefined;
 }
 
 export namespace CreateNatGatewayRequest {
@@ -2839,7 +2913,7 @@ export interface NetworkInterface {
   PrivateIpAddresses?: NetworkInterfacePrivateIpAddress[];
 
   /**
-   * <p>The ID of the entity that launched the instance on your behalf (for example, AWS Management Console or Auto Scaling).</p>
+   * <p>The alias or AWS account ID of the principal or service that created the network interface.</p>
    */
   RequesterId?: string;
 
@@ -2849,7 +2923,7 @@ export interface NetworkInterface {
   RequesterManaged?: boolean;
 
   /**
-   * <p>Indicates whether traffic to or from the instance is validated.</p>
+   * <p>Indicates whether source/destination checking is enabled.</p>
    */
   SourceDestCheck?: boolean;
 
@@ -3113,6 +3187,142 @@ export namespace CreatePlacementGroupResult {
   });
 }
 
+export interface CreateReplaceRootVolumeTaskRequest {
+  /**
+   * <p>The ID of the instance for which to replace the root volume.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The ID of the snapshot from which to restore the replacement root volume. If you want to
+   *       restore the volume to the initial launch state, omit this parameter.</p>
+   */
+  SnapshotId?: string;
+
+  /**
+   * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
+   *       If you do not specify a client token, a randomly generated token is used for the request
+   *       to ensure idempotency. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The tags to apply to the root volume replacement task.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+}
+
+export namespace CreateReplaceRootVolumeTaskRequest {
+  export const filterSensitiveLog = (obj: CreateReplaceRootVolumeTaskRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum ReplaceRootVolumeTaskState {
+  failed = "failed",
+  failed_detached = "failed-detached",
+  failing = "failing",
+  in_progress = "in-progress",
+  pending = "pending",
+  succeeded = "succeeded",
+}
+
+/**
+ * <p>Information about a root volume replacement task.</p>
+ */
+export interface ReplaceRootVolumeTask {
+  /**
+   * <p>The ID of the root volume replacement task.</p>
+   */
+  ReplaceRootVolumeTaskId?: string;
+
+  /**
+   * <p>The ID of the instance for which the root volume replacement task was created.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The state of the task. The task can be in one of the following states:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>pending</code> - the replacement volume is being created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>in-progress</code> - the original volume is being detached and the
+   *           replacement volume is being attached.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>succeeded</code> - the replacement volume has been successfully attached
+   *           to the instance and the instance is available.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>failing</code> - the replacement task is in the process of failing.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>failed</code> - the replacement task has failed but the original root
+   *           volume is still attached.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>failing-detached</code> - the replacement task is in the process of failing.
+   *           The instance might have no root volume attached.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>failed-detached</code> - the replacement task has failed and the instance
+   *           has no root volume attached.</p>
+   *             </li>
+   *          </ul>
+   */
+  TaskState?: ReplaceRootVolumeTaskState | string;
+
+  /**
+   * <p>The time the task was started.</p>
+   */
+  StartTime?: string;
+
+  /**
+   * <p>The time the task completed.</p>
+   */
+  CompleteTime?: string;
+
+  /**
+   * <p>The tags assigned to the task.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace ReplaceRootVolumeTask {
+  export const filterSensitiveLog = (obj: ReplaceRootVolumeTask): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateReplaceRootVolumeTaskResult {
+  /**
+   * <p>Information about the root volume replacement task.</p>
+   */
+  ReplaceRootVolumeTask?: ReplaceRootVolumeTask;
+}
+
+export namespace CreateReplaceRootVolumeTaskResult {
+  export const filterSensitiveLog = (obj: CreateReplaceRootVolumeTaskResult): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Describes the price for a Reserved Instance.</p>
  */
@@ -3185,6 +3395,67 @@ export interface CreateReservedInstancesListingResult {
 
 export namespace CreateReservedInstancesListingResult {
   export const filterSensitiveLog = (obj: CreateReservedInstancesListingResult): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateRestoreImageTaskRequest {
+  /**
+   * <p>The name of the S3 bucket that contains the stored AMI object.</p>
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>The name of the stored AMI object in the bucket.</p>
+   */
+  ObjectKey: string | undefined;
+
+  /**
+   * <p>The name for the restored AMI. The name must be unique for AMIs in the Region for this
+   *       account. If you do not provide a name, the new AMI gets the same name as the original
+   *       AMI.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The tags to apply to the AMI and snapshots on restoration. You can tag the AMI, the
+   *       snapshots, or both.</p>
+   *          <ul>
+   *             <li>
+   *                <p>To tag the AMI, the value for <code>ResourceType</code> must be <code>image</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To
+   *           tag the snapshots, the value for <code>ResourceType</code> must be <code>snapshot</code>. The
+   *           same tag is applied to all of the snapshots that are created.</p>
+   *             </li>
+   *          </ul>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *       and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *       Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace CreateRestoreImageTaskRequest {
+  export const filterSensitiveLog = (obj: CreateRestoreImageTaskRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateRestoreImageTaskResult {
+  /**
+   * <p>The AMI ID.</p>
+   */
+  ImageId?: string;
+}
+
+export namespace CreateRestoreImageTaskResult {
+  export const filterSensitiveLog = (obj: CreateRestoreImageTaskResult): any => ({
     ...obj,
   });
 }
@@ -3603,6 +3874,31 @@ export interface CreateSnapshotRequest {
   Description?: string;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Outpost on which to create a local
+   *   	snapshot.</p>
+   *   	      <ul>
+   *             <li>
+   *   			          <p>To create a snapshot of a volume in a Region, omit this parameter. The snapshot
+   *   				is created in the same Region as the volume.</p>
+   *   		        </li>
+   *             <li>
+   *   			          <p>To create a snapshot of a volume on an Outpost and store the snapshot in the
+   *   				Region, omit this parameter. The snapshot is created in the Region for the
+   *   				Outpost.</p>
+   *   		        </li>
+   *             <li>
+   *   			          <p>To create a snapshot of a volume on an Outpost and store the snapshot on an
+   *   			Outpost, specify the ARN of the destination Outpost. The snapshot must be created on
+   *   			the same Outpost as the volume.</p>
+   *   		        </li>
+   *          </ul>
+   *   	      <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-snapshot">
+   *   		Creating local snapshots from volumes on an Outpost</a> in the
+   *   		<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  OutpostArn?: string;
+
+  /**
    * <p>The ID of the EBS volume.</p>
    */
   VolumeId: string | undefined;
@@ -3709,6 +4005,12 @@ export interface Snapshot {
   OwnerAlias?: string;
 
   /**
+   * <p>The ARN of the AWS Outpost on which the snapshot is stored. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html">EBS Local Snapshot on Outposts</a> in the
+   *   		<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  OutpostArn?: string;
+
+  /**
    * <p>Any tags assigned to the snapshot.</p>
    */
   Tags?: Tag[];
@@ -3753,6 +4055,31 @@ export interface CreateSnapshotsRequest {
    * <p>The instance to specify which volumes should be included in the snapshots.</p>
    */
   InstanceSpecification: InstanceSpecification | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Outpost on which to create the local
+   *   		snapshots.</p>
+   *   	      <ul>
+   *             <li>
+   *   			          <p>To create snapshots from an instance in a Region, omit this parameter. The
+   *   				snapshots are created in the same Region as the instance.</p>
+   *   		        </li>
+   *             <li>
+   *   			          <p>To create snapshots from an instance on an Outpost and store the snapshots
+   *   				in the Region, omit this parameter. The snapshots are created in the Region
+   *   				for the Outpost.</p>
+   *   		        </li>
+   *             <li>
+   *   			          <p>To create snapshots from an instance on an Outpost and store the snapshots
+   *   				on an Outpost, specify the ARN of the destination Outpost. The snapshots must
+   *   				be created on the same Outpost as the instance.</p>
+   *   		        </li>
+   *          </ul>
+   *   	      <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-multivol-snapshot">
+   *   		Creating multi-volume local snapshots from instances on an Outpost</a> in the
+   *   		<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  OutpostArn?: string;
 
   /**
    * <p>Tags to apply to every snapshot specified by the instance.</p>
@@ -3833,6 +4160,12 @@ export interface SnapshotInfo {
    * <p>Snapshot id that can be used to describe this snapshot.</p>
    */
   SnapshotId?: string;
+
+  /**
+   * <p>The ARN of the AWS Outpost on which the snapshot is stored. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html">EBS Local Snapshot on Outposts</a> in the
+   *   		<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  OutpostArn?: string;
 }
 
 export namespace SnapshotInfo {
@@ -3958,6 +4291,78 @@ export namespace CreateSpotDatafeedSubscriptionResult {
   });
 }
 
+/**
+ * <p>The tags to apply to the AMI object that will be stored in the S3 bucket. For more
+ *       information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html">Categorizing your storage using
+ *         tags</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
+ */
+export interface S3ObjectTag {
+  /**
+   * <p>The key of the tag.</p>
+   *          <p>Constraints: Tag keys are case-sensitive and can be up to 128 Unicode characters in
+   *       length. May not begin with <code>aws</code>:.</p>
+   */
+  Key?: string;
+
+  /**
+   * <p>The value of the tag.</p>
+   *          <p>Constraints: Tag values are case-sensitive and can be up to 256 Unicode characters in
+   *       length.</p>
+   */
+  Value?: string;
+}
+
+export namespace S3ObjectTag {
+  export const filterSensitiveLog = (obj: S3ObjectTag): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateStoreImageTaskRequest {
+  /**
+   * <p>The ID of the AMI.</p>
+   */
+  ImageId: string | undefined;
+
+  /**
+   * <p>The name of the S3 bucket in which the AMI object will be stored. The bucket must be in
+   *       the Region in which the request is being made. The AMI object appears in the bucket only after
+   *       the upload task has completed. </p>
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>The tags to apply to the AMI object that will be stored in the S3 bucket. </p>
+   */
+  S3ObjectTags?: S3ObjectTag[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *       and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *       Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace CreateStoreImageTaskRequest {
+  export const filterSensitiveLog = (obj: CreateStoreImageTaskRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateStoreImageTaskResult {
+  /**
+   * <p>The name of the stored AMI object in the S3 bucket.</p>
+   */
+  ObjectKey?: string;
+}
+
+export namespace CreateStoreImageTaskResult {
+  export const filterSensitiveLog = (obj: CreateStoreImageTaskResult): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateSubnetRequest {
   /**
    * <p>The tags to assign to the subnet.</p>
@@ -3982,11 +4387,6 @@ export interface CreateSubnetRequest {
   AvailabilityZoneId?: string;
 
   /**
-   * <p>The IPv4 network range for the subnet, in CIDR notation. For example, <code>10.0.0.0/24</code>. We modify the specified CIDR block to its canonical form; for example, if you specify <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</p>
-   */
-  CidrBlock: string | undefined;
-
-  /**
    * <p>The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a
    *             /64 prefix length.</p>
    */
@@ -4009,6 +4409,11 @@ export interface CreateSubnetRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>The IPv4 network range for the subnet, in CIDR notation. For example, <code>10.0.0.0/24</code>. We modify the specified CIDR block to its canonical form; for example, if you specify <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</p>
+   */
+  CidrBlock: string | undefined;
 }
 
 export namespace CreateSubnetRequest {
@@ -8390,221 +8795,6 @@ export interface DeleteLocalGatewayRouteResult {
 
 export namespace DeleteLocalGatewayRouteResult {
   export const filterSensitiveLog = (obj: DeleteLocalGatewayRouteResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteLocalGatewayRouteTableVpcAssociationRequest {
-  /**
-   * <p>The ID of the association.</p>
-   */
-  LocalGatewayRouteTableVpcAssociationId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DeleteLocalGatewayRouteTableVpcAssociationRequest {
-  export const filterSensitiveLog = (obj: DeleteLocalGatewayRouteTableVpcAssociationRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteLocalGatewayRouteTableVpcAssociationResult {
-  /**
-   * <p>Information about the association.</p>
-   */
-  LocalGatewayRouteTableVpcAssociation?: LocalGatewayRouteTableVpcAssociation;
-}
-
-export namespace DeleteLocalGatewayRouteTableVpcAssociationResult {
-  export const filterSensitiveLog = (obj: DeleteLocalGatewayRouteTableVpcAssociationResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteManagedPrefixListRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the prefix list.</p>
-   */
-  PrefixListId: string | undefined;
-}
-
-export namespace DeleteManagedPrefixListRequest {
-  export const filterSensitiveLog = (obj: DeleteManagedPrefixListRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteManagedPrefixListResult {
-  /**
-   * <p>Information about the prefix list.</p>
-   */
-  PrefixList?: ManagedPrefixList;
-}
-
-export namespace DeleteManagedPrefixListResult {
-  export const filterSensitiveLog = (obj: DeleteManagedPrefixListResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteNatGatewayRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the NAT gateway.</p>
-   */
-  NatGatewayId: string | undefined;
-}
-
-export namespace DeleteNatGatewayRequest {
-  export const filterSensitiveLog = (obj: DeleteNatGatewayRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteNatGatewayResult {
-  /**
-   * <p>The ID of the NAT gateway.</p>
-   */
-  NatGatewayId?: string;
-}
-
-export namespace DeleteNatGatewayResult {
-  export const filterSensitiveLog = (obj: DeleteNatGatewayResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteNetworkAclRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the network ACL.</p>
-   */
-  NetworkAclId: string | undefined;
-}
-
-export namespace DeleteNetworkAclRequest {
-  export const filterSensitiveLog = (obj: DeleteNetworkAclRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteNetworkAclEntryRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Indicates whether the rule is an egress rule.</p>
-   */
-  Egress: boolean | undefined;
-
-  /**
-   * <p>The ID of the network ACL.</p>
-   */
-  NetworkAclId: string | undefined;
-
-  /**
-   * <p>The rule number of the entry to delete.</p>
-   */
-  RuleNumber: number | undefined;
-}
-
-export namespace DeleteNetworkAclEntryRequest {
-  export const filterSensitiveLog = (obj: DeleteNetworkAclEntryRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteNetworkInsightsAnalysisRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the network insights analysis.</p>
-   */
-  NetworkInsightsAnalysisId: string | undefined;
-}
-
-export namespace DeleteNetworkInsightsAnalysisRequest {
-  export const filterSensitiveLog = (obj: DeleteNetworkInsightsAnalysisRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteNetworkInsightsAnalysisResult {
-  /**
-   * <p>The ID of the network insights analysis.</p>
-   */
-  NetworkInsightsAnalysisId?: string;
-}
-
-export namespace DeleteNetworkInsightsAnalysisResult {
-  export const filterSensitiveLog = (obj: DeleteNetworkInsightsAnalysisResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteNetworkInsightsPathRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the path.</p>
-   */
-  NetworkInsightsPathId: string | undefined;
-}
-
-export namespace DeleteNetworkInsightsPathRequest {
-  export const filterSensitiveLog = (obj: DeleteNetworkInsightsPathRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteNetworkInsightsPathResult {
-  /**
-   * <p>The ID of the path.</p>
-   */
-  NetworkInsightsPathId?: string;
-}
-
-export namespace DeleteNetworkInsightsPathResult {
-  export const filterSensitiveLog = (obj: DeleteNetworkInsightsPathResult): any => ({
     ...obj,
   });
 }

@@ -536,6 +536,58 @@ export namespace ExportAssetToSignedUrlRequestDetails {
 }
 
 /**
+ * <p>The destination where the assets in the revision will be exported.</p>
+ */
+export interface RevisionDestinationEntry {
+  /**
+   * <p>The S3 bucket that is the destination for the assets in the revision.</p>
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>A string representing the pattern for generated names of the individual assets in the revision. For more information about key patterns, see <a href="https://docs.aws.amazon.com/data-exchange/latest/userguide/jobs.html#revision-export-keypatterns">Key patterns when exporting revisions</a>.</p>
+   */
+  KeyPattern?: string;
+
+  /**
+   * <p>The unique identifier for the revision.</p>
+   */
+  RevisionId: string | undefined;
+}
+
+export namespace RevisionDestinationEntry {
+  export const filterSensitiveLog = (obj: RevisionDestinationEntry): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details of the operation to be performed by the job.</p>
+ */
+export interface ExportRevisionsToS3RequestDetails {
+  /**
+   * <p>The unique identifier for the data set associated with this export job.</p>
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * <p>Encryption configuration for the export job.</p>
+   */
+  Encryption?: ExportServerSideEncryption;
+
+  /**
+   * <p>The destination for the revision.</p>
+   */
+  RevisionDestinations: RevisionDestinationEntry[] | undefined;
+}
+
+export namespace ExportRevisionsToS3RequestDetails {
+  export const filterSensitiveLog = (obj: ExportRevisionsToS3RequestDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Details of the operation to be performed by the job.</p>
  */
 export interface ImportAssetFromSignedUrlRequestDetails {
@@ -607,6 +659,11 @@ export interface RequestDetails {
   ExportAssetsToS3?: ExportAssetsToS3RequestDetails;
 
   /**
+   * <p>Details about the export to Amazon S3 request.</p>
+   */
+  ExportRevisionsToS3?: ExportRevisionsToS3RequestDetails;
+
+  /**
    * <p>Details about the import from signed URL request.</p>
    */
   ImportAssetFromSignedUrl?: ImportAssetFromSignedUrlRequestDetails;
@@ -626,6 +683,7 @@ export namespace RequestDetails {
 export enum Type {
   EXPORT_ASSETS_TO_S3 = "EXPORT_ASSETS_TO_S3",
   EXPORT_ASSET_TO_SIGNED_URL = "EXPORT_ASSET_TO_SIGNED_URL",
+  EXPORT_REVISIONS_TO_S3 = "EXPORT_REVISIONS_TO_S3",
   IMPORT_ASSETS_FROM_S3 = "IMPORT_ASSETS_FROM_S3",
   IMPORT_ASSET_FROM_SIGNED_URL = "IMPORT_ASSET_FROM_SIGNED_URL",
 }
@@ -719,6 +777,32 @@ export namespace ExportAssetToSignedUrlResponseDetails {
 }
 
 /**
+ * <p>Details about the export revisions to Amazon S3 response.</p>
+ */
+export interface ExportRevisionsToS3ResponseDetails {
+  /**
+   * <p>The unique identifier for the data set associated with this export job.</p>
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * <p>Encryption configuration of the export job.</p>
+   */
+  Encryption?: ExportServerSideEncryption;
+
+  /**
+   * <p>The destination in Amazon S3 where the revision is exported.</p>
+   */
+  RevisionDestinations: RevisionDestinationEntry[] | undefined;
+}
+
+export namespace ExportRevisionsToS3ResponseDetails {
+  export const filterSensitiveLog = (obj: ExportRevisionsToS3ResponseDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>The details in the response for an import request, including the signed URL and other information.</p>
  */
 export interface ImportAssetFromSignedUrlResponseDetails {
@@ -798,6 +882,11 @@ export interface ResponseDetails {
    * <p>Details for the export to Amazon S3 response.</p>
    */
   ExportAssetsToS3?: ExportAssetsToS3ResponseDetails;
+
+  /**
+   * <p>Details for the export revisions to Amazon S3 response.</p>
+   */
+  ExportRevisionsToS3?: ExportRevisionsToS3ResponseDetails;
 
   /**
    * <p>Details for the import from signed URL response.</p>

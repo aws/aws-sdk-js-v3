@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteNetworkInsightsPathRequest, DeleteNetworkInsightsPathResult } from "../models/models_1";
+import { DeleteNetworkInsightsPathRequest, DeleteNetworkInsightsPathResult } from "../models/models_2";
 import {
   deserializeAws_ec2DeleteNetworkInsightsPathCommand,
   serializeAws_ec2DeleteNetworkInsightsPathCommand,

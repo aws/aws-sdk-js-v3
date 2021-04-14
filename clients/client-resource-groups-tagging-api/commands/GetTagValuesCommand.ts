@@ -25,8 +25,14 @@ export type GetTagValuesCommandInput = GetTagValuesInput;
 export type GetTagValuesCommandOutput = GetTagValuesOutput & __MetadataBearer;
 
 /**
- * <p>Returns all tag values for the specified key in the specified Region for the AWS
- *             account.</p>
+ * <p>Returns all tag values for the specified key that are used in the specified AWS
+ *             Region for the calling AWS account.</p>
+ *          <p>This operation supports pagination, where the response can be sent in
+ *     multiple pages. You should check the <code>PaginationToken</code> response parameter to determine
+ *     if there are additional results available to return. Repeat the query, passing the
+ *     <code>PaginationToken</code> response parameter value as an input to the next request until you
+ *     recieve a <code>null</code> value. A null value for <code>PaginationToken</code> indicates that
+ *     there are no more results waiting to be returned.</p>
  */
 export class GetTagValuesCommand extends $Command<
   GetTagValuesCommandInput,

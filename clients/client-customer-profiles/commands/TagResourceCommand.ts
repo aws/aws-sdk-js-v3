@@ -21,11 +21,11 @@ export type TagResourceCommandInput = TagResourceRequest;
 export type TagResourceCommandOutput = TagResourceResponse & __MetadataBearer;
 
 /**
- * <p>Assigns one or more tags (key-value pairs) to the specified Amazon Connect Customer
- *          Profiles resource. Tags can help you organize and categorize your resources. You can also
- *          use them to scope user permissions by granting a user permission to access or change only
- *          resources with certain tag values. In Connect Customer Profiles, domains, profile object
- *          types, and integrations can be tagged.</p>
+ * <p>Assigns one or more tags (key-value pairs) to the specified Amazon Connect Customer Profiles
+ *          resource. Tags can help you organize and categorize your resources. You can also use them
+ *          to scope user permissions by granting a user permission to access or change only resources
+ *          with certain tag values. In Connect Customer Profiles, domains, profile object types, and
+ *          integrations can be tagged.</p>
  *          <p>Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of
  *          characters.</p>
  *          <p>You can use the TagResource action with a resource that already has tags. If you specify

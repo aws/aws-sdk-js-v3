@@ -1767,11 +1767,6 @@ export namespace IllegalUpdate {
 
 export interface UpdateCachePolicyRequest {
   /**
-   * <p>A cache policy configuration.</p>
-   */
-  CachePolicyConfig: CachePolicyConfig | undefined;
-
-  /**
    * <p>The unique identifier for the cache policy that you are updating. The identifier is returned
    * 			in a cache behavior’s <code>CachePolicyId</code> field in the response to
    * 			<code>GetDistributionConfig</code>.</p>
@@ -1784,6 +1779,11 @@ export interface UpdateCachePolicyRequest {
    * 			<code>GetCachePolicyConfig</code>.</p>
    */
   IfMatch?: string;
+
+  /**
+   * <p>A cache policy configuration.</p>
+   */
+  CachePolicyConfig: CachePolicyConfig | undefined;
 }
 
 export namespace UpdateCachePolicyRequest {
@@ -1815,11 +1815,6 @@ export namespace UpdateCachePolicyResult {
  */
 export interface UpdateCloudFrontOriginAccessIdentityRequest {
   /**
-   * <p>The identity's configuration information.</p>
-   */
-  CloudFrontOriginAccessIdentityConfig: CloudFrontOriginAccessIdentityConfig | undefined;
-
-  /**
    * <p>The identity's id.</p>
    */
   Id: string | undefined;
@@ -1829,6 +1824,11 @@ export interface UpdateCloudFrontOriginAccessIdentityRequest {
    * 			identity's configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
    */
   IfMatch?: string;
+
+  /**
+   * <p>The identity's configuration information.</p>
+   */
+  CloudFrontOriginAccessIdentityConfig: CloudFrontOriginAccessIdentityConfig | undefined;
 }
 
 export namespace UpdateCloudFrontOriginAccessIdentityRequest {
@@ -1864,11 +1864,6 @@ export namespace UpdateCloudFrontOriginAccessIdentityResult {
  */
 export interface UpdateDistributionRequest {
   /**
-   * <p>The distribution's configuration information.</p>
-   */
-  DistributionConfig: DistributionConfig | undefined;
-
-  /**
    * <p>The distribution's id.</p>
    */
   Id: string | undefined;
@@ -1878,6 +1873,11 @@ export interface UpdateDistributionRequest {
    * 			distribution's configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
    */
   IfMatch?: string;
+
+  /**
+   * <p>The distribution's configuration information.</p>
+   */
+  DistributionConfig: DistributionConfig | undefined;
 }
 
 export namespace UpdateDistributionRequest {
@@ -1914,11 +1914,6 @@ export namespace UpdateDistributionResult {
 
 export interface UpdateFieldLevelEncryptionConfigRequest {
   /**
-   * <p>Request to update a field-level encryption configuration. </p>
-   */
-  FieldLevelEncryptionConfig: FieldLevelEncryptionConfig | undefined;
-
-  /**
    * <p>The ID of the configuration you want to update.</p>
    */
   Id: string | undefined;
@@ -1928,6 +1923,11 @@ export interface UpdateFieldLevelEncryptionConfigRequest {
    * 			For example: <code>E2QWRUHAPOMQZL</code>.</p>
    */
   IfMatch?: string;
+
+  /**
+   * <p>Request to update a field-level encryption configuration. </p>
+   */
+  FieldLevelEncryptionConfig: FieldLevelEncryptionConfig | undefined;
 }
 
 export namespace UpdateFieldLevelEncryptionConfigRequest {
@@ -1957,11 +1957,6 @@ export namespace UpdateFieldLevelEncryptionConfigResult {
 
 export interface UpdateFieldLevelEncryptionProfileRequest {
   /**
-   * <p>Request to update a field-level encryption profile. </p>
-   */
-  FieldLevelEncryptionProfileConfig: FieldLevelEncryptionProfileConfig | undefined;
-
-  /**
    * <p>The ID of the field-level encryption profile request. </p>
    */
   Id: string | undefined;
@@ -1971,6 +1966,11 @@ export interface UpdateFieldLevelEncryptionProfileRequest {
    * 			For example: <code>E2QWRUHAPOMQZL</code>.</p>
    */
   IfMatch?: string;
+
+  /**
+   * <p>Request to update a field-level encryption profile. </p>
+   */
+  FieldLevelEncryptionProfileConfig: FieldLevelEncryptionProfileConfig | undefined;
 }
 
 export namespace UpdateFieldLevelEncryptionProfileRequest {
@@ -1999,11 +1999,6 @@ export namespace UpdateFieldLevelEncryptionProfileResult {
 
 export interface UpdateKeyGroupRequest {
   /**
-   * <p>The key group configuration.</p>
-   */
-  KeyGroupConfig: KeyGroupConfig | undefined;
-
-  /**
    * <p>The identifier of the key group that you are updating.</p>
    */
   Id: string | undefined;
@@ -2013,6 +2008,11 @@ export interface UpdateKeyGroupRequest {
    * 			<code>ETag</code> value.</p>
    */
   IfMatch?: string;
+
+  /**
+   * <p>The key group configuration.</p>
+   */
+  KeyGroupConfig: KeyGroupConfig | undefined;
 }
 
 export namespace UpdateKeyGroupRequest {
@@ -2041,11 +2041,6 @@ export namespace UpdateKeyGroupResult {
 
 export interface UpdateOriginRequestPolicyRequest {
   /**
-   * <p>An origin request policy configuration.</p>
-   */
-  OriginRequestPolicyConfig: OriginRequestPolicyConfig | undefined;
-
-  /**
    * <p>The unique identifier for the origin request policy that you are updating. The identifier is
    * 			returned in a cache behavior’s <code>OriginRequestPolicyId</code> field in the response
    * 			to <code>GetDistributionConfig</code>.</p>
@@ -2058,6 +2053,11 @@ export interface UpdateOriginRequestPolicyRequest {
    * 			<code>GetOriginRequestPolicyConfig</code>.</p>
    */
   IfMatch?: string;
+
+  /**
+   * <p>An origin request policy configuration.</p>
+   */
+  OriginRequestPolicyConfig: OriginRequestPolicyConfig | undefined;
 }
 
 export namespace UpdateOriginRequestPolicyRequest {
@@ -2086,11 +2086,6 @@ export namespace UpdateOriginRequestPolicyResult {
 
 export interface UpdatePublicKeyRequest {
   /**
-   * <p>A public key configuration.</p>
-   */
-  PublicKeyConfig: PublicKeyConfig | undefined;
-
-  /**
    * <p>The identifier of the public key that you are updating.</p>
    */
   Id: string | undefined;
@@ -2100,6 +2095,11 @@ export interface UpdatePublicKeyRequest {
    * 			For example: <code>E2QWRUHAPOMQZL</code>.</p>
    */
   IfMatch?: string;
+
+  /**
+   * <p>A public key configuration.</p>
+   */
+  PublicKeyConfig: PublicKeyConfig | undefined;
 }
 
 export namespace UpdatePublicKeyRequest {
@@ -2182,11 +2182,6 @@ export namespace UpdateRealtimeLogConfigResult {
  */
 export interface UpdateStreamingDistributionRequest {
   /**
-   * <p>The streaming distribution's configuration information.</p>
-   */
-  StreamingDistributionConfig: StreamingDistributionConfig | undefined;
-
-  /**
    * <p>The streaming distribution's id.</p>
    */
   Id: string | undefined;
@@ -2196,6 +2191,11 @@ export interface UpdateStreamingDistributionRequest {
    * 			streaming distribution's configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
    */
   IfMatch?: string;
+
+  /**
+   * <p>The streaming distribution's configuration information.</p>
+   */
+  StreamingDistributionConfig: StreamingDistributionConfig | undefined;
 }
 
 export namespace UpdateStreamingDistributionRequest {

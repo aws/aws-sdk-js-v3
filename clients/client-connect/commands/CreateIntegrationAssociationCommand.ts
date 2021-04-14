@@ -22,7 +22,7 @@ export type CreateIntegrationAssociationCommandOutput = CreateIntegrationAssocia
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Create an AppIntegration association with anAmazon Connect instance.</p>
+ *          <p>Create an AppIntegration association with an Amazon Connect instance.</p>
  */
 export class CreateIntegrationAssociationCommand extends $Command<
   CreateIntegrationAssociationCommandInput,

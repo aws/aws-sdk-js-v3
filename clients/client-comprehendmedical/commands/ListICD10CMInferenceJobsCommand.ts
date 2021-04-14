@@ -25,8 +25,7 @@ export type ListICD10CMInferenceJobsCommandInput = ListICD10CMInferenceJobsReque
 export type ListICD10CMInferenceJobsCommandOutput = ListICD10CMInferenceJobsResponse & __MetadataBearer;
 
 /**
- * <p>Gets a list of InferICD10CM jobs that you have
- *       submitted.</p>
+ * <p>Gets a list of InferICD10CM jobs that you have submitted.</p>
  */
 export class ListICD10CMInferenceJobsCommand extends $Command<
   ListICD10CMInferenceJobsCommandInput,

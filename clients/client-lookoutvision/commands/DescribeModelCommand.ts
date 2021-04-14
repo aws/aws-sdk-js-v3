@@ -22,6 +22,8 @@ export type DescribeModelCommandOutput = DescribeModelResponse & __MetadataBeare
 
 /**
  * <p>Describes a version of an Amazon Lookout for Vision model.</p>
+ *          <p>This operation requires permissions to perform the
+ *          <code>lookoutvision:DescribeModel</code> operation.</p>
  */
 export class DescribeModelCommand extends $Command<
   DescribeModelCommandInput,

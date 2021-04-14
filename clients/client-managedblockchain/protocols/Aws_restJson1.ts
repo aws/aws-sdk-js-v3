@@ -14,7 +14,13 @@ import { ListNetworksCommandInput, ListNetworksCommandOutput } from "../commands
 import { ListNodesCommandInput, ListNodesCommandOutput } from "../commands/ListNodesCommand";
 import { ListProposalVotesCommandInput, ListProposalVotesCommandOutput } from "../commands/ListProposalVotesCommand";
 import { ListProposalsCommandInput, ListProposalsCommandOutput } from "../commands/ListProposalsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
 import { RejectInvitationCommandInput, RejectInvitationCommandOutput } from "../commands/RejectInvitationCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateMemberCommandInput, UpdateMemberCommandOutput } from "../commands/UpdateMemberCommand";
 import { UpdateNodeCommandInput, UpdateNodeCommandOutput } from "../commands/UpdateNodeCommand";
 import { VoteOnProposalCommandInput, VoteOnProposalCommandOutput } from "../commands/VoteOnProposalCommand";
@@ -38,6 +44,7 @@ import {
   MemberLogPublishingConfiguration,
   MemberSummary,
   Network,
+  NetworkEthereumAttributes,
   NetworkFabricAttributes,
   NetworkFabricConfiguration,
   NetworkFrameworkAttributes,
@@ -45,6 +52,7 @@ import {
   NetworkSummary,
   Node,
   NodeConfiguration,
+  NodeEthereumAttributes,
   NodeFabricAttributes,
   NodeFabricLogPublishingConfiguration,
   NodeFrameworkAttributes,
@@ -59,6 +67,7 @@ import {
   ResourceNotFoundException,
   ResourceNotReadyException,
   ThrottlingException,
+  TooManyTagsException,
   VoteSummary,
   VotingPolicy,
 } from "../models/models_0";
@@ -140,6 +149,8 @@ export const serializeAws_restJson1CreateNetworkCommand = async (
         MemberConfiguration: serializeAws_restJson1MemberConfiguration(input.MemberConfiguration, context),
       }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_restJson1InputTagMap(input.Tags, context) }),
     ...(input.VotingPolicy !== undefined &&
       input.VotingPolicy !== null && { VotingPolicy: serializeAws_restJson1VotingPolicy(input.VotingPolicy, context) }),
   });
@@ -162,7 +173,7 @@ export const serializeAws_restJson1CreateNodeCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/networks/{NetworkId}/members/{MemberId}/nodes";
+  let resolvedPath = "/networks/{NetworkId}/nodes";
   if (input.NetworkId !== undefined) {
     const labelValue: string = input.NetworkId;
     if (labelValue.length <= 0) {
@@ -172,22 +183,16 @@ export const serializeAws_restJson1CreateNodeCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
   }
-  if (input.MemberId !== undefined) {
-    const labelValue: string = input.MemberId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: MemberId.");
-    }
-    resolvedPath = resolvedPath.replace("{MemberId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: MemberId.");
-  }
   let body: any;
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.MemberId !== undefined && input.MemberId !== null && { MemberId: input.MemberId }),
     ...(input.NodeConfiguration !== undefined &&
       input.NodeConfiguration !== null && {
         NodeConfiguration: serializeAws_restJson1NodeConfiguration(input.NodeConfiguration, context),
       }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_restJson1InputTagMap(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -225,6 +230,8 @@ export const serializeAws_restJson1CreateProposalCommand = async (
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.MemberId !== undefined && input.MemberId !== null && { MemberId: input.MemberId }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_restJson1InputTagMap(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -280,7 +287,7 @@ export const serializeAws_restJson1DeleteNodeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {};
-  let resolvedPath = "/networks/{NetworkId}/members/{MemberId}/nodes/{NodeId}";
+  let resolvedPath = "/networks/{NetworkId}/nodes/{NodeId}";
   if (input.NetworkId !== undefined) {
     const labelValue: string = input.NetworkId;
     if (labelValue.length <= 0) {
@@ -289,15 +296,6 @@ export const serializeAws_restJson1DeleteNodeCommand = async (
     resolvedPath = resolvedPath.replace("{NetworkId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
-  }
-  if (input.MemberId !== undefined) {
-    const labelValue: string = input.MemberId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: MemberId.");
-    }
-    resolvedPath = resolvedPath.replace("{MemberId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: MemberId.");
   }
   if (input.NodeId !== undefined) {
     const labelValue: string = input.NodeId;
@@ -308,6 +306,9 @@ export const serializeAws_restJson1DeleteNodeCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: NodeId.");
   }
+  const query: any = {
+    ...(input.MemberId !== undefined && { memberId: input.MemberId }),
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -317,6 +318,7 @@ export const serializeAws_restJson1DeleteNodeCommand = async (
     method: "DELETE",
     headers,
     path: resolvedPath,
+    query,
     body,
   });
 };
@@ -391,7 +393,7 @@ export const serializeAws_restJson1GetNodeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {};
-  let resolvedPath = "/networks/{NetworkId}/members/{MemberId}/nodes/{NodeId}";
+  let resolvedPath = "/networks/{NetworkId}/nodes/{NodeId}";
   if (input.NetworkId !== undefined) {
     const labelValue: string = input.NetworkId;
     if (labelValue.length <= 0) {
@@ -400,15 +402,6 @@ export const serializeAws_restJson1GetNodeCommand = async (
     resolvedPath = resolvedPath.replace("{NetworkId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
-  }
-  if (input.MemberId !== undefined) {
-    const labelValue: string = input.MemberId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: MemberId.");
-    }
-    resolvedPath = resolvedPath.replace("{MemberId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: MemberId.");
   }
   if (input.NodeId !== undefined) {
     const labelValue: string = input.NodeId;
@@ -419,6 +412,9 @@ export const serializeAws_restJson1GetNodeCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: NodeId.");
   }
+  const query: any = {
+    ...(input.MemberId !== undefined && { memberId: input.MemberId }),
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -428,6 +424,7 @@ export const serializeAws_restJson1GetNodeCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    query,
     body,
   });
 };
@@ -561,7 +558,7 @@ export const serializeAws_restJson1ListNodesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {};
-  let resolvedPath = "/networks/{NetworkId}/members/{MemberId}/nodes";
+  let resolvedPath = "/networks/{NetworkId}/nodes";
   if (input.NetworkId !== undefined) {
     const labelValue: string = input.NetworkId;
     if (labelValue.length <= 0) {
@@ -571,16 +568,8 @@ export const serializeAws_restJson1ListNodesCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
   }
-  if (input.MemberId !== undefined) {
-    const labelValue: string = input.MemberId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: MemberId.");
-    }
-    resolvedPath = resolvedPath.replace("{MemberId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: MemberId.");
-  }
   const query: any = {
+    ...(input.MemberId !== undefined && { memberId: input.MemberId }),
     ...(input.Status !== undefined && { status: input.Status }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
@@ -674,6 +663,34 @@ export const serializeAws_restJson1ListProposalVotesCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/tags/{ResourceArn}";
+  if (input.ResourceArn !== undefined) {
+    const labelValue: string = input.ResourceArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
+    }
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ResourceArn.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1RejectInvitationCommand = async (
   input: RejectInvitationCommandInput,
   context: __SerdeContext
@@ -698,6 +715,72 @@ export const serializeAws_restJson1RejectInvitationCommand = async (
     method: "DELETE",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = "/tags/{ResourceArn}";
+  if (input.ResourceArn !== undefined) {
+    const labelValue: string = input.ResourceArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
+    }
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ResourceArn.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_restJson1InputTagMap(input.Tags, context) }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/tags/{ResourceArn}";
+  if (input.ResourceArn !== undefined) {
+    const labelValue: string = input.ResourceArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
+    }
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ResourceArn.");
+  }
+  const query: any = {
+    ...(input.TagKeys !== undefined && { tagKeys: (input.TagKeys || []).map((_entry) => _entry) }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -757,7 +840,7 @@ export const serializeAws_restJson1UpdateNodeCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = "/networks/{NetworkId}/members/{MemberId}/nodes/{NodeId}";
+  let resolvedPath = "/networks/{NetworkId}/nodes/{NodeId}";
   if (input.NetworkId !== undefined) {
     const labelValue: string = input.NetworkId;
     if (labelValue.length <= 0) {
@@ -766,15 +849,6 @@ export const serializeAws_restJson1UpdateNodeCommand = async (
     resolvedPath = resolvedPath.replace("{NetworkId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
-  }
-  if (input.MemberId !== undefined) {
-    const labelValue: string = input.MemberId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: MemberId.");
-    }
-    resolvedPath = resolvedPath.replace("{MemberId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: MemberId.");
   }
   if (input.NodeId !== undefined) {
     const labelValue: string = input.NodeId;
@@ -794,6 +868,7 @@ export const serializeAws_restJson1UpdateNodeCommand = async (
           context
         ),
       }),
+    ...(input.MemberId !== undefined && input.MemberId !== null && { MemberId: input.MemberId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -944,6 +1019,14 @@ const deserializeAws_restJson1CreateMemberCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "TooManyTagsException":
+    case "com.amazonaws.managedblockchain#TooManyTagsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyTagsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -1039,6 +1122,14 @@ const deserializeAws_restJson1CreateNetworkCommandError = async (
     case "com.amazonaws.managedblockchain#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyTagsException":
+    case "com.amazonaws.managedblockchain#TooManyTagsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyTagsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1154,6 +1245,14 @@ const deserializeAws_restJson1CreateNodeCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "TooManyTagsException":
+    case "com.amazonaws.managedblockchain#TooManyTagsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyTagsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -1245,6 +1344,14 @@ const deserializeAws_restJson1CreateProposalCommandError = async (
     case "com.amazonaws.managedblockchain#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyTagsException":
+    case "com.amazonaws.managedblockchain#TooManyTagsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyTagsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2318,6 +2425,85 @@ const deserializeAws_restJson1ListProposalVotesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+  }
+  const contents: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Tags: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.Tags !== undefined && data.Tags !== null) {
+    contents.Tags = deserializeAws_restJson1OutputTagMap(data.Tags, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceErrorException":
+    case "com.amazonaws.managedblockchain#InternalServiceErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.managedblockchain#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.managedblockchain#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotReadyException":
+    case "com.amazonaws.managedblockchain#ResourceNotReadyException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotReadyExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1RejectInvitationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2388,6 +2574,164 @@ const deserializeAws_restJson1RejectInvitationCommandError = async (
     case "com.amazonaws.managedblockchain#ThrottlingException":
       response = {
         ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1TagResourceCommandError(output, context);
+  }
+  const contents: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1TagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceErrorException":
+    case "com.amazonaws.managedblockchain#InternalServiceErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.managedblockchain#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.managedblockchain#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotReadyException":
+    case "com.amazonaws.managedblockchain#ResourceNotReadyException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotReadyExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyTagsException":
+    case "com.amazonaws.managedblockchain#TooManyTagsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyTagsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+  }
+  const contents: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UntagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceErrorException":
+    case "com.amazonaws.managedblockchain#InternalServiceErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.managedblockchain#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.managedblockchain#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotReadyException":
+    case "com.amazonaws.managedblockchain#ResourceNotReadyException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotReadyExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2674,8 +3018,12 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
     name: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
+    Message: undefined,
   };
   const data: any = parsedOutput.body;
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = data.Message;
+  }
   return contents;
 };
 
@@ -2769,10 +3117,14 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined,
+    ResourceName: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
+  }
+  if (data.ResourceName !== undefined && data.ResourceName !== null) {
+    contents.ResourceName = data.ResourceName;
   }
   return contents;
 };
@@ -2807,6 +3159,27 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_restJson1TooManyTagsExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TooManyTagsException> => {
+  const contents: TooManyTagsException = {
+    name: "TooManyTagsException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    Message: undefined,
+    ResourceName: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = data.Message;
+  }
+  if (data.ResourceName !== undefined && data.ResourceName !== null) {
+    contents.ResourceName = data.ResourceName;
+  }
+  return contents;
+};
+
 const serializeAws_restJson1ApprovalThresholdPolicy = (
   input: ApprovalThresholdPolicy,
   context: __SerdeContext
@@ -2819,6 +3192,18 @@ const serializeAws_restJson1ApprovalThresholdPolicy = (
     ...(input.ThresholdPercentage !== undefined &&
       input.ThresholdPercentage !== null && { ThresholdPercentage: input.ThresholdPercentage }),
   };
+};
+
+const serializeAws_restJson1InputTagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
 };
 
 const serializeAws_restJson1InviteAction = (input: InviteAction, context: __SerdeContext): any => {
@@ -2869,6 +3254,8 @@ const serializeAws_restJson1MemberConfiguration = (input: MemberConfiguration, c
         ),
       }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_restJson1InputTagMap(input.Tags, context) }),
   };
 };
 
@@ -3034,6 +3421,7 @@ const deserializeAws_restJson1ApprovalThresholdPolicy = (
 
 const deserializeAws_restJson1Invitation = (output: any, context: __SerdeContext): Invitation => {
   return {
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null ? new Date(output.CreationDate) : undefined,
     ExpirationDate:
@@ -3094,6 +3482,7 @@ const deserializeAws_restJson1LogConfigurations = (output: any, context: __Serde
 
 const deserializeAws_restJson1Member = (output: any, context: __SerdeContext): Member => {
   return {
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null ? new Date(output.CreationDate) : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
@@ -3109,6 +3498,10 @@ const deserializeAws_restJson1Member = (output: any, context: __SerdeContext): M
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     NetworkId: output.NetworkId !== undefined && output.NetworkId !== null ? output.NetworkId : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_restJson1OutputTagMap(output.Tags, context)
+        : undefined,
   } as any;
 };
 
@@ -3161,6 +3554,7 @@ const deserializeAws_restJson1MemberLogPublishingConfiguration = (
 
 const deserializeAws_restJson1MemberSummary = (output: any, context: __SerdeContext): MemberSummary => {
   return {
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null ? new Date(output.CreationDate) : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
@@ -3184,6 +3578,7 @@ const deserializeAws_restJson1MemberSummaryList = (output: any, context: __Serde
 
 const deserializeAws_restJson1Network = (output: any, context: __SerdeContext): Network => {
   return {
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null ? new Date(output.CreationDate) : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
@@ -3197,6 +3592,10 @@ const deserializeAws_restJson1Network = (output: any, context: __SerdeContext): 
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_restJson1OutputTagMap(output.Tags, context)
+        : undefined,
     VotingPolicy:
       output.VotingPolicy !== undefined && output.VotingPolicy !== null
         ? deserializeAws_restJson1VotingPolicy(output.VotingPolicy, context)
@@ -3205,6 +3604,15 @@ const deserializeAws_restJson1Network = (output: any, context: __SerdeContext): 
       output.VpcEndpointServiceName !== undefined && output.VpcEndpointServiceName !== null
         ? output.VpcEndpointServiceName
         : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1NetworkEthereumAttributes = (
+  output: any,
+  context: __SerdeContext
+): NetworkEthereumAttributes => {
+  return {
+    ChainId: output.ChainId !== undefined && output.ChainId !== null ? output.ChainId : undefined,
   } as any;
 };
 
@@ -3226,6 +3634,10 @@ const deserializeAws_restJson1NetworkFrameworkAttributes = (
   context: __SerdeContext
 ): NetworkFrameworkAttributes => {
   return {
+    Ethereum:
+      output.Ethereum !== undefined && output.Ethereum !== null
+        ? deserializeAws_restJson1NetworkEthereumAttributes(output.Ethereum, context)
+        : undefined,
     Fabric:
       output.Fabric !== undefined && output.Fabric !== null
         ? deserializeAws_restJson1NetworkFabricAttributes(output.Fabric, context)
@@ -3235,6 +3647,7 @@ const deserializeAws_restJson1NetworkFrameworkAttributes = (
 
 const deserializeAws_restJson1NetworkSummary = (output: any, context: __SerdeContext): NetworkSummary => {
   return {
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null ? new Date(output.CreationDate) : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
@@ -3260,6 +3673,7 @@ const deserializeAws_restJson1NetworkSummaryList = (output: any, context: __Serd
 
 const deserializeAws_restJson1Node = (output: any, context: __SerdeContext): Node => {
   return {
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     AvailabilityZone:
       output.AvailabilityZone !== undefined && output.AvailabilityZone !== null ? output.AvailabilityZone : undefined,
     CreationDate:
@@ -3278,6 +3692,23 @@ const deserializeAws_restJson1Node = (output: any, context: __SerdeContext): Nod
     NetworkId: output.NetworkId !== undefined && output.NetworkId !== null ? output.NetworkId : undefined,
     StateDB: output.StateDB !== undefined && output.StateDB !== null ? output.StateDB : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_restJson1OutputTagMap(output.Tags, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1NodeEthereumAttributes = (
+  output: any,
+  context: __SerdeContext
+): NodeEthereumAttributes => {
+  return {
+    HttpEndpoint: output.HttpEndpoint !== undefined && output.HttpEndpoint !== null ? output.HttpEndpoint : undefined,
+    WebSocketEndpoint:
+      output.WebSocketEndpoint !== undefined && output.WebSocketEndpoint !== null
+        ? output.WebSocketEndpoint
+        : undefined,
   } as any;
 };
 
@@ -3312,6 +3743,10 @@ const deserializeAws_restJson1NodeFrameworkAttributes = (
   context: __SerdeContext
 ): NodeFrameworkAttributes => {
   return {
+    Ethereum:
+      output.Ethereum !== undefined && output.Ethereum !== null
+        ? deserializeAws_restJson1NodeEthereumAttributes(output.Ethereum, context)
+        : undefined,
     Fabric:
       output.Fabric !== undefined && output.Fabric !== null
         ? deserializeAws_restJson1NodeFabricAttributes(output.Fabric, context)
@@ -3333,6 +3768,7 @@ const deserializeAws_restJson1NodeLogPublishingConfiguration = (
 
 const deserializeAws_restJson1NodeSummary = (output: any, context: __SerdeContext): NodeSummary => {
   return {
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     AvailabilityZone:
       output.AvailabilityZone !== undefined && output.AvailabilityZone !== null ? output.AvailabilityZone : undefined,
     CreationDate:
@@ -3354,12 +3790,25 @@ const deserializeAws_restJson1NodeSummaryList = (output: any, context: __SerdeCo
     });
 };
 
+const deserializeAws_restJson1OutputTagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
+};
+
 const deserializeAws_restJson1Proposal = (output: any, context: __SerdeContext): Proposal => {
   return {
     Actions:
       output.Actions !== undefined && output.Actions !== null
         ? deserializeAws_restJson1ProposalActions(output.Actions, context)
         : undefined,
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null ? new Date(output.CreationDate) : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
@@ -3383,6 +3832,10 @@ const deserializeAws_restJson1Proposal = (output: any, context: __SerdeContext):
         ? output.ProposedByMemberName
         : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_restJson1OutputTagMap(output.Tags, context)
+        : undefined,
     YesVoteCount: output.YesVoteCount !== undefined && output.YesVoteCount !== null ? output.YesVoteCount : undefined,
   } as any;
 };
@@ -3402,6 +3855,7 @@ const deserializeAws_restJson1ProposalActions = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1ProposalSummary = (output: any, context: __SerdeContext): ProposalSummary => {
   return {
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null ? new Date(output.CreationDate) : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,

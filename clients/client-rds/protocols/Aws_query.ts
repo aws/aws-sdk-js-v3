@@ -60,6 +60,10 @@ import {
 } from "../commands/CreateDBParameterGroupCommand";
 import { CreateDBProxyCommandInput, CreateDBProxyCommandOutput } from "../commands/CreateDBProxyCommand";
 import {
+  CreateDBProxyEndpointCommandInput,
+  CreateDBProxyEndpointCommandOutput,
+} from "../commands/CreateDBProxyEndpointCommand";
+import {
   CreateDBSecurityGroupCommandInput,
   CreateDBSecurityGroupCommandOutput,
 } from "../commands/CreateDBSecurityGroupCommand";
@@ -104,6 +108,10 @@ import {
   DeleteDBParameterGroupCommandOutput,
 } from "../commands/DeleteDBParameterGroupCommand";
 import { DeleteDBProxyCommandInput, DeleteDBProxyCommandOutput } from "../commands/DeleteDBProxyCommand";
+import {
+  DeleteDBProxyEndpointCommandInput,
+  DeleteDBProxyEndpointCommandOutput,
+} from "../commands/DeleteDBProxyEndpointCommand";
 import {
   DeleteDBSecurityGroupCommandInput,
   DeleteDBSecurityGroupCommandOutput,
@@ -189,6 +197,10 @@ import {
   DescribeDBParametersCommandOutput,
 } from "../commands/DescribeDBParametersCommand";
 import { DescribeDBProxiesCommandInput, DescribeDBProxiesCommandOutput } from "../commands/DescribeDBProxiesCommand";
+import {
+  DescribeDBProxyEndpointsCommandInput,
+  DescribeDBProxyEndpointsCommandOutput,
+} from "../commands/DescribeDBProxyEndpointsCommand";
 import {
   DescribeDBProxyTargetGroupsCommandInput,
   DescribeDBProxyTargetGroupsCommandOutput,
@@ -280,6 +292,10 @@ import {
 } from "../commands/DownloadDBLogFilePortionCommand";
 import { FailoverDBClusterCommandInput, FailoverDBClusterCommandOutput } from "../commands/FailoverDBClusterCommand";
 import {
+  FailoverGlobalClusterCommandInput,
+  FailoverGlobalClusterCommandOutput,
+} from "../commands/FailoverGlobalClusterCommand";
+import {
   ImportInstallationMediaCommandInput,
   ImportInstallationMediaCommandOutput,
 } from "../commands/ImportInstallationMediaCommand";
@@ -311,6 +327,10 @@ import {
   ModifyDBParameterGroupCommandOutput,
 } from "../commands/ModifyDBParameterGroupCommand";
 import { ModifyDBProxyCommandInput, ModifyDBProxyCommandOutput } from "../commands/ModifyDBProxyCommand";
+import {
+  ModifyDBProxyEndpointCommandInput,
+  ModifyDBProxyEndpointCommandOutput,
+} from "../commands/ModifyDBProxyEndpointCommand";
 import {
   ModifyDBProxyTargetGroupCommandInput,
   ModifyDBProxyTargetGroupCommandOutput,
@@ -444,6 +464,7 @@ import {
   CertificateMessage,
   CertificateNotFoundFault,
   CharacterSet,
+  ClusterPendingModifiedValues,
   ConnectionPoolConfigurationInfo,
   CopyDBClusterParameterGroupMessage,
   CopyDBClusterParameterGroupResult,
@@ -470,6 +491,8 @@ import {
   CreateDBInstanceResult,
   CreateDBParameterGroupMessage,
   CreateDBParameterGroupResult,
+  CreateDBProxyEndpointRequest,
+  CreateDBProxyEndpointResponse,
   CreateDBProxyRequest,
   CreateDBProxyResponse,
   CreateDBSecurityGroupMessage,
@@ -541,6 +564,10 @@ import {
   DBParameterGroupsMessage,
   DBProxy,
   DBProxyAlreadyExistsFault,
+  DBProxyEndpoint,
+  DBProxyEndpointAlreadyExistsFault,
+  DBProxyEndpointNotFoundFault,
+  DBProxyEndpointQuotaExceededFault,
   DBProxyNotFoundFault,
   DBProxyQuotaExceededFault,
   DBProxyTarget,
@@ -550,20 +577,15 @@ import {
   DBSecurityGroup,
   DBSecurityGroupAlreadyExistsFault,
   DBSecurityGroupMembership,
-  DBSecurityGroupMessage,
   DBSecurityGroupNotFoundFault,
   DBSecurityGroupNotSupportedFault,
   DBSecurityGroupQuotaExceededFault,
   DBSnapshot,
   DBSnapshotAlreadyExistsFault,
-  DBSnapshotAttribute,
-  DBSnapshotAttributesResult,
-  DBSnapshotMessage,
   DBSnapshotNotFoundFault,
   DBSubnetGroup,
   DBSubnetGroupAlreadyExistsFault,
   DBSubnetGroupDoesNotCoverEnoughAZs,
-  DBSubnetGroupMessage,
   DBSubnetGroupNotAllowedFault,
   DBSubnetGroupNotFoundFault,
   DBSubnetGroupQuotaExceededFault,
@@ -581,6 +603,8 @@ import {
   DeleteDBInstanceMessage,
   DeleteDBInstanceResult,
   DeleteDBParameterGroupMessage,
+  DeleteDBProxyEndpointRequest,
+  DeleteDBProxyEndpointResponse,
   DeleteDBProxyRequest,
   DeleteDBProxyResponse,
   DeleteDBSecurityGroupMessage,
@@ -616,30 +640,21 @@ import {
   DescribeDBParametersMessage,
   DescribeDBProxiesRequest,
   DescribeDBProxiesResponse,
+  DescribeDBProxyEndpointsRequest,
+  DescribeDBProxyEndpointsResponse,
   DescribeDBProxyTargetGroupsRequest,
   DescribeDBProxyTargetGroupsResponse,
   DescribeDBProxyTargetsRequest,
   DescribeDBProxyTargetsResponse,
-  DescribeDBSecurityGroupsMessage,
-  DescribeDBSnapshotAttributesMessage,
-  DescribeDBSnapshotAttributesResult,
-  DescribeDBSnapshotsMessage,
-  DescribeDBSubnetGroupsMessage,
-  DescribeEngineDefaultClusterParametersMessage,
-  DescribeEngineDefaultClusterParametersResult,
-  DescribeEngineDefaultParametersMessage,
-  DescribeEngineDefaultParametersResult,
-  DescribeEventCategoriesMessage,
   DomainMembership,
   DomainNotFoundFault,
   EC2SecurityGroup,
   Endpoint,
-  EngineDefaults,
-  EventCategoriesMap,
   EventSubscription,
   EventSubscriptionQuotaExceededFault,
   ExportTask,
   ExportTaskNotFoundFault,
+  FailoverState,
   Filter,
   GlobalCluster,
   GlobalClusterAlreadyExistsFault,
@@ -659,6 +674,7 @@ import {
   InvalidDBInstanceAutomatedBackupStateFault,
   InvalidDBInstanceStateFault,
   InvalidDBParameterGroupStateFault,
+  InvalidDBProxyEndpointStateFault,
   InvalidDBProxyStateFault,
   InvalidDBSecurityGroupStateFault,
   InvalidDBSnapshotStateFault,
@@ -722,7 +738,22 @@ import {
   DBLogFileNotFoundFault,
   DBParameterGroupNameMessage,
   DBProxyTargetAlreadyRegisteredFault,
+  DBSecurityGroupMessage,
+  DBSnapshotAttribute,
+  DBSnapshotAttributesResult,
+  DBSnapshotMessage,
+  DBSubnetGroupMessage,
   DBUpgradeDependencyFailureFault,
+  DescribeDBSecurityGroupsMessage,
+  DescribeDBSnapshotAttributesMessage,
+  DescribeDBSnapshotAttributesResult,
+  DescribeDBSnapshotsMessage,
+  DescribeDBSubnetGroupsMessage,
+  DescribeEngineDefaultClusterParametersMessage,
+  DescribeEngineDefaultClusterParametersResult,
+  DescribeEngineDefaultParametersMessage,
+  DescribeEngineDefaultParametersResult,
+  DescribeEventCategoriesMessage,
   DescribeEventSubscriptionsMessage,
   DescribeEventsMessage,
   DescribeExportTasksMessage,
@@ -740,7 +771,9 @@ import {
   DoubleRange,
   DownloadDBLogFilePortionDetails,
   DownloadDBLogFilePortionMessage,
+  EngineDefaults,
   Event,
+  EventCategoriesMap,
   EventCategoriesMessage,
   EventSubscriptionsMessage,
   EventsMessage,
@@ -748,6 +781,8 @@ import {
   ExportTasksMessage,
   FailoverDBClusterMessage,
   FailoverDBClusterResult,
+  FailoverGlobalClusterMessage,
+  FailoverGlobalClusterResult,
   GlobalClustersMessage,
   IamRoleMissingPermissionsFault,
   IamRoleNotFoundFault,
@@ -775,6 +810,8 @@ import {
   ModifyDBInstanceMessage,
   ModifyDBInstanceResult,
   ModifyDBParameterGroupMessage,
+  ModifyDBProxyEndpointRequest,
+  ModifyDBProxyEndpointResponse,
   ModifyDBProxyRequest,
   ModifyDBProxyResponse,
   ModifyDBProxyTargetGroupRequest,
@@ -1237,6 +1274,22 @@ export const serializeAws_queryCreateDBProxyCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryCreateDBProxyEndpointCommand = async (
+  input: CreateDBProxyEndpointCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryCreateDBProxyEndpointRequest(input, context),
+    Action: "CreateDBProxyEndpoint",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_queryCreateDBSecurityGroupCommand = async (
   input: CreateDBSecurityGroupCommandInput,
   context: __SerdeContext
@@ -1472,6 +1525,22 @@ export const serializeAws_queryDeleteDBProxyCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryDeleteDBProxyRequest(input, context),
     Action: "DeleteDBProxy",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryDeleteDBProxyEndpointCommand = async (
+  input: DeleteDBProxyEndpointCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDeleteDBProxyEndpointRequest(input, context),
+    Action: "DeleteDBProxyEndpoint",
     Version: "2014-10-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1877,6 +1946,22 @@ export const serializeAws_queryDescribeDBProxiesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryDescribeDBProxyEndpointsCommand = async (
+  input: DescribeDBProxyEndpointsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDescribeDBProxyEndpointsRequest(input, context),
+    Action: "DescribeDBProxyEndpoints",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_queryDescribeDBProxyTargetGroupsCommand = async (
   input: DescribeDBProxyTargetGroupsCommandInput,
   context: __SerdeContext
@@ -2261,6 +2346,22 @@ export const serializeAws_queryFailoverDBClusterCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryFailoverGlobalClusterCommand = async (
+  input: FailoverGlobalClusterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryFailoverGlobalClusterMessage(input, context),
+    Action: "FailoverGlobalCluster",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_queryImportInstallationMediaCommand = async (
   input: ImportInstallationMediaCommandInput,
   context: __SerdeContext
@@ -2432,6 +2533,22 @@ export const serializeAws_queryModifyDBProxyCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryModifyDBProxyRequest(input, context),
     Action: "ModifyDBProxy",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryModifyDBProxyEndpointCommand = async (
+  input: ModifyDBProxyEndpointCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryModifyDBProxyEndpointRequest(input, context),
+    Action: "ModifyDBProxyEndpoint",
     Version: "2014-10-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4998,6 +5115,92 @@ const deserializeAws_queryCreateDBProxyCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryCreateDBProxyEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDBProxyEndpointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryCreateDBProxyEndpointCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryCreateDBProxyEndpointResponse(data.CreateDBProxyEndpointResult, context);
+  const response: CreateDBProxyEndpointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryCreateDBProxyEndpointCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDBProxyEndpointCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DBProxyEndpointAlreadyExistsFault":
+    case "com.amazonaws.rds#DBProxyEndpointAlreadyExistsFault":
+      response = {
+        ...(await deserializeAws_queryDBProxyEndpointAlreadyExistsFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "DBProxyEndpointQuotaExceededFault":
+    case "com.amazonaws.rds#DBProxyEndpointQuotaExceededFault":
+      response = {
+        ...(await deserializeAws_queryDBProxyEndpointQuotaExceededFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "DBProxyNotFoundFault":
+    case "com.amazonaws.rds#DBProxyNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryDBProxyNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidDBProxyStateFault":
+    case "com.amazonaws.rds#InvalidDBProxyStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidDBProxyStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidSubnet":
+    case "com.amazonaws.rds#InvalidSubnet":
+      response = {
+        ...(await deserializeAws_queryInvalidSubnetResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryCreateDBSecurityGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -6072,6 +6275,68 @@ const deserializeAws_queryDeleteDBProxyCommandError = async (
     case "com.amazonaws.rds#InvalidDBProxyStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBProxyStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryDeleteDBProxyEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDBProxyEndpointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDeleteDBProxyEndpointCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDeleteDBProxyEndpointResponse(data.DeleteDBProxyEndpointResult, context);
+  const response: DeleteDBProxyEndpointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDeleteDBProxyEndpointCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDBProxyEndpointCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DBProxyEndpointNotFoundFault":
+    case "com.amazonaws.rds#DBProxyEndpointNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryDBProxyEndpointNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidDBProxyEndpointStateFault":
+    case "com.amazonaws.rds#InvalidDBProxyEndpointStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidDBProxyEndpointStateFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -7512,6 +7777,68 @@ const deserializeAws_queryDescribeDBProxiesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryDescribeDBProxyEndpointsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBProxyEndpointsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDescribeDBProxyEndpointsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDescribeDBProxyEndpointsResponse(data.DescribeDBProxyEndpointsResult, context);
+  const response: DescribeDBProxyEndpointsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDescribeDBProxyEndpointsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBProxyEndpointsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DBProxyEndpointNotFoundFault":
+    case "com.amazonaws.rds#DBProxyEndpointNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryDBProxyEndpointNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "DBProxyNotFoundFault":
+    case "com.amazonaws.rds#DBProxyNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryDBProxyNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryDescribeDBProxyTargetGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -8842,6 +9169,84 @@ const deserializeAws_queryFailoverDBClusterCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryFailoverGlobalClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<FailoverGlobalClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryFailoverGlobalClusterCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryFailoverGlobalClusterResult(data.FailoverGlobalClusterResult, context);
+  const response: FailoverGlobalClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryFailoverGlobalClusterCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<FailoverGlobalClusterCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DBClusterNotFoundFault":
+    case "com.amazonaws.rds#DBClusterNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "GlobalClusterNotFoundFault":
+    case "com.amazonaws.rds#GlobalClusterNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryGlobalClusterNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidDBClusterStateFault":
+    case "com.amazonaws.rds#InvalidDBClusterStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidGlobalClusterStateFault":
+    case "com.amazonaws.rds#InvalidGlobalClusterStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidGlobalClusterStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryImportInstallationMediaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -9807,6 +10212,84 @@ const deserializeAws_queryModifyDBProxyCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryModifyDBProxyEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyDBProxyEndpointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryModifyDBProxyEndpointCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryModifyDBProxyEndpointResponse(data.ModifyDBProxyEndpointResult, context);
+  const response: ModifyDBProxyEndpointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryModifyDBProxyEndpointCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyDBProxyEndpointCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DBProxyEndpointAlreadyExistsFault":
+    case "com.amazonaws.rds#DBProxyEndpointAlreadyExistsFault":
+      response = {
+        ...(await deserializeAws_queryDBProxyEndpointAlreadyExistsFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "DBProxyEndpointNotFoundFault":
+    case "com.amazonaws.rds#DBProxyEndpointNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryDBProxyEndpointNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidDBProxyEndpointStateFault":
+    case "com.amazonaws.rds#InvalidDBProxyEndpointStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidDBProxyEndpointStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidDBProxyStateFault":
+    case "com.amazonaws.rds#InvalidDBProxyStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidDBProxyStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryModifyDBProxyTargetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -10214,6 +10697,22 @@ const deserializeAws_queryModifyGlobalClusterCommandError = async (
     case "com.amazonaws.rds#GlobalClusterNotFoundFault":
       response = {
         ...(await deserializeAws_queryGlobalClusterNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidDBClusterStateFault":
+    case "com.amazonaws.rds#InvalidDBClusterStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidDBInstanceStateFault":
+    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -13681,6 +14180,51 @@ const deserializeAws_queryDBProxyAlreadyExistsFaultResponse = async (
   return contents;
 };
 
+const deserializeAws_queryDBProxyEndpointAlreadyExistsFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<DBProxyEndpointAlreadyExistsFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryDBProxyEndpointAlreadyExistsFault(body.Error, context);
+  const contents: DBProxyEndpointAlreadyExistsFault = {
+    name: "DBProxyEndpointAlreadyExistsFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_queryDBProxyEndpointNotFoundFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<DBProxyEndpointNotFoundFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryDBProxyEndpointNotFoundFault(body.Error, context);
+  const contents: DBProxyEndpointNotFoundFault = {
+    name: "DBProxyEndpointNotFoundFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_queryDBProxyEndpointQuotaExceededFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<DBProxyEndpointQuotaExceededFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryDBProxyEndpointQuotaExceededFault(body.Error, context);
+  const contents: DBProxyEndpointQuotaExceededFault = {
+    name: "DBProxyEndpointQuotaExceededFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_queryDBProxyNotFoundFaultResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -14289,6 +14833,21 @@ const deserializeAws_queryInvalidDBParameterGroupStateFaultResponse = async (
   const deserialized: any = deserializeAws_queryInvalidDBParameterGroupStateFault(body.Error, context);
   const contents: InvalidDBParameterGroupStateFault = {
     name: "InvalidDBParameterGroupStateFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_queryInvalidDBProxyEndpointStateFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidDBProxyEndpointStateFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryInvalidDBProxyEndpointStateFault(body.Error, context);
+  const contents: InvalidDBProxyEndpointStateFault = {
+    name: "InvalidDBProxyEndpointStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -15621,6 +16180,9 @@ const serializeAws_queryCreateDBInstanceMessage = (input: CreateDBInstanceMessag
   if (input.MaxAllocatedStorage !== undefined && input.MaxAllocatedStorage !== null) {
     entries["MaxAllocatedStorage"] = input.MaxAllocatedStorage;
   }
+  if (input.EnableCustomerOwnedIp !== undefined && input.EnableCustomerOwnedIp !== null) {
+    entries["EnableCustomerOwnedIp"] = input.EnableCustomerOwnedIp;
+  }
   return entries;
 };
 
@@ -15757,6 +16319,44 @@ const serializeAws_queryCreateDBParameterGroupMessage = (
   }
   if (input.Description !== undefined && input.Description !== null) {
     entries["Description"] = input.Description;
+  }
+  if (input.Tags !== undefined && input.Tags !== null) {
+    const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_queryCreateDBProxyEndpointRequest = (
+  input: CreateDBProxyEndpointRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DBProxyName !== undefined && input.DBProxyName !== null) {
+    entries["DBProxyName"] = input.DBProxyName;
+  }
+  if (input.DBProxyEndpointName !== undefined && input.DBProxyEndpointName !== null) {
+    entries["DBProxyEndpointName"] = input.DBProxyEndpointName;
+  }
+  if (input.VpcSubnetIds !== undefined && input.VpcSubnetIds !== null) {
+    const memberEntries = serializeAws_queryStringList(input.VpcSubnetIds, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `VpcSubnetIds.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.VpcSecurityGroupIds !== undefined && input.VpcSecurityGroupIds !== null) {
+    const memberEntries = serializeAws_queryStringList(input.VpcSecurityGroupIds, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `VpcSecurityGroupIds.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.TargetRole !== undefined && input.TargetRole !== null) {
+    entries["TargetRole"] = input.TargetRole;
   }
   if (input.Tags !== undefined && input.Tags !== null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
@@ -16089,6 +16689,17 @@ const serializeAws_queryDeleteDBParameterGroupMessage = (
   const entries: any = {};
   if (input.DBParameterGroupName !== undefined && input.DBParameterGroupName !== null) {
     entries["DBParameterGroupName"] = input.DBParameterGroupName;
+  }
+  return entries;
+};
+
+const serializeAws_queryDeleteDBProxyEndpointRequest = (
+  input: DeleteDBProxyEndpointRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DBProxyEndpointName !== undefined && input.DBProxyEndpointName !== null) {
+    entries["DBProxyEndpointName"] = input.DBProxyEndpointName;
   }
   return entries;
 };
@@ -16619,6 +17230,33 @@ const serializeAws_queryDescribeDBProxiesRequest = (input: DescribeDBProxiesRequ
   const entries: any = {};
   if (input.DBProxyName !== undefined && input.DBProxyName !== null) {
     entries["DBProxyName"] = input.DBProxyName;
+  }
+  if (input.Filters !== undefined && input.Filters !== null) {
+    const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filters.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Marker !== undefined && input.Marker !== null) {
+    entries["Marker"] = input.Marker;
+  }
+  if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
+    entries["MaxRecords"] = input.MaxRecords;
+  }
+  return entries;
+};
+
+const serializeAws_queryDescribeDBProxyEndpointsRequest = (
+  input: DescribeDBProxyEndpointsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DBProxyName !== undefined && input.DBProxyName !== null) {
+    entries["DBProxyName"] = input.DBProxyName;
+  }
+  if (input.DBProxyEndpointName !== undefined && input.DBProxyEndpointName !== null) {
+    entries["DBProxyEndpointName"] = input.DBProxyEndpointName;
   }
   if (input.Filters !== undefined && input.Filters !== null) {
     const memberEntries = serializeAws_queryFilterList(input.Filters, context);
@@ -17289,6 +17927,20 @@ const serializeAws_queryFailoverDBClusterMessage = (input: FailoverDBClusterMess
   return entries;
 };
 
+const serializeAws_queryFailoverGlobalClusterMessage = (
+  input: FailoverGlobalClusterMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.GlobalClusterIdentifier !== undefined && input.GlobalClusterIdentifier !== null) {
+    entries["GlobalClusterIdentifier"] = input.GlobalClusterIdentifier;
+  }
+  if (input.TargetDbClusterIdentifier !== undefined && input.TargetDbClusterIdentifier !== null) {
+    entries["TargetDbClusterIdentifier"] = input.TargetDbClusterIdentifier;
+  }
+  return entries;
+};
+
 const serializeAws_queryFilter = (input: Filter, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Name !== undefined && input.Name !== null) {
@@ -17750,6 +18402,12 @@ const serializeAws_queryModifyDBInstanceMessage = (input: ModifyDBInstanceMessag
   if (input.ReplicaMode !== undefined && input.ReplicaMode !== null) {
     entries["ReplicaMode"] = input.ReplicaMode;
   }
+  if (input.EnableCustomerOwnedIp !== undefined && input.EnableCustomerOwnedIp !== null) {
+    entries["EnableCustomerOwnedIp"] = input.EnableCustomerOwnedIp;
+  }
+  if (input.AwsBackupRecoveryPointArn !== undefined && input.AwsBackupRecoveryPointArn !== null) {
+    entries["AwsBackupRecoveryPointArn"] = input.AwsBackupRecoveryPointArn;
+  }
   return entries;
 };
 
@@ -17765,6 +18423,27 @@ const serializeAws_queryModifyDBParameterGroupMessage = (
     const memberEntries = serializeAws_queryParametersList(input.Parameters, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Parameters.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_queryModifyDBProxyEndpointRequest = (
+  input: ModifyDBProxyEndpointRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DBProxyEndpointName !== undefined && input.DBProxyEndpointName !== null) {
+    entries["DBProxyEndpointName"] = input.DBProxyEndpointName;
+  }
+  if (input.NewDBProxyEndpointName !== undefined && input.NewDBProxyEndpointName !== null) {
+    entries["NewDBProxyEndpointName"] = input.NewDBProxyEndpointName;
+  }
+  if (input.VpcSecurityGroupIds !== undefined && input.VpcSecurityGroupIds !== null) {
+    const memberEntries = serializeAws_queryStringList(input.VpcSecurityGroupIds, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `VpcSecurityGroupIds.${key}`;
       entries[loc] = value;
     });
   }
@@ -17935,6 +18614,12 @@ const serializeAws_queryModifyGlobalClusterMessage = (
   }
   if (input.DeletionProtection !== undefined && input.DeletionProtection !== null) {
     entries["DeletionProtection"] = input.DeletionProtection;
+  }
+  if (input.EngineVersion !== undefined && input.EngineVersion !== null) {
+    entries["EngineVersion"] = input.EngineVersion;
+  }
+  if (input.AllowMajorVersionUpgrade !== undefined && input.AllowMajorVersionUpgrade !== null) {
+    entries["AllowMajorVersionUpgrade"] = input.AllowMajorVersionUpgrade;
   }
   return entries;
 };
@@ -18767,6 +19452,9 @@ const serializeAws_queryRestoreDBInstanceFromDBSnapshotMessage = (
   if (input.DeletionProtection !== undefined && input.DeletionProtection !== null) {
     entries["DeletionProtection"] = input.DeletionProtection;
   }
+  if (input.EnableCustomerOwnedIp !== undefined && input.EnableCustomerOwnedIp !== null) {
+    entries["EnableCustomerOwnedIp"] = input.EnableCustomerOwnedIp;
+  }
   return entries;
 };
 
@@ -19049,6 +19737,9 @@ const serializeAws_queryRestoreDBInstanceToPointInTimeMessage = (
   }
   if (input.SourceDBInstanceAutomatedBackupsArn !== undefined && input.SourceDBInstanceAutomatedBackupsArn !== null) {
     entries["SourceDBInstanceAutomatedBackupsArn"] = input.SourceDBInstanceAutomatedBackupsArn;
+  }
+  if (input.EnableCustomerOwnedIp !== undefined && input.EnableCustomerOwnedIp !== null) {
+    entries["EnableCustomerOwnedIp"] = input.EnableCustomerOwnedIp;
   }
   return entries;
 };
@@ -19657,6 +20348,38 @@ const deserializeAws_queryCharacterSet = (output: any, context: __SerdeContext):
   return contents;
 };
 
+const deserializeAws_queryClusterPendingModifiedValues = (
+  output: any,
+  context: __SerdeContext
+): ClusterPendingModifiedValues => {
+  let contents: any = {
+    PendingCloudwatchLogsExports: undefined,
+    DBClusterIdentifier: undefined,
+    MasterUserPassword: undefined,
+    IAMDatabaseAuthenticationEnabled: undefined,
+    EngineVersion: undefined,
+  };
+  if (output["PendingCloudwatchLogsExports"] !== undefined) {
+    contents.PendingCloudwatchLogsExports = deserializeAws_queryPendingCloudwatchLogsExports(
+      output["PendingCloudwatchLogsExports"],
+      context
+    );
+  }
+  if (output["DBClusterIdentifier"] !== undefined) {
+    contents.DBClusterIdentifier = output["DBClusterIdentifier"];
+  }
+  if (output["MasterUserPassword"] !== undefined) {
+    contents.MasterUserPassword = output["MasterUserPassword"];
+  }
+  if (output["IAMDatabaseAuthenticationEnabled"] !== undefined) {
+    contents.IAMDatabaseAuthenticationEnabled = output["IAMDatabaseAuthenticationEnabled"] == "true";
+  }
+  if (output["EngineVersion"] !== undefined) {
+    contents.EngineVersion = output["EngineVersion"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryConnectionPoolConfigurationInfo = (
   output: any,
   context: __SerdeContext
@@ -19841,6 +20564,19 @@ const deserializeAws_queryCreateDBParameterGroupResult = (
   };
   if (output["DBParameterGroup"] !== undefined) {
     contents.DBParameterGroup = deserializeAws_queryDBParameterGroup(output["DBParameterGroup"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_queryCreateDBProxyEndpointResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateDBProxyEndpointResponse => {
+  let contents: any = {
+    DBProxyEndpoint: undefined,
+  };
+  if (output["DBProxyEndpoint"] !== undefined) {
+    contents.DBProxyEndpoint = deserializeAws_queryDBProxyEndpoint(output["DBProxyEndpoint"], context);
   }
   return contents;
 };
@@ -20085,6 +20821,7 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     TagList: undefined,
     GlobalWriteForwardingStatus: undefined,
     GlobalWriteForwardingRequested: undefined,
+    PendingModifiedValues: undefined,
   };
   if (output["AllocatedStorage"] !== undefined) {
     contents.AllocatedStorage = parseInt(output["AllocatedStorage"]);
@@ -20322,6 +21059,12 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
   }
   if (output["GlobalWriteForwardingRequested"] !== undefined) {
     contents.GlobalWriteForwardingRequested = output["GlobalWriteForwardingRequested"] == "true";
+  }
+  if (output["PendingModifiedValues"] !== undefined) {
+    contents.PendingModifiedValues = deserializeAws_queryClusterPendingModifiedValues(
+      output["PendingModifiedValues"],
+      context
+    );
   }
   return contents;
 };
@@ -20883,6 +21626,7 @@ const deserializeAws_queryDBClusterSnapshot = (output: any, context: __SerdeCont
     DBClusterIdentifier: undefined,
     SnapshotCreateTime: undefined,
     Engine: undefined,
+    EngineMode: undefined,
     AllocatedStorage: undefined,
     Status: undefined,
     Port: undefined,
@@ -20920,6 +21664,9 @@ const deserializeAws_queryDBClusterSnapshot = (output: any, context: __SerdeCont
   }
   if (output["Engine"] !== undefined) {
     contents.Engine = output["Engine"];
+  }
+  if (output["EngineMode"] !== undefined) {
+    contents.EngineMode = output["EngineMode"];
   }
   if (output["AllocatedStorage"] !== undefined) {
     contents.AllocatedStorage = parseInt(output["AllocatedStorage"]);
@@ -21319,6 +22066,8 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     MaxAllocatedStorage: undefined,
     TagList: undefined,
     DBInstanceAutomatedBackupsReplications: undefined,
+    CustomerOwnedIpEnabled: undefined,
+    AwsBackupRecoveryPointArn: undefined,
   };
   if (output["DBInstanceIdentifier"] !== undefined) {
     contents.DBInstanceIdentifier = output["DBInstanceIdentifier"];
@@ -21601,6 +22350,12 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
       __getArrayIfSingleItem(output["DBInstanceAutomatedBackupsReplications"]["DBInstanceAutomatedBackupsReplication"]),
       context
     );
+  }
+  if (output["CustomerOwnedIpEnabled"] !== undefined) {
+    contents.CustomerOwnedIpEnabled = output["CustomerOwnedIpEnabled"] == "true";
+  }
+  if (output["AwsBackupRecoveryPointArn"] !== undefined) {
+    contents.AwsBackupRecoveryPointArn = output["AwsBackupRecoveryPointArn"];
   }
   return contents;
 };
@@ -22147,6 +22902,7 @@ const deserializeAws_queryDBProxy = (output: any, context: __SerdeContext): DBPr
     DBProxyArn: undefined,
     Status: undefined,
     EngineFamily: undefined,
+    VpcId: undefined,
     VpcSecurityGroupIds: undefined,
     VpcSubnetIds: undefined,
     Auth: undefined,
@@ -22169,6 +22925,9 @@ const deserializeAws_queryDBProxy = (output: any, context: __SerdeContext): DBPr
   }
   if (output["EngineFamily"] !== undefined) {
     contents.EngineFamily = output["EngineFamily"];
+  }
+  if (output["VpcId"] !== undefined) {
+    contents.VpcId = output["VpcId"];
   }
   if (output.VpcSecurityGroupIds === "") {
     contents.VpcSecurityGroupIds = [];
@@ -22234,6 +22993,118 @@ const deserializeAws_queryDBProxyAlreadyExistsFault = (
   return contents;
 };
 
+const deserializeAws_queryDBProxyEndpoint = (output: any, context: __SerdeContext): DBProxyEndpoint => {
+  let contents: any = {
+    DBProxyEndpointName: undefined,
+    DBProxyEndpointArn: undefined,
+    DBProxyName: undefined,
+    Status: undefined,
+    VpcId: undefined,
+    VpcSecurityGroupIds: undefined,
+    VpcSubnetIds: undefined,
+    Endpoint: undefined,
+    CreatedDate: undefined,
+    TargetRole: undefined,
+    IsDefault: undefined,
+  };
+  if (output["DBProxyEndpointName"] !== undefined) {
+    contents.DBProxyEndpointName = output["DBProxyEndpointName"];
+  }
+  if (output["DBProxyEndpointArn"] !== undefined) {
+    contents.DBProxyEndpointArn = output["DBProxyEndpointArn"];
+  }
+  if (output["DBProxyName"] !== undefined) {
+    contents.DBProxyName = output["DBProxyName"];
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = output["Status"];
+  }
+  if (output["VpcId"] !== undefined) {
+    contents.VpcId = output["VpcId"];
+  }
+  if (output.VpcSecurityGroupIds === "") {
+    contents.VpcSecurityGroupIds = [];
+  }
+  if (output["VpcSecurityGroupIds"] !== undefined && output["VpcSecurityGroupIds"]["member"] !== undefined) {
+    contents.VpcSecurityGroupIds = deserializeAws_queryStringList(
+      __getArrayIfSingleItem(output["VpcSecurityGroupIds"]["member"]),
+      context
+    );
+  }
+  if (output.VpcSubnetIds === "") {
+    contents.VpcSubnetIds = [];
+  }
+  if (output["VpcSubnetIds"] !== undefined && output["VpcSubnetIds"]["member"] !== undefined) {
+    contents.VpcSubnetIds = deserializeAws_queryStringList(
+      __getArrayIfSingleItem(output["VpcSubnetIds"]["member"]),
+      context
+    );
+  }
+  if (output["Endpoint"] !== undefined) {
+    contents.Endpoint = output["Endpoint"];
+  }
+  if (output["CreatedDate"] !== undefined) {
+    contents.CreatedDate = new Date(output["CreatedDate"]);
+  }
+  if (output["TargetRole"] !== undefined) {
+    contents.TargetRole = output["TargetRole"];
+  }
+  if (output["IsDefault"] !== undefined) {
+    contents.IsDefault = output["IsDefault"] == "true";
+  }
+  return contents;
+};
+
+const deserializeAws_queryDBProxyEndpointAlreadyExistsFault = (
+  output: any,
+  context: __SerdeContext
+): DBProxyEndpointAlreadyExistsFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryDBProxyEndpointList = (output: any, context: __SerdeContext): DBProxyEndpoint[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryDBProxyEndpoint(entry, context);
+    });
+};
+
+const deserializeAws_queryDBProxyEndpointNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): DBProxyEndpointNotFoundFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryDBProxyEndpointQuotaExceededFault = (
+  output: any,
+  context: __SerdeContext
+): DBProxyEndpointQuotaExceededFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryDBProxyList = (output: any, context: __SerdeContext): DBProxy[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -22276,6 +23147,7 @@ const deserializeAws_queryDBProxyTarget = (output: any, context: __SerdeContext)
     RdsResourceId: undefined,
     Port: undefined,
     Type: undefined,
+    Role: undefined,
     TargetHealth: undefined,
   };
   if (output["TargetArn"] !== undefined) {
@@ -22295,6 +23167,9 @@ const deserializeAws_queryDBProxyTarget = (output: any, context: __SerdeContext)
   }
   if (output["Type"] !== undefined) {
     contents.Type = output["Type"];
+  }
+  if (output["Role"] !== undefined) {
+    contents.Role = output["Role"];
   }
   if (output["TargetHealth"] !== undefined) {
     contents.TargetHealth = deserializeAws_queryTargetHealth(output["TargetHealth"], context);
@@ -23001,6 +23876,19 @@ const deserializeAws_queryDeleteDBInstanceResult = (output: any, context: __Serd
   return contents;
 };
 
+const deserializeAws_queryDeleteDBProxyEndpointResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteDBProxyEndpointResponse => {
+  let contents: any = {
+    DBProxyEndpoint: undefined,
+  };
+  if (output["DBProxyEndpoint"] !== undefined) {
+    contents.DBProxyEndpoint = deserializeAws_queryDBProxyEndpoint(output["DBProxyEndpoint"], context);
+  }
+  return contents;
+};
+
 const deserializeAws_queryDeleteDBProxyResponse = (output: any, context: __SerdeContext): DeleteDBProxyResponse => {
   let contents: any = {
     DBProxy: undefined,
@@ -23146,6 +24034,29 @@ const deserializeAws_queryDescribeDBProxiesResponse = (
   if (output["DBProxies"] !== undefined && output["DBProxies"]["member"] !== undefined) {
     contents.DBProxies = deserializeAws_queryDBProxyList(
       __getArrayIfSingleItem(output["DBProxies"]["member"]),
+      context
+    );
+  }
+  if (output["Marker"] !== undefined) {
+    contents.Marker = output["Marker"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryDescribeDBProxyEndpointsResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeDBProxyEndpointsResponse => {
+  let contents: any = {
+    DBProxyEndpoints: undefined,
+    Marker: undefined,
+  };
+  if (output.DBProxyEndpoints === "") {
+    contents.DBProxyEndpoints = [];
+  }
+  if (output["DBProxyEndpoints"] !== undefined && output["DBProxyEndpoints"]["member"] !== undefined) {
+    contents.DBProxyEndpoints = deserializeAws_queryDBProxyEndpointList(
+      __getArrayIfSingleItem(output["DBProxyEndpoints"]["member"]),
       context
     );
   }
@@ -23800,6 +24711,37 @@ const deserializeAws_queryFailoverDBClusterResult = (output: any, context: __Ser
   return contents;
 };
 
+const deserializeAws_queryFailoverGlobalClusterResult = (
+  output: any,
+  context: __SerdeContext
+): FailoverGlobalClusterResult => {
+  let contents: any = {
+    GlobalCluster: undefined,
+  };
+  if (output["GlobalCluster"] !== undefined) {
+    contents.GlobalCluster = deserializeAws_queryGlobalCluster(output["GlobalCluster"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_queryFailoverState = (output: any, context: __SerdeContext): FailoverState => {
+  let contents: any = {
+    Status: undefined,
+    FromDbClusterArn: undefined,
+    ToDbClusterArn: undefined,
+  };
+  if (output["Status"] !== undefined) {
+    contents.Status = output["Status"];
+  }
+  if (output["FromDbClusterArn"] !== undefined) {
+    contents.FromDbClusterArn = output["FromDbClusterArn"];
+  }
+  if (output["ToDbClusterArn"] !== undefined) {
+    contents.ToDbClusterArn = output["ToDbClusterArn"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryFeatureNameList = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -23823,6 +24765,7 @@ const deserializeAws_queryGlobalCluster = (output: any, context: __SerdeContext)
     StorageEncrypted: undefined,
     DeletionProtection: undefined,
     GlobalClusterMembers: undefined,
+    FailoverState: undefined,
   };
   if (output["GlobalClusterIdentifier"] !== undefined) {
     contents.GlobalClusterIdentifier = output["GlobalClusterIdentifier"];
@@ -23862,6 +24805,9 @@ const deserializeAws_queryGlobalCluster = (output: any, context: __SerdeContext)
       __getArrayIfSingleItem(output["GlobalClusterMembers"]["GlobalClusterMember"]),
       context
     );
+  }
+  if (output["FailoverState"] !== undefined) {
+    contents.FailoverState = deserializeAws_queryFailoverState(output["FailoverState"], context);
   }
   return contents;
 };
@@ -24262,6 +25208,19 @@ const deserializeAws_queryInvalidDBParameterGroupStateFault = (
   return contents;
 };
 
+const deserializeAws_queryInvalidDBProxyEndpointStateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidDBProxyEndpointStateFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryInvalidDBProxyStateFault = (
   output: any,
   context: __SerdeContext
@@ -24583,6 +25542,19 @@ const deserializeAws_queryModifyDBInstanceResult = (output: any, context: __Serd
   };
   if (output["DBInstance"] !== undefined) {
     contents.DBInstance = deserializeAws_queryDBInstance(output["DBInstance"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_queryModifyDBProxyEndpointResponse = (
+  output: any,
+  context: __SerdeContext
+): ModifyDBProxyEndpointResponse => {
+  let contents: any = {
+    DBProxyEndpoint: undefined,
+  };
+  if (output["DBProxyEndpoint"] !== undefined) {
+    contents.DBProxyEndpoint = deserializeAws_queryDBProxyEndpoint(output["DBProxyEndpoint"], context);
   }
   return contents;
 };
@@ -25590,6 +26562,7 @@ const deserializeAws_queryPendingModifiedValues = (output: any, context: __Serde
     DBSubnetGroupName: undefined,
     PendingCloudwatchLogsExports: undefined,
     ProcessorFeatures: undefined,
+    IAMDatabaseAuthenticationEnabled: undefined,
   };
   if (output["DBInstanceClass"] !== undefined) {
     contents.DBInstanceClass = output["DBInstanceClass"];
@@ -25644,6 +26617,9 @@ const deserializeAws_queryPendingModifiedValues = (output: any, context: __Serde
       __getArrayIfSingleItem(output["ProcessorFeatures"]["ProcessorFeature"]),
       context
     );
+  }
+  if (output["IAMDatabaseAuthenticationEnabled"] !== undefined) {
+    contents.IAMDatabaseAuthenticationEnabled = output["IAMDatabaseAuthenticationEnabled"] == "true";
   }
   return contents;
 };
@@ -26813,6 +27789,9 @@ const deserializeAws_queryUpgradeTarget = (output: any, context: __SerdeContext)
     Description: undefined,
     AutoUpgrade: undefined,
     IsMajorVersionUpgrade: undefined,
+    SupportedEngineModes: undefined,
+    SupportsParallelQuery: undefined,
+    SupportsGlobalDatabases: undefined,
   };
   if (output["Engine"] !== undefined) {
     contents.Engine = output["Engine"];
@@ -26828,6 +27807,21 @@ const deserializeAws_queryUpgradeTarget = (output: any, context: __SerdeContext)
   }
   if (output["IsMajorVersionUpgrade"] !== undefined) {
     contents.IsMajorVersionUpgrade = output["IsMajorVersionUpgrade"] == "true";
+  }
+  if (output.SupportedEngineModes === "") {
+    contents.SupportedEngineModes = [];
+  }
+  if (output["SupportedEngineModes"] !== undefined && output["SupportedEngineModes"]["member"] !== undefined) {
+    contents.SupportedEngineModes = deserializeAws_queryEngineModeList(
+      __getArrayIfSingleItem(output["SupportedEngineModes"]["member"]),
+      context
+    );
+  }
+  if (output["SupportsParallelQuery"] !== undefined) {
+    contents.SupportsParallelQuery = output["SupportsParallelQuery"] == "true";
+  }
+  if (output["SupportsGlobalDatabases"] !== undefined) {
+    contents.SupportsGlobalDatabases = output["SupportsGlobalDatabases"] == "true";
   }
   return contents;
 };

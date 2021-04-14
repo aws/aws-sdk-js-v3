@@ -24,7 +24,7 @@ export type PutBucketLifecycleConfigurationCommandOutput = __MetadataBearer;
 
 /**
  * <p>Creates a new lifecycle configuration for the bucket or replaces an existing lifecycle
- *          configuration. For information about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing Access Permissions to Your Amazon S3
+ *          configuration. For information about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to Your Amazon S3
  *             Resources</a>.</p>
  *
  *          <note>
@@ -95,7 +95,7 @@ export type PutBucketLifecycleConfigurationCommandOutput = __MetadataBearer;
  *          </ul>
  *
  *
- *          <p>For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing Access Permissions to Your Amazon S3
+ *          <p>For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to Your Amazon S3
  *             Resources</a>.</p>
  *
  *          <p>The following are related to <code>PutBucketLifecycleConfiguration</code>:</p>

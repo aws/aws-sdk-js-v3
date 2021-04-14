@@ -160,6 +160,7 @@ export const serializeAws_restJson1GetMediaForFragmentListCommand = async (
   body = JSON.stringify({
     ...(input.Fragments !== undefined &&
       input.Fragments !== null && { Fragments: serializeAws_restJson1FragmentNumberList(input.Fragments, context) }),
+    ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
     ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -190,6 +191,7 @@ export const serializeAws_restJson1ListFragmentsCommand = async (
       }),
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
     ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();

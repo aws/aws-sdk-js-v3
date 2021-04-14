@@ -1009,6 +1009,7 @@ const serializeAws_json1_0CreateHostInput = (input: CreateHostInput, context: __
     ...(input.ProviderEndpoint !== undefined &&
       input.ProviderEndpoint !== null && { ProviderEndpoint: input.ProviderEndpoint }),
     ...(input.ProviderType !== undefined && input.ProviderType !== null && { ProviderType: input.ProviderType }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
     ...(input.VpcConfiguration !== undefined &&
       input.VpcConfiguration !== null && {
         VpcConfiguration: serializeAws_json1_0VpcConfiguration(input.VpcConfiguration, context),
@@ -1204,6 +1205,10 @@ const deserializeAws_json1_0CreateConnectionOutput = (output: any, context: __Se
 const deserializeAws_json1_0CreateHostOutput = (output: any, context: __SerdeContext): CreateHostOutput => {
   return {
     HostArn: output.HostArn !== undefined && output.HostArn !== null ? output.HostArn : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_json1_0TagList(output.Tags, context)
+        : undefined,
   } as any;
 };
 

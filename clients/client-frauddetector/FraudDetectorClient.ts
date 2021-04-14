@@ -4,6 +4,14 @@ import {
 } from "./commands/BatchCreateVariableCommand";
 import { BatchGetVariableCommandInput, BatchGetVariableCommandOutput } from "./commands/BatchGetVariableCommand";
 import {
+  CancelBatchPredictionJobCommandInput,
+  CancelBatchPredictionJobCommandOutput,
+} from "./commands/CancelBatchPredictionJobCommand";
+import {
+  CreateBatchPredictionJobCommandInput,
+  CreateBatchPredictionJobCommandOutput,
+} from "./commands/CreateBatchPredictionJobCommand";
+import {
   CreateDetectorVersionCommandInput,
   CreateDetectorVersionCommandOutput,
 } from "./commands/CreateDetectorVersionCommand";
@@ -11,6 +19,10 @@ import { CreateModelCommandInput, CreateModelCommandOutput } from "./commands/Cr
 import { CreateModelVersionCommandInput, CreateModelVersionCommandOutput } from "./commands/CreateModelVersionCommand";
 import { CreateRuleCommandInput, CreateRuleCommandOutput } from "./commands/CreateRuleCommand";
 import { CreateVariableCommandInput, CreateVariableCommandOutput } from "./commands/CreateVariableCommand";
+import {
+  DeleteBatchPredictionJobCommandInput,
+  DeleteBatchPredictionJobCommandOutput,
+} from "./commands/DeleteBatchPredictionJobCommand";
 import { DeleteDetectorCommandInput, DeleteDetectorCommandOutput } from "./commands/DeleteDetectorCommand";
 import {
   DeleteDetectorVersionCommandInput,
@@ -34,6 +46,10 @@ import {
   DescribeModelVersionsCommandInput,
   DescribeModelVersionsCommandOutput,
 } from "./commands/DescribeModelVersionsCommand";
+import {
+  GetBatchPredictionJobsCommandInput,
+  GetBatchPredictionJobsCommandOutput,
+} from "./commands/GetBatchPredictionJobsCommand";
 import { GetDetectorVersionCommandInput, GetDetectorVersionCommandOutput } from "./commands/GetDetectorVersionCommand";
 import { GetDetectorsCommandInput, GetDetectorsCommandOutput } from "./commands/GetDetectorsCommand";
 import { GetEntityTypesCommandInput, GetEntityTypesCommandOutput } from "./commands/GetEntityTypesCommand";
@@ -141,11 +157,14 @@ import {
 export type ServiceInputTypes =
   | BatchCreateVariableCommandInput
   | BatchGetVariableCommandInput
+  | CancelBatchPredictionJobCommandInput
+  | CreateBatchPredictionJobCommandInput
   | CreateDetectorVersionCommandInput
   | CreateModelCommandInput
   | CreateModelVersionCommandInput
   | CreateRuleCommandInput
   | CreateVariableCommandInput
+  | DeleteBatchPredictionJobCommandInput
   | DeleteDetectorCommandInput
   | DeleteDetectorVersionCommandInput
   | DeleteEntityTypeCommandInput
@@ -160,6 +179,7 @@ export type ServiceInputTypes =
   | DeleteVariableCommandInput
   | DescribeDetectorCommandInput
   | DescribeModelVersionsCommandInput
+  | GetBatchPredictionJobsCommandInput
   | GetDetectorVersionCommandInput
   | GetDetectorsCommandInput
   | GetEntityTypesCommandInput
@@ -196,11 +216,14 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | BatchCreateVariableCommandOutput
   | BatchGetVariableCommandOutput
+  | CancelBatchPredictionJobCommandOutput
+  | CreateBatchPredictionJobCommandOutput
   | CreateDetectorVersionCommandOutput
   | CreateModelCommandOutput
   | CreateModelVersionCommandOutput
   | CreateRuleCommandOutput
   | CreateVariableCommandOutput
+  | DeleteBatchPredictionJobCommandOutput
   | DeleteDetectorCommandOutput
   | DeleteDetectorVersionCommandOutput
   | DeleteEntityTypeCommandOutput
@@ -215,6 +238,7 @@ export type ServiceOutputTypes =
   | DeleteVariableCommandOutput
   | DescribeDetectorCommandOutput
   | DescribeModelVersionsCommandOutput
+  | GetBatchPredictionJobsCommandOutput
   | GetDetectorVersionCommandOutput
   | GetDetectorsCommandOutput
   | GetEntityTypesCommandOutput

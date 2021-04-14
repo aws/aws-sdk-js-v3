@@ -25,12 +25,14 @@ export type AddListenerCertificatesCommandInput = AddListenerCertificatesInput;
 export type AddListenerCertificatesCommandOutput = AddListenerCertificatesOutput & __MetadataBearer;
 
 /**
- * <p>Adds the specified SSL server certificate to the certificate list for the specified HTTPS or TLS listener.</p>
- *          <p>If the certificate in already in the certificate list, the call is successful but the certificate
- *       is not added again.</p>
+ * <p>Adds the specified SSL server certificate to the certificate list for the specified HTTPS
+ *       or TLS listener.</p>
+ *          <p>If the certificate in already in the certificate list, the call is successful but the
+ *       certificate is not added again.</p>
  *
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html">HTTPS listeners</a> in the <i>Application Load Balancers Guide</i> or <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html">TLS listeners</a> in the
- *       <i>Network Load Balancers Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html">HTTPS
+ *         listeners</a> in the <i>Application Load Balancers Guide</i> or <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html">TLS
+ *         listeners</a> in the <i>Network Load Balancers Guide</i>.</p>
  */
 export class AddListenerCertificatesCommand extends $Command<
   AddListenerCertificatesCommandInput,

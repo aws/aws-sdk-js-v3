@@ -44,10 +44,6 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *       with dashboards and alerts that give visibility into how this data is being accessed or moved.
  *       For more information, see the <a href="https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html">Amazon Macie
  *         Classic User Guide</a>. </p>
- *          <p>A new Amazon Macie is now available with significant design improvements and additional
- *       features, at a lower price and in most AWS Regions. We encourage you to explore and use
- *       the new and improved features, and benefit from the reduced cost. To learn about features and
- *       pricing for the new Amazon Macie, see <a href="https://aws.amazon.com/macie/">Amazon Macie</a>.</p>
  */
 export class Macie extends MacieClient {
   /**
@@ -86,7 +82,7 @@ export class Macie extends MacieClient {
   /**
    * <p>Associates specified S3 resources with Amazon Macie Classic for monitoring and data
    *       classification. If memberAccountId isn't specified, the action associates specified S3
-   *       resources with Macie Classic for the current master account. If memberAccountId is specified,
+   *       resources with Macie Classic for the current Macie Classic administrator account. If memberAccountId is specified,
    *       the action associates specified S3 resources with Macie Classic for the specified member
    *       account. </p>
    */
@@ -154,7 +150,7 @@ export class Macie extends MacieClient {
   /**
    * <p>Removes specified S3 resources from being monitored by Amazon Macie Classic. If
    *       memberAccountId isn't specified, the action removes specified S3 resources from Macie Classic
-   *       for the current master account. If memberAccountId is specified, the action removes specified
+   *       for the current Macie Classic administrator account. If memberAccountId is specified, the action removes specified
    *       S3 resources from Macie Classic for the specified member account.</p>
    */
   public disassociateS3Resources(
@@ -187,8 +183,7 @@ export class Macie extends MacieClient {
   }
 
   /**
-   * <p>Lists all Amazon Macie Classic member accounts for the current Amazon Macie Classic
-   *       master account.</p>
+   * <p>Lists all Amazon Macie Classic member accounts for the current Macie Classic administrator account.</p>
    */
   public listMemberAccounts(
     args: ListMemberAccountsCommandInput,
@@ -221,9 +216,9 @@ export class Macie extends MacieClient {
 
   /**
    * <p>Lists all the S3 resources associated with Amazon Macie Classic. If memberAccountId
-   *       isn't specified, the action lists the S3 resources associated with Amazon Macie Classic for
-   *       the current master account. If memberAccountId is specified, the action lists the S3 resources
-   *       associated with Amazon Macie Classic for the specified member account. </p>
+   *       isn't specified, the action lists the S3 resources associated with Macie Classic for
+   *       the current Macie Classic administrator account. If memberAccountId is specified, the action lists the S3 resources
+   *       associated with Macie Classic for the specified member account. </p>
    */
   public listS3Resources(
     args: ListS3ResourcesCommandInput,
@@ -257,8 +252,8 @@ export class Macie extends MacieClient {
   /**
    * <p>Updates the classification types for the specified S3 resources. If memberAccountId
    *       isn't specified, the action updates the classification types of the S3 resources associated
-   *       with Amazon Macie Classic for the current master account. If memberAccountId is specified, the
-   *       action updates the classification types of the S3 resources associated with Amazon Macie
+   *       with Amazon Macie Classic for the current Macie Classic administrator account. If memberAccountId is specified, the
+   *       action updates the classification types of the S3 resources associated with Macie
    *       Classic for the specified member account. </p>
    */
   public updateS3Resources(

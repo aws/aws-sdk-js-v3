@@ -26,6 +26,7 @@ export type GetNetworkCommandOutput = GetNetworkOutput & __MetadataBearer;
 
 /**
  * <p>Returns detailed information about a network.</p>
+ *          <p>Applies to Hyperledger Fabric and Ethereum.</p>
  */
 export class GetNetworkCommand extends $Command<
   GetNetworkCommandInput,

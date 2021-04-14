@@ -25,7 +25,9 @@ export type CreateStreamingDistributionWithTagsCommandOutput = CreateStreamingDi
   __MetadataBearer;
 
 /**
- * <p>Create a new streaming distribution with tags.</p>
+ * <p>This API is deprecated.
+ *             Amazon CloudFront is deprecating real-time messaging protocol (RTMP) distributions on December 31, 2020.
+ *             For more information, <a href="http://forums.aws.amazon.com/ann.jspa?annID=7356">read the announcement</a> on the Amazon CloudFront discussion forum.</p>
  */
 export class CreateStreamingDistributionWithTagsCommand extends $Command<
   CreateStreamingDistributionWithTagsCommandInput,

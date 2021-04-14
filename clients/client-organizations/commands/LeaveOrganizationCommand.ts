@@ -28,8 +28,8 @@ export type LeaveOrganizationCommandOutput = __MetadataBearer;
  *         <important>
  *             <ul>
  *                <li>
- *                     <p>The management account in an organization with all features enabled can set
- *                         service control policies (SCPs) that can restrict what administrators of
+ *                     <p>The management account in an organization with all features enabled can
+ *                         set service control policies (SCPs) that can restrict what administrators of
  *                         member accounts can do. This includes preventing them from successfully
  *                         calling <code>LeaveOrganization</code> and leaving the organization.</p>
  *                 </li>
@@ -59,6 +59,12 @@ export type LeaveOrganizationCommandOutput = __MetadataBearer;
  *                             yet been provided</a> in the
  *                         <i>AWS Organizations User Guide.</i>
  *                   </p>
+ *                 </li>
+ *                <li>
+ *                     <p>The account that you want to leave must not be a delegated administrator
+ *                         account for any AWS service enabled for your organization. If the account is
+ *                         a delegated administrator, you must first change the delegated administrator
+ *                         account to another account that is remaining in the organization.</p>
  *                 </li>
  *                <li>
  *                     <p>You can leave an organization only after you enable IAM user access to

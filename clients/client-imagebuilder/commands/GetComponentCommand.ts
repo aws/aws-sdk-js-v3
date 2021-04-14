@@ -21,7 +21,7 @@ export type GetComponentCommandInput = GetComponentRequest;
 export type GetComponentCommandOutput = GetComponentResponse & __MetadataBearer;
 
 /**
- * <p> Gets a component object. </p>
+ * <p> Gets a component object.</p>
  */
 export class GetComponentCommand extends $Command<
   GetComponentCommandInput,

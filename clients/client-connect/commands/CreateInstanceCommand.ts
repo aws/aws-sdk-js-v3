@@ -23,8 +23,8 @@ export type CreateInstanceCommandOutput = CreateInstanceResponse & __MetadataBea
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Initiates an Amazon Connect instance with all the supported channels enabled. It does not attach any
- *    storage (such as Amazon S3, or Kinesis) or allow for any configurations on features such as
- *    Contact Lens for Amazon Connect. </p>
+ *    storage, such as Amazon Simple Storage Service (Amazon S3) or Amazon Kinesis. It also does not
+ *    allow for any configurations on features, such as Contact Lens for Amazon Connect. </p>
  */
 export class CreateInstanceCommand extends $Command<
   CreateInstanceCommandInput,

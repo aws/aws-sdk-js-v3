@@ -307,6 +307,11 @@ import {
   PutDeliverabilityDashboardOptionCommandOutput,
 } from "./commands/PutDeliverabilityDashboardOptionCommand";
 import {
+  PutEmailIdentityConfigurationSetAttributesCommand,
+  PutEmailIdentityConfigurationSetAttributesCommandInput,
+  PutEmailIdentityConfigurationSetAttributesCommandOutput,
+} from "./commands/PutEmailIdentityConfigurationSetAttributesCommand";
+import {
   PutEmailIdentityDkimAttributesCommand,
   PutEmailIdentityDkimAttributesCommandInput,
   PutEmailIdentityDkimAttributesCommandOutput,
@@ -680,6 +685,12 @@ export class SESv2 extends SESv2Client {
    *             has to include the <code>DkimSigningAttributes</code> object. When you specify this
    *             object, you provide a selector (a component of the DNS record name that identifies the
    *             public key that you want to use for DKIM authentication) and a private key.</p>
+   *         <p>When you verify a domain, this operation provides a set of DKIM tokens, which you can
+   *             convert into CNAME tokens. You add these CNAME tokens to the DNS configuration for your
+   *             domain. Your domain is verified when Amazon SES detects these records in the DNS
+   *             configuration for your domain. For some DNS providers, it can take 72 hours or more to
+   *             complete the domain verification process.</p>
+   *         <p>Additionally, you can associate an existing configuration set with the email identity that you're verifying.</p>
    */
   public createEmailIdentity(
     args: CreateEmailIdentityCommandInput,
@@ -2589,6 +2600,40 @@ export class SESv2 extends SESv2Client {
     cb?: (err: any, data?: PutDeliverabilityDashboardOptionCommandOutput) => void
   ): Promise<PutDeliverabilityDashboardOptionCommandOutput> | void {
     const command = new PutDeliverabilityDashboardOptionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Used to associate a configuration set with an email identity.</p>
+   */
+  public putEmailIdentityConfigurationSetAttributes(
+    args: PutEmailIdentityConfigurationSetAttributesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutEmailIdentityConfigurationSetAttributesCommandOutput>;
+  public putEmailIdentityConfigurationSetAttributes(
+    args: PutEmailIdentityConfigurationSetAttributesCommandInput,
+    cb: (err: any, data?: PutEmailIdentityConfigurationSetAttributesCommandOutput) => void
+  ): void;
+  public putEmailIdentityConfigurationSetAttributes(
+    args: PutEmailIdentityConfigurationSetAttributesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutEmailIdentityConfigurationSetAttributesCommandOutput) => void
+  ): void;
+  public putEmailIdentityConfigurationSetAttributes(
+    args: PutEmailIdentityConfigurationSetAttributesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: PutEmailIdentityConfigurationSetAttributesCommandOutput) => void),
+    cb?: (err: any, data?: PutEmailIdentityConfigurationSetAttributesCommandOutput) => void
+  ): Promise<PutEmailIdentityConfigurationSetAttributesCommandOutput> | void {
+    const command = new PutEmailIdentityConfigurationSetAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -309,7 +309,7 @@ export enum Compute {
 }
 
 /**
- * <p>Describes the compute type.</p>
+ * <p>Describes the compute type of the bundle.</p>
  */
 export interface ComputeType {
   /**
@@ -341,11 +341,11 @@ export namespace RootStorage {
 }
 
 /**
- * <p>Describes the user storage for a WorkSpace bundle.</p>
+ * <p>Describes the user volume for a WorkSpace bundle.</p>
  */
 export interface UserStorage {
   /**
-   * <p>The size of the user storage.</p>
+   * <p>The size of the user volume.</p>
    */
   Capacity?: string;
 }
@@ -361,7 +361,7 @@ export namespace UserStorage {
  */
 export interface WorkspaceBundle {
   /**
-   * <p>The bundle identifier.</p>
+   * <p>The identifier of the bundle.</p>
    */
   BundleId?: string;
 
@@ -377,12 +377,12 @@ export interface WorkspaceBundle {
   Owner?: string;
 
   /**
-   * <p>A description.</p>
+   * <p>The description of the bundle.</p>
    */
   Description?: string;
 
   /**
-   * <p>The image identifier of the bundle.</p>
+   * <p>The identifier of the image that was used to create the bundle.</p>
    */
   ImageId?: string;
 
@@ -392,12 +392,13 @@ export interface WorkspaceBundle {
   RootStorage?: RootStorage;
 
   /**
-   * <p>The size of the user storage.</p>
+   * <p>The size of the user volume.</p>
    */
   UserStorage?: UserStorage;
 
   /**
-   * <p>The compute type. For more information, see <a href="http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles">Amazon WorkSpaces Bundles</a>.</p>
+   * <p>The compute type of the bundle. For more information, see
+   *          <a href="http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles">Amazon WorkSpaces Bundles</a>.</p>
    */
   ComputeType?: ComputeType;
 
@@ -405,6 +406,11 @@ export interface WorkspaceBundle {
    * <p>The last time that the bundle was updated.</p>
    */
   LastUpdatedTime?: Date;
+
+  /**
+   * <p>The time when the bundle was created.</p>
+   */
+  CreationTime?: Date;
 }
 
 export namespace WorkspaceBundle {
@@ -786,6 +792,67 @@ export interface CreateTagsResult {}
 
 export namespace CreateTagsResult {
   export const filterSensitiveLog = (obj: CreateTagsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateWorkspaceBundleRequest {
+  /**
+   * <p>The name of the bundle.</p>
+   */
+  BundleName: string | undefined;
+
+  /**
+   * <p>The description of the bundle.</p>
+   */
+  BundleDescription: string | undefined;
+
+  /**
+   * <p>The identifier of the image that is used to create the bundle.</p>
+   */
+  ImageId: string | undefined;
+
+  /**
+   * <p>Describes the compute type of the bundle.</p>
+   */
+  ComputeType: ComputeType | undefined;
+
+  /**
+   * <p>Describes the user volume for a WorkSpace bundle.</p>
+   */
+  UserStorage: UserStorage | undefined;
+
+  /**
+   * <p>Describes the root volume for a WorkSpace bundle.</p>
+   */
+  RootStorage?: RootStorage;
+
+  /**
+   * <p>The tags associated with the bundle.</p>
+   *
+   *          <note>
+   *             <p>To add tags at the same time that you're creating the bundle, you must create an IAM policy that
+   *             grants your IAM user permissions to use <code>workspaces:CreateTags</code>. </p>
+   *          </note>
+   */
+  Tags?: Tag[];
+}
+
+export namespace CreateWorkspaceBundleRequest {
+  export const filterSensitiveLog = (obj: CreateWorkspaceBundleRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateWorkspaceBundleResult {
+  /**
+   * <p>Describes a WorkSpace bundle.</p>
+   */
+  WorkspaceBundle?: WorkspaceBundle;
+}
+
+export namespace CreateWorkspaceBundleResult {
+  export const filterSensitiveLog = (obj: CreateWorkspaceBundleResult): any => ({
     ...obj,
   });
 }
@@ -1227,6 +1294,27 @@ export namespace DeleteTagsResult {
   });
 }
 
+export interface DeleteWorkspaceBundleRequest {
+  /**
+   * <p>The identifier of the bundle.</p>
+   */
+  BundleId?: string;
+}
+
+export namespace DeleteWorkspaceBundleRequest {
+  export const filterSensitiveLog = (obj: DeleteWorkspaceBundleRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteWorkspaceBundleResult {}
+
+export namespace DeleteWorkspaceBundleResult {
+  export const filterSensitiveLog = (obj: DeleteWorkspaceBundleResult): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteWorkspaceImageRequest {
   /**
    * <p>The identifier of the image.</p>
@@ -1322,8 +1410,8 @@ export interface DescribeAccountModificationsResult {
   AccountModifications?: AccountModification[];
 
   /**
-   * <p>The token to use to retrieve the next set of results, or null if no more results are
-   *          available.</p>
+   * <p>The token to use to retrieve the next page of results. This value is null when there
+   *          are no more results to return. </p>
    */
   NextToken?: string;
 }
@@ -1396,7 +1484,7 @@ export interface DescribeConnectionAliasesResult {
   ConnectionAliases?: ConnectionAlias[];
 
   /**
-   * <p>The token to use to retrieve the next set of results, or null if no more results are available.</p>
+   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return. </p>
    */
   NextToken?: string;
 }
@@ -1443,7 +1531,7 @@ export interface DescribeConnectionAliasPermissionsResult {
   ConnectionAliasPermissions?: ConnectionAliasPermission[];
 
   /**
-   * <p>The token to use to retrieve the next set of results, or null if no more results are available.</p>
+   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return. </p>
    */
   NextToken?: string;
 }
@@ -1516,8 +1604,7 @@ export interface DescribeIpGroupsResult {
   Result?: WorkspacesIpGroup[];
 
   /**
-   * <p>The token to use to retrieve the next set of results, or null if no more results are
-   *          available.</p>
+   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return. </p>
    */
   NextToken?: string;
 }
@@ -1563,8 +1650,8 @@ export interface DescribeWorkspaceBundlesRequest {
 
   /**
    * <p>The owner of the bundles. You cannot combine this parameter with any other filter.</p>
-   *          <p>Specify <code>AMAZON</code> to describe the bundles provided by AWS or null
-   *          to describe the bundles that belong to your account.</p>
+   *          <p>To describe the bundles provided by AWS, specify <code>AMAZON</code>. To describe the
+   *          bundles that belong to your account, don't specify a value.</p>
    */
   Owner?: string;
 
@@ -1587,8 +1674,9 @@ export interface DescribeWorkspaceBundlesResult {
   Bundles?: WorkspaceBundle[];
 
   /**
-   * <p>The token to use to retrieve the next set of results, or null if there are no more results available.
-   *          This token is valid for one day and must be used within that time frame.</p>
+   * <p>The token to use to retrieve the next page of results. This value is null when there are no more
+   *          results to return. This token is valid for one day and must be used within that time
+   *          frame.</p>
    */
   NextToken?: string;
 }
@@ -1842,8 +1930,7 @@ export interface DescribeWorkspaceDirectoriesResult {
   Directories?: WorkspaceDirectory[];
 
   /**
-   * <p>The token to use to retrieve the next set of results, or null if no more results are
-   *          available.</p>
+   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return. </p>
    */
   NextToken?: string;
 }
@@ -1909,8 +1996,7 @@ export interface DescribeWorkspaceImagePermissionsResult {
   ImagePermissions?: ImagePermission[];
 
   /**
-   * <p>The token to use to retrieve the next set of results, or null if no more
-   *          results are available.</p>
+   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return. </p>
    */
   NextToken?: string;
 }
@@ -2059,8 +2145,7 @@ export interface DescribeWorkspaceImagesResult {
   Images?: WorkspaceImage[];
 
   /**
-   * <p>The token to use to retrieve the next set of results, or null if no more results are
-   *          available.</p>
+   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return. </p>
    */
   NextToken?: string;
 }
@@ -2126,8 +2211,7 @@ export interface DescribeWorkspacesResult {
   Workspaces?: Workspace[];
 
   /**
-   * <p>The token to use to retrieve the next set of results, or null if no more results are
-   *          available.</p>
+   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return. </p>
    */
   NextToken?: string;
 }
@@ -2196,8 +2280,7 @@ export interface DescribeWorkspacesConnectionStatusResult {
   WorkspacesConnectionStatus?: WorkspaceConnectionStatus[];
 
   /**
-   * <p>The token to use to retrieve the next set of results, or null if no more results are
-   *          available.</p>
+   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return. </p>
    */
   NextToken?: string;
 }
@@ -2436,8 +2519,7 @@ export interface ListAvailableManagementCidrRangesResult {
   ManagementCidrRanges?: string[];
 
   /**
-   * <p>The token to use to retrieve the next set of results, or null if no more results are
-   *          available.</p>
+   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return. </p>
    */
   NextToken?: string;
 }
@@ -3180,6 +3262,32 @@ export interface UpdateRulesOfIpGroupResult {}
 
 export namespace UpdateRulesOfIpGroupResult {
   export const filterSensitiveLog = (obj: UpdateRulesOfIpGroupResult): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateWorkspaceBundleRequest {
+  /**
+   * <p>The identifier of the bundle.</p>
+   */
+  BundleId?: string;
+
+  /**
+   * <p>The identifier of the image.</p>
+   */
+  ImageId?: string;
+}
+
+export namespace UpdateWorkspaceBundleRequest {
+  export const filterSensitiveLog = (obj: UpdateWorkspaceBundleRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateWorkspaceBundleResult {}
+
+export namespace UpdateWorkspaceBundleResult {
+  export const filterSensitiveLog = (obj: UpdateWorkspaceBundleResult): any => ({
     ...obj,
   });
 }

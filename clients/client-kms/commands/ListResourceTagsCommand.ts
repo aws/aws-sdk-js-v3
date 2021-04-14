@@ -21,8 +21,31 @@ export type ListResourceTagsCommandInput = ListResourceTagsRequest;
 export type ListResourceTagsCommandOutput = ListResourceTagsResponse & __MetadataBearer;
 
 /**
- * <p>Returns a list of all tags for the specified customer master key (CMK).</p>
- *          <p>You cannot perform this operation on a CMK in a different AWS account.</p>
+ * <p>Returns all tags on the specified customer master key (CMK).</p>
+ *          <p>For general information about tags, including the format and syntax, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS resources</a> in
+ *       the <i>Amazon Web Services General Reference</i>. For information about using
+ *       tags in AWS KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">Tagging
+ *         keys</a>.</p>
+ *          <p>
+ *             <b>Cross-account use</b>: No. You cannot perform this operation on a CMK in a different AWS account.</p>
+ *
+ *          <p>
+ *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ListResourceTags</a> (key policy)</p>
+ *          <p>
+ *             <b>Related operations:</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>TagResource</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UntagResource</a>
+ *                </p>
+ *             </li>
+ *          </ul>
  */
 export class ListResourceTagsCommand extends $Command<
   ListResourceTagsCommandInput,

@@ -90,6 +90,11 @@ import {
   DisableOrganizationAdminAccountCommandOutput,
 } from "./commands/DisableOrganizationAdminAccountCommand";
 import {
+  DisassociateFromAdministratorAccountCommand,
+  DisassociateFromAdministratorAccountCommandInput,
+  DisassociateFromAdministratorAccountCommandOutput,
+} from "./commands/DisassociateFromAdministratorAccountCommand";
+import {
   DisassociateFromMasterAccountCommand,
   DisassociateFromMasterAccountCommandInput,
   DisassociateFromMasterAccountCommandOutput,
@@ -105,6 +110,11 @@ import {
   EnableOrganizationAdminAccountCommandInput,
   EnableOrganizationAdminAccountCommandOutput,
 } from "./commands/EnableOrganizationAdminAccountCommand";
+import {
+  GetAdministratorAccountCommand,
+  GetAdministratorAccountCommandInput,
+  GetAdministratorAccountCommandOutput,
+} from "./commands/GetAdministratorAccountCommand";
 import {
   GetBucketStatisticsCommand,
   GetBucketStatisticsCommandInput,
@@ -131,6 +141,11 @@ import {
   GetFindingsFilterCommandInput,
   GetFindingsFilterCommandOutput,
 } from "./commands/GetFindingsFilterCommand";
+import {
+  GetFindingsPublicationConfigurationCommand,
+  GetFindingsPublicationConfigurationCommandInput,
+  GetFindingsPublicationConfigurationCommandOutput,
+} from "./commands/GetFindingsPublicationConfigurationCommand";
 import {
   GetInvitationsCountCommand,
   GetInvitationsCountCommandInput,
@@ -198,6 +213,11 @@ import {
   PutClassificationExportConfigurationCommandInput,
   PutClassificationExportConfigurationCommandOutput,
 } from "./commands/PutClassificationExportConfigurationCommand";
+import {
+  PutFindingsPublicationConfigurationCommand,
+  PutFindingsPublicationConfigurationCommandInput,
+  PutFindingsPublicationConfigurationCommandOutput,
+} from "./commands/PutFindingsPublicationConfigurationCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   TestCustomDataIdentifierCommand,
@@ -433,7 +453,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Associates an account with an Amazon Macie master account.</p>
+   * <p>Associates an account with an Amazon Macie administrator account.</p>
    */
   public createMember(
     args: CreateMemberCommandInput,
@@ -622,7 +642,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Deletes the association between an Amazon Macie master account and an account.</p>
+   * <p>Deletes the association between an Amazon Macie administrator account and an account.</p>
    */
   public deleteMember(
     args: DeleteMemberCommandInput,
@@ -808,7 +828,39 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Disassociates a member account from its Amazon Macie master account.</p>
+   * <p>Disassociates a member account from its Amazon Macie administrator account.</p>
+   */
+  public disassociateFromAdministratorAccount(
+    args: DisassociateFromAdministratorAccountCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateFromAdministratorAccountCommandOutput>;
+  public disassociateFromAdministratorAccount(
+    args: DisassociateFromAdministratorAccountCommandInput,
+    cb: (err: any, data?: DisassociateFromAdministratorAccountCommandOutput) => void
+  ): void;
+  public disassociateFromAdministratorAccount(
+    args: DisassociateFromAdministratorAccountCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateFromAdministratorAccountCommandOutput) => void
+  ): void;
+  public disassociateFromAdministratorAccount(
+    args: DisassociateFromAdministratorAccountCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateFromAdministratorAccountCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateFromAdministratorAccountCommandOutput) => void
+  ): Promise<DisassociateFromAdministratorAccountCommandOutput> | void {
+    const command = new DisassociateFromAdministratorAccountCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>(Deprecated) Disassociates a member account from its Amazon Macie administrator account. This operation has been replaced by the <link  linkend="DisassociateFromAdministratorAccount">DisassociateFromAdministratorAccount</link> operation.</p>
    */
   public disassociateFromMasterAccount(
     args: DisassociateFromMasterAccountCommandInput,
@@ -840,7 +892,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Disassociates an Amazon Macie master account from a member account.</p>
+   * <p>Disassociates an Amazon Macie administrator account from a member account.</p>
    */
   public disassociateMember(
     args: DisassociateMemberCommandInput,
@@ -919,6 +971,38 @@ export class Macie2 extends Macie2Client {
     cb?: (err: any, data?: EnableOrganizationAdminAccountCommandOutput) => void
   ): Promise<EnableOrganizationAdminAccountCommandOutput> | void {
     const command = new EnableOrganizationAdminAccountCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves information about the Amazon Macie administrator account for an account.</p>
+   */
+  public getAdministratorAccount(
+    args: GetAdministratorAccountCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAdministratorAccountCommandOutput>;
+  public getAdministratorAccount(
+    args: GetAdministratorAccountCommandInput,
+    cb: (err: any, data?: GetAdministratorAccountCommandOutput) => void
+  ): void;
+  public getAdministratorAccount(
+    args: GetAdministratorAccountCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAdministratorAccountCommandOutput) => void
+  ): void;
+  public getAdministratorAccount(
+    args: GetAdministratorAccountCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAdministratorAccountCommandOutput) => void),
+    cb?: (err: any, data?: GetAdministratorAccountCommandOutput) => void
+  ): Promise<GetAdministratorAccountCommandOutput> | void {
+    const command = new GetAdministratorAccountCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1084,6 +1168,38 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
+   * <p>Retrieves the configuration settings for publishing findings to AWS Security Hub.</p>
+   */
+  public getFindingsPublicationConfiguration(
+    args: GetFindingsPublicationConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFindingsPublicationConfigurationCommandOutput>;
+  public getFindingsPublicationConfiguration(
+    args: GetFindingsPublicationConfigurationCommandInput,
+    cb: (err: any, data?: GetFindingsPublicationConfigurationCommandOutput) => void
+  ): void;
+  public getFindingsPublicationConfiguration(
+    args: GetFindingsPublicationConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetFindingsPublicationConfigurationCommandOutput) => void
+  ): void;
+  public getFindingsPublicationConfiguration(
+    args: GetFindingsPublicationConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFindingsPublicationConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: GetFindingsPublicationConfigurationCommandOutput) => void
+  ): Promise<GetFindingsPublicationConfigurationCommandOutput> | void {
+    const command = new GetFindingsPublicationConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves (queries) aggregated statistical data about findings.</p>
    */
   public getFindingStatistics(
@@ -1180,7 +1296,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Retrieves information about the Amazon Macie master account for an account.</p>
+   * <p>(Deprecated) Retrieves information about the Amazon Macie administrator account for an account. This operation has been replaced by the <link  linkend="GetAdministratorAccount">GetAdministratorAccount</link> operation.</p>
    */
   public getMasterAccount(
     args: GetMasterAccountCommandInput,
@@ -1212,7 +1328,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Retrieves information about a member account that's associated with an Amazon Macie master account.</p>
+   * <p>Retrieves information about an account that's associated with an Amazon Macie administrator account.</p>
    */
   public getMember(args: GetMemberCommandInput, options?: __HttpHandlerOptions): Promise<GetMemberCommandOutput>;
   public getMember(args: GetMemberCommandInput, cb: (err: any, data?: GetMemberCommandOutput) => void): void;
@@ -1459,7 +1575,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Retrieves information about the accounts that are associated with an Amazon Macie master account.</p>
+   * <p>Retrieves information about the accounts that are associated with an Amazon Macie administrator account.</p>
    */
   public listMembers(args: ListMembersCommandInput, options?: __HttpHandlerOptions): Promise<ListMembersCommandOutput>;
   public listMembers(args: ListMembersCommandInput, cb: (err: any, data?: ListMembersCommandOutput) => void): void;
@@ -1570,6 +1686,38 @@ export class Macie2 extends Macie2Client {
     cb?: (err: any, data?: PutClassificationExportConfigurationCommandOutput) => void
   ): Promise<PutClassificationExportConfigurationCommandOutput> | void {
     const command = new PutClassificationExportConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the configuration settings for publishing findings to AWS Security Hub.</p>
+   */
+  public putFindingsPublicationConfiguration(
+    args: PutFindingsPublicationConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutFindingsPublicationConfigurationCommandOutput>;
+  public putFindingsPublicationConfiguration(
+    args: PutFindingsPublicationConfigurationCommandInput,
+    cb: (err: any, data?: PutFindingsPublicationConfigurationCommandOutput) => void
+  ): void;
+  public putFindingsPublicationConfiguration(
+    args: PutFindingsPublicationConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutFindingsPublicationConfigurationCommandOutput) => void
+  ): void;
+  public putFindingsPublicationConfiguration(
+    args: PutFindingsPublicationConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutFindingsPublicationConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: PutFindingsPublicationConfigurationCommandOutput) => void
+  ): Promise<PutFindingsPublicationConfigurationCommandOutput> | void {
+    const command = new PutFindingsPublicationConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1767,7 +1915,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Enables an Amazon Macie master account to suspend or re-enable a member account.</p>
+   * <p>Enables an Amazon Macie administrator to suspend or re-enable a member account.</p>
    */
   public updateMemberSession(
     args: UpdateMemberSessionCommandInput,

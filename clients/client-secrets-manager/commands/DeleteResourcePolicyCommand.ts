@@ -39,7 +39,7 @@ export type DeleteResourcePolicyCommandOutput = DeleteResourcePolicyResponse & _
  *                <p>To attach a resource policy to a secret, use <a>PutResourcePolicy</a>.</p>
  *             </li>
  *             <li>
- *                <p>To retrieve the current resource-based policy that's attached to a secret, use <a>GetResourcePolicy</a>.</p>
+ *                <p>To retrieve the current resource-based policy attached to a secret, use <a>GetResourcePolicy</a>.</p>
  *             </li>
  *             <li>
  *                <p>To list all of the currently available secrets, use <a>ListSecrets</a>.</p>

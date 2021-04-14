@@ -27,10 +27,11 @@ export type RegisterTargetsCommandOutput = RegisterTargetsOutput & __MetadataBea
 /**
  * <p>Registers the specified targets with the specified target group.</p>
  *
- *          <p>If the target is an EC2 instance, it must be in the <code>running</code> state when you register it.</p>
+ *          <p>If the target is an EC2 instance, it must be in the <code>running</code> state when you
+ *       register it.</p>
  *
- *          <p>By default, the load balancer routes requests to registered targets using the protocol
- *       and port for the target group. Alternatively, you can override the port for a target when you
+ *          <p>By default, the load balancer routes requests to registered targets using the protocol and
+ *       port for the target group. Alternatively, you can override the port for a target when you
  *       register it. You can register each EC2 instance or IP address with the same target group
  *       multiple times using different ports.</p>
  *

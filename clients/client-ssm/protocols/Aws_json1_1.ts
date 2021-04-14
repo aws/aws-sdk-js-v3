@@ -262,6 +262,10 @@ import {
   ListComplianceSummariesCommandOutput,
 } from "../commands/ListComplianceSummariesCommand";
 import {
+  ListDocumentMetadataHistoryCommandInput,
+  ListDocumentMetadataHistoryCommandOutput,
+} from "../commands/ListDocumentMetadataHistoryCommand";
+import {
   ListDocumentVersionsCommandInput,
   ListDocumentVersionsCommandOutput,
 } from "../commands/ListDocumentVersionsCommand";
@@ -270,6 +274,7 @@ import {
   ListInventoryEntriesCommandInput,
   ListInventoryEntriesCommandOutput,
 } from "../commands/ListInventoryEntriesCommand";
+import { ListOpsItemEventsCommandInput, ListOpsItemEventsCommandOutput } from "../commands/ListOpsItemEventsCommand";
 import { ListOpsMetadataCommandInput, ListOpsMetadataCommandOutput } from "../commands/ListOpsMetadataCommand";
 import {
   ListResourceComplianceSummariesCommandInput,
@@ -328,12 +333,20 @@ import {
   StartAutomationExecutionCommandInput,
   StartAutomationExecutionCommandOutput,
 } from "../commands/StartAutomationExecutionCommand";
+import {
+  StartChangeRequestExecutionCommandInput,
+  StartChangeRequestExecutionCommandOutput,
+} from "../commands/StartChangeRequestExecutionCommand";
 import { StartSessionCommandInput, StartSessionCommandOutput } from "../commands/StartSessionCommand";
 import {
   StopAutomationExecutionCommandInput,
   StopAutomationExecutionCommandOutput,
 } from "../commands/StopAutomationExecutionCommand";
 import { TerminateSessionCommandInput, TerminateSessionCommandOutput } from "../commands/TerminateSessionCommand";
+import {
+  UnlabelParameterVersionCommandInput,
+  UnlabelParameterVersionCommandOutput,
+} from "../commands/UnlabelParameterVersionCommand";
 import { UpdateAssociationCommandInput, UpdateAssociationCommandOutput } from "../commands/UpdateAssociationCommand";
 import {
   UpdateAssociationStatusCommandInput,
@@ -344,6 +357,10 @@ import {
   UpdateDocumentDefaultVersionCommandInput,
   UpdateDocumentDefaultVersionCommandOutput,
 } from "../commands/UpdateDocumentDefaultVersionCommand";
+import {
+  UpdateDocumentMetadataCommandInput,
+  UpdateDocumentMetadataCommandOutput,
+} from "../commands/UpdateDocumentMetadataCommand";
 import {
   UpdateMaintenanceWindowCommandInput,
   UpdateMaintenanceWindowCommandOutput,
@@ -505,9 +522,6 @@ import {
   DescribeParametersResult,
   DescribePatchBaselinesRequest,
   DescribePatchBaselinesResult,
-  DescribePatchGroupStateRequest,
-  DescribePatchGroupsRequest,
-  DescribePatchGroupsResult,
   DocumentAlreadyExists,
   DocumentDescription,
   DocumentLimitExceeded,
@@ -596,7 +610,6 @@ import {
   PatchComplianceData,
   PatchFilter,
   PatchFilterGroup,
-  PatchGroupPatchBaselineMapping,
   PatchOrchestratorFilter,
   PatchRule,
   PatchRuleGroup,
@@ -616,6 +629,8 @@ import {
   ResourceDataSyncSource,
   ResourceInUseException,
   ResourceLimitExceededException,
+  ReviewInformation,
+  Runbook,
   S3OutputLocation,
   S3OutputUrl,
   ScheduledWindowExecution,
@@ -636,11 +651,13 @@ import {
   AssociationVersionInfo,
   AssociationVersionLimitExceeded,
   AttachmentContent,
+  AutomationDefinitionNotApprovedException,
   AutomationDefinitionNotFoundException,
   AutomationDefinitionVersionNotFoundException,
   AutomationExecution,
   AutomationExecutionLimitExceededException,
   AutomationStepNotFoundException,
+  BaselineOverride,
   CloudWatchOutputConfig,
   Command,
   CommandFilter,
@@ -654,7 +671,10 @@ import {
   ComplianceTypeCountLimitExceededException,
   CompliantSummary,
   CustomSchemaCountLimitExceededException,
+  DescribePatchGroupStateRequest,
   DescribePatchGroupStateResult,
+  DescribePatchGroupsRequest,
+  DescribePatchGroupsResult,
   DescribePatchPropertiesRequest,
   DescribePatchPropertiesResult,
   DescribeSessionsRequest,
@@ -663,7 +683,11 @@ import {
   DocumentFilter,
   DocumentIdentifier,
   DocumentKeyValuesFilter,
+  DocumentMetadataResponseInfo,
   DocumentPermissionLimit,
+  DocumentReviewCommentSource,
+  DocumentReviewerResponseSource,
+  DocumentReviews,
   DocumentVersionInfo,
   DocumentVersionLimitExceeded,
   DuplicateDocumentContent,
@@ -683,7 +707,6 @@ import {
   GetDeployablePatchSnapshotForInstanceResult,
   GetDocumentRequest,
   GetDocumentResult,
-  GetInventoryRequest,
   GetInventoryResult,
   GetInventorySchemaRequest,
   GetInventorySchemaResult,
@@ -701,7 +724,6 @@ import {
   GetOpsItemResponse,
   GetOpsMetadataRequest,
   GetOpsMetadataResult,
-  GetOpsSummaryRequest,
   GetOpsSummaryResult,
   GetParameterHistoryRequest,
   GetParameterHistoryResult,
@@ -739,7 +761,6 @@ import {
   InvalidResultAttributeException,
   InvalidRole,
   InvalidUpdate,
-  InventoryAggregator,
   InventoryFilter,
   InventoryGroup,
   InventoryItem,
@@ -764,12 +785,16 @@ import {
   ListComplianceItemsResult,
   ListComplianceSummariesRequest,
   ListComplianceSummariesResult,
+  ListDocumentMetadataHistoryRequest,
+  ListDocumentMetadataHistoryResponse,
   ListDocumentVersionsRequest,
   ListDocumentVersionsResult,
   ListDocumentsRequest,
   ListDocumentsResult,
   ListInventoryEntriesRequest,
   ListInventoryEntriesResult,
+  ListOpsItemEventsRequest,
+  ListOpsItemEventsResponse,
   ListOpsMetadataRequest,
   ListOpsMetadataResult,
   ListResourceComplianceSummariesRequest,
@@ -788,11 +813,13 @@ import {
   NonCompliantSummary,
   NotificationConfig,
   NotificationEvent,
-  OpsAggregator,
   OpsEntity,
   OpsEntityItem,
   OpsFilter,
   OpsItem,
+  OpsItemEventFilter,
+  OpsItemEventSummary,
+  OpsItemIdentity,
   OpsItemNotFoundException,
   OpsMetadata,
   OpsMetadataFilter,
@@ -806,6 +833,7 @@ import {
   ParameterPatternMismatchException,
   ParameterVersionLabelLimitExceeded,
   ParameterVersionNotFound,
+  PatchGroupPatchBaselineMapping,
   PoliciesLimitExceededException,
   ProgressCounters,
   PutComplianceItemsRequest,
@@ -827,7 +855,6 @@ import {
   ResetServiceSettingRequest,
   ResetServiceSettingResult,
   ResourceComplianceSummaryItem,
-  ResourceDataSyncConflictException,
   ResourceDataSyncItem,
   ResourceDataSyncSourceWithState,
   ResultAttribute,
@@ -847,6 +874,8 @@ import {
   StartAssociationsOnceResult,
   StartAutomationExecutionRequest,
   StartAutomationExecutionResult,
+  StartChangeRequestExecutionRequest,
+  StartChangeRequestExecutionResult,
   StartSessionRequest,
   StartSessionResponse,
   StatusUnchanged,
@@ -857,6 +886,8 @@ import {
   TerminateSessionRequest,
   TerminateSessionResponse,
   TotalSizeLimitExceededException,
+  UnlabelParameterVersionRequest,
+  UnlabelParameterVersionResult,
   UnsupportedCalendarException,
   UnsupportedFeatureRequiredException,
   UnsupportedInventoryItemContextException,
@@ -868,6 +899,8 @@ import {
   UpdateAssociationStatusResult,
   UpdateDocumentDefaultVersionRequest,
   UpdateDocumentDefaultVersionResult,
+  UpdateDocumentMetadataRequest,
+  UpdateDocumentMetadataResponse,
   UpdateDocumentRequest,
   UpdateDocumentResult,
   UpdateMaintenanceWindowRequest,
@@ -883,12 +916,19 @@ import {
   UpdateOpsMetadataRequest,
   UpdateOpsMetadataResult,
   UpdatePatchBaselineRequest,
+} from "../models/models_1";
+import {
+  GetInventoryRequest,
+  GetOpsSummaryRequest,
+  InventoryAggregator,
+  OpsAggregator,
+  ResourceDataSyncConflictException,
   UpdatePatchBaselineResult,
   UpdateResourceDataSyncRequest,
   UpdateResourceDataSyncResult,
   UpdateServiceSettingRequest,
   UpdateServiceSettingResult,
-} from "../models/models_1";
+} from "../models/models_2";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
@@ -2057,6 +2097,19 @@ export const serializeAws_json1_1ListComplianceSummariesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListDocumentMetadataHistoryCommand = async (
+  input: ListDocumentMetadataHistoryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonSSM.ListDocumentMetadataHistory",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListDocumentMetadataHistoryRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListDocumentsCommand = async (
   input: ListDocumentsCommandInput,
   context: __SerdeContext
@@ -2093,6 +2146,19 @@ export const serializeAws_json1_1ListInventoryEntriesCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListInventoryEntriesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListOpsItemEventsCommand = async (
+  input: ListOpsItemEventsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonSSM.ListOpsItemEvents",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListOpsItemEventsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2343,6 +2409,19 @@ export const serializeAws_json1_1StartAutomationExecutionCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1StartChangeRequestExecutionCommand = async (
+  input: StartChangeRequestExecutionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonSSM.StartChangeRequestExecution",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StartChangeRequestExecutionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1StartSessionCommand = async (
   input: StartSessionCommandInput,
   context: __SerdeContext
@@ -2379,6 +2458,19 @@ export const serializeAws_json1_1TerminateSessionCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TerminateSessionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UnlabelParameterVersionCommand = async (
+  input: UnlabelParameterVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonSSM.UnlabelParameterVersion",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UnlabelParameterVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2431,6 +2523,19 @@ export const serializeAws_json1_1UpdateDocumentDefaultVersionCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateDocumentDefaultVersionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateDocumentMetadataCommand = async (
+  input: UpdateDocumentMetadataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonSSM.UpdateDocumentMetadata",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateDocumentMetadataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -5164,6 +5269,22 @@ const deserializeAws_json1_1DescribeDocumentPermissionCommandError = async (
     case "com.amazonaws.ssm#InvalidDocument":
       response = {
         ...(await deserializeAws_json1_1InvalidDocumentResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidDocumentOperation":
+    case "com.amazonaws.ssm#InvalidDocumentOperation":
+      response = {
+        ...(await deserializeAws_json1_1InvalidDocumentOperationResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidNextToken":
+    case "com.amazonaws.ssm#InvalidNextToken":
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -8909,6 +9030,84 @@ const deserializeAws_json1_1ListComplianceSummariesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1ListDocumentMetadataHistoryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDocumentMetadataHistoryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListDocumentMetadataHistoryCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListDocumentMetadataHistoryResponse(data, context);
+  const response: ListDocumentMetadataHistoryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListDocumentMetadataHistoryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDocumentMetadataHistoryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidDocument":
+    case "com.amazonaws.ssm#InvalidDocument":
+      response = {
+        ...(await deserializeAws_json1_1InvalidDocumentResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidDocumentVersion":
+    case "com.amazonaws.ssm#InvalidDocumentVersion":
+      response = {
+        ...(await deserializeAws_json1_1InvalidDocumentVersionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidNextToken":
+    case "com.amazonaws.ssm#InvalidNextToken":
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1ListDocumentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -9114,6 +9313,84 @@ const deserializeAws_json1_1ListInventoryEntriesCommandError = async (
     case "com.amazonaws.ssm#InvalidTypeNameException":
       response = {
         ...(await deserializeAws_json1_1InvalidTypeNameExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListOpsItemEventsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListOpsItemEventsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListOpsItemEventsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListOpsItemEventsResponse(data, context);
+  const response: ListOpsItemEventsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListOpsItemEventsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListOpsItemEventsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OpsItemInvalidParameterException":
+    case "com.amazonaws.ssm#OpsItemInvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1OpsItemInvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OpsItemLimitExceededException":
+    case "com.amazonaws.ssm#OpsItemLimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1OpsItemLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OpsItemNotFoundException":
+    case "com.amazonaws.ssm#OpsItemNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1OpsItemNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -10809,6 +11086,108 @@ const deserializeAws_json1_1StartAutomationExecutionCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1StartChangeRequestExecutionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartChangeRequestExecutionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1StartChangeRequestExecutionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1StartChangeRequestExecutionResult(data, context);
+  const response: StartChangeRequestExecutionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StartChangeRequestExecutionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartChangeRequestExecutionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AutomationDefinitionNotApprovedException":
+    case "com.amazonaws.ssm#AutomationDefinitionNotApprovedException":
+      response = {
+        ...(await deserializeAws_json1_1AutomationDefinitionNotApprovedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AutomationDefinitionNotFoundException":
+    case "com.amazonaws.ssm#AutomationDefinitionNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1AutomationDefinitionNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AutomationDefinitionVersionNotFoundException":
+    case "com.amazonaws.ssm#AutomationDefinitionVersionNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1AutomationDefinitionVersionNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AutomationExecutionLimitExceededException":
+    case "com.amazonaws.ssm#AutomationExecutionLimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1AutomationExecutionLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "IdempotentParameterMismatch":
+    case "com.amazonaws.ssm#IdempotentParameterMismatch":
+      response = {
+        ...(await deserializeAws_json1_1IdempotentParameterMismatchResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidAutomationExecutionParametersException":
+    case "com.amazonaws.ssm#InvalidAutomationExecutionParametersException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidAutomationExecutionParametersExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1StartSessionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -10990,6 +11369,84 @@ const deserializeAws_json1_1TerminateSessionCommandError = async (
     case "com.amazonaws.ssm#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1UnlabelParameterVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UnlabelParameterVersionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UnlabelParameterVersionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UnlabelParameterVersionResult(data, context);
+  const response: UnlabelParameterVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UnlabelParameterVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UnlabelParameterVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ParameterNotFound":
+    case "com.amazonaws.ssm#ParameterNotFound":
+      response = {
+        ...(await deserializeAws_json1_1ParameterNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ParameterVersionNotFound":
+    case "com.amazonaws.ssm#ParameterVersionNotFound":
+      response = {
+        ...(await deserializeAws_json1_1ParameterVersionNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyUpdates":
+    case "com.amazonaws.ssm#TooManyUpdates":
+      response = {
+        ...(await deserializeAws_json1_1TooManyUpdatesResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -11422,6 +11879,84 @@ const deserializeAws_json1_1UpdateDocumentDefaultVersionCommandError = async (
     case "com.amazonaws.ssm#InvalidDocumentSchemaVersion":
       response = {
         ...(await deserializeAws_json1_1InvalidDocumentSchemaVersionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidDocumentVersion":
+    case "com.amazonaws.ssm#InvalidDocumentVersion":
+      response = {
+        ...(await deserializeAws_json1_1InvalidDocumentVersionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1UpdateDocumentMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDocumentMetadataCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateDocumentMetadataCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateDocumentMetadataResponse(data, context);
+  const response: UpdateDocumentMetadataCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateDocumentMetadataCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDocumentMetadataCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidDocument":
+    case "com.amazonaws.ssm#InvalidDocument":
+      response = {
+        ...(await deserializeAws_json1_1InvalidDocumentResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidDocumentOperation":
+    case "com.amazonaws.ssm#InvalidDocumentOperation":
+      response = {
+        ...(await deserializeAws_json1_1InvalidDocumentOperationResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -12179,6 +12714,21 @@ const deserializeAws_json1_1AssociationVersionLimitExceededResponse = async (
   const deserialized: any = deserializeAws_json1_1AssociationVersionLimitExceeded(body, context);
   const contents: AssociationVersionLimitExceeded = {
     name: "AssociationVersionLimitExceeded",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1AutomationDefinitionNotApprovedExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AutomationDefinitionNotApprovedException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1AutomationDefinitionNotApprovedException(body, context);
+  const contents: AutomationDefinitionNotApprovedException = {
+    name: "AutomationDefinitionNotApprovedException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -14082,6 +14632,41 @@ const serializeAws_json1_1AutomationParameterValueList = (input: string[], conte
     });
 };
 
+const serializeAws_json1_1BaselineOverride = (input: BaselineOverride, context: __SerdeContext): any => {
+  return {
+    ...(input.ApprovalRules !== undefined &&
+      input.ApprovalRules !== null && {
+        ApprovalRules: serializeAws_json1_1PatchRuleGroup(input.ApprovalRules, context),
+      }),
+    ...(input.ApprovedPatches !== undefined &&
+      input.ApprovedPatches !== null && {
+        ApprovedPatches: serializeAws_json1_1PatchIdList(input.ApprovedPatches, context),
+      }),
+    ...(input.ApprovedPatchesComplianceLevel !== undefined &&
+      input.ApprovedPatchesComplianceLevel !== null && {
+        ApprovedPatchesComplianceLevel: input.ApprovedPatchesComplianceLevel,
+      }),
+    ...(input.ApprovedPatchesEnableNonSecurity !== undefined &&
+      input.ApprovedPatchesEnableNonSecurity !== null && {
+        ApprovedPatchesEnableNonSecurity: input.ApprovedPatchesEnableNonSecurity,
+      }),
+    ...(input.GlobalFilters !== undefined &&
+      input.GlobalFilters !== null && {
+        GlobalFilters: serializeAws_json1_1PatchFilterGroup(input.GlobalFilters, context),
+      }),
+    ...(input.OperatingSystem !== undefined &&
+      input.OperatingSystem !== null && { OperatingSystem: input.OperatingSystem }),
+    ...(input.RejectedPatches !== undefined &&
+      input.RejectedPatches !== null && {
+        RejectedPatches: serializeAws_json1_1PatchIdList(input.RejectedPatches, context),
+      }),
+    ...(input.RejectedPatchesAction !== undefined &&
+      input.RejectedPatchesAction !== null && { RejectedPatchesAction: input.RejectedPatchesAction }),
+    ...(input.Sources !== undefined &&
+      input.Sources !== null && { Sources: serializeAws_json1_1PatchSourceList(input.Sources, context) }),
+  };
+};
+
 const serializeAws_json1_1CalendarNameOrARNList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -14312,6 +14897,10 @@ const serializeAws_json1_1CreateAssociationBatchRequestEntry = (
       input.ScheduleExpression !== null && { ScheduleExpression: input.ScheduleExpression }),
     ...(input.SyncCompliance !== undefined &&
       input.SyncCompliance !== null && { SyncCompliance: input.SyncCompliance }),
+    ...(input.TargetLocations !== undefined &&
+      input.TargetLocations !== null && {
+        TargetLocations: serializeAws_json1_1TargetLocations(input.TargetLocations, context),
+      }),
     ...(input.Targets !== undefined &&
       input.Targets !== null && { Targets: serializeAws_json1_1Targets(input.Targets, context) }),
   };
@@ -14349,6 +14938,10 @@ const serializeAws_json1_1CreateAssociationRequest = (
       input.ScheduleExpression !== null && { ScheduleExpression: input.ScheduleExpression }),
     ...(input.SyncCompliance !== undefined &&
       input.SyncCompliance !== null && { SyncCompliance: input.SyncCompliance }),
+    ...(input.TargetLocations !== undefined &&
+      input.TargetLocations !== null && {
+        TargetLocations: serializeAws_json1_1TargetLocations(input.TargetLocations, context),
+      }),
     ...(input.Targets !== undefined &&
       input.Targets !== null && { Targets: serializeAws_json1_1Targets(input.Targets, context) }),
   };
@@ -14398,6 +14991,10 @@ const serializeAws_json1_1CreateMaintenanceWindowRequest = (
 
 const serializeAws_json1_1CreateOpsItemRequest = (input: CreateOpsItemRequest, context: __SerdeContext): any => {
   return {
+    ...(input.ActualEndTime !== undefined &&
+      input.ActualEndTime !== null && { ActualEndTime: Math.round(input.ActualEndTime.getTime() / 1000) }),
+    ...(input.ActualStartTime !== undefined &&
+      input.ActualStartTime !== null && { ActualStartTime: Math.round(input.ActualStartTime.getTime() / 1000) }),
     ...(input.Category !== undefined && input.Category !== null && { Category: input.Category }),
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.Notifications !== undefined &&
@@ -14408,6 +15005,11 @@ const serializeAws_json1_1CreateOpsItemRequest = (input: CreateOpsItemRequest, c
       input.OperationalData !== null && {
         OperationalData: serializeAws_json1_1OpsItemOperationalData(input.OperationalData, context),
       }),
+    ...(input.OpsItemType !== undefined && input.OpsItemType !== null && { OpsItemType: input.OpsItemType }),
+    ...(input.PlannedEndTime !== undefined &&
+      input.PlannedEndTime !== null && { PlannedEndTime: Math.round(input.PlannedEndTime.getTime() / 1000) }),
+    ...(input.PlannedStartTime !== undefined &&
+      input.PlannedStartTime !== null && { PlannedStartTime: Math.round(input.PlannedStartTime.getTime() / 1000) }),
     ...(input.Priority !== undefined && input.Priority !== null && { Priority: input.Priority }),
     ...(input.RelatedOpsItems !== undefined &&
       input.RelatedOpsItems !== null && {
@@ -14428,6 +15030,7 @@ const serializeAws_json1_1CreateOpsMetadataRequest = (
     ...(input.Metadata !== undefined &&
       input.Metadata !== null && { Metadata: serializeAws_json1_1MetadataMap(input.Metadata, context) }),
     ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -14745,7 +15348,9 @@ const serializeAws_json1_1DescribeDocumentPermissionRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
     ...(input.PermissionType !== undefined &&
       input.PermissionType !== null && { PermissionType: input.PermissionType }),
   };
@@ -15125,6 +15730,38 @@ const serializeAws_json1_1DocumentRequiresList = (input: DocumentRequires[], con
     });
 };
 
+const serializeAws_json1_1DocumentReviewCommentList = (
+  input: DocumentReviewCommentSource[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1DocumentReviewCommentSource(entry, context);
+    });
+};
+
+const serializeAws_json1_1DocumentReviewCommentSource = (
+  input: DocumentReviewCommentSource,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Content !== undefined && input.Content !== null && { Content: input.Content }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+  };
+};
+
+const serializeAws_json1_1DocumentReviews = (input: DocumentReviews, context: __SerdeContext): any => {
+  return {
+    ...(input.Action !== undefined && input.Action !== null && { Action: input.Action }),
+    ...(input.Comment !== undefined &&
+      input.Comment !== null && { Comment: serializeAws_json1_1DocumentReviewCommentList(input.Comment, context) }),
+  };
+};
+
 const serializeAws_json1_1GetAutomationExecutionRequest = (
   input: GetAutomationExecutionRequest,
   context: __SerdeContext
@@ -15180,6 +15817,10 @@ const serializeAws_json1_1GetDeployablePatchSnapshotForInstanceRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.BaselineOverride !== undefined &&
+      input.BaselineOverride !== null && {
+        BaselineOverride: serializeAws_json1_1BaselineOverride(input.BaselineOverride, context),
+      }),
     ...(input.InstanceId !== undefined && input.InstanceId !== null && { InstanceId: input.InstanceId }),
     ...(input.SnapshotId !== undefined && input.SnapshotId !== null && { SnapshotId: input.SnapshotId }),
   };
@@ -15748,6 +16389,20 @@ const serializeAws_json1_1ListComplianceSummariesRequest = (
   };
 };
 
+const serializeAws_json1_1ListDocumentMetadataHistoryRequest = (
+  input: ListDocumentMetadataHistoryRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DocumentVersion !== undefined &&
+      input.DocumentVersion !== null && { DocumentVersion: input.DocumentVersion }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.Metadata !== undefined && input.Metadata !== null && { Metadata: input.Metadata }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+  };
+};
+
 const serializeAws_json1_1ListDocumentsRequest = (input: ListDocumentsRequest, context: __SerdeContext): any => {
   return {
     ...(input.DocumentFilterList !== undefined &&
@@ -15783,6 +16438,18 @@ const serializeAws_json1_1ListInventoryEntriesRequest = (
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
     ...(input.TypeName !== undefined && input.TypeName !== null && { TypeName: input.TypeName }),
+  };
+};
+
+const serializeAws_json1_1ListOpsItemEventsRequest = (
+  input: ListOpsItemEventsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_json1_1OpsItemEventFilters(input.Filters, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -16152,6 +16819,37 @@ const serializeAws_json1_1OpsItemDataValue = (input: OpsItemDataValue, context: 
     ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
     ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
+};
+
+const serializeAws_json1_1OpsItemEventFilter = (input: OpsItemEventFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Operator !== undefined && input.Operator !== null && { Operator: input.Operator }),
+    ...(input.Values !== undefined &&
+      input.Values !== null && { Values: serializeAws_json1_1OpsItemEventFilterValues(input.Values, context) }),
+  };
+};
+
+const serializeAws_json1_1OpsItemEventFilters = (input: OpsItemEventFilter[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1OpsItemEventFilter(entry, context);
+    });
+};
+
+const serializeAws_json1_1OpsItemEventFilterValues = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1OpsItemFilter = (input: OpsItemFilter, context: __SerdeContext): any => {
@@ -16779,6 +17477,8 @@ const serializeAws_json1_1ResourceDataSyncSource = (input: ResourceDataSyncSourc
           context
         ),
       }),
+    ...(input.EnableAllOpsDataSources !== undefined &&
+      input.EnableAllOpsDataSources !== null && { EnableAllOpsDataSources: input.EnableAllOpsDataSources }),
     ...(input.IncludeFutureRegions !== undefined &&
       input.IncludeFutureRegions !== null && { IncludeFutureRegions: input.IncludeFutureRegions }),
     ...(input.SourceRegions !== undefined &&
@@ -16821,6 +17521,40 @@ const serializeAws_json1_1ResumeSessionRequest = (input: ResumeSessionRequest, c
   return {
     ...(input.SessionId !== undefined && input.SessionId !== null && { SessionId: input.SessionId }),
   };
+};
+
+const serializeAws_json1_1Runbook = (input: Runbook, context: __SerdeContext): any => {
+  return {
+    ...(input.DocumentName !== undefined && input.DocumentName !== null && { DocumentName: input.DocumentName }),
+    ...(input.DocumentVersion !== undefined &&
+      input.DocumentVersion !== null && { DocumentVersion: input.DocumentVersion }),
+    ...(input.MaxConcurrency !== undefined &&
+      input.MaxConcurrency !== null && { MaxConcurrency: input.MaxConcurrency }),
+    ...(input.MaxErrors !== undefined && input.MaxErrors !== null && { MaxErrors: input.MaxErrors }),
+    ...(input.Parameters !== undefined &&
+      input.Parameters !== null && {
+        Parameters: serializeAws_json1_1AutomationParameterMap(input.Parameters, context),
+      }),
+    ...(input.TargetLocations !== undefined &&
+      input.TargetLocations !== null && {
+        TargetLocations: serializeAws_json1_1TargetLocations(input.TargetLocations, context),
+      }),
+    ...(input.TargetParameterName !== undefined &&
+      input.TargetParameterName !== null && { TargetParameterName: input.TargetParameterName }),
+    ...(input.Targets !== undefined &&
+      input.Targets !== null && { Targets: serializeAws_json1_1Targets(input.Targets, context) }),
+  };
+};
+
+const serializeAws_json1_1Runbooks = (input: Runbook[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Runbook(entry, context);
+    });
 };
 
 const serializeAws_json1_1S3OutputLocation = (input: S3OutputLocation, context: __SerdeContext): any => {
@@ -16970,6 +17704,32 @@ const serializeAws_json1_1StartAutomationExecutionRequest = (
       input.TargetParameterName !== null && { TargetParameterName: input.TargetParameterName }),
     ...(input.Targets !== undefined &&
       input.Targets !== null && { Targets: serializeAws_json1_1Targets(input.Targets, context) }),
+  };
+};
+
+const serializeAws_json1_1StartChangeRequestExecutionRequest = (
+  input: StartChangeRequestExecutionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ChangeDetails !== undefined && input.ChangeDetails !== null && { ChangeDetails: input.ChangeDetails }),
+    ...(input.ChangeRequestName !== undefined &&
+      input.ChangeRequestName !== null && { ChangeRequestName: input.ChangeRequestName }),
+    ...(input.ClientToken !== undefined && input.ClientToken !== null && { ClientToken: input.ClientToken }),
+    ...(input.DocumentName !== undefined && input.DocumentName !== null && { DocumentName: input.DocumentName }),
+    ...(input.DocumentVersion !== undefined &&
+      input.DocumentVersion !== null && { DocumentVersion: input.DocumentVersion }),
+    ...(input.Parameters !== undefined &&
+      input.Parameters !== null && {
+        Parameters: serializeAws_json1_1AutomationParameterMap(input.Parameters, context),
+      }),
+    ...(input.Runbooks !== undefined &&
+      input.Runbooks !== null && { Runbooks: serializeAws_json1_1Runbooks(input.Runbooks, context) }),
+    ...(input.ScheduledEndTime !== undefined &&
+      input.ScheduledEndTime !== null && { ScheduledEndTime: Math.round(input.ScheduledEndTime.getTime() / 1000) }),
+    ...(input.ScheduledTime !== undefined &&
+      input.ScheduledTime !== null && { ScheduledTime: Math.round(input.ScheduledTime.getTime() / 1000) }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -17152,6 +17912,19 @@ const serializeAws_json1_1TerminateSessionRequest = (input: TerminateSessionRequ
   };
 };
 
+const serializeAws_json1_1UnlabelParameterVersionRequest = (
+  input: UnlabelParameterVersionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Labels !== undefined &&
+      input.Labels !== null && { Labels: serializeAws_json1_1ParameterLabelList(input.Labels, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.ParameterVersion !== undefined &&
+      input.ParameterVersion !== null && { ParameterVersion: input.ParameterVersion }),
+  };
+};
+
 const serializeAws_json1_1UpdateAssociationRequest = (
   input: UpdateAssociationRequest,
   context: __SerdeContext
@@ -17186,6 +17959,10 @@ const serializeAws_json1_1UpdateAssociationRequest = (
       input.ScheduleExpression !== null && { ScheduleExpression: input.ScheduleExpression }),
     ...(input.SyncCompliance !== undefined &&
       input.SyncCompliance !== null && { SyncCompliance: input.SyncCompliance }),
+    ...(input.TargetLocations !== undefined &&
+      input.TargetLocations !== null && {
+        TargetLocations: serializeAws_json1_1TargetLocations(input.TargetLocations, context),
+      }),
     ...(input.Targets !== undefined &&
       input.Targets !== null && { Targets: serializeAws_json1_1Targets(input.Targets, context) }),
   };
@@ -17210,6 +17987,21 @@ const serializeAws_json1_1UpdateDocumentDefaultVersionRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.DocumentVersion !== undefined &&
+      input.DocumentVersion !== null && { DocumentVersion: input.DocumentVersion }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+  };
+};
+
+const serializeAws_json1_1UpdateDocumentMetadataRequest = (
+  input: UpdateDocumentMetadataRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DocumentReviews !== undefined &&
+      input.DocumentReviews !== null && {
+        DocumentReviews: serializeAws_json1_1DocumentReviews(input.DocumentReviews, context),
+      }),
     ...(input.DocumentVersion !== undefined &&
       input.DocumentVersion !== null && { DocumentVersion: input.DocumentVersion }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
@@ -17322,6 +18114,10 @@ const serializeAws_json1_1UpdateManagedInstanceRoleRequest = (
 
 const serializeAws_json1_1UpdateOpsItemRequest = (input: UpdateOpsItemRequest, context: __SerdeContext): any => {
   return {
+    ...(input.ActualEndTime !== undefined &&
+      input.ActualEndTime !== null && { ActualEndTime: Math.round(input.ActualEndTime.getTime() / 1000) }),
+    ...(input.ActualStartTime !== undefined &&
+      input.ActualStartTime !== null && { ActualStartTime: Math.round(input.ActualStartTime.getTime() / 1000) }),
     ...(input.Category !== undefined && input.Category !== null && { Category: input.Category }),
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.Notifications !== undefined &&
@@ -17337,6 +18133,10 @@ const serializeAws_json1_1UpdateOpsItemRequest = (input: UpdateOpsItemRequest, c
         OperationalDataToDelete: serializeAws_json1_1OpsItemOpsDataKeysList(input.OperationalDataToDelete, context),
       }),
     ...(input.OpsItemId !== undefined && input.OpsItemId !== null && { OpsItemId: input.OpsItemId }),
+    ...(input.PlannedEndTime !== undefined &&
+      input.PlannedEndTime !== null && { PlannedEndTime: Math.round(input.PlannedEndTime.getTime() / 1000) }),
+    ...(input.PlannedStartTime !== undefined &&
+      input.PlannedStartTime !== null && { PlannedStartTime: Math.round(input.PlannedStartTime.getTime() / 1000) }),
     ...(input.Priority !== undefined && input.Priority !== null && { Priority: input.Priority }),
     ...(input.RelatedOpsItems !== undefined &&
       input.RelatedOpsItems !== null && {
@@ -17638,6 +18438,10 @@ const deserializeAws_json1_1AssociationDescription = (output: any, context: __Se
         : undefined,
     SyncCompliance:
       output.SyncCompliance !== undefined && output.SyncCompliance !== null ? output.SyncCompliance : undefined,
+    TargetLocations:
+      output.TargetLocations !== undefined && output.TargetLocations !== null
+        ? deserializeAws_json1_1TargetLocations(output.TargetLocations, context)
+        : undefined,
     Targets:
       output.Targets !== undefined && output.Targets !== null
         ? deserializeAws_json1_1Targets(output.Targets, context)
@@ -17857,6 +18661,10 @@ const deserializeAws_json1_1AssociationVersionInfo = (output: any, context: __Se
         : undefined,
     SyncCompliance:
       output.SyncCompliance !== undefined && output.SyncCompliance !== null ? output.SyncCompliance : undefined,
+    TargetLocations:
+      output.TargetLocations !== undefined && output.TargetLocations !== null
+        ? deserializeAws_json1_1TargetLocations(output.TargetLocations, context)
+        : undefined,
     Targets:
       output.Targets !== undefined && output.Targets !== null
         ? deserializeAws_json1_1Targets(output.Targets, context)
@@ -17928,6 +18736,15 @@ const deserializeAws_json1_1AttachmentInformationList = (
     });
 };
 
+const deserializeAws_json1_1AutomationDefinitionNotApprovedException = (
+  output: any,
+  context: __SerdeContext
+): AutomationDefinitionNotApprovedException => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1AutomationDefinitionNotFoundException = (
   output: any,
   context: __SerdeContext
@@ -17948,6 +18765,8 @@ const deserializeAws_json1_1AutomationDefinitionVersionNotFoundException = (
 
 const deserializeAws_json1_1AutomationExecution = (output: any, context: __SerdeContext): AutomationExecution => {
   return {
+    AssociationId:
+      output.AssociationId !== undefined && output.AssociationId !== null ? output.AssociationId : undefined,
     AutomationExecutionId:
       output.AutomationExecutionId !== undefined && output.AutomationExecutionId !== null
         ? output.AutomationExecutionId
@@ -17955,6 +18774,14 @@ const deserializeAws_json1_1AutomationExecution = (output: any, context: __Serde
     AutomationExecutionStatus:
       output.AutomationExecutionStatus !== undefined && output.AutomationExecutionStatus !== null
         ? output.AutomationExecutionStatus
+        : undefined,
+    AutomationSubtype:
+      output.AutomationSubtype !== undefined && output.AutomationSubtype !== null
+        ? output.AutomationSubtype
+        : undefined,
+    ChangeRequestName:
+      output.ChangeRequestName !== undefined && output.ChangeRequestName !== null
+        ? output.ChangeRequestName
         : undefined,
     CurrentAction:
       output.CurrentAction !== undefined && output.CurrentAction !== null ? output.CurrentAction : undefined,
@@ -17978,6 +18805,7 @@ const deserializeAws_json1_1AutomationExecution = (output: any, context: __Serde
       output.MaxConcurrency !== undefined && output.MaxConcurrency !== null ? output.MaxConcurrency : undefined,
     MaxErrors: output.MaxErrors !== undefined && output.MaxErrors !== null ? output.MaxErrors : undefined,
     Mode: output.Mode !== undefined && output.Mode !== null ? output.Mode : undefined,
+    OpsItemId: output.OpsItemId !== undefined && output.OpsItemId !== null ? output.OpsItemId : undefined,
     Outputs:
       output.Outputs !== undefined && output.Outputs !== null
         ? deserializeAws_json1_1AutomationParameterMap(output.Outputs, context)
@@ -17997,6 +18825,14 @@ const deserializeAws_json1_1AutomationExecution = (output: any, context: __Serde
     ResolvedTargets:
       output.ResolvedTargets !== undefined && output.ResolvedTargets !== null
         ? deserializeAws_json1_1ResolvedTargets(output.ResolvedTargets, context)
+        : undefined,
+    Runbooks:
+      output.Runbooks !== undefined && output.Runbooks !== null
+        ? deserializeAws_json1_1Runbooks(output.Runbooks, context)
+        : undefined,
+    ScheduledTime:
+      output.ScheduledTime !== undefined && output.ScheduledTime !== null
+        ? new Date(Math.round(output.ScheduledTime * 1000))
         : undefined,
     StepExecutions:
       output.StepExecutions !== undefined && output.StepExecutions !== null
@@ -18040,6 +18876,8 @@ const deserializeAws_json1_1AutomationExecutionMetadata = (
   context: __SerdeContext
 ): AutomationExecutionMetadata => {
   return {
+    AssociationId:
+      output.AssociationId !== undefined && output.AssociationId !== null ? output.AssociationId : undefined,
     AutomationExecutionId:
       output.AutomationExecutionId !== undefined && output.AutomationExecutionId !== null
         ? output.AutomationExecutionId
@@ -18048,8 +18886,16 @@ const deserializeAws_json1_1AutomationExecutionMetadata = (
       output.AutomationExecutionStatus !== undefined && output.AutomationExecutionStatus !== null
         ? output.AutomationExecutionStatus
         : undefined,
+    AutomationSubtype:
+      output.AutomationSubtype !== undefined && output.AutomationSubtype !== null
+        ? output.AutomationSubtype
+        : undefined,
     AutomationType:
       output.AutomationType !== undefined && output.AutomationType !== null ? output.AutomationType : undefined,
+    ChangeRequestName:
+      output.ChangeRequestName !== undefined && output.ChangeRequestName !== null
+        ? output.ChangeRequestName
+        : undefined,
     CurrentAction:
       output.CurrentAction !== undefined && output.CurrentAction !== null ? output.CurrentAction : undefined,
     CurrentStepName:
@@ -18073,6 +18919,7 @@ const deserializeAws_json1_1AutomationExecutionMetadata = (
       output.MaxConcurrency !== undefined && output.MaxConcurrency !== null ? output.MaxConcurrency : undefined,
     MaxErrors: output.MaxErrors !== undefined && output.MaxErrors !== null ? output.MaxErrors : undefined,
     Mode: output.Mode !== undefined && output.Mode !== null ? output.Mode : undefined,
+    OpsItemId: output.OpsItemId !== undefined && output.OpsItemId !== null ? output.OpsItemId : undefined,
     Outputs:
       output.Outputs !== undefined && output.Outputs !== null
         ? deserializeAws_json1_1AutomationParameterMap(output.Outputs, context)
@@ -18084,6 +18931,14 @@ const deserializeAws_json1_1AutomationExecutionMetadata = (
     ResolvedTargets:
       output.ResolvedTargets !== undefined && output.ResolvedTargets !== null
         ? deserializeAws_json1_1ResolvedTargets(output.ResolvedTargets, context)
+        : undefined,
+    Runbooks:
+      output.Runbooks !== undefined && output.Runbooks !== null
+        ? deserializeAws_json1_1Runbooks(output.Runbooks, context)
+        : undefined,
+    ScheduledTime:
+      output.ScheduledTime !== undefined && output.ScheduledTime !== null
+        ? new Date(Math.round(output.ScheduledTime * 1000))
         : undefined,
     Target: output.Target !== undefined && output.Target !== null ? output.Target : undefined,
     TargetMaps:
@@ -18519,6 +19374,10 @@ const deserializeAws_json1_1CreateAssociationBatchRequestEntry = (
         : undefined,
     SyncCompliance:
       output.SyncCompliance !== undefined && output.SyncCompliance !== null ? output.SyncCompliance : undefined,
+    TargetLocations:
+      output.TargetLocations !== undefined && output.TargetLocations !== null
+        ? deserializeAws_json1_1TargetLocations(output.TargetLocations, context)
+        : undefined,
     Targets:
       output.Targets !== undefined && output.Targets !== null
         ? deserializeAws_json1_1Targets(output.Targets, context)
@@ -18829,6 +19688,7 @@ const deserializeAws_json1_1DescribeDocumentPermissionResponse = (
       output.AccountSharingInfoList !== undefined && output.AccountSharingInfoList !== null
         ? deserializeAws_json1_1AccountSharingInfoList(output.AccountSharingInfoList, context)
         : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
   } as any;
 };
 
@@ -19114,6 +19974,11 @@ const deserializeAws_json1_1DescribePatchGroupStateResult = (
 ): DescribePatchGroupStateResult => {
   return {
     Instances: output.Instances !== undefined && output.Instances !== null ? output.Instances : undefined,
+    InstancesWithCriticalNonCompliantPatches:
+      output.InstancesWithCriticalNonCompliantPatches !== undefined &&
+      output.InstancesWithCriticalNonCompliantPatches !== null
+        ? output.InstancesWithCriticalNonCompliantPatches
+        : undefined,
     InstancesWithFailedPatches:
       output.InstancesWithFailedPatches !== undefined && output.InstancesWithFailedPatches !== null
         ? output.InstancesWithFailedPatches
@@ -19143,6 +20008,16 @@ const deserializeAws_json1_1DescribePatchGroupStateResult = (
     InstancesWithNotApplicablePatches:
       output.InstancesWithNotApplicablePatches !== undefined && output.InstancesWithNotApplicablePatches !== null
         ? output.InstancesWithNotApplicablePatches
+        : undefined,
+    InstancesWithOtherNonCompliantPatches:
+      output.InstancesWithOtherNonCompliantPatches !== undefined &&
+      output.InstancesWithOtherNonCompliantPatches !== null
+        ? output.InstancesWithOtherNonCompliantPatches
+        : undefined,
+    InstancesWithSecurityNonCompliantPatches:
+      output.InstancesWithSecurityNonCompliantPatches !== undefined &&
+      output.InstancesWithSecurityNonCompliantPatches !== null
+        ? output.InstancesWithSecurityNonCompliantPatches
         : undefined,
     InstancesWithUnreportedNotApplicablePatches:
       output.InstancesWithUnreportedNotApplicablePatches !== undefined &&
@@ -19201,10 +20076,13 @@ const deserializeAws_json1_1DocumentDefaultVersionDescription = (
 
 const deserializeAws_json1_1DocumentDescription = (output: any, context: __SerdeContext): DocumentDescription => {
   return {
+    ApprovedVersion:
+      output.ApprovedVersion !== undefined && output.ApprovedVersion !== null ? output.ApprovedVersion : undefined,
     AttachmentsInformation:
       output.AttachmentsInformation !== undefined && output.AttachmentsInformation !== null
         ? deserializeAws_json1_1AttachmentInformationList(output.AttachmentsInformation, context)
         : undefined,
+    Author: output.Author !== undefined && output.Author !== null ? output.Author : undefined,
     CreatedDate:
       output.CreatedDate !== undefined && output.CreatedDate !== null
         ? new Date(Math.round(output.CreatedDate * 1000))
@@ -19227,6 +20105,10 @@ const deserializeAws_json1_1DocumentDescription = (output: any, context: __Serde
       output.Parameters !== undefined && output.Parameters !== null
         ? deserializeAws_json1_1DocumentParameterList(output.Parameters, context)
         : undefined,
+    PendingReviewVersion:
+      output.PendingReviewVersion !== undefined && output.PendingReviewVersion !== null
+        ? output.PendingReviewVersion
+        : undefined,
     PlatformTypes:
       output.PlatformTypes !== undefined && output.PlatformTypes !== null
         ? deserializeAws_json1_1PlatformTypeList(output.PlatformTypes, context)
@@ -19235,6 +20117,11 @@ const deserializeAws_json1_1DocumentDescription = (output: any, context: __Serde
       output.Requires !== undefined && output.Requires !== null
         ? deserializeAws_json1_1DocumentRequiresList(output.Requires, context)
         : undefined,
+    ReviewInformation:
+      output.ReviewInformation !== undefined && output.ReviewInformation !== null
+        ? deserializeAws_json1_1ReviewInformationList(output.ReviewInformation, context)
+        : undefined,
+    ReviewStatus: output.ReviewStatus !== undefined && output.ReviewStatus !== null ? output.ReviewStatus : undefined,
     SchemaVersion:
       output.SchemaVersion !== undefined && output.SchemaVersion !== null ? output.SchemaVersion : undefined,
     Sha1: output.Sha1 !== undefined && output.Sha1 !== null ? output.Sha1 : undefined,
@@ -19254,6 +20141,7 @@ const deserializeAws_json1_1DocumentDescription = (output: any, context: __Serde
 
 const deserializeAws_json1_1DocumentIdentifier = (output: any, context: __SerdeContext): DocumentIdentifier => {
   return {
+    Author: output.Author !== undefined && output.Author !== null ? output.Author : undefined,
     DocumentFormat:
       output.DocumentFormat !== undefined && output.DocumentFormat !== null ? output.DocumentFormat : undefined,
     DocumentType: output.DocumentType !== undefined && output.DocumentType !== null ? output.DocumentType : undefined,
@@ -19269,6 +20157,7 @@ const deserializeAws_json1_1DocumentIdentifier = (output: any, context: __SerdeC
       output.Requires !== undefined && output.Requires !== null
         ? deserializeAws_json1_1DocumentRequiresList(output.Requires, context)
         : undefined,
+    ReviewStatus: output.ReviewStatus !== undefined && output.ReviewStatus !== null ? output.ReviewStatus : undefined,
     SchemaVersion:
       output.SchemaVersion !== undefined && output.SchemaVersion !== null ? output.SchemaVersion : undefined,
     Tags:
@@ -19294,6 +20183,18 @@ const deserializeAws_json1_1DocumentIdentifierList = (output: any, context: __Se
 const deserializeAws_json1_1DocumentLimitExceeded = (output: any, context: __SerdeContext): DocumentLimitExceeded => {
   return {
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DocumentMetadataResponseInfo = (
+  output: any,
+  context: __SerdeContext
+): DocumentMetadataResponseInfo => {
+  return {
+    ReviewerResponse:
+      output.ReviewerResponse !== undefined && output.ReviewerResponse !== null
+        ? deserializeAws_json1_1DocumentReviewerResponseList(output.ReviewerResponse, context)
+        : undefined,
   } as any;
 };
 
@@ -19344,6 +20245,66 @@ const deserializeAws_json1_1DocumentRequiresList = (output: any, context: __Serd
     });
 };
 
+const deserializeAws_json1_1DocumentReviewCommentList = (
+  output: any,
+  context: __SerdeContext
+): DocumentReviewCommentSource[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DocumentReviewCommentSource(entry, context);
+    });
+};
+
+const deserializeAws_json1_1DocumentReviewCommentSource = (
+  output: any,
+  context: __SerdeContext
+): DocumentReviewCommentSource => {
+  return {
+    Content: output.Content !== undefined && output.Content !== null ? output.Content : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DocumentReviewerResponseList = (
+  output: any,
+  context: __SerdeContext
+): DocumentReviewerResponseSource[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DocumentReviewerResponseSource(entry, context);
+    });
+};
+
+const deserializeAws_json1_1DocumentReviewerResponseSource = (
+  output: any,
+  context: __SerdeContext
+): DocumentReviewerResponseSource => {
+  return {
+    Comment:
+      output.Comment !== undefined && output.Comment !== null
+        ? deserializeAws_json1_1DocumentReviewCommentList(output.Comment, context)
+        : undefined,
+    CreateTime:
+      output.CreateTime !== undefined && output.CreateTime !== null
+        ? new Date(Math.round(output.CreateTime * 1000))
+        : undefined,
+    ReviewStatus: output.ReviewStatus !== undefined && output.ReviewStatus !== null ? output.ReviewStatus : undefined,
+    Reviewer: output.Reviewer !== undefined && output.Reviewer !== null ? output.Reviewer : undefined,
+    UpdatedTime:
+      output.UpdatedTime !== undefined && output.UpdatedTime !== null
+        ? new Date(Math.round(output.UpdatedTime * 1000))
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DocumentVersionInfo = (output: any, context: __SerdeContext): DocumentVersionInfo => {
   return {
     CreatedDate:
@@ -19357,6 +20318,7 @@ const deserializeAws_json1_1DocumentVersionInfo = (output: any, context: __Serde
     IsDefaultVersion:
       output.IsDefaultVersion !== undefined && output.IsDefaultVersion !== null ? output.IsDefaultVersion : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    ReviewStatus: output.ReviewStatus !== undefined && output.ReviewStatus !== null ? output.ReviewStatus : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     StatusInformation:
       output.StatusInformation !== undefined && output.StatusInformation !== null
@@ -19614,6 +20576,7 @@ const deserializeAws_json1_1GetDocumentResult = (output: any, context: __SerdeCo
       output.Requires !== undefined && output.Requires !== null
         ? deserializeAws_json1_1DocumentRequiresList(output.Requires, context)
         : undefined,
+    ReviewStatus: output.ReviewStatus !== undefined && output.ReviewStatus !== null ? output.ReviewStatus : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     StatusInformation:
       output.StatusInformation !== undefined && output.StatusInformation !== null
@@ -20200,6 +21163,10 @@ const deserializeAws_json1_1InstanceInformationList = (output: any, context: __S
 const deserializeAws_json1_1InstancePatchState = (output: any, context: __SerdeContext): InstancePatchState => {
   return {
     BaselineId: output.BaselineId !== undefined && output.BaselineId !== null ? output.BaselineId : undefined,
+    CriticalNonCompliantCount:
+      output.CriticalNonCompliantCount !== undefined && output.CriticalNonCompliantCount !== null
+        ? output.CriticalNonCompliantCount
+        : undefined,
     FailedCount: output.FailedCount !== undefined && output.FailedCount !== null ? output.FailedCount : undefined,
     InstallOverrideList:
       output.InstallOverrideList !== undefined && output.InstallOverrideList !== null
@@ -20238,10 +21205,18 @@ const deserializeAws_json1_1InstancePatchState = (output: any, context: __SerdeC
       output.OperationStartTime !== undefined && output.OperationStartTime !== null
         ? new Date(Math.round(output.OperationStartTime * 1000))
         : undefined,
+    OtherNonCompliantCount:
+      output.OtherNonCompliantCount !== undefined && output.OtherNonCompliantCount !== null
+        ? output.OtherNonCompliantCount
+        : undefined,
     OwnerInformation:
       output.OwnerInformation !== undefined && output.OwnerInformation !== null ? output.OwnerInformation : undefined,
     PatchGroup: output.PatchGroup !== undefined && output.PatchGroup !== null ? output.PatchGroup : undefined,
     RebootOption: output.RebootOption !== undefined && output.RebootOption !== null ? output.RebootOption : undefined,
+    SecurityNonCompliantCount:
+      output.SecurityNonCompliantCount !== undefined && output.SecurityNonCompliantCount !== null
+        ? output.SecurityNonCompliantCount
+        : undefined,
     SnapshotId: output.SnapshotId !== undefined && output.SnapshotId !== null ? output.SnapshotId : undefined,
     UnreportedNotApplicableCount:
       output.UnreportedNotApplicableCount !== undefined && output.UnreportedNotApplicableCount !== null
@@ -20925,6 +21900,23 @@ const deserializeAws_json1_1ListComplianceSummariesResult = (
   } as any;
 };
 
+const deserializeAws_json1_1ListDocumentMetadataHistoryResponse = (
+  output: any,
+  context: __SerdeContext
+): ListDocumentMetadataHistoryResponse => {
+  return {
+    Author: output.Author !== undefined && output.Author !== null ? output.Author : undefined,
+    DocumentVersion:
+      output.DocumentVersion !== undefined && output.DocumentVersion !== null ? output.DocumentVersion : undefined,
+    Metadata:
+      output.Metadata !== undefined && output.Metadata !== null
+        ? deserializeAws_json1_1DocumentMetadataResponseInfo(output.Metadata, context)
+        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ListDocumentsResult = (output: any, context: __SerdeContext): ListDocumentsResult => {
   return {
     DocumentIdentifiers:
@@ -20963,6 +21955,19 @@ const deserializeAws_json1_1ListInventoryEntriesResult = (
     SchemaVersion:
       output.SchemaVersion !== undefined && output.SchemaVersion !== null ? output.SchemaVersion : undefined,
     TypeName: output.TypeName !== undefined && output.TypeName !== null ? output.TypeName : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ListOpsItemEventsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListOpsItemEventsResponse => {
+  return {
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    Summaries:
+      output.Summaries !== undefined && output.Summaries !== null
+        ? deserializeAws_json1_1OpsItemEventSummaries(output.Summaries, context)
+        : undefined,
   } as any;
 };
 
@@ -21610,6 +22615,14 @@ const deserializeAws_json1_1OpsEntityList = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1OpsItem = (output: any, context: __SerdeContext): OpsItem => {
   return {
+    ActualEndTime:
+      output.ActualEndTime !== undefined && output.ActualEndTime !== null
+        ? new Date(Math.round(output.ActualEndTime * 1000))
+        : undefined,
+    ActualStartTime:
+      output.ActualStartTime !== undefined && output.ActualStartTime !== null
+        ? new Date(Math.round(output.ActualStartTime * 1000))
+        : undefined,
     Category: output.Category !== undefined && output.Category !== null ? output.Category : undefined,
     CreatedBy: output.CreatedBy !== undefined && output.CreatedBy !== null ? output.CreatedBy : undefined,
     CreatedTime:
@@ -21632,6 +22645,15 @@ const deserializeAws_json1_1OpsItem = (output: any, context: __SerdeContext): Op
         ? deserializeAws_json1_1OpsItemOperationalData(output.OperationalData, context)
         : undefined,
     OpsItemId: output.OpsItemId !== undefined && output.OpsItemId !== null ? output.OpsItemId : undefined,
+    OpsItemType: output.OpsItemType !== undefined && output.OpsItemType !== null ? output.OpsItemType : undefined,
+    PlannedEndTime:
+      output.PlannedEndTime !== undefined && output.PlannedEndTime !== null
+        ? new Date(Math.round(output.PlannedEndTime * 1000))
+        : undefined,
+    PlannedStartTime:
+      output.PlannedStartTime !== undefined && output.PlannedStartTime !== null
+        ? new Date(Math.round(output.PlannedStartTime * 1000))
+        : undefined,
     Priority: output.Priority !== undefined && output.Priority !== null ? output.Priority : undefined,
     RelatedOpsItems:
       output.RelatedOpsItems !== undefined && output.RelatedOpsItems !== null
@@ -21659,6 +22681,41 @@ const deserializeAws_json1_1OpsItemDataValue = (output: any, context: __SerdeCon
   return {
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1OpsItemEventSummaries = (output: any, context: __SerdeContext): OpsItemEventSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1OpsItemEventSummary(entry, context);
+    });
+};
+
+const deserializeAws_json1_1OpsItemEventSummary = (output: any, context: __SerdeContext): OpsItemEventSummary => {
+  return {
+    CreatedBy:
+      output.CreatedBy !== undefined && output.CreatedBy !== null
+        ? deserializeAws_json1_1OpsItemIdentity(output.CreatedBy, context)
+        : undefined,
+    CreatedTime:
+      output.CreatedTime !== undefined && output.CreatedTime !== null
+        ? new Date(Math.round(output.CreatedTime * 1000))
+        : undefined,
+    Detail: output.Detail !== undefined && output.Detail !== null ? output.Detail : undefined,
+    DetailType: output.DetailType !== undefined && output.DetailType !== null ? output.DetailType : undefined,
+    EventId: output.EventId !== undefined && output.EventId !== null ? output.EventId : undefined,
+    OpsItemId: output.OpsItemId !== undefined && output.OpsItemId !== null ? output.OpsItemId : undefined,
+    Source: output.Source !== undefined && output.Source !== null ? output.Source : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1OpsItemIdentity = (output: any, context: __SerdeContext): OpsItemIdentity => {
+  return {
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
   } as any;
 };
 
@@ -21755,6 +22812,14 @@ const deserializeAws_json1_1OpsItemSummaries = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1OpsItemSummary = (output: any, context: __SerdeContext): OpsItemSummary => {
   return {
+    ActualEndTime:
+      output.ActualEndTime !== undefined && output.ActualEndTime !== null
+        ? new Date(Math.round(output.ActualEndTime * 1000))
+        : undefined,
+    ActualStartTime:
+      output.ActualStartTime !== undefined && output.ActualStartTime !== null
+        ? new Date(Math.round(output.ActualStartTime * 1000))
+        : undefined,
     Category: output.Category !== undefined && output.Category !== null ? output.Category : undefined,
     CreatedBy: output.CreatedBy !== undefined && output.CreatedBy !== null ? output.CreatedBy : undefined,
     CreatedTime:
@@ -21772,6 +22837,15 @@ const deserializeAws_json1_1OpsItemSummary = (output: any, context: __SerdeConte
         ? deserializeAws_json1_1OpsItemOperationalData(output.OperationalData, context)
         : undefined,
     OpsItemId: output.OpsItemId !== undefined && output.OpsItemId !== null ? output.OpsItemId : undefined,
+    OpsItemType: output.OpsItemType !== undefined && output.OpsItemType !== null ? output.OpsItemType : undefined,
+    PlannedEndTime:
+      output.PlannedEndTime !== undefined && output.PlannedEndTime !== null
+        ? new Date(Math.round(output.PlannedEndTime * 1000))
+        : undefined,
+    PlannedStartTime:
+      output.PlannedStartTime !== undefined && output.PlannedStartTime !== null
+        ? new Date(Math.round(output.PlannedStartTime * 1000))
+        : undefined,
     Priority: output.Priority !== undefined && output.Priority !== null ? output.Priority : undefined,
     Severity: output.Severity !== undefined && output.Severity !== null ? output.Severity : undefined,
     Source: output.Source !== undefined && output.Source !== null ? output.Source : undefined,
@@ -22813,6 +23887,10 @@ const deserializeAws_json1_1ResourceDataSyncSourceWithState = (
       output.AwsOrganizationsSource !== undefined && output.AwsOrganizationsSource !== null
         ? deserializeAws_json1_1ResourceDataSyncAwsOrganizationsSource(output.AwsOrganizationsSource, context)
         : undefined,
+    EnableAllOpsDataSources:
+      output.EnableAllOpsDataSources !== undefined && output.EnableAllOpsDataSources !== null
+        ? output.EnableAllOpsDataSources
+        : undefined,
     IncludeFutureRegions:
       output.IncludeFutureRegions !== undefined && output.IncludeFutureRegions !== null
         ? output.IncludeFutureRegions
@@ -22847,6 +23925,66 @@ const deserializeAws_json1_1ResumeSessionResponse = (output: any, context: __Ser
     StreamUrl: output.StreamUrl !== undefined && output.StreamUrl !== null ? output.StreamUrl : undefined,
     TokenValue: output.TokenValue !== undefined && output.TokenValue !== null ? output.TokenValue : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1ReviewInformation = (output: any, context: __SerdeContext): ReviewInformation => {
+  return {
+    ReviewedTime:
+      output.ReviewedTime !== undefined && output.ReviewedTime !== null
+        ? new Date(Math.round(output.ReviewedTime * 1000))
+        : undefined,
+    Reviewer: output.Reviewer !== undefined && output.Reviewer !== null ? output.Reviewer : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ReviewInformationList = (output: any, context: __SerdeContext): ReviewInformation[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ReviewInformation(entry, context);
+    });
+};
+
+const deserializeAws_json1_1Runbook = (output: any, context: __SerdeContext): Runbook => {
+  return {
+    DocumentName: output.DocumentName !== undefined && output.DocumentName !== null ? output.DocumentName : undefined,
+    DocumentVersion:
+      output.DocumentVersion !== undefined && output.DocumentVersion !== null ? output.DocumentVersion : undefined,
+    MaxConcurrency:
+      output.MaxConcurrency !== undefined && output.MaxConcurrency !== null ? output.MaxConcurrency : undefined,
+    MaxErrors: output.MaxErrors !== undefined && output.MaxErrors !== null ? output.MaxErrors : undefined,
+    Parameters:
+      output.Parameters !== undefined && output.Parameters !== null
+        ? deserializeAws_json1_1AutomationParameterMap(output.Parameters, context)
+        : undefined,
+    TargetLocations:
+      output.TargetLocations !== undefined && output.TargetLocations !== null
+        ? deserializeAws_json1_1TargetLocations(output.TargetLocations, context)
+        : undefined,
+    TargetParameterName:
+      output.TargetParameterName !== undefined && output.TargetParameterName !== null
+        ? output.TargetParameterName
+        : undefined,
+    Targets:
+      output.Targets !== undefined && output.Targets !== null
+        ? deserializeAws_json1_1Targets(output.Targets, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1Runbooks = (output: any, context: __SerdeContext): Runbook[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Runbook(entry, context);
+    });
 };
 
 const deserializeAws_json1_1S3OutputLocation = (output: any, context: __SerdeContext): S3OutputLocation => {
@@ -23005,6 +24143,18 @@ const deserializeAws_json1_1StartAutomationExecutionResult = (
   output: any,
   context: __SerdeContext
 ): StartAutomationExecutionResult => {
+  return {
+    AutomationExecutionId:
+      output.AutomationExecutionId !== undefined && output.AutomationExecutionId !== null
+        ? output.AutomationExecutionId
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1StartChangeRequestExecutionResult = (
+  output: any,
+  context: __SerdeContext
+): StartChangeRequestExecutionResult => {
   return {
     AutomationExecutionId:
       output.AutomationExecutionId !== undefined && output.AutomationExecutionId !== null
@@ -23280,6 +24430,22 @@ const deserializeAws_json1_1TotalSizeLimitExceededException = (
   } as any;
 };
 
+const deserializeAws_json1_1UnlabelParameterVersionResult = (
+  output: any,
+  context: __SerdeContext
+): UnlabelParameterVersionResult => {
+  return {
+    InvalidLabels:
+      output.InvalidLabels !== undefined && output.InvalidLabels !== null
+        ? deserializeAws_json1_1ParameterLabelList(output.InvalidLabels, context)
+        : undefined,
+    RemovedLabels:
+      output.RemovedLabels !== undefined && output.RemovedLabels !== null
+        ? deserializeAws_json1_1ParameterLabelList(output.RemovedLabels, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1UnsupportedCalendarException = (
   output: any,
   context: __SerdeContext
@@ -23378,6 +24544,13 @@ const deserializeAws_json1_1UpdateDocumentDefaultVersionResult = (
         ? deserializeAws_json1_1DocumentDefaultVersionDescription(output.Description, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1UpdateDocumentMetadataResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateDocumentMetadataResponse => {
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateDocumentResult = (output: any, context: __SerdeContext): UpdateDocumentResult => {

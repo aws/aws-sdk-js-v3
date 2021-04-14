@@ -32,23 +32,28 @@ export type ReEncryptCommandOutput = ReEncryptResponse & __MetadataBearer;
  *       decrypt operation and the subsequent encrypt operation.</p>
  *          <ul>
  *             <li>
- *                <p>If your ciphertext was encrypted under an asymmetric CMK, you must identify the
- *             <i>source CMK</i>, that is, the CMK that encrypted the ciphertext. You
- *           must also supply the encryption algorithm that was used. This information is required to
- *           decrypt the data.</p>
+ *                <p>If your ciphertext was encrypted under an asymmetric CMK, you must use the
+ *             <code>SourceKeyId</code> parameter to identify the CMK that encrypted the ciphertext.
+ *           You must also supply the encryption algorithm that was used. This information is required
+ *           to decrypt the data.</p>
  *             </li>
  *             <li>
- *                <p>It is optional, but you can specify a source CMK even when the ciphertext was
- *           encrypted under a symmetric CMK. This ensures that the ciphertext is decrypted only by
- *           using a particular CMK. If the CMK that you specify cannot decrypt the ciphertext, the
- *             <code>ReEncrypt</code> operation fails.</p>
+ *                <p>If your ciphertext was encrypted under a symmetric CMK, the <code>SourceKeyId</code>
+ *           parameter is optional. AWS KMS can get this information from metadata that it adds to the
+ *           symmetric ciphertext blob. This feature adds durability to your implementation by ensuring
+ *           that authorized users can decrypt ciphertext decades after it was encrypted, even if
+ *           they've lost track of the CMK ID. However, specifying the source CMK is always recommended
+ *           as a best practice. When you use the <code>SourceKeyId</code> parameter to specify a CMK,
+ *           AWS KMS uses only the CMK you specify. If the ciphertext was encrypted under a different
+ *           CMK, the <code>ReEncrypt</code> operation fails. This practice ensures that you use the
+ *           CMK that you intend.</p>
  *             </li>
  *             <li>
- *                <p>To reencrypt the data, you must specify the <i>destination CMK</i>, that
- *           is, the CMK that re-encrypts the data after it is decrypted. You can select a symmetric or
- *           asymmetric CMK. If the destination CMK is an asymmetric CMK, you must also provide the
- *           encryption algorithm. The algorithm that you choose must be compatible with the
- *           CMK.</p>
+ *                <p>To reencrypt the data, you must use the <code>DestinationKeyId</code> parameter
+ *           specify the CMK that re-encrypts the data after it is decrypted. You can select a
+ *           symmetric or asymmetric CMK. If the destination CMK is an asymmetric CMK, you must also
+ *           provide the encryption algorithm. The algorithm that you choose must be compatible with
+ *           the CMK.</p>
  *
  *                <important>
  *                   <p>When you use an asymmetric CMK to encrypt or reencrypt data, be sure to record the CMK and encryption algorithm that you choose. You will be required to provide the same CMK and encryption algorithm when you decrypt the data. If the CMK and algorithm do not match the values used to encrypt the data, the decrypt operation fails.</p>
@@ -58,25 +63,57 @@ export type ReEncryptCommandOutput = ReEncryptResponse & __MetadataBearer;
  *          </ul>
  *
  *
- *          <p>Unlike other AWS KMS API operations, <code>ReEncrypt</code> callers must have two
- *       permissions:</p>
+ *
+ *          <p>The CMK that you use for this operation must be in a compatible key state. For
+ * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
+ * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ *          <p>
+ *             <b>Cross-account use</b>: Yes. The source CMK and destination
+ *       CMK can be in different AWS accounts. Either or both CMKs can be in a different account than
+ *       the caller.</p>
+ *
+ *          <p>
+ *             <b>Required permissions</b>:</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>kms:ReEncryptFrom</code> permission on the source CMK</p>
+ *                   <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ReEncryptFrom</a> permission on the source CMK (key policy)</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <code>kms:ReEncryptTo</code> permission on the destination CMK</p>
+ *                   <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ReEncryptTo</a> permission on the destination CMK (key policy)</p>
  *             </li>
  *          </ul>
  *          <p>To permit reencryption from or to a CMK, include the <code>"kms:ReEncrypt*"</code>
  *       permission in your <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">key policy</a>. This permission is
  *       automatically included in the key policy when you use the console to create a CMK. But you
  *       must include it manually when you create a CMK programmatically or when you use the <a>PutKeyPolicy</a> operation to set a key policy.</p>
- *          <p>The CMK that you use for this operation must be in a compatible key state. For
- * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
- * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ *
+ *          <p>
+ *             <b>Related operations:</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>Decrypt</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>Encrypt</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GenerateDataKey</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GenerateDataKeyPair</a>
+ *                </p>
+ *             </li>
+ *          </ul>
  */
 export class ReEncryptCommand extends $Command<ReEncryptCommandInput, ReEncryptCommandOutput, KMSClientResolvedConfig> {
   // Start section: command_properties

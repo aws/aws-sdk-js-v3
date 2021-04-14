@@ -22,6 +22,7 @@ export type StartCopyJobCommandOutput = StartCopyJobOutput & __MetadataBearer;
 
 /**
  * <p>Starts a job to create a one-time copy of the specified resource.</p>
+ *          <p>Does not support continuous backups.</p>
  */
 export class StartCopyJobCommand extends $Command<
   StartCopyJobCommandInput,

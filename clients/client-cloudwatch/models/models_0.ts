@@ -658,6 +658,27 @@ export namespace DeleteInsightRulesOutput {
   });
 }
 
+export interface DeleteMetricStreamInput {
+  /**
+   * <p>The name of the metric stream to delete.</p>
+   */
+  Name: string | undefined;
+}
+
+export namespace DeleteMetricStreamInput {
+  export const filterSensitiveLog = (obj: DeleteMetricStreamInput): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteMetricStreamOutput {}
+
+export namespace DeleteMetricStreamOutput {
+  export const filterSensitiveLog = (obj: DeleteMetricStreamOutput): any => ({
+    ...obj,
+  });
+}
+
 export enum ScanBy {
   TIMESTAMP_ASCENDING = "TimestampAscending",
   TIMESTAMP_DESCENDING = "TimestampDescending",
@@ -969,9 +990,13 @@ export interface MetricDataQuery {
   Expression?: string;
 
   /**
-   * <p>A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know
-   * 			what the value represents. If the metric or expression is shown in a CloudWatch dashboard widget, the label is shown. If Label is omitted, CloudWatch
+   * <p>A human-readable label for this metric or expression. This is especially useful
+   * 			if this is an expression, so that you know
+   * 			what the value represents. If the metric or expression is shown in a
+   * 			CloudWatch dashboard widget, the label is shown. If Label is omitted, CloudWatch
    * 			generates a default.</p>
+   * 		       <p>You can put dynamic expressions into a label, so that it is more descriptive.
+   * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/graph-dynamic-labels.html">Using Dynamic Labels</a>.</p>
    */
   Label?: string;
 
@@ -1770,6 +1795,32 @@ export namespace GetInsightRuleReportOutput {
   });
 }
 
+/**
+ * <p>This structure includes the <code>Timezone</code> parameter, which you can use
+ * 			to specify your time zone so that the labels that are associated with returned metrics display the
+ * 			correct time
+ * 			for your time zone. </p>
+ * 		       <p>The <code>Timezone</code> value affects a label only if you have a time-based
+ * 		dynamic expression in the label. For more information about dynamic expressions in labels,
+ * 		see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/graph-dynamic-labels.html">Using Dynamic Labels</a>.</p>
+ */
+export interface LabelOptions {
+  /**
+   * <p>The time zone to use for metric data return in this operation.
+   * 			The format is <code>+</code> or <code>-</code> followed by four digits.
+   * 			The first two digits indicate the number of hours ahead or behind of UTC, and
+   * 			the final two digits are the number of minutes. For example, +0130 indicates a time zone that is 1 hour
+   * 			and 30 minutes ahead of UTC. The default is +0000. </p>
+   */
+  Timezone?: string;
+}
+
+export namespace LabelOptions {
+  export const filterSensitiveLog = (obj: LabelOptions): any => ({
+    ...obj,
+  });
+}
+
 export interface GetMetricDataInput {
   /**
    * <p>The metric queries to be returned. A single <code>GetMetricData</code> call can include as many as 500 <code>MetricDataQuery</code>
@@ -1840,6 +1891,14 @@ export interface GetMetricDataInput {
    * 			this, the default of 100,800 is used.</p>
    */
   MaxDatapoints?: number;
+
+  /**
+   * <p>This structure includes the <code>Timezone</code> parameter, which you can use
+   * 			to specify your time zone so that the labels of returned data display the
+   * 			correct time
+   * 			for your time zone. </p>
+   */
+  LabelOptions?: LabelOptions;
 }
 
 export namespace GetMetricDataInput {
@@ -2098,6 +2157,105 @@ export namespace InvalidParameterCombinationException {
   });
 }
 
+export interface GetMetricStreamInput {
+  /**
+   * <p>The name of the metric stream to retrieve information about.</p>
+   */
+  Name: string | undefined;
+}
+
+export namespace GetMetricStreamInput {
+  export const filterSensitiveLog = (obj: GetMetricStreamInput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>This structure contains the name of one of the metric namespaces that is listed in
+ * 		a filter of a metric stream.</p>
+ */
+export interface MetricStreamFilter {
+  /**
+   * <p>The name of the metric namespace in the filter.</p>
+   */
+  Namespace?: string;
+}
+
+export namespace MetricStreamFilter {
+  export const filterSensitiveLog = (obj: MetricStreamFilter): any => ({
+    ...obj,
+  });
+}
+
+export enum MetricStreamOutputFormat {
+  JSON = "json",
+  OPEN_TELEMETRY_0_7 = "opentelemetry0.7",
+}
+
+export interface GetMetricStreamOutput {
+  /**
+   * <p>The ARN of the metric stream.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The name of the metric stream.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>If this array of metric namespaces is present, then these
+   * 			namespaces are the only
+   * 		metric namespaces that are streamed by this metric stream.</p>
+   */
+  IncludeFilters?: MetricStreamFilter[];
+
+  /**
+   * <p>If this array of metric namespaces is present, then these namespaces are the only
+   * 			metric namespaces that are not streamed by this metric stream. In this case, all other metric namespaces in
+   * 		the account are streamed by this metric stream.</p>
+   */
+  ExcludeFilters?: MetricStreamFilter[];
+
+  /**
+   * <p>The ARN of the Amazon Kinesis Firehose delivery stream that is used by
+   * 		this metric stream.</p>
+   */
+  FirehoseArn?: string;
+
+  /**
+   * <p>The ARN of the IAM role that is used by this metric stream.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>The state of the metric stream. The possible values are <code>running</code>
+   * 		and <code>stopped</code>.</p>
+   */
+  State?: string;
+
+  /**
+   * <p>The date that the metric stream was created.</p>
+   */
+  CreationDate?: Date;
+
+  /**
+   * <p>The date of the most recent update to the metric stream's configuration.</p>
+   */
+  LastUpdateDate?: Date;
+
+  /**
+   * <p></p>
+   */
+  OutputFormat?: MetricStreamOutputFormat | string;
+}
+
+export namespace GetMetricStreamOutput {
+  export const filterSensitiveLog = (obj: GetMetricStreamOutput): any => ({
+    ...obj,
+  });
+}
+
 export interface GetMetricWidgetImageInput {
   /**
    * <p>A JSON string that defines the bitmap graph to be retrieved. The string includes the
@@ -2278,6 +2436,91 @@ export interface ListMetricsOutput {
 
 export namespace ListMetricsOutput {
   export const filterSensitiveLog = (obj: ListMetricsOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface ListMetricStreamsInput {
+  /**
+   * <p>Include this value, if it was returned by the previous call, to get the next set of metric streams.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in one operation.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListMetricStreamsInput {
+  export const filterSensitiveLog = (obj: ListMetricStreamsInput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>This structure contains the configuration information about one metric stream.</p>
+ */
+export interface MetricStreamEntry {
+  /**
+   * <p>The ARN of the metric stream.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The date that the metric stream was originally created.</p>
+   */
+  CreationDate?: Date;
+
+  /**
+   * <p>The date that the configuration of this metric stream was most recently updated.</p>
+   */
+  LastUpdateDate?: Date;
+
+  /**
+   * <p>The name of the metric stream.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The ARN of the Kinesis Firehose devlivery stream that is used for this metric stream.</p>
+   */
+  FirehoseArn?: string;
+
+  /**
+   * <p>The current state of this stream. Valid values are <code>running</code> and <code>stopped</code>.</p>
+   */
+  State?: string;
+
+  /**
+   * <p>The output format of this metric stream. Valid values are
+   * 			<code>json</code>
+   * 			and <code>opentelemetry0.7</code>.</p>
+   */
+  OutputFormat?: MetricStreamOutputFormat | string;
+}
+
+export namespace MetricStreamEntry {
+  export const filterSensitiveLog = (obj: MetricStreamEntry): any => ({
+    ...obj,
+  });
+}
+
+export interface ListMetricStreamsOutput {
+  /**
+   * <p>The token that marks the start of the next batch of returned results. You can use this
+   * 		token in a subsequent operation to get the next batch of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The array of metric stream information.</p>
+   */
+  Entries?: MetricStreamEntry[];
+}
+
+export namespace ListMetricStreamsOutput {
+  export const filterSensitiveLog = (obj: ListMetricStreamsOutput): any => ({
     ...obj,
   });
 }
@@ -2659,7 +2902,8 @@ export interface PutMetricAlarmInput {
    * 		       <p>Valid Values (for use with IAM roles):
    * 			<code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code> |
    * 				<code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code> |
-   * 				<code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code>
+   * 				<code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code> |
+   * 			    <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Recover/1.0</code>
    *          </p>
    */
   OKActions?: string[];
@@ -3010,6 +3254,91 @@ export namespace PutMetricDataInput {
   });
 }
 
+export interface PutMetricStreamInput {
+  /**
+   * <p>If you are creating a new metric stream, this is the name for the new stream. The name
+   * 		must be different than the names of other metric streams in this account and Region.</p>
+   * 		       <p>If you are updating a metric stream, specify the name of that stream here.</p>
+   * 		       <p>Valid characters are A-Z, a-z, 0-9, "-" and "_".</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>If you specify this parameter, the stream sends only the
+   * 		metrics from the metric namespaces that you specify here.</p>
+   * 		       <p>You cannot include <code>IncludeFilters</code> and <code>ExcludeFilters</code>
+   * 		in the same operation.</p>
+   */
+  IncludeFilters?: MetricStreamFilter[];
+
+  /**
+   * <p>If you specify this parameter, the stream sends metrics from all
+   * 			metric namespaces except for the namespaces that you specify here.</p>
+   * 		       <p>You cannot include <code>ExcludeFilters</code> and <code>IncludeFilters</code> in
+   * 			the same operation.</p>
+   */
+  ExcludeFilters?: MetricStreamFilter[];
+
+  /**
+   * <p>The ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream.
+   * 		This Amazon Kinesis Firehose delivery stream must already exist and must be in the same
+   * 		account as the metric stream.</p>
+   */
+  FirehoseArn: string | undefined;
+
+  /**
+   * <p>The ARN of an IAM role that this metric stream will use to access
+   * 			Amazon Kinesis Firehose resources. This IAM role must already
+   * 		exist and must be in the same account as the metric stream. This IAM role must include the following permissions:</p>
+   * 		       <ul>
+   *             <li>
+   *                <p>firehose:PutRecord</p>
+   *             </li>
+   *             <li>
+   *                <p>firehose:PutRecordBatch</p>
+   *             </li>
+   *          </ul>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>The output format for the stream. Valid values are <code>json</code>
+   * 		and <code>opentelemetry0.7</code>. For more information about metric stream
+   * 		output formats, see
+   * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html">
+   * 				Metric streams output formats</a>.</p>
+   */
+  OutputFormat: MetricStreamOutputFormat | string | undefined;
+
+  /**
+   * <p>A list of key-value pairs to associate with the metric stream. You can associate as
+   * 			many as 50 tags with a metric stream.</p>
+   * 		       <p>Tags can help you organize and categorize your resources. You can also use them to scope user
+   * 			permissions by granting a user
+   * 			permission to access or change only resources with certain tag values.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace PutMetricStreamInput {
+  export const filterSensitiveLog = (obj: PutMetricStreamInput): any => ({
+    ...obj,
+  });
+}
+
+export interface PutMetricStreamOutput {
+  /**
+   * <p>The ARN of the metric stream.</p>
+   */
+  Arn?: string;
+}
+
+export namespace PutMetricStreamOutput {
+  export const filterSensitiveLog = (obj: PutMetricStreamOutput): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Data was not syntactically valid JSON.</p>
  */
@@ -3054,6 +3383,54 @@ export interface SetAlarmStateInput {
 
 export namespace SetAlarmStateInput {
   export const filterSensitiveLog = (obj: SetAlarmStateInput): any => ({
+    ...obj,
+  });
+}
+
+export interface StartMetricStreamsInput {
+  /**
+   * <p>The array of the names of metric streams to start streaming.</p>
+   * 		       <p>This is an "all or nothing" operation. If you do not have
+   * 		permission to access all of the metric streams that you list here, then none of the streams that you list
+   * 		in the operation will start streaming.</p>
+   */
+  Names: string[] | undefined;
+}
+
+export namespace StartMetricStreamsInput {
+  export const filterSensitiveLog = (obj: StartMetricStreamsInput): any => ({
+    ...obj,
+  });
+}
+
+export interface StartMetricStreamsOutput {}
+
+export namespace StartMetricStreamsOutput {
+  export const filterSensitiveLog = (obj: StartMetricStreamsOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface StopMetricStreamsInput {
+  /**
+   * <p>The array of the names of metric streams to stop streaming.</p>
+   * 		       <p>This is an "all or nothing" operation. If you do not have
+   * 			permission to access all of the metric streams that you list here, then none of the streams that you list
+   * 			in the operation will stop streaming.</p>
+   */
+  Names: string[] | undefined;
+}
+
+export namespace StopMetricStreamsInput {
+  export const filterSensitiveLog = (obj: StopMetricStreamsInput): any => ({
+    ...obj,
+  });
+}
+
+export interface StopMetricStreamsOutput {}
+
+export namespace StopMetricStreamsOutput {
+  export const filterSensitiveLog = (obj: StopMetricStreamsOutput): any => ({
     ...obj,
   });
 }

@@ -25,7 +25,11 @@ export enum BaseModelName {
 }
 
 export enum CLMLanguageCode {
+  EN_AU = "en-AU",
+  EN_GB = "en-GB",
   EN_US = "en-US",
+  ES_US = "es-US",
+  HI_IN = "hi-IN",
 }
 
 /**
@@ -1093,6 +1097,7 @@ export namespace ModelSettings {
 export enum VocabularyFilterMethod {
   MASK = "mask",
   REMOVE = "remove",
+  TAG = "tag",
 }
 
 /**
@@ -1160,7 +1165,10 @@ export interface Settings {
   /**
    * <p>Set to <code>mask</code> to remove filtered text from the transcript and replace it
    *             with three asterisks ("***") as placeholder text. Set to <code>remove</code> to remove
-   *             filtered text from the transcript without using placeholder text.</p>
+   *             filtered text from the transcript without using placeholder text. Set to
+   *                 <code>tag</code> to mark the word in the transcription output that matches the
+   *             vocabulary filter. When you set the filter method to <code>tag</code>, the words matching
+   *             your vocabulary filter are not masked or removed.</p>
    */
   VocabularyFilterMethod?: VocabularyFilterMethod | string;
 }

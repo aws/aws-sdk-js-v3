@@ -4,6 +4,10 @@ import { AddTagsToResourceCommandInput, AddTagsToResourceCommandOutput } from ".
 import { AddUploadBufferCommandInput, AddUploadBufferCommandOutput } from "./commands/AddUploadBufferCommand";
 import { AddWorkingStorageCommandInput, AddWorkingStorageCommandOutput } from "./commands/AddWorkingStorageCommand";
 import { AssignTapePoolCommandInput, AssignTapePoolCommandOutput } from "./commands/AssignTapePoolCommand";
+import {
+  AssociateFileSystemCommandInput,
+  AssociateFileSystemCommandOutput,
+} from "./commands/AssociateFileSystemCommand";
 import { AttachVolumeCommandInput, AttachVolumeCommandOutput } from "./commands/AttachVolumeCommand";
 import { CancelArchivalCommandInput, CancelArchivalCommandOutput } from "./commands/CancelArchivalCommand";
 import { CancelRetrievalCommandInput, CancelRetrievalCommandOutput } from "./commands/CancelRetrievalCommand";
@@ -72,6 +76,10 @@ import {
   DescribeChapCredentialsCommandOutput,
 } from "./commands/DescribeChapCredentialsCommand";
 import {
+  DescribeFileSystemAssociationsCommandInput,
+  DescribeFileSystemAssociationsCommandOutput,
+} from "./commands/DescribeFileSystemAssociationsCommand";
+import {
   DescribeGatewayInformationCommandInput,
   DescribeGatewayInformationCommandOutput,
 } from "./commands/DescribeGatewayInformationCommand";
@@ -119,12 +127,20 @@ import {
 } from "./commands/DescribeWorkingStorageCommand";
 import { DetachVolumeCommandInput, DetachVolumeCommandOutput } from "./commands/DetachVolumeCommand";
 import { DisableGatewayCommandInput, DisableGatewayCommandOutput } from "./commands/DisableGatewayCommand";
+import {
+  DisassociateFileSystemCommandInput,
+  DisassociateFileSystemCommandOutput,
+} from "./commands/DisassociateFileSystemCommand";
 import { JoinDomainCommandInput, JoinDomainCommandOutput } from "./commands/JoinDomainCommand";
 import {
   ListAutomaticTapeCreationPoliciesCommandInput,
   ListAutomaticTapeCreationPoliciesCommandOutput,
 } from "./commands/ListAutomaticTapeCreationPoliciesCommand";
 import { ListFileSharesCommandInput, ListFileSharesCommandOutput } from "./commands/ListFileSharesCommand";
+import {
+  ListFileSystemAssociationsCommandInput,
+  ListFileSystemAssociationsCommandOutput,
+} from "./commands/ListFileSystemAssociationsCommand";
 import { ListGatewaysCommandInput, ListGatewaysCommandOutput } from "./commands/ListGatewaysCommand";
 import { ListLocalDisksCommandInput, ListLocalDisksCommandOutput } from "./commands/ListLocalDisksCommand";
 import {
@@ -187,6 +203,10 @@ import {
   UpdateChapCredentialsCommandInput,
   UpdateChapCredentialsCommandOutput,
 } from "./commands/UpdateChapCredentialsCommand";
+import {
+  UpdateFileSystemAssociationCommandInput,
+  UpdateFileSystemAssociationCommandOutput,
+} from "./commands/UpdateFileSystemAssociationCommand";
 import {
   UpdateGatewayInformationCommandInput,
   UpdateGatewayInformationCommandOutput,
@@ -275,6 +295,7 @@ export type ServiceInputTypes =
   | AddUploadBufferCommandInput
   | AddWorkingStorageCommandInput
   | AssignTapePoolCommandInput
+  | AssociateFileSystemCommandInput
   | AttachVolumeCommandInput
   | CancelArchivalCommandInput
   | CancelRetrievalCommandInput
@@ -303,6 +324,7 @@ export type ServiceInputTypes =
   | DescribeCacheCommandInput
   | DescribeCachediSCSIVolumesCommandInput
   | DescribeChapCredentialsCommandInput
+  | DescribeFileSystemAssociationsCommandInput
   | DescribeGatewayInformationCommandInput
   | DescribeMaintenanceStartTimeCommandInput
   | DescribeNFSFileSharesCommandInput
@@ -318,9 +340,11 @@ export type ServiceInputTypes =
   | DescribeWorkingStorageCommandInput
   | DetachVolumeCommandInput
   | DisableGatewayCommandInput
+  | DisassociateFileSystemCommandInput
   | JoinDomainCommandInput
   | ListAutomaticTapeCreationPoliciesCommandInput
   | ListFileSharesCommandInput
+  | ListFileSystemAssociationsCommandInput
   | ListGatewaysCommandInput
   | ListLocalDisksCommandInput
   | ListTagsForResourceCommandInput
@@ -344,6 +368,7 @@ export type ServiceInputTypes =
   | UpdateBandwidthRateLimitCommandInput
   | UpdateBandwidthRateLimitScheduleCommandInput
   | UpdateChapCredentialsCommandInput
+  | UpdateFileSystemAssociationCommandInput
   | UpdateGatewayInformationCommandInput
   | UpdateGatewaySoftwareNowCommandInput
   | UpdateMaintenanceStartTimeCommandInput
@@ -361,6 +386,7 @@ export type ServiceOutputTypes =
   | AddUploadBufferCommandOutput
   | AddWorkingStorageCommandOutput
   | AssignTapePoolCommandOutput
+  | AssociateFileSystemCommandOutput
   | AttachVolumeCommandOutput
   | CancelArchivalCommandOutput
   | CancelRetrievalCommandOutput
@@ -389,6 +415,7 @@ export type ServiceOutputTypes =
   | DescribeCacheCommandOutput
   | DescribeCachediSCSIVolumesCommandOutput
   | DescribeChapCredentialsCommandOutput
+  | DescribeFileSystemAssociationsCommandOutput
   | DescribeGatewayInformationCommandOutput
   | DescribeMaintenanceStartTimeCommandOutput
   | DescribeNFSFileSharesCommandOutput
@@ -404,9 +431,11 @@ export type ServiceOutputTypes =
   | DescribeWorkingStorageCommandOutput
   | DetachVolumeCommandOutput
   | DisableGatewayCommandOutput
+  | DisassociateFileSystemCommandOutput
   | JoinDomainCommandOutput
   | ListAutomaticTapeCreationPoliciesCommandOutput
   | ListFileSharesCommandOutput
+  | ListFileSystemAssociationsCommandOutput
   | ListGatewaysCommandOutput
   | ListLocalDisksCommandOutput
   | ListTagsForResourceCommandOutput
@@ -430,6 +459,7 @@ export type ServiceOutputTypes =
   | UpdateBandwidthRateLimitCommandOutput
   | UpdateBandwidthRateLimitScheduleCommandOutput
   | UpdateChapCredentialsCommandOutput
+  | UpdateFileSystemAssociationCommandOutput
   | UpdateGatewayInformationCommandOutput
   | UpdateGatewaySoftwareNowCommandOutput
   | UpdateMaintenanceStartTimeCommandOutput

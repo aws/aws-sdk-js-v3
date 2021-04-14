@@ -22,10 +22,10 @@ export type DeleteSigningCertificateCommandOutput = __MetadataBearer;
 
 /**
  * <p>Deletes a signing certificate associated with the specified IAM user.</p>
- *          <p>If you do not specify a user name, IAM determines the user name implicitly based on
- *          the AWS access key ID signing the request. This operation works for access keys under the
- *          AWS account. Consequently, you can use this operation to manage AWS account root user
- *          credentials even if the AWS account has no associated IAM users.</p>
+ *         <p>If you do not specify a user name, IAM determines the user name implicitly based on
+ *             the AWS access key ID signing the request. This operation works for access keys under
+ *             the AWS account. Consequently, you can use this operation to manage AWS account root
+ *             user credentials even if the AWS account has no associated IAM users.</p>
  */
 export class DeleteSigningCertificateCommand extends $Command<
   DeleteSigningCertificateCommandInput,

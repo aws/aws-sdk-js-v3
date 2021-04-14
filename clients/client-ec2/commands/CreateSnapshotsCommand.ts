@@ -22,6 +22,12 @@ export type CreateSnapshotsCommandOutput = CreateSnapshotsResult & __MetadataBea
  *     Volumes are chosen by specifying an instance. Any attached volumes will produce one snapshot
  *     each that is crash-consistent across the instance. Boot volumes can be excluded by changing the
  *     parameters. </p>
+ *
+ *          <p>You can create multi-volume snapshots of instances in a Region and instances on an
+ *   	Outpost. If you create snapshots from an instance in a Region, the snapshots must be stored
+ *   	in the same Region as the instance. If you create snapshots from an instance on an Outpost,
+ *   	the snapshots can be stored on the same Outpost as the instance, or in the Region for that
+ *   	Outpost.</p>
  */
 export class CreateSnapshotsCommand extends $Command<
   CreateSnapshotsCommandInput,

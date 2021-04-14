@@ -21,7 +21,8 @@ export type DescribeGlobalSettingsCommandInput = DescribeGlobalSettingsInput;
 export type DescribeGlobalSettingsCommandOutput = DescribeGlobalSettingsOutput & __MetadataBearer;
 
 /**
- * <p>The current feature settings for the AWS Account.</p>
+ * <p>Describes the global settings of the AWS account, including whether it is opted in to
+ *          cross-account backup.</p>
  */
 export class DescribeGlobalSettingsCommand extends $Command<
   DescribeGlobalSettingsCommandInput,

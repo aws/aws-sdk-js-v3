@@ -21,7 +21,13 @@ export type ListAttendeesCommandInput = ListAttendeesRequest;
 export type ListAttendeesCommandOutput = ListAttendeesResponse & __MetadataBearer;
 
 /**
- * <p>Lists the attendees for the specified Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
+ * <p>
+ * Lists the attendees for the specified Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see
+ * <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
+ * in the
+ * <i>Amazon Chime Developer Guide</i>
+ * .
+ * </p>
  */
 export class ListAttendeesCommand extends $Command<
   ListAttendeesCommandInput,

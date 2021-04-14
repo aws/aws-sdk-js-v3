@@ -46,6 +46,10 @@ import {
 } from "../commands/DescribeRegionSettingsCommand";
 import { DescribeRestoreJobCommandInput, DescribeRestoreJobCommandOutput } from "../commands/DescribeRestoreJobCommand";
 import {
+  DisassociateRecoveryPointCommandInput,
+  DisassociateRecoveryPointCommandOutput,
+} from "../commands/DisassociateRecoveryPointCommand";
+import {
   ExportBackupPlanTemplateCommandInput,
   ExportBackupPlanTemplateCommandOutput,
 } from "../commands/ExportBackupPlanTemplateCommand";
@@ -153,6 +157,7 @@ import {
   DependencyFailureException,
   InvalidParameterValueException,
   InvalidRequestException,
+  InvalidResourceStateException,
   Lifecycle,
   LimitExceededException,
   MissingParameterValueException,
@@ -680,6 +685,43 @@ export const serializeAws_restJson1DescribeRestoreJobCommand = async (
     hostname,
     port,
     method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DisassociateRecoveryPointCommand = async (
+  input: DisassociateRecoveryPointCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}/disassociate";
+  if (input.BackupVaultName !== undefined) {
+    const labelValue: string = input.BackupVaultName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: BackupVaultName.");
+    }
+    resolvedPath = resolvedPath.replace("{BackupVaultName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: BackupVaultName.");
+  }
+  if (input.RecoveryPointArn !== undefined) {
+    const labelValue: string = input.RecoveryPointArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: RecoveryPointArn.");
+    }
+    resolvedPath = resolvedPath.replace("{RecoveryPointArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: RecoveryPointArn.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -2474,6 +2516,14 @@ const deserializeAws_restJson1DeleteRecoveryPointCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InvalidResourceStateException":
+    case "com.amazonaws.backup#InvalidResourceStateException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidResourceStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
       response = {
@@ -2890,6 +2940,14 @@ const deserializeAws_restJson1DescribeGlobalSettingsCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InvalidRequestException":
+    case "com.amazonaws.backup#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
       response = {
@@ -3297,6 +3355,97 @@ const deserializeAws_restJson1DescribeRestoreJobCommandError = async (
     case "com.amazonaws.backup#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "MissingParameterValueException":
+    case "com.amazonaws.backup#MissingParameterValueException":
+      response = {
+        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backup#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DisassociateRecoveryPointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateRecoveryPointCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DisassociateRecoveryPointCommandError(output, context);
+  }
+  const contents: DisassociateRecoveryPointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DisassociateRecoveryPointCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateRecoveryPointCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.backup#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidResourceStateException":
+    case "com.amazonaws.backup#InvalidResourceStateException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidResourceStateExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5365,6 +5514,14 @@ const deserializeAws_restJson1StartCopyJobCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InvalidRequestException":
+    case "com.amazonaws.backup#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "LimitExceededException":
     case "com.amazonaws.backup#LimitExceededException":
       response = {
@@ -6189,6 +6346,35 @@ const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_restJson1InvalidResourceStateExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidResourceStateException> => {
+  const contents: InvalidResourceStateException = {
+    name: "InvalidResourceStateException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    Code: undefined,
+    Context: undefined,
+    Message: undefined,
+    Type: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.Code !== undefined && data.Code !== null) {
+    contents.Code = data.Code;
+  }
+  if (data.Context !== undefined && data.Context !== null) {
+    contents.Context = data.Context;
+  }
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = data.Message;
+  }
+  if (data.Type !== undefined && data.Type !== null) {
+    contents.Type = data.Type;
+  }
+  return contents;
+};
+
 const deserializeAws_restJson1LimitExceededExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -6357,6 +6543,8 @@ const serializeAws_restJson1BackupRuleInput = (input: BackupRuleInput, context: 
       input.CompletionWindowMinutes !== null && { CompletionWindowMinutes: input.CompletionWindowMinutes }),
     ...(input.CopyActions !== undefined &&
       input.CopyActions !== null && { CopyActions: serializeAws_restJson1CopyActions(input.CopyActions, context) }),
+    ...(input.EnableContinuousBackup !== undefined &&
+      input.EnableContinuousBackup !== null && { EnableContinuousBackup: input.EnableContinuousBackup }),
     ...(input.Lifecycle !== undefined &&
       input.Lifecycle !== null && { Lifecycle: serializeAws_restJson1Lifecycle(input.Lifecycle, context) }),
     ...(input.RecoveryPointTags !== undefined &&
@@ -6735,6 +6923,10 @@ const deserializeAws_restJson1BackupRule = (output: any, context: __SerdeContext
     CopyActions:
       output.CopyActions !== undefined && output.CopyActions !== null
         ? deserializeAws_restJson1CopyActions(output.CopyActions, context)
+        : undefined,
+    EnableContinuousBackup:
+      output.EnableContinuousBackup !== undefined && output.EnableContinuousBackup !== null
+        ? output.EnableContinuousBackup
         : undefined,
     Lifecycle:
       output.Lifecycle !== undefined && output.Lifecycle !== null

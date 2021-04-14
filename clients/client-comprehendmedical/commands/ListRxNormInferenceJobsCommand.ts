@@ -25,8 +25,7 @@ export type ListRxNormInferenceJobsCommandInput = ListRxNormInferenceJobsRequest
 export type ListRxNormInferenceJobsCommandOutput = ListRxNormInferenceJobsResponse & __MetadataBearer;
 
 /**
- * <p>Gets a list of InferRxNorm jobs that you have
- *       submitted.</p>
+ * <p>Gets a list of InferRxNorm jobs that you have submitted.</p>
  */
 export class ListRxNormInferenceJobsCommand extends $Command<
   ListRxNormInferenceJobsCommandInput,

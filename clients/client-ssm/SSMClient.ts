@@ -262,6 +262,10 @@ import {
   ListComplianceSummariesCommandOutput,
 } from "./commands/ListComplianceSummariesCommand";
 import {
+  ListDocumentMetadataHistoryCommandInput,
+  ListDocumentMetadataHistoryCommandOutput,
+} from "./commands/ListDocumentMetadataHistoryCommand";
+import {
   ListDocumentVersionsCommandInput,
   ListDocumentVersionsCommandOutput,
 } from "./commands/ListDocumentVersionsCommand";
@@ -270,6 +274,7 @@ import {
   ListInventoryEntriesCommandInput,
   ListInventoryEntriesCommandOutput,
 } from "./commands/ListInventoryEntriesCommand";
+import { ListOpsItemEventsCommandInput, ListOpsItemEventsCommandOutput } from "./commands/ListOpsItemEventsCommand";
 import { ListOpsMetadataCommandInput, ListOpsMetadataCommandOutput } from "./commands/ListOpsMetadataCommand";
 import {
   ListResourceComplianceSummariesCommandInput,
@@ -328,12 +333,20 @@ import {
   StartAutomationExecutionCommandInput,
   StartAutomationExecutionCommandOutput,
 } from "./commands/StartAutomationExecutionCommand";
+import {
+  StartChangeRequestExecutionCommandInput,
+  StartChangeRequestExecutionCommandOutput,
+} from "./commands/StartChangeRequestExecutionCommand";
 import { StartSessionCommandInput, StartSessionCommandOutput } from "./commands/StartSessionCommand";
 import {
   StopAutomationExecutionCommandInput,
   StopAutomationExecutionCommandOutput,
 } from "./commands/StopAutomationExecutionCommand";
 import { TerminateSessionCommandInput, TerminateSessionCommandOutput } from "./commands/TerminateSessionCommand";
+import {
+  UnlabelParameterVersionCommandInput,
+  UnlabelParameterVersionCommandOutput,
+} from "./commands/UnlabelParameterVersionCommand";
 import { UpdateAssociationCommandInput, UpdateAssociationCommandOutput } from "./commands/UpdateAssociationCommand";
 import {
   UpdateAssociationStatusCommandInput,
@@ -344,6 +357,10 @@ import {
   UpdateDocumentDefaultVersionCommandInput,
   UpdateDocumentDefaultVersionCommandOutput,
 } from "./commands/UpdateDocumentDefaultVersionCommand";
+import {
+  UpdateDocumentMetadataCommandInput,
+  UpdateDocumentMetadataCommandOutput,
+} from "./commands/UpdateDocumentMetadataCommand";
 import {
   UpdateMaintenanceWindowCommandInput,
   UpdateMaintenanceWindowCommandOutput,
@@ -515,9 +532,11 @@ export type ServiceInputTypes =
   | ListCommandsCommandInput
   | ListComplianceItemsCommandInput
   | ListComplianceSummariesCommandInput
+  | ListDocumentMetadataHistoryCommandInput
   | ListDocumentVersionsCommandInput
   | ListDocumentsCommandInput
   | ListInventoryEntriesCommandInput
+  | ListOpsItemEventsCommandInput
   | ListOpsMetadataCommandInput
   | ListResourceComplianceSummariesCommandInput
   | ListResourceDataSyncCommandInput
@@ -537,13 +556,16 @@ export type ServiceInputTypes =
   | SendCommandCommandInput
   | StartAssociationsOnceCommandInput
   | StartAutomationExecutionCommandInput
+  | StartChangeRequestExecutionCommandInput
   | StartSessionCommandInput
   | StopAutomationExecutionCommandInput
   | TerminateSessionCommandInput
+  | UnlabelParameterVersionCommandInput
   | UpdateAssociationCommandInput
   | UpdateAssociationStatusCommandInput
   | UpdateDocumentCommandInput
   | UpdateDocumentDefaultVersionCommandInput
+  | UpdateDocumentMetadataCommandInput
   | UpdateMaintenanceWindowCommandInput
   | UpdateMaintenanceWindowTargetCommandInput
   | UpdateMaintenanceWindowTaskCommandInput
@@ -644,9 +666,11 @@ export type ServiceOutputTypes =
   | ListCommandsCommandOutput
   | ListComplianceItemsCommandOutput
   | ListComplianceSummariesCommandOutput
+  | ListDocumentMetadataHistoryCommandOutput
   | ListDocumentVersionsCommandOutput
   | ListDocumentsCommandOutput
   | ListInventoryEntriesCommandOutput
+  | ListOpsItemEventsCommandOutput
   | ListOpsMetadataCommandOutput
   | ListResourceComplianceSummariesCommandOutput
   | ListResourceDataSyncCommandOutput
@@ -666,13 +690,16 @@ export type ServiceOutputTypes =
   | SendCommandCommandOutput
   | StartAssociationsOnceCommandOutput
   | StartAutomationExecutionCommandOutput
+  | StartChangeRequestExecutionCommandOutput
   | StartSessionCommandOutput
   | StopAutomationExecutionCommandOutput
   | TerminateSessionCommandOutput
+  | UnlabelParameterVersionCommandOutput
   | UpdateAssociationCommandOutput
   | UpdateAssociationStatusCommandOutput
   | UpdateDocumentCommandOutput
   | UpdateDocumentDefaultVersionCommandOutput
+  | UpdateDocumentMetadataCommandOutput
   | UpdateMaintenanceWindowCommandOutput
   | UpdateMaintenanceWindowTargetCommandOutput
   | UpdateMaintenanceWindowTaskCommandOutput

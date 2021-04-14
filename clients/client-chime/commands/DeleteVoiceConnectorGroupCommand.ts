@@ -21,7 +21,11 @@ export type DeleteVoiceConnectorGroupCommandInput = DeleteVoiceConnectorGroupReq
 export type DeleteVoiceConnectorGroupCommandOutput = __MetadataBearer;
 
 /**
- * <p>Deletes the specified Amazon Chime Voice Connector group. Any <code>VoiceConnectorItems</code> and phone numbers associated with the group must be removed before it can be deleted.</p>
+ * <p>
+ * Deletes the specified Amazon Chime Voice Connector group. Any
+ * <code>VoiceConnectorItems</code>
+ * and phone numbers associated with the group must be removed before it can be deleted.
+ * </p>
  */
 export class DeleteVoiceConnectorGroupCommand extends $Command<
   DeleteVoiceConnectorGroupCommandInput,

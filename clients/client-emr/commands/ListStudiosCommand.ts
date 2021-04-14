@@ -21,11 +21,7 @@ export type ListStudiosCommandInput = ListStudiosInput;
 export type ListStudiosCommandOutput = ListStudiosOutput & __MetadataBearer;
 
 /**
- * <note>
- *             <p>The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject to
- *             change.</p>
- *          </note>
- *          <p>Returns a list of all Amazon EMR Studios associated with the AWS account. The list
+ * <p>Returns a list of all Amazon EMR Studios associated with the AWS account. The list
  *          includes details such as ID, Studio Access URL, and creation time for each Studio.</p>
  */
 export class ListStudiosCommand extends $Command<

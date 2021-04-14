@@ -22,7 +22,7 @@ export type StartMonitoringMemberCommandOutput = __MetadataBearer;
 
 /**
  * <p>Sends a request to enable data ingest for a member account that has a status of
- *          <code>ACCEPTED_BUT_DISABLED</code>.</p>
+ *             <code>ACCEPTED_BUT_DISABLED</code>.</p>
  *          <p>For valid member accounts, the status is updated as follows.</p>
  *          <ul>
  *             <li>
@@ -31,7 +31,7 @@ export type StartMonitoringMemberCommandOutput = __MetadataBearer;
  *             </li>
  *             <li>
  *                <p>If Detective cannot enable the member account, the status remains
- *                <code>ACCEPTED_BUT_DISABLED</code>. </p>
+ *                   <code>ACCEPTED_BUT_DISABLED</code>. </p>
  *             </li>
  *          </ul>
  */

@@ -21,7 +21,7 @@ export type CreateOpsMetadataCommandInput = CreateOpsMetadataRequest;
 export type CreateOpsMetadataCommandOutput = CreateOpsMetadataResult & __MetadataBearer;
 
 /**
- * <p>If you create a new application in AppManager, Systems Manager calls this API action to specify
+ * <p>If you create a new application in Application Manager, Systems Manager calls this API action to specify
  *    information about the new application, including the application type.</p>
  */
 export class CreateOpsMetadataCommand extends $Command<

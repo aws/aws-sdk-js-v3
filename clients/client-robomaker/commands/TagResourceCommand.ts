@@ -22,8 +22,10 @@ export type TagResourceCommandOutput = TagResourceResponse & __MetadataBearer;
 
 /**
  * <p>Adds or edits tags for a AWS RoboMaker resource.</p>
- *          <p>Each tag consists of a tag key and a tag value. Tag keys and tag values are both required, but tag values can be empty strings. </p>
- *          <p>For information about the rules that apply to tag keys and tag values, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">User-Defined Tag Restrictions</a> in the <i>AWS Billing and Cost Management User Guide</i>. </p>
+ *          <p>Each tag consists of a tag key and a tag value. Tag keys and tag values are both
+ *          required, but tag values can be empty strings. </p>
+ *          <p>For information about the rules that apply to tag keys and tag values, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">User-Defined Tag Restrictions</a> in the <i>AWS Billing and Cost Management
+ *             User Guide</i>. </p>
  */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,

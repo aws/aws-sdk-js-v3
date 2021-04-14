@@ -619,6 +619,7 @@ export enum OperationType {
   ReleaseStaticIp = "ReleaseStaticIp",
   ResetDistributionCache = "ResetDistributionCache",
   SendContactMethodVerification = "SendContactMethodVerification",
+  SetIpAddressType = "SetIpAddressType",
   StartInstance = "StartInstance",
   StartRelationalDatabase = "StartRelationalDatabase",
   StopInstance = "StopInstance",
@@ -731,8 +732,9 @@ export namespace AllocateStaticIpResult {
  * <p>Lightsail throws this exception when user input does not conform to the validation rules
  *       of an input field.</p>
  *          <note>
- *             <p>Domain-related APIs are only available in the N. Virginia (us-east-1) Region. Please set
- *         your AWS Region configuration to us-east-1 to create, view, or edit these resources.</p>
+ *             <p>Domain and distribution APIs are only available in the N. Virginia
+ *           (<code>us-east-1</code>) AWS Region. Please set your AWS Region configuration to
+ *           <code>us-east-1</code> to create, view, or edit these resources.</p>
  *          </note>
  */
 export interface InvalidInputException extends __SmithyException, $MetadataBearer {
@@ -1394,16 +1396,14 @@ export interface CacheBehaviorPerPath {
    *                   <b>
    *                      <code>cache</code>
    *                   </b> - This behavior caches the
-   *           specified path.
-   *           </p>
+   *           specified path. </p>
    *             </li>
    *             <li>
    *                <p>
    *                   <b>
    *                      <code>dont-cache</code>
    *                   </b> - This behavior doesn't cache
-   *           the specified path.
-   *           </p>
+   *           the specified path. </p>
    *             </li>
    *          </ul>
    */
@@ -1899,8 +1899,8 @@ export interface Certificate {
    *                   </b> - One or more of the
    *           domain names in the certificate request was reported as an unsafe domain by <a href="https://www.virustotal.com/gui/home/url">VirusTotal</a>. To correct the
    *           problem, search for your domain name on the <a href="https://www.virustotal.com/gui/home/url">VirusTotal</a> website. If your domain
-   *           is reported as suspicious, see <a href="https://www.google.com/webmasters/hacked/?hl=en">Google Help for Hacked
-   *             Websites</a> to learn what you can do.</p>
+   *           is reported as suspicious, see <a href="https://developers.google.com/web/fundamentals/security/hacked">Google Help for
+   *             Hacked Websites</a> to learn what you can do.</p>
    *                <p>If you believe that the result is a false positive, notify the organization that is
    *           reporting the domain. VirusTotal is an aggregate of several antivirus and URL scanners and
    *           cannot remove your domain from a block list itself. After you correct the problem and the
@@ -2073,9 +2073,15 @@ export interface PortInfo {
    *                </p>
    *             </li>
    *             <li>
-   *                <p>ICMP - The ICMP type. For example, specify <code>8</code> as the <code>fromPort</code>
-   *           (ICMP type), and <code>-1</code> as the <code>toPort</code> (ICMP code), to enable ICMP
-   *           Ping. For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages">Control Messages</a> on <i>Wikipedia</i>.</p>
+   *                <p>ICMP - The ICMP type for IPv4 addresses. For example, specify <code>8</code> as the
+   *             <code>fromPort</code> (ICMP type), and <code>-1</code> as the <code>toPort</code> (ICMP
+   *           code), to enable ICMP Ping. For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages">Control Messages</a> on <i>Wikipedia</i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>ICMPv6 - The ICMP type for IPv6 addresses. For example, specify <code>128</code> as
+   *           the <code>fromPort</code> (ICMPv6 type), and <code>0</code> as <code>toPort</code> (ICMPv6
+   *           code). For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol_for_IPv6">Internet
+   *             Control Message Protocol for IPv6</a>.</p>
    *             </li>
    *          </ul>
    */
@@ -2090,9 +2096,15 @@ export interface PortInfo {
    *                </p>
    *             </li>
    *             <li>
-   *                <p>ICMP - The ICMP code. For example, specify <code>8</code> as the <code>fromPort</code>
-   *           (ICMP type), and <code>-1</code> as the <code>toPort</code> (ICMP code), to enable ICMP
-   *           Ping. For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages">Control Messages</a> on <i>Wikipedia</i>.</p>
+   *                <p>ICMP - The ICMP code for IPv4 addresses. For example, specify <code>8</code> as the
+   *             <code>fromPort</code> (ICMP type), and <code>-1</code> as the <code>toPort</code> (ICMP
+   *           code), to enable ICMP Ping. For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages">Control Messages</a> on <i>Wikipedia</i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>ICMPv6 - The ICMP code for IPv6 addresses. For example, specify <code>128</code> as
+   *           the <code>fromPort</code> (ICMPv6 type), and <code>0</code> as <code>toPort</code> (ICMPv6
+   *           code). For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol_for_IPv6">Internet
+   *             Control Message Protocol for IPv6</a>.</p>
    *             </li>
    *          </ul>
    */
@@ -2138,8 +2150,12 @@ export interface PortInfo {
   protocol?: NetworkProtocol | string;
 
   /**
-   * <p>The IP address, or range of IP addresses in CIDR notation, that are allowed to connect to
-   *       an instance through the ports, and the protocol. Lightsail supports IPv4 addresses.</p>
+   * <p>The IPv4 address, or range of IPv4 addresses (in CIDR notation) that are allowed to
+   *       connect to an instance through the ports, and the protocol.</p>
+   *          <note>
+   *             <p>The <code>ipv6Cidrs</code> parameter lists the IPv6 addresses that are allowed to
+   *         connect to an instance.</p>
+   *          </note>
    *          <p>Examples:</p>
    *          <ul>
    *             <li>
@@ -2155,6 +2171,19 @@ export interface PortInfo {
    *         Inter-Domain Routing</a> on <i>Wikipedia</i>.</p>
    */
   cidrs?: string[];
+
+  /**
+   * <p>The IPv6 address, or range of IPv6 addresses (in CIDR notation) that are allowed to
+   *       connect to an instance through the ports, and the protocol. Only devices with an IPv6 address
+   *       can connect to an instance through IPv6; otherwise, IPv4 should be used.</p>
+   *          <note>
+   *             <p>The <code>cidrs</code> parameter lists the IPv4 addresses that are allowed to connect to
+   *         an instance.</p>
+   *          </note>
+   *          <p>For more information about CIDR block notation, see <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">Classless
+   *         Inter-Domain Routing</a> on <i>Wikipedia</i>.</p>
+   */
+  ipv6Cidrs?: string[];
 
   /**
    * <p>An alias that defines access for a preconfigured range of IP addresses.</p>
@@ -2483,30 +2512,31 @@ export namespace ContainerImage {
 export interface ContainerServiceHealthCheckConfig {
   /**
    * <p>The number of consecutive health checks successes required before moving the container to
-   *       the <code>Healthy</code> state.</p>
+   *       the <code>Healthy</code> state. The default value is <code>2</code>.</p>
    */
   healthyThreshold?: number;
 
   /**
    * <p>The number of consecutive health check failures required before moving the container to
-   *       the <code>Unhealthy</code> state.</p>
+   *       the <code>Unhealthy</code> state. The default value is <code>2</code>.</p>
    */
   unhealthyThreshold?: number;
 
   /**
    * <p>The amount of time, in seconds, during which no response means a failed health check. You
-   *       may specify between 2 and 60 seconds.</p>
+   *       can specify between 2 and 60 seconds. The default value is <code>2</code>.</p>
    */
   timeoutSeconds?: number;
 
   /**
    * <p>The approximate interval, in seconds, between health checks of an individual container.
-   *       You may specify between 5 and 300 seconds.</p>
+   *       You can specify between 5 and 300 seconds. The default value is <code>5</code>.</p>
    */
   intervalSeconds?: number;
 
   /**
-   * <p>The path on the container on which to perform the health check.</p>
+   * <p>The path on the container on which to perform the health check. The default value is
+   *         <code>/</code>.</p>
    */
   path?: string;
 
@@ -2634,11 +2664,109 @@ export enum ContainerServicePowerName {
 
 export enum ContainerServiceState {
   DELETING = "DELETING",
+  DEPLOYING = "DEPLOYING",
   DISABLED = "DISABLED",
   PENDING = "PENDING",
   READY = "READY",
   RUNNING = "RUNNING",
   UPDATING = "UPDATING",
+}
+
+export enum ContainerServiceStateDetailCode {
+  ACTIVATING_DEPLOYMENT = "ACTIVATING_DEPLOYMENT",
+  CERTIFICATE_LIMIT_EXCEEDED = "CERTIFICATE_LIMIT_EXCEEDED",
+  CREATING_DEPLOYMENT = "CREATING_DEPLOYMENT",
+  CREATING_NETWORK_INFRASTRUCTURE = "CREATING_NETWORK_INFRASTRUCTURE",
+  CREATING_SYSTEM_RESOURCES = "CREATING_SYSTEM_RESOURCES",
+  EVALUATING_HEALTH_CHECK = "EVALUATING_HEALTH_CHECK",
+  PROVISIONING_CERTIFICATE = "PROVISIONING_CERTIFICATE",
+  PROVISIONING_SERVICE = "PROVISIONING_SERVICE",
+  UNKNOWN_ERROR = "UNKNOWN_ERROR",
+}
+
+/**
+ * <p>Describes the current state of a container service.</p>
+ */
+export interface ContainerServiceStateDetail {
+  /**
+   * <p>The state code of the container service.</p>
+   *          <p>The following state codes are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The following state codes are possible if your container service is in a
+   *             <code>DEPLOYING</code> or <code>UPDATING</code> state:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>CREATING_SYSTEM_RESOURCES</code> - The system resources for your container
+   *               service are being created.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>CREATING_NETWORK_INFRASTRUCTURE</code> - The network infrastructure for your
+   *               container service are being created.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>PROVISIONING_CERTIFICATE</code> - The SSL/TLS certificate for your container
+   *               service is being created.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>PROVISIONING_SERVICE</code> - Your container service is being
+   *               provisioned.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>CREATING_DEPLOYMENT</code> - Your deployment is being created on your
+   *               container service.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>EVALUATING_HEALTH_CHECK</code> - The health of your deployment is being
+   *               evaluated.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>ACTIVATING_DEPLOYMENT</code> - Your deployment is being activated.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>The following state codes are possible if your container service is in a
+   *             <code>PENDING</code> state:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>CERTIFICATE_LIMIT_EXCEEDED</code> - The SSL/TLS certificate required for
+   *               your container service exceeds the maximum number of certificates allowed for your
+   *               account.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>UNKNOWN_ERROR</code> - An error was experienced when your container service
+   *               was being created.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
+   */
+  code?: ContainerServiceStateDetailCode | string;
+
+  /**
+   * <p>A message that provides more information for the state code.</p>
+   *          <note>
+   *             <p>The state detail is populated only when a container service is in a
+   *         <code>PENDING</code>, <code>DEPLOYING</code>, or <code>UPDATING</code> state.</p>
+   *          </note>
+   */
+  message?: string;
+}
+
+export namespace ContainerServiceStateDetail {
+  export const filterSensitiveLog = (obj: ContainerServiceStateDetail): any => ({
+    ...obj,
+  });
 }
 
 /**
@@ -2694,39 +2822,53 @@ export interface ContainerService {
 
   /**
    * <p>The current state of the container service.</p>
-   *          <p>The state can be:</p>
+   *          <p>The following container service states are possible:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>Pending</code> - The container service is being created.</p>
+   *                   <code>PENDING</code> - The container service is being created.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Ready</code> - The container service is created but does not have a container
+   *                   <code>READY</code> - The container service is running but it does not have an active
+   *           container deployment.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DEPLOYING</code> - The container service is launching a container
    *           deployment.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Disabled</code> - The container service is disabled.</p>
+   *                   <code>RUNNING</code> - The container service is running and it has an active container
+   *           deployment.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Updating</code> - The container service capacity or other setting is being
+   *                   <code>UPDATING</code> - The container service capacity or its custom domains are being
    *           updated.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Deploying</code> - The container service is launching a container
-   *           deployment.</p>
+   *                   <code>DELETING</code> - The container service is being deleted.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Running</code> - The container service is created and it has a container
-   *           deployment.</p>
+   *                   <code>DISABLED</code> - The container service is disabled, and its active deployment
+   *           and containers, if any, are shut down.</p>
    *             </li>
    *          </ul>
    */
   state?: ContainerServiceState | string;
+
+  /**
+   * <p>An object that describes the current state of the container service.</p>
+   *          <note>
+   *             <p>The state detail is populated only when a container service is in a
+   *         <code>PENDING</code>, <code>DEPLOYING</code>, or <code>UPDATING</code> state.</p>
+   *          </note>
+   */
+  stateDetail?: ContainerServiceStateDetail;
 
   /**
    * <p>The scale specification of the container service.</p>
@@ -3159,25 +3301,34 @@ export interface InstanceEntry {
 
   /**
    * <p>The port configuration to use for the new Amazon EC2 instance.</p>
+   *
    *          <p>The following configuration options are available:</p>
    *          <ul>
    *             <li>
    *                <p>
    *                   <code>DEFAULT</code> - Use the default firewall settings from the Lightsail instance
-   *           blueprint.</p>
+   *           blueprint. If this is specified, then IPv4 and IPv6 will be configured for the new
+   *           instance that is created in Amazon EC2.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>INSTANCE</code> - Use the configured firewall settings from the source
-   *           Lightsail instance.</p>
+   *           Lightsail instance. If this is specified, the new instance that is created in Amazon EC2 will
+   *           be configured to match the configuration of the source Lightsail instance. For example,
+   *           if the source instance is configured for dual-stack (IPv4 and IPv6), then IPv4 and IPv6
+   *           will be configured for the new instance that is created in Amazon EC2. If the source instance
+   *           is configured for IPv4 only, then only IPv4 will be configured for the new instance that
+   *           is created in Amazon EC2.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>NONE</code> - Use the default Amazon EC2 security group.</p>
+   *                   <code>NONE</code> - Use the default Amazon EC2 security group. If this is specified, then
+   *           only IPv4 will be configured for the new instance that is created in Amazon EC2.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CLOSED</code> - All ports closed.</p>
+   *                   <code>CLOSED</code> - All ports closed. If this is specified, then only IPv4 will be
+   *           configured for the new instance that is created in Amazon EC2.</p>
    *             </li>
    *          </ul>
    *          <note>
@@ -3712,6 +3863,11 @@ export namespace CreateDiskSnapshotResult {
   });
 }
 
+export enum IpAddressType {
+  DUALSTACK = "dualstack",
+  IPV4 = "ipv4",
+}
+
 export enum OriginProtocolPolicyEnum {
   HTTPOnly = "http-only",
   HTTPSOnly = "https-only",
@@ -3784,6 +3940,16 @@ export interface CreateDistributionRequest {
    *       IDs that you can specify.</p>
    */
   bundleId: string | undefined;
+
+  /**
+   * <p>The IP address type for the distribution.</p>
+   *
+   *          <p>The possible values are <code>ipv4</code> for IPv4 only, and <code>dualstack</code> for
+   *       IPv4 and IPv6.</p>
+   *
+   *          <p>The default value is <code>dualstack</code>.</p>
+   */
+  ipAddressType?: IpAddressType | string;
 
   /**
    * <p>The tag keys and optional values to add to the distribution during create.</p>
@@ -3940,6 +4106,14 @@ export interface LightsailDistribution {
    *       bundle.</p>
    */
   ableToUpdateBundle?: boolean;
+
+  /**
+   * <p>The IP address type of the distribution.</p>
+   *
+   *          <p>The possible values are <code>ipv4</code> for IPv4 only, and <code>dualstack</code> for
+   *       IPv4 and IPv6.</p>
+   */
+  ipAddressType?: IpAddressType | string;
 
   /**
    * <p>The tag keys and optional values for the resource. For more information about tags in
@@ -4214,6 +4388,16 @@ export interface CreateInstancesRequest {
    * <p>An array of objects representing the add-ons to enable for the new instance.</p>
    */
   addOns?: AddOnRequest[];
+
+  /**
+   * <p>The IP address type for the instance.</p>
+   *
+   *          <p>The possible values are <code>ipv4</code> for IPv4 only, and <code>dualstack</code> for
+   *       IPv4 and IPv6.</p>
+   *
+   *          <p>The default value is <code>dualstack</code>.</p>
+   */
+  ipAddressType?: IpAddressType | string;
 }
 
 export namespace CreateInstancesRequest {
@@ -4304,6 +4488,16 @@ export interface CreateInstancesFromSnapshotRequest {
    * <p>An array of objects representing the add-ons to enable for the new instance.</p>
    */
   addOns?: AddOnRequest[];
+
+  /**
+   * <p>The IP address type for the instance.</p>
+   *
+   *          <p>The possible values are <code>ipv4</code> for IPv4 only, and <code>dualstack</code> for
+   *       IPv4 and IPv6.</p>
+   *
+   *          <p>The default value is <code>dualstack</code>.</p>
+   */
+  ipAddressType?: IpAddressType | string;
 
   /**
    * <p>The name of the source instance from which the source automatic snapshot was
@@ -4573,6 +4767,16 @@ export interface CreateLoadBalancerRequest {
    *          <p>Use the <code>TagResource</code> action to tag a resource after it's created.</p>
    */
   tags?: Tag[];
+
+  /**
+   * <p>The IP address type for the load balancer.</p>
+   *
+   *          <p>The possible values are <code>ipv4</code> for IPv4 only, and <code>dualstack</code> for
+   *       IPv4 and IPv6.</p>
+   *
+   *          <p>The default value is <code>dualstack</code>.</p>
+   */
+  ipAddressType?: IpAddressType | string;
 }
 
 export namespace CreateLoadBalancerRequest {
@@ -4652,7 +4856,7 @@ export namespace CreateLoadBalancerTlsCertificateResult {
 
 export interface CreateRelationalDatabaseRequest {
   /**
-   * <p>The name to use for your new database.</p>
+   * <p>The name to use for your new Lightsail database resource.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
@@ -4691,47 +4895,112 @@ export interface CreateRelationalDatabaseRequest {
   relationalDatabaseBundleId: string | undefined;
 
   /**
-   * <p>The name of the master database created when the Lightsail database resource is
-   *       created.</p>
+   * <p>The meaning of this parameter differs according to the database engine you use.</p>
+   *          <p>
+   *             <b>MySQL</b>
+   *          </p>
+   *          <p>The name of the database to create when the Lightsail database resource is created. If
+   *       this parameter isn't specified, no database is created in the database resource.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
-   *                <p>Must contain from 1 to 64 alphanumeric characters.</p>
+   *                <p>Must contain 1 to 64 letters or numbers.</p>
    *             </li>
    *             <li>
-   *                <p>Cannot be a word reserved by the specified database engine</p>
+   *                <p>Must begin with a letter. Subsequent characters can be letters, underscores, or digits
+   *           (0- 9).</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't be a word reserved by the specified database engine.</p>
+   *                <p>For more information about reserved words in MySQL, see the Keywords and Reserved
+   *           Words articles for <a href="https://dev.mysql.com/doc/refman/5.6/en/keywords.html">MySQL 5.6</a>, <a href="https://dev.mysql.com/doc/refman/5.7/en/keywords.html">MySQL 5.7</a>, and <a href="https://dev.mysql.com/doc/refman/8.0/en/keywords.html">MySQL 8.0</a>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <b>PostgreSQL</b>
+   *          </p>
+   *          <p>The name of the database to create when the Lightsail database resource is created. If
+   *       this parameter isn't specified, a database named <code>postgres</code> is created in the
+   *       database resource.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must contain 1 to 63 letters or numbers.</p>
+   *             </li>
+   *             <li>
+   *                <p>Must begin with a letter. Subsequent characters can be letters, underscores, or digits
+   *           (0- 9).</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't be a word reserved by the specified database engine.</p>
+   *                <p>For more information about reserved words in PostgreSQL, see the SQL Key Words
+   *           articles for <a href="https://www.postgresql.org/docs/9.6/sql-keywords-appendix.html">PostgreSQL 9.6</a>, <a href="https://www.postgresql.org/docs/10/sql-keywords-appendix.html">PostgreSQL
+   *             10</a>, <a href="https://www.postgresql.org/docs/11/sql-keywords-appendix.html">PostgreSQL 11</a>, and <a href="https://www.postgresql.org/docs/12/sql-keywords-appendix.html">PostgreSQL
+   *             12</a>.</p>
    *             </li>
    *          </ul>
    */
   masterDatabaseName: string | undefined;
 
   /**
-   * <p>The master user name for your new database.</p>
+   * <p>The name for the master user.</p>
+   *          <p>
+   *             <b>MySQL</b>
+   *          </p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
-   *                <p>Master user name is required.</p>
+   *                <p>Required for MySQL.</p>
    *             </li>
    *             <li>
-   *                <p>Must contain from 1 to 16 alphanumeric characters.</p>
+   *                <p>Must be 1 to 16 letters or numbers. Can contain underscores.</p>
    *             </li>
    *             <li>
-   *                <p>The first character must be a letter.</p>
+   *                <p>First character must be a letter.</p>
    *             </li>
    *             <li>
-   *                <p>Cannot be a reserved word for the database engine you choose.</p>
+   *                <p>Can't be a reserved word for the chosen database engine.</p>
    *                <p>For more information about reserved words in MySQL 5.6 or 5.7, see the Keywords and
-   *           Reserved Words articles for <a href="https://dev.mysql.com/doc/refman/5.6/en/keywords.html">MySQL 5.6</a> or <a href="https://dev.mysql.com/doc/refman/5.7/en/keywords.html">MySQL 5.7</a>
-   *           respectively.</p>
+   *           Reserved Words articles for <a href="https://dev.mysql.com/doc/refman/5.6/en/keywords.html">MySQL 5.6</a>, <a href="https://dev.mysql.com/doc/refman/5.7/en/keywords.html">MySQL 5.7</a>, or <a href="https://dev.mysql.com/doc/refman/8.0/en/keywords.html">MySQL 8.0</a>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <b>PostgreSQL</b>
+   *          </p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Required for PostgreSQL.</p>
+   *             </li>
+   *             <li>
+   *                <p>Must be 1 to 63 letters or numbers. Can contain underscores.</p>
+   *             </li>
+   *             <li>
+   *                <p>First character must be a letter.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't be a reserved word for the chosen database engine.</p>
+   *                <p>For more information about reserved words in MySQL 5.6 or 5.7, see the Keywords and
+   *           Reserved Words articles for <a href="https://www.postgresql.org/docs/9.6/sql-keywords-appendix.html">PostgreSQL
+   *             9.6</a>, <a href="https://www.postgresql.org/docs/10/sql-keywords-appendix.html">PostgreSQL 10</a>, <a href="https://www.postgresql.org/docs/11/sql-keywords-appendix.html">PostgreSQL
+   *             11</a>, and <a href="https://www.postgresql.org/docs/12/sql-keywords-appendix.html">PostgreSQL
+   *             12</a>.</p>
    *             </li>
    *          </ul>
    */
   masterUsername: string | undefined;
 
   /**
-   * <p>The password for the master user of your new database. The password can include any
-   *       printable ASCII character except "/", """, or "@".</p>
-   *          <p>Constraints: Must contain 8 to 41 characters.</p>
+   * <p>The password for the master user. The password can include any printable ASCII character
+   *       except "/", """, or "@". It cannot contain spaces.</p>
+   *          <p>
+   *             <b>MySQL</b>
+   *          </p>
+   *          <p>Constraints: Must contain from 8 to 41 characters.</p>
+   *          <p>
+   *             <b>PostgreSQL</b>
+   *          </p>
+   *          <p>Constraints: Must contain from 8 to 128 characters.</p>
    */
   masterUserPassword?: string;
 
@@ -4826,7 +5095,7 @@ export namespace CreateRelationalDatabaseResult {
 
 export interface CreateRelationalDatabaseFromSnapshotRequest {
   /**
-   * <p>The name to use for your new database.</p>
+   * <p>The name to use for your new Lightsail database resource.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
@@ -5941,7 +6210,7 @@ export interface DiskSnapshot {
   state?: DiskSnapshotState | string;
 
   /**
-   * <p>The progress of the disk snapshot operation.</p>
+   * <p>The progress of the snapshot.</p>
    */
   progress?: string;
 
@@ -7641,9 +7910,15 @@ export interface InstancePortInfo {
    *                </p>
    *             </li>
    *             <li>
-   *                <p>ICMP - The ICMP type. For example, specify <code>8</code> as the <code>fromPort</code>
-   *           (ICMP type), and <code>-1</code> as the <code>toPort</code> (ICMP code), to enable ICMP
-   *           Ping. For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages">Control Messages</a> on <i>Wikipedia</i>.</p>
+   *                <p>ICMP - The ICMP type for IPv4 addresses. For example, specify <code>8</code> as the
+   *             <code>fromPort</code> (ICMP type), and <code>-1</code> as the <code>toPort</code> (ICMP
+   *           code), to enable ICMP Ping. For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages">Control Messages</a> on <i>Wikipedia</i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>ICMPv6 - The ICMP type for IPv6 addresses. For example, specify <code>128</code> as
+   *           the <code>fromPort</code> (ICMPv6 type), and <code>0</code> as <code>toPort</code> (ICMPv6
+   *           code). For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol_for_IPv6">Internet
+   *             Control Message Protocol for IPv6</a>.</p>
    *             </li>
    *          </ul>
    */
@@ -7658,9 +7933,15 @@ export interface InstancePortInfo {
    *                </p>
    *             </li>
    *             <li>
-   *                <p>ICMP - The ICMP code. For example, specify <code>8</code> as the <code>fromPort</code>
-   *           (ICMP type), and <code>-1</code> as the <code>toPort</code> (ICMP code), to enable ICMP
-   *           Ping. For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages">Control Messages</a> on <i>Wikipedia</i>.</p>
+   *                <p>ICMP - The ICMP code for IPv4 addresses. For example, specify <code>8</code> as the
+   *             <code>fromPort</code> (ICMP type), and <code>-1</code> as the <code>toPort</code> (ICMP
+   *           code), to enable ICMP Ping. For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages">Control Messages</a> on <i>Wikipedia</i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>ICMPv6 - The ICMP code for IPv6 addresses. For example, specify <code>128</code> as
+   *           the <code>fromPort</code> (ICMPv6 type), and <code>0</code> as <code>toPort</code> (ICMPv6
+   *           code). For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol_for_IPv6">Internet
+   *             Control Message Protocol for IPv6</a>.</p>
    *             </li>
    *          </ul>
    */
@@ -7730,12 +8011,29 @@ export interface InstancePortInfo {
   accessDirection?: AccessDirection | string;
 
   /**
-   * <p>The IP address, or range of IP addresses in CIDR notation, that are allowed to connect to
-   *       an instance through the ports, and the protocol. Lightsail supports IPv4 addresses.</p>
+   * <p>The IPv4 address, or range of IPv4 addresses (in CIDR notation) that are allowed to
+   *       connect to an instance through the ports, and the protocol.</p>
+   *          <note>
+   *             <p>The <code>ipv6Cidrs</code> parameter lists the IPv6 addresses that are allowed to
+   *         connect to an instance.</p>
+   *          </note>
    *          <p>For more information about CIDR block notation, see <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">Classless
    *         Inter-Domain Routing</a> on <i>Wikipedia</i>.</p>
    */
   cidrs?: string[];
+
+  /**
+   * <p>The IPv6 address, or range of IPv6 addresses (in CIDR notation) that are allowed to
+   *       connect to an instance through the ports, and the protocol. Only devices with an IPv6 address
+   *       can connect to an instance through IPv6; otherwise, IPv4 should be used.</p>
+   *          <note>
+   *             <p>The <code>cidrs</code> parameter lists the IPv4 addresses that are allowed to connect to
+   *         an instance.</p>
+   *          </note>
+   *          <p>For more information about CIDR block notation, see <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">Classless
+   *         Inter-Domain Routing</a> on <i>Wikipedia</i>.</p>
+   */
+  ipv6Cidrs?: string[];
 
   /**
    * <p>An alias that defines access for a preconfigured range of IP addresses.</p>
@@ -7875,9 +8173,17 @@ export interface Instance {
   publicIpAddress?: string;
 
   /**
-   * <p>The IPv6 address of the instance.</p>
+   * <p>The IPv6 addresses of the instance.</p>
    */
-  ipv6Address?: string;
+  ipv6Addresses?: string[];
+
+  /**
+   * <p>The IP address type of the instance.</p>
+   *
+   *          <p>The possible values are <code>ipv4</code> for IPv4 only, and <code>dualstack</code> for
+   *       IPv4 and IPv6.</p>
+   */
+  ipAddressType?: IpAddressType | string;
 
   /**
    * <p>The size of the vCPU and the amount of RAM for the instance.</p>
@@ -8417,9 +8723,15 @@ export interface InstancePortState {
    *                </p>
    *             </li>
    *             <li>
-   *                <p>ICMP - The ICMP type. For example, specify <code>8</code> as the <code>fromPort</code>
-   *           (ICMP type), and <code>-1</code> as the <code>toPort</code> (ICMP code), to enable ICMP
-   *           Ping. For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages">Control Messages</a> on <i>Wikipedia</i>.</p>
+   *                <p>ICMP - The ICMP type for IPv4 addresses. For example, specify <code>8</code> as the
+   *             <code>fromPort</code> (ICMP type), and <code>-1</code> as the <code>toPort</code> (ICMP
+   *           code), to enable ICMP Ping. For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages">Control Messages</a> on <i>Wikipedia</i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>ICMPv6 - The ICMP type for IPv6 addresses. For example, specify <code>128</code> as
+   *           the <code>fromPort</code> (ICMPv6 type), and <code>0</code> as <code>toPort</code> (ICMPv6
+   *           code). For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol_for_IPv6">Internet
+   *             Control Message Protocol for IPv6</a>.</p>
    *             </li>
    *          </ul>
    */
@@ -8434,9 +8746,15 @@ export interface InstancePortState {
    *                </p>
    *             </li>
    *             <li>
-   *                <p>ICMP - The ICMP code. For example, specify <code>8</code> as the <code>fromPort</code>
-   *           (ICMP type), and <code>-1</code> as the <code>toPort</code> (ICMP code), to enable ICMP
-   *           Ping. For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages">Control Messages</a> on <i>Wikipedia</i>.</p>
+   *                <p>ICMP - The ICMP code for IPv4 addresses. For example, specify <code>8</code> as the
+   *             <code>fromPort</code> (ICMP type), and <code>-1</code> as the <code>toPort</code> (ICMP
+   *           code), to enable ICMP Ping. For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages">Control Messages</a> on <i>Wikipedia</i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>ICMPv6 - The ICMP code for IPv6 addresses. For example, specify <code>128</code> as
+   *           the <code>fromPort</code> (ICMPv6 type), and <code>0</code> as <code>toPort</code> (ICMPv6
+   *           code). For more information, see <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol_for_IPv6">Internet
+   *             Control Message Protocol for IPv6</a>.</p>
    *             </li>
    *          </ul>
    */
@@ -8490,12 +8808,29 @@ export interface InstancePortState {
   state?: PortState | string;
 
   /**
-   * <p>The IP address, or range of IP addresses in CIDR notation, that are allowed to connect to
-   *       an instance through the ports, and the protocol. Lightsail supports IPv4 addresses.</p>
+   * <p>The IPv4 address, or range of IPv4 addresses (in CIDR notation) that are allowed to
+   *       connect to an instance through the ports, and the protocol.</p>
+   *          <note>
+   *             <p>The <code>ipv6Cidrs</code> parameter lists the IPv6 addresses that are allowed to
+   *         connect to an instance.</p>
+   *          </note>
    *          <p>For more information about CIDR block notation, see <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">Classless
    *         Inter-Domain Routing</a> on <i>Wikipedia</i>.</p>
    */
   cidrs?: string[];
+
+  /**
+   * <p>The IPv6 address, or range of IPv6 addresses (in CIDR notation) that are allowed to
+   *       connect to an instance through the ports, and the protocol. Only devices with an IPv6 address
+   *       can connect to an instance through IPv6; otherwise, IPv4 should be used.</p>
+   *          <note>
+   *             <p>The <code>cidrs</code> parameter lists the IPv4 addresses that are allowed to connect to
+   *         an instance.</p>
+   *          </note>
+   *          <p>For more information about CIDR block notation, see <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation">Classless
+   *         Inter-Domain Routing</a> on <i>Wikipedia</i>.</p>
+   */
+  ipv6Cidrs?: string[];
 
   /**
    * <p>An alias that defines access for a preconfigured range of IP addresses.</p>
@@ -8633,6 +8968,10 @@ export interface InstanceSnapshot {
 
   /**
    * <p>The progress of the snapshot.</p>
+   *          <note>
+   *             <p>This is populated only for disk snapshots, and is <code>null</code> for instance
+   *         snapshots.</p>
+   *          </note>
    */
   progress?: string;
 
@@ -8756,48 +9095,6 @@ export interface GetInstanceStateResult {
 
 export namespace GetInstanceStateResult {
   export const filterSensitiveLog = (obj: GetInstanceStateResult): any => ({
-    ...obj,
-  });
-}
-
-export interface GetKeyPairRequest {
-  /**
-   * <p>The name of the key pair for which you are requesting information.</p>
-   */
-  keyPairName: string | undefined;
-}
-
-export namespace GetKeyPairRequest {
-  export const filterSensitiveLog = (obj: GetKeyPairRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetKeyPairResult {
-  /**
-   * <p>An array of key-value pairs containing information about the key pair.</p>
-   */
-  keyPair?: KeyPair;
-}
-
-export namespace GetKeyPairResult {
-  export const filterSensitiveLog = (obj: GetKeyPairResult): any => ({
-    ...obj,
-  });
-}
-
-export interface GetKeyPairsRequest {
-  /**
-   * <p>The token to advance to the next page of results from your request.</p>
-   *          <p>To get a page token, perform an initial <code>GetKeyPairs</code> request. If your results
-   *       are paginated, the response will return a next page token that you can specify as the page
-   *       token in a subsequent request.</p>
-   */
-  pageToken?: string;
-}
-
-export namespace GetKeyPairsRequest {
-  export const filterSensitiveLog = (obj: GetKeyPairsRequest): any => ({
     ...obj,
   });
 }

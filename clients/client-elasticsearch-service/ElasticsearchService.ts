@@ -56,6 +56,11 @@ import {
   DeletePackageCommandOutput,
 } from "./commands/DeletePackageCommand";
 import {
+  DescribeDomainAutoTunesCommand,
+  DescribeDomainAutoTunesCommandInput,
+  DescribeDomainAutoTunesCommandOutput,
+} from "./commands/DescribeDomainAutoTunesCommand";
+import {
   DescribeElasticsearchDomainCommand,
   DescribeElasticsearchDomainCommandInput,
   DescribeElasticsearchDomainCommandOutput,
@@ -574,6 +579,38 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
     cb?: (err: any, data?: DeletePackageCommandOutput) => void
   ): Promise<DeletePackageCommandOutput> | void {
     const command = new DeletePackageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Provides scheduled Auto-Tune action details for the Elasticsearch domain, such as Auto-Tune action type, description, severity, and scheduled date.</p>
+   */
+  public describeDomainAutoTunes(
+    args: DescribeDomainAutoTunesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDomainAutoTunesCommandOutput>;
+  public describeDomainAutoTunes(
+    args: DescribeDomainAutoTunesCommandInput,
+    cb: (err: any, data?: DescribeDomainAutoTunesCommandOutput) => void
+  ): void;
+  public describeDomainAutoTunes(
+    args: DescribeDomainAutoTunesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDomainAutoTunesCommandOutput) => void
+  ): void;
+  public describeDomainAutoTunes(
+    args: DescribeDomainAutoTunesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDomainAutoTunesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDomainAutoTunesCommandOutput) => void
+  ): Promise<DescribeDomainAutoTunesCommandOutput> | void {
+    const command = new DescribeDomainAutoTunesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

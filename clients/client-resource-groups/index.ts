@@ -11,6 +11,7 @@ export * from "./commands/ListGroupResourcesCommand";
 export * from "./pagination/ListGroupResourcesPaginator";
 export * from "./commands/ListGroupsCommand";
 export * from "./pagination/ListGroupsPaginator";
+export * from "./commands/PutGroupConfigurationCommand";
 export * from "./commands/SearchResourcesCommand";
 export * from "./pagination/SearchResourcesPaginator";
 export * from "./commands/TagCommand";

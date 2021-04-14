@@ -22,6 +22,8 @@ export type DeleteRecoveryPointCommandOutput = __MetadataBearer;
 
 /**
  * <p>Deletes the recovery point specified by a recovery point ID.</p>
+ *          <p>If the recovery point ID belongs to a continuous backup, calling this endpoint deletes
+ *          the existing continuous backup and stops future continuous backup.</p>
  */
 export class DeleteRecoveryPointCommand extends $Command<
   DeleteRecoveryPointCommandInput,

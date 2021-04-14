@@ -50,6 +50,11 @@ import {
   EnableStageTransitionCommandOutput,
 } from "./commands/EnableStageTransitionCommand";
 import {
+  GetActionTypeCommand,
+  GetActionTypeCommandInput,
+  GetActionTypeCommandOutput,
+} from "./commands/GetActionTypeCommand";
+import {
   GetJobDetailsCommand,
   GetJobDetailsCommandInput,
   GetJobDetailsCommandOutput,
@@ -163,6 +168,11 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateActionTypeCommand,
+  UpdateActionTypeCommandInput,
+  UpdateActionTypeCommandOutput,
+} from "./commands/UpdateActionTypeCommand";
 import {
   UpdatePipelineCommand,
   UpdatePipelineCommandInput,
@@ -702,6 +712,40 @@ export class CodePipeline extends CodePipelineClient {
     cb?: (err: any, data?: EnableStageTransitionCommandOutput) => void
   ): Promise<EnableStageTransitionCommandOutput> | void {
     const command = new EnableStageTransitionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns information about an action type created for an external provider, where the
+   *             action is to be used by customers of the external provider. The action can be created
+   *             with any supported integration model.</p>
+   */
+  public getActionType(
+    args: GetActionTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetActionTypeCommandOutput>;
+  public getActionType(
+    args: GetActionTypeCommandInput,
+    cb: (err: any, data?: GetActionTypeCommandOutput) => void
+  ): void;
+  public getActionType(
+    args: GetActionTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetActionTypeCommandOutput) => void
+  ): void;
+  public getActionType(
+    args: GetActionTypeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetActionTypeCommandOutput) => void),
+    cb?: (err: any, data?: GetActionTypeCommandOutput) => void
+  ): Promise<GetActionTypeCommandOutput> | void {
+    const command = new GetActionTypeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1571,6 +1615,41 @@ export class CodePipeline extends CodePipelineClient {
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates an action type that was created with any supported integration model, where
+   *             the action type is to be used by customers of the action type provider. Use a JSON file
+   *             with the action definition and <code>UpdateActionType</code> to provide the full
+   *             structure.</p>
+   */
+  public updateActionType(
+    args: UpdateActionTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateActionTypeCommandOutput>;
+  public updateActionType(
+    args: UpdateActionTypeCommandInput,
+    cb: (err: any, data?: UpdateActionTypeCommandOutput) => void
+  ): void;
+  public updateActionType(
+    args: UpdateActionTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateActionTypeCommandOutput) => void
+  ): void;
+  public updateActionType(
+    args: UpdateActionTypeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateActionTypeCommandOutput) => void),
+    cb?: (err: any, data?: UpdateActionTypeCommandOutput) => void
+  ): Promise<UpdateActionTypeCommandOutput> | void {
+    const command = new UpdateActionTypeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -21,70 +21,50 @@ export type CreateGameSessionQueueCommandInput = CreateGameSessionQueueInput;
 export type CreateGameSessionQueueCommandOutput = CreateGameSessionQueueOutput & __MetadataBearer;
 
 /**
- * <p>Establishes a new queue for processing requests to place new game sessions. A queue
- *             identifies where new game sessions can be hosted -- by specifying a list of destinations
- *             (fleets or aliases) -- and how long requests can wait in the queue before timing out.
- *             You can set up a queue to try to place game sessions on fleets in multiple Regions. To
- *             add placement requests to a queue, call <a>StartGameSessionPlacement</a> and
- *             reference the queue name.</p>
- *         <p>
- *             <b>Destination order.</b> When processing a request for a
- *             game session, Amazon GameLift tries each destination in order until it finds one with available
- *             resources to host the new game session. A queue's default order is determined by how
- *             destinations are listed. The default order is overridden when a game session placement
- *             request provides player latency information. Player latency information enables Amazon GameLift
- *             to prioritize destinations where players report the lowest average latency, as a result
- *             placing the new game session where the majority of players will have the best possible
- *             gameplay experience.</p>
- *         <p>
- *             <b>Player latency policies.</b> For placement requests
- *             containing player latency information, use player latency policies to protect individual
- *             players from very high latencies. With a latency cap, even when a destination can
- *             deliver a low latency for most players, the game is not placed where any individual
- *             player is reporting latency higher than a policy's maximum. A queue can have multiple
- *             latency policies, which are enforced consecutively starting with the policy with the
- *             lowest latency cap. Use multiple policies to gradually relax latency controls; for
- *             example, you might set a policy with a low latency cap for the first 60 seconds, a
- *             second policy with a higher cap for the next 60 seconds, etc. </p>
- *         <p>To create a new queue, provide a name, timeout value, a list of destinations and,
- *             if desired, a set of latency policies. If successful, a new queue object is
- *             returned.</p>
+ * <p>Creates a placement queue that processes requests for new game sessions. A queue uses
+ *             FleetIQ algorithms to determine the best placement locations and find an
+ *             available game server there, then prompts the game server process to start a new game
+ *             session. </p>
+ *         <p>A game session queue is configured with a set of destinations (GameLift fleets or
+ *             aliases), which determine the locations where the queue can place new game sessions.
+ *             These destinations can span multiple fleet types (Spot and On-Demand), instance types,
+ *             and AWS Regions. If the queue includes multi-location fleets, the queue is able to place
+ *             game sessions in all of a fleet's remote locations. You can opt to filter out individual
+ *             locations if needed.</p>
+ *         <p>The queue configuration also determines how FleetIQ selects the best available placement
+ *             for a new game session. Before searching for an available game server, FleetIQ first
+ *             prioritizes the queue's destinations and locations, with the best placement locations on
+ *             top. You can set up the queue to use the FleetIQ default prioritization or provide an
+ *             alternate set of priorities.</p>
+ *         <p>To create a new queue, provide a name, timeout value, and a list of destinations.
+ *             Optionally, specify a sort configuration and/or a filter, and define a set of latency
+ *             cap policies. You can also include the ARN for an Amazon Simple Notification Service
+ *             (SNS) topic to receive notifications of game session placement activity. Notifications
+ *             using SNS or CloudWatch events is the preferred way to track placement activity.</p>
+ *         <p>If successful, a new <code>GameSessionQueue</code> object is returned with an assigned
+ *             queue ARN. New game session requests, which are submitted to the  queue with <a>StartGameSessionPlacement</a> or <a>StartMatchmaking</a>,
+ *             reference a queue's name or ARN. </p>
  *         <p>
  *             <b>Learn more</b>
  *          </p>
  *         <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-design.html">
- *             Design a Game Session Queue</a>
+ *             Design a game session queue</a>
  *         </p>
  *         <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-creating.html">
- *             Create a Game Session Queue</a>
+ *             Create a game session queue</a>
  *         </p>
  *         <p>
- *             <b>Related operations</b>
+ *             <b>Related actions</b>
  *          </p>
- *         <ul>
- *             <li>
- *                <p>
- *                   <a>CreateGameSessionQueue</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DescribeGameSessionQueues</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateGameSessionQueue</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteGameSessionQueue</a>
- *                </p>
- *             </li>
- *          </ul>
+ *                     <p>
+ *             <a>CreateGameSessionQueue</a> |
+ *                     <a>DescribeGameSessionQueues</a> |
+ *                     <a>UpdateGameSessionQueue</a> |
+ *                     <a>DeleteGameSessionQueue</a> |
+ *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          </p>
  */
 export class CreateGameSessionQueueCommand extends $Command<
   CreateGameSessionQueueCommandInput,

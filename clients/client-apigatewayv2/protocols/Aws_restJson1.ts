@@ -409,6 +409,10 @@ export const serializeAws_restJson1CreateIntegrationCommand = async (
       input.RequestTemplates !== null && {
         requestTemplates: serializeAws_restJson1TemplateMap(input.RequestTemplates, context),
       }),
+    ...(input.ResponseParameters !== undefined &&
+      input.ResponseParameters !== null && {
+        responseParameters: serializeAws_restJson1ResponseParameters(input.ResponseParameters, context),
+      }),
     ...(input.TemplateSelectionExpression !== undefined &&
       input.TemplateSelectionExpression !== null && { templateSelectionExpression: input.TemplateSelectionExpression }),
     ...(input.TimeoutInMillis !== undefined &&
@@ -2716,6 +2720,10 @@ export const serializeAws_restJson1UpdateIntegrationCommand = async (
       input.RequestTemplates !== null && {
         requestTemplates: serializeAws_restJson1TemplateMap(input.RequestTemplates, context),
       }),
+    ...(input.ResponseParameters !== undefined &&
+      input.ResponseParameters !== null && {
+        responseParameters: serializeAws_restJson1ResponseParameters(input.ResponseParameters, context),
+      }),
     ...(input.TemplateSelectionExpression !== undefined &&
       input.TemplateSelectionExpression !== null && { templateSelectionExpression: input.TemplateSelectionExpression }),
     ...(input.TimeoutInMillis !== undefined &&
@@ -3650,6 +3658,7 @@ export const deserializeAws_restJson1CreateIntegrationCommand = async (
     PayloadFormatVersion: undefined,
     RequestParameters: undefined,
     RequestTemplates: undefined,
+    ResponseParameters: undefined,
     TemplateSelectionExpression: undefined,
     TimeoutInMillis: undefined,
     TlsConfig: undefined,
@@ -3705,6 +3714,9 @@ export const deserializeAws_restJson1CreateIntegrationCommand = async (
   }
   if (data.requestTemplates !== undefined && data.requestTemplates !== null) {
     contents.RequestTemplates = deserializeAws_restJson1TemplateMap(data.requestTemplates, context);
+  }
+  if (data.responseParameters !== undefined && data.responseParameters !== null) {
+    contents.ResponseParameters = deserializeAws_restJson1ResponseParameters(data.responseParameters, context);
   }
   if (data.templateSelectionExpression !== undefined && data.templateSelectionExpression !== null) {
     contents.TemplateSelectionExpression = data.templateSelectionExpression;
@@ -6319,6 +6331,7 @@ export const deserializeAws_restJson1GetIntegrationCommand = async (
     PayloadFormatVersion: undefined,
     RequestParameters: undefined,
     RequestTemplates: undefined,
+    ResponseParameters: undefined,
     TemplateSelectionExpression: undefined,
     TimeoutInMillis: undefined,
     TlsConfig: undefined,
@@ -6374,6 +6387,9 @@ export const deserializeAws_restJson1GetIntegrationCommand = async (
   }
   if (data.requestTemplates !== undefined && data.requestTemplates !== null) {
     contents.RequestTemplates = deserializeAws_restJson1TemplateMap(data.requestTemplates, context);
+  }
+  if (data.responseParameters !== undefined && data.responseParameters !== null) {
+    contents.ResponseParameters = deserializeAws_restJson1ResponseParameters(data.responseParameters, context);
   }
   if (data.templateSelectionExpression !== undefined && data.templateSelectionExpression !== null) {
     contents.TemplateSelectionExpression = data.templateSelectionExpression;
@@ -8714,6 +8730,7 @@ export const deserializeAws_restJson1UpdateIntegrationCommand = async (
     PayloadFormatVersion: undefined,
     RequestParameters: undefined,
     RequestTemplates: undefined,
+    ResponseParameters: undefined,
     TemplateSelectionExpression: undefined,
     TimeoutInMillis: undefined,
     TlsConfig: undefined,
@@ -8769,6 +8786,9 @@ export const deserializeAws_restJson1UpdateIntegrationCommand = async (
   }
   if (data.requestTemplates !== undefined && data.requestTemplates !== null) {
     contents.RequestTemplates = deserializeAws_restJson1TemplateMap(data.requestTemplates, context);
+  }
+  if (data.responseParameters !== undefined && data.responseParameters !== null) {
+    contents.ResponseParameters = deserializeAws_restJson1ResponseParameters(data.responseParameters, context);
   }
   if (data.templateSelectionExpression !== undefined && data.templateSelectionExpression !== null) {
     contents.TemplateSelectionExpression = data.templateSelectionExpression;
@@ -9764,6 +9784,24 @@ const serializeAws_restJson1ParameterConstraints = (input: ParameterConstraints,
   };
 };
 
+const serializeAws_restJson1ResponseParameters = (
+  input: { [key: string]: { [key: string]: string } },
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: { [key: string]: string } }, [key, value]: [string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: serializeAws_restJson1IntegrationParameters(value, context),
+      };
+    },
+    {}
+  );
+};
+
 const serializeAws_restJson1RouteModels = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
     if (value === null) {
@@ -10349,6 +10387,10 @@ const deserializeAws_restJson1Integration = (output: any, context: __SerdeContex
       output.requestTemplates !== undefined && output.requestTemplates !== null
         ? deserializeAws_restJson1TemplateMap(output.requestTemplates, context)
         : undefined,
+    ResponseParameters:
+      output.responseParameters !== undefined && output.responseParameters !== null
+        ? deserializeAws_restJson1ResponseParameters(output.responseParameters, context)
+        : undefined,
     TemplateSelectionExpression:
       output.templateSelectionExpression !== undefined && output.templateSelectionExpression !== null
         ? output.templateSelectionExpression
@@ -10448,6 +10490,24 @@ const deserializeAws_restJson1ParameterConstraints = (output: any, context: __Se
   return {
     Required: output.required !== undefined && output.required !== null ? output.required : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1ResponseParameters = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: { [key: string]: string } } => {
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: { [key: string]: string } }, [key, value]: [string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: deserializeAws_restJson1IntegrationParameters(value, context),
+      };
+    },
+    {}
+  );
 };
 
 const deserializeAws_restJson1Route = (output: any, context: __SerdeContext): Route => {

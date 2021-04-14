@@ -23,6 +23,7 @@ export type GetGeoLocationCommandOutput = GetGeoLocationResponse & __MetadataBea
 /**
  * <p>Gets information about whether a specified geographic location is supported for Amazon Route 53 geolocation
  * 			resource record sets.</p>
+ * 	        <p>Route 53 does not perform authorization for this API because it retrieves information that is already available to the public.</p>
  *
  * 		       <p>Use the following syntax to determine whether a continent is supported for geolocation:</p>
  * 		       <p>

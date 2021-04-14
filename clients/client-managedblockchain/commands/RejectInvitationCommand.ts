@@ -26,6 +26,7 @@ export type RejectInvitationCommandOutput = RejectInvitationOutput & __MetadataB
 
 /**
  * <p>Rejects an invitation to join a network. This action can be called by a principal in an AWS account that has received an invitation to create a member and join a network.</p>
+ *          <p>Applies only to Hyperledger Fabric.</p>
  */
 export class RejectInvitationCommand extends $Command<
   RejectInvitationCommandInput,

@@ -21,7 +21,7 @@ export type BatchImportFindingsCommandInput = BatchImportFindingsRequest;
 export type BatchImportFindingsCommandOutput = BatchImportFindingsResponse & __MetadataBearer;
 
 /**
- * <p>Imports security findings generated from an integrated third-party product into Security Hub.
+ * <p>Imports security findings generated from an integrated product into Security Hub.
  *          This action is requested by the integrated product to import its findings into
  *          Security Hub.</p>
  *          <p>The maximum allowed size for a finding is 240 Kb. An error is returned for any finding
@@ -32,32 +32,7 @@ export type BatchImportFindingsCommandOutput = BatchImportFindingsResponse & __M
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>Confidence</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Criticality</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
  *                   <code>Note</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>RelatedFindings</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Severity</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Types</code>
  *                </p>
  *             </li>
  *             <li>
@@ -76,6 +51,35 @@ export type BatchImportFindingsCommandOutput = BatchImportFindingsResponse & __M
  *                </p>
  *             </li>
  *          </ul>
+ *          <p>Finding providers also should not use <code>BatchImportFindings</code> to update the following attributes.</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>Confidence</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Criticality</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>RelatedFindings</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Severity</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>Types</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>Instead, finding providers use <code>FindingProviderFields</code> to provide values for these attributes.</p>
  */
 export class BatchImportFindingsCommand extends $Command<
   BatchImportFindingsCommandInput,

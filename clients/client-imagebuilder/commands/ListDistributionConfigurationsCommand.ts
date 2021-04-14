@@ -21,7 +21,7 @@ export type ListDistributionConfigurationsCommandInput = ListDistributionConfigu
 export type ListDistributionConfigurationsCommandOutput = ListDistributionConfigurationsResponse & __MetadataBearer;
 
 /**
- * <p> Returns a list of distribution configurations. </p>
+ * <p>Returns a list of distribution configurations.</p>
  */
 export class ListDistributionConfigurationsCommand extends $Command<
   ListDistributionConfigurationsCommandInput,

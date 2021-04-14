@@ -25,7 +25,8 @@ export type GetServiceQuotaIncreaseRequestFromTemplateCommandOutput = GetService
   __MetadataBearer;
 
 /**
- * <p>Returns the details of the service quota increase request in your template.</p>
+ * <p>Retrieves information about the specified quota increase request in your quota request
+ *       template.</p>
  */
 export class GetServiceQuotaIncreaseRequestFromTemplateCommand extends $Command<
   GetServiceQuotaIncreaseRequestFromTemplateCommandInput,

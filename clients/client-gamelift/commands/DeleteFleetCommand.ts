@@ -21,14 +21,18 @@ export type DeleteFleetCommandInput = DeleteFleetInput;
 export type DeleteFleetCommandOutput = __MetadataBearer;
 
 /**
- * <p>Deletes everything related to a fleet. Before deleting a fleet, you must set the
- *             fleet's desired capacity to zero. See <a>UpdateFleetCapacity</a>.</p>
- *         <p>If the fleet being deleted has a VPC peering connection, you first need to get a
- *             valid authorization (good for 24 hours) by calling <a>CreateVpcPeeringAuthorization</a>.
- *             You do not need to explicitly delete the VPC peering connection--this is done as part of the
- *             delete fleet process.</p>
- *         <p>This operation removes the fleet and its resources. Once a fleet is deleted, you can no
- *             longer use any of the resource in that fleet.</p>
+ * <p>Deletes all resources and information related a fleet. Any current fleet instances,
+ *             including those in remote locations, are shut down. You don't need to call
+ *                 <code>DeleteFleetLocations</code> separately.</p>
+ *         <note>
+ *             <p>If the fleet being deleted has a VPC peering connection, you first need to get a
+ *                 valid authorization (good for 24 hours) by calling <a>CreateVpcPeeringAuthorization</a>. You do not need to explicitly delete
+ *                 the VPC peering connection--this is done as part of the delete fleet process.</p>
+ *         </note>
+ *         <p>To delete a fleet, specify the fleet ID to be terminated. During the deletion process
+ *             the fleet status is changed to <code>DELETING</code>. When completed, the status
+ *             switches to <code>TERMINATED</code> and the fleet event <code>FLEET_DELETED</code> is
+ *             sent.</p>
  *         <p>
  *             <b>Learn more</b>
  *          </p>
@@ -36,40 +40,22 @@ export type DeleteFleetCommandOutput = __MetadataBearer;
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift Fleets</a>
  *          </p>
  *         <p>
- *             <b>Related operations</b>
+ *             <b>Related actions</b>
  *          </p>
- *         <ul>
- *             <li>
- *                <p>
- *                   <a>CreateFleet</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListFleets</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteFleet</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DescribeFleetAttributes</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateFleetAttributes</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>StartFleetActions</a> or <a>StopFleetActions</a>
- *                </p>
- *             </li>
- *          </ul>
+ *                     <p>
+ *             <a>CreateFleetLocations</a> |
+ *                     <a>UpdateFleetAttributes</a> |
+ *                     <a>UpdateFleetCapacity</a> |
+ *                     <a>UpdateFleetPortSettings</a> |
+ *                     <a>UpdateRuntimeConfiguration</a> |
+ *                     <a>StopFleetActions</a> |
+ *                     <a>StartFleetActions</a> |
+ *                     <a>PutScalingPolicy</a> |
+ *                     <a>DeleteFleet</a> |
+ *                     <a>DeleteFleetLocations</a> |
+ *                     <a>DeleteScalingPolicy</a> |
+ *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          </p>
  */
 export class DeleteFleetCommand extends $Command<
   DeleteFleetCommandInput,

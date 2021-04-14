@@ -126,8 +126,8 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * <p>Definition of the public APIs
- *             exposed by Amazon Machine Learning</p>
+ * Definition of the public APIs
+ * 		exposed by Amazon Machine Learning
  */
 export class MachineLearning extends MachineLearningClient {
   /**

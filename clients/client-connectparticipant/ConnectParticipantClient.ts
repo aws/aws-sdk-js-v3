@@ -1,4 +1,8 @@
 import {
+  CompleteAttachmentUploadCommandInput,
+  CompleteAttachmentUploadCommandOutput,
+} from "./commands/CompleteAttachmentUploadCommand";
+import {
   CreateParticipantConnectionCommandInput,
   CreateParticipantConnectionCommandOutput,
 } from "./commands/CreateParticipantConnectionCommand";
@@ -6,9 +10,14 @@ import {
   DisconnectParticipantCommandInput,
   DisconnectParticipantCommandOutput,
 } from "./commands/DisconnectParticipantCommand";
+import { GetAttachmentCommandInput, GetAttachmentCommandOutput } from "./commands/GetAttachmentCommand";
 import { GetTranscriptCommandInput, GetTranscriptCommandOutput } from "./commands/GetTranscriptCommand";
 import { SendEventCommandInput, SendEventCommandOutput } from "./commands/SendEventCommand";
 import { SendMessageCommandInput, SendMessageCommandOutput } from "./commands/SendMessageCommand";
+import {
+  StartAttachmentUploadCommandInput,
+  StartAttachmentUploadCommandOutput,
+} from "./commands/StartAttachmentUploadCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -67,18 +76,24 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
+  | CompleteAttachmentUploadCommandInput
   | CreateParticipantConnectionCommandInput
   | DisconnectParticipantCommandInput
+  | GetAttachmentCommandInput
   | GetTranscriptCommandInput
   | SendEventCommandInput
-  | SendMessageCommandInput;
+  | SendMessageCommandInput
+  | StartAttachmentUploadCommandInput;
 
 export type ServiceOutputTypes =
+  | CompleteAttachmentUploadCommandOutput
   | CreateParticipantConnectionCommandOutput
   | DisconnectParticipantCommandOutput
+  | GetAttachmentCommandOutput
   | GetTranscriptCommandOutput
   | SendEventCommandOutput
-  | SendMessageCommandOutput;
+  | SendMessageCommandOutput
+  | StartAttachmentUploadCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

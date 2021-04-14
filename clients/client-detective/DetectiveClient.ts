@@ -11,11 +11,17 @@ import { GetMembersCommandInput, GetMembersCommandOutput } from "./commands/GetM
 import { ListGraphsCommandInput, ListGraphsCommandOutput } from "./commands/ListGraphsCommand";
 import { ListInvitationsCommandInput, ListInvitationsCommandOutput } from "./commands/ListInvitationsCommand";
 import { ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
 import { RejectInvitationCommandInput, RejectInvitationCommandOutput } from "./commands/RejectInvitationCommand";
 import {
   StartMonitoringMemberCommandInput,
   StartMonitoringMemberCommandOutput,
 } from "./commands/StartMonitoringMemberCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -78,8 +84,11 @@ export type ServiceInputTypes =
   | ListGraphsCommandInput
   | ListInvitationsCommandInput
   | ListMembersCommandInput
+  | ListTagsForResourceCommandInput
   | RejectInvitationCommandInput
-  | StartMonitoringMemberCommandInput;
+  | StartMonitoringMemberCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput;
 
 export type ServiceOutputTypes =
   | AcceptInvitationCommandOutput
@@ -92,8 +101,11 @@ export type ServiceOutputTypes =
   | ListGraphsCommandOutput
   | ListInvitationsCommandOutput
   | ListMembersCommandOutput
+  | ListTagsForResourceCommandOutput
   | RejectInvitationCommandOutput
-  | StartMonitoringMemberCommandOutput;
+  | StartMonitoringMemberCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -217,10 +229,10 @@ export type DetectiveClientResolvedConfig = __SmithyResolvedConfiguration<__Http
  *          Amazon GuardDuty.</p>
  *          <p>The Detective API primarily supports the creation and management of behavior graphs. A
  *          behavior graph contains the extracted data from a set of member accounts, and is created
- *          and managed by a master account.</p>
+ *          and managed by an administrator account.</p>
  *          <p>Every behavior graph is specific to a Region. You can only use the API to manage graphs
  *          that belong to the Region that is associated with the currently selected endpoint.</p>
- *          <p>A Detective master account can use the Detective API to do the following:</p>
+ *          <p>A Detective administrator account can use the Detective API to do the following:</p>
  *          <ul>
  *             <li>
  *                <p>Enable and disable Detective. Enabling Detective creates a new behavior graph.</p>
@@ -251,6 +263,11 @@ export type DetectiveClientResolvedConfig = __SmithyResolvedConfiguration<__Http
  *             </li>
  *          </ul>
  *          <p>All API actions are logged as CloudTrail events. See <a href="https://docs.aws.amazon.com/detective/latest/adminguide/logging-using-cloudtrail.html">Logging Detective API Calls with CloudTrail</a>.</p>
+ *          <note>
+ *             <p>We replaced the term "master account" with the term "administrator account." An
+ *             administrator account is used to centrally manage multiple accounts. In the case of
+ *             Detective, the administrator account manages the accounts in their behavior graph.</p>
+ *          </note>
  */
 export class DetectiveClient extends __Client<
   __HttpHandlerOptions,

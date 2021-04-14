@@ -123,11 +123,13 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  */
 export class EFS extends EFSClient {
   /**
-   * <p>Creates an EFS access point. An access point is an application-specific view into an EFS file system that applies an operating system user and
-   *       group, and a file system path, to any file system request made through the access point. The operating system
-   *       user and group override any identity information provided by the NFS client. The file system path is exposed as
-   *       the access point's root directory. Applications using the access point can only access data in its own directory and below. To learn more, see
-   *       <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html">Mounting a File System Using EFS Access Points</a>.</p>
+   * <p>Creates an EFS access point. An access point is an application-specific view into an EFS
+   *       file system that applies an operating system user and group, and a file system path, to any
+   *       file system request made through the access point. The operating system user and group
+   *       override any identity information provided by the NFS client. The file system path is exposed
+   *       as the access point's root directory. Applications using the access point can only access data
+   *       in its own directory and below. To learn more, see <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html">Mounting a file system using EFS access
+   *         points</a>.</p>
    *          <p>This operation requires permissions for the <code>elasticfilesystem:CreateAccessPoint</code> action.</p>
    */
   public createAccessPoint(
@@ -186,7 +188,9 @@ export class EFS extends EFSClient {
    *       be that a transport level timeout occurred or your connection was reset. As long as you use
    *       the same creation token, if the initial call had succeeded in creating a file system, the
    *       client can learn of its existence from the <code>FileSystemAlreadyExists</code> error.</p>
-   *
+   *          <p>For more information, see
+   *       <a href="https://docs.aws.amazon.com/efs/latest/ug/creating-using-create-fs.html#creating-using-create-fs-part1">Creating a file system</a>
+   *      in the <i>Amazon EFS User Guide</i>.</p>
    *
    *          <note>
    *             <p>The <code>CreateFileSystem</code> call returns while the file system's lifecycle
@@ -195,13 +199,15 @@ export class EFS extends EFSClient {
    *         system state.</p>
    *          </note>
    *
-   *          <p>This operation also takes an optional <code>PerformanceMode</code> parameter that you
+   *          <p>This operation accepts an optional <code>PerformanceMode</code> parameter that you
    *       choose for your file system. We recommend <code>generalPurpose</code> performance mode for
    *       most file systems. File systems using the <code>maxIO</code> performance mode can scale to
    *       higher levels of aggregate throughput and operations per second with a tradeoff of slightly
    *       higher latencies for most file operations. The performance mode can't be changed after
-   *       the file system has been created. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes.html">Amazon EFS: Performance
-   *         Modes</a>.</p>
+   *       the file system has been created. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes.html">Amazon EFS performance
+   *         modes</a>.</p>
+   *
+   *          <p>You can set the throughput mode for the file system using the <code>ThroughputMode</code> parameter.</p>
    *
    *          <p>After the file system is fully created, Amazon EFS sets its lifecycle state to
    *         <code>available</code>, at which point you can create one or more mount targets for the file
@@ -247,21 +253,36 @@ export class EFS extends EFSClient {
    *       instances in a VPC within a given Availability Zone share a single mount target for a given
    *       file system. If you have multiple subnets in an Availability Zone, you create a mount target
    *       in one of the subnets. EC2 instances do not need to be in the same subnet as the mount target
-   *       in order to access their file system. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/how-it-works.html">Amazon EFS: How it Works</a>. </p>
-   *          <p>In the request, you also specify a file system ID for which you are creating the mount
-   *       target and the file system's lifecycle state must be <code>available</code>. For more
-   *       information, see <a>DescribeFileSystems</a>.</p>
-   *          <p>In the request, you also provide a subnet ID, which determines the following:</p>
+   *       in order to access their file system.</p>
+   *          <p>You can create only one mount target for an EFS file system using One Zone storage
+   *       classes. You must create that mount target in the same Availability Zone in which the file
+   *       system is located. Use the <code>AvailabilityZoneName</code> and
+   *         <code>AvailabiltyZoneId</code> properties in the <a>DescribeFileSystems</a>
+   *       response object to get this information. Use the <code>subnetId</code> associated with the
+   *       file system's Availability Zone when creating the mount target.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/how-it-works.html">Amazon EFS: How it Works</a>. </p>
+   *          <p>To create a mount target for a file system, the file system's lifecycle state must be
+   *         <code>available</code>. For more information, see <a>DescribeFileSystems</a>.</p>
+   *          <p>In the request, provide the following:</p>
    *          <ul>
    *             <li>
-   *                <p>VPC in which Amazon EFS creates the mount target</p>
+   *                <p>The file system ID for which you are creating the mount
+   *         target.</p>
    *             </li>
    *             <li>
-   *                <p>Availability Zone in which Amazon EFS creates the mount target</p>
-   *             </li>
-   *             <li>
-   *                <p>IP address range from which Amazon EFS selects the IP address of the mount target
-   *           (if you don't specify an IP address in the request)</p>
+   *                <p>A subnet ID, which determines the following:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>The VPC in which Amazon EFS creates the mount target</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>The Availability Zone in which Amazon EFS creates the mount target</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>The IP address range from which Amazon EFS selects the IP address of the mount target
+   *               (if you don't specify an IP address in the request)</p>
+   *                   </li>
+   *                </ul>
    *             </li>
    *          </ul>
    *
@@ -1080,9 +1101,11 @@ export class EFS extends EFSClient {
    *       A file system policy is an IAM resource-based policy and can contain multiple policy statements.
    *       A file system always has exactly one file system policy, which can be the default policy or
    *       an explicit policy set or updated using this API operation.
+   *       EFS file system policies have a 20,000 character limit.
    *       When an explicit policy is set, it overrides the default policy. For more information about the default file system policy, see
    *       <a href="https://docs.aws.amazon.com/efs/latest/ug/iam-access-control-nfs-efs.html#default-filesystempolicy">Default EFS File System Policy</a>.
    *     </p>
+   *          <p>EFS file system policies have a 20,000 character limit.</p>
    *          <p>This operation requires permissions for the <code>elasticfilesystem:PutFileSystemPolicy</code> action.</p>
    */
   public putFileSystemPolicy(

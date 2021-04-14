@@ -21,8 +21,8 @@ export type GetAccountCommandInput = GetAccountRequest;
 export type GetAccountCommandOutput = GetAccountResponse & __MetadataBearer;
 
 /**
- * <p>Retrieves details for the specified Amazon Chime account, such as account type and
- *        supported licenses.</p>
+ * <p>Retrieves details for the specified Amazon Chime account, such as account type and supported
+ *             licenses.</p>
  */
 export class GetAccountCommand extends $Command<
   GetAccountCommandInput,

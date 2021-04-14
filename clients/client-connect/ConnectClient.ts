@@ -12,6 +12,10 @@ import {
 } from "./commands/AssociateLambdaFunctionCommand";
 import { AssociateLexBotCommandInput, AssociateLexBotCommandOutput } from "./commands/AssociateLexBotCommand";
 import {
+  AssociateQueueQuickConnectsCommandInput,
+  AssociateQueueQuickConnectsCommandOutput,
+} from "./commands/AssociateQueueQuickConnectsCommand";
+import {
   AssociateRoutingProfileQueuesCommandInput,
   AssociateRoutingProfileQueuesCommandOutput,
 } from "./commands/AssociateRoutingProfileQueuesCommand";
@@ -25,6 +29,8 @@ import {
   CreateIntegrationAssociationCommandInput,
   CreateIntegrationAssociationCommandOutput,
 } from "./commands/CreateIntegrationAssociationCommand";
+import { CreateQueueCommandInput, CreateQueueCommandOutput } from "./commands/CreateQueueCommand";
+import { CreateQuickConnectCommandInput, CreateQuickConnectCommandOutput } from "./commands/CreateQuickConnectCommand";
 import {
   CreateRoutingProfileCommandInput,
   CreateRoutingProfileCommandOutput,
@@ -40,6 +46,7 @@ import {
   DeleteIntegrationAssociationCommandInput,
   DeleteIntegrationAssociationCommandOutput,
 } from "./commands/DeleteIntegrationAssociationCommand";
+import { DeleteQuickConnectCommandInput, DeleteQuickConnectCommandOutput } from "./commands/DeleteQuickConnectCommand";
 import { DeleteUseCaseCommandInput, DeleteUseCaseCommandOutput } from "./commands/DeleteUseCaseCommand";
 import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import {
@@ -51,6 +58,10 @@ import {
   DescribeContactFlowCommandOutput,
 } from "./commands/DescribeContactFlowCommand";
 import {
+  DescribeHoursOfOperationCommandInput,
+  DescribeHoursOfOperationCommandOutput,
+} from "./commands/DescribeHoursOfOperationCommand";
+import {
   DescribeInstanceAttributeCommandInput,
   DescribeInstanceAttributeCommandOutput,
 } from "./commands/DescribeInstanceAttributeCommand";
@@ -59,6 +70,11 @@ import {
   DescribeInstanceStorageConfigCommandInput,
   DescribeInstanceStorageConfigCommandOutput,
 } from "./commands/DescribeInstanceStorageConfigCommand";
+import { DescribeQueueCommandInput, DescribeQueueCommandOutput } from "./commands/DescribeQueueCommand";
+import {
+  DescribeQuickConnectCommandInput,
+  DescribeQuickConnectCommandOutput,
+} from "./commands/DescribeQuickConnectCommand";
 import {
   DescribeRoutingProfileCommandInput,
   DescribeRoutingProfileCommandOutput,
@@ -85,6 +101,10 @@ import {
   DisassociateLambdaFunctionCommandOutput,
 } from "./commands/DisassociateLambdaFunctionCommand";
 import { DisassociateLexBotCommandInput, DisassociateLexBotCommandOutput } from "./commands/DisassociateLexBotCommand";
+import {
+  DisassociateQueueQuickConnectsCommandInput,
+  DisassociateQueueQuickConnectsCommandOutput,
+} from "./commands/DisassociateQueueQuickConnectsCommand";
 import {
   DisassociateRoutingProfileQueuesCommandInput,
   DisassociateRoutingProfileQueuesCommandOutput,
@@ -132,7 +152,12 @@ import {
 import { ListLexBotsCommandInput, ListLexBotsCommandOutput } from "./commands/ListLexBotsCommand";
 import { ListPhoneNumbersCommandInput, ListPhoneNumbersCommandOutput } from "./commands/ListPhoneNumbersCommand";
 import { ListPromptsCommandInput, ListPromptsCommandOutput } from "./commands/ListPromptsCommand";
+import {
+  ListQueueQuickConnectsCommandInput,
+  ListQueueQuickConnectsCommandOutput,
+} from "./commands/ListQueueQuickConnectsCommand";
 import { ListQueuesCommandInput, ListQueuesCommandOutput } from "./commands/ListQueuesCommand";
+import { ListQuickConnectsCommandInput, ListQuickConnectsCommandOutput } from "./commands/ListQuickConnectsCommand";
 import {
   ListRoutingProfileQueuesCommandInput,
   ListRoutingProfileQueuesCommandOutput,
@@ -201,6 +226,28 @@ import {
   UpdateInstanceStorageConfigCommandInput,
   UpdateInstanceStorageConfigCommandOutput,
 } from "./commands/UpdateInstanceStorageConfigCommand";
+import {
+  UpdateQueueHoursOfOperationCommandInput,
+  UpdateQueueHoursOfOperationCommandOutput,
+} from "./commands/UpdateQueueHoursOfOperationCommand";
+import {
+  UpdateQueueMaxContactsCommandInput,
+  UpdateQueueMaxContactsCommandOutput,
+} from "./commands/UpdateQueueMaxContactsCommand";
+import { UpdateQueueNameCommandInput, UpdateQueueNameCommandOutput } from "./commands/UpdateQueueNameCommand";
+import {
+  UpdateQueueOutboundCallerConfigCommandInput,
+  UpdateQueueOutboundCallerConfigCommandOutput,
+} from "./commands/UpdateQueueOutboundCallerConfigCommand";
+import { UpdateQueueStatusCommandInput, UpdateQueueStatusCommandOutput } from "./commands/UpdateQueueStatusCommand";
+import {
+  UpdateQuickConnectConfigCommandInput,
+  UpdateQuickConnectConfigCommandOutput,
+} from "./commands/UpdateQuickConnectConfigCommand";
+import {
+  UpdateQuickConnectNameCommandInput,
+  UpdateQuickConnectNameCommandOutput,
+} from "./commands/UpdateQuickConnectNameCommand";
 import {
   UpdateRoutingProfileConcurrencyCommandInput,
   UpdateRoutingProfileConcurrencyCommandOutput,
@@ -301,24 +348,31 @@ export type ServiceInputTypes =
   | AssociateInstanceStorageConfigCommandInput
   | AssociateLambdaFunctionCommandInput
   | AssociateLexBotCommandInput
+  | AssociateQueueQuickConnectsCommandInput
   | AssociateRoutingProfileQueuesCommandInput
   | AssociateSecurityKeyCommandInput
   | CreateContactFlowCommandInput
   | CreateInstanceCommandInput
   | CreateIntegrationAssociationCommandInput
+  | CreateQueueCommandInput
+  | CreateQuickConnectCommandInput
   | CreateRoutingProfileCommandInput
   | CreateUseCaseCommandInput
   | CreateUserCommandInput
   | CreateUserHierarchyGroupCommandInput
   | DeleteInstanceCommandInput
   | DeleteIntegrationAssociationCommandInput
+  | DeleteQuickConnectCommandInput
   | DeleteUseCaseCommandInput
   | DeleteUserCommandInput
   | DeleteUserHierarchyGroupCommandInput
   | DescribeContactFlowCommandInput
+  | DescribeHoursOfOperationCommandInput
   | DescribeInstanceAttributeCommandInput
   | DescribeInstanceCommandInput
   | DescribeInstanceStorageConfigCommandInput
+  | DescribeQueueCommandInput
+  | DescribeQuickConnectCommandInput
   | DescribeRoutingProfileCommandInput
   | DescribeUserCommandInput
   | DescribeUserHierarchyGroupCommandInput
@@ -327,6 +381,7 @@ export type ServiceInputTypes =
   | DisassociateInstanceStorageConfigCommandInput
   | DisassociateLambdaFunctionCommandInput
   | DisassociateLexBotCommandInput
+  | DisassociateQueueQuickConnectsCommandInput
   | DisassociateRoutingProfileQueuesCommandInput
   | DisassociateSecurityKeyCommandInput
   | GetContactAttributesCommandInput
@@ -344,7 +399,9 @@ export type ServiceInputTypes =
   | ListLexBotsCommandInput
   | ListPhoneNumbersCommandInput
   | ListPromptsCommandInput
+  | ListQueueQuickConnectsCommandInput
   | ListQueuesCommandInput
+  | ListQuickConnectsCommandInput
   | ListRoutingProfileQueuesCommandInput
   | ListRoutingProfilesCommandInput
   | ListSecurityKeysCommandInput
@@ -368,6 +425,13 @@ export type ServiceInputTypes =
   | UpdateContactFlowNameCommandInput
   | UpdateInstanceAttributeCommandInput
   | UpdateInstanceStorageConfigCommandInput
+  | UpdateQueueHoursOfOperationCommandInput
+  | UpdateQueueMaxContactsCommandInput
+  | UpdateQueueNameCommandInput
+  | UpdateQueueOutboundCallerConfigCommandInput
+  | UpdateQueueStatusCommandInput
+  | UpdateQuickConnectConfigCommandInput
+  | UpdateQuickConnectNameCommandInput
   | UpdateRoutingProfileConcurrencyCommandInput
   | UpdateRoutingProfileDefaultOutboundQueueCommandInput
   | UpdateRoutingProfileNameCommandInput
@@ -385,24 +449,31 @@ export type ServiceOutputTypes =
   | AssociateInstanceStorageConfigCommandOutput
   | AssociateLambdaFunctionCommandOutput
   | AssociateLexBotCommandOutput
+  | AssociateQueueQuickConnectsCommandOutput
   | AssociateRoutingProfileQueuesCommandOutput
   | AssociateSecurityKeyCommandOutput
   | CreateContactFlowCommandOutput
   | CreateInstanceCommandOutput
   | CreateIntegrationAssociationCommandOutput
+  | CreateQueueCommandOutput
+  | CreateQuickConnectCommandOutput
   | CreateRoutingProfileCommandOutput
   | CreateUseCaseCommandOutput
   | CreateUserCommandOutput
   | CreateUserHierarchyGroupCommandOutput
   | DeleteInstanceCommandOutput
   | DeleteIntegrationAssociationCommandOutput
+  | DeleteQuickConnectCommandOutput
   | DeleteUseCaseCommandOutput
   | DeleteUserCommandOutput
   | DeleteUserHierarchyGroupCommandOutput
   | DescribeContactFlowCommandOutput
+  | DescribeHoursOfOperationCommandOutput
   | DescribeInstanceAttributeCommandOutput
   | DescribeInstanceCommandOutput
   | DescribeInstanceStorageConfigCommandOutput
+  | DescribeQueueCommandOutput
+  | DescribeQuickConnectCommandOutput
   | DescribeRoutingProfileCommandOutput
   | DescribeUserCommandOutput
   | DescribeUserHierarchyGroupCommandOutput
@@ -411,6 +482,7 @@ export type ServiceOutputTypes =
   | DisassociateInstanceStorageConfigCommandOutput
   | DisassociateLambdaFunctionCommandOutput
   | DisassociateLexBotCommandOutput
+  | DisassociateQueueQuickConnectsCommandOutput
   | DisassociateRoutingProfileQueuesCommandOutput
   | DisassociateSecurityKeyCommandOutput
   | GetContactAttributesCommandOutput
@@ -428,7 +500,9 @@ export type ServiceOutputTypes =
   | ListLexBotsCommandOutput
   | ListPhoneNumbersCommandOutput
   | ListPromptsCommandOutput
+  | ListQueueQuickConnectsCommandOutput
   | ListQueuesCommandOutput
+  | ListQuickConnectsCommandOutput
   | ListRoutingProfileQueuesCommandOutput
   | ListRoutingProfilesCommandOutput
   | ListSecurityKeysCommandOutput
@@ -452,6 +526,13 @@ export type ServiceOutputTypes =
   | UpdateContactFlowNameCommandOutput
   | UpdateInstanceAttributeCommandOutput
   | UpdateInstanceStorageConfigCommandOutput
+  | UpdateQueueHoursOfOperationCommandOutput
+  | UpdateQueueMaxContactsCommandOutput
+  | UpdateQueueNameCommandOutput
+  | UpdateQueueOutboundCallerConfigCommandOutput
+  | UpdateQueueStatusCommandOutput
+  | UpdateQuickConnectConfigCommandOutput
+  | UpdateQuickConnectNameCommandOutput
   | UpdateRoutingProfileConcurrencyCommandOutput
   | UpdateRoutingProfileDefaultOutboundQueueCommandOutput
   | UpdateRoutingProfileNameCommandOutput
@@ -579,17 +660,19 @@ export type ConnectClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHa
   UserAgentResolvedConfig;
 
 /**
- * <p>Amazon Connect is a cloud-based contact center solution that makes it easy to set up and manage a
- *    customer contact center and provide reliable customer engagement at any scale.</p>
- *          <p>Amazon Connect provides rich metrics and real-time reporting that allow you to optimize contact
- *    routing. You can also resolve customer issues more efficiently by putting customers in touch with
- *    the right agents.</p>
- *          <p>There are limits to the number of Amazon Connect resources that you can create and limits to the
- *    number of requests that you can make per second. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect
+ * <p>Amazon Connect is a cloud-based contact center solution that you use to set up and manage a customer
+ *    contact center and provide reliable customer engagement at any scale.</p>
+ *          <p>Amazon Connect provides metrics and real-time reporting that enable you to optimize contact routing.
+ *    You can also resolve customer issues more efficiently by getting customers in touch with the
+ *    appropriate agents.</p>
+ *          <p>There are limits to the number of Amazon Connect resources that you can create. There are also limits
+ *    to the number of requests that you can make per second. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect
  *     Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
- *          <p>To connect programmatically to an AWS service, you use an endpoint. For a list of Amazon Connect
- *    endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect
- *     Endpoints</a>.</p>
+ *          <p>You can
+ *    connect
+ *    programmatically to an AWS service by using an endpoint. For a list of Amazon Connect endpoints, see
+ *     <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect
+ *    Endpoints</a>.</p>
  *          <note>
  *             <p>Working with contact flows? Check out the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect Flow language</a>.</p>
  *          </note>

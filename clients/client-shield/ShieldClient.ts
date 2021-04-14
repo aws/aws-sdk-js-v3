@@ -77,6 +77,12 @@ import {
   ListResourcesInProtectionGroupCommandOutput,
 } from "./commands/ListResourcesInProtectionGroupCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
   UpdateEmergencyContactSettingsCommandInput,
   UpdateEmergencyContactSettingsCommandOutput,
 } from "./commands/UpdateEmergencyContactSettingsCommand";
@@ -164,6 +170,9 @@ export type ServiceInputTypes =
   | ListProtectionGroupsCommandInput
   | ListProtectionsCommandInput
   | ListResourcesInProtectionGroupCommandInput
+  | ListTagsForResourceCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateEmergencyContactSettingsCommandInput
   | UpdateProtectionGroupCommandInput
   | UpdateSubscriptionCommandInput;
@@ -196,6 +205,9 @@ export type ServiceOutputTypes =
   | ListProtectionGroupsCommandOutput
   | ListProtectionsCommandOutput
   | ListResourcesInProtectionGroupCommandOutput
+  | ListTagsForResourceCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateEmergencyContactSettingsCommandOutput
   | UpdateProtectionGroupCommandOutput
   | UpdateSubscriptionCommandOutput;

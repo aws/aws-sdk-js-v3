@@ -21,8 +21,7 @@ export type GetSipMediaApplicationCommandInput = GetSipMediaApplicationRequest;
 export type GetSipMediaApplicationCommandOutput = GetSipMediaApplicationResponse & __MetadataBearer;
 
 /**
- * <p>Retrieves the information for a SIP media application, including name, AWS Region, and
- *       endpoints.</p>
+ * <p>Retrieves the information for a SIP media application, including name, AWS Region, and endpoints.</p>
  */
 export class GetSipMediaApplicationCommand extends $Command<
   GetSipMediaApplicationCommandInput,

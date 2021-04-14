@@ -22,18 +22,18 @@ export type ListAccessKeysCommandOutput = ListAccessKeysResponse & __MetadataBea
 
 /**
  * <p>Returns information about the access key IDs associated with the specified IAM user.
- *          If there is none, the operation returns an empty list.</p>
- *          <p>Although each user is limited to a small number of keys, you can still paginate the
- *          results using the <code>MaxItems</code> and <code>Marker</code> parameters.</p>
- *          <p>If the <code>UserName</code> field is not specified, the user name is determined
- *          implicitly based on the AWS access key ID used to sign the request. This operation works
- *          for access keys under the AWS account. Consequently, you can use this operation to manage
- *          AWS account root user credentials even if the AWS account has no associated
- *          users.</p>
- *          <note>
+ *             If there is none, the operation returns an empty list.</p>
+ *         <p>Although each user is limited to a small number of keys, you can still paginate the
+ *             results using the <code>MaxItems</code> and <code>Marker</code> parameters.</p>
+ *         <p>If the <code>UserName</code> field is not specified, the user name is determined
+ *             implicitly based on the AWS access key ID used to sign the request. This operation
+ *             works for access keys under the AWS account. Consequently, you can use this operation
+ *             to manage AWS account root user credentials even if the AWS account has no
+ *             associated users.</p>
+ *         <note>
  *             <p>To ensure the security of your AWS account, the secret access key is accessible
- *             only during key and user creation.</p>
- *          </note>
+ *                 only during key and user creation.</p>
+ *         </note>
  */
 export class ListAccessKeysCommand extends $Command<
   ListAccessKeysCommandInput,

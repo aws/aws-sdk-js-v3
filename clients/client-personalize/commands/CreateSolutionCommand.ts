@@ -36,6 +36,10 @@ export type CreateSolutionCommandOutput = CreateSolutionResponse & __MetadataBea
  *       recipes provided by Amazon Personalize. Alternatively, you can specify
  *       <code>performAutoML</code> and Amazon Personalize will analyze your data and select the
  *       optimum USER_PERSONALIZATION recipe for you.</p>
+ *          <note>
+ *             <p>Amazon Personalize doesn't support configuring the <code>hpoObjective</code>
+ *         for solution hyperparameter optimization at this time.</p>
+ *          </note>
  *          <p>
  *             <b>Status</b>
  *          </p>

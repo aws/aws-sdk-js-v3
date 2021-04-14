@@ -1,4 +1,14 @@
 import { EKSClient } from "./EKSClient";
+import {
+  AssociateEncryptionConfigCommand,
+  AssociateEncryptionConfigCommandInput,
+  AssociateEncryptionConfigCommandOutput,
+} from "./commands/AssociateEncryptionConfigCommand";
+import {
+  AssociateIdentityProviderConfigCommand,
+  AssociateIdentityProviderConfigCommandInput,
+  AssociateIdentityProviderConfigCommandOutput,
+} from "./commands/AssociateIdentityProviderConfigCommand";
 import { CreateAddonCommand, CreateAddonCommandInput, CreateAddonCommandOutput } from "./commands/CreateAddonCommand";
 import {
   CreateClusterCommand,
@@ -52,6 +62,11 @@ import {
   DescribeFargateProfileCommandOutput,
 } from "./commands/DescribeFargateProfileCommand";
 import {
+  DescribeIdentityProviderConfigCommand,
+  DescribeIdentityProviderConfigCommandInput,
+  DescribeIdentityProviderConfigCommandOutput,
+} from "./commands/DescribeIdentityProviderConfigCommand";
+import {
   DescribeNodegroupCommand,
   DescribeNodegroupCommandInput,
   DescribeNodegroupCommandOutput,
@@ -61,6 +76,11 @@ import {
   DescribeUpdateCommandInput,
   DescribeUpdateCommandOutput,
 } from "./commands/DescribeUpdateCommand";
+import {
+  DisassociateIdentityProviderConfigCommand,
+  DisassociateIdentityProviderConfigCommandInput,
+  DisassociateIdentityProviderConfigCommandOutput,
+} from "./commands/DisassociateIdentityProviderConfigCommand";
 import { ListAddonsCommand, ListAddonsCommandInput, ListAddonsCommandOutput } from "./commands/ListAddonsCommand";
 import {
   ListClustersCommand,
@@ -72,6 +92,11 @@ import {
   ListFargateProfilesCommandInput,
   ListFargateProfilesCommandOutput,
 } from "./commands/ListFargateProfilesCommand";
+import {
+  ListIdentityProviderConfigsCommand,
+  ListIdentityProviderConfigsCommandInput,
+  ListIdentityProviderConfigsCommandOutput,
+} from "./commands/ListIdentityProviderConfigsCommand";
 import {
   ListNodegroupsCommand,
   ListNodegroupsCommandInput,
@@ -126,6 +151,80 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  */
 export class EKS extends EKSClient {
   /**
+   * <p>Associate encryption configuration to an existing cluster.</p>
+   *         <p>You can use this API to enable encryption on existing clusters which do not have
+   *             encryption already enabled. This allows you to implement a defense-in-depth
+   *             security strategy without migrating applications to new EKS clusters.</p>
+   */
+  public associateEncryptionConfig(
+    args: AssociateEncryptionConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateEncryptionConfigCommandOutput>;
+  public associateEncryptionConfig(
+    args: AssociateEncryptionConfigCommandInput,
+    cb: (err: any, data?: AssociateEncryptionConfigCommandOutput) => void
+  ): void;
+  public associateEncryptionConfig(
+    args: AssociateEncryptionConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateEncryptionConfigCommandOutput) => void
+  ): void;
+  public associateEncryptionConfig(
+    args: AssociateEncryptionConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateEncryptionConfigCommandOutput) => void),
+    cb?: (err: any, data?: AssociateEncryptionConfigCommandOutput) => void
+  ): Promise<AssociateEncryptionConfigCommandOutput> | void {
+    const command = new AssociateEncryptionConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Associate an identity provider configuration to a cluster.</p>
+   *         <p>If you want to authenticate identities using an identity provider, you can create an
+   *             identity provider configuration and associate it to your cluster. After configuring
+   *             authentication to your cluster you can create Kubernetes <code>roles</code> and
+   *                 <code>clusterroles</code> to assign permissions to the roles, and then bind the
+   *             roles to the identities using Kubernetes <code>rolebindings</code> and
+   *                 <code>clusterrolebindings</code>. For more information see <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/">Using RBAC
+   *                 Authorization</a> in the Kubernetes documentation.</p>
+   */
+  public associateIdentityProviderConfig(
+    args: AssociateIdentityProviderConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateIdentityProviderConfigCommandOutput>;
+  public associateIdentityProviderConfig(
+    args: AssociateIdentityProviderConfigCommandInput,
+    cb: (err: any, data?: AssociateIdentityProviderConfigCommandOutput) => void
+  ): void;
+  public associateIdentityProviderConfig(
+    args: AssociateIdentityProviderConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateIdentityProviderConfigCommandOutput) => void
+  ): void;
+  public associateIdentityProviderConfig(
+    args: AssociateIdentityProviderConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateIdentityProviderConfigCommandOutput) => void),
+    cb?: (err: any, data?: AssociateIdentityProviderConfigCommandOutput) => void
+  ): Promise<AssociateIdentityProviderConfigCommandOutput> | void {
+    const command = new AssociateIdentityProviderConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates an Amazon EKS add-on.</p>
    *         <p>Amazon EKS add-ons help to automate the provisioning and lifecycle management of common
    *             operational software for Amazon EKS clusters. Amazon EKS add-ons can only be used with Amazon EKS
@@ -165,35 +264,17 @@ export class EKS extends EKSClient {
    *             own set of Amazon EC2 instances.</p>
    *         <p>The cluster control plane is provisioned across multiple Availability Zones and
    *             fronted by an Elastic Load Balancing Network Load Balancer. Amazon EKS also provisions elastic network interfaces in your VPC
-   *             subnets to provide connectivity from the control plane instances to the worker nodes
-   *             (for example, to support <code>kubectl exec</code>, <code>logs</code>, and
-   *                 <code>proxy</code> data flows).</p>
-   *         <p>Amazon EKS worker nodes run in your AWS account and connect to your cluster's control
-   *             plane via the Kubernetes API server endpoint and a certificate file that is created for
-   *             your cluster.</p>
-   *         <p>You can use the <code>endpointPublicAccess</code> and
-   *                 <code>endpointPrivateAccess</code> parameters to enable or disable public and
-   *             private access to your cluster's Kubernetes API server endpoint. By default, public
-   *             access is enabled, and private access is disabled. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS Cluster
-   *                 Endpoint Access Control</a> in the <i>
-   *                <i>Amazon EKS User Guide</i>
-   *             </i>. </p>
-   *         <p>You can use the <code>logging</code> parameter to enable or disable exporting the
-   *             Kubernetes control plane logs for your cluster to CloudWatch Logs. By default, cluster control
-   *             plane logs aren't exported to CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon EKS
-   *                 Cluster Control Plane Logs</a> in the
-   *             <i>
-   *                <i>Amazon EKS User Guide</i>
-   *             </i>.</p>
-   *         <note>
-   *             <p>CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported
-   *                 control plane logs. For more information, see <a href="http://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch Pricing</a>.</p>
-   *         </note>
-   *         <p>Cluster creation typically takes between 10 and 15 minutes. After you create an Amazon EKS
-   *             cluster, you must configure your Kubernetes tooling to communicate with the API server
-   *             and launch worker nodes into your cluster. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html">Managing Cluster
-   *                 Authentication</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html">Launching Amazon EKS Worker Nodes</a> in the
-   *             <i>Amazon EKS User Guide</i>.</p>
+   *             subnets to provide connectivity from the control plane instances to the nodes (for
+   *             example, to support <code>kubectl exec</code>, <code>logs</code>, and <code>proxy</code>
+   *             data flows).</p>
+   *         <p>Amazon EKS nodes run in your AWS account and connect to your cluster's control plane via
+   *             the Kubernetes API server endpoint and a certificate file that is created for your
+   *             cluster.</p>
+   *
+   *         <p>Cluster creation typically takes several minutes. After you create an Amazon EKS cluster,
+   *             you must configure your Kubernetes tooling to communicate with the API server and launch
+   *             nodes into your cluster. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html">Managing Cluster
+   *                 Authentication</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html">Launching Amazon EKS nodes</a> in the <i>Amazon EKS User Guide</i>.</p>
    */
   public createCluster(
     args: CreateClusterCommandInput,
@@ -280,9 +361,9 @@ export class EKS extends EKSClient {
   }
 
   /**
-   * <p>Creates a managed worker node group for an Amazon EKS cluster. You can only create a node
-   *             group for your cluster that is equal to the current Kubernetes version for the cluster.
-   *             All node groups are created with the latest AMI release version for the respective minor
+   * <p>Creates a managed node group for an Amazon EKS cluster. You can only create a node group
+   *             for your cluster that is equal to the current Kubernetes version for the cluster. All
+   *             node groups are created with the latest AMI release version for the respective minor
    *             Kubernetes version of the cluster, unless you deploy a custom AMI using a launch
    *             template. For more information about using launch templates, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
    *                 template support</a>.</p>
@@ -595,6 +676,38 @@ export class EKS extends EKSClient {
   }
 
   /**
+   * <p>Returns descriptive information about an identity provider configuration.</p>
+   */
+  public describeIdentityProviderConfig(
+    args: DescribeIdentityProviderConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeIdentityProviderConfigCommandOutput>;
+  public describeIdentityProviderConfig(
+    args: DescribeIdentityProviderConfigCommandInput,
+    cb: (err: any, data?: DescribeIdentityProviderConfigCommandOutput) => void
+  ): void;
+  public describeIdentityProviderConfig(
+    args: DescribeIdentityProviderConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeIdentityProviderConfigCommandOutput) => void
+  ): void;
+  public describeIdentityProviderConfig(
+    args: DescribeIdentityProviderConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeIdentityProviderConfigCommandOutput) => void),
+    cb?: (err: any, data?: DescribeIdentityProviderConfigCommandOutput) => void
+  ): Promise<DescribeIdentityProviderConfigCommandOutput> | void {
+    const command = new DescribeIdentityProviderConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns descriptive information about an Amazon EKS node group.</p>
    */
   public describeNodegroup(
@@ -652,6 +765,41 @@ export class EKS extends EKSClient {
     cb?: (err: any, data?: DescribeUpdateCommandOutput) => void
   ): Promise<DescribeUpdateCommandOutput> | void {
     const command = new DescribeUpdateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Disassociates an identity provider configuration from a cluster. If you disassociate
+   *             an identity provider from your cluster, users included in the provider can no longer
+   *             access the cluster. However, you can still access the cluster with AWS IAM
+   *             users.</p>
+   */
+  public disassociateIdentityProviderConfig(
+    args: DisassociateIdentityProviderConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateIdentityProviderConfigCommandOutput>;
+  public disassociateIdentityProviderConfig(
+    args: DisassociateIdentityProviderConfigCommandInput,
+    cb: (err: any, data?: DisassociateIdentityProviderConfigCommandOutput) => void
+  ): void;
+  public disassociateIdentityProviderConfig(
+    args: DisassociateIdentityProviderConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateIdentityProviderConfigCommandOutput) => void
+  ): void;
+  public disassociateIdentityProviderConfig(
+    args: DisassociateIdentityProviderConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateIdentityProviderConfigCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateIdentityProviderConfigCommandOutput) => void
+  ): Promise<DisassociateIdentityProviderConfigCommandOutput> | void {
+    const command = new DisassociateIdentityProviderConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -740,6 +888,38 @@ export class EKS extends EKSClient {
     cb?: (err: any, data?: ListFargateProfilesCommandOutput) => void
   ): Promise<ListFargateProfilesCommandOutput> | void {
     const command = new ListFargateProfilesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>A list of identity provider configurations.</p>
+   */
+  public listIdentityProviderConfigs(
+    args: ListIdentityProviderConfigsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListIdentityProviderConfigsCommandOutput>;
+  public listIdentityProviderConfigs(
+    args: ListIdentityProviderConfigsCommandInput,
+    cb: (err: any, data?: ListIdentityProviderConfigsCommandOutput) => void
+  ): void;
+  public listIdentityProviderConfigs(
+    args: ListIdentityProviderConfigsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListIdentityProviderConfigsCommandOutput) => void
+  ): void;
+  public listIdentityProviderConfigs(
+    args: ListIdentityProviderConfigsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListIdentityProviderConfigsCommandOutput) => void),
+    cb?: (err: any, data?: ListIdentityProviderConfigsCommandOutput) => void
+  ): Promise<ListIdentityProviderConfigsCommandOutput> | void {
+    const command = new ListIdentityProviderConfigsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -849,7 +1029,7 @@ export class EKS extends EKSClient {
    *             associated with that resource are deleted as well. Tags that you create for Amazon EKS
    *             resources do not propagate to any other resources associated with the cluster. For
    *             example, if you tag a cluster with this operation, that tag does not automatically
-   *             propagate to the subnets and worker nodes associated with the cluster.</p>
+   *             propagate to the subnets and nodes associated with the cluster.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;

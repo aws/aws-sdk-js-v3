@@ -21,7 +21,7 @@ export type TagResourceCommandInput = TagResourceRequest;
 export type TagResourceCommandOutput = __MetadataBearer;
 
 /**
- * <p>Adds tags to the specified playback configuration resource. You can specify one or more tags to add. </p>
+ * <p>Adds tags to the specified playback configuration resource. You can specify one or more tags to add.</p>
  */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,

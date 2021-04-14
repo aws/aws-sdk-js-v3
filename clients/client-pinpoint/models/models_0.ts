@@ -120,8 +120,13 @@ export namespace ActivitiesResponse {
 }
 
 export enum AttributeType {
+  AFTER = "AFTER",
+  BEFORE = "BEFORE",
+  BETWEEN = "BETWEEN",
+  CONTAINS = "CONTAINS",
   EXCLUSIVE = "EXCLUSIVE",
   INCLUSIVE = "INCLUSIVE",
+  ON = "ON",
 }
 
 /**
@@ -129,7 +134,7 @@ export enum AttributeType {
  */
 export interface AttributeDimension {
   /**
-   * <p>The type of segment dimension to use. Valid values are: INCLUSIVE, endpoints that match the criteria are included in the segment; and, EXCLUSIVE, endpoints that match the criteria are excluded from the segment.</p>
+   * <p>The type of segment dimension to use. Valid values are: <ul><li>INCLUSIVE - endpoints that have attributes matching the values are included in the segment.</li><li>EXCLUSIVE - endpoints that have attributes matching the values are excluded in the segment.</li><li>CONTAINS - endpoints that have attributes' substrings match the values are included in the segment.</li><li>BEFORE - endpoints with attributes read as ISO_INSTANT datetimes before the value are included in the segment.</li><li>AFTER - endpoints with attributes read as ISO_INSTANT datetimes after the value are included in the segment.</li><li>ON - endpoints with attributes read as ISO_INSTANT dates on the value are included in the segment. Time is ignored in this comparison.</li><li>BETWEEN - endpoints with attributes read as ISO_INSTANT datetimes between the values are included in the segment.</li></p>
    */
   AttributeType?: AttributeType | string;
 
@@ -824,9 +829,24 @@ export interface JourneySMSMessage {
   MessageType?: MessageType | string;
 
   /**
+   * <p>The long code to send the SMS message from. This value should be one of the dedicated long codes that's assigned to your AWS account. Although it isn't required, we recommend that you specify the long code using an E.164 format to ensure prompt and accurate delivery of the message. For example, +12065550100.</p>
+   */
+  OriginationNumber?: string;
+
+  /**
    * <p>The sender ID to display as the sender of the message on a recipient's device. Support for sender IDs varies by country or region. For more information, see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-countries.html">Supported Countries and Regions</a> in the Amazon Pinpoint User Guide.</p>
    */
   SenderId?: string;
+
+  /**
+   * <p>The entity ID or Principal Entity (PE) id received from the regulatory body for sending SMS in your country.</p>
+   */
+  EntityId?: string;
+
+  /**
+   * <p>The template ID received from the regulatory body for sending SMS in your country.</p>
+   */
+  TemplateId?: string;
 }
 
 export namespace JourneySMSMessage {
@@ -2596,9 +2616,24 @@ export interface CampaignSmsMessage {
   MessageType?: MessageType | string;
 
   /**
+   * <p>The long code to send the SMS message from. This value should be one of the dedicated long codes that's assigned to your AWS account. Although it isn't required, we recommend that you specify the long code using an E.164 format to ensure prompt and accurate delivery of the message. For example, +12065550100.</p>
+   */
+  OriginationNumber?: string;
+
+  /**
    * <p>The sender ID to display on recipients' devices when they receive the SMS message.</p>
    */
   SenderId?: string;
+
+  /**
+   * <p>The entity ID or Principal Entity (PE) id received from the regulatory body for sending SMS in your country.</p>
+   */
+  EntityId?: string;
+
+  /**
+   * <p>The template ID received from the regulatory body for sending SMS in your country.</p>
+   */
+  TemplateId?: string;
 }
 
 export namespace CampaignSmsMessage {
@@ -3966,6 +4001,11 @@ export interface JourneyLimits {
    * <p>The maximum number of messages that the journey can send each second.</p>
    */
   MessagesPerSecond?: number;
+
+  /**
+   * <p>Minimum time that must pass before an endpoint can re-enter a given journey. The duration should use an ISO 8601 format, such as PT1H. </p>
+   */
+  EndpointReentryInterval?: string;
 }
 
 export namespace JourneyLimits {
@@ -4076,6 +4116,7 @@ export enum State {
   CLOSED = "CLOSED",
   COMPLETED = "COMPLETED",
   DRAFT = "DRAFT",
+  PAUSED = "PAUSED",
 }
 
 /**
@@ -4138,9 +4179,19 @@ export interface WriteJourneyRequest {
   StartCondition?: StartCondition;
 
   /**
-   * <p>The status of the journey. Valid values are:</p> <ul><li><p>DRAFT - Saves the journey and doesn't publish it.</p></li> <li><p>ACTIVE - Saves and publishes the journey. Depending on the journey's schedule, the journey starts running immediately or at the scheduled start time. If a journey's status is ACTIVE, you can't add, change, or remove activities from it.</p></li></ul> <p>The CANCELLED, COMPLETED, and CLOSED values are not supported in requests to create or update a journey. To cancel a journey, use the <link  linkend="apps-application-id-journeys-journey-id-state">Journey State</link> resource.</p>
+   * <p>The status of the journey. Valid values are:</p> <ul><li><p>DRAFT - Saves the journey and doesn't publish it.</p></li> <li><p>ACTIVE - Saves and publishes the journey. Depending on the journey's schedule, the journey starts running immediately or at the scheduled start time. If a journey's status is ACTIVE, you can't add, change, or remove activities from it.</p></li></ul> <p>PAUSED, CANCELLED, COMPLETED, and CLOSED states are not supported in requests to create or update a journey. To cancel, pause, or resume a journey, use the <link  linkend="apps-application-id-journeys-journey-id-state">Journey State</link> resource.</p>
    */
   State?: State | string;
+
+  /**
+   * <p>Specifies whether endpoints in quiet hours should enter a wait till the end of their quiet hours.</p>
+   */
+  WaitForQuietTime?: boolean;
+
+  /**
+   * <p>Specifies whether a journey should be refreshed on segment update.</p>
+   */
+  RefreshOnSegmentUpdate?: boolean;
 }
 
 export namespace WriteJourneyRequest {
@@ -4245,6 +4296,16 @@ export interface JourneyResponse {
    * <p>This object is not used or supported.</p>
    */
   tags?: { [key: string]: string };
+
+  /**
+   * <p>Specifies whether endpoints in quiet hours should enter a wait till the end of their quiet hours.</p>
+   */
+  WaitForQuietTime?: boolean;
+
+  /**
+   * <p>Specifies whether a journey should be refreshed on segment update.</p>
+   */
+  RefreshOnSegmentUpdate?: boolean;
 }
 
 export namespace JourneyResponse {
@@ -6461,6 +6522,16 @@ export interface SMSMessage {
    * <p>The message variables to use in the SMS message. You can override the default variables with individual address variables.</p>
    */
   Substitutions?: { [key: string]: string[] };
+
+  /**
+   * <p>The entity ID or Principal Entity (PE) id received from the regulatory body for sending SMS in your country.</p>
+   */
+  EntityId?: string;
+
+  /**
+   * <p>The template ID received from the regulatory body for sending SMS in your country.</p>
+   */
+  TemplateId?: string;
 }
 
 export namespace SMSMessage {

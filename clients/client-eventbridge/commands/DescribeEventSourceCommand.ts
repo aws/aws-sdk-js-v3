@@ -22,7 +22,7 @@ export type DescribeEventSourceCommandOutput = DescribeEventSourceResponse & __M
 
 /**
  * <p>This operation lists details about a partner event source that is shared with your
- *             account.</p>
+ *       account.</p>
  */
 export class DescribeEventSourceCommand extends $Command<
   DescribeEventSourceCommandInput,

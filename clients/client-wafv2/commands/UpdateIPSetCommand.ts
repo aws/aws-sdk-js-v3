@@ -21,10 +21,10 @@ export type UpdateIPSetCommandInput = UpdateIPSetRequest;
 export type UpdateIPSetCommandOutput = UpdateIPSetResponse & __MetadataBearer;
 
 /**
- * <note>
- *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
+ * <p>Updates the specified <a>IPSet</a>. </p>
+ *          <note>
+ *             <p>This operation completely replaces any IP address specifications that you already have in the IP set with the ones that you provide to this call. If you want to add to or modify the addresses that are already in the IP set, retrieve those by calling <a>GetIPSet</a>, update them, and provide the complete updated array of IP addresses to this call.</p>
  *          </note>
- *          <p>Updates the specified <a>IPSet</a>.</p>
  */
 export class UpdateIPSetCommand extends $Command<
   UpdateIPSetCommandInput,

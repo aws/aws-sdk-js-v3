@@ -26,6 +26,7 @@ export type VoteOnProposalCommandOutput = VoteOnProposalOutput & __MetadataBeare
 
 /**
  * <p>Casts a vote for a specified <code>ProposalId</code> on behalf of a member. The member to vote as, specified by <code>VoterMemberId</code>, must be in the same AWS account as the principal that calls the action.</p>
+ *          <p>Applies only to Hyperledger Fabric.</p>
  */
 export class VoteOnProposalCommand extends $Command<
   VoteOnProposalCommandInput,

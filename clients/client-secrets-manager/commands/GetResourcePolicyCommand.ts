@@ -21,8 +21,8 @@ export type GetResourcePolicyCommandInput = GetResourcePolicyRequest;
 export type GetResourcePolicyCommandOutput = GetResourcePolicyResponse & __MetadataBearer;
 
 /**
- * <p>Retrieves the JSON text of the resource-based policy document attached to the
- *       specified secret. The JSON request string input and response output displays formatted code
+ * <p>Retrieves the JSON text of the resource-based policy document attached to the specified
+ *       secret. The JSON request string input and response output displays formatted code
  *       with white space and line breaks for better readability. Submit your input as a single line
  *       JSON string.</p>
  *          <p>

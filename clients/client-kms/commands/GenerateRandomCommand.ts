@@ -26,7 +26,10 @@ export type GenerateRandomCommandOutput = GenerateRandomResponse & __MetadataBea
  *       the AWS CloudHSM cluster that is associated with a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>, specify the custom key store
  *       ID.</p>
  *          <p>For more information about entropy and random number generation, see the <a href="https://d0.awsstatic.com/whitepapers/KMS-Cryptographic-Details.pdf">AWS Key Management Service
- *         Cryptographic Details</a> whitepaper.</p>
+ *       Cryptographic Details</a> whitepaper.</p>
+ *
+ *          <p>
+ *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:GenerateRandom</a> (IAM policy)</p>
  */
 export class GenerateRandomCommand extends $Command<
   GenerateRandomCommandInput,

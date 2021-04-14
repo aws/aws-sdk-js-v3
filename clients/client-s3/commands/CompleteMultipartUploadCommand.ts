@@ -26,10 +26,10 @@ export type CompleteMultipartUploadCommandOutput = CompleteMultipartUploadOutput
  * <p>Completes a multipart upload by assembling previously uploaded parts.</p>
  *          <p>You first initiate the multipart upload and then upload all parts using the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a>
  *          operation. After successfully uploading all relevant parts of an upload, you call this
- *          operation to complete the upload. Upon receiving this request, Amazon S3 concatenates all
+ *          action to complete the upload. Upon receiving this request, Amazon S3 concatenates all
  *          the parts in ascending order by part number to create a new object. In the Complete
  *          Multipart Upload request, you must provide the parts list. You must ensure that the parts
- *          list is complete. This operation concatenates the parts that you provide in the list. For
+ *          list is complete. This action concatenates the parts that you provide in the list. For
  *          each part in the list, you must provide the part number and the <code>ETag</code> value,
  *          returned after that part was uploaded.</p>
  *          <p>Processing of a Complete Multipart Upload request could take several minutes to
@@ -42,7 +42,7 @@ export type CompleteMultipartUploadCommandOutput = CompleteMultipartUploadOutput
  *          to retry the failed requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ErrorBestPractices.html">Amazon S3 Error Best Practices</a>.</p>
  *          <p>For more information about multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html">Uploading Objects Using Multipart
  *             Upload</a>.</p>
- *          <p>For information about permissions required to use the multipart upload API, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload API and
+ *          <p>For information about permissions required to use the multipart upload API, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload and
  *          Permissions</a>.</p>
  *
  *

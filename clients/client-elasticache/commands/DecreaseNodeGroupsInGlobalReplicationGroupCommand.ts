@@ -25,7 +25,7 @@ export type DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput = DecreaseNo
   __MetadataBearer;
 
 /**
- * <p>Decreases the number of node groups in a Global Datastore</p>
+ * <p>Decreases the number of node groups in a Global datastore</p>
  */
 export class DecreaseNodeGroupsInGlobalReplicationGroupCommand extends $Command<
   DecreaseNodeGroupsInGlobalReplicationGroupCommandInput,

@@ -21,7 +21,7 @@ export type GetRequestedServiceQuotaChangeCommandInput = GetRequestedServiceQuot
 export type GetRequestedServiceQuotaChangeCommandOutput = GetRequestedServiceQuotaChangeResponse & __MetadataBearer;
 
 /**
- * <p>Retrieves the details for a particular increase request. </p>
+ * <p>Retrieves information about the specified quota increase request.</p>
  */
 export class GetRequestedServiceQuotaChangeCommand extends $Command<
   GetRequestedServiceQuotaChangeCommandInput,

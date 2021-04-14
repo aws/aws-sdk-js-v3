@@ -4914,6 +4914,9 @@ const serializeAws_queryCreateStackInstancesInput = (
   if (input.OperationId !== undefined && input.OperationId !== null) {
     entries["OperationId"] = input.OperationId;
   }
+  if (input.CallAs !== undefined && input.CallAs !== null) {
+    entries["CallAs"] = input.CallAs;
+  }
   return entries;
 };
 
@@ -4967,6 +4970,9 @@ const serializeAws_queryCreateStackSetInput = (input: CreateStackSetInput, conte
       const loc = `AutoDeployment.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.CallAs !== undefined && input.CallAs !== null) {
+    entries["CallAs"] = input.CallAs;
   }
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
@@ -5054,6 +5060,9 @@ const serializeAws_queryDeleteStackInstancesInput = (
   if (input.OperationId !== undefined && input.OperationId !== null) {
     entries["OperationId"] = input.OperationId;
   }
+  if (input.CallAs !== undefined && input.CallAs !== null) {
+    entries["CallAs"] = input.CallAs;
+  }
   return entries;
 };
 
@@ -5061,6 +5070,9 @@ const serializeAws_queryDeleteStackSetInput = (input: DeleteStackSetInput, conte
   const entries: any = {};
   if (input.StackSetName !== undefined && input.StackSetName !== null) {
     entries["StackSetName"] = input.StackSetName;
+  }
+  if (input.CallAs !== undefined && input.CallAs !== null) {
+    entries["CallAs"] = input.CallAs;
   }
   return entries;
 };
@@ -5073,6 +5085,9 @@ const serializeAws_queryDeploymentTargets = (input: DeploymentTargets, context: 
       const loc = `Accounts.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.AccountsUrl !== undefined && input.AccountsUrl !== null) {
+    entries["AccountsUrl"] = input.AccountsUrl;
   }
   if (input.OrganizationalUnitIds !== undefined && input.OrganizationalUnitIds !== null) {
     const memberEntries = serializeAws_queryOrganizationalUnitIdList(input.OrganizationalUnitIds, context);
@@ -5162,6 +5177,9 @@ const serializeAws_queryDescribeStackInstanceInput = (
   if (input.StackInstanceRegion !== undefined && input.StackInstanceRegion !== null) {
     entries["StackInstanceRegion"] = input.StackInstanceRegion;
   }
+  if (input.CallAs !== undefined && input.CallAs !== null) {
+    entries["CallAs"] = input.CallAs;
+  }
   return entries;
 };
 
@@ -5228,6 +5246,9 @@ const serializeAws_queryDescribeStackSetInput = (input: DescribeStackSetInput, c
   if (input.StackSetName !== undefined && input.StackSetName !== null) {
     entries["StackSetName"] = input.StackSetName;
   }
+  if (input.CallAs !== undefined && input.CallAs !== null) {
+    entries["CallAs"] = input.CallAs;
+  }
   return entries;
 };
 
@@ -5241,6 +5262,9 @@ const serializeAws_queryDescribeStackSetOperationInput = (
   }
   if (input.OperationId !== undefined && input.OperationId !== null) {
     entries["OperationId"] = input.OperationId;
+  }
+  if (input.CallAs !== undefined && input.CallAs !== null) {
+    entries["CallAs"] = input.CallAs;
   }
   return entries;
 };
@@ -5330,6 +5354,9 @@ const serializeAws_queryDetectStackSetDriftInput = (input: DetectStackSetDriftIn
   }
   if (input.OperationId !== undefined && input.OperationId !== null) {
     entries["OperationId"] = input.OperationId;
+  }
+  if (input.CallAs !== undefined && input.CallAs !== null) {
+    entries["CallAs"] = input.CallAs;
   }
   return entries;
 };
@@ -5462,6 +5489,9 @@ const serializeAws_queryListStackInstancesInput = (input: ListStackInstancesInpu
   if (input.StackInstanceRegion !== undefined && input.StackInstanceRegion !== null) {
     entries["StackInstanceRegion"] = input.StackInstanceRegion;
   }
+  if (input.CallAs !== undefined && input.CallAs !== null) {
+    entries["CallAs"] = input.CallAs;
+  }
   return entries;
 };
 
@@ -5493,6 +5523,9 @@ const serializeAws_queryListStackSetOperationResultsInput = (
   if (input.MaxResults !== undefined && input.MaxResults !== null) {
     entries["MaxResults"] = input.MaxResults;
   }
+  if (input.CallAs !== undefined && input.CallAs !== null) {
+    entries["CallAs"] = input.CallAs;
+  }
   return entries;
 };
 
@@ -5510,6 +5543,9 @@ const serializeAws_queryListStackSetOperationsInput = (
   if (input.MaxResults !== undefined && input.MaxResults !== null) {
     entries["MaxResults"] = input.MaxResults;
   }
+  if (input.CallAs !== undefined && input.CallAs !== null) {
+    entries["CallAs"] = input.CallAs;
+  }
   return entries;
 };
 
@@ -5523,6 +5559,9 @@ const serializeAws_queryListStackSetsInput = (input: ListStackSetsInput, context
   }
   if (input.Status !== undefined && input.Status !== null) {
     entries["Status"] = input.Status;
+  }
+  if (input.CallAs !== undefined && input.CallAs !== null) {
+    entries["CallAs"] = input.CallAs;
   }
   return entries;
 };
@@ -5996,6 +6035,9 @@ const serializeAws_queryStackSetOperationPreferences = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.RegionConcurrencyType !== undefined && input.RegionConcurrencyType !== null) {
+    entries["RegionConcurrencyType"] = input.RegionConcurrencyType;
+  }
   if (input.RegionOrder !== undefined && input.RegionOrder !== null) {
     const memberEntries = serializeAws_queryRegionList(input.RegionOrder, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -6041,6 +6083,9 @@ const serializeAws_queryStopStackSetOperationInput = (
   }
   if (input.OperationId !== undefined && input.OperationId !== null) {
     entries["OperationId"] = input.OperationId;
+  }
+  if (input.CallAs !== undefined && input.CallAs !== null) {
+    entries["CallAs"] = input.CallAs;
   }
   return entries;
 };
@@ -6198,6 +6243,9 @@ const serializeAws_queryUpdateStackInstancesInput = (
   if (input.OperationId !== undefined && input.OperationId !== null) {
     entries["OperationId"] = input.OperationId;
   }
+  if (input.CallAs !== undefined && input.CallAs !== null) {
+    entries["CallAs"] = input.CallAs;
+  }
   return entries;
 };
 
@@ -6288,6 +6336,9 @@ const serializeAws_queryUpdateStackSetInput = (input: UpdateStackSetInput, conte
       const loc = `Regions.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.CallAs !== undefined && input.CallAs !== null) {
+    entries["CallAs"] = input.CallAs;
   }
   return entries;
 };
@@ -6620,6 +6671,7 @@ const deserializeAws_queryDeleteStackSetOutput = (output: any, context: __SerdeC
 const deserializeAws_queryDeploymentTargets = (output: any, context: __SerdeContext): DeploymentTargets => {
   let contents: any = {
     Accounts: undefined,
+    AccountsUrl: undefined,
     OrganizationalUnitIds: undefined,
   };
   if (output.Accounts === "") {
@@ -6627,6 +6679,9 @@ const deserializeAws_queryDeploymentTargets = (output: any, context: __SerdeCont
   }
   if (output["Accounts"] !== undefined && output["Accounts"]["member"] !== undefined) {
     contents.Accounts = deserializeAws_queryAccountList(__getArrayIfSingleItem(output["Accounts"]["member"]), context);
+  }
+  if (output["AccountsUrl"] !== undefined) {
+    contents.AccountsUrl = output["AccountsUrl"];
   }
   if (output.OrganizationalUnitIds === "") {
     contents.OrganizationalUnitIds = [];
@@ -9012,12 +9067,16 @@ const deserializeAws_queryStackSetOperationPreferences = (
   context: __SerdeContext
 ): StackSetOperationPreferences => {
   let contents: any = {
+    RegionConcurrencyType: undefined,
     RegionOrder: undefined,
     FailureToleranceCount: undefined,
     FailureTolerancePercentage: undefined,
     MaxConcurrentCount: undefined,
     MaxConcurrentPercentage: undefined,
   };
+  if (output["RegionConcurrencyType"] !== undefined) {
+    contents.RegionConcurrencyType = output["RegionConcurrencyType"];
+  }
   if (output.RegionOrder === "") {
     contents.RegionOrder = [];
   }

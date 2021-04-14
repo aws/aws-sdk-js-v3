@@ -81,6 +81,11 @@ import {
 } from "./commands/DeleteScheduledActionCommand";
 import { DeleteTagsCommand, DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
 import {
+  DeleteWarmPoolCommand,
+  DeleteWarmPoolCommandInput,
+  DeleteWarmPoolCommandOutput,
+} from "./commands/DeleteWarmPoolCommand";
+import {
   DescribeAccountLimitsCommand,
   DescribeAccountLimitsCommandInput,
   DescribeAccountLimitsCommandOutput,
@@ -176,6 +181,11 @@ import {
   DescribeTerminationPolicyTypesCommandOutput,
 } from "./commands/DescribeTerminationPolicyTypesCommand";
 import {
+  DescribeWarmPoolCommand,
+  DescribeWarmPoolCommandInput,
+  DescribeWarmPoolCommandOutput,
+} from "./commands/DescribeWarmPoolCommand";
+import {
   DetachInstancesCommand,
   DetachInstancesCommandInput,
   DetachInstancesCommandOutput,
@@ -231,6 +241,7 @@ import {
   PutScheduledUpdateGroupActionCommandInput,
   PutScheduledUpdateGroupActionCommandOutput,
 } from "./commands/PutScheduledUpdateGroupActionCommand";
+import { PutWarmPoolCommand, PutWarmPoolCommandInput, PutWarmPoolCommandOutput } from "./commands/PutWarmPoolCommand";
 import {
   RecordLifecycleActionHeartbeatCommand,
   RecordLifecycleActionHeartbeatCommandInput,
@@ -454,9 +465,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
-   * <p>Creates or updates one or more scheduled scaling actions for an Auto Scaling group. If you
-   *             leave a parameter unspecified when updating a scheduled scaling action, the
-   *             corresponding value remains unchanged.</p>
+   * <p>Creates or updates one or more scheduled scaling actions for an Auto Scaling group.</p>
    */
   public batchPutScheduledUpdateGroupAction(
     args: BatchPutScheduledUpdateGroupActionCommandInput,
@@ -491,8 +500,9 @@ export class AutoScaling extends AutoScalingClient {
    * <p>Cancels an instance refresh operation in progress. Cancellation does not roll back any
    *             replacements that have already been completed, but it prevents new replacements from
    *             being started. </p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">Replacing Auto Scaling Instances
-   *                 Based on an Instance Refresh</a>.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">Replacing Auto Scaling instances
+   *                 based on an instance refresh</a> in the
+   *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
   public cancelInstanceRefresh(
     args: CancelInstanceRefreshCommandInput,
@@ -587,7 +597,11 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
-   * <p>Creates an Auto Scaling group with the specified name and attributes. </p>
+   * <p>
+   *             <b>We strongly recommend using a launch template when calling this operation to ensure full functionality for Amazon EC2 Auto Scaling and Amazon EC2.</b>
+   *          </p>
+   *          <p>Creates an Auto Scaling group with
+   *             the specified name and attributes. </p>
    *         <p>If you exceed your maximum limit of Auto Scaling groups, the call fails. To query this limit,
    *             call the <a>DescribeAccountLimits</a> API. For information about updating
    *             this limit, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html">Amazon EC2 Auto Scaling service
@@ -941,6 +955,38 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
+   * <p>Deletes the warm pool for the specified Auto Scaling group.</p>
+   */
+  public deleteWarmPool(
+    args: DeleteWarmPoolCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteWarmPoolCommandOutput>;
+  public deleteWarmPool(
+    args: DeleteWarmPoolCommandInput,
+    cb: (err: any, data?: DeleteWarmPoolCommandOutput) => void
+  ): void;
+  public deleteWarmPool(
+    args: DeleteWarmPoolCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteWarmPoolCommandOutput) => void
+  ): void;
+  public deleteWarmPool(
+    args: DeleteWarmPoolCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteWarmPoolCommandOutput) => void),
+    cb?: (err: any, data?: DeleteWarmPoolCommandOutput) => void
+  ): Promise<DeleteWarmPoolCommandOutput> | void {
+    const command = new DeleteWarmPoolCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Describes the current Amazon EC2 Auto Scaling resource quotas for your AWS account.</p>
    *         <p>For information about requesting an increase, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html">Amazon EC2 Auto Scaling service
    *                 quotas</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
@@ -1150,8 +1196,9 @@ export class AutoScaling extends AutoScalingClient {
    *                   <code>Cancelled</code> - The operation is cancelled. </p>
    *             </li>
    *          </ul>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">Replacing Auto Scaling Instances
-   *                 Based on an Instance Refresh</a>.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">Replacing Auto Scaling instances
+   *                 based on an instance refresh</a> in the
+   *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
   public describeInstanceRefreshes(
     args: DescribeInstanceRefreshesCommandInput,
@@ -1453,6 +1500,10 @@ export class AutoScaling extends AutoScalingClient {
 
   /**
    * <p>Describes one or more scaling activities for the specified Auto Scaling group.</p>
+   *         <p>To view the scaling activities from the Amazon EC2 Auto Scaling console, choose the <b>Activity</b> tab of the Auto Scaling group. When scaling events occur,
+   *             you see scaling activity messages in the <b>Activity
+   *                 history</b>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html">Verifying a scaling
+   *                 activity for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
   public describeScalingActivities(
     args: DescribeScalingActivitiesCommandInput,
@@ -1611,6 +1662,38 @@ export class AutoScaling extends AutoScalingClient {
     cb?: (err: any, data?: DescribeTerminationPolicyTypesCommandOutput) => void
   ): Promise<DescribeTerminationPolicyTypesCommandOutput> | void {
     const command = new DescribeTerminationPolicyTypesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes a warm pool and its instances.</p>
+   */
+  public describeWarmPool(
+    args: DescribeWarmPoolCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeWarmPoolCommandOutput>;
+  public describeWarmPool(
+    args: DescribeWarmPoolCommandInput,
+    cb: (err: any, data?: DescribeWarmPoolCommandOutput) => void
+  ): void;
+  public describeWarmPool(
+    args: DescribeWarmPoolCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeWarmPoolCommandOutput) => void
+  ): void;
+  public describeWarmPool(
+    args: DescribeWarmPoolCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeWarmPoolCommandOutput) => void),
+    cb?: (err: any, data?: DescribeWarmPoolCommandOutput) => void
+  ): Promise<DescribeWarmPoolCommandOutput> | void {
+    const command = new DescribeWarmPoolCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2042,9 +2125,7 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
-   * <p>Creates or updates a scheduled scaling action for an Auto Scaling group. If you leave a
-   *             parameter unspecified when updating a scheduled scaling action, the corresponding value
-   *             remains unchanged.</p>
+   * <p>Creates or updates a scheduled scaling action for an Auto Scaling group.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">Scheduled scaling</a> in the
    *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
@@ -2067,6 +2148,41 @@ export class AutoScaling extends AutoScalingClient {
     cb?: (err: any, data?: PutScheduledUpdateGroupActionCommandOutput) => void
   ): Promise<PutScheduledUpdateGroupActionCommandOutput> | void {
     const command = new PutScheduledUpdateGroupActionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Adds a warm pool to the specified Auto Scaling group. A warm pool is a pool of pre-initialized
+   *             EC2 instances that sits alongside the Auto Scaling group. Whenever your application needs to
+   *             scale out, the Auto Scaling group can draw on the warm pool to meet its new desired capacity.
+   *             For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html">Warm pools for
+   *                 Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *         <p>This operation must be called from the Region in which the Auto Scaling group was created.
+   *             This operation cannot be called on an Auto Scaling group that has a mixed instances policy or a
+   *             launch template or launch configuration that requests Spot Instances.</p>
+   *         <p>You can view the instances in the warm pool using the <a>DescribeWarmPool</a> API call. If you are no longer using a warm pool, you can delete it by calling the
+   *                 <a>DeleteWarmPool</a> API.</p>
+   */
+  public putWarmPool(args: PutWarmPoolCommandInput, options?: __HttpHandlerOptions): Promise<PutWarmPoolCommandOutput>;
+  public putWarmPool(args: PutWarmPoolCommandInput, cb: (err: any, data?: PutWarmPoolCommandOutput) => void): void;
+  public putWarmPool(
+    args: PutWarmPoolCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutWarmPoolCommandOutput) => void
+  ): void;
+  public putWarmPool(
+    args: PutWarmPoolCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutWarmPoolCommandOutput) => void),
+    cb?: (err: any, data?: PutWarmPoolCommandOutput) => void
+  ): Promise<PutWarmPoolCommandOutput> | void {
+    const command = new PutWarmPoolCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2109,8 +2225,8 @@ export class AutoScaling extends AutoScalingClient {
    *                     action.</p>
    *             </li>
    *          </ol>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroupLifecycle.html">Auto Scaling
-   *                 lifecycle</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html">Amazon EC2 Auto Scaling lifecycle
+   *                 hooks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
   public recordLifecycleActionHeartbeat(
     args: RecordLifecycleActionHeartbeatCommandInput,
@@ -2248,7 +2364,8 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
-   * <p>Updates the instance protection settings of the specified instances.</p>
+   * <p>Updates the instance protection settings of the specified instances. This operation
+   *             cannot be called on instances in a warm pool.</p>
    *         <p>For more information about preventing instances that are part of an Auto Scaling group from
    *             terminating on scale in, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection">Instance scale-in protection</a> in the
    *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
@@ -2285,15 +2402,16 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
-   * <p>Starts a new instance refresh operation, which triggers a rolling replacement of all
+   * <p>Starts a new instance refresh operation, which triggers a rolling replacement of
    *             previously launched instances in the Auto Scaling group with a new group of instances.</p>
    *         <p>If successful, this call creates a new instance refresh request with a unique ID that
    *             you can use to track its progress. To query its status, call the <a>DescribeInstanceRefreshes</a> API. To describe the instance refreshes that
    *             have already run, call the <a>DescribeInstanceRefreshes</a> API. To cancel an
    *             instance refresh operation in progress, use the <a>CancelInstanceRefresh</a>
    *             API. </p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">Replacing Auto Scaling Instances
-   *                 Based on an Instance Refresh</a>.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">Replacing Auto Scaling instances
+   *                 based on an instance refresh</a> in the
+   *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
   public startInstanceRefresh(
     args: StartInstanceRefreshCommandInput,
@@ -2363,7 +2481,8 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
-   * <p>Terminates the specified instance and optionally adjusts the desired group size. </p>
+   * <p>Terminates the specified instance and optionally adjusts the desired group size. This
+   *             operation cannot be called on instances in a warm pool.</p>
    *         <p>This call simply makes a termination request. The instance is not terminated
    *             immediately. When an instance is terminated, the instance status changes to
    *                 <code>terminated</code>. You can't connect to or start an instance after you've
@@ -2405,7 +2524,11 @@ export class AutoScaling extends AutoScalingClient {
   }
 
   /**
-   * <p>Updates the configuration for the specified Auto Scaling group.</p>
+   * <p>
+   *             <b>We strongly recommend that all Auto Scaling groups use launch templates to ensure full functionality for Amazon EC2 Auto Scaling and Amazon EC2.</b>
+   *          </p>
+   *          <p>Updates the configuration for
+   *             the specified Auto Scaling group.</p>
    *         <p>To update an Auto Scaling group, specify the name of the group and the parameter that you want
    *             to change. Any parameters that you don't specify are not changed by this update request.
    *             The new settings take effect on any scaling activities after this call returns.

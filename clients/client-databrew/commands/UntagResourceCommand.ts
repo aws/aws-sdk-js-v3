@@ -21,7 +21,7 @@ export type UntagResourceCommandInput = UntagResourceRequest;
 export type UntagResourceCommandOutput = UntagResourceResponse & __MetadataBearer;
 
 /**
- * <p>Removes metadata tags from an AWS Glue DataBrew resource.</p>
+ * <p>Removes metadata tags from a DataBrew resource.</p>
  */
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,

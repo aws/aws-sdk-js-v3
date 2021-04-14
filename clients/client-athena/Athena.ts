@@ -20,6 +20,11 @@ import {
   CreateNamedQueryCommandOutput,
 } from "./commands/CreateNamedQueryCommand";
 import {
+  CreatePreparedStatementCommand,
+  CreatePreparedStatementCommandInput,
+  CreatePreparedStatementCommandOutput,
+} from "./commands/CreatePreparedStatementCommand";
+import {
   CreateWorkGroupCommand,
   CreateWorkGroupCommandInput,
   CreateWorkGroupCommandOutput,
@@ -34,6 +39,11 @@ import {
   DeleteNamedQueryCommandInput,
   DeleteNamedQueryCommandOutput,
 } from "./commands/DeleteNamedQueryCommand";
+import {
+  DeletePreparedStatementCommand,
+  DeletePreparedStatementCommandInput,
+  DeletePreparedStatementCommandOutput,
+} from "./commands/DeletePreparedStatementCommand";
 import {
   DeleteWorkGroupCommand,
   DeleteWorkGroupCommandInput,
@@ -50,6 +60,11 @@ import {
   GetNamedQueryCommandInput,
   GetNamedQueryCommandOutput,
 } from "./commands/GetNamedQueryCommand";
+import {
+  GetPreparedStatementCommand,
+  GetPreparedStatementCommandInput,
+  GetPreparedStatementCommandOutput,
+} from "./commands/GetPreparedStatementCommand";
 import {
   GetQueryExecutionCommand,
   GetQueryExecutionCommandInput,
@@ -81,10 +96,20 @@ import {
   ListDatabasesCommandOutput,
 } from "./commands/ListDatabasesCommand";
 import {
+  ListEngineVersionsCommand,
+  ListEngineVersionsCommandInput,
+  ListEngineVersionsCommandOutput,
+} from "./commands/ListEngineVersionsCommand";
+import {
   ListNamedQueriesCommand,
   ListNamedQueriesCommandInput,
   ListNamedQueriesCommandOutput,
 } from "./commands/ListNamedQueriesCommand";
+import {
+  ListPreparedStatementsCommand,
+  ListPreparedStatementsCommandInput,
+  ListPreparedStatementsCommandOutput,
+} from "./commands/ListPreparedStatementsCommand";
 import {
   ListQueryExecutionsCommand,
   ListQueryExecutionsCommandInput,
@@ -126,6 +151,11 @@ import {
   UpdateDataCatalogCommandInput,
   UpdateDataCatalogCommandOutput,
 } from "./commands/UpdateDataCatalogCommand";
+import {
+  UpdatePreparedStatementCommand,
+  UpdatePreparedStatementCommandInput,
+  UpdatePreparedStatementCommandOutput,
+} from "./commands/UpdatePreparedStatementCommand";
 import {
   UpdateWorkGroupCommand,
   UpdateWorkGroupCommandInput,
@@ -295,6 +325,38 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * <p>Creates a prepared statement for use with SQL queries in Athena.</p>
+   */
+  public createPreparedStatement(
+    args: CreatePreparedStatementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePreparedStatementCommandOutput>;
+  public createPreparedStatement(
+    args: CreatePreparedStatementCommandInput,
+    cb: (err: any, data?: CreatePreparedStatementCommandOutput) => void
+  ): void;
+  public createPreparedStatement(
+    args: CreatePreparedStatementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePreparedStatementCommandOutput) => void
+  ): void;
+  public createPreparedStatement(
+    args: CreatePreparedStatementCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePreparedStatementCommandOutput) => void),
+    cb?: (err: any, data?: CreatePreparedStatementCommandOutput) => void
+  ): Promise<CreatePreparedStatementCommandOutput> | void {
+    const command = new CreatePreparedStatementCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a workgroup with the specified name.</p>
    */
   public createWorkGroup(
@@ -394,6 +456,39 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * <p>Deletes the prepared statement with the specified name from the specified
+   *             workgroup.</p>
+   */
+  public deletePreparedStatement(
+    args: DeletePreparedStatementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePreparedStatementCommandOutput>;
+  public deletePreparedStatement(
+    args: DeletePreparedStatementCommandInput,
+    cb: (err: any, data?: DeletePreparedStatementCommandOutput) => void
+  ): void;
+  public deletePreparedStatement(
+    args: DeletePreparedStatementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePreparedStatementCommandOutput) => void
+  ): void;
+  public deletePreparedStatement(
+    args: DeletePreparedStatementCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePreparedStatementCommandOutput) => void),
+    cb?: (err: any, data?: DeletePreparedStatementCommandOutput) => void
+  ): Promise<DeletePreparedStatementCommandOutput> | void {
+    const command = new DeletePreparedStatementCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes the workgroup with the specified name. The primary workgroup cannot be
    *             deleted.</p>
    */
@@ -427,7 +522,7 @@ export class Athena extends AthenaClient {
   }
 
   /**
-   * <p>Returns a database object for the specfied database and data catalog.</p>
+   * <p>Returns a database object for the specified database and data catalog.</p>
    */
   public getDatabase(args: GetDatabaseCommandInput, options?: __HttpHandlerOptions): Promise<GetDatabaseCommandOutput>;
   public getDatabase(args: GetDatabaseCommandInput, cb: (err: any, data?: GetDatabaseCommandOutput) => void): void;
@@ -507,6 +602,39 @@ export class Athena extends AthenaClient {
     cb?: (err: any, data?: GetNamedQueryCommandOutput) => void
   ): Promise<GetNamedQueryCommandOutput> | void {
     const command = new GetNamedQueryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves the prepared statement with the specified name from the specified
+   *             workgroup.</p>
+   */
+  public getPreparedStatement(
+    args: GetPreparedStatementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPreparedStatementCommandOutput>;
+  public getPreparedStatement(
+    args: GetPreparedStatementCommandInput,
+    cb: (err: any, data?: GetPreparedStatementCommandOutput) => void
+  ): void;
+  public getPreparedStatement(
+    args: GetPreparedStatementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPreparedStatementCommandOutput) => void
+  ): void;
+  public getPreparedStatement(
+    args: GetPreparedStatementCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPreparedStatementCommandOutput) => void),
+    cb?: (err: any, data?: GetPreparedStatementCommandOutput) => void
+  ): Promise<GetPreparedStatementCommandOutput> | void {
+    const command = new GetPreparedStatementCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -723,6 +851,39 @@ export class Athena extends AthenaClient {
   }
 
   /**
+   * <p>Returns a list of engine versions that are available to choose from, including the
+   *             Auto option.</p>
+   */
+  public listEngineVersions(
+    args: ListEngineVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEngineVersionsCommandOutput>;
+  public listEngineVersions(
+    args: ListEngineVersionsCommandInput,
+    cb: (err: any, data?: ListEngineVersionsCommandOutput) => void
+  ): void;
+  public listEngineVersions(
+    args: ListEngineVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEngineVersionsCommandOutput) => void
+  ): void;
+  public listEngineVersions(
+    args: ListEngineVersionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEngineVersionsCommandOutput) => void),
+    cb?: (err: any, data?: ListEngineVersionsCommandOutput) => void
+  ): Promise<ListEngineVersionsCommandOutput> | void {
+    const command = new ListEngineVersionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Provides a list of available query IDs only for queries saved in the specified
    *             workgroup. Requires that you have access to the specified workgroup. If a workgroup is
    *             not specified, lists the saved queries for the primary workgroup.</p>
@@ -748,6 +909,38 @@ export class Athena extends AthenaClient {
     cb?: (err: any, data?: ListNamedQueriesCommandOutput) => void
   ): Promise<ListNamedQueriesCommandOutput> | void {
     const command = new ListNamedQueriesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the prepared statements in the specfied workgroup.</p>
+   */
+  public listPreparedStatements(
+    args: ListPreparedStatementsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPreparedStatementsCommandOutput>;
+  public listPreparedStatements(
+    args: ListPreparedStatementsCommandInput,
+    cb: (err: any, data?: ListPreparedStatementsCommandOutput) => void
+  ): void;
+  public listPreparedStatements(
+    args: ListPreparedStatementsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPreparedStatementsCommandOutput) => void
+  ): void;
+  public listPreparedStatements(
+    args: ListPreparedStatementsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPreparedStatementsCommandOutput) => void),
+    cb?: (err: any, data?: ListPreparedStatementsCommandOutput) => void
+  ): Promise<ListPreparedStatementsCommandOutput> | void {
+    const command = new ListPreparedStatementsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1051,6 +1244,38 @@ export class Athena extends AthenaClient {
     cb?: (err: any, data?: UpdateDataCatalogCommandOutput) => void
   ): Promise<UpdateDataCatalogCommandOutput> | void {
     const command = new UpdateDataCatalogCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a prepared statement.</p>
+   */
+  public updatePreparedStatement(
+    args: UpdatePreparedStatementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePreparedStatementCommandOutput>;
+  public updatePreparedStatement(
+    args: UpdatePreparedStatementCommandInput,
+    cb: (err: any, data?: UpdatePreparedStatementCommandOutput) => void
+  ): void;
+  public updatePreparedStatement(
+    args: UpdatePreparedStatementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePreparedStatementCommandOutput) => void
+  ): void;
+  public updatePreparedStatement(
+    args: UpdatePreparedStatementCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePreparedStatementCommandOutput) => void),
+    cb?: (err: any, data?: UpdatePreparedStatementCommandOutput) => void
+  ): Promise<UpdatePreparedStatementCommandOutput> | void {
+    const command = new UpdatePreparedStatementCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

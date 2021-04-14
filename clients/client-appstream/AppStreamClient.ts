@@ -20,6 +20,7 @@ import {
 } from "./commands/CreateImageBuilderStreamingURLCommand";
 import { CreateStackCommandInput, CreateStackCommandOutput } from "./commands/CreateStackCommand";
 import { CreateStreamingURLCommandInput, CreateStreamingURLCommandOutput } from "./commands/CreateStreamingURLCommand";
+import { CreateUpdatedImageCommandInput, CreateUpdatedImageCommandOutput } from "./commands/CreateUpdatedImageCommand";
 import {
   CreateUsageReportSubscriptionCommandInput,
   CreateUsageReportSubscriptionCommandOutput,
@@ -161,6 +162,7 @@ export type ServiceInputTypes =
   | CreateImageBuilderStreamingURLCommandInput
   | CreateStackCommandInput
   | CreateStreamingURLCommandInput
+  | CreateUpdatedImageCommandInput
   | CreateUsageReportSubscriptionCommandInput
   | CreateUserCommandInput
   | DeleteDirectoryConfigCommandInput
@@ -210,6 +212,7 @@ export type ServiceOutputTypes =
   | CreateImageBuilderStreamingURLCommandOutput
   | CreateStackCommandOutput
   | CreateStreamingURLCommandOutput
+  | CreateUpdatedImageCommandOutput
   | CreateUsageReportSubscriptionCommandOutput
   | CreateUserCommandOutput
   | DeleteDirectoryConfigCommandOutput

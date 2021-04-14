@@ -21,7 +21,12 @@ export type CreateAttendeeCommandInput = CreateAttendeeRequest;
 export type CreateAttendeeCommandOutput = CreateAttendeeResponse & __MetadataBearer;
 
 /**
- * <p>Creates a new attendee for an active Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
+ * <p>
+ * Creates a new attendee for an active Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see
+ * <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
+ * in the
+ * <i>Amazon Chime Developer Guide</i>.
+ * </p>
  */
 export class CreateAttendeeCommand extends $Command<
   CreateAttendeeCommandInput,

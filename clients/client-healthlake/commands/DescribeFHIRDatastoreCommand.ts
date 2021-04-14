@@ -21,9 +21,9 @@ export type DescribeFHIRDatastoreCommandInput = DescribeFHIRDatastoreRequest;
 export type DescribeFHIRDatastoreCommandOutput = DescribeFHIRDatastoreResponse & __MetadataBearer;
 
 /**
- * <p>Gets the properties associated with the FHIR datastore, including the datastore ID,
- *          datastore ARN, datastore name, datastore status, created at, datastore type version, and
- *          datastore endpoint.</p>
+ * <p>Gets the properties associated with the FHIR Data Store, including the Data Store ID,
+ *          Data Store ARN, Data Store name, Data Store status, created at, Data Store type version, and
+ *          Data Store endpoint.</p>
  */
 export class DescribeFHIRDatastoreCommand extends $Command<
   DescribeFHIRDatastoreCommandInput,

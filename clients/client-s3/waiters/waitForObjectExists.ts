@@ -6,7 +6,11 @@ const checkState = async (client: S3Client, input: HeadObjectCommandInput): Prom
   try {
     let result: any = await client.send(new HeadObjectCommand(input));
     return { state: WaiterState.SUCCESS };
-  } catch (exception) {}
+  } catch (exception) {
+    if (exception.name && exception.name == "NotFound") {
+      return { state: WaiterState.RETRY };
+    }
+  }
   return { state: WaiterState.RETRY };
 };
 /**

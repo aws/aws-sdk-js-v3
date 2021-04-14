@@ -24,7 +24,7 @@ export type CreateContainerServiceCommandOutput = CreateContainerServiceResult &
  * <p>Creates an Amazon Lightsail container service.</p>
  *
  *          <p>A Lightsail container service is a compute resource to which you can deploy containers.
- *       For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-containers">Container services in Amazon Lightsail</a> in the <i>Lightsail Dev
+ *       For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-services">Container services in Amazon Lightsail</a> in the <i>Lightsail Dev
  *         Guide</i>.</p>
  */
 export class CreateContainerServiceCommand extends $Command<

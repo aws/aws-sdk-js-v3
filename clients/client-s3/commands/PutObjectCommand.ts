@@ -43,18 +43,21 @@ export type PutObjectCommandOutput = PutObjectOutput & __MetadataBearer;
  *             <p> The <code>Content-MD5</code> header is required for any request to upload an object
  *             with a retention period configured using Amazon S3 Object Lock. For more information about
  *             Amazon S3 Object Lock, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html">Amazon S3 Object Lock Overview</a>
- *             in the <i>Amazon Simple Storage Service Developer Guide</i>. </p>
+ *             in the <i>Amazon S3 User Guide</i>. </p>
  *          </note>
  *
  *
  *          <p>
  *             <b>Server-side Encryption</b>
  *          </p>
- *          <p>You can optionally request server-side encryption. With server-side encryption, Amazon S3 encrypts your data as it writes it to disks in its data centers and decrypts the data
+ *          <p>You can optionally request server-side encryption. With server-side encryption, Amazon S3 encrypts
+ *          your data as it writes it to disks in its data centers and decrypts the data
  *          when you access it. You have the option to provide your own encryption key or use AWS
  *          managed encryption keys (SSE-S3 or SSE-KMS). For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html">Using Server-Side
  *             Encryption</a>.</p>
- *          <p>If you request server-side encryption using AWS Key Management Service (SSE-KMS), you can enable an S3 Bucket Key at the object-level. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html">Amazon S3 Bucket Keys</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+ *          <p>If you request server-side encryption using AWS Key Management Service (SSE-KMS), you can enable
+ *          an S3 Bucket Key at the object-level. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html">Amazon S3 Bucket Keys</a> in the
+ *          <i>Amazon S3 User Guide</i>.</p>
  *          <p>
  *             <b>Access Control List (ACL)-Specific Request
  *          Headers</b>

@@ -1326,10 +1326,16 @@ export namespace DescribeEventTypesRequest {
 }
 
 /**
- * <p>Metadata about a type of event that is reported by AWS Health. Data consists of the
- *          category (for example, <code>issue</code>), the service (for example, <code>EC2</code>),
- *          and the event type code (for example,
- *          <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code>).</p>
+ * <p>Contains the metadata about a type of event that is reported by AWS Health. The
+ *             <code>EventType</code> shows the category, service, and the event type code of the
+ *          event. For example, an <code>issue</code> might be the category, <code>EC2</code> the
+ *          service, and <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code> the event type code.</p>
+ *          <p>You can use the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventTypes.html">DescribeEventTypes</a> API operation to return this information
+ *          about an event.</p>
+ *          <p>You can also use the Amazon CloudWatch Events console to create a rule so that you can get notified or
+ *          take action when AWS Health delivers a specific event to your AWS account. For more
+ *          information, see <a href="https://docs.aws.amazon.com/health/latest/ug/cloudwatch-events-health.html">Monitor for AWS Health events with Amazon CloudWatch Events</a> in the
+ *             <i>AWS Health User Guide</i>.</p>
  */
 export interface EventType {
   /**

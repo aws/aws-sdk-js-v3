@@ -27,8 +27,8 @@ export type StartMedicalStreamTranscriptionCommandInput = StartMedicalStreamTran
 export type StartMedicalStreamTranscriptionCommandOutput = StartMedicalStreamTranscriptionResponse & __MetadataBearer;
 
 /**
- * <p>Starts a bidirectional HTTP/2 stream where audio is streamed to Amazon Transcribe Medical and the transcription
- *             results are streamed to your application.</p>
+ * <p>Starts a bidirectional HTTP/2 stream where audio is streamed to Amazon Transcribe Medical and the
+ *             transcription results are streamed to your application.</p>
  */
 export class StartMedicalStreamTranscriptionCommand extends $Command<
   StartMedicalStreamTranscriptionCommandInput,

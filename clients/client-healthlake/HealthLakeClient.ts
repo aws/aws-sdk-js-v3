@@ -11,10 +11,15 @@ import {
   DescribeFHIRDatastoreCommandOutput,
 } from "./commands/DescribeFHIRDatastoreCommand";
 import {
+  DescribeFHIRExportJobCommandInput,
+  DescribeFHIRExportJobCommandOutput,
+} from "./commands/DescribeFHIRExportJobCommand";
+import {
   DescribeFHIRImportJobCommandInput,
   DescribeFHIRImportJobCommandOutput,
 } from "./commands/DescribeFHIRImportJobCommand";
 import { ListFHIRDatastoresCommandInput, ListFHIRDatastoresCommandOutput } from "./commands/ListFHIRDatastoresCommand";
+import { StartFHIRExportJobCommandInput, StartFHIRExportJobCommandOutput } from "./commands/StartFHIRExportJobCommand";
 import { StartFHIRImportJobCommandInput, StartFHIRImportJobCommandOutput } from "./commands/StartFHIRImportJobCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -71,16 +76,20 @@ export type ServiceInputTypes =
   | CreateFHIRDatastoreCommandInput
   | DeleteFHIRDatastoreCommandInput
   | DescribeFHIRDatastoreCommandInput
+  | DescribeFHIRExportJobCommandInput
   | DescribeFHIRImportJobCommandInput
   | ListFHIRDatastoresCommandInput
+  | StartFHIRExportJobCommandInput
   | StartFHIRImportJobCommandInput;
 
 export type ServiceOutputTypes =
   | CreateFHIRDatastoreCommandOutput
   | DeleteFHIRDatastoreCommandOutput
   | DescribeFHIRDatastoreCommandOutput
+  | DescribeFHIRExportJobCommandOutput
   | DescribeFHIRImportJobCommandOutput
   | ListFHIRDatastoresCommandOutput
+  | StartFHIRExportJobCommandOutput
   | StartFHIRImportJobCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
@@ -199,7 +208,7 @@ export type HealthLakeClientResolvedConfig = __SmithyResolvedConfiguration<__Htt
 
 /**
  * <p>Amazon HealthLake is a HIPAA eligibile service that allows customers to store,
- *          transform, query, and analyze their data in a consistent fashion in the cloud.</p>
+ *          transform, query, and analyze their FHIR-formatted data in a consistent fashion in the cloud.</p>
  */
 export class HealthLakeClient extends __Client<
   __HttpHandlerOptions,

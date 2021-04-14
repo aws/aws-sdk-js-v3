@@ -52,8 +52,19 @@ import {
   ListProjectsCommandInput,
   ListProjectsCommandOutput,
 } from "./commands/ListProjectsCommand";
+import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
 import { StartModelCommand, StartModelCommandInput, StartModelCommandOutput } from "./commands/StartModelCommand";
 import { StopModelCommand, StopModelCommandInput, StopModelCommandOutput } from "./commands/StopModelCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
+} from "./commands/UntagResourceCommand";
 import {
   UpdateDatasetEntriesCommand,
   UpdateDatasetEntriesCommandInput,
@@ -79,9 +90,9 @@ export class LookoutVision extends LookoutVisionClient {
    *         <p>To have a project with separate training and test datasets, call <code>CreateDataset</code> twice.
    *            On the first call, specify <code>train</code> for the value of
    *            <code>DatasetType</code>. On the second call, specify <code>test</code> for the value of
-   *            <code>DatasetType</code>.
-   *
-   *          of dataset with </p>
+   *            <code>DatasetType</code>. </p>
+   *         <p>This operation requires permissions to perform the
+   *            <code>lookoutvision:CreateDataset</code> operation.</p>
    */
   public createDataset(
     args: CreateDatasetCommandInput,
@@ -124,6 +135,9 @@ export class LookoutVision extends LookoutVisionClient {
    *        the model. </p>
    *          <p>After training completes, the evaluation metrics are stored at the location specified in
    *         <code>OutputConfig</code>.  </p>
+   *          <p>This operation requires permissions to perform the
+   *          <code>lookoutvision:CreateModel</code> operation. If you want to tag your model, you also require
+   *          permission to the <code>lookoutvision:TagResource</code> operation.</p>
    */
   public createModel(args: CreateModelCommandInput, options?: __HttpHandlerOptions): Promise<CreateModelCommandOutput>;
   public createModel(args: CreateModelCommandInput, cb: (err: any, data?: CreateModelCommandOutput) => void): void;
@@ -151,6 +165,8 @@ export class LookoutVision extends LookoutVisionClient {
   /**
    * <p>Creates an empty Amazon Lookout for Vision project. After you create the project, add a dataset by calling
    *          <a>CreateDataset</a>.</p>
+   *          <p>This operation requires permissions to perform the
+   *          <code>lookoutvision:CreateProject</code> operation.</p>
    */
   public createProject(
     args: CreateProjectCommandInput,
@@ -195,8 +211,8 @@ export class LookoutVision extends LookoutVisionClient {
    *                <p>If you delete the training dataset, you must create a training dataset before you can create a model.</p>
    *             </li>
    *          </ul>
-   *          <p>It might take a while to delete the dataset. To check the current status, check the <code>Status</code> field
-   *       in the response from a call to <a>DescribeDataset</a>. </p>
+   *          <p>This operation requires permissions to perform the
+   *          <code>lookoutvision:DeleteDataset</code> operation.</p>
    */
   public deleteDataset(
     args: DeleteDatasetCommandInput,
@@ -230,6 +246,11 @@ export class LookoutVision extends LookoutVisionClient {
   /**
    * <p>Deletes an Amazon Lookout for Vision model. You can't delete a running model. To stop a running model,
    *       use the <a>StopModel</a> operation.</p>
+   *          <p>It might take a few seconds to delete a model. To determine if a model has been deleted, call
+   *          <a>ListProjects</a> and check if the version of the model (<code>ModelVersion</code>) is in the
+   *          <code>Models</code> array. </p>
+   *          <p>This operation requires permissions to perform the
+   *          <code>lookoutvision:DeleteModel</code> operation.</p>
    */
   public deleteModel(args: DeleteModelCommandInput, options?: __HttpHandlerOptions): Promise<DeleteModelCommandOutput>;
   public deleteModel(args: DeleteModelCommandInput, cb: (err: any, data?: DeleteModelCommandOutput) => void): void;
@@ -258,8 +279,11 @@ export class LookoutVision extends LookoutVisionClient {
    * <p>Deletes an Amazon Lookout for Vision project.</p>
    *          <p>To delete a project, you must first delete each version of the model associated with
    *          the project. To delete a model use the <a>DeleteModel</a> operation.</p>
-   *          <p>The training and test datasets are deleted automatically for you.
-   *          The images referenced by the training and test datasets aren't deleted. </p>
+   *          <p>You also have to delete the dataset(s) associated with the model. For more information, see
+   *          <a>DeleteDataset</a>.  The images referenced by the training and test datasets aren't deleted.
+   *       </p>
+   *          <p>This operation requires permissions to perform the
+   *          <code>lookoutvision:DeleteProject</code> operation.</p>
    */
   public deleteProject(
     args: DeleteProjectCommandInput,
@@ -292,6 +316,8 @@ export class LookoutVision extends LookoutVisionClient {
 
   /**
    * <p>Describe an Amazon Lookout for Vision dataset.</p>
+   *          <p>This operation requires permissions to perform the
+   *          <code>lookoutvision:DescribeDataset</code> operation.</p>
    */
   public describeDataset(
     args: DescribeDatasetCommandInput,
@@ -324,6 +350,8 @@ export class LookoutVision extends LookoutVisionClient {
 
   /**
    * <p>Describes a version of an Amazon Lookout for Vision model.</p>
+   *          <p>This operation requires permissions to perform the
+   *          <code>lookoutvision:DescribeModel</code> operation.</p>
    */
   public describeModel(
     args: DescribeModelCommandInput,
@@ -356,6 +384,8 @@ export class LookoutVision extends LookoutVisionClient {
 
   /**
    * <p>Describes an Amazon Lookout for Vision project.</p>
+   *          <p>This operation requires permissions to perform the
+   *          <code>lookoutvision:DescribeProject</code> operation.</p>
    */
   public describeProject(
     args: DescribeProjectCommandInput,
@@ -395,6 +425,8 @@ export class LookoutVision extends LookoutVisionClient {
    *          You are charged for the amount of time, in minutes, that a model runs and for the number of anomaly detection units that your
    *          model uses. If you are not using a model, use the <a>StopModel</a> operation to stop your model. </p>
    *          </note>
+   *          <p>This operation requires permissions to perform the
+   *          <code>lookoutvision:DetectAnomalies</code> operation.</p>
    */
   public detectAnomalies(
     args: DetectAnomaliesCommandInput,
@@ -428,6 +460,8 @@ export class LookoutVision extends LookoutVisionClient {
   /**
    * <p>Lists the JSON Lines within a dataset. An Amazon Lookout for Vision JSON Line contains the anomaly
    *       information for a single image, including the image location and the assigned label.</p>
+   *          <p>This operation requires permissions to perform the
+   *          <code>lookoutvision:ListDatasetEntries</code> operation.</p>
    */
   public listDatasetEntries(
     args: ListDatasetEntriesCommandInput,
@@ -460,6 +494,8 @@ export class LookoutVision extends LookoutVisionClient {
 
   /**
    * <p>Lists the versions of a model in an Amazon Lookout for Vision project.</p>
+   *          <p>This operation requires permissions to perform the
+   *          <code>lookoutvision:ListModels</code> operation.</p>
    */
   public listModels(args: ListModelsCommandInput, options?: __HttpHandlerOptions): Promise<ListModelsCommandOutput>;
   public listModels(args: ListModelsCommandInput, cb: (err: any, data?: ListModelsCommandOutput) => void): void;
@@ -486,6 +522,8 @@ export class LookoutVision extends LookoutVisionClient {
 
   /**
    * <p>Lists the Amazon Lookout for Vision projects in your AWS account.</p>
+   *          <p>This operation requires permissions to perform the
+   *          <code>lookoutvision:ListProjects</code> operation.</p>
    */
   public listProjects(
     args: ListProjectsCommandInput,
@@ -514,14 +552,51 @@ export class LookoutVision extends LookoutVisionClient {
   }
 
   /**
+   * <p>Returns a list of tags attached to the specified Amazon Lookout for Vision model.</p>
+   *          <p>This operation requires permissions to perform the
+   *          <code>lookoutvision:ListTagsForResource</code> operation.</p>
+   */
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): Promise<ListTagsForResourceCommandOutput> | void {
+    const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Starts the running of the version of an Amazon Lookout for Vision model. Starting a model takes a while
    *          to complete. To check the current state of the model, use <a>DescribeModel</a>.</p>
+   *          <p>A model is ready to use when its status is <code>HOSTED</code>.</p>
    *          <p>Once the model is running, you can detect custom labels in new images by calling
    *          <a>DetectAnomalies</a>.</p>
    *          <note>
    *             <p>You are charged for the amount of time that the model is running. To stop a running
    *          model, call <a>StopModel</a>.</p>
    *          </note>
+   *          <p>This operation requires permissions to perform the
+   *          <code>lookoutvision:StartModel</code> operation.</p>
    */
   public startModel(args: StartModelCommandInput, options?: __HttpHandlerOptions): Promise<StartModelCommandOutput>;
   public startModel(args: StartModelCommandInput, cb: (err: any, data?: StartModelCommandOutput) => void): void;
@@ -547,8 +622,11 @@ export class LookoutVision extends LookoutVisionClient {
   }
 
   /**
-   * <p>Stops a running model. The operation might take a while to complete. To
+   * <p>Stops the hosting of a running model. The operation might take a while to complete. To
    *          check the current status, call <a>DescribeModel</a>. </p>
+   *          <p>After the model hosting stops, the <code>Status</code> of the model is <code>TRAINED</code>.</p>
+   *          <p>This operation requires permissions to perform the
+   *          <code>lookoutvision:StopModel</code> operation.</p>
    */
   public stopModel(args: StopModelCommandInput, options?: __HttpHandlerOptions): Promise<StopModelCommandOutput>;
   public stopModel(args: StopModelCommandInput, cb: (err: any, data?: StopModelCommandOutput) => void): void;
@@ -574,12 +652,78 @@ export class LookoutVision extends LookoutVisionClient {
   }
 
   /**
+   * <p>Adds one or more key-value tags to an Amazon Lookout for Vision model.
+   *          For more information, see <i>Tagging a model</i> in the <i>Amazon Lookout for Vision Developer Guide</i>. </p>
+   *          <p>This operation requires permissions to perform the
+   *          <code>lookoutvision:TagResource</code> operation.</p>
+   */
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
+    cb?: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<TagResourceCommandOutput> | void {
+    const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes one or more tags from an Amazon Lookout for Vision model. For more information, see
+   *          <i>Tagging a model</i> in the <i>Amazon Lookout for Vision Developer Guide</i>. </p>
+   *          <p>This operation requires permissions to perform the
+   *          <code>lookoutvision:UntagResource</code> operation.</p>
+   */
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
+    cb?: (err: any, data?: UntagResourceCommandOutput) => void
+  ): Promise<UntagResourceCommandOutput> | void {
+    const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Adds one or more JSON Line entries to a dataset. A JSON Line includes information about an image
    *          used for training or testing an Amazon Lookout for Vision model. The following is an example JSON Line.</p>
    *
    *
    *          <p>Updating a dataset might take a while to complete. To check the current status, call <a>DescribeDataset</a> and
    *          check the <code>Status</code> field in the response.</p>
+   *          <p>This operation requires permissions to perform the
+   *          <code>lookoutvision:UpdateDatasetEntries</code> operation.</p>
    */
   public updateDatasetEntries(
     args: UpdateDatasetEntriesCommandInput,

@@ -21,8 +21,7 @@ export type CancelAuditTaskCommandInput = CancelAuditTaskRequest;
 export type CancelAuditTaskCommandOutput = CancelAuditTaskResponse & __MetadataBearer;
 
 /**
- * <p>Cancels an audit that is in progress. The audit can be either scheduled or on-demand.
- *           If the audit is not in progress, an "InvalidRequestException" occurs.</p>
+ * <p>Cancels an audit that is in progress. The audit can be either scheduled or on demand. If the audit isn't in progress, an "InvalidRequestException" occurs.</p>
  */
 export class CancelAuditTaskCommand extends $Command<
   CancelAuditTaskCommandInput,

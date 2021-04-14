@@ -21,7 +21,7 @@ export type UpdateGlobalSettingsCommandInput = UpdateGlobalSettingsInput;
 export type UpdateGlobalSettingsCommandOutput = __MetadataBearer;
 
 /**
- * <p>Updates the current global settings for the AWS Account. Use the
+ * <p>Updates the current global settings for the AWS account. Use the
  *             <code>DescribeGlobalSettings</code> API to determine the current settings.</p>
  */
 export class UpdateGlobalSettingsCommand extends $Command<

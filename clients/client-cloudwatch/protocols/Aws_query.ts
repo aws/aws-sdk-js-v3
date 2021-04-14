@@ -5,6 +5,7 @@ import {
 } from "../commands/DeleteAnomalyDetectorCommand";
 import { DeleteDashboardsCommandInput, DeleteDashboardsCommandOutput } from "../commands/DeleteDashboardsCommand";
 import { DeleteInsightRulesCommandInput, DeleteInsightRulesCommandOutput } from "../commands/DeleteInsightRulesCommand";
+import { DeleteMetricStreamCommandInput, DeleteMetricStreamCommandOutput } from "../commands/DeleteMetricStreamCommand";
 import {
   DescribeAlarmHistoryCommandInput,
   DescribeAlarmHistoryCommandOutput,
@@ -42,11 +43,13 @@ import {
   GetMetricStatisticsCommandInput,
   GetMetricStatisticsCommandOutput,
 } from "../commands/GetMetricStatisticsCommand";
+import { GetMetricStreamCommandInput, GetMetricStreamCommandOutput } from "../commands/GetMetricStreamCommand";
 import {
   GetMetricWidgetImageCommandInput,
   GetMetricWidgetImageCommandOutput,
 } from "../commands/GetMetricWidgetImageCommand";
 import { ListDashboardsCommandInput, ListDashboardsCommandOutput } from "../commands/ListDashboardsCommand";
+import { ListMetricStreamsCommandInput, ListMetricStreamsCommandOutput } from "../commands/ListMetricStreamsCommand";
 import { ListMetricsCommandInput, ListMetricsCommandOutput } from "../commands/ListMetricsCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -58,7 +61,10 @@ import { PutDashboardCommandInput, PutDashboardCommandOutput } from "../commands
 import { PutInsightRuleCommandInput, PutInsightRuleCommandOutput } from "../commands/PutInsightRuleCommand";
 import { PutMetricAlarmCommandInput, PutMetricAlarmCommandOutput } from "../commands/PutMetricAlarmCommand";
 import { PutMetricDataCommandInput, PutMetricDataCommandOutput } from "../commands/PutMetricDataCommand";
+import { PutMetricStreamCommandInput, PutMetricStreamCommandOutput } from "../commands/PutMetricStreamCommand";
 import { SetAlarmStateCommandInput, SetAlarmStateCommandOutput } from "../commands/SetAlarmStateCommand";
+import { StartMetricStreamsCommandInput, StartMetricStreamsCommandOutput } from "../commands/StartMetricStreamsCommand";
+import { StopMetricStreamsCommandInput, StopMetricStreamsCommandOutput } from "../commands/StopMetricStreamsCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
@@ -80,6 +86,8 @@ import {
   DeleteDashboardsOutput,
   DeleteInsightRulesInput,
   DeleteInsightRulesOutput,
+  DeleteMetricStreamInput,
+  DeleteMetricStreamOutput,
   DescribeAlarmHistoryInput,
   DescribeAlarmHistoryOutput,
   DescribeAlarmsForMetricInput,
@@ -106,6 +114,8 @@ import {
   GetMetricDataOutput,
   GetMetricStatisticsInput,
   GetMetricStatisticsOutput,
+  GetMetricStreamInput,
+  GetMetricStreamOutput,
   GetMetricWidgetImageInput,
   GetMetricWidgetImageOutput,
   InsightRule,
@@ -117,10 +127,13 @@ import {
   InvalidNextToken,
   InvalidParameterCombinationException,
   InvalidParameterValueException,
+  LabelOptions,
   LimitExceededException,
   LimitExceededFault,
   ListDashboardsInput,
   ListDashboardsOutput,
+  ListMetricStreamsInput,
+  ListMetricStreamsOutput,
   ListMetricsInput,
   ListMetricsOutput,
   ListTagsForResourceInput,
@@ -132,6 +145,8 @@ import {
   MetricDataResult,
   MetricDatum,
   MetricStat,
+  MetricStreamEntry,
+  MetricStreamFilter,
   MissingRequiredParameterException,
   PartialFailure,
   PutAnomalyDetectorInput,
@@ -143,12 +158,18 @@ import {
   PutInsightRuleOutput,
   PutMetricAlarmInput,
   PutMetricDataInput,
+  PutMetricStreamInput,
+  PutMetricStreamOutput,
   Range,
   ResourceNotFound,
   ResourceNotFoundException,
   SetAlarmStateInput,
+  StartMetricStreamsInput,
+  StartMetricStreamsOutput,
   Statistic,
   StatisticSet,
+  StopMetricStreamsInput,
+  StopMetricStreamsOutput,
   Tag,
   TagResourceInput,
   TagResourceOutput,
@@ -230,6 +251,22 @@ export const serializeAws_queryDeleteInsightRulesCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryDeleteInsightRulesInput(input, context),
     Action: "DeleteInsightRules",
+    Version: "2010-08-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryDeleteMetricStreamCommand = async (
+  input: DeleteMetricStreamCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDeleteMetricStreamInput(input, context),
+    Action: "DeleteMetricStream",
     Version: "2010-08-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -443,6 +480,22 @@ export const serializeAws_queryGetMetricStatisticsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryGetMetricStreamCommand = async (
+  input: GetMetricStreamCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryGetMetricStreamInput(input, context),
+    Action: "GetMetricStream",
+    Version: "2010-08-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_queryGetMetricWidgetImageCommand = async (
   input: GetMetricWidgetImageCommandInput,
   context: __SerdeContext
@@ -486,6 +539,22 @@ export const serializeAws_queryListMetricsCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryListMetricsInput(input, context),
     Action: "ListMetrics",
+    Version: "2010-08-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryListMetricStreamsCommand = async (
+  input: ListMetricStreamsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryListMetricStreamsInput(input, context),
+    Action: "ListMetricStreams",
     Version: "2010-08-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -603,6 +672,22 @@ export const serializeAws_queryPutMetricDataCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryPutMetricStreamCommand = async (
+  input: PutMetricStreamCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryPutMetricStreamInput(input, context),
+    Action: "PutMetricStream",
+    Version: "2010-08-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_querySetAlarmStateCommand = async (
   input: SetAlarmStateCommandInput,
   context: __SerdeContext
@@ -614,6 +699,38 @@ export const serializeAws_querySetAlarmStateCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_querySetAlarmStateInput(input, context),
     Action: "SetAlarmState",
+    Version: "2010-08-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryStartMetricStreamsCommand = async (
+  input: StartMetricStreamsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryStartMetricStreamsInput(input, context),
+    Action: "StartMetricStreams",
+    Version: "2010-08-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryStopMetricStreamsCommand = async (
+  input: StopMetricStreamsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryStopMetricStreamsInput(input, context),
+    Action: "StopMetricStreams",
     Version: "2010-08-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -879,6 +996,76 @@ const deserializeAws_queryDeleteInsightRulesCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "MissingRequiredParameterException":
+    case "com.amazonaws.cloudwatch#MissingRequiredParameterException":
+      response = {
+        ...(await deserializeAws_queryMissingRequiredParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryDeleteMetricStreamCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteMetricStreamCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDeleteMetricStreamCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDeleteMetricStreamOutput(data.DeleteMetricStreamResult, context);
+  const response: DeleteMetricStreamCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDeleteMetricStreamCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteMetricStreamCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceFault":
+    case "com.amazonaws.cloudwatch#InternalServiceFault":
+      response = {
+        ...(await deserializeAws_queryInternalServiceFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidParameterValueException":
     case "com.amazonaws.cloudwatch#InvalidParameterValueException":
       response = {
@@ -1680,6 +1867,92 @@ const deserializeAws_queryGetMetricStatisticsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryGetMetricStreamCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMetricStreamCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryGetMetricStreamCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryGetMetricStreamOutput(data.GetMetricStreamResult, context);
+  const response: GetMetricStreamCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryGetMetricStreamCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMetricStreamCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceFault":
+    case "com.amazonaws.cloudwatch#InternalServiceFault":
+      response = {
+        ...(await deserializeAws_queryInternalServiceFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.cloudwatch#InvalidParameterCombinationException":
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "MissingRequiredParameterException":
+    case "com.amazonaws.cloudwatch#MissingRequiredParameterException":
+      response = {
+        ...(await deserializeAws_queryMissingRequiredParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cloudwatch#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryGetMetricWidgetImageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1829,6 +2102,84 @@ const deserializeAws_queryListMetricsCommandError = async (
     case "com.amazonaws.cloudwatch#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryListMetricStreamsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMetricStreamsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryListMetricStreamsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryListMetricStreamsOutput(data.ListMetricStreamsResult, context);
+  const response: ListMetricStreamsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryListMetricStreamsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMetricStreamsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceFault":
+    case "com.amazonaws.cloudwatch#InternalServiceFault":
+      response = {
+        ...(await deserializeAws_queryInternalServiceFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidNextToken":
+    case "com.amazonaws.cloudwatch#InvalidNextToken":
+      response = {
+        ...(await deserializeAws_queryInvalidNextTokenResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "MissingRequiredParameterException":
+    case "com.amazonaws.cloudwatch#MissingRequiredParameterException":
+      response = {
+        ...(await deserializeAws_queryMissingRequiredParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2307,6 +2658,92 @@ const deserializeAws_queryPutMetricDataCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryPutMetricStreamCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutMetricStreamCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryPutMetricStreamCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryPutMetricStreamOutput(data.PutMetricStreamResult, context);
+  const response: PutMetricStreamCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryPutMetricStreamCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutMetricStreamCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.cloudwatch#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceFault":
+    case "com.amazonaws.cloudwatch#InternalServiceFault":
+      response = {
+        ...(await deserializeAws_queryInternalServiceFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.cloudwatch#InvalidParameterCombinationException":
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "MissingRequiredParameterException":
+    case "com.amazonaws.cloudwatch#MissingRequiredParameterException":
+      response = {
+        ...(await deserializeAws_queryMissingRequiredParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_querySetAlarmStateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2345,6 +2782,146 @@ const deserializeAws_querySetAlarmStateCommandError = async (
     case "com.amazonaws.cloudwatch#ResourceNotFound":
       response = {
         ...(await deserializeAws_queryResourceNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryStartMetricStreamsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMetricStreamsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryStartMetricStreamsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryStartMetricStreamsOutput(data.StartMetricStreamsResult, context);
+  const response: StartMetricStreamsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryStartMetricStreamsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMetricStreamsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceFault":
+    case "com.amazonaws.cloudwatch#InternalServiceFault":
+      response = {
+        ...(await deserializeAws_queryInternalServiceFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "MissingRequiredParameterException":
+    case "com.amazonaws.cloudwatch#MissingRequiredParameterException":
+      response = {
+        ...(await deserializeAws_queryMissingRequiredParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryStopMetricStreamsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopMetricStreamsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryStopMetricStreamsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryStopMetricStreamsOutput(data.StopMetricStreamsResult, context);
+  const response: StopMetricStreamsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryStopMetricStreamsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopMetricStreamsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceFault":
+    case "com.amazonaws.cloudwatch#InternalServiceFault":
+      response = {
+        ...(await deserializeAws_queryInternalServiceFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "MissingRequiredParameterException":
+    case "com.amazonaws.cloudwatch#MissingRequiredParameterException":
+      response = {
+        ...(await deserializeAws_queryMissingRequiredParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2863,6 +3440,14 @@ const serializeAws_queryDeleteInsightRulesInput = (input: DeleteInsightRulesInpu
   return entries;
 };
 
+const serializeAws_queryDeleteMetricStreamInput = (input: DeleteMetricStreamInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Name !== undefined && input.Name !== null) {
+    entries["Name"] = input.Name;
+  }
+  return entries;
+};
+
 const serializeAws_queryDescribeAlarmHistoryInput = (
   input: DescribeAlarmHistoryInput,
   context: __SerdeContext
@@ -3193,6 +3778,13 @@ const serializeAws_queryGetMetricDataInput = (input: GetMetricDataInput, context
   if (input.MaxDatapoints !== undefined && input.MaxDatapoints !== null) {
     entries["MaxDatapoints"] = input.MaxDatapoints;
   }
+  if (input.LabelOptions !== undefined && input.LabelOptions !== null) {
+    const memberEntries = serializeAws_queryLabelOptions(input.LabelOptions, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `LabelOptions.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -3240,6 +3832,14 @@ const serializeAws_queryGetMetricStatisticsInput = (input: GetMetricStatisticsIn
   return entries;
 };
 
+const serializeAws_queryGetMetricStreamInput = (input: GetMetricStreamInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Name !== undefined && input.Name !== null) {
+    entries["Name"] = input.Name;
+  }
+  return entries;
+};
+
 const serializeAws_queryGetMetricWidgetImageInput = (
   input: GetMetricWidgetImageInput,
   context: __SerdeContext
@@ -3280,6 +3880,14 @@ const serializeAws_queryInsightRuleNames = (input: string[], context: __SerdeCon
   return entries;
 };
 
+const serializeAws_queryLabelOptions = (input: LabelOptions, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Timezone !== undefined && input.Timezone !== null) {
+    entries["Timezone"] = input.Timezone;
+  }
+  return entries;
+};
+
 const serializeAws_queryListDashboardsInput = (input: ListDashboardsInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.DashboardNamePrefix !== undefined && input.DashboardNamePrefix !== null) {
@@ -3311,6 +3919,17 @@ const serializeAws_queryListMetricsInput = (input: ListMetricsInput, context: __
   }
   if (input.RecentlyActive !== undefined && input.RecentlyActive !== null) {
     entries["RecentlyActive"] = input.RecentlyActive;
+  }
+  return entries;
+};
+
+const serializeAws_queryListMetricStreamsInput = (input: ListMetricStreamsInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.NextToken !== undefined && input.NextToken !== null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.MaxResults !== undefined && input.MaxResults !== null) {
+    entries["MaxResults"] = input.MaxResults;
   }
   return entries;
 };
@@ -3465,6 +4084,43 @@ const serializeAws_queryMetricStat = (input: MetricStat, context: __SerdeContext
   }
   if (input.Unit !== undefined && input.Unit !== null) {
     entries["Unit"] = input.Unit;
+  }
+  return entries;
+};
+
+const serializeAws_queryMetricStreamFilter = (input: MetricStreamFilter, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Namespace !== undefined && input.Namespace !== null) {
+    entries["Namespace"] = input.Namespace;
+  }
+  return entries;
+};
+
+const serializeAws_queryMetricStreamFilters = (input: MetricStreamFilter[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = serializeAws_queryMetricStreamFilter(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_queryMetricStreamNames = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`member.${counter}`] = entry;
+    counter++;
   }
   return entries;
 };
@@ -3684,6 +4340,44 @@ const serializeAws_queryPutMetricDataInput = (input: PutMetricDataInput, context
   return entries;
 };
 
+const serializeAws_queryPutMetricStreamInput = (input: PutMetricStreamInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Name !== undefined && input.Name !== null) {
+    entries["Name"] = input.Name;
+  }
+  if (input.IncludeFilters !== undefined && input.IncludeFilters !== null) {
+    const memberEntries = serializeAws_queryMetricStreamFilters(input.IncludeFilters, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `IncludeFilters.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.ExcludeFilters !== undefined && input.ExcludeFilters !== null) {
+    const memberEntries = serializeAws_queryMetricStreamFilters(input.ExcludeFilters, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ExcludeFilters.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.FirehoseArn !== undefined && input.FirehoseArn !== null) {
+    entries["FirehoseArn"] = input.FirehoseArn;
+  }
+  if (input.RoleArn !== undefined && input.RoleArn !== null) {
+    entries["RoleArn"] = input.RoleArn;
+  }
+  if (input.OutputFormat !== undefined && input.OutputFormat !== null) {
+    entries["OutputFormat"] = input.OutputFormat;
+  }
+  if (input.Tags !== undefined && input.Tags !== null) {
+    const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
 const serializeAws_queryRange = (input: Range, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.StartTime !== undefined && input.StartTime !== null) {
@@ -3725,6 +4419,18 @@ const serializeAws_querySetAlarmStateInput = (input: SetAlarmStateInput, context
   return entries;
 };
 
+const serializeAws_queryStartMetricStreamsInput = (input: StartMetricStreamsInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Names !== undefined && input.Names !== null) {
+    const memberEntries = serializeAws_queryMetricStreamNames(input.Names, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Names.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
 const serializeAws_queryStatistics = (input: (Statistic | string)[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
@@ -3751,6 +4457,18 @@ const serializeAws_queryStatisticSet = (input: StatisticSet, context: __SerdeCon
   }
   if (input.Maximum !== undefined && input.Maximum !== null) {
     entries["Maximum"] = input.Maximum;
+  }
+  return entries;
+};
+
+const serializeAws_queryStopMetricStreamsInput = (input: StopMetricStreamsInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Names !== undefined && input.Names !== null) {
+    const memberEntries = serializeAws_queryMetricStreamNames(input.Names, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Names.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -4281,6 +4999,14 @@ const deserializeAws_queryDeleteInsightRulesOutput = (
   return contents;
 };
 
+const deserializeAws_queryDeleteMetricStreamOutput = (
+  output: any,
+  context: __SerdeContext
+): DeleteMetricStreamOutput => {
+  let contents: any = {};
+  return contents;
+};
+
 const deserializeAws_queryDescribeAlarmHistoryOutput = (
   output: any,
   context: __SerdeContext
@@ -4580,6 +5306,64 @@ const deserializeAws_queryGetMetricStatisticsOutput = (
       __getArrayIfSingleItem(output["Datapoints"]["member"]),
       context
     );
+  }
+  return contents;
+};
+
+const deserializeAws_queryGetMetricStreamOutput = (output: any, context: __SerdeContext): GetMetricStreamOutput => {
+  let contents: any = {
+    Arn: undefined,
+    Name: undefined,
+    IncludeFilters: undefined,
+    ExcludeFilters: undefined,
+    FirehoseArn: undefined,
+    RoleArn: undefined,
+    State: undefined,
+    CreationDate: undefined,
+    LastUpdateDate: undefined,
+    OutputFormat: undefined,
+  };
+  if (output["Arn"] !== undefined) {
+    contents.Arn = output["Arn"];
+  }
+  if (output["Name"] !== undefined) {
+    contents.Name = output["Name"];
+  }
+  if (output.IncludeFilters === "") {
+    contents.IncludeFilters = [];
+  }
+  if (output["IncludeFilters"] !== undefined && output["IncludeFilters"]["member"] !== undefined) {
+    contents.IncludeFilters = deserializeAws_queryMetricStreamFilters(
+      __getArrayIfSingleItem(output["IncludeFilters"]["member"]),
+      context
+    );
+  }
+  if (output.ExcludeFilters === "") {
+    contents.ExcludeFilters = [];
+  }
+  if (output["ExcludeFilters"] !== undefined && output["ExcludeFilters"]["member"] !== undefined) {
+    contents.ExcludeFilters = deserializeAws_queryMetricStreamFilters(
+      __getArrayIfSingleItem(output["ExcludeFilters"]["member"]),
+      context
+    );
+  }
+  if (output["FirehoseArn"] !== undefined) {
+    contents.FirehoseArn = output["FirehoseArn"];
+  }
+  if (output["RoleArn"] !== undefined) {
+    contents.RoleArn = output["RoleArn"];
+  }
+  if (output["State"] !== undefined) {
+    contents.State = output["State"];
+  }
+  if (output["CreationDate"] !== undefined) {
+    contents.CreationDate = new Date(output["CreationDate"]);
+  }
+  if (output["LastUpdateDate"] !== undefined) {
+    contents.LastUpdateDate = new Date(output["LastUpdateDate"]);
+  }
+  if (output["OutputFormat"] !== undefined) {
+    contents.OutputFormat = output["OutputFormat"];
   }
   return contents;
 };
@@ -4891,6 +5675,26 @@ const deserializeAws_queryListMetricsOutput = (output: any, context: __SerdeCont
   }
   if (output["NextToken"] !== undefined) {
     contents.NextToken = output["NextToken"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryListMetricStreamsOutput = (output: any, context: __SerdeContext): ListMetricStreamsOutput => {
+  let contents: any = {
+    NextToken: undefined,
+    Entries: undefined,
+  };
+  if (output["NextToken"] !== undefined) {
+    contents.NextToken = output["NextToken"];
+  }
+  if (output.Entries === "") {
+    contents.Entries = [];
+  }
+  if (output["Entries"] !== undefined && output["Entries"]["member"] !== undefined) {
+    contents.Entries = deserializeAws_queryMetricStreamEntries(
+      __getArrayIfSingleItem(output["Entries"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -5245,6 +6049,72 @@ const deserializeAws_queryMetricStat = (output: any, context: __SerdeContext): M
   return contents;
 };
 
+const deserializeAws_queryMetricStreamEntries = (output: any, context: __SerdeContext): MetricStreamEntry[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryMetricStreamEntry(entry, context);
+    });
+};
+
+const deserializeAws_queryMetricStreamEntry = (output: any, context: __SerdeContext): MetricStreamEntry => {
+  let contents: any = {
+    Arn: undefined,
+    CreationDate: undefined,
+    LastUpdateDate: undefined,
+    Name: undefined,
+    FirehoseArn: undefined,
+    State: undefined,
+    OutputFormat: undefined,
+  };
+  if (output["Arn"] !== undefined) {
+    contents.Arn = output["Arn"];
+  }
+  if (output["CreationDate"] !== undefined) {
+    contents.CreationDate = new Date(output["CreationDate"]);
+  }
+  if (output["LastUpdateDate"] !== undefined) {
+    contents.LastUpdateDate = new Date(output["LastUpdateDate"]);
+  }
+  if (output["Name"] !== undefined) {
+    contents.Name = output["Name"];
+  }
+  if (output["FirehoseArn"] !== undefined) {
+    contents.FirehoseArn = output["FirehoseArn"];
+  }
+  if (output["State"] !== undefined) {
+    contents.State = output["State"];
+  }
+  if (output["OutputFormat"] !== undefined) {
+    contents.OutputFormat = output["OutputFormat"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryMetricStreamFilter = (output: any, context: __SerdeContext): MetricStreamFilter => {
+  let contents: any = {
+    Namespace: undefined,
+  };
+  if (output["Namespace"] !== undefined) {
+    contents.Namespace = output["Namespace"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryMetricStreamFilters = (output: any, context: __SerdeContext): MetricStreamFilter[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryMetricStreamFilter(entry, context);
+    });
+};
+
 const deserializeAws_queryMissingRequiredParameterException = (
   output: any,
   context: __SerdeContext
@@ -5312,6 +6182,16 @@ const deserializeAws_queryPutInsightRuleOutput = (output: any, context: __SerdeC
   return contents;
 };
 
+const deserializeAws_queryPutMetricStreamOutput = (output: any, context: __SerdeContext): PutMetricStreamOutput => {
+  let contents: any = {
+    Arn: undefined,
+  };
+  if (output["Arn"] !== undefined) {
+    contents.Arn = output["Arn"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryRange = (output: any, context: __SerdeContext): Range => {
   let contents: any = {
     StartTime: undefined,
@@ -5365,6 +6245,19 @@ const deserializeAws_queryResourceNotFoundException = (
   if (output["Message"] !== undefined) {
     contents.Message = output["Message"];
   }
+  return contents;
+};
+
+const deserializeAws_queryStartMetricStreamsOutput = (
+  output: any,
+  context: __SerdeContext
+): StartMetricStreamsOutput => {
+  let contents: any = {};
+  return contents;
+};
+
+const deserializeAws_queryStopMetricStreamsOutput = (output: any, context: __SerdeContext): StopMetricStreamsOutput => {
+  let contents: any = {};
   return contents;
 };
 

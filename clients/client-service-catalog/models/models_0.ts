@@ -1083,6 +1083,11 @@ export interface CreatePortfolioShareInput {
    *          process.</p>
    */
   OrganizationNode?: OrganizationNode;
+
+  /**
+   * <p>Enables or disables <code>TagOptions </code> sharing when creating the portfolio share. If this flag is not provided, TagOptions sharing is disabled.</p>
+   */
+  ShareTagOptions?: boolean;
 }
 
 export namespace CreatePortfolioShareInput {
@@ -1145,9 +1150,16 @@ export interface ProvisioningArtifactProperties {
   Description?: string;
 
   /**
-   * <p>The URL of the CloudFormation template in Amazon S3. Specify the URL in JSON format as follows:</p>
+   * <p>Specify the template source with one of the following options, but not both.
+   *          Keys accepted: [ <code>LoadTemplateFromURL</code>, <code>ImportFromPhysicalId</code> ]</p>
+   *          <p>The URL of the CloudFormation template in Amazon S3. Specify the URL in JSON format as follows:</p>
    *          <p>
    *             <code>"LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."</code>
+   *          </p>
+   *          <p>
+   *             <code>ImportFromPhysicalId</code>: The physical id of the resource that contains the
+   *          template. Currently only supports CloudFormation stack arn. Specify the physical id in JSON
+   *          format as follows: <code>ImportFromPhysicalId: “arn:aws:cloudformation:[us-east-1]:[accountId]:stack/[StackName]/[resourceId]</code>
    *          </p>
    */
   Info: { [key: string]: string } | undefined;
@@ -1235,6 +1247,8 @@ export interface CreateProductInput {
 
   /**
    * <p>The contact URL for product support.</p>
+   *          <p>
+   *             <code>^https?:\/\// </code>/ is the pattern used to validate SupportUrl.</p>
    */
   SupportUrl?: string;
 
@@ -1249,7 +1263,7 @@ export interface CreateProductInput {
   Tags?: Tag[];
 
   /**
-   * <p>The configuration of the provisioning artifact. The <code>info</code> field accepts <code>ImportFromPhysicalID</code>.</p>
+   * <p>The configuration of the provisioning artifact. </p>
    */
   ProvisioningArtifactParameters: ProvisioningArtifactProperties | undefined;
 
@@ -1646,8 +1660,7 @@ export interface CreateProvisioningArtifactInput {
   ProductId: string | undefined;
 
   /**
-   * <p>The configuration for the provisioning artifact. The <code>info</code> field accepts <code>ImportFromPhysicalID</code>.
-   *       </p>
+   * <p>The configuration for the provisioning artifact.</p>
    */
   Parameters: ProvisioningArtifactProperties | undefined;
 
@@ -1671,7 +1684,18 @@ export interface CreateProvisioningArtifactOutput {
   ProvisioningArtifactDetail?: ProvisioningArtifactDetail;
 
   /**
-   * <p>The URL of the CloudFormation template in Amazon S3, in JSON format.</p>
+   * <p>Specify the template source with one of the following options, but not both. Keys
+   *          accepted: [ <code>LoadTemplateFromURL</code>, <code>ImportFromPhysicalId</code> ].</p>
+   *          <p>The URL of the CloudFormation template in Amazon S3, in JSON format. </p>
+   *          <p>
+   *             <code>LoadTemplateFromURL</code>
+   *          </p>
+   *          <p>Use the URL of the CloudFormation template in Amazon S3 in JSON format.</p>
+   *          <p>
+   *             <code>ImportFromPhysicalId</code>
+   *          </p>
+   *          <p>Use the physical id of the resource that contains the template; currently supports
+   *          CloudFormation stack ARN.</p>
    */
   Info?: { [key: string]: string };
 
@@ -1879,6 +1903,11 @@ export interface TagOptionDetail {
    * <p>The TagOption identifier.</p>
    */
   Id?: string;
+
+  /**
+   * <p>The AWS account Id of the owner account that created the TagOption.</p>
+   */
+  Owner?: string;
 }
 
 export namespace TagOptionDetail {
@@ -2434,6 +2463,100 @@ export namespace DescribePortfolioOutput {
   });
 }
 
+export enum DescribePortfolioShareType {
+  ACCOUNT = "ACCOUNT",
+  ORGANIZATION = "ORGANIZATION",
+  ORGANIZATIONAL_UNIT = "ORGANIZATIONAL_UNIT",
+  ORGANIZATION_MEMBER_ACCOUNT = "ORGANIZATION_MEMBER_ACCOUNT",
+}
+
+export interface DescribePortfolioSharesInput {
+  /**
+   * <p>The unique identifier of the portfolio for which shares will be retrieved.</p>
+   */
+  PortfolioId: string | undefined;
+
+  /**
+   * <p>The type of portfolio share to summarize. This field acts as a filter on the type of portfolio share, which can be one of the following:</p>
+   *          <p>1. <code>ACCOUNT</code> - Represents an external account to account share.</p>
+   *          <p>2. <code>ORGANIZATION</code> - Represents a share to an organization. This share is available to every account in the organization.</p>
+   *          <p>3. <code>ORGANIZATIONAL_UNIT</code> - Represents a share to an organizational unit.</p>
+   *          <p>4. <code>ORGANIZATION_MEMBER_ACCOUNT</code> - Represents a share to an account in the organization.</p>
+   */
+  Type: DescribePortfolioShareType | string | undefined;
+
+  /**
+   * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+   */
+  PageToken?: string;
+
+  /**
+   * <p>The maximum number of items to return with this call.</p>
+   */
+  PageSize?: number;
+}
+
+export namespace DescribePortfolioSharesInput {
+  export const filterSensitiveLog = (obj: DescribePortfolioSharesInput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the portfolio share.</p>
+ */
+export interface PortfolioShareDetail {
+  /**
+   * <p>The identifier of the recipient entity that received the portfolio share.
+   *          The recipient entities can be one of the following:
+   *       </p>
+   *          <p>1. An external account.</p>
+   *          <p>2. An organziation member account.</p>
+   *          <p>3. An organzational unit (OU).</p>
+   *          <p>4. The organization itself. (This shares with every account in the organization).</p>
+   */
+  PrincipalId?: string;
+
+  /**
+   * <p>The type of the portfolio share.</p>
+   */
+  Type?: DescribePortfolioShareType | string;
+
+  /**
+   * <p>Indicates whether the shared portfolio is imported by the recipient account. If the recipient is in an organization node, the share is automatically imported, and the field is always set to true.</p>
+   */
+  Accepted?: boolean;
+
+  /**
+   * <p>Indicates whether TagOptions sharing is enabled or disabled for the portfolio share.</p>
+   */
+  ShareTagOptions?: boolean;
+}
+
+export namespace PortfolioShareDetail {
+  export const filterSensitiveLog = (obj: PortfolioShareDetail): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribePortfolioSharesOutput {
+  /**
+   * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
+   */
+  NextPageToken?: string;
+
+  /**
+   * <p>Summaries about each of the portfolio shares.</p>
+   */
+  PortfolioShareDetails?: PortfolioShareDetail[];
+}
+
+export namespace DescribePortfolioSharesOutput {
+  export const filterSensitiveLog = (obj: DescribePortfolioSharesOutput): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribePortfolioShareStatusInput {
   /**
    * <p>The token for the portfolio share operation. This token is returned either by CreatePortfolioShare or by DeletePortfolioShare.</p>
@@ -2686,6 +2809,16 @@ export interface DescribeProductAsAdminInput {
    * <p>The product name.</p>
    */
   Name?: string;
+
+  /**
+   * <p>The unique identifier of the shared portfolio that the specified product is associated
+   *          with.</p>
+   *          <p>You can provide this parameter to retrieve the shared TagOptions associated with the
+   *          product. If this parameter is provided and if TagOptions sharing is enabled in the
+   *          portfolio share, the API returns both local and shared TagOptions associated with the
+   *          product. Otherwise only local TagOptions will be returned. </p>
+   */
+  SourcePortfolioId?: string;
 }
 
 export namespace DescribeProductAsAdminInput {
@@ -3562,6 +3695,46 @@ export interface ParameterConstraints {
    * <p>The values that the administrator has allowed for the parameter.</p>
    */
   AllowedValues?: string[];
+
+  /**
+   * <p>A regular expression that represents the patterns that allow for <code>String</code> types. The pattern must match the entire parameter value provided.</p>
+   */
+  AllowedPattern?: string;
+
+  /**
+   * <p>A string that explains a constraint when the constraint is violated. For example, without a constraint description, a parameter that has an allowed pattern of <code>[A-Za-z0-9]+</code> displays the following error message when the user specifies an invalid value:</p>
+   *
+   *          <p>
+   *             <code>Malformed input-Parameter MyParameter must match pattern [A-Za-z0-9]+</code>
+   *          </p>
+   *
+   *          <p>By adding a constraint description, such as must only contain letters (uppercase and lowercase) and numbers, you can display the following customized error message:</p>
+   *
+   *          <p>
+   *             <code>Malformed input-Parameter MyParameter must only contain uppercase and lowercase letters and numbers.</code>
+   *          </p>
+   */
+  ConstraintDescription?: string;
+
+  /**
+   * <p>An integer value that determines the largest number of characters you want to allow for <code>String</code> types. </p>
+   */
+  MaxLength?: string;
+
+  /**
+   * <p>An integer value that determines the smallest number of characters you want to allow for <code>String</code> types.</p>
+   */
+  MinLength?: string;
+
+  /**
+   * <p>A numeric value that determines the largest numeric value you want to allow for <code>Number</code> types.</p>
+   */
+  MaxValue?: string;
+
+  /**
+   * <p>A numeric value that determines the smallest numeric value you want to allow for <code>Number</code> types. </p>
+   */
+  MinValue?: string;
 }
 
 export namespace ParameterConstraints {
@@ -6002,14 +6175,23 @@ export namespace ProvisioningParameter {
 }
 
 /**
- * <p>The user-defined preferences that will be applied when updating a provisioned product. Not all preferences are applicable to all provisioned product types.</p>
+ * <p>The user-defined preferences that will be applied when updating a provisioned
+ *          product. Not all preferences are applicable to all provisioned product type</p>
+ *          <p>One or more AWS accounts that will have access to the provisioned product.</p>
+ *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
+ *          <p>The AWS accounts specified should be within the list of accounts in the
+ *             <code>STACKSET</code> constraint. To get the list of accounts in the
+ *             <code>STACKSET</code> constraint, use the <code>DescribeProvisioningParameters</code>
+ *          operation.</p>
+ *          <p>If no values are specified, the default value is all accounts from the
+ *             <code>STACKSET</code> constraint.</p>
  */
 export interface ProvisioningPreferences {
   /**
-   * <p>One or more AWS accounts that will have access to the provisioned product.</p>
+   * <p>One or more AWS accounts where the provisioned product will be available.</p>
    *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
-   *          <p>The AWS accounts specified should be within the list of accounts in the <code>STACKSET</code> constraint. To get the list of accounts in the <code>STACKSET</code> constraint, use the <code>DescribeProvisioningParameters</code> operation.</p>
-   *          <p>If no values are specified, the default value is all accounts from the <code>STACKSET</code> constraint.</p>
+   *          <p>The specified accounts should be within the list of accounts from the <code>STACKSET</code> constraint. To get the list of accounts in the <code>STACKSET</code> constraint, use the <code>DescribeProvisioningParameters</code> operation.</p>
+   *          <p>If no values are specified, the default value is all acounts from the <code>STACKSET</code> constraint.</p>
    */
   StackSetAccounts?: string[];
 
@@ -6808,7 +6990,7 @@ export interface TerminateProvisionedProductInput {
   AcceptLanguage?: string;
 
   /**
-   * <p>When this boolean parameter is set to true, the TerminateProvisionedProduct API deletes
+   * <p>When this boolean parameter is set to true, the <code>TerminateProvisionedProduct</code> API deletes
    *          the Service Catalog provisioned product. However, it does not remove the CloudFormation
    *          stack, stack set, or the underlying resources of the deleted provisioned product. The
    *          default value is false.</p>
@@ -7022,6 +7204,73 @@ export interface UpdatePortfolioOutput {
 
 export namespace UpdatePortfolioOutput {
   export const filterSensitiveLog = (obj: UpdatePortfolioOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdatePortfolioShareInput {
+  /**
+   * <p>The language code.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>en</code> - English (default)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>jp</code> - Japanese</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>zh</code> - Chinese</p>
+   *             </li>
+   *          </ul>
+   */
+  AcceptLanguage?: string;
+
+  /**
+   * <p>The unique identifier of the portfolio for which the share will be updated.</p>
+   */
+  PortfolioId: string | undefined;
+
+  /**
+   * <p>The AWS Account Id of the recipient account. This field is required when updating an external account to account type share.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>Information about the organization node.</p>
+   */
+  OrganizationNode?: OrganizationNode;
+
+  /**
+   * <p>A flag to enable or disable TagOptions sharing for the portfolio share. If this field is not provided, the current state of TagOptions sharing on the portfolio share will not be modified.</p>
+   */
+  ShareTagOptions?: boolean;
+}
+
+export namespace UpdatePortfolioShareInput {
+  export const filterSensitiveLog = (obj: UpdatePortfolioShareInput): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdatePortfolioShareOutput {
+  /**
+   * <p>The token that tracks the status of the <code>UpdatePortfolioShare</code> operation for external account to account or  organizational type sharing.</p>
+   */
+  PortfolioShareToken?: string;
+
+  /**
+   * <p>The status of <code>UpdatePortfolioShare</code> operation.
+   *          You can also obtain the operation status using <code>DescribePortfolioShareStatus</code> API.
+   *       </p>
+   */
+  Status?: ShareStatus | string;
+}
+
+export namespace UpdatePortfolioShareOutput {
+  export const filterSensitiveLog = (obj: UpdatePortfolioShareOutput): any => ({
     ...obj,
   });
 }

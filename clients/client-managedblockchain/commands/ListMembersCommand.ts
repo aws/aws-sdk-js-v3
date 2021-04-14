@@ -25,7 +25,8 @@ export type ListMembersCommandInput = ListMembersInput;
 export type ListMembersCommandOutput = ListMembersOutput & __MetadataBearer;
 
 /**
- * <p>Returns a listing of the members in a network and properties of their configurations.</p>
+ * <p>Returns a list of the members in a network and properties of their configurations.</p>
+ *          <p>Applies only to Hyperledger Fabric.</p>
  */
 export class ListMembersCommand extends $Command<
   ListMembersCommandInput,

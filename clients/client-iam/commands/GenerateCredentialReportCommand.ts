@@ -22,8 +22,8 @@ export type GenerateCredentialReportCommandOutput = GenerateCredentialReportResp
 
 /**
  * <p> Generates a credential report for the AWS account. For more information about the
- *          credential report, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Getting Credential Reports</a> in the
- *             <i>IAM User Guide</i>.</p>
+ *             credential report, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Getting credential reports</a> in
+ *             the <i>IAM User Guide</i>.</p>
  */
 export class GenerateCredentialReportCommand extends $Command<
   GenerateCredentialReportCommandInput,

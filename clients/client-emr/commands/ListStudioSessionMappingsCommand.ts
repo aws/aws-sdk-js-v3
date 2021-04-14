@@ -21,11 +21,7 @@ export type ListStudioSessionMappingsCommandInput = ListStudioSessionMappingsInp
 export type ListStudioSessionMappingsCommandOutput = ListStudioSessionMappingsOutput & __MetadataBearer;
 
 /**
- * <note>
- *             <p>The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject to
- *             change.</p>
- *          </note>
- *          <p>Returns a list of all user or group session mappings for the EMR Studio specified by
+ * <p>Returns a list of all user or group session mappings for the Amazon EMR Studio specified by
  *             <code>StudioId</code>.</p>
  */
 export class ListStudioSessionMappingsCommand extends $Command<

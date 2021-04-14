@@ -22,9 +22,9 @@ export type TagResourceCommandInput = TagResourceInput;
 export type TagResourceCommandOutput = TagResourceResponse & __MetadataBearer;
 
 /**
- * <p>Assigns a set of tags to an Amazon Cognito identity pool. A tag is a label that you can
- *          use to categorize and manage identity pools in different ways, such as by purpose, owner,
- *          environment, or other criteria.</p>
+ * <p>Assigns a set of tags to the specified Amazon Cognito identity pool. A tag is a label
+ *          that you can use to categorize and manage identity pools in different ways, such as by
+ *          purpose, owner, environment, or other criteria.</p>
  *          <p>Each tag consists of a key and value, both of which you define. A key is a general
  *          category for more specific values. For example, if you have two versions of an identity
  *          pool, one for testing and another for production, you might assign an

@@ -7499,6 +7499,7 @@ const serializeAws_json1_1CreateAddressBookRequest = (
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -7542,6 +7543,7 @@ const serializeAws_json1_1CreateConferenceProviderRequest = (
       }),
     ...(input.PSTNDialIn !== undefined &&
       input.PSTNDialIn !== null && { PSTNDialIn: serializeAws_json1_1PSTNDialIn(input.PSTNDialIn, context) }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -7558,6 +7560,7 @@ const serializeAws_json1_1CreateContactRequest = (input: CreateContactRequest, c
       }),
     ...(input.SipAddresses !== undefined &&
       input.SipAddresses !== null && { SipAddresses: serializeAws_json1_1SipAddressList(input.SipAddresses, context) }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -7583,6 +7586,7 @@ const serializeAws_json1_1CreateGatewayGroupRequest = (
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -7635,6 +7639,7 @@ const serializeAws_json1_1CreateNetworkProfileRequest = (
     ...(input.NextPassword !== undefined && input.NextPassword !== null && { NextPassword: input.NextPassword }),
     ...(input.SecurityType !== undefined && input.SecurityType !== null && { SecurityType: input.SecurityType }),
     ...(input.Ssid !== undefined && input.Ssid !== null && { Ssid: input.Ssid }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
     ...(input.TrustAnchors !== undefined &&
       input.TrustAnchors !== null && {
         TrustAnchors: serializeAws_json1_1TrustAnchorList(input.TrustAnchors, context),
@@ -7646,6 +7651,8 @@ const serializeAws_json1_1CreateProfileRequest = (input: CreateProfileRequest, c
   return {
     ...(input.Address !== undefined && input.Address !== null && { Address: input.Address }),
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.DataRetentionOptIn !== undefined &&
+      input.DataRetentionOptIn !== null && { DataRetentionOptIn: input.DataRetentionOptIn }),
     ...(input.DistanceUnit !== undefined && input.DistanceUnit !== null && { DistanceUnit: input.DistanceUnit }),
     ...(input.Locale !== undefined && input.Locale !== null && { Locale: input.Locale }),
     ...(input.MaxVolumeLimit !== undefined &&
@@ -8240,6 +8247,7 @@ const serializeAws_json1_1RegisterAVSDeviceRequest = (
       input.DeviceSerialNumber !== null && { DeviceSerialNumber: input.DeviceSerialNumber }),
     ...(input.ProductId !== undefined && input.ProductId !== null && { ProductId: input.ProductId }),
     ...(input.RoomArn !== undefined && input.RoomArn !== null && { RoomArn: input.RoomArn }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
     ...(input.UserCode !== undefined && input.UserCode !== null && { UserCode: input.UserCode }),
   };
 };
@@ -8708,6 +8716,8 @@ const serializeAws_json1_1UpdateNetworkProfileRequest = (
 const serializeAws_json1_1UpdateProfileRequest = (input: UpdateProfileRequest, context: __SerdeContext): any => {
   return {
     ...(input.Address !== undefined && input.Address !== null && { Address: input.Address }),
+    ...(input.DataRetentionOptIn !== undefined &&
+      input.DataRetentionOptIn !== null && { DataRetentionOptIn: input.DataRetentionOptIn }),
     ...(input.DistanceUnit !== undefined && input.DistanceUnit !== null && { DistanceUnit: input.DistanceUnit }),
     ...(input.IsDefault !== undefined && input.IsDefault !== null && { IsDefault: input.IsDefault }),
     ...(input.Locale !== undefined && input.Locale !== null && { Locale: input.Locale }),
@@ -9975,6 +9985,10 @@ const deserializeAws_json1_1Profile = (output: any, context: __SerdeContext): Pr
     Address: output.Address !== undefined && output.Address !== null ? output.Address : undefined,
     AddressBookArn:
       output.AddressBookArn !== undefined && output.AddressBookArn !== null ? output.AddressBookArn : undefined,
+    DataRetentionOptIn:
+      output.DataRetentionOptIn !== undefined && output.DataRetentionOptIn !== null
+        ? output.DataRetentionOptIn
+        : undefined,
     DistanceUnit: output.DistanceUnit !== undefined && output.DistanceUnit !== null ? output.DistanceUnit : undefined,
     IsDefault: output.IsDefault !== undefined && output.IsDefault !== null ? output.IsDefault : undefined,
     Locale: output.Locale !== undefined && output.Locale !== null ? output.Locale : undefined,

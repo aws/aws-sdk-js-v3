@@ -20,6 +20,12 @@ import {
 export type ListInsightsCommandInput = ListInsightsRequest;
 export type ListInsightsCommandOutput = ListInsightsResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *    		Returns a list of insights in your AWS account. You can specify which insights are returned by their start time and
+ *    		status (<code>ONGOING</code>, <code>CLOSED</code>, or <code>ANY</code>).
+ *    	</p>
+ */
 export class ListInsightsCommand extends $Command<
   ListInsightsCommandInput,
   ListInsightsCommandOutput,

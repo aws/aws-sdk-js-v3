@@ -1334,6 +1334,7 @@ const serializeAws_json1_1PutScheduledActionRequest = (
       input.ServiceNamespace !== null && { ServiceNamespace: input.ServiceNamespace }),
     ...(input.StartTime !== undefined &&
       input.StartTime !== null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
+    ...(input.Timezone !== undefined && input.Timezone !== null && { Timezone: input.Timezone }),
   };
 };
 
@@ -1828,6 +1829,7 @@ const deserializeAws_json1_1ScheduledAction = (output: any, context: __SerdeCont
       output.StartTime !== undefined && output.StartTime !== null
         ? new Date(Math.round(output.StartTime * 1000))
         : undefined,
+    Timezone: output.Timezone !== undefined && output.Timezone !== null ? output.Timezone : undefined,
   } as any;
 };
 

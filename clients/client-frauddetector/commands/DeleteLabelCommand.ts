@@ -25,7 +25,7 @@ export type DeleteLabelCommandOutput = DeleteLabelResult & __MetadataBearer;
  * 	        <p>You cannot delete labels that are included in an event type in Amazon Fraud Detector.</p>
  *          <p>You cannot delete a label assigned to an event ID. You must first delete the relevant event ID.</p>
  *
- *          <p>When you delete a label, Amazon Fraud Detector permanently deletes that label from the evaluation history, and the data is no longer stored in Amazon Fraud Detector.</p>
+ *          <p>When you delete a label, Amazon Fraud Detector permanently deletes that label and the data is no longer stored in Amazon Fraud Detector.</p>
  */
 export class DeleteLabelCommand extends $Command<
   DeleteLabelCommandInput,

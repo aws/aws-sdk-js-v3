@@ -39,7 +39,7 @@ export type PutBucketTaggingCommandOutput = __MetadataBearer;
  *          </note>
  *          <p>To use this operation, you must have permissions to perform the
  *             <code>s3:PutBucketTagging</code> action. The bucket owner has this permission by default
- *          and can grant this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing Access Permissions to Your Amazon S3
+ *          and can grant this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to Your Amazon S3
  *             Resources</a>.</p>
  *
  *          <p>
@@ -70,7 +70,7 @@ export type PutBucketTaggingCommandOutput = __MetadataBearer;
  *                </p>
  *                <ul>
  *                   <li>
- *                      <p>Description: A conflicting conditional operation is currently in progress
+ *                      <p>Description: A conflicting conditional action is currently in progress
  *                      against this resource. Please try again.</p>
  *                   </li>
  *                </ul>

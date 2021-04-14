@@ -145,6 +145,11 @@ import {
   ListStreamProcessorsCommandOutput,
 } from "./commands/ListStreamProcessorsCommand";
 import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   RecognizeCelebritiesCommand,
   RecognizeCelebritiesCommandInput,
   RecognizeCelebritiesCommandOutput,
@@ -215,6 +220,12 @@ import {
   StopStreamProcessorCommandInput,
   StopStreamProcessorCommandOutput,
 } from "./commands/StopStreamProcessorCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
+} from "./commands/UntagResourceCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
@@ -225,9 +236,20 @@ export class Rekognition extends RekognitionClient {
    * <p>Compares a face in the <i>source</i> input image with
    *       each of the 100 largest faces detected in the <i>target</i> input image.
    *     </p>
-   *          <note>
-   *             <p> If the source image contains multiple faces, the service detects the largest face
+   *
+   *          <p> If the source image contains multiple faces, the service detects the largest face
    *         and compares it with each face detected in the target image. </p>
+   *
+   *
+   *          <note>
+   *             <p>CompareFaces uses machine learning algorithms, which are probabilistic.
+   *       A false negative is an incorrect prediction that
+   *       a face in the target image has a low similarity confidence score when compared to the face
+   *       in the source image. To reduce the probability of false negatives,
+   *       we recommend that you compare the target image against multiple source images.
+   *       If you plan to use <code>CompareFaces</code> to make a decision that impacts an individual's rights,
+   *       privacy, or access to services, we recommend that you pass the result to a human for review and further
+   *       validation before taking action.</p>
    *          </note>
    *
    *
@@ -1862,6 +1884,40 @@ export class Rekognition extends RekognitionClient {
   }
 
   /**
+   * <p>
+   *       Returns a list of tags in an Amazon Rekognition collection, stream processor, or Custom Labels model.
+   *     </p>
+   */
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): Promise<ListTagsForResourceCommandOutput> | void {
+    const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns an array of celebrities recognized in the input image.  For more information, see Recognizing Celebrities
    *     in the Amazon Rekognition Developer Guide. </p>
    *          <p>
@@ -2517,6 +2573,68 @@ export class Rekognition extends RekognitionClient {
     cb?: (err: any, data?: StopStreamProcessorCommandOutput) => void
   ): Promise<StopStreamProcessorCommandOutput> | void {
     const command = new StopStreamProcessorCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *       Adds one or more key-value tags to an Amazon Rekognition collection, stream processor, or Custom Labels model. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS Resources</a>.
+   *     </p>
+   */
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
+    cb?: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<TagResourceCommandOutput> | void {
+    const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *       Removes one or more tags from an Amazon Rekognition collection, stream processor, or Custom Labels model.
+   *     </p>
+   */
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
+    cb?: (err: any, data?: UntagResourceCommandOutput) => void
+  ): Promise<UntagResourceCommandOutput> | void {
+    const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -550,6 +550,11 @@ import {
   SendContactMethodVerificationCommandOutput,
 } from "./commands/SendContactMethodVerificationCommand";
 import {
+  SetIpAddressTypeCommand,
+  SetIpAddressTypeCommandInput,
+  SetIpAddressTypeCommandOutput,
+} from "./commands/SetIpAddressTypeCommand";
+import {
   StartInstanceCommand,
   StartInstanceCommandInput,
   StartInstanceCommandOutput,
@@ -921,10 +926,12 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
-   * <p>Creates an SSL/TLS certificate for a Amazon Lightsail content delivery network (CDN)
-   *       distribution.</p>
-   *          <p>After the certificate is created, use the <code>AttachCertificateToDistribution</code>
-   *       action to attach the certificate to your distribution.</p>
+   * <p>Creates an SSL/TLS certificate for an Amazon Lightsail content delivery network (CDN)
+   *       distribution and a container service.</p>
+   *          <p>After the certificate is valid, use the <code>AttachCertificateToDistribution</code>
+   *       action to use the certificate and its domains with your distribution. Or use the
+   *         <code>UpdateContainerService</code> action to use the certificate and its domains with your
+   *       container service.</p>
    *          <important>
    *             <p>Only certificates created in the <code>us-east-1</code> AWS Region can be attached to
    *         Lightsail distributions. Lightsail distributions are global resources that can reference
@@ -1040,7 +1047,7 @@ export class Lightsail extends LightsailClient {
    * <p>Creates an Amazon Lightsail container service.</p>
    *
    *          <p>A Lightsail container service is a compute resource to which you can deploy containers.
-   *       For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-containers">Container services in Amazon Lightsail</a> in the <i>Lightsail Dev
+   *       For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-container-services">Container services in Amazon Lightsail</a> in the <i>Lightsail Dev
    *         Guide</i>.</p>
    */
   public createContainerService(
@@ -1124,8 +1131,8 @@ export class Lightsail extends LightsailClient {
    *
    *          <note>
    *             <p>You can only push container images to the container service registry of your Lightsail
-   *         account. You cannot pull container images perform any other container image management
-   *         actions on the container service registry of your Lightsail account.</p>
+   *         account. You cannot pull container images or perform any other container image management
+   *         actions on the container service registry.</p>
    *          </note>
    *
    *          <p>After you push your container images to the container image registry of your Lightsail
@@ -1135,9 +1142,8 @@ export class Lightsail extends LightsailClient {
    *          <note>
    *             <p>This action is not required if you install and use the Lightsail Control
    *         (lightsailctl) plugin to push container images to your Lightsail container service. For
-   *         more information, see <a href="amazon-lightsail-pushing-container-images">Pushing and
-   *           managing container images on your Amazon Lightsail container services</a> in the
-   *           <i>Lightsail Dev Guide</i>.</p>
+   *         more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-pushing-container-images">Pushing and managing container images on your Amazon Lightsail container services</a>
+   *         in the <i>Lightsail Dev Guide</i>.</p>
    *          </note>
    */
   public createContainerServiceRegistryLogin(
@@ -1571,7 +1577,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
-   * <p>Creates a Lightsail load balancer TLS certificate.</p>
+   * <p>Creates an SSL/TLS certificate for an Amazon Lightsail load balancer.</p>
    *          <p>TLS is just an updated, more secure version of Secure Socket Layer (SSL).</p>
    *          <p>The <code>CreateLoadBalancerTlsCertificate</code> operation supports tag-based access
    *       control via resource tags applied to the resource identified by <code>load balancer
@@ -4818,9 +4824,8 @@ export class Lightsail extends LightsailClient {
    *          <note>
    *             <p>This action is not required if you install and use the Lightsail Control
    *         (lightsailctl) plugin to push container images to your Lightsail container service. For
-   *         more information, see <a href="amazon-lightsail-pushing-container-images">Pushing and
-   *           managing container images on your Amazon Lightsail container services</a> in the
-   *           <i>Lightsail Dev Guide</i>.</p>
+   *         more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-pushing-container-images">Pushing and managing container images on your Amazon Lightsail container services</a>
+   *         in the <i>Lightsail Dev Guide</i>.</p>
    *          </note>
    */
   public registerContainerImage(
@@ -4953,6 +4958,42 @@ export class Lightsail extends LightsailClient {
     cb?: (err: any, data?: SendContactMethodVerificationCommandOutput) => void
   ): Promise<SendContactMethodVerificationCommandOutput> | void {
     const command = new SendContactMethodVerificationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Sets the IP address type for an Amazon Lightsail resource.</p>
+   *
+   *          <p>Use this action to enable dual-stack for a resource, which enables IPv4 and IPv6 for the
+   *       specified resource. Alternately, you can use this action to disable dual-stack, and enable
+   *       IPv4 only.</p>
+   */
+  public setIpAddressType(
+    args: SetIpAddressTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SetIpAddressTypeCommandOutput>;
+  public setIpAddressType(
+    args: SetIpAddressTypeCommandInput,
+    cb: (err: any, data?: SetIpAddressTypeCommandOutput) => void
+  ): void;
+  public setIpAddressType(
+    args: SetIpAddressTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SetIpAddressTypeCommandOutput) => void
+  ): void;
+  public setIpAddressType(
+    args: SetIpAddressTypeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetIpAddressTypeCommandOutput) => void),
+    cb?: (err: any, data?: SetIpAddressTypeCommandOutput) => void
+  ): Promise<SetIpAddressTypeCommandOutput> | void {
+    const command = new SetIpAddressTypeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

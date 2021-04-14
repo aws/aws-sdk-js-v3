@@ -1,10 +1,20 @@
 import { SendSSHPublicKeyCommandInput, SendSSHPublicKeyCommandOutput } from "../commands/SendSSHPublicKeyCommand";
 import {
+  SendSerialConsoleSSHPublicKeyCommandInput,
+  SendSerialConsoleSSHPublicKeyCommandOutput,
+} from "../commands/SendSerialConsoleSSHPublicKeyCommand";
+import {
   AuthException,
   EC2InstanceNotFoundException,
+  EC2InstanceTypeInvalidException,
   InvalidArgsException,
   SendSSHPublicKeyRequest,
   SendSSHPublicKeyResponse,
+  SendSerialConsoleSSHPublicKeyRequest,
+  SendSerialConsoleSSHPublicKeyResponse,
+  SerialConsoleAccessDisabledException,
+  SerialConsoleSessionLimitExceededException,
+  SerialConsoleSessionUnavailableException,
   ServiceException,
   ThrottlingException,
 } from "../models/models_0";
@@ -18,6 +28,19 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+export const serializeAws_json1_1SendSerialConsoleSSHPublicKeyCommand = async (
+  input: SendSerialConsoleSSHPublicKeyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSEC2InstanceConnectService.SendSerialConsoleSSHPublicKey",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1SendSerialConsoleSSHPublicKeyRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1SendSSHPublicKeyCommand = async (
   input: SendSSHPublicKeyCommandInput,
   context: __SerdeContext
@@ -29,6 +52,124 @@ export const serializeAws_json1_1SendSSHPublicKeyCommand = async (
   let body: any;
   body = JSON.stringify(serializeAws_json1_1SendSSHPublicKeyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const deserializeAws_json1_1SendSerialConsoleSSHPublicKeyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendSerialConsoleSSHPublicKeyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1SendSerialConsoleSSHPublicKeyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1SendSerialConsoleSSHPublicKeyResponse(data, context);
+  const response: SendSerialConsoleSSHPublicKeyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1SendSerialConsoleSSHPublicKeyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendSerialConsoleSSHPublicKeyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AuthException":
+    case "com.amazonaws.ec2instanceconnect#AuthException":
+      response = {
+        ...(await deserializeAws_json1_1AuthExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EC2InstanceNotFoundException":
+    case "com.amazonaws.ec2instanceconnect#EC2InstanceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EC2InstanceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EC2InstanceTypeInvalidException":
+    case "com.amazonaws.ec2instanceconnect#EC2InstanceTypeInvalidException":
+      response = {
+        ...(await deserializeAws_json1_1EC2InstanceTypeInvalidExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgsException":
+    case "com.amazonaws.ec2instanceconnect#InvalidArgsException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidArgsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "SerialConsoleAccessDisabledException":
+    case "com.amazonaws.ec2instanceconnect#SerialConsoleAccessDisabledException":
+      response = {
+        ...(await deserializeAws_json1_1SerialConsoleAccessDisabledExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "SerialConsoleSessionLimitExceededException":
+    case "com.amazonaws.ec2instanceconnect#SerialConsoleSessionLimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1SerialConsoleSessionLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "SerialConsoleSessionUnavailableException":
+    case "com.amazonaws.ec2instanceconnect#SerialConsoleSessionUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1SerialConsoleSessionUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceException":
+    case "com.amazonaws.ec2instanceconnect#ServiceException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.ec2instanceconnect#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1SendSSHPublicKeyCommand = async (
@@ -147,6 +288,21 @@ const deserializeAws_json1_1EC2InstanceNotFoundExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1EC2InstanceTypeInvalidExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<EC2InstanceTypeInvalidException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1EC2InstanceTypeInvalidException(body, context);
+  const contents: EC2InstanceTypeInvalidException = {
+    name: "EC2InstanceTypeInvalidException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1InvalidArgsExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -156,6 +312,51 @@ const deserializeAws_json1_1InvalidArgsExceptionResponse = async (
   const contents: InvalidArgsException = {
     name: "InvalidArgsException",
     $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1SerialConsoleAccessDisabledExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<SerialConsoleAccessDisabledException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1SerialConsoleAccessDisabledException(body, context);
+  const contents: SerialConsoleAccessDisabledException = {
+    name: "SerialConsoleAccessDisabledException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1SerialConsoleSessionLimitExceededExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<SerialConsoleSessionLimitExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1SerialConsoleSessionLimitExceededException(body, context);
+  const contents: SerialConsoleSessionLimitExceededException = {
+    name: "SerialConsoleSessionLimitExceededException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1SerialConsoleSessionUnavailableExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<SerialConsoleSessionUnavailableException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1SerialConsoleSessionUnavailableException(body, context);
+  const contents: SerialConsoleSessionUnavailableException = {
+    name: "SerialConsoleSessionUnavailableException",
+    $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   };
@@ -192,6 +393,17 @@ const deserializeAws_json1_1ThrottlingExceptionResponse = async (
   return contents;
 };
 
+const serializeAws_json1_1SendSerialConsoleSSHPublicKeyRequest = (
+  input: SendSerialConsoleSSHPublicKeyRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InstanceId !== undefined && input.InstanceId !== null && { InstanceId: input.InstanceId }),
+    ...(input.SSHPublicKey !== undefined && input.SSHPublicKey !== null && { SSHPublicKey: input.SSHPublicKey }),
+    ...(input.SerialPort !== undefined && input.SerialPort !== null && { SerialPort: input.SerialPort }),
+  };
+};
+
 const serializeAws_json1_1SendSSHPublicKeyRequest = (input: SendSSHPublicKeyRequest, context: __SerdeContext): any => {
   return {
     ...(input.AvailabilityZone !== undefined &&
@@ -218,9 +430,28 @@ const deserializeAws_json1_1EC2InstanceNotFoundException = (
   } as any;
 };
 
+const deserializeAws_json1_1EC2InstanceTypeInvalidException = (
+  output: any,
+  context: __SerdeContext
+): EC2InstanceTypeInvalidException => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1InvalidArgsException = (output: any, context: __SerdeContext): InvalidArgsException => {
   return {
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SendSerialConsoleSSHPublicKeyResponse = (
+  output: any,
+  context: __SerdeContext
+): SendSerialConsoleSSHPublicKeyResponse => {
+  return {
+    RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
+    Success: output.Success !== undefined && output.Success !== null ? output.Success : undefined,
   } as any;
 };
 
@@ -231,6 +462,33 @@ const deserializeAws_json1_1SendSSHPublicKeyResponse = (
   return {
     RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
     Success: output.Success !== undefined && output.Success !== null ? output.Success : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SerialConsoleAccessDisabledException = (
+  output: any,
+  context: __SerdeContext
+): SerialConsoleAccessDisabledException => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SerialConsoleSessionLimitExceededException = (
+  output: any,
+  context: __SerdeContext
+): SerialConsoleSessionLimitExceededException => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SerialConsoleSessionUnavailableException = (
+  output: any,
+  context: __SerdeContext
+): SerialConsoleSessionUnavailableException => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 

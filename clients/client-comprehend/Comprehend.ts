@@ -30,6 +30,11 @@ import {
   ClassifyDocumentCommandOutput,
 } from "./commands/ClassifyDocumentCommand";
 import {
+  ContainsPiiEntitiesCommand,
+  ContainsPiiEntitiesCommandInput,
+  ContainsPiiEntitiesCommandOutput,
+} from "./commands/ContainsPiiEntitiesCommand";
+import {
   CreateDocumentClassifierCommand,
   CreateDocumentClassifierCommandInput,
   CreateDocumentClassifierCommandOutput,
@@ -494,6 +499,40 @@ export class Comprehend extends ComprehendClient {
     cb?: (err: any, data?: ClassifyDocumentCommandOutput) => void
   ): Promise<ClassifyDocumentCommandOutput> | void {
     const command = new ClassifyDocumentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Analyzes input text for the presence of personally identifiable information (PII) and
+   *       returns the labels of identified PII entity types such as name, address, bank account number,
+   *       or phone number.</p>
+   */
+  public containsPiiEntities(
+    args: ContainsPiiEntitiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ContainsPiiEntitiesCommandOutput>;
+  public containsPiiEntities(
+    args: ContainsPiiEntitiesCommandInput,
+    cb: (err: any, data?: ContainsPiiEntitiesCommandOutput) => void
+  ): void;
+  public containsPiiEntities(
+    args: ContainsPiiEntitiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ContainsPiiEntitiesCommandOutput) => void
+  ): void;
+  public containsPiiEntities(
+    args: ContainsPiiEntitiesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ContainsPiiEntitiesCommandOutput) => void),
+    cb?: (err: any, data?: ContainsPiiEntitiesCommandOutput) => void
+  ): Promise<ContainsPiiEntitiesCommandOutput> | void {
+    const command = new ContainsPiiEntitiesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

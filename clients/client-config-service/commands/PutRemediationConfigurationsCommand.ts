@@ -29,6 +29,8 @@ export type PutRemediationConfigurationsCommandOutput = PutRemediationConfigurat
  * 		       <note>
  *             <p>If you make backward incompatible changes to the SSM document,
  * 			you must call this again to ensure the remediations can run.</p>
+ * 			         <p>This API does not support adding remediation configurations for service-linked AWS Config Rules such as Organization Config rules,
+ * 				the rules deployed by conformance packs, and rules deployed by AWS Security Hub.</p>
  *          </note>
  */
 export class PutRemediationConfigurationsCommand extends $Command<

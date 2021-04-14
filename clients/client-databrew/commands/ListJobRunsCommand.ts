@@ -21,8 +21,7 @@ export type ListJobRunsCommandInput = ListJobRunsRequest;
 export type ListJobRunsCommandOutput = ListJobRunsResponse & __MetadataBearer;
 
 /**
- * <p>Lists all of the previous runs of a particular AWS Glue DataBrew job in the current
- *             AWS account.</p>
+ * <p>Lists all of the previous runs of a particular DataBrew job.</p>
  */
 export class ListJobRunsCommand extends $Command<
   ListJobRunsCommandInput,

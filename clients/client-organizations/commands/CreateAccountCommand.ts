@@ -48,8 +48,8 @@ export type CreateAccountCommandOutput = CreateAccountResponse & __MetadataBeare
  *                 <code>organizations:TagResource</code> permission.</p>
  *         <p>AWS Organizations preconfigures the new member account with a role (named
  *                 <code>OrganizationAccountAccessRole</code> by default) that grants users in the
- *             management account administrator permissions in the new member account. Principals in the
- *             management account can assume the role. AWS Organizations clones the company name and address
+ *             management account administrator permissions in the new member account. Principals in
+ *             the management account can assume the role. AWS Organizations clones the company name and address
  *             information for the new account from the organization's management account.</p>
  *         <p>This operation can be called only from the organization's management account.</p>
  *         <p>For more information about creating accounts, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_create.html">Creating

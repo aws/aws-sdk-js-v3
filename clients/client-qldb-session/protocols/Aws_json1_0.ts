@@ -3,6 +3,7 @@ import {
   AbortTransactionRequest,
   AbortTransactionResult,
   BadRequestException,
+  CapacityExceededException,
   CommitTransactionRequest,
   CommitTransactionResult,
   EndSessionRequest,
@@ -11,6 +12,7 @@ import {
   ExecuteStatementResult,
   FetchPageRequest,
   FetchPageResult,
+  IOUsage,
   InvalidSessionException,
   LimitExceededException,
   OccConflictException,
@@ -22,6 +24,7 @@ import {
   StartSessionResult,
   StartTransactionRequest,
   StartTransactionResult,
+  TimingInformation,
   ValueHolder,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -84,6 +87,14 @@ const deserializeAws_json1_0SendCommandCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "CapacityExceededException":
+    case "com.amazonaws.qldbsession#CapacityExceededException":
+      response = {
+        ...(await deserializeAws_json1_0CapacityExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidSessionException":
     case "com.amazonaws.qldbsession#InvalidSessionException":
       response = {
@@ -142,6 +153,21 @@ const deserializeAws_json1_0BadRequestExceptionResponse = async (
   const contents: BadRequestException = {
     name: "BadRequestException",
     $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_0CapacityExceededExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<CapacityExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_0CapacityExceededException(body, context);
+  const contents: CapacityExceededException = {
+    name: "CapacityExceededException",
+    $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   };
@@ -303,12 +329,26 @@ const serializeAws_json1_0ValueHolder = (input: ValueHolder, context: __SerdeCon
 };
 
 const deserializeAws_json1_0AbortTransactionResult = (output: any, context: __SerdeContext): AbortTransactionResult => {
-  return {} as any;
+  return {
+    TimingInformation:
+      output.TimingInformation !== undefined && output.TimingInformation !== null
+        ? deserializeAws_json1_0TimingInformation(output.TimingInformation, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_0BadRequestException = (output: any, context: __SerdeContext): BadRequestException => {
   return {
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0CapacityExceededException = (
+  output: any,
+  context: __SerdeContext
+): CapacityExceededException => {
+  return {
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -322,28 +362,57 @@ const deserializeAws_json1_0CommitTransactionResult = (
       output.CommitDigest !== undefined && output.CommitDigest !== null
         ? context.base64Decoder(output.CommitDigest)
         : undefined,
+    ConsumedIOs:
+      output.ConsumedIOs !== undefined && output.ConsumedIOs !== null
+        ? deserializeAws_json1_0IOUsage(output.ConsumedIOs, context)
+        : undefined,
+    TimingInformation:
+      output.TimingInformation !== undefined && output.TimingInformation !== null
+        ? deserializeAws_json1_0TimingInformation(output.TimingInformation, context)
+        : undefined,
     TransactionId:
       output.TransactionId !== undefined && output.TransactionId !== null ? output.TransactionId : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0EndSessionResult = (output: any, context: __SerdeContext): EndSessionResult => {
-  return {} as any;
+  return {
+    TimingInformation:
+      output.TimingInformation !== undefined && output.TimingInformation !== null
+        ? deserializeAws_json1_0TimingInformation(output.TimingInformation, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_0ExecuteStatementResult = (output: any, context: __SerdeContext): ExecuteStatementResult => {
   return {
+    ConsumedIOs:
+      output.ConsumedIOs !== undefined && output.ConsumedIOs !== null
+        ? deserializeAws_json1_0IOUsage(output.ConsumedIOs, context)
+        : undefined,
     FirstPage:
       output.FirstPage !== undefined && output.FirstPage !== null
         ? deserializeAws_json1_0Page(output.FirstPage, context)
+        : undefined,
+    TimingInformation:
+      output.TimingInformation !== undefined && output.TimingInformation !== null
+        ? deserializeAws_json1_0TimingInformation(output.TimingInformation, context)
         : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0FetchPageResult = (output: any, context: __SerdeContext): FetchPageResult => {
   return {
+    ConsumedIOs:
+      output.ConsumedIOs !== undefined && output.ConsumedIOs !== null
+        ? deserializeAws_json1_0IOUsage(output.ConsumedIOs, context)
+        : undefined,
     Page:
       output.Page !== undefined && output.Page !== null ? deserializeAws_json1_0Page(output.Page, context) : undefined,
+    TimingInformation:
+      output.TimingInformation !== undefined && output.TimingInformation !== null
+        ? deserializeAws_json1_0TimingInformation(output.TimingInformation, context)
+        : undefined,
   } as any;
 };
 
@@ -354,6 +423,13 @@ const deserializeAws_json1_0InvalidSessionException = (
   return {
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0IOUsage = (output: any, context: __SerdeContext): IOUsage => {
+  return {
+    ReadIOs: output.ReadIOs !== undefined && output.ReadIOs !== null ? output.ReadIOs : undefined,
+    WriteIOs: output.WriteIOs !== undefined && output.WriteIOs !== null ? output.WriteIOs : undefined,
   } as any;
 };
 
@@ -422,13 +498,30 @@ const deserializeAws_json1_0SendCommandResult = (output: any, context: __SerdeCo
 const deserializeAws_json1_0StartSessionResult = (output: any, context: __SerdeContext): StartSessionResult => {
   return {
     SessionToken: output.SessionToken !== undefined && output.SessionToken !== null ? output.SessionToken : undefined,
+    TimingInformation:
+      output.TimingInformation !== undefined && output.TimingInformation !== null
+        ? deserializeAws_json1_0TimingInformation(output.TimingInformation, context)
+        : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0StartTransactionResult = (output: any, context: __SerdeContext): StartTransactionResult => {
   return {
+    TimingInformation:
+      output.TimingInformation !== undefined && output.TimingInformation !== null
+        ? deserializeAws_json1_0TimingInformation(output.TimingInformation, context)
+        : undefined,
     TransactionId:
       output.TransactionId !== undefined && output.TransactionId !== null ? output.TransactionId : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0TimingInformation = (output: any, context: __SerdeContext): TimingInformation => {
+  return {
+    ProcessingTimeMilliseconds:
+      output.ProcessingTimeMilliseconds !== undefined && output.ProcessingTimeMilliseconds !== null
+        ? output.ProcessingTimeMilliseconds
+        : undefined,
   } as any;
 };
 

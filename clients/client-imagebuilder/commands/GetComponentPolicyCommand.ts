@@ -21,7 +21,7 @@ export type GetComponentPolicyCommandInput = GetComponentPolicyRequest;
 export type GetComponentPolicyCommandOutput = GetComponentPolicyResponse & __MetadataBearer;
 
 /**
- * <p> Gets a component policy. </p>
+ * <p> Gets a component policy.</p>
  */
 export class GetComponentPolicyCommand extends $Command<
   GetComponentPolicyCommandInput,

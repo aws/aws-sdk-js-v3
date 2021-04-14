@@ -14,6 +14,7 @@ export * from "./commands/DeleteRecipeVersionCommand";
 export * from "./commands/DeleteScheduleCommand";
 export * from "./commands/DescribeDatasetCommand";
 export * from "./commands/DescribeJobCommand";
+export * from "./commands/DescribeJobRunCommand";
 export * from "./commands/DescribeProjectCommand";
 export * from "./commands/DescribeRecipeCommand";
 export * from "./commands/DescribeScheduleCommand";

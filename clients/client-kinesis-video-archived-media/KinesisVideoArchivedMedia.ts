@@ -27,12 +27,12 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  */
 export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient {
   /**
-   * <p>Downloads an MP4 file (clip) containing the archived, on-demand media from the specified video
-   *             stream over the specified time range. </p>
+   * <p>Downloads an MP4 file (clip) containing the archived, on-demand media from the
+   *             specified video stream over the specified time range. </p>
    *         <p>Both the StreamName and the StreamARN parameters are optional, but you must specify
    *             either the StreamName or the StreamARN when invoking this API operation. </p>
    *
-   *         <p>As a prerequsite to using GetCLip API, you must obtain an endpoint using
+   *         <p>As a prerequisite to using GetCLip API, you must obtain an endpoint using
    *                 <code>GetDataEndpoint</code>, specifying GET_CLIP for<code></code> the
    *                 <code>APIName</code> parameter. </p>
    *         <p>An Amazon Kinesis video stream has the following requirements for providing data
@@ -53,8 +53,7 @@ export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient {
    *                     Advanced Video Coding (AVC) for H.264 format and HEVC for H.265 format. For more
    *                     information, see <a href="https://www.iso.org/standard/55980.html">MPEG-4
    *                         specification ISO/IEC 14496-15</a>. For information about adapting
-   *                     stream data to a given format, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/producer-reference-nal.html">NAL Adaptation
-   *                     Flags</a>.</p>
+   *                     stream data to a given format, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/producer-reference-nal.html">NAL Adaptation Flags</a>.</p>
    *             </li>
    *             <li>
    *                 <p>The audio track (if present) of each fragment must contain codec private data
@@ -66,8 +65,7 @@ export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient {
    *
    *         <p>You can monitor the amount of outgoing data by monitoring the
    *                 <code>GetClip.OutgoingBytes</code> Amazon CloudWatch metric. For information about
-   *             using CloudWatch to monitor Kinesis Video Streams, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/monitoring.html">Monitoring
-   *                 Kinesis Video Streams</a>. For pricing information, see <a href="https://aws.amazon.com/kinesis/video-streams/pricing/">Amazon Kinesis Video
+   *             using CloudWatch to monitor Kinesis Video Streams, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/monitoring.html">Monitoring Kinesis Video Streams</a>. For pricing information, see <a href="https://aws.amazon.com/kinesis/video-streams/pricing/">Amazon Kinesis Video
    *                 Streams Pricing</a> and <a href="https://aws.amazon.com/pricing/">AWS
    *                 Pricing</a>. Charges for outgoing AWS data apply.</p>
    */
@@ -119,8 +117,7 @@ export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient {
    *                     Advanced Video Coding (AVC) for H.264 format and HEVC for H.265 format. For more
    *                     information, see <a href="https://www.iso.org/standard/55980.html">MPEG-4
    *                         specification ISO/IEC 14496-15</a>. For information about adapting
-   *                     stream data to a given format, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/producer-reference-nal.html">NAL Adaptation
-   *                     Flags</a>.</p>
+   *                     stream data to a given format, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/producer-reference-nal.html">NAL Adaptation Flags</a>.</p>
    *             </li>
    *             <li>
    *                 <p>The audio track (if present) of each fragment must contain codec private data
@@ -146,10 +143,9 @@ export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient {
    *                         <i>manifest</i> (the root resource needed for streaming with
    *                     MPEG-DASH).</p>
    *                 <note>
-   *                     <p>Don't share or store this token where an unauthorized entity could access
+   *                     <p>Don't share or store this token where an unauthorized entity can access
    *                         it. The token provides access to the content of the stream. Safeguard the
-   *                         token with the same measures that you would use with your AWS
-   *                         credentials.</p>
+   *                         token with the same measures that you use with your AWS credentials.</p>
    *                 </note>
    *                 <p>The media that is made available through the manifest consists only of the
    *                     requested stream, time range, and format. No other media data (such as frames
@@ -171,13 +167,13 @@ export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient {
    *                 <ul>
    *                   <li>
    *                         <p>
-   *                         <b>GetDASHManifest:</b> Retrieves an MPEG
-   *                             DASH manifest, which contains the metadata for the media that you want
-   *                             to playback.</p>
+   *                             <b>GetDASHManifest:</b> Retrieves an MPEG DASH
+   *                             manifest, which contains the metadata for the media that you want to
+   *                             playback.</p>
    *                     </li>
    *                   <li>
    *                         <p>
-   *                         <b>GetMP4InitFragment:</b> Retrieves the MP4
+   *                             <b>GetMP4InitFragment:</b> Retrieves the MP4
    *                             initialization fragment. The media player typically loads the
    *                             initialization fragment before loading any media fragments. This
    *                             fragment contains the "<code>fytp</code>" and "<code>moov</code>" MP4
@@ -190,7 +186,7 @@ export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient {
    *                     </li>
    *                   <li>
    *                         <p>
-   *                         <b>GetMP4MediaFragment:</b> Retrieves MP4
+   *                             <b>GetMP4MediaFragment:</b> Retrieves MP4
    *                             media fragments. These fragments contain the "<code>moof</code>" and
    *                                 "<code>mdat</code>" MP4 atoms and their child atoms, containing the
    *                             encoded fragment's media frames and their timestamps. </p>
@@ -209,33 +205,11 @@ export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient {
    *             </li>
    *          </ol>
    *         <note>
-   *             <p>The following restrictions apply to MPEG-DASH sessions:</p>
-   *             <ul>
-   *                <li>
-   *                     <p>A streaming session URL should not be shared between players. The service
-   *                         might throttle a session if multiple media players are sharing it. For
-   *                         connection limits, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/limits.html">Kinesis Video
-   *                             Streams Limits</a>.</p>
-   *                 </li>
-   *                <li>
-   *                     <p>A Kinesis video stream can have a maximum of ten active MPEG-DASH
-   *                         streaming sessions. If a new session is created when the maximum number of
-   *                         sessions is already active, the oldest (earliest created) session is closed.
-   *                         The number of active <code>GetMedia</code> connections on a Kinesis video
-   *                         stream does not count against this limit, and the number of active MPEG-DASH
-   *                         sessions does not count against the active <code>GetMedia</code> connection
-   *                         limit.</p>
-   *                     <note>
-   *                         <p>The maximum limits for active HLS and MPEG-DASH streaming sessions are
-   *                             independent of each other. </p>
-   *                     </note>
-   *                 </li>
-   *             </ul>
+   *             <p>For restrictions that apply to MPEG-DASH sessions, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/limits.html">Kinesis Video Streams Limits</a>.</p>
    *         </note>
    *         <p>You can monitor the amount of data that the media player consumes by monitoring the
    *                 <code>GetMP4MediaFragment.OutgoingBytes</code> Amazon CloudWatch metric. For
-   *             information about using CloudWatch to monitor Kinesis Video Streams, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/monitoring.html">Monitoring
-   *                 Kinesis Video Streams</a>. For pricing information, see <a href="https://aws.amazon.com/kinesis/video-streams/pricing/">Amazon Kinesis Video
+   *             information about using CloudWatch to monitor Kinesis Video Streams, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/monitoring.html">Monitoring Kinesis Video Streams</a>. For pricing information, see <a href="https://aws.amazon.com/kinesis/video-streams/pricing/">Amazon Kinesis Video
    *                 Streams Pricing</a> and <a href="https://aws.amazon.com/pricing/">AWS
    *                 Pricing</a>. Charges for both HLS sessions and outgoing AWS data apply.</p>
    *         <p>For more information about HLS, see <a href="https://developer.apple.com/streaming/">HTTP Live Streaming</a> on the
@@ -248,14 +222,14 @@ export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient {
    *             <ul>
    *                <li>
    *                     <p>
-   *                      <code>x-amz-ErrorType</code> HTTP header – contains a more specific error
+   *                         <code>x-amz-ErrorType</code> HTTP header – contains a more specific error
    *                         type in addition to what the HTTP status code provides. </p>
    *                 </li>
    *                <li>
    *                     <p>
-   *                      <code>x-amz-RequestId</code> HTTP header – if you want to report an issue
-   *                         to AWS, the support team can better diagnose the problem if given the
-   *                         Request Id.</p>
+   *                         <code>x-amz-RequestId</code> HTTP header – if you want to report an issue to
+   *                         AWS, the support team can better diagnose the problem if given the Request
+   *                         Id.</p>
    *                 </li>
    *             </ul>
    *             <p>Both the HTTP status code and the ErrorType header can be utilized to make
@@ -318,8 +292,7 @@ export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient {
    *                 <p>The video track of each fragment must contain codec private data in the
    *                     Advanced Video Coding (AVC) for H.264 format or HEVC for H.265 format (<a href="https://www.iso.org/standard/55980.html">MPEG-4 specification ISO/IEC
    *                         14496-15</a>). For information about adapting stream data to a given
-   *                     format, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/producer-reference-nal.html">NAL
-   *                         Adaptation Flags</a>.</p>
+   *                     format, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/producer-reference-nal.html">NAL Adaptation Flags</a>.</p>
    *             </li>
    *             <li>
    *                 <p>The audio track (if present) of each fragment must contain codec private data
@@ -372,15 +345,15 @@ export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient {
    *                 <ul>
    *                   <li>
    *                         <p>
-   *                         <b>GetHLSMasterPlaylist:</b> Retrieves an
-   *                             HLS master playlist, which contains a URL for the
+   *                             <b>GetHLSMasterPlaylist:</b> Retrieves an HLS
+   *                             master playlist, which contains a URL for the
    *                                 <code>GetHLSMediaPlaylist</code> action for each track, and
    *                             additional metadata for the media player, including estimated bitrate
    *                             and resolution.</p>
    *                     </li>
    *                   <li>
    *                         <p>
-   *                         <b>GetHLSMediaPlaylist:</b> Retrieves an HLS
+   *                             <b>GetHLSMediaPlaylist:</b> Retrieves an HLS
    *                             media playlist, which contains a URL to access the MP4 initialization
    *                             fragment with the <code>GetMP4InitFragment</code> action, and URLs to
    *                             access the MP4 media fragments with the <code>GetMP4MediaFragment</code>
@@ -397,7 +370,7 @@ export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient {
    *                     </li>
    *                   <li>
    *                         <p>
-   *                         <b>GetMP4InitFragment:</b> Retrieves the MP4
+   *                             <b>GetMP4InitFragment:</b> Retrieves the MP4
    *                             initialization fragment. The media player typically loads the
    *                             initialization fragment before loading any media fragments. This
    *                             fragment contains the "<code>fytp</code>" and "<code>moov</code>" MP4
@@ -410,7 +383,7 @@ export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient {
    *                     </li>
    *                   <li>
    *                         <p>
-   *                         <b>GetMP4MediaFragment:</b> Retrieves MP4
+   *                             <b>GetMP4MediaFragment:</b> Retrieves MP4
    *                             media fragments. These fragments contain the "<code>moof</code>" and
    *                                 "<code>mdat</code>" MP4 atoms and their child atoms, containing the
    *                             encoded fragment's media frames and their timestamps. </p>
@@ -427,7 +400,7 @@ export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient {
    *                     </li>
    *                   <li>
    *                         <p>
-   *                         <b>GetTSFragment:</b> Retrieves MPEG TS
+   *                             <b>GetTSFragment:</b> Retrieves MPEG TS
    *                             fragments containing both initialization and media data for all tracks
    *                             in the stream.</p>
    *                         <note>
@@ -442,33 +415,12 @@ export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient {
    *                </ul>
    *             </li>
    *          </ol>
-   *         <note>
-   *             <p>The following restrictions apply to HLS sessions:</p>
-   *             <ul>
-   *                <li>
-   *                     <p>A streaming session URL should not be shared between players. The service
+   *                     <p>A streaming session URL must not be shared between players. The service
    *                         might throttle a session if multiple media players are sharing it. For
-   *                         connection limits, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/limits.html">Kinesis Video
-   *                             Streams Limits</a>.</p>
-   *                 </li>
-   *                <li>
-   *                     <p>A Kinesis video stream can have a maximum of ten active HLS streaming
-   *                         sessions. If a new session is created when the maximum number of sessions is
-   *                         already active, the oldest (earliest created) session is closed. The number
-   *                         of active <code>GetMedia</code> connections on a Kinesis video stream does
-   *                         not count against this limit, and the number of active HLS sessions does not
-   *                         count against the active <code>GetMedia</code> connection limit.</p>
-   *                     <note>
-   *                         <p>The maximum limits for active HLS and MPEG-DASH streaming sessions are
-   *                             independent of each other.</p>
-   *                     </note>
-   *                 </li>
-   *             </ul>
-   *         </note>
+   *                         connection limits, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/limits.html">Kinesis Video Streams Limits</a>.</p>
    *         <p>You can monitor the amount of data that the media player consumes by monitoring the
    *                 <code>GetMP4MediaFragment.OutgoingBytes</code> Amazon CloudWatch metric. For
-   *             information about using CloudWatch to monitor Kinesis Video Streams, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/monitoring.html">Monitoring
-   *                 Kinesis Video Streams</a>. For pricing information, see <a href="https://aws.amazon.com/kinesis/video-streams/pricing/">Amazon Kinesis Video
+   *             information about using CloudWatch to monitor Kinesis Video Streams, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/monitoring.html">Monitoring Kinesis Video Streams</a>. For pricing information, see <a href="https://aws.amazon.com/kinesis/video-streams/pricing/">Amazon Kinesis Video
    *                 Streams Pricing</a> and <a href="https://aws.amazon.com/pricing/">AWS
    *                 Pricing</a>. Charges for both HLS sessions and outgoing AWS data apply.</p>
    *         <p>For more information about HLS, see <a href="https://developer.apple.com/streaming/">HTTP Live Streaming</a> on the
@@ -481,14 +433,14 @@ export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient {
    *             <ul>
    *                <li>
    *                     <p>
-   *                      <code>x-amz-ErrorType</code> HTTP header – contains a more specific error
+   *                         <code>x-amz-ErrorType</code> HTTP header – contains a more specific error
    *                         type in addition to what the HTTP status code provides. </p>
    *                 </li>
    *                <li>
    *                     <p>
-   *                      <code>x-amz-RequestId</code> HTTP header – if you want to report an issue
-   *                         to AWS, the support team can better diagnose the problem if given the
-   *                         Request Id.</p>
+   *                         <code>x-amz-RequestId</code> HTTP header – if you want to report an issue to
+   *                         AWS, the support team can better diagnose the problem if given the Request
+   *                         Id.</p>
    *                 </li>
    *             </ul>
    *             <p>Both the HTTP status code and the ErrorType header can be utilized to make
@@ -540,19 +492,7 @@ export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient {
    *                     parameter</a>. </p>
    *         </note>
    *
-   *         <p>The following limits apply when using the <code>GetMediaForFragmentList</code>
-   *             API:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>A client can call <code>GetMediaForFragmentList</code> up to five times per
-   *                     second per stream. </p>
-   *             </li>
-   *             <li>
-   *                 <p>Kinesis Video Streams sends media data at a rate of up to 25 megabytes per
-   *                     second (or 200 megabits per second) during a
-   *                         <code>GetMediaForFragmentList</code> session. </p>
-   *             </li>
-   *          </ul>
+   *         <p>For limits, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/limits.html">Kinesis Video Streams Limits</a>.</p>
    *
    *         <important>
    *             <p>If an error is thrown after invoking a Kinesis Video Streams archived media API,
@@ -561,14 +501,14 @@ export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient {
    *             <ul>
    *                <li>
    *                     <p>
-   *                      <code>x-amz-ErrorType</code> HTTP header – contains a more specific error
+   *                         <code>x-amz-ErrorType</code> HTTP header – contains a more specific error
    *                         type in addition to what the HTTP status code provides. </p>
    *                 </li>
    *                <li>
    *                     <p>
-   *                      <code>x-amz-RequestId</code> HTTP header – if you want to report an issue
-   *                         to AWS, the support team can better diagnose the problem if given the
-   *                         Request Id.</p>
+   *                         <code>x-amz-RequestId</code> HTTP header – if you want to report an issue to
+   *                         AWS, the support team can better diagnose the problem if given the Request
+   *                         Id.</p>
    *                 </li>
    *             </ul>
    *             <p>Both the HTTP status code and the ErrorType header can be utilized to make
@@ -629,14 +569,14 @@ export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient {
    *             <ul>
    *                <li>
    *                     <p>
-   *                      <code>x-amz-ErrorType</code> HTTP header – contains a more specific error
+   *                         <code>x-amz-ErrorType</code> HTTP header – contains a more specific error
    *                         type in addition to what the HTTP status code provides. </p>
    *                 </li>
    *                <li>
    *                     <p>
-   *                      <code>x-amz-RequestId</code> HTTP header – if you want to report an issue
-   *                         to AWS, the support team can better diagnose the problem if given the
-   *                         Request Id.</p>
+   *                         <code>x-amz-RequestId</code> HTTP header – if you want to report an issue to
+   *                         AWS, the support team can better diagnose the problem if given the Request
+   *                         Id.</p>
    *                 </li>
    *             </ul>
    *             <p>Both the HTTP status code and the ErrorType header can be utilized to make

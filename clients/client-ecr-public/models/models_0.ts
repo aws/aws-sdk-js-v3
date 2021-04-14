@@ -550,6 +550,30 @@ export namespace RepositoryCatalogDataInput {
   });
 }
 
+/**
+ * <p>The metadata that you apply to a resource to help you categorize and organize them. Each
+ *          tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.</p>
+ */
+export interface Tag {
+  /**
+   * <p>One part of a key-value pair that make up a tag. A <code>key</code> is a general label
+   *          that acts like a category for more specific tag values.</p>
+   */
+  Key?: string;
+
+  /**
+   * <p>The optional part of a key-value pair that make up a tag. A <code>value</code> acts as a
+   *          descriptor within a tag category (key).</p>
+   */
+  Value?: string;
+}
+
+export namespace Tag {
+  export const filterSensitiveLog = (obj: Tag): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateRepositoryRequest {
   /**
    * <p>The name to use for the repository. This appears publicly in the Amazon ECR Public Gallery.
@@ -564,6 +588,13 @@ export interface CreateRepositoryRequest {
    *          Amazon ECR Public Gallery.</p>
    */
   catalogData?: RepositoryCatalogDataInput;
+
+  /**
+   * <p>The metadata that you apply to the repository to help you categorize and organize them.
+   *          Each tag consists of a key and an optional value, both of which you define.
+   *          Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.</p>
+   */
+  tags?: Tag[];
 }
 
 export namespace CreateRepositoryRequest {
@@ -687,6 +718,21 @@ export namespace CreateRepositoryResponse {
 }
 
 /**
+ * <p>An invalid parameter has been specified. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.</p>
+ */
+export interface InvalidTagParameterException extends __SmithyException, $MetadataBearer {
+  name: "InvalidTagParameterException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidTagParameterException {
+  export const filterSensitiveLog = (obj: InvalidTagParameterException): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>The operation did not succeed because it would have exceeded a service limit for your
  *          account. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html">Amazon ECR Service Quotas</a> in the
  *          Amazon Elastic Container Registry User Guide.</p>
@@ -714,6 +760,22 @@ export interface RepositoryAlreadyExistsException extends __SmithyException, $Me
 
 export namespace RepositoryAlreadyExistsException {
   export const filterSensitiveLog = (obj: RepositoryAlreadyExistsException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The list of tags on the repository is over the limit. The maximum number of tags that
+ *          can be applied to a repository is 50.</p>
+ */
+export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
+  name: "TooManyTagsException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace TooManyTagsException {
+  export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
     ...obj,
   });
 }
@@ -1630,6 +1692,33 @@ export namespace LayersNotFoundException {
   });
 }
 
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the
+   *          supported resource is an Amazon ECR Public repository.</p>
+   */
+  resourceArn: string | undefined;
+}
+
+export namespace ListTagsForResourceRequest {
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>The tags for the resource.</p>
+   */
+  tags?: Tag[];
+}
+
+export namespace ListTagsForResourceResponse {
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface PutImageRequest {
   /**
    * <p>The AWS account ID associated with the public registry that contains the repository in
@@ -1821,6 +1910,61 @@ export interface SetRepositoryPolicyResponse {
 
 export namespace SetRepositoryPolicyResponse {
   export const filterSensitiveLog = (obj: SetRepositoryPolicyResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface TagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource to which to add tags. Currently, the
+   *          supported resource is an Amazon ECR Public repository.</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>The tags to add to the resource. A tag is an array of key-value pairs.
+   *          Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.</p>
+   */
+  tags: Tag[] | undefined;
+}
+
+export namespace TagResourceRequest {
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface TagResourceResponse {}
+
+export namespace TagResourceResponse {
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource from which to delete tags. Currently, the supported
+   *          resource is an Amazon ECR Public repository.</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>The keys of the tags to be removed.</p>
+   */
+  tagKeys: string[] | undefined;
+}
+
+export namespace UntagResourceRequest {
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceResponse {}
+
+export namespace UntagResourceResponse {
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
 }

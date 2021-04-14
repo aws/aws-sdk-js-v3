@@ -26,7 +26,7 @@ export type ListBucketMetricsConfigurationsCommandOutput = ListBucketMetricsConf
  *          the request metrics of the bucket and do not provide information on daily storage metrics.
  *          You can have up to 1,000 configurations per bucket.</p>
  *
- *          <p>This operation supports list pagination and does not return more than 100 configurations
+ *          <p>This action supports list pagination and does not return more than 100 configurations
  *          at a time. Always check the <code>IsTruncated</code> element in the response. If there are
  *          no more configurations to list, <code>IsTruncated</code> is set to false. If there are more
  *          configurations to list, <code>IsTruncated</code> is set to true, and there is a value in
@@ -37,7 +37,7 @@ export type ListBucketMetricsConfigurationsCommandOutput = ListBucketMetricsConf
  *          <p>To use this operation, you must have permissions to perform the
  *             <code>s3:GetMetricsConfiguration</code> action. The bucket owner has this permission by
  *          default. The bucket owner can grant this permission to others. For more information about
- *          permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing Access Permissions to Your Amazon S3
+ *          permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to Your Amazon S3
  *             Resources</a>.</p>
  *
  *          <p>For more information about metrics configurations and CloudWatch request metrics, see

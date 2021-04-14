@@ -21,8 +21,7 @@ export type DescribeDatasetCommandInput = DescribeDatasetRequest;
 export type DescribeDatasetCommandOutput = DescribeDatasetResponse & __MetadataBearer;
 
 /**
- * <p>Returns the definition of a specific AWS Glue DataBrew dataset that is in the current
- *             AWS account.</p>
+ * <p>Returns the definition of a specific DataBrew dataset.</p>
  */
 export class DescribeDatasetCommand extends $Command<
   DescribeDatasetCommandInput,

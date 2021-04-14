@@ -437,6 +437,11 @@ import {
   ListComplianceSummariesCommandOutput,
 } from "./commands/ListComplianceSummariesCommand";
 import {
+  ListDocumentMetadataHistoryCommand,
+  ListDocumentMetadataHistoryCommandInput,
+  ListDocumentMetadataHistoryCommandOutput,
+} from "./commands/ListDocumentMetadataHistoryCommand";
+import {
   ListDocumentVersionsCommand,
   ListDocumentVersionsCommandInput,
   ListDocumentVersionsCommandOutput,
@@ -451,6 +456,11 @@ import {
   ListInventoryEntriesCommandInput,
   ListInventoryEntriesCommandOutput,
 } from "./commands/ListInventoryEntriesCommand";
+import {
+  ListOpsItemEventsCommand,
+  ListOpsItemEventsCommandInput,
+  ListOpsItemEventsCommandOutput,
+} from "./commands/ListOpsItemEventsCommand";
 import {
   ListOpsMetadataCommand,
   ListOpsMetadataCommandInput,
@@ -543,6 +553,11 @@ import {
   StartAutomationExecutionCommandOutput,
 } from "./commands/StartAutomationExecutionCommand";
 import {
+  StartChangeRequestExecutionCommand,
+  StartChangeRequestExecutionCommandInput,
+  StartChangeRequestExecutionCommandOutput,
+} from "./commands/StartChangeRequestExecutionCommand";
+import {
   StartSessionCommand,
   StartSessionCommandInput,
   StartSessionCommandOutput,
@@ -557,6 +572,11 @@ import {
   TerminateSessionCommandInput,
   TerminateSessionCommandOutput,
 } from "./commands/TerminateSessionCommand";
+import {
+  UnlabelParameterVersionCommand,
+  UnlabelParameterVersionCommandInput,
+  UnlabelParameterVersionCommandOutput,
+} from "./commands/UnlabelParameterVersionCommand";
 import {
   UpdateAssociationCommand,
   UpdateAssociationCommandInput,
@@ -577,6 +597,11 @@ import {
   UpdateDocumentDefaultVersionCommandInput,
   UpdateDocumentDefaultVersionCommandOutput,
 } from "./commands/UpdateDocumentDefaultVersionCommand";
+import {
+  UpdateDocumentMetadataCommand,
+  UpdateDocumentMetadataCommandInput,
+  UpdateDocumentMetadataCommandOutput,
+} from "./commands/UpdateDocumentMetadataCommand";
 import {
   UpdateMaintenanceWindowCommand,
   UpdateMaintenanceWindowCommandInput,
@@ -988,7 +1013,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>If you create a new application in AppManager, Systems Manager calls this API action to specify
+   * <p>If you create a new application in Application Manager, Systems Manager calls this API action to specify
    *    information about the new application, including the application type.</p>
    */
   public createOpsMetadata(
@@ -2378,6 +2403,12 @@ export class SSM extends SSMClient {
 
   /**
    * <p>Lists the tasks in a maintenance window.</p>
+   *          <note>
+   *             <p>For maintenance window tasks without a specified target, you cannot supply values for
+   *      <code>--max-errors</code> and <code>--max-concurrency</code>. Instead, the system inserts a
+   *     placeholder value of <code>1</code>, which may be reported in the response to this command.
+   *     These values do not affect the running of your task and can be ignored.</p>
+   *          </note>
    */
   public describeMaintenanceWindowTasks(
     args: DescribeMaintenanceWindowTasksCommandInput,
@@ -2767,7 +2798,11 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Returns detailed information about command execution for an invocation or plugin. </p>
+   * <p>Returns detailed information about command execution for an invocation or plugin.</p>
+   *          <p>
+   *             <code>GetCommandInvocation</code> only gives the execution status of a plugin in a document.
+   *    To get the command execution status on a specific instance, use <a>ListCommandInvocations</a>. To get the command execution status across instances, use
+   *     <a>ListCommands</a>.</p>
    */
   public getCommandInvocation(
     args: GetCommandInvocationCommandInput,
@@ -3123,6 +3158,12 @@ export class SSM extends SSMClient {
 
   /**
    * <p>Lists the tasks in a maintenance window.</p>
+   *          <note>
+   *             <p>For maintenance window tasks without a specified target, you cannot supply values for
+   *      <code>--max-errors</code> and <code>--max-concurrency</code>. Instead, the system inserts a
+   *     placeholder value of <code>1</code>, which may be reported in the response to this command.
+   *     These values do not affect the running of your task and can be ignored.</p>
+   *          </note>
    */
   public getMaintenanceWindowTask(
     args: GetMaintenanceWindowTaskCommandInput,
@@ -3187,7 +3228,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>View operational metadata related to an application in AppManager.</p>
+   * <p>View operational metadata related to an application in Application Manager.</p>
    */
   public getOpsMetadata(
     args: GetOpsMetadataCommandInput,
@@ -3515,8 +3556,8 @@ export class SSM extends SSMClient {
    *      specific version of a parameter.</p>
    *             </li>
    *             <li>
-   *                <p>You can't delete a parameter label. If you no longer want to use a parameter label, then
-   *      you must move it to a different version of a parameter.</p>
+   *                <p>If you no longer want to use a parameter label, then you can either delete it or move it
+   *      to a different version of a parameter.</p>
    *             </li>
    *             <li>
    *                <p>A label can have a maximum of 100 characters.</p>
@@ -3760,6 +3801,38 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * <p>Information about approval reviews for a version of an SSM document.</p>
+   */
+  public listDocumentMetadataHistory(
+    args: ListDocumentMetadataHistoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDocumentMetadataHistoryCommandOutput>;
+  public listDocumentMetadataHistory(
+    args: ListDocumentMetadataHistoryCommandInput,
+    cb: (err: any, data?: ListDocumentMetadataHistoryCommandOutput) => void
+  ): void;
+  public listDocumentMetadataHistory(
+    args: ListDocumentMetadataHistoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDocumentMetadataHistoryCommandOutput) => void
+  ): void;
+  public listDocumentMetadataHistory(
+    args: ListDocumentMetadataHistoryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDocumentMetadataHistoryCommandOutput) => void),
+    cb?: (err: any, data?: ListDocumentMetadataHistoryCommandOutput) => void
+  ): Promise<ListDocumentMetadataHistoryCommandOutput> | void {
+    const command = new ListDocumentMetadataHistoryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns all Systems Manager (SSM) documents in the current AWS account and Region. You can limit the
    *    results of this request by using a filter.</p>
    */
@@ -3857,7 +3930,40 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Systems Manager calls this API action when displaying all AppManager OpsMetadata objects or
+   * <p>Returns a list of all OpsItem events in the current AWS account and Region. You can limit
+   *    the results to events associated with specific OpsItems by specifying a filter.</p>
+   */
+  public listOpsItemEvents(
+    args: ListOpsItemEventsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListOpsItemEventsCommandOutput>;
+  public listOpsItemEvents(
+    args: ListOpsItemEventsCommandInput,
+    cb: (err: any, data?: ListOpsItemEventsCommandOutput) => void
+  ): void;
+  public listOpsItemEvents(
+    args: ListOpsItemEventsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListOpsItemEventsCommandOutput) => void
+  ): void;
+  public listOpsItemEvents(
+    args: ListOpsItemEventsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListOpsItemEventsCommandOutput) => void),
+    cb?: (err: any, data?: ListOpsItemEventsCommandOutput) => void
+  ): Promise<ListOpsItemEventsCommandOutput> | void {
+    const command = new ListOpsItemEventsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Systems Manager calls this API action when displaying all Application Manager OpsMetadata objects or
    *    blobs.</p>
    */
   public listOpsMetadata(
@@ -4547,6 +4653,40 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * <p>Creates a change request for Change Manager. The runbooks (Automation documents) specified in the
+   *    change request run only after all required approvals for the change request have been
+   *    received.</p>
+   */
+  public startChangeRequestExecution(
+    args: StartChangeRequestExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartChangeRequestExecutionCommandOutput>;
+  public startChangeRequestExecution(
+    args: StartChangeRequestExecutionCommandInput,
+    cb: (err: any, data?: StartChangeRequestExecutionCommandOutput) => void
+  ): void;
+  public startChangeRequestExecution(
+    args: StartChangeRequestExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartChangeRequestExecutionCommandOutput) => void
+  ): void;
+  public startChangeRequestExecution(
+    args: StartChangeRequestExecutionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartChangeRequestExecutionCommandOutput) => void),
+    cb?: (err: any, data?: StartChangeRequestExecutionCommandOutput) => void
+  ): Promise<StartChangeRequestExecutionCommandOutput> | void {
+    const command = new StartChangeRequestExecutionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Initiates a connection to a target (for example, an instance) for a Session Manager session. Returns a
    *    URL and token that can be used to open a WebSocket connection for sending input and receiving
    *    outputs.</p>
@@ -4639,6 +4779,38 @@ export class SSM extends SSMClient {
     cb?: (err: any, data?: TerminateSessionCommandOutput) => void
   ): Promise<TerminateSessionCommandOutput> | void {
     const command = new TerminateSessionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Remove a label or labels from a parameter.</p>
+   */
+  public unlabelParameterVersion(
+    args: UnlabelParameterVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UnlabelParameterVersionCommandOutput>;
+  public unlabelParameterVersion(
+    args: UnlabelParameterVersionCommandInput,
+    cb: (err: any, data?: UnlabelParameterVersionCommandOutput) => void
+  ): void;
+  public unlabelParameterVersion(
+    args: UnlabelParameterVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UnlabelParameterVersionCommandOutput) => void
+  ): void;
+  public unlabelParameterVersion(
+    args: UnlabelParameterVersionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UnlabelParameterVersionCommandOutput) => void),
+    cb?: (err: any, data?: UnlabelParameterVersionCommandOutput) => void
+  ): Promise<UnlabelParameterVersionCommandOutput> | void {
+    const command = new UnlabelParameterVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -4790,6 +4962,38 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * <p>Updates information related to approval reviews for a specific version of a document.</p>
+   */
+  public updateDocumentMetadata(
+    args: UpdateDocumentMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDocumentMetadataCommandOutput>;
+  public updateDocumentMetadata(
+    args: UpdateDocumentMetadataCommandInput,
+    cb: (err: any, data?: UpdateDocumentMetadataCommandOutput) => void
+  ): void;
+  public updateDocumentMetadata(
+    args: UpdateDocumentMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDocumentMetadataCommandOutput) => void
+  ): void;
+  public updateDocumentMetadata(
+    args: UpdateDocumentMetadataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDocumentMetadataCommandOutput) => void),
+    cb?: (err: any, data?: UpdateDocumentMetadataCommandOutput) => void
+  ): Promise<UpdateDocumentMetadataCommandOutput> | void {
+    const command = new UpdateDocumentMetadataCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates an existing maintenance window. Only specified parameters are modified.</p>
    *          <note>
    *             <p>The value you specify for <code>Duration</code> determines the specific end time for the
@@ -4911,6 +5115,14 @@ export class SSM extends SSMClient {
    *                <p>MaxErrors</p>
    *             </li>
    *          </ul>
+   *          <note>
+   *             <p>One or more targets must be specified for maintenance window Run Command-type tasks.
+   *     Depending on the task, targets are optional for other maintenance window task types (Automation,
+   *     AWS Lambda, and AWS Step Functions). For more information about running tasks that do not
+   *     specify targets, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html">Registering
+   *      maintenance window tasks without targets</a> in the
+   *     <i>AWS Systems Manager User Guide</i>.</p>
+   *          </note>
    *          <p>If the value for a parameter in <code>UpdateMaintenanceWindowTask</code> is null, then the
    *    corresponding field is not modified. If you set <code>Replace</code> to true, then all fields
    *    required by the <a>RegisterTaskWithMaintenanceWindow</a> action are required for this
@@ -5028,7 +5240,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Systems Manager calls this API action when you edit OpsMetadata in AppManager.</p>
+   * <p>Systems Manager calls this API action when you edit OpsMetadata in Application Manager.</p>
    */
   public updateOpsMetadata(
     args: UpdateOpsMetadataCommandInput,

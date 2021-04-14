@@ -22,6 +22,11 @@ export type GetChannelMessageCommandOutput = GetChannelMessageResponse & __Metad
 
 /**
  * <p>Gets the full details of a channel message.</p>
+ *
+ *          <note>
+ *             <p>The x-amz-chime-bearer request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the
+ *         value in the header.</p>
+ *          </note>
  */
 export class GetChannelMessageCommand extends $Command<
   GetChannelMessageCommandInput,

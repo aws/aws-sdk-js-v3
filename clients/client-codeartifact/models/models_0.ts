@@ -116,11 +116,6 @@ export interface AssociateExternalConnectionRequest {
    *                   <code>public:maven-commonsware</code> - for the CommonsWare Android repository.
    *         </p>
    *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>public:nuget-org</code> - for the NuGet Gallery.
-   *         </p>
-   *             </li>
    *          </ul>
    */
   externalConnection: string | undefined;
@@ -172,11 +167,6 @@ export interface RepositoryExternalConnectionInfo {
    *             <li>
    *                <p>
    *                   <code>maven</code>: A Maven package that contains compiled code in a distributable format, such as a JAR file.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>nuget</code>: A NuGet package.
    *         </p>
    *             </li>
    *          </ul>
@@ -516,11 +506,6 @@ export interface CopyPackageVersionsRequest {
    *                   <code>maven</code>: A Maven package that contains compiled code in a distributable format, such as a JAR file.
    *         </p>
    *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>nuget</code>: A NuGet package.
-   *         </p>
-   *             </li>
    *          </ul>
    */
   format: PackageFormat | string | undefined;
@@ -545,12 +530,6 @@ export interface CopyPackageVersionsRequest {
    *                <p>
    *           A Python package does not contain a corresponding component, so
    *           Python packages do not have a namespace.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *           A NuGet package does not contain a corresponding component, so
-   *           NuGet packages do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
@@ -981,7 +960,7 @@ export namespace UpstreamRepository {
 export interface CreateRepositoryRequest {
   /**
    * <p>
-   *         The domain that contains the created repository.
+   *         The name of the domain that contains the created repository.
    *       </p>
    */
   domain: string | undefined;
@@ -1201,11 +1180,6 @@ export interface DeletePackageVersionsRequest {
    *                   <code>maven</code>
    *                </p>
    *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>nuget</code>
-   *                </p>
-   *             </li>
    *          </ul>
    */
   format: PackageFormat | string | undefined;
@@ -1230,12 +1204,6 @@ export interface DeletePackageVersionsRequest {
    *                <p>
    *           A Python package does not contain a corresponding component, so
    *           Python packages do not have a namespace.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *           A NuGet package does not contain a corresponding component, so
-   *           NuGet packages do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
@@ -1528,11 +1496,6 @@ export interface DescribePackageVersionRequest {
    *                   <code>maven</code>
    *                </p>
    *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>nuget</code>
-   *                </p>
-   *             </li>
    *          </ul>
    */
   format: PackageFormat | string | undefined;
@@ -1557,12 +1520,6 @@ export interface DescribePackageVersionRequest {
    *                <p>
    *           A Python package does not contain a corresponding component, so
    *           Python packages do not have a namespace.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *           A NuGet package does not contain a corresponding component, so
-   *           NuGet packages do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
@@ -1641,11 +1598,6 @@ export interface PackageVersionDescription {
    *                   <code>maven</code>: A Maven package that contains compiled code in a distributable format, such as a JAR file.
    *         </p>
    *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>nuget</code>: A NuGet package.
-   *         </p>
-   *             </li>
    *          </ul>
    */
   format?: PackageFormat | string;
@@ -1670,12 +1622,6 @@ export interface PackageVersionDescription {
    *                <p>
    *           A Python package does not contain a corresponding component, so
    *           Python packages do not have a namespace.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *           A NuGet package does not contain a corresponding component, so
-   *           NuGet packages do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
@@ -1793,9 +1739,7 @@ export namespace PackageVersionDescription {
 export interface DescribePackageVersionResult {
   /**
    * <p>
-   *       A <code>
-   *                <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html">PackageVersionDescription</a>
-   *             </code>
+   *       A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html">PackageVersionDescription</a>
    *       object that contains information about the requested package version.
    *     </p>
    */
@@ -1943,11 +1887,6 @@ export interface DisposePackageVersionsRequest {
    *                   <code>maven</code>
    *                </p>
    *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>nuget</code>
-   *                </p>
-   *             </li>
    *          </ul>
    */
   format: PackageFormat | string | undefined;
@@ -1972,12 +1911,6 @@ export interface DisposePackageVersionsRequest {
    *                <p>
    *           A Python package does not contain a corresponding component, so
    *           Python packages do not have a namespace.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *           A NuGet package does not contain a corresponding component, so
-   *           NuGet packages do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
@@ -2195,7 +2128,7 @@ export namespace GetDomainPermissionsPolicyResult {
 export interface GetPackageVersionAssetRequest {
   /**
    * <p>
-   *       The domain that contains the repository that contains the package version with the requested asset.
+   *       The name of the domain that contains the repository that contains the package version with the requested asset.
    *     </p>
    */
   domain: string | undefined;
@@ -2235,11 +2168,6 @@ export interface GetPackageVersionAssetRequest {
    *                   <code>maven</code>
    *                </p>
    *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>nuget</code>
-   *                </p>
-   *             </li>
    *          </ul>
    */
   format: PackageFormat | string | undefined;
@@ -2264,12 +2192,6 @@ export interface GetPackageVersionAssetRequest {
    *                <p>
    *           A Python package does not contain a corresponding component, so
    *           Python packages do not have a namespace.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *           A NuGet package does not contain a corresponding component, so
-   *           NuGet packages do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
@@ -2388,11 +2310,6 @@ export interface GetPackageVersionReadmeRequest {
    *                   <code>maven</code>
    *                </p>
    *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>nuget</code>
-   *                </p>
-   *             </li>
    *          </ul>
    */
   format: PackageFormat | string | undefined;
@@ -2417,12 +2334,6 @@ export interface GetPackageVersionReadmeRequest {
    *                <p>
    *           A Python package does not contain a corresponding component, so
    *           Python packages do not have a namespace.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *           A NuGet package does not contain a corresponding component, so
-   *           NuGet packages do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
@@ -2471,11 +2382,6 @@ export interface GetPackageVersionReadmeResult {
    *                   <code>maven</code>
    *                </p>
    *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>nuget</code>
-   *                </p>
-   *             </li>
    *          </ul>
    */
   format?: PackageFormat | string;
@@ -2500,12 +2406,6 @@ export interface GetPackageVersionReadmeResult {
    *                <p>
    *           A Python package does not contain a corresponding component, so
    *           Python packages do not have a namespace.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *           A NuGet package does not contain a corresponding component, so
-   *           NuGet packages do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
@@ -2589,11 +2489,6 @@ export interface GetRepositoryEndpointRequest {
    *             <li>
    *                <p>
    *                   <code>maven</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>nuget</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -2762,9 +2657,7 @@ export namespace DomainSummary {
 export interface ListDomainsResult {
   /**
    * <p>
-   *       The returned list of <code>
-   *                <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DomainSummary.html">DomainSummary</a>
-   *             </code> objects.
+   *       The returned list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DomainSummary.html">DomainSummary</a> objects.
    *      </p>
    */
   domains?: DomainSummary[];
@@ -2786,7 +2679,7 @@ export namespace ListDomainsResult {
 export interface ListPackagesRequest {
   /**
    * <p>
-   *         The domain that contains the repository that contains the requested list of packages.
+   *         The name of the domain that contains the repository that contains the requested list of packages.
    *       </p>
    */
   domain: string | undefined;
@@ -2826,11 +2719,6 @@ export interface ListPackagesRequest {
    *                   <code>maven</code>: A Maven package that contains compiled code in a distributable format, such as a JAR file.
    *         </p>
    *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>nuget</code>: A NuGet package.
-   *         </p>
-   *             </li>
    *          </ul>
    */
   format?: PackageFormat | string;
@@ -2855,12 +2743,6 @@ export interface ListPackagesRequest {
    *                <p>
    *           A Python package does not contain a corresponding component, so
    *           Python packages do not have a namespace.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *           A NuGet package does not contain a corresponding component, so
-   *           NuGet packages do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
@@ -2926,11 +2808,6 @@ export interface PackageSummary {
    *                   <code>maven</code>
    *                </p>
    *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>nuget</code>
-   *                </p>
-   *             </li>
    *          </ul>
    */
   format?: PackageFormat | string;
@@ -2955,12 +2832,6 @@ export interface PackageSummary {
    *                <p>
    *           A Python package does not contain a corresponding component, so
    *           Python packages do not have a namespace.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *           A NuGet package does not contain a corresponding component, so
-   *           NuGet packages do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
@@ -3049,11 +2920,6 @@ export interface ListPackageVersionAssetsRequest {
    *                   <code>maven</code>: A Maven package that contains compiled code in a distributable format, such as a JAR file.
    *         </p>
    *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>nuget</code>: A NuGet package.
-   *         </p>
-   *             </li>
    *          </ul>
    */
   format: PackageFormat | string | undefined;
@@ -3078,12 +2944,6 @@ export interface ListPackageVersionAssetsRequest {
    *                <p>
    *           A Python package does not contain a corresponding component, so
    *           Python packages do not have a namespace.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *           A NuGet package does not contain a corresponding component, so
-   *           NuGet packages do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
@@ -3155,12 +3015,6 @@ export interface ListPackageVersionAssetsResult {
    *           Python packages do not have a namespace.
    *         </p>
    *             </li>
-   *             <li>
-   *                <p>
-   *           A NuGet package does not contain a corresponding component, so
-   *           NuGet packages do not have a namespace.
-   *         </p>
-   *             </li>
    *          </ul>
    */
   namespace?: string;
@@ -3212,7 +3066,7 @@ export namespace ListPackageVersionAssetsResult {
 export interface ListPackageVersionDependenciesRequest {
   /**
    * <p>
-   *       The domain that contains the repository that contains the requested package version dependencies.
+   *       The name of the domain that contains the repository that contains the requested package version dependencies.
    *     </p>
    */
   domain: string | undefined;
@@ -3252,11 +3106,6 @@ export interface ListPackageVersionDependenciesRequest {
    *                   <code>maven</code>: A Maven package that contains compiled code in a distributable format, such as a JAR file.
    *         </p>
    *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>nuget</code>: A NuGet package.
-   *         </p>
-   *             </li>
    *          </ul>
    */
   format: PackageFormat | string | undefined;
@@ -3281,12 +3130,6 @@ export interface ListPackageVersionDependenciesRequest {
    *                <p>
    *           A Python package does not contain a corresponding component, so
    *           Python packages do not have a namespace.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *           A NuGet package does not contain a corresponding component, so
-   *           NuGet packages do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
@@ -3349,12 +3192,6 @@ export interface PackageDependency {
    *           Python packages do not have a namespace.
    *         </p>
    *             </li>
-   *             <li>
-   *                <p>
-   *           A NuGet package does not contain a corresponding component, so
-   *           NuGet packages do not have a namespace.
-   *         </p>
-   *             </li>
    *          </ul>
    */
   namespace?: string;
@@ -3410,11 +3247,6 @@ export interface ListPackageVersionDependenciesResult {
    *                   <code>maven</code>
    *                </p>
    *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>nuget</code>
-   *                </p>
-   *             </li>
    *          </ul>
    */
   format?: PackageFormat | string;
@@ -3439,12 +3271,6 @@ export interface ListPackageVersionDependenciesResult {
    *                <p>
    *           A Python package does not contain a corresponding component, so
    *           Python packages do not have a namespace.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *           A NuGet package does not contain a corresponding component, so
-   *           NuGet packages do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
@@ -3542,11 +3368,6 @@ export interface ListPackageVersionsRequest {
    *                   <code>maven</code>: A Maven package that contains compiled code in a distributable format, such as a JAR file.
    *         </p>
    *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>nuget</code>: A NuGet package.
-   *         </p>
-   *             </li>
    *          </ul>
    */
   format: PackageFormat | string | undefined;
@@ -3571,12 +3392,6 @@ export interface ListPackageVersionsRequest {
    *                <p>
    *           A Python package does not contain a corresponding component, so
    *           Python packages do not have a namespace.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *           A NuGet package does not contain a corresponding component, so
-   *           NuGet packages do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
@@ -3758,11 +3573,6 @@ export interface ListPackageVersionsResult {
    *                   <code>maven</code>
    *                </p>
    *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>nuget</code>
-   *                </p>
-   *             </li>
    *          </ul>
    */
   format?: PackageFormat | string;
@@ -3787,12 +3597,6 @@ export interface ListPackageVersionsResult {
    *                <p>
    *           A Python package does not contain a corresponding component, so
    *           Python packages do not have a namespace.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *           A NuGet package does not contain a corresponding component, so
-   *           NuGet packages do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
@@ -4201,7 +4005,7 @@ export namespace UntagResourceResult {
 export interface UpdatePackageVersionsStatusRequest {
   /**
    * <p>
-   *       The domain that contains the repository that contains the package versions with a status to be updated.
+   *       The name of the domain that contains the repository that contains the package versions with a status to be updated.
    *     </p>
    */
   domain: string | undefined;
@@ -4241,11 +4045,6 @@ export interface UpdatePackageVersionsStatusRequest {
    *                   <code>maven</code>
    *                </p>
    *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>nuget</code>
-   *                </p>
-   *             </li>
    *          </ul>
    */
   format: PackageFormat | string | undefined;
@@ -4270,12 +4069,6 @@ export interface UpdatePackageVersionsStatusRequest {
    *                <p>
    *           A Python package does not contain a corresponding component, so
    *           Python packages do not have a namespace.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *           A NuGet package does not contain a corresponding component, so
-   *           NuGet packages do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>

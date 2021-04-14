@@ -60,6 +60,11 @@ import {
   GetCostAndUsageWithResourcesCommandOutput,
 } from "./commands/GetCostAndUsageWithResourcesCommand";
 import {
+  GetCostCategoriesCommand,
+  GetCostCategoriesCommandInput,
+  GetCostCategoriesCommandOutput,
+} from "./commands/GetCostCategoriesCommand";
+import {
   GetCostForecastCommand,
   GetCostForecastCommandInput,
   GetCostForecastCommandOutput,
@@ -551,6 +556,41 @@ export class CostExplorer extends CostExplorerClient {
     cb?: (err: any, data?: GetCostAndUsageWithResourcesCommandOutput) => void
   ): Promise<GetCostAndUsageWithResourcesCommandOutput> | void {
     const command = new GetCostAndUsageWithResourcesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves an array of Cost Category names and values incurred cost.</p>
+   * 	        <note>
+   *             <p>If some Cost Category names and values are not associated with any cost, they will not be returned by this API.</p>
+   *          </note>
+   */
+  public getCostCategories(
+    args: GetCostCategoriesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCostCategoriesCommandOutput>;
+  public getCostCategories(
+    args: GetCostCategoriesCommandInput,
+    cb: (err: any, data?: GetCostCategoriesCommandOutput) => void
+  ): void;
+  public getCostCategories(
+    args: GetCostCategoriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCostCategoriesCommandOutput) => void
+  ): void;
+  public getCostCategories(
+    args: GetCostCategoriesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCostCategoriesCommandOutput) => void),
+    cb?: (err: any, data?: GetCostCategoriesCommandOutput) => void
+  ): Promise<GetCostCategoriesCommandOutput> | void {
+    const command = new GetCostCategoriesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

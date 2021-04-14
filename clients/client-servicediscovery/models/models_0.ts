@@ -664,6 +664,8 @@ export namespace HealthCheckConfig {
  */
 export interface HealthCheckCustomConfig {
   /**
+   * @deprecated
+   *
    * <important>
    *             <p>This parameter has been deprecated and is always set to 1. AWS Cloud Map waits for approximately 30 seconds
    *                 after receiving an <code>UpdateInstanceCustomHealthStatus</code> request before changing the status of
@@ -686,6 +688,10 @@ export namespace HealthCheckCustomConfig {
   });
 }
 
+export enum ServiceTypeOption {
+  HTTP = "HTTP",
+}
+
 export interface CreateServiceRequest {
   /**
    * <p>The name that you want to assign to the service.</p>
@@ -706,6 +712,11 @@ export interface CreateServiceRequest {
    *          <p>
    *             <code>_exampleservice._tcp.example.com</code>
    *          </p>
+   *          <note>
+   *             <p>For a single DNS namespace, you cannot create two services with names that differ only by case (such as
+   *     EXAMPLE and example). Otherwise, these services will have the same DNS name. However, you can create multiple HTTP
+   *     services with names that differ only by case because HTTP services are case sensitive.</p>
+   *          </note>
    */
   Name: string | undefined;
 
@@ -762,12 +773,25 @@ export interface CreateServiceRequest {
    *                      length of 256 characters.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>If present, specifies that the service
+   *    instances are only discoverable using the <code>DiscoverInstances</code> API operation. No DNS records will be
+   *    registered for the service instances. The only valid value is <code>HTTP</code>.</p>
+   */
+  Type?: ServiceTypeOption | string;
 }
 
 export namespace CreateServiceRequest {
   export const filterSensitiveLog = (obj: CreateServiceRequest): any => ({
     ...obj,
   });
+}
+
+export enum ServiceType {
+  DNS = "DNS",
+  DNS_HTTP = "DNS_HTTP",
+  HTTP = "HTTP",
 }
 
 /**
@@ -811,6 +835,28 @@ export interface Service {
    *    register an instance.</p>
    */
   DnsConfig?: DnsConfig;
+
+  /**
+   * <p>Describes the systems that can be used to
+   *    discover the service instances.</p>
+   *
+   *          <dl>
+   *             <dt>DNS_HTTP</dt>
+   *             <dd>
+   *                <p>The service instances can be discovered using either DNS queries or the <code>DiscoverInstances</code> API
+   *       operation.</p>
+   *             </dd>
+   *             <dt>HTTP</dt>
+   *             <dd>
+   *                <p>The service instances can only be discovered using the <code>DiscoverInstances</code> API operation.</p>
+   *             </dd>
+   *             <dt>DNS</dt>
+   *             <dd>
+   *                <p>Reserved.</p>
+   *             </dd>
+   *          </dl>
+   */
+  Type?: ServiceType | string;
 
   /**
    * <p>
@@ -2392,6 +2438,26 @@ export interface ServiceSummary {
    * <p>The name of the service.</p>
    */
   Name?: string;
+
+  /**
+   * <p>Describes the systems that can be used to discover the service instances.</p>
+   *          <dl>
+   *             <dt>DNS_HTTP</dt>
+   *             <dd>
+   *                <p>The service instances can be discovered using either DNS queries or the <code>DiscoverInstances</code> API
+   *       operation.</p>
+   *             </dd>
+   *             <dt>HTTP</dt>
+   *             <dd>
+   *                <p>The service instances can only be discovered using the <code>DiscoverInstances</code> API operation.</p>
+   *             </dd>
+   *             <dt>DNS</dt>
+   *             <dd>
+   *                <p>Reserved.</p>
+   *             </dd>
+   *          </dl>
+   */
+  Type?: ServiceType | string;
 
   /**
    * <p>The description that you specify when you create the service.</p>

@@ -21,7 +21,7 @@ export type ListProjectsCommandInput = ListProjectsRequest;
 export type ListProjectsCommandOutput = ListProjectsResponse & __MetadataBearer;
 
 /**
- * <p>Lists all of the DataBrew projects in the current AWS account.</p>
+ * <p>Lists all of the DataBrew projects that are defined.</p>
  */
 export class ListProjectsCommand extends $Command<
   ListProjectsCommandInput,

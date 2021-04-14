@@ -289,8 +289,8 @@ export interface AdvancedFieldSelector {
    *                   <b>
    *                      <code>resources.type</code>
    *                   </b> - This ﬁeld is required. <code>resources.type</code>
-   *             can only use the <code>Equals</code> operator, and the value can be one of the following: <code>AWS::S3::Object</code>
-   *             or <code>AWS::Lambda::Function</code>. You can have only one <code>resources.type</code> ﬁeld per selector. To log
+   *             can only use the <code>Equals</code> operator, and the value can be one of the following: <code>AWS::S3::Object</code>,
+   *             <code>AWS::Lambda::Function</code>, or <code>AWS::S3Outposts::Object</code>. You can have only one <code>resources.type</code> ﬁeld per selector. To log
    *             data events on more than one resource type, add another selector.</p>
    *             </li>
    *             <li>
@@ -319,6 +319,15 @@ export interface AdvancedFieldSelector {
    *                   <li>
    *                      <p>
    *                         <code>arn:partition:lambda:region:account_ID:function:function_name</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::S3Outposts::Object</code>, and the operator
+   *                is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:partition:s3-outposts:region:>account_ID:object_path</code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -1065,6 +1074,26 @@ export namespace TrailNotProvidedException {
 }
 
 /**
+ * <p>This exception is thrown when the specified resource is not ready for an operation.
+ *          This can occur when you try to run an operation on a trail before CloudTrail has time to fully load the trail.
+ *          If this exception occurs, wait a few minutes, and then try the operation again.</p>
+ */
+export interface ConflictException extends __SmithyException, $MetadataBearer {
+  name: "ConflictException";
+  $fault: "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+}
+
+export namespace ConflictException {
+  export const filterSensitiveLog = (obj: ConflictException): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>The request that specifies the name of a trail to delete.</p>
  */
 export interface DeleteTrailRequest {
@@ -1386,6 +1415,8 @@ export interface DataResource {
   /**
    * <p>The resource type in which you want to log data events. You can specify <code>AWS::S3::Object</code> or
    *          <code>AWS::Lambda::Function</code> resources.</p>
+   *          <p>The <code>AWS::S3Outposts::Object</code> resource type is not valid in basic event selectors. To log data events on this resource type,
+   *          use advanced event selectors.</p>
    */
   Type?: string;
 

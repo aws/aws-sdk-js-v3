@@ -40,6 +40,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { SyncResourceCommandInput, SyncResourceCommandOutput } from "../commands/SyncResourceCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "../commands/UpdateApplicationCommand";
@@ -541,6 +542,43 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     hostname,
     port,
     method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1SyncResourceCommand = async (
+  input: SyncResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/sync/{resourceType}/{resource}";
+  if (input.resourceType !== undefined) {
+    const labelValue: string = input.resourceType;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: resourceType.");
+    }
+    resolvedPath = resolvedPath.replace("{resourceType}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: resourceType.");
+  }
+  if (input.resource !== undefined) {
+    const labelValue: string = input.resource;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: resource.");
+    }
+    resolvedPath = resolvedPath.replace("{resource}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: resource.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -1813,6 +1851,85 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
     case "com.amazonaws.servicecatalogappregistry#ValidationException":
       response = {
         ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1SyncResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SyncResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1SyncResourceCommandError(output, context);
+  }
+  const contents: SyncResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    actionTaken: undefined,
+    applicationArn: undefined,
+    resourceArn: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.actionTaken !== undefined && data.actionTaken !== null) {
+    contents.actionTaken = data.actionTaken;
+  }
+  if (data.applicationArn !== undefined && data.applicationArn !== null) {
+    contents.applicationArn = data.applicationArn;
+  }
+  if (data.resourceArn !== undefined && data.resourceArn !== null) {
+    contents.resourceArn = data.resourceArn;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1SyncResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SyncResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.servicecatalogappregistry#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.servicecatalogappregistry#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.servicecatalogappregistry#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };

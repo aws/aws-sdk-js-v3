@@ -202,6 +202,10 @@ import { ListGroupPoliciesCommandInput, ListGroupPoliciesCommandOutput } from ".
 import { ListGroupsCommandInput, ListGroupsCommandOutput } from "../commands/ListGroupsCommand";
 import { ListGroupsForUserCommandInput, ListGroupsForUserCommandOutput } from "../commands/ListGroupsForUserCommand";
 import {
+  ListInstanceProfileTagsCommandInput,
+  ListInstanceProfileTagsCommandOutput,
+} from "../commands/ListInstanceProfileTagsCommand";
+import {
   ListInstanceProfilesCommandInput,
   ListInstanceProfilesCommandOutput,
 } from "../commands/ListInstanceProfilesCommand";
@@ -209,7 +213,12 @@ import {
   ListInstanceProfilesForRoleCommandInput,
   ListInstanceProfilesForRoleCommandOutput,
 } from "../commands/ListInstanceProfilesForRoleCommand";
+import { ListMFADeviceTagsCommandInput, ListMFADeviceTagsCommandOutput } from "../commands/ListMFADeviceTagsCommand";
 import { ListMFADevicesCommandInput, ListMFADevicesCommandOutput } from "../commands/ListMFADevicesCommand";
+import {
+  ListOpenIDConnectProviderTagsCommandInput,
+  ListOpenIDConnectProviderTagsCommandOutput,
+} from "../commands/ListOpenIDConnectProviderTagsCommand";
 import {
   ListOpenIDConnectProvidersCommandInput,
   ListOpenIDConnectProvidersCommandOutput,
@@ -219,12 +228,21 @@ import {
   ListPoliciesGrantingServiceAccessCommandInput,
   ListPoliciesGrantingServiceAccessCommandOutput,
 } from "../commands/ListPoliciesGrantingServiceAccessCommand";
+import { ListPolicyTagsCommandInput, ListPolicyTagsCommandOutput } from "../commands/ListPolicyTagsCommand";
 import { ListPolicyVersionsCommandInput, ListPolicyVersionsCommandOutput } from "../commands/ListPolicyVersionsCommand";
 import { ListRolePoliciesCommandInput, ListRolePoliciesCommandOutput } from "../commands/ListRolePoliciesCommand";
 import { ListRoleTagsCommandInput, ListRoleTagsCommandOutput } from "../commands/ListRoleTagsCommand";
 import { ListRolesCommandInput, ListRolesCommandOutput } from "../commands/ListRolesCommand";
+import {
+  ListSAMLProviderTagsCommandInput,
+  ListSAMLProviderTagsCommandOutput,
+} from "../commands/ListSAMLProviderTagsCommand";
 import { ListSAMLProvidersCommandInput, ListSAMLProvidersCommandOutput } from "../commands/ListSAMLProvidersCommand";
 import { ListSSHPublicKeysCommandInput, ListSSHPublicKeysCommandOutput } from "../commands/ListSSHPublicKeysCommand";
+import {
+  ListServerCertificateTagsCommandInput,
+  ListServerCertificateTagsCommandOutput,
+} from "../commands/ListServerCertificateTagsCommand";
 import {
   ListServerCertificatesCommandInput,
   ListServerCertificatesCommandOutput,
@@ -288,9 +306,36 @@ import {
   SimulatePrincipalPolicyCommandInput,
   SimulatePrincipalPolicyCommandOutput,
 } from "../commands/SimulatePrincipalPolicyCommand";
+import { TagInstanceProfileCommandInput, TagInstanceProfileCommandOutput } from "../commands/TagInstanceProfileCommand";
+import { TagMFADeviceCommandInput, TagMFADeviceCommandOutput } from "../commands/TagMFADeviceCommand";
+import {
+  TagOpenIDConnectProviderCommandInput,
+  TagOpenIDConnectProviderCommandOutput,
+} from "../commands/TagOpenIDConnectProviderCommand";
+import { TagPolicyCommandInput, TagPolicyCommandOutput } from "../commands/TagPolicyCommand";
 import { TagRoleCommandInput, TagRoleCommandOutput } from "../commands/TagRoleCommand";
+import { TagSAMLProviderCommandInput, TagSAMLProviderCommandOutput } from "../commands/TagSAMLProviderCommand";
+import {
+  TagServerCertificateCommandInput,
+  TagServerCertificateCommandOutput,
+} from "../commands/TagServerCertificateCommand";
 import { TagUserCommandInput, TagUserCommandOutput } from "../commands/TagUserCommand";
+import {
+  UntagInstanceProfileCommandInput,
+  UntagInstanceProfileCommandOutput,
+} from "../commands/UntagInstanceProfileCommand";
+import { UntagMFADeviceCommandInput, UntagMFADeviceCommandOutput } from "../commands/UntagMFADeviceCommand";
+import {
+  UntagOpenIDConnectProviderCommandInput,
+  UntagOpenIDConnectProviderCommandOutput,
+} from "../commands/UntagOpenIDConnectProviderCommand";
+import { UntagPolicyCommandInput, UntagPolicyCommandOutput } from "../commands/UntagPolicyCommand";
 import { UntagRoleCommandInput, UntagRoleCommandOutput } from "../commands/UntagRoleCommand";
+import { UntagSAMLProviderCommandInput, UntagSAMLProviderCommandOutput } from "../commands/UntagSAMLProviderCommand";
+import {
+  UntagServerCertificateCommandInput,
+  UntagServerCertificateCommandOutput,
+} from "../commands/UntagServerCertificateCommand";
 import { UntagUserCommandInput, UntagUserCommandOutput } from "../commands/UntagUserCommand";
 import { UpdateAccessKeyCommandInput, UpdateAccessKeyCommandOutput } from "../commands/UpdateAccessKeyCommand";
 import {
@@ -476,7 +521,6 @@ import {
   InvalidAuthenticationCodeException,
   InvalidInputException,
   InvalidUserTypeException,
-  KeyPairMismatchException,
   LimitExceededException,
   ListAccessKeysRequest,
   ListAccessKeysResponse,
@@ -496,12 +540,18 @@ import {
   ListGroupsForUserResponse,
   ListGroupsRequest,
   ListGroupsResponse,
+  ListInstanceProfileTagsRequest,
+  ListInstanceProfileTagsResponse,
   ListInstanceProfilesForRoleRequest,
   ListInstanceProfilesForRoleResponse,
   ListInstanceProfilesRequest,
   ListInstanceProfilesResponse,
+  ListMFADeviceTagsRequest,
+  ListMFADeviceTagsResponse,
   ListMFADevicesRequest,
   ListMFADevicesResponse,
+  ListOpenIDConnectProviderTagsRequest,
+  ListOpenIDConnectProviderTagsResponse,
   ListOpenIDConnectProvidersRequest,
   ListOpenIDConnectProvidersResponse,
   ListPoliciesGrantingServiceAccessEntry,
@@ -509,6 +559,8 @@ import {
   ListPoliciesGrantingServiceAccessResponse,
   ListPoliciesRequest,
   ListPoliciesResponse,
+  ListPolicyTagsRequest,
+  ListPolicyTagsResponse,
   ListPolicyVersionsRequest,
   ListPolicyVersionsResponse,
   ListRolePoliciesRequest,
@@ -517,10 +569,14 @@ import {
   ListRoleTagsResponse,
   ListRolesRequest,
   ListRolesResponse,
+  ListSAMLProviderTagsRequest,
+  ListSAMLProviderTagsResponse,
   ListSAMLProvidersRequest,
   ListSAMLProvidersResponse,
   ListSSHPublicKeysRequest,
   ListSSHPublicKeysResponse,
+  ListServerCertificateTagsRequest,
+  ListServerCertificateTagsResponse,
   ListServerCertificatesRequest,
   ListServerCertificatesResponse,
   ListServiceSpecificCredentialsRequest,
@@ -537,7 +593,6 @@ import {
   ListVirtualMFADevicesResponse,
   LoginProfile,
   MFADevice,
-  MalformedCertificateException,
   MalformedPolicyDocumentException,
   ManagedPolicyDetail,
   NoSuchEntityException,
@@ -592,12 +647,35 @@ import {
   SimulatePrincipalPolicyRequest,
   Statement,
   Tag,
+  TagInstanceProfileRequest,
+  TagMFADeviceRequest,
+  TagOpenIDConnectProviderRequest,
+  TagPolicyRequest,
   TagRoleRequest,
+  TagSAMLProviderRequest,
+  TagServerCertificateRequest,
   TagUserRequest,
   TrackedActionLastAccessed,
   UnmodifiableEntityException,
   UnrecognizedPublicKeyEncodingException,
+  UntagInstanceProfileRequest,
+  UntagMFADeviceRequest,
+  UntagOpenIDConnectProviderRequest,
+  User,
+  UserDetail,
+  VirtualMFADevice,
+} from "../models/models_0";
+import {
+  DuplicateCertificateException,
+  DuplicateSSHPublicKeyException,
+  InvalidCertificateException,
+  InvalidPublicKeyException,
+  KeyPairMismatchException,
+  MalformedCertificateException,
+  UntagPolicyRequest,
   UntagRoleRequest,
+  UntagSAMLProviderRequest,
+  UntagServerCertificateRequest,
   UntagUserRequest,
   UpdateAccessKeyRequest,
   UpdateAccountPasswordPolicyRequest,
@@ -616,15 +694,6 @@ import {
   UpdateServiceSpecificCredentialRequest,
   UpdateSigningCertificateRequest,
   UpdateUserRequest,
-  User,
-  UserDetail,
-  VirtualMFADevice,
-} from "../models/models_0";
-import {
-  DuplicateCertificateException,
-  DuplicateSSHPublicKeyException,
-  InvalidCertificateException,
-  InvalidPublicKeyException,
   UploadSSHPublicKeyRequest,
   UploadSSHPublicKeyResponse,
   UploadServerCertificateRequest,
@@ -2046,6 +2115,22 @@ export const serializeAws_queryListInstanceProfilesForRoleCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryListInstanceProfileTagsCommand = async (
+  input: ListInstanceProfileTagsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryListInstanceProfileTagsRequest(input, context),
+    Action: "ListInstanceProfileTags",
+    Version: "2010-05-08",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_queryListMFADevicesCommand = async (
   input: ListMFADevicesCommandInput,
   context: __SerdeContext
@@ -2062,6 +2147,22 @@ export const serializeAws_queryListMFADevicesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryListMFADeviceTagsCommand = async (
+  input: ListMFADeviceTagsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryListMFADeviceTagsRequest(input, context),
+    Action: "ListMFADeviceTags",
+    Version: "2010-05-08",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_queryListOpenIDConnectProvidersCommand = async (
   input: ListOpenIDConnectProvidersCommandInput,
   context: __SerdeContext
@@ -2073,6 +2174,22 @@ export const serializeAws_queryListOpenIDConnectProvidersCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryListOpenIDConnectProvidersRequest(input, context),
     Action: "ListOpenIDConnectProviders",
+    Version: "2010-05-08",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryListOpenIDConnectProviderTagsCommand = async (
+  input: ListOpenIDConnectProviderTagsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryListOpenIDConnectProviderTagsRequest(input, context),
+    Action: "ListOpenIDConnectProviderTags",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2105,6 +2222,22 @@ export const serializeAws_queryListPoliciesGrantingServiceAccessCommand = async 
   body = buildFormUrlencodedString({
     ...serializeAws_queryListPoliciesGrantingServiceAccessRequest(input, context),
     Action: "ListPoliciesGrantingServiceAccess",
+    Version: "2010-05-08",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryListPolicyTagsCommand = async (
+  input: ListPolicyTagsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryListPolicyTagsRequest(input, context),
+    Action: "ListPolicyTags",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2190,6 +2323,22 @@ export const serializeAws_queryListSAMLProvidersCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryListSAMLProviderTagsCommand = async (
+  input: ListSAMLProviderTagsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryListSAMLProviderTagsRequest(input, context),
+    Action: "ListSAMLProviderTags",
+    Version: "2010-05-08",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_queryListServerCertificatesCommand = async (
   input: ListServerCertificatesCommandInput,
   context: __SerdeContext
@@ -2201,6 +2350,22 @@ export const serializeAws_queryListServerCertificatesCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryListServerCertificatesRequest(input, context),
     Action: "ListServerCertificates",
+    Version: "2010-05-08",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryListServerCertificateTagsCommand = async (
+  input: ListServerCertificateTagsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryListServerCertificateTagsRequest(input, context),
+    Action: "ListServerCertificateTags",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2542,6 +2707,70 @@ export const serializeAws_querySimulatePrincipalPolicyCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryTagInstanceProfileCommand = async (
+  input: TagInstanceProfileCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryTagInstanceProfileRequest(input, context),
+    Action: "TagInstanceProfile",
+    Version: "2010-05-08",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryTagMFADeviceCommand = async (
+  input: TagMFADeviceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryTagMFADeviceRequest(input, context),
+    Action: "TagMFADevice",
+    Version: "2010-05-08",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryTagOpenIDConnectProviderCommand = async (
+  input: TagOpenIDConnectProviderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryTagOpenIDConnectProviderRequest(input, context),
+    Action: "TagOpenIDConnectProvider",
+    Version: "2010-05-08",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryTagPolicyCommand = async (
+  input: TagPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryTagPolicyRequest(input, context),
+    Action: "TagPolicy",
+    Version: "2010-05-08",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_queryTagRoleCommand = async (
   input: TagRoleCommandInput,
   context: __SerdeContext
@@ -2553,6 +2782,38 @@ export const serializeAws_queryTagRoleCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryTagRoleRequest(input, context),
     Action: "TagRole",
+    Version: "2010-05-08",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryTagSAMLProviderCommand = async (
+  input: TagSAMLProviderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryTagSAMLProviderRequest(input, context),
+    Action: "TagSAMLProvider",
+    Version: "2010-05-08",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryTagServerCertificateCommand = async (
+  input: TagServerCertificateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryTagServerCertificateRequest(input, context),
+    Action: "TagServerCertificate",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2574,6 +2835,70 @@ export const serializeAws_queryTagUserCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryUntagInstanceProfileCommand = async (
+  input: UntagInstanceProfileCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryUntagInstanceProfileRequest(input, context),
+    Action: "UntagInstanceProfile",
+    Version: "2010-05-08",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryUntagMFADeviceCommand = async (
+  input: UntagMFADeviceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryUntagMFADeviceRequest(input, context),
+    Action: "UntagMFADevice",
+    Version: "2010-05-08",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryUntagOpenIDConnectProviderCommand = async (
+  input: UntagOpenIDConnectProviderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryUntagOpenIDConnectProviderRequest(input, context),
+    Action: "UntagOpenIDConnectProvider",
+    Version: "2010-05-08",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryUntagPolicyCommand = async (
+  input: UntagPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryUntagPolicyRequest(input, context),
+    Action: "UntagPolicy",
+    Version: "2010-05-08",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_queryUntagRoleCommand = async (
   input: UntagRoleCommandInput,
   context: __SerdeContext
@@ -2585,6 +2910,38 @@ export const serializeAws_queryUntagRoleCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryUntagRoleRequest(input, context),
     Action: "UntagRole",
+    Version: "2010-05-08",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryUntagSAMLProviderCommand = async (
+  input: UntagSAMLProviderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryUntagSAMLProviderRequest(input, context),
+    Action: "UntagSAMLProvider",
+    Version: "2010-05-08",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryUntagServerCertificateCommand = async (
+  input: UntagServerCertificateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryUntagServerCertificateRequest(input, context),
+    Action: "UntagServerCertificate",
     Version: "2010-05-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3695,10 +4052,26 @@ const deserializeAws_queryCreateInstanceProfileCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.iam#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "EntityAlreadyExistsException":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       response = {
         ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.iam#InvalidInputException":
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3851,6 +4224,14 @@ const deserializeAws_queryCreateOpenIDConnectProviderCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.iam#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "EntityAlreadyExistsException":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       response = {
@@ -3929,6 +4310,14 @@ const deserializeAws_queryCreatePolicyCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.iam#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "EntityAlreadyExistsException":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       response = {
@@ -4195,6 +4584,14 @@ const deserializeAws_queryCreateSAMLProviderCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.iam#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "EntityAlreadyExistsException":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       response = {
@@ -4518,10 +4915,26 @@ const deserializeAws_queryCreateVirtualMFADeviceCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.iam#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "EntityAlreadyExistsException":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       response = {
         ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.iam#InvalidInputException":
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -6803,6 +7216,14 @@ const deserializeAws_queryGetAccessKeyLastUsedCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "NoSuchEntityException":
+    case "com.amazonaws.iam#NoSuchEntityException":
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
@@ -9034,6 +9455,68 @@ const deserializeAws_queryListInstanceProfilesForRoleCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryListInstanceProfileTagsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListInstanceProfileTagsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryListInstanceProfileTagsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryListInstanceProfileTagsResponse(data.ListInstanceProfileTagsResult, context);
+  const response: ListInstanceProfileTagsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryListInstanceProfileTagsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListInstanceProfileTagsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "NoSuchEntityException":
+    case "com.amazonaws.iam#NoSuchEntityException":
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.iam#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryListMFADevicesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -9096,6 +9579,76 @@ const deserializeAws_queryListMFADevicesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryListMFADeviceTagsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMFADeviceTagsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryListMFADeviceTagsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryListMFADeviceTagsResponse(data.ListMFADeviceTagsResult, context);
+  const response: ListMFADeviceTagsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryListMFADeviceTagsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMFADeviceTagsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.iam#InvalidInputException":
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NoSuchEntityException":
+    case "com.amazonaws.iam#NoSuchEntityException":
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.iam#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryListOpenIDConnectProvidersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -9125,6 +9678,79 @@ const deserializeAws_queryListOpenIDConnectProvidersCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ServiceFailureException":
+    case "com.amazonaws.iam#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryListOpenIDConnectProviderTagsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListOpenIDConnectProviderTagsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryListOpenIDConnectProviderTagsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryListOpenIDConnectProviderTagsResponse(
+    data.ListOpenIDConnectProviderTagsResult,
+    context
+  );
+  const response: ListOpenIDConnectProviderTagsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryListOpenIDConnectProviderTagsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListOpenIDConnectProviderTagsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.iam#InvalidInputException":
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NoSuchEntityException":
+    case "com.amazonaws.iam#NoSuchEntityException":
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
@@ -9248,6 +9874,76 @@ const deserializeAws_queryListPoliciesGrantingServiceAccessCommandError = async 
     case "com.amazonaws.iam#NoSuchEntityException":
       response = {
         ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryListPolicyTagsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPolicyTagsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryListPolicyTagsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryListPolicyTagsResponse(data.ListPolicyTagsResult, context);
+  const response: ListPolicyTagsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryListPolicyTagsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPolicyTagsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.iam#InvalidInputException":
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NoSuchEntityException":
+    case "com.amazonaws.iam#NoSuchEntityException":
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.iam#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -9571,6 +10267,76 @@ const deserializeAws_queryListSAMLProvidersCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryListSAMLProviderTagsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSAMLProviderTagsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryListSAMLProviderTagsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryListSAMLProviderTagsResponse(data.ListSAMLProviderTagsResult, context);
+  const response: ListSAMLProviderTagsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryListSAMLProviderTagsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSAMLProviderTagsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.iam#InvalidInputException":
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NoSuchEntityException":
+    case "com.amazonaws.iam#NoSuchEntityException":
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.iam#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryListServerCertificatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -9600,6 +10366,68 @@ const deserializeAws_queryListServerCertificatesCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ServiceFailureException":
+    case "com.amazonaws.iam#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryListServerCertificateTagsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListServerCertificateTagsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryListServerCertificateTagsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryListServerCertificateTagsResponse(data.ListServerCertificateTagsResult, context);
+  const response: ListServerCertificateTagsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryListServerCertificateTagsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListServerCertificateTagsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "NoSuchEntityException":
+    case "com.amazonaws.iam#NoSuchEntityException":
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
       response = {
@@ -11020,6 +11848,338 @@ const deserializeAws_querySimulatePrincipalPolicyCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryTagInstanceProfileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagInstanceProfileCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryTagInstanceProfileCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: TagInstanceProfileCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryTagInstanceProfileCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagInstanceProfileCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.iam#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.iam#InvalidInputException":
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.iam#LimitExceededException":
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NoSuchEntityException":
+    case "com.amazonaws.iam#NoSuchEntityException":
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.iam#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryTagMFADeviceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagMFADeviceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryTagMFADeviceCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: TagMFADeviceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryTagMFADeviceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagMFADeviceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.iam#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.iam#InvalidInputException":
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.iam#LimitExceededException":
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NoSuchEntityException":
+    case "com.amazonaws.iam#NoSuchEntityException":
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.iam#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryTagOpenIDConnectProviderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagOpenIDConnectProviderCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryTagOpenIDConnectProviderCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: TagOpenIDConnectProviderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryTagOpenIDConnectProviderCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagOpenIDConnectProviderCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.iam#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.iam#InvalidInputException":
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.iam#LimitExceededException":
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NoSuchEntityException":
+    case "com.amazonaws.iam#NoSuchEntityException":
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.iam#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryTagPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryTagPolicyCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: TagPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryTagPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.iam#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.iam#InvalidInputException":
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.iam#LimitExceededException":
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NoSuchEntityException":
+    case "com.amazonaws.iam#NoSuchEntityException":
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.iam#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryTagRoleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -11038,6 +12198,172 @@ const deserializeAws_queryTagRoleCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagRoleCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.iam#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.iam#InvalidInputException":
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.iam#LimitExceededException":
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NoSuchEntityException":
+    case "com.amazonaws.iam#NoSuchEntityException":
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.iam#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryTagSAMLProviderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagSAMLProviderCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryTagSAMLProviderCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: TagSAMLProviderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryTagSAMLProviderCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagSAMLProviderCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.iam#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.iam#InvalidInputException":
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.iam#LimitExceededException":
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NoSuchEntityException":
+    case "com.amazonaws.iam#NoSuchEntityException":
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.iam#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryTagServerCertificateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagServerCertificateCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryTagServerCertificateCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: TagServerCertificateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryTagServerCertificateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagServerCertificateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -11186,6 +12512,306 @@ const deserializeAws_queryTagUserCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryUntagInstanceProfileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagInstanceProfileCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryUntagInstanceProfileCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: UntagInstanceProfileCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryUntagInstanceProfileCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagInstanceProfileCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.iam#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.iam#InvalidInputException":
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NoSuchEntityException":
+    case "com.amazonaws.iam#NoSuchEntityException":
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.iam#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryUntagMFADeviceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagMFADeviceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryUntagMFADeviceCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: UntagMFADeviceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryUntagMFADeviceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagMFADeviceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.iam#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.iam#InvalidInputException":
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NoSuchEntityException":
+    case "com.amazonaws.iam#NoSuchEntityException":
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.iam#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryUntagOpenIDConnectProviderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagOpenIDConnectProviderCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryUntagOpenIDConnectProviderCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: UntagOpenIDConnectProviderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryUntagOpenIDConnectProviderCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagOpenIDConnectProviderCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.iam#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.iam#InvalidInputException":
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NoSuchEntityException":
+    case "com.amazonaws.iam#NoSuchEntityException":
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.iam#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryUntagPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryUntagPolicyCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: UntagPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryUntagPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.iam#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.iam#InvalidInputException":
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NoSuchEntityException":
+    case "com.amazonaws.iam#NoSuchEntityException":
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.iam#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryUntagRoleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -11216,6 +12842,156 @@ const deserializeAws_queryUntagRoleCommandError = async (
     case "com.amazonaws.iam#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NoSuchEntityException":
+    case "com.amazonaws.iam#NoSuchEntityException":
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.iam#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryUntagSAMLProviderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagSAMLProviderCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryUntagSAMLProviderCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: UntagSAMLProviderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryUntagSAMLProviderCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagSAMLProviderCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.iam#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.iam#InvalidInputException":
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NoSuchEntityException":
+    case "com.amazonaws.iam#NoSuchEntityException":
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.iam#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryUntagServerCertificateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagServerCertificateCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryUntagServerCertificateCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: UntagServerCertificateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryUntagServerCertificateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagServerCertificateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.iam#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.iam#InvalidInputException":
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -12352,10 +14128,26 @@ const deserializeAws_queryUploadServerCertificateCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.iam#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "EntityAlreadyExistsException":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
       response = {
         ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.iam#InvalidInputException":
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -13199,6 +14991,13 @@ const serializeAws_queryCreateInstanceProfileRequest = (
   if (input.Path !== undefined && input.Path !== null) {
     entries["Path"] = input.Path;
   }
+  if (input.Tags !== undefined && input.Tags !== null) {
+    const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -13241,6 +15040,13 @@ const serializeAws_queryCreateOpenIDConnectProviderRequest = (
       entries[loc] = value;
     });
   }
+  if (input.Tags !== undefined && input.Tags !== null) {
+    const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -13257,6 +15063,13 @@ const serializeAws_queryCreatePolicyRequest = (input: CreatePolicyRequest, conte
   }
   if (input.Description !== undefined && input.Description !== null) {
     entries["Description"] = input.Description;
+  }
+  if (input.Tags !== undefined && input.Tags !== null) {
+    const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -13318,6 +15131,13 @@ const serializeAws_queryCreateSAMLProviderRequest = (
   }
   if (input.Name !== undefined && input.Name !== null) {
     entries["Name"] = input.Name;
+  }
+  if (input.Tags !== undefined && input.Tags !== null) {
+    const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -13384,6 +15204,13 @@ const serializeAws_queryCreateVirtualMFADeviceRequest = (
   }
   if (input.VirtualMFADeviceName !== undefined && input.VirtualMFADeviceName !== null) {
     entries["VirtualMFADeviceName"] = input.VirtualMFADeviceName;
+  }
+  if (input.Tags !== undefined && input.Tags !== null) {
+    const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -14203,10 +16030,41 @@ const serializeAws_queryListInstanceProfilesRequest = (
   return entries;
 };
 
+const serializeAws_queryListInstanceProfileTagsRequest = (
+  input: ListInstanceProfileTagsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.InstanceProfileName !== undefined && input.InstanceProfileName !== null) {
+    entries["InstanceProfileName"] = input.InstanceProfileName;
+  }
+  if (input.Marker !== undefined && input.Marker !== null) {
+    entries["Marker"] = input.Marker;
+  }
+  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+    entries["MaxItems"] = input.MaxItems;
+  }
+  return entries;
+};
+
 const serializeAws_queryListMFADevicesRequest = (input: ListMFADevicesRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.UserName !== undefined && input.UserName !== null) {
     entries["UserName"] = input.UserName;
+  }
+  if (input.Marker !== undefined && input.Marker !== null) {
+    entries["Marker"] = input.Marker;
+  }
+  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+    entries["MaxItems"] = input.MaxItems;
+  }
+  return entries;
+};
+
+const serializeAws_queryListMFADeviceTagsRequest = (input: ListMFADeviceTagsRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.SerialNumber !== undefined && input.SerialNumber !== null) {
+    entries["SerialNumber"] = input.SerialNumber;
   }
   if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
@@ -14222,6 +16080,23 @@ const serializeAws_queryListOpenIDConnectProvidersRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  return entries;
+};
+
+const serializeAws_queryListOpenIDConnectProviderTagsRequest = (
+  input: ListOpenIDConnectProviderTagsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.OpenIDConnectProviderArn !== undefined && input.OpenIDConnectProviderArn !== null) {
+    entries["OpenIDConnectProviderArn"] = input.OpenIDConnectProviderArn;
+  }
+  if (input.Marker !== undefined && input.Marker !== null) {
+    entries["Marker"] = input.Marker;
+  }
+  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+    entries["MaxItems"] = input.MaxItems;
+  }
   return entries;
 };
 
@@ -14259,6 +16134,20 @@ const serializeAws_queryListPoliciesRequest = (input: ListPoliciesRequest, conte
   }
   if (input.PolicyUsageFilter !== undefined && input.PolicyUsageFilter !== null) {
     entries["PolicyUsageFilter"] = input.PolicyUsageFilter;
+  }
+  if (input.Marker !== undefined && input.Marker !== null) {
+    entries["Marker"] = input.Marker;
+  }
+  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+    entries["MaxItems"] = input.MaxItems;
+  }
+  return entries;
+};
+
+const serializeAws_queryListPolicyTagsRequest = (input: ListPolicyTagsRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.PolicyArn !== undefined && input.PolicyArn !== null) {
+    entries["PolicyArn"] = input.PolicyArn;
   }
   if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
@@ -14333,6 +16222,23 @@ const serializeAws_queryListSAMLProvidersRequest = (input: ListSAMLProvidersRequ
   return entries;
 };
 
+const serializeAws_queryListSAMLProviderTagsRequest = (
+  input: ListSAMLProviderTagsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.SAMLProviderArn !== undefined && input.SAMLProviderArn !== null) {
+    entries["SAMLProviderArn"] = input.SAMLProviderArn;
+  }
+  if (input.Marker !== undefined && input.Marker !== null) {
+    entries["Marker"] = input.Marker;
+  }
+  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+    entries["MaxItems"] = input.MaxItems;
+  }
+  return entries;
+};
+
 const serializeAws_queryListServerCertificatesRequest = (
   input: ListServerCertificatesRequest,
   context: __SerdeContext
@@ -14340,6 +16246,23 @@ const serializeAws_queryListServerCertificatesRequest = (
   const entries: any = {};
   if (input.PathPrefix !== undefined && input.PathPrefix !== null) {
     entries["PathPrefix"] = input.PathPrefix;
+  }
+  if (input.Marker !== undefined && input.Marker !== null) {
+    entries["Marker"] = input.Marker;
+  }
+  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+    entries["MaxItems"] = input.MaxItems;
+  }
+  return entries;
+};
+
+const serializeAws_queryListServerCertificateTagsRequest = (
+  input: ListServerCertificateTagsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.ServerCertificateName !== undefined && input.ServerCertificateName !== null) {
+    entries["ServerCertificateName"] = input.ServerCertificateName;
   }
   if (input.Marker !== undefined && input.Marker !== null) {
     entries["Marker"] = input.Marker;
@@ -14797,6 +16720,24 @@ const serializeAws_queryTag = (input: Tag, context: __SerdeContext): any => {
   return entries;
 };
 
+const serializeAws_queryTagInstanceProfileRequest = (
+  input: TagInstanceProfileRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.InstanceProfileName !== undefined && input.InstanceProfileName !== null) {
+    entries["InstanceProfileName"] = input.InstanceProfileName;
+  }
+  if (input.Tags !== undefined && input.Tags !== null) {
+    const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
 const serializeAws_querytagKeyListType = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
@@ -14826,10 +16767,91 @@ const serializeAws_querytagListType = (input: Tag[], context: __SerdeContext): a
   return entries;
 };
 
+const serializeAws_queryTagMFADeviceRequest = (input: TagMFADeviceRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.SerialNumber !== undefined && input.SerialNumber !== null) {
+    entries["SerialNumber"] = input.SerialNumber;
+  }
+  if (input.Tags !== undefined && input.Tags !== null) {
+    const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_queryTagOpenIDConnectProviderRequest = (
+  input: TagOpenIDConnectProviderRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.OpenIDConnectProviderArn !== undefined && input.OpenIDConnectProviderArn !== null) {
+    entries["OpenIDConnectProviderArn"] = input.OpenIDConnectProviderArn;
+  }
+  if (input.Tags !== undefined && input.Tags !== null) {
+    const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_queryTagPolicyRequest = (input: TagPolicyRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.PolicyArn !== undefined && input.PolicyArn !== null) {
+    entries["PolicyArn"] = input.PolicyArn;
+  }
+  if (input.Tags !== undefined && input.Tags !== null) {
+    const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
 const serializeAws_queryTagRoleRequest = (input: TagRoleRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.RoleName !== undefined && input.RoleName !== null) {
     entries["RoleName"] = input.RoleName;
+  }
+  if (input.Tags !== undefined && input.Tags !== null) {
+    const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_queryTagSAMLProviderRequest = (input: TagSAMLProviderRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.SAMLProviderArn !== undefined && input.SAMLProviderArn !== null) {
+    entries["SAMLProviderArn"] = input.SAMLProviderArn;
+  }
+  if (input.Tags !== undefined && input.Tags !== null) {
+    const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_queryTagServerCertificateRequest = (
+  input: TagServerCertificateRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.ServerCertificateName !== undefined && input.ServerCertificateName !== null) {
+    entries["ServerCertificateName"] = input.ServerCertificateName;
   }
   if (input.Tags !== undefined && input.Tags !== null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
@@ -14869,10 +16891,109 @@ const serializeAws_querythumbprintListType = (input: string[], context: __SerdeC
   return entries;
 };
 
+const serializeAws_queryUntagInstanceProfileRequest = (
+  input: UntagInstanceProfileRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.InstanceProfileName !== undefined && input.InstanceProfileName !== null) {
+    entries["InstanceProfileName"] = input.InstanceProfileName;
+  }
+  if (input.TagKeys !== undefined && input.TagKeys !== null) {
+    const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagKeys.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_queryUntagMFADeviceRequest = (input: UntagMFADeviceRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.SerialNumber !== undefined && input.SerialNumber !== null) {
+    entries["SerialNumber"] = input.SerialNumber;
+  }
+  if (input.TagKeys !== undefined && input.TagKeys !== null) {
+    const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagKeys.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_queryUntagOpenIDConnectProviderRequest = (
+  input: UntagOpenIDConnectProviderRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.OpenIDConnectProviderArn !== undefined && input.OpenIDConnectProviderArn !== null) {
+    entries["OpenIDConnectProviderArn"] = input.OpenIDConnectProviderArn;
+  }
+  if (input.TagKeys !== undefined && input.TagKeys !== null) {
+    const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagKeys.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_queryUntagPolicyRequest = (input: UntagPolicyRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.PolicyArn !== undefined && input.PolicyArn !== null) {
+    entries["PolicyArn"] = input.PolicyArn;
+  }
+  if (input.TagKeys !== undefined && input.TagKeys !== null) {
+    const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagKeys.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
 const serializeAws_queryUntagRoleRequest = (input: UntagRoleRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.RoleName !== undefined && input.RoleName !== null) {
     entries["RoleName"] = input.RoleName;
+  }
+  if (input.TagKeys !== undefined && input.TagKeys !== null) {
+    const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagKeys.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_queryUntagSAMLProviderRequest = (input: UntagSAMLProviderRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.SAMLProviderArn !== undefined && input.SAMLProviderArn !== null) {
+    entries["SAMLProviderArn"] = input.SAMLProviderArn;
+  }
+  if (input.TagKeys !== undefined && input.TagKeys !== null) {
+    const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagKeys.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_queryUntagServerCertificateRequest = (
+  input: UntagServerCertificateRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.ServerCertificateName !== undefined && input.ServerCertificateName !== null) {
+    entries["ServerCertificateName"] = input.ServerCertificateName;
   }
   if (input.TagKeys !== undefined && input.TagKeys !== null) {
     const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
@@ -15154,6 +17275,13 @@ const serializeAws_queryUploadServerCertificateRequest = (
   }
   if (input.CertificateChain !== undefined && input.CertificateChain !== null) {
     entries["CertificateChain"] = input.CertificateChain;
+  }
+  if (input.Tags !== undefined && input.Tags !== null) {
+    const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -15466,9 +17594,16 @@ const deserializeAws_queryCreateOpenIDConnectProviderResponse = (
 ): CreateOpenIDConnectProviderResponse => {
   let contents: any = {
     OpenIDConnectProviderArn: undefined,
+    Tags: undefined,
   };
   if (output["OpenIDConnectProviderArn"] !== undefined) {
     contents.OpenIDConnectProviderArn = output["OpenIDConnectProviderArn"];
+  }
+  if (output.Tags === "") {
+    contents.Tags = [];
+  }
+  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+    contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   return contents;
 };
@@ -15512,9 +17647,16 @@ const deserializeAws_queryCreateSAMLProviderResponse = (
 ): CreateSAMLProviderResponse => {
   let contents: any = {
     SAMLProviderArn: undefined,
+    Tags: undefined,
   };
   if (output["SAMLProviderArn"] !== undefined) {
     contents.SAMLProviderArn = output["SAMLProviderArn"];
+  }
+  if (output.Tags === "") {
+    contents.Tags = [];
+  }
+  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+    contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   return contents;
 };
@@ -16135,6 +18277,7 @@ const deserializeAws_queryGetOpenIDConnectProviderResponse = (
     ClientIDList: undefined,
     ThumbprintList: undefined,
     CreateDate: undefined,
+    Tags: undefined,
   };
   if (output["Url"] !== undefined) {
     contents.Url = output["Url"];
@@ -16159,6 +18302,12 @@ const deserializeAws_queryGetOpenIDConnectProviderResponse = (
   }
   if (output["CreateDate"] !== undefined) {
     contents.CreateDate = new Date(output["CreateDate"]);
+  }
+  if (output.Tags === "") {
+    contents.Tags = [];
+  }
+  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+    contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   return contents;
 };
@@ -16270,6 +18419,7 @@ const deserializeAws_queryGetSAMLProviderResponse = (output: any, context: __Ser
     SAMLMetadataDocument: undefined,
     CreateDate: undefined,
     ValidUntil: undefined,
+    Tags: undefined,
   };
   if (output["SAMLMetadataDocument"] !== undefined) {
     contents.SAMLMetadataDocument = output["SAMLMetadataDocument"];
@@ -16279,6 +18429,12 @@ const deserializeAws_queryGetSAMLProviderResponse = (output: any, context: __Ser
   }
   if (output["ValidUntil"] !== undefined) {
     contents.ValidUntil = new Date(output["ValidUntil"]);
+  }
+  if (output.Tags === "") {
+    contents.Tags = [];
+  }
+  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+    contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   return contents;
 };
@@ -16554,6 +18710,7 @@ const deserializeAws_queryInstanceProfile = (output: any, context: __SerdeContex
     Arn: undefined,
     CreateDate: undefined,
     Roles: undefined,
+    Tags: undefined,
   };
   if (output["Path"] !== undefined) {
     contents.Path = output["Path"];
@@ -16575,6 +18732,12 @@ const deserializeAws_queryInstanceProfile = (output: any, context: __SerdeContex
   }
   if (output["Roles"] !== undefined && output["Roles"]["member"] !== undefined) {
     contents.Roles = deserializeAws_queryroleListType(__getArrayIfSingleItem(output["Roles"]["member"]), context);
+  }
+  if (output.Tags === "") {
+    contents.Tags = [];
+  }
+  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+    contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   return contents;
 };
@@ -16980,6 +19143,30 @@ const deserializeAws_queryListInstanceProfilesResponse = (
   return contents;
 };
 
+const deserializeAws_queryListInstanceProfileTagsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListInstanceProfileTagsResponse => {
+  let contents: any = {
+    Tags: undefined,
+    IsTruncated: undefined,
+    Marker: undefined,
+  };
+  if (output.Tags === "") {
+    contents.Tags = [];
+  }
+  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+    contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+  }
+  if (output["IsTruncated"] !== undefined) {
+    contents.IsTruncated = output["IsTruncated"] == "true";
+  }
+  if (output["Marker"] !== undefined) {
+    contents.Marker = output["Marker"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryListMFADevicesResponse = (output: any, context: __SerdeContext): ListMFADevicesResponse => {
   let contents: any = {
     MFADevices: undefined,
@@ -16994,6 +19181,30 @@ const deserializeAws_queryListMFADevicesResponse = (output: any, context: __Serd
       __getArrayIfSingleItem(output["MFADevices"]["member"]),
       context
     );
+  }
+  if (output["IsTruncated"] !== undefined) {
+    contents.IsTruncated = output["IsTruncated"] == "true";
+  }
+  if (output["Marker"] !== undefined) {
+    contents.Marker = output["Marker"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryListMFADeviceTagsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListMFADeviceTagsResponse => {
+  let contents: any = {
+    Tags: undefined,
+    IsTruncated: undefined,
+    Marker: undefined,
+  };
+  if (output.Tags === "") {
+    contents.Tags = [];
+  }
+  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+    contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = output["IsTruncated"] == "true";
@@ -17022,6 +19233,30 @@ const deserializeAws_queryListOpenIDConnectProvidersResponse = (
       __getArrayIfSingleItem(output["OpenIDConnectProviderList"]["member"]),
       context
     );
+  }
+  return contents;
+};
+
+const deserializeAws_queryListOpenIDConnectProviderTagsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListOpenIDConnectProviderTagsResponse => {
+  let contents: any = {
+    Tags: undefined,
+    IsTruncated: undefined,
+    Marker: undefined,
+  };
+  if (output.Tags === "") {
+    contents.Tags = [];
+  }
+  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+    contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+  }
+  if (output["IsTruncated"] !== undefined) {
+    contents.IsTruncated = output["IsTruncated"] == "true";
+  }
+  if (output["Marker"] !== undefined) {
+    contents.Marker = output["Marker"];
   }
   return contents;
 };
@@ -17115,6 +19350,27 @@ const deserializeAws_querylistPolicyGrantingServiceAccessResponseListType = (
       }
       return deserializeAws_queryListPoliciesGrantingServiceAccessEntry(entry, context);
     });
+};
+
+const deserializeAws_queryListPolicyTagsResponse = (output: any, context: __SerdeContext): ListPolicyTagsResponse => {
+  let contents: any = {
+    Tags: undefined,
+    IsTruncated: undefined,
+    Marker: undefined,
+  };
+  if (output.Tags === "") {
+    contents.Tags = [];
+  }
+  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+    contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+  }
+  if (output["IsTruncated"] !== undefined) {
+    contents.IsTruncated = output["IsTruncated"] == "true";
+  }
+  if (output["Marker"] !== undefined) {
+    contents.Marker = output["Marker"];
+  }
+  return contents;
 };
 
 const deserializeAws_queryListPolicyVersionsResponse = (
@@ -17232,6 +19488,30 @@ const deserializeAws_queryListSAMLProvidersResponse = (
   return contents;
 };
 
+const deserializeAws_queryListSAMLProviderTagsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListSAMLProviderTagsResponse => {
+  let contents: any = {
+    Tags: undefined,
+    IsTruncated: undefined,
+    Marker: undefined,
+  };
+  if (output.Tags === "") {
+    contents.Tags = [];
+  }
+  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+    contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+  }
+  if (output["IsTruncated"] !== undefined) {
+    contents.IsTruncated = output["IsTruncated"] == "true";
+  }
+  if (output["Marker"] !== undefined) {
+    contents.Marker = output["Marker"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryListServerCertificatesResponse = (
   output: any,
   context: __SerdeContext
@@ -17252,6 +19532,30 @@ const deserializeAws_queryListServerCertificatesResponse = (
       __getArrayIfSingleItem(output["ServerCertificateMetadataList"]["member"]),
       context
     );
+  }
+  if (output["IsTruncated"] !== undefined) {
+    contents.IsTruncated = output["IsTruncated"] == "true";
+  }
+  if (output["Marker"] !== undefined) {
+    contents.Marker = output["Marker"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryListServerCertificateTagsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListServerCertificateTagsResponse => {
+  let contents: any = {
+    Tags: undefined,
+    IsTruncated: undefined,
+    Marker: undefined,
+  };
+  if (output.Tags === "") {
+    contents.Tags = [];
+  }
+  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+    contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = output["IsTruncated"] == "true";
@@ -17716,6 +20020,7 @@ const deserializeAws_queryPolicy = (output: any, context: __SerdeContext): Polic
     Description: undefined,
     CreateDate: undefined,
     UpdateDate: undefined,
+    Tags: undefined,
   };
   if (output["PolicyName"] !== undefined) {
     contents.PolicyName = output["PolicyName"];
@@ -17749,6 +20054,12 @@ const deserializeAws_queryPolicy = (output: any, context: __SerdeContext): Polic
   }
   if (output["UpdateDate"] !== undefined) {
     contents.UpdateDate = new Date(output["UpdateDate"]);
+  }
+  if (output.Tags === "") {
+    contents.Tags = [];
+  }
+  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+    contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   return contents;
 };
@@ -18320,6 +20631,7 @@ const deserializeAws_queryServerCertificate = (output: any, context: __SerdeCont
     ServerCertificateMetadata: undefined,
     CertificateBody: undefined,
     CertificateChain: undefined,
+    Tags: undefined,
   };
   if (output["ServerCertificateMetadata"] !== undefined) {
     contents.ServerCertificateMetadata = deserializeAws_queryServerCertificateMetadata(
@@ -18332,6 +20644,12 @@ const deserializeAws_queryServerCertificate = (output: any, context: __SerdeCont
   }
   if (output["CertificateChain"] !== undefined) {
     contents.CertificateChain = output["CertificateChain"];
+  }
+  if (output.Tags === "") {
+    contents.Tags = [];
+  }
+  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+    contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   return contents;
 };
@@ -18840,12 +21158,19 @@ const deserializeAws_queryUploadServerCertificateResponse = (
 ): UploadServerCertificateResponse => {
   let contents: any = {
     ServerCertificateMetadata: undefined,
+    Tags: undefined,
   };
   if (output["ServerCertificateMetadata"] !== undefined) {
     contents.ServerCertificateMetadata = deserializeAws_queryServerCertificateMetadata(
       output["ServerCertificateMetadata"],
       context
     );
+  }
+  if (output.Tags === "") {
+    contents.Tags = [];
+  }
+  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+    contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   return contents;
 };
@@ -19019,6 +21344,7 @@ const deserializeAws_queryVirtualMFADevice = (output: any, context: __SerdeConte
     QRCodePNG: undefined,
     User: undefined,
     EnableDate: undefined,
+    Tags: undefined,
   };
   if (output["SerialNumber"] !== undefined) {
     contents.SerialNumber = output["SerialNumber"];
@@ -19034,6 +21360,12 @@ const deserializeAws_queryVirtualMFADevice = (output: any, context: __SerdeConte
   }
   if (output["EnableDate"] !== undefined) {
     contents.EnableDate = new Date(output["EnableDate"]);
+  }
+  if (output.Tags === "") {
+    contents.Tags = [];
+  }
+  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+    contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   return contents;
 };

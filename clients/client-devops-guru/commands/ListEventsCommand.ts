@@ -20,6 +20,11 @@ import {
 export type ListEventsCommandInput = ListEventsRequest;
 export type ListEventsCommandOutput = ListEventsResponse & __MetadataBearer;
 
+/**
+ * <p>
+ *    		Returns a list of the events emitted by the resources that are evaluated by DevOps Guru. You can use filters to specify which events are returned.
+ *    	</p>
+ */
 export class ListEventsCommand extends $Command<
   ListEventsCommandInput,
   ListEventsCommandOutput,

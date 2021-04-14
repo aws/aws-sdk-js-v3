@@ -21,7 +21,7 @@ export type ListTagsForResourceCommandInput = ListTagsForResourceRequest;
 export type ListTagsForResourceCommandOutput = ListTagsForResourceResponse & __MetadataBearer;
 
 /**
- * <p>Returns a list of the tags assigned to the specified playback configuration resource. </p>
+ * <p>Returns a list of the tags assigned to the specified playback configuration resource.</p>
  */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,

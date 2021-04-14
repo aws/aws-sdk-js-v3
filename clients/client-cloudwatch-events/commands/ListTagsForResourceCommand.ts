@@ -21,8 +21,8 @@ export type ListTagsForResourceCommandInput = ListTagsForResourceRequest;
 export type ListTagsForResourceCommandOutput = ListTagsForResourceResponse & __MetadataBearer;
 
 /**
- * <p>Displays the tags associated with an EventBridge resource. In EventBridge, rules and
- *             event buses can be tagged.</p>
+ * <p>Displays the tags associated with an EventBridge resource. In EventBridge, rules and event
+ *       buses can be tagged.</p>
  */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,

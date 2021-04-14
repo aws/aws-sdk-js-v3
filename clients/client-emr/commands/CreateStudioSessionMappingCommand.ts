@@ -21,11 +21,7 @@ export type CreateStudioSessionMappingCommandInput = CreateStudioSessionMappingI
 export type CreateStudioSessionMappingCommandOutput = __MetadataBearer;
 
 /**
- * <note>
- *             <p>The Amazon EMR Studio APIs are in preview release for Amazon EMR and are subject to
- *             change.</p>
- *          </note>
- *          <p>Maps a user or group to the Amazon EMR Studio specified by <code>StudioId</code>, and
+ * <p>Maps a user or group to the Amazon EMR Studio specified by <code>StudioId</code>, and
  *          applies a session policy to refine Studio permissions for that user or group.</p>
  */
 export class CreateStudioSessionMappingCommand extends $Command<

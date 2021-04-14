@@ -22,6 +22,12 @@ export type DescribeChannelModeratorCommandOutput = DescribeChannelModeratorResp
 
 /**
  * <p>Returns the full details of a single ChannelModerator.</p>
+ *
+ *          <note>
+ *
+ *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
+ *         the API call as the value in the header.</p>
+ *          </note>
  */
 export class DescribeChannelModeratorCommand extends $Command<
   DescribeChannelModeratorCommandInput,

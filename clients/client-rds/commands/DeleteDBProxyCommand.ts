@@ -21,7 +21,7 @@ export type DeleteDBProxyCommandInput = DeleteDBProxyRequest;
 export type DeleteDBProxyCommandOutput = DeleteDBProxyResponse & __MetadataBearer;
 
 /**
- * <p>Deletes an existing proxy.</p>
+ * <p>Deletes an existing DB proxy.</p>
  */
 export class DeleteDBProxyCommand extends $Command<
   DeleteDBProxyCommandInput,

@@ -19,6 +19,8 @@ export type ImportSnapshotCommandOutput = ImportSnapshotResult & __MetadataBeare
 
 /**
  * <p>Imports a disk into an EBS snapshot.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-import-snapshot.html">Importing a disk as a snapshot using VM Import/Export</a> in the
+ *    <i>VM Import/Export User Guide</i>.</p>
  */
 export class ImportSnapshotCommand extends $Command<
   ImportSnapshotCommandInput,

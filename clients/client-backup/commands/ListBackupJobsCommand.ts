@@ -21,7 +21,8 @@ export type ListBackupJobsCommandInput = ListBackupJobsInput;
 export type ListBackupJobsCommandOutput = ListBackupJobsOutput & __MetadataBearer;
 
 /**
- * <p>Returns a list of existing backup jobs for an authenticated account.</p>
+ * <p>Returns a list of existing backup jobs for an authenticated account for the last 30
+ *          days. For a longer period of time, consider using these <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html">monitoring tools</a>.</p>
  */
 export class ListBackupJobsCommand extends $Command<
   ListBackupJobsCommandInput,

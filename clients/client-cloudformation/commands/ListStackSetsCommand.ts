@@ -23,6 +23,17 @@ export type ListStackSetsCommandOutput = ListStackSetsOutput & __MetadataBearer;
 /**
  * <p>Returns summary information about stack sets that are associated with the
  *          user.</p>
+ *          <ul>
+ *             <li>
+ *                <p>[Self-managed permissions] If you set the <code>CallAs</code> parameter to <code>SELF</code> while signed in to your AWS account, <code>ListStackSets</code> returns all self-managed stack sets in your AWS account.</p>
+ *             </li>
+ *             <li>
+ *                <p>[Service-managed permissions] If you set the <code>CallAs</code> parameter to <code>SELF</code> while signed in to the organization's management account, <code>ListStackSets</code> returns all stack sets in the management account.</p>
+ *             </li>
+ *             <li>
+ *                <p>[Service-managed permissions] If you set the <code>CallAs</code> parameter to <code>DELEGATED_ADMIN</code> while signed in to your member account, <code>ListStackSets</code> returns all stack sets with service-managed permissions in the management account.</p>
+ *             </li>
+ *          </ul>
  */
 export class ListStackSetsCommand extends $Command<
   ListStackSetsCommandInput,

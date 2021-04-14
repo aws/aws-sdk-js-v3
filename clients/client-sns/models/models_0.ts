@@ -777,64 +777,78 @@ export namespace GetSubscriptionAttributesInput {
  */
 export interface GetSubscriptionAttributesResponse {
   /**
-   * <p>A map of the subscription's attributes. Attributes in this map include the
-   *             following:</p>
-   *         <ul>
+   * <p>A map of the subscription's attributes. Attributes in this map include the following:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>ConfirmationWasAuthenticated</code> – <code>true</code> if the
-   *                     subscription confirmation request was authenticated.</p>
+   *                <p>
+   *                   <code>ConfirmationWasAuthenticated</code> – <code>true</code> if the subscription confirmation request
+   *           was authenticated.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>DeliveryPolicy</code> – The JSON serialization of the
-   *                     subscription's delivery policy.</p>
+   *                <p>
+   *                   <code>DeliveryPolicy</code> – The JSON serialization of the subscription's delivery policy.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>EffectiveDeliveryPolicy</code> – The JSON serialization of the
-   *                     effective delivery policy that takes into account the topic delivery policy and
-   *                     account system defaults.</p>
+   *                <p>
+   *                   <code>EffectiveDeliveryPolicy</code> – The JSON serialization of the effective delivery policy that
+   *           takes into account the topic delivery policy and account system defaults.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>FilterPolicy</code> – The filter policy JSON that is assigned to
-   *                     the subscription. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-message-filtering.html">Amazon SNS Message Filtering</a>
-   *                     in the <i>Amazon SNS Developer Guide</i>.</p>
+   *                <p>
+   *                   <code>FilterPolicy</code> – The filter policy JSON that is assigned to the subscription. For more
+   *           information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-message-filtering.html">Amazon SNS Message
+   *             Filtering</a> in the <i>Amazon SNS Developer Guide</i>.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>Owner</code> – The AWS account ID of the subscription's
-   *                     owner.</p>
+   *                <p>
+   *                   <code>Owner</code> – The AWS account ID of the subscription's owner.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>PendingConfirmation</code> – <code>true</code> if the subscription
-   *                     hasn't been confirmed. To confirm a pending subscription, call the
-   *                         <code>ConfirmSubscription</code> action with a confirmation token.</p>
+   *                <p>
+   *                   <code>PendingConfirmation</code> – <code>true</code> if the subscription hasn't been confirmed. To
+   *           confirm a pending subscription, call the <code>ConfirmSubscription</code> action with a confirmation
+   *           token.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>RawMessageDelivery</code> – <code>true</code> if raw message
-   *                     delivery is enabled for the subscription. Raw messages are free of JSON
-   *                     formatting and can be sent to HTTP/S and Amazon SQS endpoints.</p>
+   *                <p>
+   *                   <code>RawMessageDelivery</code> – <code>true</code> if raw message delivery is enabled for the
+   *           subscription. Raw messages are free of JSON formatting and can be sent to HTTP/S and Amazon SQS
+   *           endpoints.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>RedrivePolicy</code> – When specified, sends undeliverable messages to the specified Amazon SQS dead-letter queue.
    *     Messages that can't be delivered due to client errors (for example, when the subscribed endpoint is unreachable)
    *     or server errors (for example, when the service that powers the subscribed endpoint becomes unavailable) are held
    *     in the dead-letter queue for further analysis or reprocessing.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>SubscriptionArn</code> – The subscription's ARN.</p>
+   *                <p>
+   *                   <code>SubscriptionArn</code> – The subscription's ARN.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>TopicArn</code> – The topic ARN that the subscription is associated
-   *                     with.</p>
+   *                <p>
+   *                   <code>TopicArn</code> – The topic ARN that the subscription is associated with.</p>
    *             </li>
+   *          </ul>
+   *
+   *          <p>The following attribute applies only to Amazon Kinesis Data Firehose delivery stream subscriptions:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SubscriptionRoleArn</code> – The ARN of the IAM role that has the following:</p>
+   *                 <ul>
+   *                   <li>
+   *                         <p>Permission to write to the Kinesis Data Firehose delivery stream</p>
+   *                     </li>
+   *                   <li>
+   *                         <p>Amazon SNS listed as a trusted entity</p>
+   *                     </li>
+   *                </ul>
+   *                 <p>Specifying a valid ARN for this attribute is required for Kinesis Data Firehose delivery stream subscriptions.
+   *                 For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-kinesis-subscriber.html">Fanout
+   *                     to Kinesis Data Firehose delivery streams</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+   *                     </li>
    *          </ul>
    */
   Attributes?: { [key: string]: string };
@@ -2009,34 +2023,52 @@ export interface SetSubscriptionAttributesInput {
 
   /**
    * <p>A map of attributes with their corresponding values.</p>
-   *         <p>The following lists the names, descriptions, and values of the special request
-   *             parameters that this action uses:</p>
-   *         <ul>
+   *          <p>The following lists the names, descriptions, and values of the special request parameters that this action
+   *       uses:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                   <code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries
-   *                     failed deliveries to HTTP/S endpoints.</p>
+   *                <p>
+   *                   <code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries failed deliveries to HTTP/S
+   *           endpoints.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                   <code>FilterPolicy</code> – The simple JSON object that lets your
-   *                     subscriber receive only a subset of messages, rather than receiving every
-   *                     message published to the topic.</p>
+   *                <p>
+   *                   <code>FilterPolicy</code> – The simple JSON object that lets your subscriber receive only a subset
+   *           of messages, rather than receiving every message published to the topic.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                   <code>RawMessageDelivery</code> – When set to <code>true</code>,
-   *                     enables raw message delivery to Amazon SQS or HTTP/S endpoints. This eliminates the
-   *                     need for the endpoints to process JSON formatting, which is otherwise created
-   *                     for Amazon SNS metadata.</p>
+   *                <p>
+   *                   <code>RawMessageDelivery</code> – When set to <code>true</code>, enables raw message delivery to
+   *           Amazon SQS or HTTP/S endpoints. This eliminates the need for the endpoints to process JSON formatting, which is
+   *           otherwise created for Amazon SNS metadata.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>RedrivePolicy</code> – When specified, sends undeliverable messages to the specified Amazon SQS dead-letter queue.
    *     Messages that can't be delivered due to client errors (for example, when the subscribed endpoint is unreachable)
    *     or server errors (for example, when the service that powers the subscribed endpoint becomes unavailable) are held
    *     in the dead-letter queue for further analysis or reprocessing.</p>
    *             </li>
+   *          </ul>
+   *
+   *
+   *          <p>The following attribute applies only to Amazon Kinesis Data Firehose delivery stream subscriptions:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SubscriptionRoleArn</code> – The ARN of the IAM role that has the following:</p>
+   *                 <ul>
+   *                   <li>
+   *                         <p>Permission to write to the Kinesis Data Firehose delivery stream</p>
+   *                     </li>
+   *                   <li>
+   *                         <p>Amazon SNS listed as a trusted entity</p>
+   *                     </li>
+   *                </ul>
+   *                 <p>Specifying a valid ARN for this attribute is required for Kinesis Data Firehose delivery stream subscriptions.
+   *                 For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-kinesis-subscriber.html">Fanout
+   *                     to Kinesis Data Firehose delivery streams</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+   *                     </li>
    *          </ul>
    */
   AttributeName: string | undefined;
@@ -2147,44 +2179,46 @@ export interface SubscribeInput {
   TopicArn: string | undefined;
 
   /**
-   * <p>The protocol you want to use. Supported protocols include:</p>
+   * <p>The protocol that you want to use. Supported protocols include:</p>
    *         <ul>
    *             <li>
-   *                 <p>
-   *                     <code>http</code> – delivery of JSON-encoded message via HTTP POST</p>
+   *                <p>
+   *                   <code>http</code> – delivery of JSON-encoded message via HTTP POST</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>https</code> – delivery of JSON-encoded message via HTTPS
-   *                     POST</p>
+   *                <p>
+   *                   <code>https</code> – delivery of JSON-encoded message via HTTPS POST</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>email</code> – delivery of message via SMTP</p>
+   *                <p>
+   *                   <code>email</code> – delivery of message via SMTP</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>email-json</code> – delivery of JSON-encoded message via
-   *                     SMTP</p>
+   *                <p>
+   *                   <code>email-json</code> – delivery of JSON-encoded message via SMTP</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>sms</code> – delivery of message via SMS</p>
+   *                <p>
+   *                   <code>sms</code> – delivery of message via SMS</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>sqs</code> – delivery of JSON-encoded message to an Amazon SQS
-   *                     queue</p>
+   *                <p>
+   *                   <code>sqs</code> – delivery of JSON-encoded message to an Amazon SQS queue</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>application</code> – delivery of JSON-encoded message to an
-   *                     EndpointArn for a mobile app and device.</p>
+   *                <p>
+   *                   <code>application</code> – delivery of JSON-encoded message to an EndpointArn
+   *                     for a mobile app and device</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>lambda</code> – delivery of JSON-encoded message to an Amazon Lambda
-   *                     function.</p>
+   *                <p>
+   *                   <code>lambda</code> – delivery of JSON-encoded message to an AWS Lambda
+   *                     function</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>firehose</code> – delivery of JSON-encoded message to an Amazon Kinesis
+   *                     Data Firehose delivery stream.</p>
    *             </li>
    *          </ul>
    */
@@ -2195,37 +2229,36 @@ export interface SubscribeInput {
    *             protocol:</p>
    *         <ul>
    *             <li>
-   *                 <p>For the <code>http</code> protocol, the (public) endpoint is a URL beginning
-   *                     with <code>http://</code>
-   *                </p>
+   *                <p>For the <code>http</code> protocol, the (public) endpoint is a URL beginning with
+   *                         <code>http://</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>For the <code>https</code> protocol, the (public) endpoint is a URL beginning
-   *                     with <code>https://</code>
-   *                </p>
+   *                <p>For the <code>https</code> protocol, the (public) endpoint is a URL beginning with
+   *                         <code>https://</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>For the <code>email</code> protocol, the endpoint is an email address</p>
+   *                <p>For the <code>email</code> protocol, the endpoint is an email address.</p>
    *             </li>
    *             <li>
-   *                 <p>For the <code>email-json</code> protocol, the endpoint is an email
-   *                     address</p>
+   *                <p>For the <code>email-json</code> protocol, the endpoint is an email address.</p>
    *             </li>
    *             <li>
-   *                 <p>For the <code>sms</code> protocol, the endpoint is a phone number of an
-   *                     SMS-enabled device</p>
+   *                <p>For the <code>sms</code> protocol, the endpoint is a phone number of an SMS-enabled
+   *                     device.</p>
    *             </li>
    *             <li>
-   *                 <p>For the <code>sqs</code> protocol, the endpoint is the ARN of an Amazon SQS
-   *                     queue</p>
+   *                <p>For the <code>sqs</code> protocol, the endpoint is the ARN of an Amazon SQS queue.</p>
    *             </li>
    *             <li>
-   *                 <p>For the <code>application</code> protocol, the endpoint is the EndpointArn of
-   *                     a mobile app and device.</p>
+   *                <p>For the <code>application</code> protocol, the endpoint is the EndpointArn of a mobile app and
+   *           device.</p>
    *             </li>
    *             <li>
-   *                 <p>For the <code>lambda</code> protocol, the endpoint is the ARN of an Amazon Lambda
-   *                     function.</p>
+   *                <p>For the <code>lambda</code> protocol, the endpoint is the ARN of an AWS Lambda function.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>firehose</code> protocol, the endpoint is the ARN of an Amazon Kinesis Data Firehose
+   *           delivery stream.</p>
    *             </li>
    *          </ul>
    */
@@ -2233,34 +2266,52 @@ export interface SubscribeInput {
 
   /**
    * <p>A map of attributes with their corresponding values.</p>
-   *         <p>The following lists the names, descriptions, and values of the special request
-   *             parameters that the <code>SetTopicAttributes</code> action uses:</p>
-   *         <ul>
+   *          <p>The following lists the names, descriptions, and values of the special request parameters that the
+   *         <code>SetTopicAttributes</code> action uses:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                   <code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries
-   *                     failed deliveries to HTTP/S endpoints.</p>
+   *                <p>
+   *                   <code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries failed deliveries to HTTP/S
+   *           endpoints.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                   <code>FilterPolicy</code> – The simple JSON object that lets your
-   *                     subscriber receive only a subset of messages, rather than receiving every
-   *                     message published to the topic.</p>
+   *                <p>
+   *                   <code>FilterPolicy</code> – The simple JSON object that lets your subscriber receive only a subset
+   *           of messages, rather than receiving every message published to the topic.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                   <code>RawMessageDelivery</code> – When set to <code>true</code>,
-   *                     enables raw message delivery to Amazon SQS or HTTP/S endpoints. This eliminates the
-   *                     need for the endpoints to process JSON formatting, which is otherwise created
-   *                     for Amazon SNS metadata.</p>
+   *                <p>
+   *                   <code>RawMessageDelivery</code> – When set to <code>true</code>, enables raw message delivery to
+   *           Amazon SQS or HTTP/S endpoints. This eliminates the need for the endpoints to process JSON formatting, which is
+   *           otherwise created for Amazon SNS metadata.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>RedrivePolicy</code> – When specified, sends undeliverable messages to the specified Amazon SQS dead-letter queue.
    *     Messages that can't be delivered due to client errors (for example, when the subscribed endpoint is unreachable)
    *     or server errors (for example, when the service that powers the subscribed endpoint becomes unavailable) are held
    *     in the dead-letter queue for further analysis or reprocessing.</p>
    *             </li>
+   *          </ul>
+   *
+   *
+   *          <p>The following attribute applies only to Amazon Kinesis Data Firehose delivery stream subscriptions:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SubscriptionRoleArn</code> – The ARN of the IAM role that has the following:</p>
+   *                 <ul>
+   *                   <li>
+   *                         <p>Permission to write to the Kinesis Data Firehose delivery stream</p>
+   *                     </li>
+   *                   <li>
+   *                         <p>Amazon SNS listed as a trusted entity</p>
+   *                     </li>
+   *                </ul>
+   *                 <p>Specifying a valid ARN for this attribute is required for Kinesis Data Firehose delivery stream subscriptions.
+   *                 For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-kinesis-subscriber.html">Fanout
+   *                     to Kinesis Data Firehose delivery streams</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+   *                     </li>
    *          </ul>
    */
   Attributes?: { [key: string]: string };

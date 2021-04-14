@@ -6,23 +6,49 @@ import {
   AssociateMemberToGroupCommandInput,
   AssociateMemberToGroupCommandOutput,
 } from "./commands/AssociateMemberToGroupCommand";
+import {
+  CancelMailboxExportJobCommandInput,
+  CancelMailboxExportJobCommandOutput,
+} from "./commands/CancelMailboxExportJobCommand";
 import { CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand";
 import { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
+import {
+  CreateMobileDeviceAccessRuleCommandInput,
+  CreateMobileDeviceAccessRuleCommandOutput,
+} from "./commands/CreateMobileDeviceAccessRuleCommand";
+import { CreateOrganizationCommandInput, CreateOrganizationCommandOutput } from "./commands/CreateOrganizationCommand";
 import { CreateResourceCommandInput, CreateResourceCommandOutput } from "./commands/CreateResourceCommand";
 import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
+import {
+  DeleteAccessControlRuleCommandInput,
+  DeleteAccessControlRuleCommandOutput,
+} from "./commands/DeleteAccessControlRuleCommand";
 import { DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand";
 import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
 import {
   DeleteMailboxPermissionsCommandInput,
   DeleteMailboxPermissionsCommandOutput,
 } from "./commands/DeleteMailboxPermissionsCommand";
+import {
+  DeleteMobileDeviceAccessRuleCommandInput,
+  DeleteMobileDeviceAccessRuleCommandOutput,
+} from "./commands/DeleteMobileDeviceAccessRuleCommand";
+import { DeleteOrganizationCommandInput, DeleteOrganizationCommandOutput } from "./commands/DeleteOrganizationCommand";
 import { DeleteResourceCommandInput, DeleteResourceCommandOutput } from "./commands/DeleteResourceCommand";
+import {
+  DeleteRetentionPolicyCommandInput,
+  DeleteRetentionPolicyCommandOutput,
+} from "./commands/DeleteRetentionPolicyCommand";
 import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import {
   DeregisterFromWorkMailCommandInput,
   DeregisterFromWorkMailCommandOutput,
 } from "./commands/DeregisterFromWorkMailCommand";
 import { DescribeGroupCommandInput, DescribeGroupCommandOutput } from "./commands/DescribeGroupCommand";
+import {
+  DescribeMailboxExportJobCommandInput,
+  DescribeMailboxExportJobCommandOutput,
+} from "./commands/DescribeMailboxExportJobCommand";
 import {
   DescribeOrganizationCommandInput,
   DescribeOrganizationCommandOutput,
@@ -37,28 +63,71 @@ import {
   DisassociateMemberFromGroupCommandInput,
   DisassociateMemberFromGroupCommandOutput,
 } from "./commands/DisassociateMemberFromGroupCommand";
+import {
+  GetAccessControlEffectCommandInput,
+  GetAccessControlEffectCommandOutput,
+} from "./commands/GetAccessControlEffectCommand";
+import {
+  GetDefaultRetentionPolicyCommandInput,
+  GetDefaultRetentionPolicyCommandOutput,
+} from "./commands/GetDefaultRetentionPolicyCommand";
 import { GetMailboxDetailsCommandInput, GetMailboxDetailsCommandOutput } from "./commands/GetMailboxDetailsCommand";
+import {
+  GetMobileDeviceAccessEffectCommandInput,
+  GetMobileDeviceAccessEffectCommandOutput,
+} from "./commands/GetMobileDeviceAccessEffectCommand";
+import {
+  ListAccessControlRulesCommandInput,
+  ListAccessControlRulesCommandOutput,
+} from "./commands/ListAccessControlRulesCommand";
 import { ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
 import { ListGroupMembersCommandInput, ListGroupMembersCommandOutput } from "./commands/ListGroupMembersCommand";
 import { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
 import {
+  ListMailboxExportJobsCommandInput,
+  ListMailboxExportJobsCommandOutput,
+} from "./commands/ListMailboxExportJobsCommand";
+import {
   ListMailboxPermissionsCommandInput,
   ListMailboxPermissionsCommandOutput,
 } from "./commands/ListMailboxPermissionsCommand";
+import {
+  ListMobileDeviceAccessRulesCommandInput,
+  ListMobileDeviceAccessRulesCommandOutput,
+} from "./commands/ListMobileDeviceAccessRulesCommand";
 import { ListOrganizationsCommandInput, ListOrganizationsCommandOutput } from "./commands/ListOrganizationsCommand";
 import {
   ListResourceDelegatesCommandInput,
   ListResourceDelegatesCommandOutput,
 } from "./commands/ListResourceDelegatesCommand";
 import { ListResourcesCommandInput, ListResourcesCommandOutput } from "./commands/ListResourcesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import {
+  PutAccessControlRuleCommandInput,
+  PutAccessControlRuleCommandOutput,
+} from "./commands/PutAccessControlRuleCommand";
 import {
   PutMailboxPermissionsCommandInput,
   PutMailboxPermissionsCommandOutput,
 } from "./commands/PutMailboxPermissionsCommand";
+import { PutRetentionPolicyCommandInput, PutRetentionPolicyCommandOutput } from "./commands/PutRetentionPolicyCommand";
 import { RegisterToWorkMailCommandInput, RegisterToWorkMailCommandOutput } from "./commands/RegisterToWorkMailCommand";
 import { ResetPasswordCommandInput, ResetPasswordCommandOutput } from "./commands/ResetPasswordCommand";
+import {
+  StartMailboxExportJobCommandInput,
+  StartMailboxExportJobCommandOutput,
+} from "./commands/StartMailboxExportJobCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateMailboxQuotaCommandInput, UpdateMailboxQuotaCommandOutput } from "./commands/UpdateMailboxQuotaCommand";
+import {
+  UpdateMobileDeviceAccessRuleCommandInput,
+  UpdateMobileDeviceAccessRuleCommandOutput,
+} from "./commands/UpdateMobileDeviceAccessRuleCommand";
 import {
   UpdatePrimaryEmailAddressCommandInput,
   UpdatePrimaryEmailAddressCommandOutput,
@@ -118,70 +187,112 @@ import {
 export type ServiceInputTypes =
   | AssociateDelegateToResourceCommandInput
   | AssociateMemberToGroupCommandInput
+  | CancelMailboxExportJobCommandInput
   | CreateAliasCommandInput
   | CreateGroupCommandInput
+  | CreateMobileDeviceAccessRuleCommandInput
+  | CreateOrganizationCommandInput
   | CreateResourceCommandInput
   | CreateUserCommandInput
+  | DeleteAccessControlRuleCommandInput
   | DeleteAliasCommandInput
   | DeleteGroupCommandInput
   | DeleteMailboxPermissionsCommandInput
+  | DeleteMobileDeviceAccessRuleCommandInput
+  | DeleteOrganizationCommandInput
   | DeleteResourceCommandInput
+  | DeleteRetentionPolicyCommandInput
   | DeleteUserCommandInput
   | DeregisterFromWorkMailCommandInput
   | DescribeGroupCommandInput
+  | DescribeMailboxExportJobCommandInput
   | DescribeOrganizationCommandInput
   | DescribeResourceCommandInput
   | DescribeUserCommandInput
   | DisassociateDelegateFromResourceCommandInput
   | DisassociateMemberFromGroupCommandInput
+  | GetAccessControlEffectCommandInput
+  | GetDefaultRetentionPolicyCommandInput
   | GetMailboxDetailsCommandInput
+  | GetMobileDeviceAccessEffectCommandInput
+  | ListAccessControlRulesCommandInput
   | ListAliasesCommandInput
   | ListGroupMembersCommandInput
   | ListGroupsCommandInput
+  | ListMailboxExportJobsCommandInput
   | ListMailboxPermissionsCommandInput
+  | ListMobileDeviceAccessRulesCommandInput
   | ListOrganizationsCommandInput
   | ListResourceDelegatesCommandInput
   | ListResourcesCommandInput
+  | ListTagsForResourceCommandInput
   | ListUsersCommandInput
+  | PutAccessControlRuleCommandInput
   | PutMailboxPermissionsCommandInput
+  | PutRetentionPolicyCommandInput
   | RegisterToWorkMailCommandInput
   | ResetPasswordCommandInput
+  | StartMailboxExportJobCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateMailboxQuotaCommandInput
+  | UpdateMobileDeviceAccessRuleCommandInput
   | UpdatePrimaryEmailAddressCommandInput
   | UpdateResourceCommandInput;
 
 export type ServiceOutputTypes =
   | AssociateDelegateToResourceCommandOutput
   | AssociateMemberToGroupCommandOutput
+  | CancelMailboxExportJobCommandOutput
   | CreateAliasCommandOutput
   | CreateGroupCommandOutput
+  | CreateMobileDeviceAccessRuleCommandOutput
+  | CreateOrganizationCommandOutput
   | CreateResourceCommandOutput
   | CreateUserCommandOutput
+  | DeleteAccessControlRuleCommandOutput
   | DeleteAliasCommandOutput
   | DeleteGroupCommandOutput
   | DeleteMailboxPermissionsCommandOutput
+  | DeleteMobileDeviceAccessRuleCommandOutput
+  | DeleteOrganizationCommandOutput
   | DeleteResourceCommandOutput
+  | DeleteRetentionPolicyCommandOutput
   | DeleteUserCommandOutput
   | DeregisterFromWorkMailCommandOutput
   | DescribeGroupCommandOutput
+  | DescribeMailboxExportJobCommandOutput
   | DescribeOrganizationCommandOutput
   | DescribeResourceCommandOutput
   | DescribeUserCommandOutput
   | DisassociateDelegateFromResourceCommandOutput
   | DisassociateMemberFromGroupCommandOutput
+  | GetAccessControlEffectCommandOutput
+  | GetDefaultRetentionPolicyCommandOutput
   | GetMailboxDetailsCommandOutput
+  | GetMobileDeviceAccessEffectCommandOutput
+  | ListAccessControlRulesCommandOutput
   | ListAliasesCommandOutput
   | ListGroupMembersCommandOutput
   | ListGroupsCommandOutput
+  | ListMailboxExportJobsCommandOutput
   | ListMailboxPermissionsCommandOutput
+  | ListMobileDeviceAccessRulesCommandOutput
   | ListOrganizationsCommandOutput
   | ListResourceDelegatesCommandOutput
   | ListResourcesCommandOutput
+  | ListTagsForResourceCommandOutput
   | ListUsersCommandOutput
+  | PutAccessControlRuleCommandOutput
   | PutMailboxPermissionsCommandOutput
+  | PutRetentionPolicyCommandOutput
   | RegisterToWorkMailCommandOutput
   | ResetPasswordCommandOutput
+  | StartMailboxExportJobCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateMailboxQuotaCommandOutput
+  | UpdateMobileDeviceAccessRuleCommandOutput
   | UpdatePrimaryEmailAddressCommandOutput
   | UpdateResourceCommandOutput;
 
@@ -327,14 +438,15 @@ export type WorkMailClientResolvedConfig = __SmithyResolvedConfiguration<__HttpH
  *                <p>Managing resources</p>
  *             </li>
  *          </ul>
- *          <p>All WorkMail API operations are Amazon-authenticated and certificate-signed. They not only
- *          require the use of the AWS SDK, but also allow for the exclusive use of AWS Identity and Access Management users and roles
- *          to help facilitate access, trust, and permission policies. By creating a role and allowing
- *          an IAM user to access the WorkMail site, the IAM user gains full administrative visibility into
- *          the entire WorkMail organization (or as set in the IAM policy). This includes, but is not
- *          limited to, the ability to create, update, and delete users, groups, and resources. This
- *          allows developers to perform the scenarios listed above, as well as give users the ability
- *          to grant access on a selective basis using the IAM model.</p>
+ *          <p>All WorkMail API operations are Amazon-authenticated and certificate-signed. They not
+ *          only require the use of the AWS SDK, but also allow for the exclusive use of AWS Identity and Access Management
+ *          users and roles to help facilitate access, trust, and permission policies. By creating a
+ *          role and allowing an IAM user to access the WorkMail site, the IAM user gains full
+ *          administrative visibility into the entire WorkMail organization (or as set in the IAM
+ *          policy). This includes, but is not limited to, the ability to create, update, and delete
+ *          users, groups, and resources. This allows developers to perform the scenarios listed above,
+ *          as well as give users the ability to grant access on a selective basis using the IAM
+ *          model.</p>
  */
 export class WorkMailClient extends __Client<
   __HttpHandlerOptions,

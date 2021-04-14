@@ -315,6 +315,27 @@ export namespace AlreadyExistsException {
   });
 }
 
+/**
+ * <p>A key-value pair that can be associated with a resource. </p>
+ */
+export interface Tag {
+  /**
+   * <p>The key of a tag. Tag keys are case-sensitive. </p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The value of a tag. Tag values are case sensitive and can be null.</p>
+   */
+  Value: string | undefined;
+}
+
+export namespace Tag {
+  export const filterSensitiveLog = (obj: Tag): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateAddressBookRequest {
   /**
    * <p>The name of the address book.</p>
@@ -331,6 +352,11 @@ export interface CreateAddressBookRequest {
    *          idempotency.</p>
    */
   ClientRequestToken?: string;
+
+  /**
+   * <p>The tags to be added to the specified resource. Do not provide system tags.</p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace CreateAddressBookRequest {
@@ -391,27 +417,6 @@ export interface BusinessReportRecurrence {
 
 export namespace BusinessReportRecurrence {
   export const filterSensitiveLog = (obj: BusinessReportRecurrence): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A key-value pair that can be associated with a resource. </p>
- */
-export interface Tag {
-  /**
-   * <p>The key of a tag. Tag keys are case-sensitive. </p>
-   */
-  Key: string | undefined;
-
-  /**
-   * <p>The value of a tag. Tag values are case sensitive and can be null.</p>
-   */
-  Value: string | undefined;
-}
-
-export namespace Tag {
-  export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
 }
@@ -616,6 +621,11 @@ export interface CreateConferenceProviderRequest {
    * <p>The request token of the client.</p>
    */
   ClientRequestToken?: string;
+
+  /**
+   * <p>The tags to be added to the specified resource. Do not provide system tags.</p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace CreateConferenceProviderRequest {
@@ -733,6 +743,11 @@ export interface CreateContactRequest {
    *          idempotency.</p>
    */
   ClientRequestToken?: string;
+
+  /**
+   * <p>The tags to be added to the specified resource. Do not provide system tags.</p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace CreateContactRequest {
@@ -772,6 +787,11 @@ export interface CreateGatewayGroupRequest {
    * <p> A unique, user-specified identifier for the request that ensures idempotency.</p>
    */
   ClientRequestToken?: string;
+
+  /**
+   * <p>The tags to be added to the specified resource. Do not provide system tags.</p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace CreateGatewayGroupRequest {
@@ -861,6 +881,11 @@ export interface CreateNetworkProfileRequest {
    * <p>A unique, user-specified identifier for the request that ensures idempotency.</p>
    */
   ClientRequestToken?: string;
+
+  /**
+   * <p>The tags to be added to the specified resource. Do not provide system tags. </p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace CreateNetworkProfileRequest {
@@ -1099,6 +1124,11 @@ export interface CreateProfileRequest {
    * <p>Whether PSTN calling is enabled.</p>
    */
   PSTNEnabled?: boolean;
+
+  /**
+   * <p>Whether data retention of the profile is enabled.</p>
+   */
+  DataRetentionOptIn?: boolean;
 
   /**
    * <p>The meeting room settings of a room profile.</p>
@@ -2635,6 +2665,11 @@ export interface Profile {
   PSTNEnabled?: boolean;
 
   /**
+   * <p>Whether data retention of the profile is enabled.</p>
+   */
+  DataRetentionOptIn?: boolean;
+
+  /**
    * <p>The ARN of the address book.</p>
    */
   AddressBookArn?: string;
@@ -3906,9 +3941,14 @@ export interface RegisterAVSDeviceRequest {
   AmazonId: string | undefined;
 
   /**
-   * <p>The ARN of the room with which to associate your AVS device.</p>
+   * <p>The Amazon Resource Name (ARN) of the room with which to associate your AVS device.</p>
    */
   RoomArn?: string;
+
+  /**
+   * <p>The tags to be added to the specified resource. Do not provide system tags.</p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace RegisterAVSDeviceRequest {
@@ -5678,6 +5718,11 @@ export interface UpdateProfileRequest {
    * <p>Whether the PSTN setting of the room profile is enabled.</p>
    */
   PSTNEnabled?: boolean;
+
+  /**
+   * <p>Whether data retention of the profile is enabled.</p>
+   */
+  DataRetentionOptIn?: boolean;
 
   /**
    * <p>The updated meeting room settings of a room profile.</p>

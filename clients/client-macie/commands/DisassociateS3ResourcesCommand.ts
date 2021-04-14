@@ -23,7 +23,7 @@ export type DisassociateS3ResourcesCommandOutput = DisassociateS3ResourcesResult
 /**
  * <p>Removes specified S3 resources from being monitored by Amazon Macie Classic. If
  *       memberAccountId isn't specified, the action removes specified S3 resources from Macie Classic
- *       for the current master account. If memberAccountId is specified, the action removes specified
+ *       for the current Macie Classic administrator account. If memberAccountId is specified, the action removes specified
  *       S3 resources from Macie Classic for the specified member account.</p>
  */
 export class DisassociateS3ResourcesCommand extends $Command<

@@ -1178,6 +1178,11 @@ export enum EbuTtDDestinationStyleControl {
  */
 export interface EbuTtDDestinationSettings {
   /**
+   * Applies only if you plan to convert these source captions to EBU-TT-D or TTML in an output. Complete this field if you want to include the name of the copyright holder in the copyright metadata tag in the TTML
+   */
+  CopyrightHolder?: string;
+
+  /**
    * Specifies how to handle the gap between the lines (in multi-line captions).
    *
    * - enabled: Fill with the captions background color (as specified in the input captions).
@@ -1588,9 +1593,54 @@ export namespace Scte27SourceSettings {
 }
 
 /**
+ * Caption Rectangle
+ */
+export interface CaptionRectangle {
+  /**
+   * See the description in leftOffset.
+   * For height, specify the entire height of the rectangle as a percentage of the underlying frame height. For example, \"80\" means the rectangle height is 80% of the underlying frame height. The topOffset and rectangleHeight must add up to 100% or less.
+   * This field corresponds to tts:extent - Y in the TTML standard.
+   */
+  Height: number | undefined;
+
+  /**
+   * Applies only if you plan to convert these source captions to EBU-TT-D or TTML in an output. (Make sure to leave the default if you don't have either of these formats in the output.) You can define a display rectangle for the captions that is smaller than the underlying video frame. You define the rectangle by specifying the position of the left edge, top edge, bottom edge, and right edge of the rectangle, all within the underlying video frame. The units for the measurements are percentages.
+   * If you specify a value for one of these fields, you must specify a value for all of them.
+   * For leftOffset, specify the position of the left edge of the rectangle, as a percentage of the underlying frame width, and relative to the left edge of the frame. For example, \"10\" means the measurement is 10% of the underlying frame width. The rectangle left edge starts at that position from the left edge of the frame.
+   * This field corresponds to tts:origin - X in the TTML standard.
+   */
+  LeftOffset: number | undefined;
+
+  /**
+   * See the description in leftOffset.
+   * For topOffset, specify the position of the top edge of the rectangle, as a percentage of the underlying frame height, and relative to the top edge of the frame. For example, \"10\" means the measurement is 10% of the underlying frame height. The rectangle top edge starts at that position from the top edge of the frame.
+   * This field corresponds to tts:origin - Y in the TTML standard.
+   */
+  TopOffset: number | undefined;
+
+  /**
+   * See the description in leftOffset.
+   * For width, specify the entire width of the rectangle as a percentage of the underlying frame width. For example, \"80\" means the rectangle width is 80% of the underlying frame width. The leftOffset and rectangleWidth must add up to 100% or less.
+   * This field corresponds to tts:extent - X in the TTML standard.
+   */
+  Width: number | undefined;
+}
+
+export namespace CaptionRectangle {
+  export const filterSensitiveLog = (obj: CaptionRectangle): any => ({
+    ...obj,
+  });
+}
+
+/**
  * Teletext Source Settings
  */
 export interface TeletextSourceSettings {
+  /**
+   * Optionally defines a region where TTML style captions will be displayed
+   */
+  OutputRectangle?: CaptionRectangle;
+
   /**
    * Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no "0x" prefix.
    */
@@ -2040,8 +2090,51 @@ export enum InputSourceEndBehavior {
 
 export enum VideoSelectorColorSpace {
   FOLLOW = "FOLLOW",
+  HDR10 = "HDR10",
+  HLG_2020 = "HLG_2020",
   REC_601 = "REC_601",
   REC_709 = "REC_709",
+}
+
+/**
+ * Hdr10 Settings
+ */
+export interface Hdr10Settings {
+  /**
+   * Maximum Content Light Level
+   * An integer metadata value defining the maximum light level, in nits,
+   * of any single pixel within an encoded HDR video stream or file.
+   */
+  MaxCll?: number;
+
+  /**
+   * Maximum Frame Average Light Level
+   * An integer metadata value defining the maximum average light level, in nits,
+   * for any single frame within an encoded HDR video stream or file.
+   */
+  MaxFall?: number;
+}
+
+export namespace Hdr10Settings {
+  export const filterSensitiveLog = (obj: Hdr10Settings): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * Video Selector Color Space Settings
+ */
+export interface VideoSelectorColorSpaceSettings {
+  /**
+   * Hdr10 Settings
+   */
+  Hdr10Settings?: Hdr10Settings;
+}
+
+export namespace VideoSelectorColorSpaceSettings {
+  export const filterSensitiveLog = (obj: VideoSelectorColorSpaceSettings): any => ({
+    ...obj,
+  });
 }
 
 export enum VideoSelectorColorSpaceUsage {
@@ -2110,6 +2203,11 @@ export interface VideoSelector {
    * Specifies the color space of an input. This setting works in tandem with colorSpaceUsage and a video description's colorSpaceSettingsChoice to determine if any conversion will be performed.
    */
   ColorSpace?: VideoSelectorColorSpace | string;
+
+  /**
+   * Color space settings
+   */
+  ColorSpaceSettings?: VideoSelectorColorSpaceSettings;
 
   /**
    * Applies only if colorSpace is a value other than follow. This field controls how the value in the colorSpace field will be used. fallback means that when the input does include color space data, that data will be used, but when the input has no color space data, the value in colorSpace will be used. Choose fallback if your input is sometimes missing color space data, but when it does have color space data, that data is correct. force means to always use the value in colorSpace. Choose force if your input usually has no color space data or might have unreliable color space data.
@@ -2292,6 +2390,40 @@ export enum ChannelState {
 }
 
 /**
+ * The properties for a private VPC Output
+ */
+export interface VpcOutputSettingsDescription {
+  /**
+   * The Availability Zones where the vpc subnets are located.
+   * The first Availability Zone applies to the first subnet in the list of subnets.
+   * The second Availability Zone applies to the second subnet.
+   */
+  AvailabilityZones?: string[];
+
+  /**
+   * A list of Elastic Network Interfaces created by MediaLive in the customer's VPC
+   */
+  NetworkInterfaceIds?: string[];
+
+  /**
+   * A list of up EC2 VPC security group IDs attached to the Output VPC network interfaces.
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * A list of VPC subnet IDs from the same VPC.
+   * If STANDARD channel, subnet IDs must be mapped to two unique availability zones (AZ).
+   */
+  SubnetIds?: string[];
+}
+
+export namespace VpcOutputSettingsDescription {
+  export const filterSensitiveLog = (obj: VpcOutputSettingsDescription): any => ({
+    ...obj,
+  });
+}
+
+/**
  * Placeholder documentation for ChannelSummary
  */
 export interface ChannelSummary {
@@ -2366,6 +2498,11 @@ export interface ChannelSummary {
    * A collection of key-value pairs.
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * Settings for VPC output
+   */
+  Vpc?: VpcOutputSettingsDescription;
 }
 
 export namespace ChannelSummary {
@@ -2557,6 +2694,11 @@ export interface Input {
    * Settings for the input devices.
    */
   InputDevices?: InputDeviceSettings[];
+
+  /**
+   * A list of IDs for all Inputs which are partners of this one.
+   */
+  InputPartnerIds?: string[];
 
   /**
    * Certain pull input sources can be dynamic, meaning that they can have their URL's dynamically changes
@@ -3949,6 +4091,17 @@ export namespace Fmp4HlsSettings {
   });
 }
 
+/**
+ * Frame Capture Hls Settings
+ */
+export interface FrameCaptureHlsSettings {}
+
+export namespace FrameCaptureHlsSettings {
+  export const filterSensitiveLog = (obj: FrameCaptureHlsSettings): any => ({
+    ...obj,
+  });
+}
+
 export enum M3u8NielsenId3Behavior {
   NO_PASSTHROUGH = "NO_PASSTHROUGH",
   PASSTHROUGH = "PASSTHROUGH",
@@ -4099,6 +4252,11 @@ export interface HlsSettings {
    * Fmp4 Hls Settings
    */
   Fmp4HlsSettings?: Fmp4HlsSettings;
+
+  /**
+   * Frame Capture Hls Settings
+   */
+  FrameCaptureHlsSettings?: FrameCaptureHlsSettings;
 
   /**
    * Standard Hls Settings
@@ -4415,10 +4573,54 @@ export namespace Output {
   });
 }
 
+export enum S3CannedAcl {
+  AUTHENTICATED_READ = "AUTHENTICATED_READ",
+  BUCKET_OWNER_FULL_CONTROL = "BUCKET_OWNER_FULL_CONTROL",
+  BUCKET_OWNER_READ = "BUCKET_OWNER_READ",
+  PUBLIC_READ = "PUBLIC_READ",
+}
+
+/**
+ * Archive S3 Settings
+ */
+export interface ArchiveS3Settings {
+  /**
+   * Specify the canned ACL to apply to each S3 request. Defaults to none.
+   */
+  CannedAcl?: S3CannedAcl | string;
+}
+
+export namespace ArchiveS3Settings {
+  export const filterSensitiveLog = (obj: ArchiveS3Settings): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * Archive Cdn Settings
+ */
+export interface ArchiveCdnSettings {
+  /**
+   * Archive S3 Settings
+   */
+  ArchiveS3Settings?: ArchiveS3Settings;
+}
+
+export namespace ArchiveCdnSettings {
+  export const filterSensitiveLog = (obj: ArchiveCdnSettings): any => ({
+    ...obj,
+  });
+}
+
 /**
  * Archive Group Settings
  */
 export interface ArchiveGroupSettings {
+  /**
+   * Parameters that control interactions with the CDN.
+   */
+  ArchiveCdnSettings?: ArchiveCdnSettings;
+
   /**
    * A directory and base filename where archive files should be written.
    */
@@ -4437,6 +4639,38 @@ export namespace ArchiveGroupSettings {
 }
 
 /**
+ * Frame Capture S3 Settings
+ */
+export interface FrameCaptureS3Settings {
+  /**
+   * Specify the canned ACL to apply to each S3 request. Defaults to none.
+   */
+  CannedAcl?: S3CannedAcl | string;
+}
+
+export namespace FrameCaptureS3Settings {
+  export const filterSensitiveLog = (obj: FrameCaptureS3Settings): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * Frame Capture Cdn Settings
+ */
+export interface FrameCaptureCdnSettings {
+  /**
+   * Frame Capture S3 Settings
+   */
+  FrameCaptureS3Settings?: FrameCaptureS3Settings;
+}
+
+export namespace FrameCaptureCdnSettings {
+  export const filterSensitiveLog = (obj: FrameCaptureCdnSettings): any => ({
+    ...obj,
+  });
+}
+
+/**
  * Frame Capture Group Settings
  */
 export interface FrameCaptureGroupSettings {
@@ -4444,6 +4678,11 @@ export interface FrameCaptureGroupSettings {
    * The destination for the frame capture files. Either the URI for an Amazon S3 bucket and object, plus a file name prefix (for example, s3ssl://sportsDelivery/highlights/20180820/curling-) or the URI for a MediaStore container, plus a file name prefix (for example, mediastoressl://sportsDelivery/20180820/curling-). The final file names consist of the prefix from the destination field (for example, "curling-") + name modifier + the counter (5 digits, starting from 00001) + extension (which is always .jpg).  For example, curling-low.00001.jpg
    */
   Destination: OutputLocationRef | undefined;
+
+  /**
+   * Parameters that control interactions with the CDN.
+   */
+  FrameCaptureCdnSettings?: FrameCaptureCdnSettings;
 }
 
 export namespace FrameCaptureGroupSettings {
@@ -4605,6 +4844,22 @@ export namespace HlsMediaStoreSettings {
   });
 }
 
+/**
+ * Hls S3 Settings
+ */
+export interface HlsS3Settings {
+  /**
+   * Specify the canned ACL to apply to each S3 request. Defaults to none.
+   */
+  CannedAcl?: S3CannedAcl | string;
+}
+
+export namespace HlsS3Settings {
+  export const filterSensitiveLog = (obj: HlsS3Settings): any => ({
+    ...obj,
+  });
+}
+
 export enum HlsWebdavHttpTransferMode {
   CHUNKED = "CHUNKED",
   NON_CHUNKED = "NON_CHUNKED",
@@ -4664,6 +4919,11 @@ export interface HlsCdnSettings {
    * Hls Media Store Settings
    */
   HlsMediaStoreSettings?: HlsMediaStoreSettings;
+
+  /**
+   * Hls S3 Settings
+   */
+  HlsS3Settings?: HlsS3Settings;
 
   /**
    * Hls Webdav Settings
@@ -5236,195 +5496,6 @@ export interface MultiplexGroupSettings {}
 
 export namespace MultiplexGroupSettings {
   export const filterSensitiveLog = (obj: MultiplexGroupSettings): any => ({
-    ...obj,
-  });
-}
-
-export enum RtmpAdMarkers {
-  ON_CUE_POINT_SCTE35 = "ON_CUE_POINT_SCTE35",
-}
-
-export enum AuthenticationScheme {
-  AKAMAI = "AKAMAI",
-  COMMON = "COMMON",
-}
-
-export enum RtmpCacheFullBehavior {
-  DISCONNECT_IMMEDIATELY = "DISCONNECT_IMMEDIATELY",
-  WAIT_FOR_SERVER = "WAIT_FOR_SERVER",
-}
-
-export enum RtmpCaptionData {
-  ALL = "ALL",
-  FIELD1_608 = "FIELD1_608",
-  FIELD1_AND_FIELD2_608 = "FIELD1_AND_FIELD2_608",
-}
-
-export enum InputLossActionForRtmpOut {
-  EMIT_OUTPUT = "EMIT_OUTPUT",
-  PAUSE_OUTPUT = "PAUSE_OUTPUT",
-}
-
-/**
- * Rtmp Group Settings
- */
-export interface RtmpGroupSettings {
-  /**
-   * Choose the ad marker type for this output group. MediaLive will create a message based on the content of each SCTE-35 message, format it for that marker type, and insert it in the datastream.
-   */
-  AdMarkers?: (RtmpAdMarkers | string)[];
-
-  /**
-   * Authentication scheme to use when connecting with CDN
-   */
-  AuthenticationScheme?: AuthenticationScheme | string;
-
-  /**
-   * Controls behavior when content cache fills up. If remote origin server stalls the RTMP connection and does not accept content fast enough the 'Media Cache' will fill up. When the cache reaches the duration specified by cacheLength the cache will stop accepting new content. If set to disconnectImmediately, the RTMP output will force a disconnect. Clear the media cache, and reconnect after restartDelay seconds. If set to waitForServer, the RTMP output will wait up to 5 minutes to allow the origin server to begin accepting data again.
-   */
-  CacheFullBehavior?: RtmpCacheFullBehavior | string;
-
-  /**
-   * Cache length, in seconds, is used to calculate buffer size.
-   */
-  CacheLength?: number;
-
-  /**
-   * Controls the types of data that passes to onCaptionInfo outputs.  If set to 'all' then 608 and 708 carried DTVCC data will be passed.  If set to 'field1AndField2608' then DTVCC data will be stripped out, but 608 data from both fields will be passed. If set to 'field1608' then only the data carried in 608 from field 1 video will be passed.
-   */
-  CaptionData?: RtmpCaptionData | string;
-
-  /**
-   * Controls the behavior of this RTMP group if input becomes unavailable.
-   *
-   * - emitOutput: Emit a slate until input returns.
-   * - pauseOutput: Stop transmitting data until input returns. This does not close the underlying RTMP connection.
-   */
-  InputLossAction?: InputLossActionForRtmpOut | string;
-
-  /**
-   * If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-   */
-  RestartDelay?: number;
-}
-
-export namespace RtmpGroupSettings {
-  export const filterSensitiveLog = (obj: RtmpGroupSettings): any => ({
-    ...obj,
-  });
-}
-
-export enum InputLossActionForUdpOut {
-  DROP_PROGRAM = "DROP_PROGRAM",
-  DROP_TS = "DROP_TS",
-  EMIT_PROGRAM = "EMIT_PROGRAM",
-}
-
-export enum UdpTimedMetadataId3Frame {
-  NONE = "NONE",
-  PRIV = "PRIV",
-  TDRL = "TDRL",
-}
-
-/**
- * Udp Group Settings
- */
-export interface UdpGroupSettings {
-  /**
-   * Specifies behavior of last resort when input video is lost, and no more backup inputs are available. When dropTs is selected the entire transport stream will stop being emitted.  When dropProgram is selected the program can be dropped from the transport stream (and replaced with null packets to meet the TS bitrate requirement).  Or, when emitProgram is chosen the transport stream will continue to be produced normally with repeat frames, black frames, or slate frames substituted for the absent input video.
-   */
-  InputLossAction?: InputLossActionForUdpOut | string;
-
-  /**
-   * Indicates ID3 frame that has the timecode.
-   */
-  TimedMetadataId3Frame?: UdpTimedMetadataId3Frame | string;
-
-  /**
-   * Timed Metadata interval in seconds.
-   */
-  TimedMetadataId3Period?: number;
-}
-
-export namespace UdpGroupSettings {
-  export const filterSensitiveLog = (obj: UdpGroupSettings): any => ({
-    ...obj,
-  });
-}
-
-/**
- * Output Group Settings
- */
-export interface OutputGroupSettings {
-  /**
-   * Archive Group Settings
-   */
-  ArchiveGroupSettings?: ArchiveGroupSettings;
-
-  /**
-   * Frame Capture Group Settings
-   */
-  FrameCaptureGroupSettings?: FrameCaptureGroupSettings;
-
-  /**
-   * Hls Group Settings
-   */
-  HlsGroupSettings?: HlsGroupSettings;
-
-  /**
-   * Media Package Group Settings
-   */
-  MediaPackageGroupSettings?: MediaPackageGroupSettings;
-
-  /**
-   * Ms Smooth Group Settings
-   */
-  MsSmoothGroupSettings?: MsSmoothGroupSettings;
-
-  /**
-   * Multiplex Group Settings
-   */
-  MultiplexGroupSettings?: MultiplexGroupSettings;
-
-  /**
-   * Rtmp Group Settings
-   */
-  RtmpGroupSettings?: RtmpGroupSettings;
-
-  /**
-   * Udp Group Settings
-   */
-  UdpGroupSettings?: UdpGroupSettings;
-}
-
-export namespace OutputGroupSettings {
-  export const filterSensitiveLog = (obj: OutputGroupSettings): any => ({
-    ...obj,
-  });
-}
-
-/**
- * Output groups for this Live Event. Output groups contain information about where streams should be distributed.
- */
-export interface OutputGroup {
-  /**
-   * Custom output group name optionally defined by the user.  Only letters, numbers, and the underscore character allowed; only 32 characters allowed.
-   */
-  Name?: string;
-
-  /**
-   * Settings associated with the output group.
-   */
-  OutputGroupSettings: OutputGroupSettings | undefined;
-
-  /**
-   * Placeholder documentation for __listOfOutput
-   */
-  Outputs: Output[] | undefined;
-}
-
-export namespace OutputGroup {
-  export const filterSensitiveLog = (obj: OutputGroup): any => ({
     ...obj,
   });
 }

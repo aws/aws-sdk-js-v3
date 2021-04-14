@@ -21,14 +21,18 @@ export type GetGroupConfigurationCommandInput = GetGroupConfigurationInput;
 export type GetGroupConfigurationCommandOutput = GetGroupConfigurationOutput & __MetadataBearer;
 
 /**
- * <p>Returns the service configuration associated with the specified resource group. AWS
- *             Resource Groups supports configurations for the following resource group types:</p>
- *         <ul>
+ * <p>Returns the service configuration associated with the specified resource group. For
+ *             details about the service configuration syntax, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for resource
+ *                 groups</a>.</p>
+ *          <p>
+ *             <b>Minimum permissions</b>
+ *          </p>
+ *          <p>To run this command, you must have the following permissions:</p>
+ *          <ul>
  *             <li>
  *                 <p>
- *                   <code>AWS::EC2::CapacityReservationPool</code> - Amazon EC2 capacity
- *                     reservation pools. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html#create-cr-group">Working with capacity reservation groups</a> in the <i>EC2 Users
- *                         Guide</i>.</p>
+ *                   <code>resource-groups:GetGroupConfiguration</code>
+ *                </p>
  *             </li>
  *          </ul>
  */

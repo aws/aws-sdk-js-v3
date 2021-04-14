@@ -23,7 +23,7 @@ export type GetBucketNotificationConfigurationCommandOutput = NotificationConfig
 
 /**
  * <p>Returns the notification configuration of a bucket.</p>
- *          <p>If notifications are not enabled on the bucket, the operation returns an empty
+ *          <p>If notifications are not enabled on the bucket, the action returns an empty
  *             <code>NotificationConfiguration</code> element.</p>
  *
  *          <p>By default, you must be the bucket owner to read the notification configuration of a
@@ -35,7 +35,7 @@ export type GetBucketNotificationConfigurationCommandOutput = NotificationConfig
  *          bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Setting Up Notification of
  *             Bucket Events</a>. For more information about bucket policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using Bucket Policies</a>.</p>
  *
- *          <p>The following operation is related to <code>GetBucketNotification</code>:</p>
+ *          <p>The following action is related to <code>GetBucketNotification</code>:</p>
  *          <ul>
  *             <li>
  *                <p>

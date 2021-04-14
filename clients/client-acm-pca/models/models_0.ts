@@ -1,32 +1,12 @@
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export enum KeyAlgorithm {
-  EC_prime256v1 = "EC_prime256v1",
-  EC_secp384r1 = "EC_secp384r1",
-  RSA_2048 = "RSA_2048",
-  RSA_4096 = "RSA_4096",
-}
-
-export enum SigningAlgorithm {
-  SHA256WITHECDSA = "SHA256WITHECDSA",
-  SHA256WITHRSA = "SHA256WITHRSA",
-  SHA384WITHECDSA = "SHA384WITHECDSA",
-  SHA384WITHRSA = "SHA384WITHRSA",
-  SHA512WITHECDSA = "SHA512WITHECDSA",
-  SHA512WITHRSA = "SHA512WITHRSA",
-}
-
 /**
- * <p>Contains information about the certificate subject. The certificate can be one issued
- * 			by your private certificate authority (CA) or it can be your private CA certificate. The
- * 				<b>Subject</b> field in the certificate identifies the
- * 			entity that owns or controls the public key in the certificate. The entity can be a
- * 			user, computer, device, or service. The <b>Subject</b> must
- * 			contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished
- * 			names (RDNs). The RDNs are separated by commas in the certificate. The DN must be unique
- * 			for each entity, but your private CA can issue more than one certificate with the same
- * 			DN to the same entity. </p>
+ * <p>Contains information about the certificate subject. The <code>Subject</code> field in
+ * 			the certificate identifies the entity that owns or controls the public key in the
+ * 			certificate. The entity can be a user, computer, device, or service. The <code>Subject
+ * 			</code>must contain an X.500 distinguished name (DN). A DN is a sequence of relative
+ * 			distinguished names (RDNs). The RDNs are separated by commas in the certificate.</p>
  */
 export interface ASN1Subject {
   /**
@@ -58,7 +38,10 @@ export interface ASN1Subject {
   State?: string;
 
   /**
-   * <p>Fully qualified domain name (FQDN) associated with the certificate subject.</p>
+   * <p>For CA and end-entity certificates in a private PKI, the common name (CN) can be any
+   * 			string within the length limit. </p>
+   * 		       <p>Note: In publicly trusted certificates, the common name must be a fully qualified
+   * 			domain name (FQDN) associated with the certificate subject.</p>
    */
   CommonName?: string;
 
@@ -92,7 +75,7 @@ export interface ASN1Subject {
 
   /**
    * <p>Concatenation that typically contains the first letter of the <b>GivenName</b>, the first letter of the middle name if one exists, and the
-   * 			first letter of the <b>SurName</b>.</p>
+   * 			first letter of the <b>Surname</b>.</p>
    */
   Initials?: string;
 
@@ -114,6 +97,262 @@ export namespace ASN1Subject {
   export const filterSensitiveLog = (obj: ASN1Subject): any => ({
     ...obj,
   });
+}
+
+/**
+ * <p>Describes an Electronic Data Interchange (EDI) entity as described in as defined in
+ * 				<a href="https://tools.ietf.org/html/rfc5280">Subject Alternative Name</a> in
+ * 			RFC 5280.</p>
+ */
+export interface EdiPartyName {
+  /**
+   * <p>Specifies the party name.</p>
+   */
+  PartyName: string | undefined;
+
+  /**
+   * <p>Specifies the name assigner.</p>
+   */
+  NameAssigner?: string;
+}
+
+export namespace EdiPartyName {
+  export const filterSensitiveLog = (obj: EdiPartyName): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Defines a custom ASN.1 X.400 <code>GeneralName</code> using an object identifier (OID)
+ * 			and value. The OID must satisfy the regular expression shown below. For more
+ * 			information, see NIST's definition of <a href="https://csrc.nist.gov/glossary/term/Object_Identifier">Object Identifier
+ * 				(OID)</a>.</p>
+ */
+export interface OtherName {
+  /**
+   * <p>Specifies an OID. </p>
+   */
+  TypeId: string | undefined;
+
+  /**
+   * <p>Specifies an OID value.</p>
+   */
+  Value: string | undefined;
+}
+
+export namespace OtherName {
+  export const filterSensitiveLog = (obj: OtherName): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an ASN.1 X.400 <code>GeneralName</code> as defined in <a href="https://tools.ietf.org/html/rfc5280">RFC 5280</a>. Only one of the
+ * 			following naming options should be provided. Providing more than one option results in
+ * 			an <code>InvalidArgsException</code> error.</p>
+ */
+export interface GeneralName {
+  /**
+   * <p>Represents <code>GeneralName</code> using an <code>OtherName</code> object.</p>
+   */
+  OtherName?: OtherName;
+
+  /**
+   * <p>Represents <code>GeneralName</code> as an <a href="https://tools.ietf.org/html/rfc822">RFC 822</a> email address.</p>
+   */
+  Rfc822Name?: string;
+
+  /**
+   * <p>Represents <code>GeneralName</code> as a DNS name.</p>
+   */
+  DnsName?: string;
+
+  /**
+   * <p>Contains information about the certificate subject. The <code>Subject</code> field in
+   * 			the certificate identifies the entity that owns or controls the public key in the
+   * 			certificate. The entity can be a user, computer, device, or service. The <code>Subject
+   * 			</code>must contain an X.500 distinguished name (DN). A DN is a sequence of relative
+   * 			distinguished names (RDNs). The RDNs are separated by commas in the certificate.</p>
+   */
+  DirectoryName?: ASN1Subject;
+
+  /**
+   * <p>Represents <code>GeneralName</code> as an <code>EdiPartyName</code> object.</p>
+   */
+  EdiPartyName?: EdiPartyName;
+
+  /**
+   * <p>Represents <code>GeneralName</code> as a URI.</p>
+   */
+  UniformResourceIdentifier?: string;
+
+  /**
+   * <p>Represents <code>GeneralName</code> as an IPv4 or IPv6 address.</p>
+   */
+  IpAddress?: string;
+
+  /**
+   * <p> Represents <code>GeneralName</code> as an object identifier (OID).</p>
+   */
+  RegisteredId?: string;
+}
+
+export namespace GeneralName {
+  export const filterSensitiveLog = (obj: GeneralName): any => ({
+    ...obj,
+  });
+}
+
+export enum AccessMethodType {
+  CA_REPOSITORY = "CA_REPOSITORY",
+  RESOURCE_PKI_MANIFEST = "RESOURCE_PKI_MANIFEST",
+  RESOURCE_PKI_NOTIFY = "RESOURCE_PKI_NOTIFY",
+}
+
+/**
+ * <p>Describes the type and format of extension access. Only one of
+ * 				<code>CustomObjectIdentifier</code> or <code>AccessMethodType</code> may be
+ * 			provided. Providing both results in <code>InvalidArgsException</code>.</p>
+ */
+export interface AccessMethod {
+  /**
+   * <p>An object identifier (OID) specifying the <code>AccessMethod</code>. The OID must
+   * 			satisfy the regular expression shown below. For more information, see NIST's definition
+   * 			of <a href="https://csrc.nist.gov/glossary/term/Object_Identifier">Object Identifier
+   * 				(OID)</a>.</p>
+   */
+  CustomObjectIdentifier?: string;
+
+  /**
+   * <p>Specifies the <code>AccessMethod</code>.</p>
+   */
+  AccessMethodType?: AccessMethodType | string;
+}
+
+export namespace AccessMethod {
+  export const filterSensitiveLog = (obj: AccessMethod): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides access information used by the <code>authorityInfoAccess</code> and
+ * 				<code>subjectInfoAccess</code> extensions described in <a href="https://tools.ietf.org/html/rfc5280">RFC 5280</a>.</p>
+ */
+export interface AccessDescription {
+  /**
+   * <p>The type and format of <code>AccessDescription</code> information.</p>
+   */
+  AccessMethod: AccessMethod | undefined;
+
+  /**
+   * <p>The location of <code>AccessDescription</code> information.</p>
+   */
+  AccessLocation: GeneralName | undefined;
+}
+
+export namespace AccessDescription {
+  export const filterSensitiveLog = (obj: AccessDescription): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Defines one or more purposes for which the key contained in the certificate can be
+ * 			used. Default value for each option is false.</p>
+ */
+export interface KeyUsage {
+  /**
+   * <p> Key can be used for digital signing.</p>
+   */
+  DigitalSignature?: boolean;
+
+  /**
+   * <p>Key can be used for non-repudiation.</p>
+   */
+  NonRepudiation?: boolean;
+
+  /**
+   * <p>Key can be used to encipher data.</p>
+   */
+  KeyEncipherment?: boolean;
+
+  /**
+   * <p>Key can be used to decipher data.</p>
+   */
+  DataEncipherment?: boolean;
+
+  /**
+   * <p>Key can be used in a key-agreement protocol.</p>
+   */
+  KeyAgreement?: boolean;
+
+  /**
+   * <p>Key can be used to sign certificates.</p>
+   */
+  KeyCertSign?: boolean;
+
+  /**
+   * <p>Key can be used to sign CRLs.</p>
+   */
+  CRLSign?: boolean;
+
+  /**
+   * <p>Key can be used only to encipher data.</p>
+   */
+  EncipherOnly?: boolean;
+
+  /**
+   * <p>Key can be used only to decipher data.</p>
+   */
+  DecipherOnly?: boolean;
+}
+
+export namespace KeyUsage {
+  export const filterSensitiveLog = (obj: KeyUsage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the certificate extensions to be added to the certificate signing request
+ * 			(CSR).</p>
+ */
+export interface CsrExtensions {
+  /**
+   * <p>Indicates the purpose of the certificate and of the key contained in the
+   * 			certificate.</p>
+   */
+  KeyUsage?: KeyUsage;
+
+  /**
+   * <p>For CA certificates, provides a path to additional information pertaining to the CA,
+   * 			such as revocation and policy. For more information, see <a href="https://tools.ietf.org/html/rfc5280#section-4.2.2.2">Subject Information
+   * 				Access</a> in RFC 5280.</p>
+   */
+  SubjectInformationAccess?: AccessDescription[];
+}
+
+export namespace CsrExtensions {
+  export const filterSensitiveLog = (obj: CsrExtensions): any => ({
+    ...obj,
+  });
+}
+
+export enum KeyAlgorithm {
+  EC_prime256v1 = "EC_prime256v1",
+  EC_secp384r1 = "EC_secp384r1",
+  RSA_2048 = "RSA_2048",
+  RSA_4096 = "RSA_4096",
+}
+
+export enum SigningAlgorithm {
+  SHA256WITHECDSA = "SHA256WITHECDSA",
+  SHA256WITHRSA = "SHA256WITHRSA",
+  SHA384WITHECDSA = "SHA384WITHECDSA",
+  SHA384WITHRSA = "SHA384WITHRSA",
+  SHA512WITHECDSA = "SHA512WITHECDSA",
+  SHA512WITHRSA = "SHA512WITHRSA",
 }
 
 /**
@@ -143,6 +382,12 @@ export interface CertificateAuthorityConfiguration {
    * 			CA.</p>
    */
   Subject: ASN1Subject | undefined;
+
+  /**
+   * <p>Specifies information to be added to the extension section of the certificate signing
+   * 			request (CSR).</p>
+   */
+  CsrExtensions?: CsrExtensions;
 }
 
 export namespace CertificateAuthorityConfiguration {
@@ -274,7 +519,7 @@ export interface CrlConfiguration {
   Enabled: boolean | undefined;
 
   /**
-   * <p>Number of days until a certificate expires.</p>
+   * <p>Validity period of the CRL in days.</p>
    */
   ExpirationInDays?: number;
 
@@ -367,11 +612,12 @@ export interface CreateCertificateAuthorityRequest {
   CertificateAuthorityType: CertificateAuthorityType | string | undefined;
 
   /**
-   * <p>Alphanumeric string that can be used to distinguish between calls to <b>CreateCertificateAuthority</b>. For a given token, ACM Private CA
-   * 			creates exactly one CA. If you issue a subsequent call using the same token, ACM Private CA
-   * 			returns the ARN of the existing CA and takes no further action. If you change the
-   * 			idempotency token across multiple calls, ACM Private CA creates a unique CA for each unique
-   * 			token.</p>
+   * <p>Custom string that can be used to distinguish between calls to the <b>CreateCertificateAuthority</b> action. Idempotency tokens for
+   * 				<b>CreateCertificateAuthority</b> time out after five
+   * 			minutes. Therefore, if you call <b>CreateCertificateAuthority</b> multiple times with the same idempotency
+   * 			token within five minutes, ACM Private CA recognizes that you are requesting only certificate
+   * 			authority and will issue only one. If you change the idempotency token for each call,
+   * 			PCA recognizes that you are requesting multiple certificate authorities.</p>
    */
   IdempotencyToken?: string;
 
@@ -423,9 +669,8 @@ export namespace InvalidArgsException {
 }
 
 /**
- * <p>The resource policy is invalid or is missing a required statement. For general information about
- * 			IAM policy and statement structure, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json">Overview
- * 				of JSON Policies</a>.</p>
+ * <p>The resource policy is invalid or is missing a required statement. For general
+ * 			information about IAM policy and statement structure, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json">Overview of JSON Policies</a>.</p>
  */
 export interface InvalidPolicyException extends __SmithyException, $MetadataBearer {
   name: "InvalidPolicyException";
@@ -583,8 +828,8 @@ export namespace RequestInProgressException {
 }
 
 /**
- * <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy cannot be
- * 			found.</p>
+ * <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
+ * 			cannot be found.</p>
  */
 export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
@@ -725,9 +970,10 @@ export namespace DeletePermissionRequest {
 
 export interface DeletePolicyRequest {
   /**
-   * <p>The Amazon Resource Number (ARN) of the private CA that will have its policy deleted. You
-   * 			can find the CA's ARN by calling the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a> action. The ARN value must have the form
-   * 				<code>arn:aws:acm-pca:region:account:certificate-authority/01234567-89ab-cdef-0123-0123456789ab</code>. </p>
+   * <p>The Amazon Resource Number (ARN) of the private CA that will have its policy deleted.
+   * 			You can find the CA's ARN by calling the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a> action. The ARN value must have the form
+   * 				<code>arn:aws:acm-pca:region:account:certificate-authority/01234567-89ab-cdef-0123-0123456789ab</code>.
+   * 		</p>
    */
   ResourceArn: string | undefined;
 }
@@ -983,8 +1229,8 @@ export interface GetCertificateResponse {
   Certificate?: string;
 
   /**
-   * <p>The base64 PEM-encoded certificate chain that chains up to the on-premises root CA
-   * 			certificate that you used to sign your private CA certificate. </p>
+   * <p>The base64 PEM-encoded certificate chain that chains up to the root CA certificate
+   * 			that you used to sign your private CA certificate. </p>
    */
   CertificateChain?: string;
 }
@@ -1020,9 +1266,9 @@ export interface GetCertificateAuthorityCertificateResponse {
 
   /**
    * <p>Base64-encoded certificate chain that includes any intermediate certificates and
-   * 			chains up to root on-premises certificate that you used to sign your private CA
-   * 			certificate. The chain does not include your private CA certificate. If this is a root
-   * 			CA, the value will be null.</p>
+   * 			chains up to root certificate that you used to sign your private CA certificate. The
+   * 			chain does not include your private CA certificate. If this is a root CA, the value will
+   * 			be null.</p>
    */
   CertificateChain?: string;
 }
@@ -1172,6 +1418,182 @@ export namespace MalformedCertificateException {
   });
 }
 
+export enum PolicyQualifierId {
+  CPS = "CPS",
+}
+
+/**
+ * <p>Defines a <code>PolicyInformation</code> qualifier. ACM Private CA supports the <a href="https://tools.ietf.org/html/rfc5280#section-4.2.1.4">certification practice
+ * 				statement (CPS) qualifier</a> defined in RFC 5280. </p>
+ */
+export interface Qualifier {
+  /**
+   * <p>Contains a pointer to a certification practice statement (CPS) published by the
+   * 			CA.</p>
+   */
+  CpsUri: string | undefined;
+}
+
+export namespace Qualifier {
+  export const filterSensitiveLog = (obj: Qualifier): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Modifies the <code>CertPolicyId</code> of a <code>PolicyInformation</code> object with
+ * 			a qualifier. ACM Private CA supports the certification practice statement (CPS) qualifier.</p>
+ */
+export interface PolicyQualifierInfo {
+  /**
+   * <p>Identifies the qualifier modifying a <code>CertPolicyId</code>.</p>
+   */
+  PolicyQualifierId: PolicyQualifierId | string | undefined;
+
+  /**
+   * <p>Defines the qualifier type. ACM Private CA supports the use of a URI for a CPS qualifier in
+   * 			this field.</p>
+   */
+  Qualifier: Qualifier | undefined;
+}
+
+export namespace PolicyQualifierInfo {
+  export const filterSensitiveLog = (obj: PolicyQualifierInfo): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Defines the X.509 <code>CertificatePolicies</code> extension.</p>
+ */
+export interface PolicyInformation {
+  /**
+   * <p>Specifies the object identifier (OID) of the certificate policy under which the
+   * 			certificate was issued. For more information, see NIST's definition of <a href="https://csrc.nist.gov/glossary/term/Object_Identifier">Object Identifier
+   * 				(OID)</a>.</p>
+   */
+  CertPolicyId: string | undefined;
+
+  /**
+   * <p>Modifies the given <code>CertPolicyId</code> with a qualifier. ACM Private CA supports the
+   * 			certification practice statement (CPS) qualifier.</p>
+   */
+  PolicyQualifiers?: PolicyQualifierInfo[];
+}
+
+export namespace PolicyInformation {
+  export const filterSensitiveLog = (obj: PolicyInformation): any => ({
+    ...obj,
+  });
+}
+
+export enum ExtendedKeyUsageType {
+  CERTIFICATE_TRANSPARENCY = "CERTIFICATE_TRANSPARENCY",
+  CLIENT_AUTH = "CLIENT_AUTH",
+  CODE_SIGNING = "CODE_SIGNING",
+  DOCUMENT_SIGNING = "DOCUMENT_SIGNING",
+  EMAIL_PROTECTION = "EMAIL_PROTECTION",
+  OCSP_SIGNING = "OCSP_SIGNING",
+  SERVER_AUTH = "SERVER_AUTH",
+  SMART_CARD_LOGIN = "SMART_CARD_LOGIN",
+  TIME_STAMPING = "TIME_STAMPING",
+}
+
+/**
+ * <p>Specifies additional purposes for which the certified public key may be used other
+ * 			than basic purposes indicated in the <code>KeyUsage</code> extension.</p>
+ */
+export interface ExtendedKeyUsage {
+  /**
+   * <p>Specifies a standard <code>ExtendedKeyUsage</code> as defined as in <a href="https://tools.ietf.org/html/rfc5280#section-4.2.1.12">RFC 5280</a>.</p>
+   */
+  ExtendedKeyUsageType?: ExtendedKeyUsageType | string;
+
+  /**
+   * <p>Specifies a custom <code>ExtendedKeyUsage</code> with an object identifier
+   * 			(OID).</p>
+   */
+  ExtendedKeyUsageObjectIdentifier?: string;
+}
+
+export namespace ExtendedKeyUsage {
+  export const filterSensitiveLog = (obj: ExtendedKeyUsage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains X.509 extension information for a certificate.</p>
+ */
+export interface Extensions {
+  /**
+   * <p>Contains a sequence of one or more policy information terms, each of which consists of
+   * 			an object identifier (OID) and optional qualifiers. For more information, see NIST's
+   * 			definition of <a href="https://csrc.nist.gov/glossary/term/Object_Identifier">Object
+   * 				Identifier (OID)</a>.</p>
+   * 		       <p>In an end-entity certificate, these terms indicate the policy under which the
+   * 			certificate was issued and the purposes for which it may be used. In a CA certificate,
+   * 			these terms limit the set of policies for certification paths that include this
+   * 			certificate.</p>
+   */
+  CertificatePolicies?: PolicyInformation[];
+
+  /**
+   * <p>Specifies additional purposes for which the certified public key may be used other
+   * 			than basic purposes indicated in the <code>KeyUsage</code> extension.</p>
+   */
+  ExtendedKeyUsage?: ExtendedKeyUsage[];
+
+  /**
+   * <p>Defines one or more purposes for which the key contained in the certificate can be
+   * 			used. Default value for each option is false.</p>
+   */
+  KeyUsage?: KeyUsage;
+
+  /**
+   * <p>The subject alternative name extension allows identities to be bound to the subject of
+   * 			the certificate. These identities may be included in addition to or in place of the
+   * 			identity in the subject field of the certificate.</p>
+   */
+  SubjectAlternativeNames?: GeneralName[];
+}
+
+export namespace Extensions {
+  export const filterSensitiveLog = (obj: Extensions): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains X.509 certificate information to be placed in an issued certificate. An
+ * 				<code>APIPassthrough</code> or <code>APICSRPassthrough</code> template variant must
+ * 			be selected, or else this parameter is ignored. </p>
+ * 		       <p>If conflicting or duplicate certificate information is supplied from other sources,
+ * 			ACM Private CA applies <a href="xxxxx">order of operation rules</a> to determine what
+ * 			information is used.</p>
+ */
+export interface ApiPassthrough {
+  /**
+   * <p>Specifies X.509 extension information for a certificate.</p>
+   */
+  Extensions?: Extensions;
+
+  /**
+   * <p>Contains information about the certificate subject. The <code>Subject</code> field in
+   * 			the certificate identifies the entity that owns or controls the public key in the
+   * 			certificate. The entity can be a user, computer, device, or service. The <code>Subject
+   * 			</code>must contain an X.500 distinguished name (DN). A DN is a sequence of relative
+   * 			distinguished names (RDNs). The RDNs are separated by commas in the certificate.</p>
+   */
+  Subject?: ASN1Subject;
+}
+
+export namespace ApiPassthrough {
+  export const filterSensitiveLog = (obj: ApiPassthrough): any => ({
+    ...obj,
+  });
+}
+
 export enum ValidityPeriodType {
   ABSOLUTE = "ABSOLUTE",
   DAYS = "DAYS",
@@ -1181,11 +1603,16 @@ export enum ValidityPeriodType {
 }
 
 /**
- * <p>Validity specifies the period of time during which a certificate is valid. Validity can be
- * 			expressed as an explicit date and time when the certificate expires, or as a span of
- * 			time after issuance, stated in days, months, or years. For more information, see <a href="https://tools.ietf.org/html/rfc5280#section-4.1.2.5">Validity</a> in RFC
- * 			5280.</p>
- * 		       <p>You can issue a certificate by calling the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_IssueCertificate.html">IssueCertificate</a> action.</p>
+ * <p>Validity specifies the period of time during which a certificate is valid. Validity
+ * 			can be expressed as an explicit date and time when the validity of a certificate starts
+ * 			or expires, or as a span of time after issuance, stated in days, months, or years. For
+ * 			more information, see <a href="https://tools.ietf.org/html/rfc5280#section-4.1.2.5">Validity</a> in RFC 5280.</p>
+ * 		       <p>ACM Private CA API consumes the <code>Validity</code> data type differently in two distinct
+ * 			parameters of the <code>IssueCertificate</code> action. The required parameter
+ * 				<code>IssueCertificate</code>:<code>Validity</code> specifies the end of a
+ * 			certificate's validity period. The optional parameter
+ * 				<code>IssueCertificate</code>:<code>ValidityNotBefore</code> specifies a customized
+ * 			starting time for the validity period.</p>
  */
 export interface Validity {
   /**
@@ -1194,16 +1621,15 @@ export interface Validity {
   Value: number | undefined;
 
   /**
-   * <p>Determines how <i>ACM Private CA</i> interprets the <code>Value</code> parameter,
-   * 			an integer. Supported validity types include those listed below. Type definitions with
-   * 			values include a sample input value and the resulting output. </p>
+   * <p>Determines how <i>ACM Private CA</i> interprets the <code>Value</code>
+   * 			parameter, an integer. Supported validity types include those listed below. Type
+   * 			definitions with values include a sample input value and the resulting output. </p>
    * 		       <p>
    *             <code>END_DATE</code>: The specific date and time when the certificate will expire,
    * 			expressed using UTCTime (YYMMDDHHMMSS) or GeneralizedTime (YYYYMMDDHHMMSS) format. When
    * 			UTCTime is used, if the year field (YY) is greater than or equal to 50, the year is
    * 			interpreted as 19YY. If the year field is less than 50, the year is interpreted as
    * 			20YY.</p>
-   *
    * 		       <ul>
    *             <li>
    * 				           <p>Sample input value: 491231235959 (UTCTime format)</p>
@@ -1212,11 +1638,9 @@ export interface Validity {
    * 				           <p>Output expiration date/time: 12/31/2049 23:59:59</p>
    * 			         </li>
    *          </ul>
-   *
    * 		       <p>
-   *             <code>ABSOLUTE</code>:  The specific date and time when the certificate will expire,
-   * 			expressed in seconds since the Unix Epoch. </p>
-   *
+   *             <code>ABSOLUTE</code>: The specific date and time when the validity of a certificate
+   * 			will start or expire, expressed in seconds since the Unix Epoch. </p>
    * 		       <ul>
    *             <li>
    * 				           <p>Sample input value: 2524608000</p>
@@ -1229,7 +1653,7 @@ export interface Validity {
    *             <code>DAYS</code>, <code>MONTHS</code>, <code>YEARS</code>: The relative time from the
    * 			moment of issuance until the certificate will expire, expressed in days, months, or
    * 			years. </p>
-   * 		       <p>Example if  <code>DAYS</code>, issued on 10/12/2020 at 12:34:54 UTC:</p>
+   * 		       <p>Example if <code>DAYS</code>, issued on 10/12/2020 at 12:34:54 UTC:</p>
    * 		       <ul>
    *             <li>
    * 				           <p>Sample input value: 90</p>
@@ -1238,6 +1662,9 @@ export interface Validity {
    * 				           <p>Output expiration date: 01/10/2020 12:34:54 UTC</p>
    * 			         </li>
    *          </ul>
+   * 		       <p>The minimum validity duration for a certificate using relative time
+   * 			(<code>DAYS</code>) is one day. The minimum validity for a certificate using absolute
+   * 			time (<code>ABSOLUTE</code> or <code>END_DATE</code>) is one second.</p>
    */
   Type: ValidityPeriodType | string | undefined;
 }
@@ -1250,6 +1677,17 @@ export namespace Validity {
 
 export interface IssueCertificateRequest {
   /**
+   * <p>Specifies X.509 certificate information to be included in the issued certificate. An
+   * 				<code>APIPassthrough</code> or <code>APICSRPassthrough</code> template variant must
+   * 			be selected, or else this parameter is ignored. For more information about using these
+   * 			templates, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html">Understanding Certificate Templates</a>.</p>
+   * 		       <p>If conflicting or duplicate certificate information is supplied during certificate
+   * 			issuance, ACM Private CA applies <a href="xxxxx">order of operation rules</a> to determine
+   * 			what information is used.</p>
+   */
+  ApiPassthrough?: ApiPassthrough;
+
+  /**
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a>. This must be of the form:</p>
    * 		       <p>
    * 			         <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>
@@ -1259,13 +1697,14 @@ export interface IssueCertificateRequest {
   CertificateAuthorityArn: string | undefined;
 
   /**
-   * <p>The certificate signing request (CSR) for the certificate you want to issue. You can
-   * 			use the following OpenSSL command to create the CSR and a 2048 bit RSA private key. </p>
+   * <p>The certificate signing request (CSR) for the certificate you want to issue. As an
+   * 			example, you can use the following OpenSSL command to create the CSR and a 2048 bit RSA
+   * 			private key. </p>
    * 		       <p>
    * 			         <code>openssl req -new -newkey rsa:2048 -days 365 -keyout private/test_cert_priv_key.pem
    * 				-out csr/test_cert_.csr</code>
    * 		       </p>
-   * 		       <p>If you have a configuration file, you can use the following OpenSSL command. The
+   * 		       <p>If you have a configuration file, you can then use the following OpenSSL command. The
    * 				<code>usr_cert</code> block in the configuration file contains your X509 version 3
    * 			extensions. </p>
    * 		       <p>
@@ -1282,7 +1721,7 @@ export interface IssueCertificateRequest {
   /**
    * <p>The name of the algorithm that will be used to sign the certificate to be issued. </p>
    * 		       <p>This parameter should not be confused with the <code>SigningAlgorithm</code> parameter
-   * 			used to sign a CSR.</p>
+   * 			used to sign a CSR in the <code>CreateCertificateAuthority</code> action.</p>
    */
   SigningAlgorithm: SigningAlgorithm | string | undefined;
 
@@ -1294,75 +1733,49 @@ export interface IssueCertificateRequest {
    * 			the ARN, where <i>N</i> is the <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaTerms.html#terms-cadepth">CA depth</a>.</p>
    * 		       <p>Note: The CA depth configured on a subordinate CA certificate must not exceed the
    * 			limit set by its parents in the CA hierarchy.</p>
-   * 		       <p>The following service-owned <code>TemplateArn</code> values are supported by ACM Private CA: </p>
-   * 		       <ul>
-   *             <li>
-   * 				           <p>arn:aws:acm-pca:::template/CodeSigningCertificate/V1</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>arn:aws:acm-pca:::template/CodeSigningCertificate_CSRPassthrough/V1</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>arn:aws:acm-pca:::template/EndEntityCertificate/V1</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>arn:aws:acm-pca:::template/EndEntityCertificate_CSRPassthrough/V1</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>arn:aws:acm-pca:::template/EndEntityClientAuthCertificate/V1</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>arn:aws:acm-pca:::template/EndEntityClientAuthCertificate_CSRPassthrough/V1</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>arn:aws:acm-pca:::template/EndEntityServerAuthCertificate/V1</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>arn:aws:acm-pca:::template/EndEntityServerAuthCertificate_CSRPassthrough/V1</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>arn:aws:acm-pca:::template/OCSPSigningCertificate/V1</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>arn:aws:acm-pca:::template/OCSPSigningCertificate_CSRPassthrough/V1</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>arn:aws:acm-pca:::template/RootCACertificate/V1</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>arn:aws:acm-pca:::template/SubordinateCACertificate_PathLen0/V1</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>arn:aws:acm-pca:::template/SubordinateCACertificate_PathLen1/V1</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>arn:aws:acm-pca:::template/SubordinateCACertificate_PathLen2/V1</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>arn:aws:acm-pca:::template/SubordinateCACertificate_PathLen3/V1</p>
-   * 			         </li>
-   *          </ul>
-   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html">Using Templates</a>.</p>
+   * 		       <p>For a list of <code>TemplateArn</code> values supported by ACM Private CA, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html">Understanding Certificate
+   * 				Templates</a>.</p>
    */
   TemplateArn?: string;
 
   /**
-   * <p>Information describing the validity period of the certificate.</p>
-   * 		       <p>When issuing a certificate, ACM Private CA sets the "Not Before" date in the validity field to
-   * 			date and time minus 60 minutes. This is intended to compensate for time inconsistencies
-   * 			across systems of 60 minutes or less. </p>
-   * 		       <p>The validity period configured on a certificate must not exceed the limit set by its
-   * 			parents in the CA hierarchy.</p>
+   * <p>Information describing the end of the validity period of the certificate. This
+   * 			parameter sets the “Not After” date for the certificate.</p>
+   * 		       <p>Certificate validity is the period of time during which a certificate is valid.
+   * 			Validity can be expressed as an explicit date and time when the certificate expires, or
+   * 			as a span of time after issuance, stated in days, months, or years. For more
+   * 			information, see <a href="https://tools.ietf.org/html/rfc5280#section-4.1.2.5">Validity</a> in RFC 5280. </p>
+   * 		       <p>This value is unaffected when <code>ValidityNotBefore</code> is also specified. For
+   * 			example, if <code>Validity</code> is set to 20 days in the future, the certificate will
+   * 			expire 20 days from issuance time regardless of the <code>ValidityNotBefore</code>
+   * 			value.</p>
+   * 		       <p>The end of the validity period configured on a certificate must not exceed the limit
+   * 			set on its parents in the CA hierarchy.</p>
    */
   Validity: Validity | undefined;
 
   /**
-   * <p>Custom string that can be used to distinguish between calls to the <b>IssueCertificate</b> action. Idempotency tokens time out after
-   * 			one hour. Therefore, if you call <b>IssueCertificate</b>
-   * 			multiple times with the same idempotency token within 5 minutes, ACM Private CA recognizes that
-   * 			you are requesting only one certificate and will issue only one. If you change the
-   * 			idempotency token for each call, PCA recognizes that you are requesting multiple
-   * 			certificates.</p>
+   * <p>Information describing the start of the validity period of the certificate. This
+   * 			parameter sets the “Not Before" date for the certificate.</p>
+   * 		       <p>By default, when issuing a certificate, ACM Private CA sets the "Not Before" date to the
+   * 			issuance time minus 60 minutes. This compensates for clock inconsistencies across
+   * 			computer systems. The <code>ValidityNotBefore</code> parameter can be used to customize
+   * 			the “Not Before” value. </p>
+   * 		       <p>Unlike the <code>Validity</code> parameter, the <code>ValidityNotBefore</code>
+   * 			parameter is optional.</p>
+   * 		       <p>The <code>ValidityNotBefore</code> value is expressed as an explicit date and time,
+   * 			using the <code>Validity</code> type value <code>ABSOLUTE</code>. For more information,
+   * 			see <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_Validity.html">Validity</a> in this API reference and <a href="https://tools.ietf.org/html/rfc5280#section-4.1.2.5">Validity</a> in RFC
+   * 			5280.</p>
+   */
+  ValidityNotBefore?: Validity;
+
+  /**
+   * <p>Alphanumeric string that can be used to distinguish between calls to the <b>IssueCertificate</b> action. Idempotency tokens for <b>IssueCertificate</b> time out after one minute. Therefore, if you
+   * 			call <b>IssueCertificate</b> multiple times with the same
+   * 			idempotency token within one minute, ACM Private CA recognizes that you are requesting only one
+   * 			certificate and will issue only one. If you change the idempotency token for each call,
+   * 			PCA recognizes that you are requesting multiple certificates.</p>
    */
   IdempotencyToken?: string;
 }
@@ -1629,18 +2042,18 @@ export namespace ListTagsResponse {
 
 export interface PutPolicyRequest {
   /**
-   * <p>The Amazon Resource Number (ARN) of the private CA to associate with the policy. The ARN of
-   * 			the CA can be found by calling the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a> action.</p>
+   * <p>The Amazon Resource Number (ARN) of the private CA to associate with the policy. The
+   * 			ARN of the CA can be found by calling the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a> action.</p>
    * 		       <p></p>
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>The path and filename of a JSON-formatted IAM policy to attach to the specified private CA
-   * 			resource. If this policy does not contain all required statements or if it  includes any
-   * 			statement that is not allowed, the <code>PutPolicy</code> action returns an <code>InvalidPolicyException</code>.
-   * 			For information about IAM policy and statement structure, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json">Overview
-   * 				of JSON Policies</a>.</p>
+   * <p>The path and file name of a JSON-formatted IAM policy to attach to the specified
+   * 			private CA resource. If this policy does not contain all required statements or if it
+   * 			includes any statement that is not allowed, the <code>PutPolicy</code> action returns an
+   * 				<code>InvalidPolicyException</code>. For information about IAM policy and
+   * 			statement structure, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json">Overview of JSON Policies</a>.</p>
    */
   Policy: string | undefined;
 }

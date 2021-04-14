@@ -36,15 +36,13 @@ export type PutSecretValueCommandOutput = PutSecretValueResponse & __MetadataBea
  *           automatically attaches the staging label <code>AWSCURRENT</code> to the new version.</p>
  *             </li>
  *             <li>
- *                <p>If another version of this secret already exists, then this operation does not
- *           automatically move any staging labels other than those that you explicitly specify in the
- *             <code>VersionStages</code> parameter.</p>
+ *                <p>If you do not specify a value for VersionStages then Secrets Manager automatically
+ *           moves the staging label <code>AWSCURRENT</code> to this new version.</p>
  *             </li>
  *             <li>
  *                <p>If this operation moves the staging label <code>AWSCURRENT</code> from another version to this
- *           version (because you included it in the <code>StagingLabels</code> parameter) then
- *           Secrets Manager also automatically moves the staging label <code>AWSPREVIOUS</code> to the version that
- *           <code>AWSCURRENT</code> was removed from.</p>
+ *           version, then Secrets Manager also automatically moves the staging label <code>AWSPREVIOUS</code> to
+ *           the version that <code>AWSCURRENT</code> was removed from.</p>
  *             </li>
  *             <li>
  *                <p>This operation is idempotent. If a version with a <code>VersionId</code> with the same

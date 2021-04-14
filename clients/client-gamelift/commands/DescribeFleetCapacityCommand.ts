@@ -21,98 +21,56 @@ export type DescribeFleetCapacityCommandInput = DescribeFleetCapacityInput;
 export type DescribeFleetCapacityCommandOutput = DescribeFleetCapacityOutput & __MetadataBearer;
 
 /**
- * <p>Retrieves the current capacity statistics for one or more fleets. These statistics
- *             present a snapshot of the fleet's instances and provide insight on current or imminent
- *             scaling activity. To get statistics on game hosting activity in the fleet, see <a>DescribeFleetUtilization</a>.</p>
- *         <p>You can request capacity for all fleets or specify a list of one or more fleet
- *             identifiers. When requesting multiple fleets, use the pagination parameters to retrieve
- *             results as a set of sequential pages. If successful, a <a>FleetCapacity</a>
- *             object is returned for each requested fleet ID. When a list of fleet IDs is provided,
- *             attribute objects are returned only for fleets that currently exist.</p>
+ * <p>Retrieves the resource capacity settings for one or more fleets. The data returned
+ *             includes the current fleet capacity (number of EC2 instances), and settings that can
+ *             control how capacity scaling. For fleets with remote locations, this operation retrieves
+ *             data for the fleet's home Region only. See <a>DescribeFleetLocationCapacity</a> to get capacity settings for a fleet's remote locations.</p>
+ *         <p>This operation can be used in the following ways: </p>
+ *         <ul>
+ *             <li>
+ *                 <p>To get capacity data for one or more specific fleets, provide a list of fleet
+ *                     IDs or fleet ARNs. </p>
+ *             </li>
+ *             <li>
+ *                 <p>To get capacity data for all fleets, do not provide a fleet identifier. </p>
+ *             </li>
+ *          </ul>
+ *         <p>When requesting multiple fleets, use the pagination parameters to retrieve results as
+ *             a set of sequential pages. </p>
+ *         <p>If successful, a <a>FleetCapacity</a> object is returned for each requested
+ *             fleet ID. Each FleetCapacity object includes a <code>Location</code> property, which is
+ *             set to the fleet's home Region. When a list of fleet IDs is provided, attribute objects
+ *             are returned only for fleets that currently exist.</p>
  *         <note>
- *             <p>Some API operations may limit the number of fleet IDs allowed in one request. If a
- *                 request exceeds this limit, the request fails and the error message includes the
- *                 maximum allowed.</p>
+ *             <p>Some API operations may limit the number of fleet IDs that are allowed in one
+ *                 request. If a request exceeds this limit, the request fails and the error message
+ *                 includes the maximum allowed.</p>
  *         </note>
  *         <p>
  *             <b>Learn more</b>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift Fleets</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift fleets</a>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html#gamelift-metrics-fleet">GameLift Metrics for Fleets</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html#gamelift-metrics-fleet">GameLift metrics for fleets</a>
  *          </p>
  *         <p>
- *             <b>Related operations</b>
+ *             <b>Related actions</b>
  *          </p>
- *         <ul>
- *             <li>
- *                <p>
- *                   <a>CreateFleet</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListFleets</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteFleet</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>Describe fleets:</p>
- *                         <ul>
- *                   <li>
- *                      <p>
- *                         <a>DescribeFleetAttributes</a>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <a>DescribeFleetCapacity</a>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <a>DescribeFleetPortSettings</a>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <a>DescribeFleetUtilization</a>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <a>DescribeRuntimeConfiguration</a>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <a>DescribeEC2InstanceLimits</a>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <a>DescribeFleetEvents</a>
- *                      </p>
- *                   </li>
- *                </ul>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateFleetAttributes</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>StartFleetActions</a> or <a>StopFleetActions</a>
- *                </p>
- *             </li>
- *          </ul>
+ *                     <p>
+ *             <a>ListFleets</a> |
+ *                     <a>DescribeEC2InstanceLimits</a> |
+ *                     <a>DescribeFleetAttributes</a> |
+ *                     <a>DescribeFleetCapacity</a> |
+ *                     <a>DescribeFleetEvents</a> |
+ *                     <a>DescribeFleetLocationAttributes</a> |
+ *                     <a>DescribeFleetPortSettings</a> |
+ *                     <a>DescribeFleetUtilization</a> |
+ *                     <a>DescribeRuntimeConfiguration</a> |
+ *                     <a>DescribeScalingPolicies</a> |
+ *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          </p>
  */
 export class DescribeFleetCapacityCommand extends $Command<
   DescribeFleetCapacityCommandInput,

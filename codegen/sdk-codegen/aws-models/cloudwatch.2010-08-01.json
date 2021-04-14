@@ -156,10 +156,12 @@
       "traits": {
         "smithy.api#enum": [
           {
-            "value": "CompositeAlarm"
+            "value": "CompositeAlarm",
+            "name": "CompositeAlarm"
           },
           {
-            "value": "MetricAlarm"
+            "value": "MetricAlarm",
+            "name": "MetricAlarm"
           }
         ]
       }
@@ -270,13 +272,16 @@
       "traits": {
         "smithy.api#enum": [
           {
-            "value": "PENDING_TRAINING"
+            "value": "PENDING_TRAINING",
+            "name": "PENDING_TRAINING"
           },
           {
-            "value": "TRAINED_INSUFFICIENT_DATA"
+            "value": "TRAINED_INSUFFICIENT_DATA",
+            "name": "TRAINED_INSUFFICIENT_DATA"
           },
           {
-            "value": "TRAINED"
+            "value": "TRAINED",
+            "name": "TRAINED"
           }
         ]
       }
@@ -301,25 +306,32 @@
       "traits": {
         "smithy.api#enum": [
           {
-            "value": "GreaterThanOrEqualToThreshold"
+            "value": "GreaterThanOrEqualToThreshold",
+            "name": "GreaterThanOrEqualToThreshold"
           },
           {
-            "value": "GreaterThanThreshold"
+            "value": "GreaterThanThreshold",
+            "name": "GreaterThanThreshold"
           },
           {
-            "value": "LessThanThreshold"
+            "value": "LessThanThreshold",
+            "name": "LessThanThreshold"
           },
           {
-            "value": "LessThanOrEqualToThreshold"
+            "value": "LessThanOrEqualToThreshold",
+            "name": "LessThanOrEqualToThreshold"
           },
           {
-            "value": "LessThanLowerOrGreaterThanUpperThreshold"
+            "value": "LessThanLowerOrGreaterThanUpperThreshold",
+            "name": "LessThanLowerOrGreaterThanUpperThreshold"
           },
           {
-            "value": "LessThanLowerThreshold"
+            "value": "LessThanLowerThreshold",
+            "name": "LessThanLowerThreshold"
           },
           {
-            "value": "GreaterThanUpperThreshold"
+            "value": "GreaterThanUpperThreshold",
+            "name": "GreaterThanUpperThreshold"
           }
         ]
       }
@@ -813,6 +825,45 @@
           }
         }
       }
+    },
+    "com.amazonaws.cloudwatch#DeleteMetricStream": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.cloudwatch#DeleteMetricStreamInput"
+      },
+      "output": {
+        "target": "com.amazonaws.cloudwatch#DeleteMetricStreamOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.cloudwatch#InternalServiceFault"
+        },
+        {
+          "target": "com.amazonaws.cloudwatch#InvalidParameterValueException"
+        },
+        {
+          "target": "com.amazonaws.cloudwatch#MissingRequiredParameterException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Permanently deletes the metric stream that you specify.</p>"
+      }
+    },
+    "com.amazonaws.cloudwatch#DeleteMetricStreamInput": {
+      "type": "structure",
+      "members": {
+        "Name": {
+          "target": "com.amazonaws.cloudwatch#MetricStreamName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the metric stream to delete.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.cloudwatch#DeleteMetricStreamOutput": {
+      "type": "structure",
+      "members": {}
     },
     "com.amazonaws.cloudwatch#DescribeAlarmHistory": {
       "type": "operation",
@@ -1758,8 +1809,17 @@
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of data points the request should return before paginating. If you omit\n\t\t\tthis, the default of 100,800 is used.</p>"
           }
+        },
+        "LabelOptions": {
+          "target": "com.amazonaws.cloudwatch#LabelOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>This structure includes the <code>Timezone</code> parameter, which you can use\n\t\t\tto specify your time zone so that the labels of returned data display the \n\t\t\tcorrect time\n\t\t\tfor your time zone. </p>"
+          }
         }
       }
+    },
+    "com.amazonaws.cloudwatch#GetMetricDataLabelTimezone": {
+      "type": "string"
     },
     "com.amazonaws.cloudwatch#GetMetricDataMaxDatapoints": {
       "type": "integer",
@@ -1897,6 +1957,112 @@
         }
       }
     },
+    "com.amazonaws.cloudwatch#GetMetricStream": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.cloudwatch#GetMetricStreamInput"
+      },
+      "output": {
+        "target": "com.amazonaws.cloudwatch#GetMetricStreamOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.cloudwatch#InternalServiceFault"
+        },
+        {
+          "target": "com.amazonaws.cloudwatch#InvalidParameterCombinationException"
+        },
+        {
+          "target": "com.amazonaws.cloudwatch#InvalidParameterValueException"
+        },
+        {
+          "target": "com.amazonaws.cloudwatch#MissingRequiredParameterException"
+        },
+        {
+          "target": "com.amazonaws.cloudwatch#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns information about the metric stream that you specify.</p>"
+      }
+    },
+    "com.amazonaws.cloudwatch#GetMetricStreamInput": {
+      "type": "structure",
+      "members": {
+        "Name": {
+          "target": "com.amazonaws.cloudwatch#MetricStreamName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the metric stream to retrieve information about.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.cloudwatch#GetMetricStreamOutput": {
+      "type": "structure",
+      "members": {
+        "Arn": {
+          "target": "com.amazonaws.cloudwatch#AmazonResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the metric stream.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.cloudwatch#MetricStreamName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the metric stream.</p>"
+          }
+        },
+        "IncludeFilters": {
+          "target": "com.amazonaws.cloudwatch#MetricStreamFilters",
+          "traits": {
+            "smithy.api#documentation": "<p>If this array of metric namespaces is present, then these\n\t\t\tnamespaces are the only\n\t\tmetric namespaces that are streamed by this metric stream.</p>"
+          }
+        },
+        "ExcludeFilters": {
+          "target": "com.amazonaws.cloudwatch#MetricStreamFilters",
+          "traits": {
+            "smithy.api#documentation": "<p>If this array of metric namespaces is present, then these namespaces are the only\n\t\t\tmetric namespaces that are not streamed by this metric stream. In this case, all other metric namespaces in\n\t\tthe account are streamed by this metric stream.</p>"
+          }
+        },
+        "FirehoseArn": {
+          "target": "com.amazonaws.cloudwatch#AmazonResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the Amazon Kinesis Firehose delivery stream that is used by\n\t\tthis metric stream.</p>"
+          }
+        },
+        "RoleArn": {
+          "target": "com.amazonaws.cloudwatch#AmazonResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the IAM role that is used by this metric stream.</p>"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.cloudwatch#MetricStreamState",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of the metric stream. The possible values are <code>running</code>\n\t\tand <code>stopped</code>.</p>"
+          }
+        },
+        "CreationDate": {
+          "target": "com.amazonaws.cloudwatch#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date that the metric stream was created.</p>"
+          }
+        },
+        "LastUpdateDate": {
+          "target": "com.amazonaws.cloudwatch#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date of the most recent update to the metric stream's configuration.</p>"
+          }
+        },
+        "OutputFormat": {
+          "target": "com.amazonaws.cloudwatch#MetricStreamOutputFormat",
+          "traits": {
+            "smithy.api#documentation": "<p></p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.cloudwatch#GetMetricWidgetImage": {
       "type": "operation",
       "input": {
@@ -1955,6 +2121,9 @@
           "target": "com.amazonaws.cloudwatch#DeleteInsightRules"
         },
         {
+          "target": "com.amazonaws.cloudwatch#DeleteMetricStream"
+        },
+        {
           "target": "com.amazonaws.cloudwatch#DescribeAlarmHistory"
         },
         {
@@ -1994,6 +2163,9 @@
           "target": "com.amazonaws.cloudwatch#GetMetricStatistics"
         },
         {
+          "target": "com.amazonaws.cloudwatch#GetMetricStream"
+        },
+        {
           "target": "com.amazonaws.cloudwatch#GetMetricWidgetImage"
         },
         {
@@ -2001,6 +2173,9 @@
         },
         {
           "target": "com.amazonaws.cloudwatch#ListMetrics"
+        },
+        {
+          "target": "com.amazonaws.cloudwatch#ListMetricStreams"
         },
         {
           "target": "com.amazonaws.cloudwatch#ListTagsForResource"
@@ -2024,7 +2199,16 @@
           "target": "com.amazonaws.cloudwatch#PutMetricData"
         },
         {
+          "target": "com.amazonaws.cloudwatch#PutMetricStream"
+        },
+        {
           "target": "com.amazonaws.cloudwatch#SetAlarmState"
+        },
+        {
+          "target": "com.amazonaws.cloudwatch#StartMetricStreams"
+        },
+        {
+          "target": "com.amazonaws.cloudwatch#StopMetricStreams"
         },
         {
           "target": "com.amazonaws.cloudwatch#TagResource"
@@ -2066,13 +2250,16 @@
       "traits": {
         "smithy.api#enum": [
           {
-            "value": "ConfigurationUpdate"
+            "value": "ConfigurationUpdate",
+            "name": "ConfigurationUpdate"
           },
           {
-            "value": "StateUpdate"
+            "value": "StateUpdate",
+            "name": "StateUpdate"
           },
           {
-            "value": "Action"
+            "value": "Action",
+            "name": "Action"
           }
         ]
       }
@@ -2448,6 +2635,20 @@
         "smithy.api#httpError": 400
       }
     },
+    "com.amazonaws.cloudwatch#LabelOptions": {
+      "type": "structure",
+      "members": {
+        "Timezone": {
+          "target": "com.amazonaws.cloudwatch#GetMetricDataLabelTimezone",
+          "traits": {
+            "smithy.api#documentation": "<p>The time zone to use for metric data return in this operation. \n\t\t\tThe format is <code>+</code> or <code>-</code> followed by four digits. \n\t\t\tThe first two digits indicate the number of hours ahead or behind of UTC, and \n\t\t\tthe final two digits are the number of minutes. For example, +0130 indicates a time zone that is 1 hour \n\t\t\tand 30 minutes ahead of UTC. The default is +0000. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>This structure includes the <code>Timezone</code> parameter, which you can use\n\t\t\tto specify your time zone so that the labels that are associated with returned metrics display the \n\t\t\tcorrect time\n\t\t\tfor your time zone. </p>\n\t\t       <p>The <code>Timezone</code> value affects a label only if you have a time-based\n\t\tdynamic expression in the label. For more information about dynamic expressions in labels, \n\t\tsee <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/graph-dynamic-labels.html\">Using Dynamic Labels</a>.</p>"
+      }
+    },
     "com.amazonaws.cloudwatch#LastModified": {
       "type": "timestamp"
     },
@@ -2535,6 +2736,81 @@
           "target": "com.amazonaws.cloudwatch#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>The token that marks the start of the next batch of returned results.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.cloudwatch#ListMetricStreams": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.cloudwatch#ListMetricStreamsInput"
+      },
+      "output": {
+        "target": "com.amazonaws.cloudwatch#ListMetricStreamsOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.cloudwatch#InternalServiceFault"
+        },
+        {
+          "target": "com.amazonaws.cloudwatch#InvalidNextToken"
+        },
+        {
+          "target": "com.amazonaws.cloudwatch#InvalidParameterValueException"
+        },
+        {
+          "target": "com.amazonaws.cloudwatch#MissingRequiredParameterException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns a list of metric streams in this account.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.cloudwatch#ListMetricStreamsInput": {
+      "type": "structure",
+      "members": {
+        "NextToken": {
+          "target": "com.amazonaws.cloudwatch#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>Include this value, if it was returned by the previous call, to get the next set of metric streams.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.cloudwatch#ListMetricStreamsMaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return in one operation.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.cloudwatch#ListMetricStreamsMaxResults": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#box": {},
+        "smithy.api#range": {
+          "min": 1,
+          "max": 500
+        }
+      }
+    },
+    "com.amazonaws.cloudwatch#ListMetricStreamsOutput": {
+      "type": "structure",
+      "members": {
+        "NextToken": {
+          "target": "com.amazonaws.cloudwatch#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token that marks the start of the next batch of returned results. You can use this \n\t\ttoken in a subsequent operation to get the next batch of results.</p>"
+          }
+        },
+        "Entries": {
+          "target": "com.amazonaws.cloudwatch#MetricStreamEntries",
+          "traits": {
+            "smithy.api#documentation": "<p>The array of metric stream information.</p>"
           }
         }
       }
@@ -2949,7 +3225,7 @@
         "Label": {
           "target": "com.amazonaws.cloudwatch#MetricLabel",
           "traits": {
-            "smithy.api#documentation": "<p>A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know\n\t\t\twhat the value represents. If the metric or expression is shown in a CloudWatch dashboard widget, the label is shown. If Label is omitted, CloudWatch \n\t\t\tgenerates a default.</p>"
+            "smithy.api#documentation": "<p>A human-readable label for this metric or expression. This is especially useful \n\t\t\tif this is an expression, so that you know\n\t\t\twhat the value represents. If the metric or expression is shown in a \n\t\t\tCloudWatch dashboard widget, the label is shown. If Label is omitted, CloudWatch \n\t\t\tgenerates a default.</p>\n\t\t       <p>You can put dynamic expressions into a label, so that it is more descriptive. \n\t\t\tFor more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/graph-dynamic-labels.html\">Using Dynamic Labels</a>.</p>"
           }
         },
         "ReturnData": {
@@ -3152,6 +3428,119 @@
       "traits": {
         "smithy.api#documentation": "<p>This structure defines the metric to be returned, along with the statistics, period, and units.</p>"
       }
+    },
+    "com.amazonaws.cloudwatch#MetricStreamEntries": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.cloudwatch#MetricStreamEntry"
+      }
+    },
+    "com.amazonaws.cloudwatch#MetricStreamEntry": {
+      "type": "structure",
+      "members": {
+        "Arn": {
+          "target": "com.amazonaws.cloudwatch#AmazonResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the metric stream.</p>"
+          }
+        },
+        "CreationDate": {
+          "target": "com.amazonaws.cloudwatch#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date that the metric stream was originally created.</p>"
+          }
+        },
+        "LastUpdateDate": {
+          "target": "com.amazonaws.cloudwatch#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date that the configuration of this metric stream was most recently updated.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.cloudwatch#MetricStreamName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the metric stream.</p>"
+          }
+        },
+        "FirehoseArn": {
+          "target": "com.amazonaws.cloudwatch#AmazonResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the Kinesis Firehose devlivery stream that is used for this metric stream.</p>"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.cloudwatch#MetricStreamState",
+          "traits": {
+            "smithy.api#documentation": "<p>The current state of this stream. Valid values are <code>running</code> and <code>stopped</code>.</p>"
+          }
+        },
+        "OutputFormat": {
+          "target": "com.amazonaws.cloudwatch#MetricStreamOutputFormat",
+          "traits": {
+            "smithy.api#documentation": "<p>The output format of this metric stream. Valid values are \n\t\t\t<code>json</code>\n\t\t\tand <code>opentelemetry0.7</code>.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>This structure contains the configuration information about one metric stream.</p>"
+      }
+    },
+    "com.amazonaws.cloudwatch#MetricStreamFilter": {
+      "type": "structure",
+      "members": {
+        "Namespace": {
+          "target": "com.amazonaws.cloudwatch#Namespace",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the metric namespace in the filter.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>This structure contains the name of one of the metric namespaces that is listed in\n\t\ta filter of a metric stream.</p>"
+      }
+    },
+    "com.amazonaws.cloudwatch#MetricStreamFilters": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.cloudwatch#MetricStreamFilter"
+      }
+    },
+    "com.amazonaws.cloudwatch#MetricStreamName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 255
+        }
+      }
+    },
+    "com.amazonaws.cloudwatch#MetricStreamNames": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.cloudwatch#MetricStreamName"
+      }
+    },
+    "com.amazonaws.cloudwatch#MetricStreamOutputFormat": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "json",
+            "name": "JSON"
+          },
+          {
+            "value": "opentelemetry0.7",
+            "name": "OPEN_TELEMETRY_0_7"
+          }
+        ],
+        "smithy.api#length": {
+          "min": 1,
+          "max": 255
+        }
+      }
+    },
+    "com.amazonaws.cloudwatch#MetricStreamState": {
+      "type": "string"
     },
     "com.amazonaws.cloudwatch#MetricWidget": {
       "type": "string"
@@ -3494,7 +3883,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates or updates an alarm and associates it with the specified metric, metric math expression, \n\t\t\tor anomaly detection model.</p>\n\t\t       <p>Alarms based on anomaly detection models cannot have Auto Scaling actions.</p>\n\t\t       <p>When this operation creates an alarm, the alarm state is immediately set to\n\t\t\t<code>INSUFFICIENT_DATA</code>. The alarm is then evaluated and its state is set\n\t\t\tappropriately. Any actions associated with the new state are then executed.</p>\n\t\t       <p>When you update an existing alarm, its state is left unchanged, but the\n\t\t\tupdate completely overwrites the previous configuration of the alarm.</p>\n\n\t\t       <p>If you are an IAM user, you must have \n\t\t\tAmazon EC2 permissions for some alarm operations:</p>\n\t\t       <ul>\n            <li>\n\t\t\t\t           <p>The <code>iam:CreateServiceLinkedRole</code> for all alarms with EC2 actions</p>\n\t\t\t\t\n\t\t\t         </li>\n            <li>\n\t\t\t\t\n\t\t\t\t           <p>The <code>iam:CreateServiceLinkedRole</code> to create an alarm\n\t\t\t\t\twith Systems Manager OpsItem actions.</p>\n\t\t\t         </li>\n         </ul>\n\t\t\n\t\t\n\t\t\n\n\t\t\n\t\t\n\t\t       <p>The first time you create an alarm in the \n\t\t\tAWS Management Console, the CLI, or by using the PutMetricAlarm API, CloudWatch\n\t\t\tcreates the necessary service-linked rolea for you. The service-linked roles \n\t\t\tare called <code>AWSServiceRoleForCloudWatchEvents</code> and \n\t\t\t<code>AWSServiceRoleForCloudWatchAlarms_ActionSSM</code>.\n\t\t\tFor more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role\">AWS service-linked role</a>.</p>"
+        "smithy.api#documentation": "<p>Creates or updates an alarm and associates it with the specified metric, metric math expression, \n\t\t\tor anomaly detection model.</p>\n\t\t       <p>Alarms based on anomaly detection models cannot have Auto Scaling actions.</p>\n\t\t       <p>When this operation creates an alarm, the alarm state is immediately set to\n\t\t\t<code>INSUFFICIENT_DATA</code>. The alarm is then evaluated and its state is set\n\t\t\tappropriately. Any actions associated with the new state are then executed.</p>\n\t\t       <p>When you update an existing alarm, its state is left unchanged, but the\n\t\t\tupdate completely overwrites the previous configuration of the alarm.</p>\n\n\t\t       <p>If you are an IAM user, you must have \n\t\t\tAmazon EC2 permissions for some alarm operations:</p>\n\t\t       <ul>\n            <li>\n\t\t\t\t           <p>The <code>iam:CreateServiceLinkedRole</code> for all alarms with EC2 actions</p>\n\t\t\t\t\n\t\t\t         </li>\n            <li>\n\t\t\t\t\n\t\t\t\t           <p>The <code>iam:CreateServiceLinkedRole</code> to create an alarm\n\t\t\t\t\twith Systems Manager OpsItem actions.</p>\n\t\t\t         </li>\n         </ul>\n\t\t\n\t\t\n\t\t\n\n\t\t\n\t\t\n\t\t       <p>The first time you create an alarm in the \n\t\t\tAWS Management Console, the CLI, or by using the PutMetricAlarm API, CloudWatch\n\t\t\tcreates the necessary service-linked role for you. The service-linked roles \n\t\t\tare called <code>AWSServiceRoleForCloudWatchEvents</code> and \n\t\t\t<code>AWSServiceRoleForCloudWatchAlarms_ActionSSM</code>.\n\t\t\tFor more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role\">AWS service-linked role</a>.</p>"
       }
     },
     "com.amazonaws.cloudwatch#PutMetricAlarmInput": {
@@ -3522,7 +3911,7 @@
         "OKActions": {
           "target": "com.amazonaws.cloudwatch#ResourceList",
           "traits": {
-            "smithy.api#documentation": "<p>The actions to execute when this alarm transitions to an <code>OK</code> state\n\t\t\tfrom any other state. Each action is specified as an Amazon Resource Name (ARN).</p>\n\n\t\t       <p>Valid Values: <code>arn:aws:automate:<i>region</i>:ec2:stop</code> | \n\t\t\t<code>arn:aws:automate:<i>region</i>:ec2:terminate</code> | \n\t\t\t<code>arn:aws:automate:<i>region</i>:ec2:recover</code> |\n\t\t\t<code>arn:aws:automate:<i>region</i>:ec2:reboot</code> |\n\t\t\t<code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>\n            </code> |\n\t\t\t<code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i>\n            </code>\n         </p>\n\n\t\t       <p>Valid Values (for use with IAM roles):\n\t\t\t<code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code> |\n\t\t\t\t<code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code> |\n\t\t\t\t<code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code>\n         </p>"
+            "smithy.api#documentation": "<p>The actions to execute when this alarm transitions to an <code>OK</code> state\n\t\t\tfrom any other state. Each action is specified as an Amazon Resource Name (ARN).</p>\n\n\t\t       <p>Valid Values: <code>arn:aws:automate:<i>region</i>:ec2:stop</code> | \n\t\t\t<code>arn:aws:automate:<i>region</i>:ec2:terminate</code> | \n\t\t\t<code>arn:aws:automate:<i>region</i>:ec2:recover</code> |\n\t\t\t<code>arn:aws:automate:<i>region</i>:ec2:reboot</code> |\n\t\t\t<code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>\n            </code> |\n\t\t\t<code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i>\n            </code>\n         </p>\n\n\t\t       <p>Valid Values (for use with IAM roles):\n\t\t\t<code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code> |\n\t\t\t\t<code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code> |\n\t\t\t\t<code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code> |\n\t\t\t    <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Recover/1.0</code>\n         </p>"
           }
         },
         "AlarmActions": {
@@ -3675,6 +4064,97 @@
           "traits": {
             "smithy.api#documentation": "<p>The data for the metric. The array can include no more than 20 metrics per call.</p>",
             "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.cloudwatch#PutMetricStream": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.cloudwatch#PutMetricStreamInput"
+      },
+      "output": {
+        "target": "com.amazonaws.cloudwatch#PutMetricStreamOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.cloudwatch#ConcurrentModificationException"
+        },
+        {
+          "target": "com.amazonaws.cloudwatch#InternalServiceFault"
+        },
+        {
+          "target": "com.amazonaws.cloudwatch#InvalidParameterCombinationException"
+        },
+        {
+          "target": "com.amazonaws.cloudwatch#InvalidParameterValueException"
+        },
+        {
+          "target": "com.amazonaws.cloudwatch#MissingRequiredParameterException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Creates or updates a metric stream. Metric streams can automatically stream CloudWatch metrics \n\t\t\tto AWS destinations including\n\t\t\tAmazon S3 and to many third-party solutions.</p>\n\t\t       <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Metric-Streams.html\">\n\t\tUsing Metric Streams</a>.</p>\n\t\t       <p>To create a metric stream, \n\t\t\tyou must be logged on to an account that has the <code>iam:PassRole</code> permission\n\t\t\tand either the <code>CloudWatchFullAccess</code>\n\t\tpolicy or the <code>cloudwatch:PutMetricStream</code> \n\t\tpermission.</p>\n\t\t       <p>When you create or update a metric stream, you choose one of the following:</p>\n\t\t       <ul>\n            <li>\n               <p>Stream metrics from all metric namespaces in the account.</p>\n            </li>\n            <li>\n               <p>Stream metrics from all metric namespaces in the account, except\n\t\t\t\tfor the namespaces that you list in <code>ExcludeFilters</code>.</p>\n            </li>\n            <li>\n               <p>Stream metrics from only the metric namespaces that you list in \n\t\t\t\t<code>IncludeFilters</code>.</p>\n            </li>\n         </ul>\n\t\t\n\t\t       <p>When you use <code>PutMetricStream</code> to create a new metric stream, the stream \n\t\tis created in the <code>running</code> state. If you use it to update an existing stream, \n\t\tthe state of the stream is not changed.</p>"
+      }
+    },
+    "com.amazonaws.cloudwatch#PutMetricStreamInput": {
+      "type": "structure",
+      "members": {
+        "Name": {
+          "target": "com.amazonaws.cloudwatch#MetricStreamName",
+          "traits": {
+            "smithy.api#documentation": "<p>If you are creating a new metric stream, this is the name for the new stream. The name\n\t\tmust be different than the names of other metric streams in this account and Region.</p>\n\t\t       <p>If you are updating a metric stream, specify the name of that stream here.</p>\n\t\t       <p>Valid characters are A-Z, a-z, 0-9, \"-\" and \"_\".</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "IncludeFilters": {
+          "target": "com.amazonaws.cloudwatch#MetricStreamFilters",
+          "traits": {
+            "smithy.api#documentation": "<p>If you specify this parameter, the stream sends only the \n\t\tmetrics from the metric namespaces that you specify here.</p>\n\t\t       <p>You cannot include <code>IncludeFilters</code> and <code>ExcludeFilters</code>\n\t\tin the same operation.</p>"
+          }
+        },
+        "ExcludeFilters": {
+          "target": "com.amazonaws.cloudwatch#MetricStreamFilters",
+          "traits": {
+            "smithy.api#documentation": "<p>If you specify this parameter, the stream sends metrics from all\n\t\t\tmetric namespaces except for the namespaces that you specify here.</p>\n\t\t       <p>You cannot include <code>ExcludeFilters</code> and <code>IncludeFilters</code> in \n\t\t\tthe same operation.</p>"
+          }
+        },
+        "FirehoseArn": {
+          "target": "com.amazonaws.cloudwatch#AmazonResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream.\n\t\tThis Amazon Kinesis Firehose delivery stream must already exist and must be in the same\n\t\taccount as the metric stream.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "RoleArn": {
+          "target": "com.amazonaws.cloudwatch#AmazonResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of an IAM role that this metric stream will use to access\n\t\t\tAmazon Kinesis Firehose resources. This IAM role must already \n\t\texist and must be in the same account as the metric stream. This IAM role must include the following permissions:</p>\n\t\t       <ul>\n            <li>\n               <p>firehose:PutRecord</p>\n            </li>\n            <li>\n               <p>firehose:PutRecordBatch</p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
+          }
+        },
+        "OutputFormat": {
+          "target": "com.amazonaws.cloudwatch#MetricStreamOutputFormat",
+          "traits": {
+            "smithy.api#documentation": "<p>The output format for the stream. Valid values are <code>json</code>\n\t\tand <code>opentelemetry0.7</code>. For more information about metric stream\n\t\toutput formats, see \n\t\t\t<a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html\">\n\t\t\t\tMetric streams output formats</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.cloudwatch#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of key-value pairs to associate with the metric stream. You can associate as \n\t\t\tmany as 50 tags with a metric stream.</p>\n\t\t       <p>Tags can help you organize and categorize your resources. You can also use them to scope user\n\t\t\tpermissions by granting a user\n\t\t\tpermission to access or change only resources with certain tag values.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.cloudwatch#PutMetricStreamOutput": {
+      "type": "structure",
+      "members": {
+        "Arn": {
+          "target": "com.amazonaws.cloudwatch#AmazonResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the metric stream.</p>"
           }
         }
       }
@@ -3852,88 +4332,154 @@
       "traits": {
         "smithy.api#enum": [
           {
-            "value": "Seconds"
+            "value": "Seconds",
+            "name": "Seconds"
           },
           {
-            "value": "Microseconds"
+            "value": "Microseconds",
+            "name": "Microseconds"
           },
           {
-            "value": "Milliseconds"
+            "value": "Milliseconds",
+            "name": "Milliseconds"
           },
           {
-            "value": "Bytes"
+            "value": "Bytes",
+            "name": "Bytes"
           },
           {
-            "value": "Kilobytes"
+            "value": "Kilobytes",
+            "name": "Kilobytes"
           },
           {
-            "value": "Megabytes"
+            "value": "Megabytes",
+            "name": "Megabytes"
           },
           {
-            "value": "Gigabytes"
+            "value": "Gigabytes",
+            "name": "Gigabytes"
           },
           {
-            "value": "Terabytes"
+            "value": "Terabytes",
+            "name": "Terabytes"
           },
           {
-            "value": "Bits"
+            "value": "Bits",
+            "name": "Bits"
           },
           {
-            "value": "Kilobits"
+            "value": "Kilobits",
+            "name": "Kilobits"
           },
           {
-            "value": "Megabits"
+            "value": "Megabits",
+            "name": "Megabits"
           },
           {
-            "value": "Gigabits"
+            "value": "Gigabits",
+            "name": "Gigabits"
           },
           {
-            "value": "Terabits"
+            "value": "Terabits",
+            "name": "Terabits"
           },
           {
-            "value": "Percent"
+            "value": "Percent",
+            "name": "Percent"
           },
           {
-            "value": "Count"
+            "value": "Count",
+            "name": "Count"
           },
           {
-            "value": "Bytes/Second"
+            "value": "Bytes/Second",
+            "name": "Bytes_Second"
           },
           {
-            "value": "Kilobytes/Second"
+            "value": "Kilobytes/Second",
+            "name": "Kilobytes_Second"
           },
           {
-            "value": "Megabytes/Second"
+            "value": "Megabytes/Second",
+            "name": "Megabytes_Second"
           },
           {
-            "value": "Gigabytes/Second"
+            "value": "Gigabytes/Second",
+            "name": "Gigabytes_Second"
           },
           {
-            "value": "Terabytes/Second"
+            "value": "Terabytes/Second",
+            "name": "Terabytes_Second"
           },
           {
-            "value": "Bits/Second"
+            "value": "Bits/Second",
+            "name": "Bits_Second"
           },
           {
-            "value": "Kilobits/Second"
+            "value": "Kilobits/Second",
+            "name": "Kilobits_Second"
           },
           {
-            "value": "Megabits/Second"
+            "value": "Megabits/Second",
+            "name": "Megabits_Second"
           },
           {
-            "value": "Gigabits/Second"
+            "value": "Gigabits/Second",
+            "name": "Gigabits_Second"
           },
           {
-            "value": "Terabits/Second"
+            "value": "Terabits/Second",
+            "name": "Terabits_Second"
           },
           {
-            "value": "Count/Second"
+            "value": "Count/Second",
+            "name": "Count_Second"
           },
           {
-            "value": "None"
+            "value": "None",
+            "name": "None"
           }
         ]
       }
+    },
+    "com.amazonaws.cloudwatch#StartMetricStreams": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.cloudwatch#StartMetricStreamsInput"
+      },
+      "output": {
+        "target": "com.amazonaws.cloudwatch#StartMetricStreamsOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.cloudwatch#InternalServiceFault"
+        },
+        {
+          "target": "com.amazonaws.cloudwatch#InvalidParameterValueException"
+        },
+        {
+          "target": "com.amazonaws.cloudwatch#MissingRequiredParameterException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Starts the streaming of metrics for one or more of your metric streams.</p>"
+      }
+    },
+    "com.amazonaws.cloudwatch#StartMetricStreamsInput": {
+      "type": "structure",
+      "members": {
+        "Names": {
+          "target": "com.amazonaws.cloudwatch#MetricStreamNames",
+          "traits": {
+            "smithy.api#documentation": "<p>The array of the names of metric streams to start streaming.</p>\n\t\t       <p>This is an \"all or nothing\" operation. If you do not have \n\t\tpermission to access all of the metric streams that you list here, then none of the streams that you list\n\t\tin the operation will start streaming.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.cloudwatch#StartMetricStreamsOutput": {
+      "type": "structure",
+      "members": {}
     },
     "com.amazonaws.cloudwatch#Stat": {
       "type": "string"
@@ -3961,13 +4507,16 @@
       "traits": {
         "smithy.api#enum": [
           {
-            "value": "OK"
+            "value": "OK",
+            "name": "OK"
           },
           {
-            "value": "ALARM"
+            "value": "ALARM",
+            "name": "ALARM"
           },
           {
-            "value": "INSUFFICIENT_DATA"
+            "value": "INSUFFICIENT_DATA",
+            "name": "INSUFFICIENT_DATA"
           }
         ]
       }
@@ -3977,19 +4526,24 @@
       "traits": {
         "smithy.api#enum": [
           {
-            "value": "SampleCount"
+            "value": "SampleCount",
+            "name": "SampleCount"
           },
           {
-            "value": "Average"
+            "value": "Average",
+            "name": "Average"
           },
           {
-            "value": "Sum"
+            "value": "Sum",
+            "name": "Sum"
           },
           {
-            "value": "Minimum"
+            "value": "Minimum",
+            "name": "Minimum"
           },
           {
-            "value": "Maximum"
+            "value": "Maximum",
+            "name": "Maximum"
           }
         ]
       }
@@ -4060,6 +4614,45 @@
           }
         ]
       }
+    },
+    "com.amazonaws.cloudwatch#StopMetricStreams": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.cloudwatch#StopMetricStreamsInput"
+      },
+      "output": {
+        "target": "com.amazonaws.cloudwatch#StopMetricStreamsOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.cloudwatch#InternalServiceFault"
+        },
+        {
+          "target": "com.amazonaws.cloudwatch#InvalidParameterValueException"
+        },
+        {
+          "target": "com.amazonaws.cloudwatch#MissingRequiredParameterException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Stops the streaming of metrics for one or more of your metric streams.</p>"
+      }
+    },
+    "com.amazonaws.cloudwatch#StopMetricStreamsInput": {
+      "type": "structure",
+      "members": {
+        "Names": {
+          "target": "com.amazonaws.cloudwatch#MetricStreamNames",
+          "traits": {
+            "smithy.api#documentation": "<p>The array of the names of metric streams to stop streaming.</p>\n\t\t       <p>This is an \"all or nothing\" operation. If you do not have \n\t\t\tpermission to access all of the metric streams that you list here, then none of the streams that you list\n\t\t\tin the operation will stop streaming.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.cloudwatch#StopMetricStreamsOutput": {
+      "type": "structure",
+      "members": {}
     },
     "com.amazonaws.cloudwatch#StorageResolution": {
       "type": "integer",

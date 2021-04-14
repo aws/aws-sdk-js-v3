@@ -38,38 +38,19 @@ export type StopMatchmakingCommandOutput = StopMatchmakingOutput & __MetadataBea
  *          </p>
  *         <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-client.html">
- *                 Add FlexMatch to a Game Client</a>
+ *                 Add FlexMatch to a game client</a>
  *          </p>
  *         <p>
- *             <b>Related operations</b>
+ *             <b>Related actions</b>
  *          </p>
- *         <ul>
- *             <li>
- *                <p>
- *                   <a>StartMatchmaking</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DescribeMatchmaking</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>StopMatchmaking</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>AcceptMatch</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>StartMatchBackfill</a>
- *                </p>
- *             </li>
- *          </ul>
+ *                     <p>
+ *             <a>StartMatchmaking</a> |
+ *                     <a>DescribeMatchmaking</a> |
+ *                     <a>StopMatchmaking</a> |
+ *                     <a>AcceptMatch</a> |
+ *                     <a>StartMatchBackfill</a> |
+ *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          </p>
  */
 export class StopMatchmakingCommand extends $Command<
   StopMatchmakingCommandInput,

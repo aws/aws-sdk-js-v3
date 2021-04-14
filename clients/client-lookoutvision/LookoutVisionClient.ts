@@ -11,8 +11,14 @@ import { DetectAnomaliesCommandInput, DetectAnomaliesCommandOutput } from "./com
 import { ListDatasetEntriesCommandInput, ListDatasetEntriesCommandOutput } from "./commands/ListDatasetEntriesCommand";
 import { ListModelsCommandInput, ListModelsCommandOutput } from "./commands/ListModelsCommand";
 import { ListProjectsCommandInput, ListProjectsCommandOutput } from "./commands/ListProjectsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
 import { StartModelCommandInput, StartModelCommandOutput } from "./commands/StartModelCommand";
 import { StopModelCommandInput, StopModelCommandOutput } from "./commands/StopModelCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateDatasetEntriesCommandInput,
   UpdateDatasetEntriesCommandOutput,
@@ -82,8 +88,11 @@ export type ServiceInputTypes =
   | ListDatasetEntriesCommandInput
   | ListModelsCommandInput
   | ListProjectsCommandInput
+  | ListTagsForResourceCommandInput
   | StartModelCommandInput
   | StopModelCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateDatasetEntriesCommandInput;
 
 export type ServiceOutputTypes =
@@ -100,8 +109,11 @@ export type ServiceOutputTypes =
   | ListDatasetEntriesCommandOutput
   | ListModelsCommandOutput
   | ListProjectsCommandOutput
+  | ListTagsForResourceCommandOutput
   | StartModelCommandOutput
   | StopModelCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateDatasetEntriesCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

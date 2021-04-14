@@ -2,8 +2,8 @@ import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
- * <p>A cost allocation Tag that can be added to an ElastiCache cluster or replication group.
- *             Tags are composed of a Key/Value pair. A tag with a null Value is permitted.</p>
+ * <p>A tag that can be added to an ElastiCache cluster or replication group.
+ *             Tags are composed of a Key/Value pair. You can use tags to categorize and track all your ElastiCache resources, with the exception of global replication group. When you add or remove tags on replication groups, those actions will be replicated to all nodes in the replication group. A tag with a null Value is permitted.</p>
  */
 export interface Tag {
   /**
@@ -37,8 +37,8 @@ export interface AddTagsToResourceMessage {
   ResourceName: string | undefined;
 
   /**
-   * <p>A list of cost allocation tags to be added to this resource. A tag is a key-value pair.
-   *           A tag key must be accompanied by a tag value.</p>
+   * <p>A list of tags to be added to this resource. A tag is a key-value pair.
+   *           A tag key must be accompanied by a tag value, although null is accepted.</p>
    */
   Tags: Tag[] | undefined;
 }
@@ -65,6 +65,51 @@ export namespace CacheClusterNotFoundFault {
 }
 
 /**
+ * <p>The requested cache parameter group name does not refer to an existing cache parameter group.</p>
+ */
+export interface CacheParameterGroupNotFoundFault extends __SmithyException, $MetadataBearer {
+  name: "CacheParameterGroupNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace CacheParameterGroupNotFoundFault {
+  export const filterSensitiveLog = (obj: CacheParameterGroupNotFoundFault): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The requested cache security group name does not refer to an existing cache security group.</p>
+ */
+export interface CacheSecurityGroupNotFoundFault extends __SmithyException, $MetadataBearer {
+  name: "CacheSecurityGroupNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace CacheSecurityGroupNotFoundFault {
+  export const filterSensitiveLog = (obj: CacheSecurityGroupNotFoundFault): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The requested cache subnet group name does not refer to an existing cache subnet group.</p>
+ */
+export interface CacheSubnetGroupNotFoundFault extends __SmithyException, $MetadataBearer {
+  name: "CacheSubnetGroupNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace CacheSubnetGroupNotFoundFault {
+  export const filterSensitiveLog = (obj: CacheSubnetGroupNotFoundFault): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
  */
 export interface InvalidARNFault extends __SmithyException, $MetadataBearer {
@@ -75,6 +120,51 @@ export interface InvalidARNFault extends __SmithyException, $MetadataBearer {
 
 export namespace InvalidARNFault {
   export const filterSensitiveLog = (obj: InvalidARNFault): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The requested replication group is not in the <code>available</code> state.</p>
+ */
+export interface InvalidReplicationGroupStateFault extends __SmithyException, $MetadataBearer {
+  name: "InvalidReplicationGroupStateFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidReplicationGroupStateFault {
+  export const filterSensitiveLog = (obj: InvalidReplicationGroupStateFault): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The specified replication group does not exist.</p>
+ */
+export interface ReplicationGroupNotFoundFault extends __SmithyException, $MetadataBearer {
+  name: "ReplicationGroupNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ReplicationGroupNotFoundFault {
+  export const filterSensitiveLog = (obj: ReplicationGroupNotFoundFault): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The requested reserved cache node was not found.</p>
+ */
+export interface ReservedCacheNodeNotFoundFault extends __SmithyException, $MetadataBearer {
+  name: "ReservedCacheNodeNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ReservedCacheNodeNotFoundFault {
+  export const filterSensitiveLog = (obj: ReservedCacheNodeNotFoundFault): any => ({
     ...obj,
   });
 }
@@ -100,7 +190,7 @@ export namespace SnapshotNotFoundFault {
  */
 export interface TagListMessage {
   /**
-   * <p>A list of cost allocation tags as key-value pairs.</p>
+   * <p>A list of tags as key-value pairs.</p>
    */
   TagList?: Tag[];
 }
@@ -122,6 +212,36 @@ export interface TagQuotaPerResourceExceeded extends __SmithyException, $Metadat
 
 export namespace TagQuotaPerResourceExceeded {
   export const filterSensitiveLog = (obj: TagQuotaPerResourceExceeded): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The user group was not found or does not exist</p>
+ */
+export interface UserGroupNotFoundFault extends __SmithyException, $MetadataBearer {
+  name: "UserGroupNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace UserGroupNotFoundFault {
+  export const filterSensitiveLog = (obj: UserGroupNotFoundFault): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The user does not exist or could not be found.</p>
+ */
+export interface UserNotFoundFault extends __SmithyException, $MetadataBearer {
+  name: "UserNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace UserNotFoundFault {
+  export const filterSensitiveLog = (obj: UserNotFoundFault): any => ({
     ...obj,
   });
 }
@@ -301,21 +421,6 @@ export interface AuthorizeCacheSecurityGroupIngressResult {
 
 export namespace AuthorizeCacheSecurityGroupIngressResult {
   export const filterSensitiveLog = (obj: AuthorizeCacheSecurityGroupIngressResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The requested cache security group name does not refer to an existing cache security group.</p>
- */
-export interface CacheSecurityGroupNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "CacheSecurityGroupNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace CacheSecurityGroupNotFoundFault {
-  export const filterSensitiveLog = (obj: CacheSecurityGroupNotFoundFault): any => ({
     ...obj,
   });
 }
@@ -576,16 +681,16 @@ export namespace Endpoint {
 }
 
 /**
- * <p>The name of the Global Datastore and role of this replication group in the Global Datastore.</p>
+ * <p>The name of the Global datastore and role of this replication group in the Global datastore.</p>
  */
 export interface GlobalReplicationGroupInfo {
   /**
-   * <p>The name of the Global Datastore</p>
+   * <p>The name of the Global datastore</p>
    */
   GlobalReplicationGroupId?: string;
 
   /**
-   * <p>The role of the replication group in a Global Datastore. Can be primary or secondary.</p>
+   * <p>The role of the replication group in a Global datastore. Can be primary or secondary.</p>
    */
   GlobalReplicationGroupMemberRole?: string;
 }
@@ -804,7 +909,7 @@ export interface ReplicationGroup {
   Description?: string;
 
   /**
-   * <p>The name of the Global Datastore and role of this replication group in the Global Datastore.</p>
+   * <p>The name of the Global datastore and role of this replication group in the Global datastore.</p>
    */
   GlobalReplicationGroupInfo?: GlobalReplicationGroupInfo;
 
@@ -977,36 +1082,6 @@ export namespace CompleteMigrationResponse {
 }
 
 /**
- * <p>The requested replication group is not in the <code>available</code> state.</p>
- */
-export interface InvalidReplicationGroupStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidReplicationGroupStateFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace InvalidReplicationGroupStateFault {
-  export const filterSensitiveLog = (obj: InvalidReplicationGroupStateFault): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The specified replication group does not exist.</p>
- */
-export interface ReplicationGroupNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "ReplicationGroupNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ReplicationGroupNotFoundFault {
-  export const filterSensitiveLog = (obj: ReplicationGroupNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>The designated replication group is not available for data migration.</p>
  */
 export interface ReplicationGroupNotUnderMigrationFault extends __SmithyException, $MetadataBearer {
@@ -1042,9 +1117,9 @@ export interface CopySnapshotMessage {
    *             This parameter is used only when exporting a snapshot for external access.</p>
    *         <p>When using this parameter to export a snapshot,
    *             be sure Amazon ElastiCache has the needed permissions to this S3 bucket.
-   *             For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html#backups-exporting-grant-access">Step 2: Grant ElastiCache Access to Your Amazon S3 Bucket</a> in the <i>Amazon ElastiCache User Guide</i>.</p>
+   *             For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html#backups-exporting-grant-access">Step 2: Grant ElastiCache Access to Your Amazon S3 Bucket</a> in the <i>Amazon ElastiCache User Guide</i>.</p>
    *
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Snapshots.Exporting.html">Exporting a Snapshot</a> in the <i>Amazon ElastiCache User Guide</i>.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html">Exporting a Snapshot</a> in the <i>Amazon ElastiCache User Guide</i>.</p>
    */
   TargetBucket?: string;
 
@@ -1052,6 +1127,11 @@ export interface CopySnapshotMessage {
    * <p>The ID of the KMS key used to encrypt the target snapshot.</p>
    */
   KmsKeyId?: string;
+
+  /**
+   * <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.</p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace CopySnapshotMessage {
@@ -1098,7 +1178,7 @@ export interface NodeGroupConfiguration {
   ReplicaAvailabilityZones?: string[];
 
   /**
-   * <p>The output ARN of the primary node.</p>
+   * <p>The outpost ARN of the primary node.</p>
    */
   PrimaryOutpostArn?: string;
 
@@ -1227,7 +1307,8 @@ export interface Snapshot {
    * 						               </p>
    *
    * 						               <note>
-   *                         <p>At this time, M6g node types are available in the following regions: us-east-1, us-west-2, us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.</p>
+   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
+   *                         </p>
    *                      </note>
    *
    *
@@ -1337,7 +1418,8 @@ export interface Snapshot {
    *
    * 						               </p>
    * 						               <note>
-   *                         <p>At this time, R6g node types are available in the following regions: us-east-1, us-west-2, us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.</p>
+   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
+   *                         </p>
    *                      </note>
    * 					                <p>
    *                         <b>R5 node types:</b>
@@ -1650,36 +1732,6 @@ export namespace CacheClusterAlreadyExistsFault {
 }
 
 /**
- * <p>The requested cache parameter group name does not refer to an existing cache parameter group.</p>
- */
-export interface CacheParameterGroupNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "CacheParameterGroupNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace CacheParameterGroupNotFoundFault {
-  export const filterSensitiveLog = (obj: CacheParameterGroupNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The requested cache subnet group name does not refer to an existing cache subnet group.</p>
- */
-export interface CacheSubnetGroupNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "CacheSubnetGroupNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace CacheSubnetGroupNotFoundFault {
-  export const filterSensitiveLog = (obj: CacheSubnetGroupNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>The request cannot be processed because it would exceed the allowed number of clusters per customer.</p>
  */
 export interface ClusterQuotaForCustomerExceededFault extends __SmithyException, $MetadataBearer {
@@ -1803,7 +1855,8 @@ export interface CreateCacheClusterMessage {
    * 						               </p>
    *
    * 						               <note>
-   *                         <p>At this time, M6g node types are available in the following regions: us-east-1, us-west-2, us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.</p>
+   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
+   *                         </p>
    *                      </note>
    *
    *
@@ -1913,7 +1966,8 @@ export interface CreateCacheClusterMessage {
    *
    * 						               </p>
    * 						               <note>
-   *                         <p>At this time, R6g node types are available in the following regions: us-east-1, us-west-2, us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.</p>
+   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
+   *                         </p>
    *                      </note>
    * 					                <p>
    *                         <b>R5 node types:</b>
@@ -2039,7 +2093,7 @@ export interface CreateCacheClusterMessage {
   SecurityGroupIds?: string[];
 
   /**
-   * <p>A list of cost allocation tags to be added to this resource.</p>
+   * <p>A list of tags to be added to this resource.</p>
    */
   Tags?: Tag[];
 
@@ -2071,51 +2125,6 @@ export interface CreateCacheClusterMessage {
    *             the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum
    *             maintenance window is a 60 minute period.
    *             Valid values for <code>ddd</code> are:</p>
-   *
-   *          <p>Specifies the weekly time range during which maintenance
-   *    on the cluster is performed. It is specified as a range in
-   *    the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum
-   *    maintenance window is a 60 minute period.</p>
-   *          <p>Valid values for <code>ddd</code> are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>sun</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>mon</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tue</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>wed</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>thu</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>fri</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>sat</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>Example: <code>sun:23:00-mon:01:30</code>
-   *          </p>
    */
   PreferredMaintenanceWindow?: string;
 
@@ -2234,7 +2243,8 @@ export namespace CreateCacheClusterMessage {
  * 						               </p>
  *
  * 						               <note>
- *                         <p>At this time, M6g node types are available in the following regions: us-east-1, us-west-2, us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.</p>
+ *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
+ *                         </p>
  *                      </note>
  *
  *
@@ -2344,7 +2354,8 @@ export namespace CreateCacheClusterMessage {
  *
  * 						               </p>
  * 						               <note>
- *                         <p>At this time, R6g node types are available in the following regions: us-east-1, us-west-2, us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.</p>
+ *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
+ *                         </p>
  *                      </note>
  * 					                <p>
  *                         <b>R5 node types:</b>
@@ -2613,8 +2624,7 @@ export interface CacheCluster {
   CacheClusterId?: string;
 
   /**
-   * <p>Represents a Memcached cluster endpoint which, if Automatic Discovery is enabled on
-   *             the cluster, can be used by an application to connect to any node in the cluster.
+   * <p>Represents a Memcached cluster endpoint which can be used by an application to connect to any node in the cluster.
    *             The configuration endpoint will always have <code>.cfg</code> in it.</p>
    *         <p>Example: <code>mem-3.9dvc4r<u>.cfg</u>.usw2.cache.amazonaws.com:11211</code>
    *          </p>
@@ -2655,7 +2665,8 @@ export interface CacheCluster {
    * 						               </p>
    *
    * 						               <note>
-   *                         <p>At this time, M6g node types are available in the following regions: us-east-1, us-west-2, us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.</p>
+   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
+   *                         </p>
    *                      </note>
    *
    *
@@ -2765,7 +2776,8 @@ export interface CacheCluster {
    *
    * 						               </p>
    * 						               <note>
-   *                         <p>At this time, R6g node types are available in the following regions: us-east-1, us-west-2, us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.</p>
+   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
+   *                         </p>
    *                      </note>
    * 					                <p>
    *                         <b>R5 node types:</b>
@@ -3191,6 +3203,11 @@ export interface CreateCacheParameterGroupMessage {
    * <p>A user-specified description for the cache parameter group.</p>
    */
   Description: string | undefined;
+
+  /**
+   * <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.</p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace CreateCacheParameterGroupMessage {
@@ -3230,7 +3247,7 @@ export interface CacheParameterGroup {
   Description?: string;
 
   /**
-   * <p>Indicates whether the parameter group is associated with a Global Datastore</p>
+   * <p>Indicates whether the parameter group is associated with a Global datastore</p>
    */
   IsGlobal?: boolean;
 
@@ -3320,6 +3337,11 @@ export interface CreateCacheSecurityGroupMessage {
    * <p>A description for the cache security group.</p>
    */
   Description: string | undefined;
+
+  /**
+   * <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.</p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace CreateCacheSecurityGroupMessage {
@@ -3424,6 +3446,11 @@ export interface CreateCacheSubnetGroupMessage {
    * <p>A list of VPC subnet IDs for the cache subnet group.</p>
    */
   SubnetIds: string[] | undefined;
+
+  /**
+   * <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.</p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace CreateCacheSubnetGroupMessage {
@@ -3597,14 +3624,14 @@ export namespace SubnetNotAllowedFault {
 
 export interface CreateGlobalReplicationGroupMessage {
   /**
-   * <p>The suffix name of a Global Datastore. Amazon ElastiCache automatically applies a prefix
-   *             to the Global Datastore ID when it is created. Each AWS Region has its own prefix. For instance, a Global Datastore ID created in the US-West-1 region will begin with "dsdfu" along with the suffix name you provide. The suffix, combined with the auto-generated prefix, guarantees uniqueness of the Global Datastore name across multiple regions.  </p>
-   *         <p>For a full list of AWS Regions and their respective Global Datastore iD prefixes, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Clusters-CLI.html">Using the AWS CLI with Global Datastores </a>.</p>
+   * <p>The suffix name of a Global datastore. Amazon ElastiCache automatically applies a prefix
+   *             to the Global datastore ID when it is created. Each AWS Region has its own prefix. For instance, a Global datastore ID created in the US-West-1 region will begin with "dsdfu" along with the suffix name you provide. The suffix, combined with the auto-generated prefix, guarantees uniqueness of the Global datastore name across multiple regions.  </p>
+   *         <p>For a full list of AWS Regions and their respective Global datastore iD prefixes, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastores-CLI.html">Using the AWS CLI with Global datastores </a>.</p>
    */
   GlobalReplicationGroupIdSuffix: string | undefined;
 
   /**
-   * <p>Provides details of the Global Datastore</p>
+   * <p>Provides details of the Global datastore</p>
    */
   GlobalReplicationGroupDescription?: string;
 
@@ -3642,16 +3669,16 @@ export namespace GlobalNodeGroup {
 }
 
 /**
- * <p>A member of a Global Datastore. It contains the Replication Group Id, the AWS region and the role of the replication group. </p>
+ * <p>A member of a Global datastore. It contains the Replication Group Id, the AWS region and the role of the replication group. </p>
  */
 export interface GlobalReplicationGroupMember {
   /**
-   * <p>The replication group id of the Global Datastore member.</p>
+   * <p>The replication group id of the Global datastore member.</p>
    */
   ReplicationGroupId?: string;
 
   /**
-   * <p>The AWS region of the Global Datastore member.</p>
+   * <p>The AWS region of the Global datastore member.</p>
    */
   ReplicationGroupRegion?: string;
 
@@ -3684,29 +3711,29 @@ export namespace GlobalReplicationGroupMember {
  *
  *         <ul>
  *             <li>
- *                <p>The <b>GlobalReplicationGroupIdSuffix</b> represents the name of the Global Datastore,
+ *                <p>The <b>GlobalReplicationGroupIdSuffix</b> represents the name of the Global datastore,
  *             which is what you use to associate a secondary cluster.</p>
  *             </li>
  *          </ul>
  */
 export interface GlobalReplicationGroup {
   /**
-   * <p>The name of the Global Datastore</p>
+   * <p>The name of the Global datastore</p>
    */
   GlobalReplicationGroupId?: string;
 
   /**
-   * <p>The optional description of the Global Datastore</p>
+   * <p>The optional description of the Global datastore</p>
    */
   GlobalReplicationGroupDescription?: string;
 
   /**
-   * <p>The status of the Global Datastore</p>
+   * <p>The status of the Global datastore</p>
    */
   Status?: string;
 
   /**
-   * <p>The cache node type of the Global Datastore</p>
+   * <p>The cache node type of the Global datastore</p>
    */
   CacheNodeType?: string;
 
@@ -3721,12 +3748,12 @@ export interface GlobalReplicationGroup {
   EngineVersion?: string;
 
   /**
-   * <p>The replication groups that comprise the Global Datastore.</p>
+   * <p>The replication groups that comprise the Global datastore.</p>
    */
   Members?: GlobalReplicationGroupMember[];
 
   /**
-   * <p>A flag that indicates whether the Global Datastore is cluster enabled.</p>
+   * <p>A flag that indicates whether the Global datastore is cluster enabled.</p>
    */
   ClusterEnabled?: boolean;
 
@@ -3747,6 +3774,9 @@ export interface GlobalReplicationGroup {
    * <p>A flag that enables in-transit encryption when set to true.
    *
    *             You cannot modify the value of <code>TransitEncryptionEnabled</code> after the cluster is created. To enable in-transit encryption on a cluster you must set <code>TransitEncryptionEnabled</code> to true when you create a cluster. </p>
+   *         <p>
+   *             <b>Required:</b>
+   *             Only available when creating a replication group in an Amazon VPC using redis version <code>3.2.6</code>, <code>4.x</code> or later.</p>
    */
   TransitEncryptionEnabled?: boolean;
 
@@ -3782,7 +3812,7 @@ export interface CreateGlobalReplicationGroupResult {
    *
    *         <ul>
    *             <li>
-   *                <p>The <b>GlobalReplicationGroupIdSuffix</b> represents the name of the Global Datastore,
+   *                <p>The <b>GlobalReplicationGroupIdSuffix</b> represents the name of the Global datastore,
    *             which is what you use to associate a secondary cluster.</p>
    *             </li>
    *          </ul>
@@ -3797,7 +3827,7 @@ export namespace CreateGlobalReplicationGroupResult {
 }
 
 /**
- * <p>The Global Datastore name already exists.</p>
+ * <p>The Global datastore name already exists.</p>
  */
 export interface GlobalReplicationGroupAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "GlobalReplicationGroupAlreadyExistsFault";
@@ -3854,7 +3884,7 @@ export interface CreateReplicationGroupMessage {
   ReplicationGroupDescription: string | undefined;
 
   /**
-   * <p>The name of the Global Datastore</p>
+   * <p>The name of the Global datastore</p>
    */
   GlobalReplicationGroupId?: string;
 
@@ -3963,7 +3993,8 @@ export interface CreateReplicationGroupMessage {
    * 						               </p>
    *
    * 						               <note>
-   *                         <p>At this time, M6g node types are available in the following regions: us-east-1, us-west-2, us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.</p>
+   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
+   *                         </p>
    *                      </note>
    *
    *
@@ -4073,7 +4104,8 @@ export interface CreateReplicationGroupMessage {
    *
    * 						               </p>
    * 						               <note>
-   *                         <p>At this time, R6g node types are available in the following regions: us-east-1, us-west-2, us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.</p>
+   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
+   *                         </p>
    *                      </note>
    * 					                <p>
    *                         <b>R5 node types:</b>
@@ -4151,7 +4183,7 @@ export interface CreateReplicationGroupMessage {
   CacheNodeType?: string;
 
   /**
-   * <p>The name of the cache engine to be used for the clusters in this replication group.</p>
+   * <p>The name of the cache engine to be used for the clusters in this replication group. Must be Redis.</p>
    */
   Engine?: string;
 
@@ -4172,9 +4204,7 @@ export interface CreateReplicationGroupMessage {
    * <p>The name of the parameter group to associate with this replication group.
    *             If this argument is omitted, the default cache parameter group for the specified engine is
    *             used.</p>
-   *         <note>
-   *             <p>If you are restoring to an engine version that is different than the original, you must specify the default version of that version. For example, <code>CacheParameterGroupName=default.redis4.0</code>.</p>
-   *          </note>
+   *
    *         <p>If you are running Redis version 3.2.4 or later, only one node group (shard), and want to use a default parameter group,
    *             we recommend that you specify the parameter group by name. </p>
    *         <ul>
@@ -4210,9 +4240,9 @@ export interface CreateReplicationGroupMessage {
   SecurityGroupIds?: string[];
 
   /**
-   * <p>A list of cost allocation tags to be added to this resource.
+   * <p>A list of tags to be added to this resource.
    *           Tags are comma-separated key,value pairs (e.g. Key=<code>myKey</code>, Value=<code>myKeyValue</code>. You can include multiple tags as shown following:
-   *           Key=<code>myKey</code>, Value=<code>myKeyValue</code> Key=<code>mySecondKey</code>, Value=<code>mySecondKeyValue</code>.</p>
+   *           Key=<code>myKey</code>, Value=<code>myKeyValue</code> Key=<code>mySecondKey</code>, Value=<code>mySecondKeyValue</code>. Tags on replication groups will be replicated to all nodes.</p>
    */
   Tags?: Tag[];
 
@@ -4421,7 +4451,7 @@ export namespace CreateReplicationGroupResult {
 }
 
 /**
- * <p>The Global Datastore does not exist</p>
+ * <p>The Global datastore does not exist</p>
  */
 export interface GlobalReplicationGroupNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "GlobalReplicationGroupNotFoundFault";
@@ -4451,7 +4481,7 @@ export namespace InvalidCacheClusterStateFault {
 }
 
 /**
- * <p>The Global Datastore is not available or in primary-only state.</p>
+ * <p>The Global datastore is not available or in primary-only state.</p>
  */
 export interface InvalidGlobalReplicationGroupStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidGlobalReplicationGroupStateFault";
@@ -4512,21 +4542,6 @@ export namespace ReplicationGroupAlreadyExistsFault {
 }
 
 /**
- * <p>The user group was not found or does not exist</p>
- */
-export interface UserGroupNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "UserGroupNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace UserGroupNotFoundFault {
-  export const filterSensitiveLog = (obj: UserGroupNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>Represents the input of a <code>CreateSnapshot</code> operation.</p>
  */
 export interface CreateSnapshotMessage {
@@ -4549,6 +4564,11 @@ export interface CreateSnapshotMessage {
    * <p>The ID of the KMS key used to encrypt the snapshot.</p>
    */
   KmsKeyId?: string;
+
+  /**
+   * <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.</p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace CreateSnapshotMessage {
@@ -4607,24 +4627,29 @@ export interface CreateUserMessage {
   UserName: string | undefined;
 
   /**
-   * <p>Must be Redis. </p>
+   * <p>The current supported value is Redis. </p>
    */
   Engine: string | undefined;
 
   /**
-   * <p>Passwords used for this user account. You can create up to two passwords for each user.</p>
+   * <p>Passwords used for this user. You can create up to two passwords for each user.</p>
    */
   Passwords?: string[];
 
   /**
-   * <p>Access permissions string used for this user account.</p>
+   * <p>Access permissions string used for this user.</p>
    */
   AccessString: string | undefined;
 
   /**
-   * <p>Indicates a password is not required for this user account.</p>
+   * <p>Indicates a password is not required for this user.</p>
    */
   NoPasswordRequired?: boolean;
+
+  /**
+   * <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.</p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace CreateUserMessage {
@@ -4691,12 +4716,12 @@ export interface User {
   Status?: string;
 
   /**
-   * <p>Must be Redis. </p>
+   * <p>The current supported value is Redis.</p>
    */
   Engine?: string;
 
   /**
-   * <p>Access permissions string used for this user account.</p>
+   * <p>Access permissions string used for this user.</p>
    */
   AccessString?: string;
 
@@ -4711,7 +4736,7 @@ export interface User {
   Authentication?: Authentication;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the user account.</p>
+   * <p>The Amazon Resource Name (ARN) of the user.</p>
    */
   ARN?: string;
 }
@@ -4759,7 +4784,7 @@ export interface CreateUserGroupMessage {
   UserGroupId: string | undefined;
 
   /**
-   * <p>Must be Redis. </p>
+   * <p>The current supported value is Redis. </p>
    */
   Engine: string | undefined;
 
@@ -4767,6 +4792,11 @@ export interface CreateUserGroupMessage {
    * <p>The list of user IDs that belong to the user group.</p>
    */
   UserIds?: string[];
+
+  /**
+   * <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.</p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace CreateUserGroupMessage {
@@ -4795,7 +4825,7 @@ export namespace DefaultUserRequired {
  */
 export interface UserGroupPendingChanges {
   /**
-   * <p>The list of user group IDs ro remove.</p>
+   * <p>The list of user IDs to remove.</p>
    */
   UserIdsToRemove?: string[];
 
@@ -4823,7 +4853,7 @@ export interface UserGroup {
   Status?: string;
 
   /**
-   * <p>Must be Redis. </p>
+   * <p>The current supported value is Redis. </p>
    */
   Engine?: string;
 
@@ -4884,24 +4914,9 @@ export namespace UserGroupQuotaExceededFault {
   });
 }
 
-/**
- * <p>The user does not exist or could not be found.</p>
- */
-export interface UserNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "UserNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace UserNotFoundFault {
-  export const filterSensitiveLog = (obj: UserNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 export interface DecreaseNodeGroupsInGlobalReplicationGroupMessage {
   /**
-   * <p>The name of the Global Datastore</p>
+   * <p>The name of the Global datastore</p>
    */
   GlobalReplicationGroupId: string | undefined;
 
@@ -4944,7 +4959,7 @@ export interface DecreaseNodeGroupsInGlobalReplicationGroupResult {
    *
    *         <ul>
    *             <li>
-   *                <p>The <b>GlobalReplicationGroupIdSuffix</b> represents the name of the Global Datastore,
+   *                <p>The <b>GlobalReplicationGroupIdSuffix</b> represents the name of the Global datastore,
    *             which is what you use to associate a secondary cluster.</p>
    *             </li>
    *          </ul>
@@ -5207,7 +5222,7 @@ export namespace DeleteCacheSubnetGroupMessage {
 
 export interface DeleteGlobalReplicationGroupMessage {
   /**
-   * <p>The name of the Global Datastore</p>
+   * <p>The name of the Global datastore</p>
    */
   GlobalReplicationGroupId: string | undefined;
 
@@ -5231,7 +5246,7 @@ export interface DeleteGlobalReplicationGroupResult {
    *
    *         <ul>
    *             <li>
-   *                <p>The <b>GlobalReplicationGroupIdSuffix</b> represents the name of the Global Datastore,
+   *                <p>The <b>GlobalReplicationGroupIdSuffix</b> represents the name of the Global datastore,
    *             which is what you use to associate a secondary cluster.</p>
    *             </li>
    *          </ul>
@@ -6189,7 +6204,7 @@ export namespace EventsMessage {
 
 export interface DescribeGlobalReplicationGroupsMessage {
   /**
-   * <p>The name of the Global Datastore</p>
+   * <p>The name of the Global datastore</p>
    */
   GlobalReplicationGroupId?: string;
 
@@ -6204,7 +6219,7 @@ export interface DescribeGlobalReplicationGroupsMessage {
   Marker?: string;
 
   /**
-   * <p>Returns the list of members that comprise the Global Datastore.</p>
+   * <p>Returns the list of members that comprise the Global datastore.</p>
    */
   ShowMemberInfo?: boolean;
 }
@@ -6334,7 +6349,8 @@ export interface DescribeReservedCacheNodesMessage {
    * 						               </p>
    *
    * 						               <note>
-   *                         <p>At this time, M6g node types are available in the following regions: us-east-1, us-west-2, us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.</p>
+   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
+   *                         </p>
    *                      </note>
    *
    *
@@ -6444,7 +6460,8 @@ export interface DescribeReservedCacheNodesMessage {
    *
    * 						               </p>
    * 						               <note>
-   *                         <p>At this time, R6g node types are available in the following regions: us-east-1, us-west-2, us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.</p>
+   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
+   *                         </p>
    *                      </note>
    * 					                <p>
    *                         <b>R5 node types:</b>
@@ -6632,7 +6649,8 @@ export interface ReservedCacheNode {
    * 						               </p>
    *
    * 						               <note>
-   *                         <p>At this time, M6g node types are available in the following regions: us-east-1, us-west-2, us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.</p>
+   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
+   *                         </p>
    *                      </note>
    *
    *
@@ -6742,7 +6760,8 @@ export interface ReservedCacheNode {
    *
    * 						               </p>
    * 						               <note>
-   *                         <p>At this time, R6g node types are available in the following regions: us-east-1, us-west-2, us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.</p>
+   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
+   *                         </p>
    *                      </note>
    * 					                <p>
    *                         <b>R5 node types:</b>
@@ -6900,21 +6919,6 @@ export namespace ReservedCacheNodeMessage {
 }
 
 /**
- * <p>The requested reserved cache node was not found.</p>
- */
-export interface ReservedCacheNodeNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "ReservedCacheNodeNotFoundFault";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ReservedCacheNodeNotFoundFault {
-  export const filterSensitiveLog = (obj: ReservedCacheNodeNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>Represents the input of a <code>DescribeReservedCacheNodesOfferings</code> operation.</p>
  */
 export interface DescribeReservedCacheNodesOfferingsMessage {
@@ -6956,7 +6960,8 @@ export interface DescribeReservedCacheNodesOfferingsMessage {
    * 						               </p>
    *
    * 						               <note>
-   *                         <p>At this time, M6g node types are available in the following regions: us-east-1, us-west-2, us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.</p>
+   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
+   *                         </p>
    *                      </note>
    *
    *
@@ -7066,7 +7071,8 @@ export interface DescribeReservedCacheNodesOfferingsMessage {
    *
    * 						               </p>
    * 						               <note>
-   *                         <p>At this time, R6g node types are available in the following regions: us-east-1, us-west-2, us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.</p>
+   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
+   *                         </p>
    *                      </note>
    * 					                <p>
    *                         <b>R5 node types:</b>
@@ -7227,7 +7233,8 @@ export interface ReservedCacheNodesOffering {
    * 						               </p>
    *
    * 						               <note>
-   *                         <p>At this time, M6g node types are available in the following regions: us-east-1, us-west-2, us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.</p>
+   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
+   *                         </p>
    *                      </note>
    *
    *
@@ -7337,7 +7344,8 @@ export interface ReservedCacheNodesOffering {
    *
    * 						               </p>
    * 						               <note>
-   *                         <p>At this time, R6g node types are available in the following regions: us-east-1, us-west-2, us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.</p>
+   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
+   *                         </p>
    *                      </note>
    * 					                <p>
    *                         <b>R5 node types:</b>
@@ -8172,17 +8180,17 @@ export namespace DescribeUsersResult {
 
 export interface DisassociateGlobalReplicationGroupMessage {
   /**
-   * <p>The name of the Global Datastore</p>
+   * <p>The name of the Global datastore</p>
    */
   GlobalReplicationGroupId: string | undefined;
 
   /**
-   * <p>The name of the secondary cluster you wish to remove from the Global Datastore</p>
+   * <p>The name of the secondary cluster you wish to remove from the Global datastore</p>
    */
   ReplicationGroupId: string | undefined;
 
   /**
-   * <p>The AWS region of secondary cluster you wish to remove from the Global Datastore</p>
+   * <p>The AWS region of secondary cluster you wish to remove from the Global datastore</p>
    */
   ReplicationGroupRegion: string | undefined;
 }
@@ -8201,7 +8209,7 @@ export interface DisassociateGlobalReplicationGroupResult {
    *
    *         <ul>
    *             <li>
-   *                <p>The <b>GlobalReplicationGroupIdSuffix</b> represents the name of the Global Datastore,
+   *                <p>The <b>GlobalReplicationGroupIdSuffix</b> represents the name of the Global datastore,
    *             which is what you use to associate a secondary cluster.</p>
    *             </li>
    *          </ul>
@@ -8217,12 +8225,12 @@ export namespace DisassociateGlobalReplicationGroupResult {
 
 export interface FailoverGlobalReplicationGroupMessage {
   /**
-   * <p>The name of the Global Datastore</p>
+   * <p>The name of the Global datastore</p>
    */
   GlobalReplicationGroupId: string | undefined;
 
   /**
-   * <p>The AWS region of the primary cluster of the Global Datastore</p>
+   * <p>The AWS region of the primary cluster of the Global datastore</p>
    */
   PrimaryRegion: string | undefined;
 
@@ -8246,7 +8254,7 @@ export interface FailoverGlobalReplicationGroupResult {
    *
    *         <ul>
    *             <li>
-   *                <p>The <b>GlobalReplicationGroupIdSuffix</b> represents the name of the Global Datastore,
+   *                <p>The <b>GlobalReplicationGroupIdSuffix</b> represents the name of the Global datastore,
    *             which is what you use to associate a secondary cluster.</p>
    *             </li>
    *          </ul>
@@ -8311,7 +8319,7 @@ export namespace RegionalConfiguration {
 
 export interface IncreaseNodeGroupsInGlobalReplicationGroupMessage {
   /**
-   * <p>The name of the Global Datastore</p>
+   * <p>The name of the Global datastore</p>
    */
   GlobalReplicationGroupId: string | undefined;
 
@@ -8321,7 +8329,7 @@ export interface IncreaseNodeGroupsInGlobalReplicationGroupMessage {
   NodeGroupCount: number | undefined;
 
   /**
-   * <p>Describes the replication group IDs, the AWS regions where they are stored and the shard configuration for each that comprise the Global Datastore</p>
+   * <p>Describes the replication group IDs, the AWS regions where they are stored and the shard configuration for each that comprise the Global datastore</p>
    */
   RegionalConfigurations?: RegionalConfiguration[];
 
@@ -8345,7 +8353,7 @@ export interface IncreaseNodeGroupsInGlobalReplicationGroupResult {
    *
    *         <ul>
    *             <li>
-   *                <p>The <b>GlobalReplicationGroupIdSuffix</b> represents the name of the Global Datastore,
+   *                <p>The <b>GlobalReplicationGroupIdSuffix</b> represents the name of the Global datastore,
    *             which is what you use to associate a secondary cluster.</p>
    *             </li>
    *          </ul>
@@ -8820,7 +8828,7 @@ export interface ModifyCacheClusterMessage {
    *             </li>
    *          </ul>
    *         <p>
-   *             For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html">Authenticating Users with Redis AUTH</a>
+   *             For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html">Authenticating Users with Redis AUTH</a>
    *          </p>
    */
   AuthTokenUpdateStrategy?: AuthTokenUpdateStrategyType | string;
@@ -8986,7 +8994,7 @@ export namespace SubnetInUse {
 
 export interface ModifyGlobalReplicationGroupMessage {
   /**
-   * <p>The name of the Global Datastore</p>
+   * <p>The name of the Global datastore</p>
    */
   GlobalReplicationGroupId: string | undefined;
 
@@ -8998,17 +9006,22 @@ export interface ModifyGlobalReplicationGroupMessage {
   ApplyImmediately: boolean | undefined;
 
   /**
-   * <p>A valid cache node type that you want to scale this Global Datastore to.</p>
+   * <p>A valid cache node type that you want to scale this Global datastore to.</p>
    */
   CacheNodeType?: string;
 
   /**
-   * <p>The upgraded version of the cache engine to be run on the clusters in the Global Datastore. </p>
+   * <p>The upgraded version of the cache engine to be run on the clusters in the Global datastore. </p>
    */
   EngineVersion?: string;
 
   /**
-   * <p>A description of the Global Datastore</p>
+   * <p>The name of the cache parameter group to use with the Global datastore. It must be compatible with the major engine version used by the Global datastore.</p>
+   */
+  CacheParameterGroupName?: string;
+
+  /**
+   * <p>A description of the Global datastore</p>
    */
   GlobalReplicationGroupDescription?: string;
 
@@ -9032,7 +9045,7 @@ export interface ModifyGlobalReplicationGroupResult {
    *
    *         <ul>
    *             <li>
-   *                <p>The <b>GlobalReplicationGroupIdSuffix</b> represents the name of the Global Datastore,
+   *                <p>The <b>GlobalReplicationGroupIdSuffix</b> represents the name of the Global datastore,
    *             which is what you use to associate a secondary cluster.</p>
    *             </li>
    *          </ul>
@@ -9081,7 +9094,7 @@ export interface ModifyReplicationGroupMessage {
   AutomaticFailoverEnabled?: boolean;
 
   /**
-   * <p>A flag indicating if you have Multi-AZ enabled to enhance fault tolerance. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html">Minimizing Downtime: Multi-AZ</a>.</p>
+   * <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.</p>
    */
   MultiAZEnabled?: boolean;
 
@@ -9262,7 +9275,7 @@ export interface ModifyReplicationGroupMessage {
    *             </li>
    *          </ul>
    *             <p>
-   *                 For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html">Authenticating Users with Redis AUTH</a>
+   *                 For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html">Authenticating Users with Redis AUTH</a>
    *          </p>
    */
   AuthTokenUpdateStrategy?: AuthTokenUpdateStrategyType | string;
@@ -9385,7 +9398,7 @@ export interface ModifyUserMessage {
   UserId: string | undefined;
 
   /**
-   * <p>Access permissions string used for this user account.</p>
+   * <p>Access permissions string used for this user.</p>
    */
   AccessString?: string;
 
@@ -9395,12 +9408,12 @@ export interface ModifyUserMessage {
   AppendAccessString?: string;
 
   /**
-   * <p>The passwords belonging to the user account. You are allowed up to two.</p>
+   * <p>The passwords belonging to the user. You are allowed up to two.</p>
    */
   Passwords?: string[];
 
   /**
-   * <p>Indicates no password is required for the user account.</p>
+   * <p>Indicates no password is required for the user.</p>
    */
   NoPasswordRequired?: boolean;
 }
@@ -9462,6 +9475,11 @@ export interface PurchaseReservedCacheNodesOfferingMessage {
    *          </p>
    */
   CacheNodeCount?: number;
+
+  /**
+   * <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.</p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace PurchaseReservedCacheNodesOfferingMessage {
@@ -9515,7 +9533,7 @@ export namespace ReservedCacheNodeQuotaExceededFault {
 
 export interface RebalanceSlotsInGlobalReplicationGroupMessage {
   /**
-   * <p>The name of the Global Datastore</p>
+   * <p>The name of the Global datastore</p>
    */
   GlobalReplicationGroupId: string | undefined;
 
@@ -9539,7 +9557,7 @@ export interface RebalanceSlotsInGlobalReplicationGroupResult {
    *
    *         <ul>
    *             <li>
-   *                <p>The <b>GlobalReplicationGroupIdSuffix</b> represents the name of the Global Datastore,
+   *                <p>The <b>GlobalReplicationGroupIdSuffix</b> represents the name of the Global datastore,
    *             which is what you use to associate a secondary cluster.</p>
    *             </li>
    *          </ul>

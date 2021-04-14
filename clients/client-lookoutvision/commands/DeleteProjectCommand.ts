@@ -24,8 +24,11 @@ export type DeleteProjectCommandOutput = DeleteProjectResponse & __MetadataBeare
  * <p>Deletes an Amazon Lookout for Vision project.</p>
  *          <p>To delete a project, you must first delete each version of the model associated with
  *          the project. To delete a model use the <a>DeleteModel</a> operation.</p>
- *          <p>The training and test datasets are deleted automatically for you.
- *          The images referenced by the training and test datasets aren't deleted. </p>
+ *          <p>You also have to delete the dataset(s) associated with the model. For more information, see
+ *          <a>DeleteDataset</a>.  The images referenced by the training and test datasets aren't deleted.
+ *       </p>
+ *          <p>This operation requires permissions to perform the
+ *          <code>lookoutvision:DeleteProject</code> operation.</p>
  */
 export class DeleteProjectCommand extends $Command<
   DeleteProjectCommandInput,

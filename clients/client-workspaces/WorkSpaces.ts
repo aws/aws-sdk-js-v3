@@ -31,6 +31,11 @@ import {
 } from "./commands/CreateIpGroupCommand";
 import { CreateTagsCommand, CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
 import {
+  CreateWorkspaceBundleCommand,
+  CreateWorkspaceBundleCommandInput,
+  CreateWorkspaceBundleCommandOutput,
+} from "./commands/CreateWorkspaceBundleCommand";
+import {
   CreateWorkspacesCommand,
   CreateWorkspacesCommandInput,
   CreateWorkspacesCommandOutput,
@@ -46,6 +51,11 @@ import {
   DeleteIpGroupCommandOutput,
 } from "./commands/DeleteIpGroupCommand";
 import { DeleteTagsCommand, DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
+import {
+  DeleteWorkspaceBundleCommand,
+  DeleteWorkspaceBundleCommandInput,
+  DeleteWorkspaceBundleCommandOutput,
+} from "./commands/DeleteWorkspaceBundleCommand";
 import {
   DeleteWorkspaceImageCommand,
   DeleteWorkspaceImageCommandInput,
@@ -236,6 +246,11 @@ import {
   UpdateRulesOfIpGroupCommandInput,
   UpdateRulesOfIpGroupCommandOutput,
 } from "./commands/UpdateRulesOfIpGroupCommand";
+import {
+  UpdateWorkspaceBundleCommand,
+  UpdateWorkspaceBundleCommandInput,
+  UpdateWorkspaceBundleCommandOutput,
+} from "./commands/UpdateWorkspaceBundleCommand";
 import {
   UpdateWorkspaceImagePermissionCommand,
   UpdateWorkspaceImagePermissionCommandInput,
@@ -504,6 +519,40 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * <p>Creates the specified WorkSpace bundle. For more information about creating WorkSpace bundles, see
+   *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/create-custom-bundle.html">
+   *             Create a Custom WorkSpaces Image and Bundle</a>.</p>
+   */
+  public createWorkspaceBundle(
+    args: CreateWorkspaceBundleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateWorkspaceBundleCommandOutput>;
+  public createWorkspaceBundle(
+    args: CreateWorkspaceBundleCommandInput,
+    cb: (err: any, data?: CreateWorkspaceBundleCommandOutput) => void
+  ): void;
+  public createWorkspaceBundle(
+    args: CreateWorkspaceBundleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateWorkspaceBundleCommandOutput) => void
+  ): void;
+  public createWorkspaceBundle(
+    args: CreateWorkspaceBundleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateWorkspaceBundleCommandOutput) => void),
+    cb?: (err: any, data?: CreateWorkspaceBundleCommandOutput) => void
+  ): Promise<CreateWorkspaceBundleCommandOutput> | void {
+    const command = new CreateWorkspaceBundleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates one or more WorkSpaces.</p>
    *          <p>This operation is asynchronous and returns before the WorkSpaces are created.</p>
    */
@@ -634,6 +683,40 @@ export class WorkSpaces extends WorkSpacesClient {
     cb?: (err: any, data?: DeleteTagsCommandOutput) => void
   ): Promise<DeleteTagsCommandOutput> | void {
     const command = new DeleteTagsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the specified WorkSpace bundle. For more information about deleting WorkSpace bundles, see
+   *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/delete_bundle.html">
+   *             Delete a Custom WorkSpaces Bundle or Image</a>.</p>
+   */
+  public deleteWorkspaceBundle(
+    args: DeleteWorkspaceBundleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteWorkspaceBundleCommandOutput>;
+  public deleteWorkspaceBundle(
+    args: DeleteWorkspaceBundleCommandInput,
+    cb: (err: any, data?: DeleteWorkspaceBundleCommandOutput) => void
+  ): void;
+  public deleteWorkspaceBundle(
+    args: DeleteWorkspaceBundleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteWorkspaceBundleCommandOutput) => void
+  ): void;
+  public deleteWorkspaceBundle(
+    args: DeleteWorkspaceBundleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteWorkspaceBundleCommandOutput) => void),
+    cb?: (err: any, data?: DeleteWorkspaceBundleCommandOutput) => void
+  ): Promise<DeleteWorkspaceBundleCommandOutput> | void {
+    const command = new DeleteWorkspaceBundleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1993,6 +2076,46 @@ export class WorkSpaces extends WorkSpacesClient {
     cb?: (err: any, data?: UpdateRulesOfIpGroupCommandOutput) => void
   ): Promise<UpdateRulesOfIpGroupCommandOutput> | void {
     const command = new UpdateRulesOfIpGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a WorkSpace bundle with a new image. For more information about updating WorkSpace bundles, see
+   *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/update-custom-bundle.html">
+   *             Update a Custom WorkSpaces Bundle</a>.</p>
+   *
+   *          <important>
+   *             <p>Existing WorkSpaces aren't automatically updated when you update the bundle that they're
+   *             based on. To update existing WorkSpaces that are based on a bundle that you've updated, you
+   *             must either rebuild the WorkSpaces or delete and recreate them.</p>
+   *          </important>
+   */
+  public updateWorkspaceBundle(
+    args: UpdateWorkspaceBundleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateWorkspaceBundleCommandOutput>;
+  public updateWorkspaceBundle(
+    args: UpdateWorkspaceBundleCommandInput,
+    cb: (err: any, data?: UpdateWorkspaceBundleCommandOutput) => void
+  ): void;
+  public updateWorkspaceBundle(
+    args: UpdateWorkspaceBundleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateWorkspaceBundleCommandOutput) => void
+  ): void;
+  public updateWorkspaceBundle(
+    args: UpdateWorkspaceBundleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateWorkspaceBundleCommandOutput) => void),
+    cb?: (err: any, data?: UpdateWorkspaceBundleCommandOutput) => void
+  ): Promise<UpdateWorkspaceBundleCommandOutput> | void {
+    const command = new UpdateWorkspaceBundleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

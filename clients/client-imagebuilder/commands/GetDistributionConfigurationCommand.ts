@@ -21,7 +21,7 @@ export type GetDistributionConfigurationCommandInput = GetDistributionConfigurat
 export type GetDistributionConfigurationCommandOutput = GetDistributionConfigurationResponse & __MetadataBearer;
 
 /**
- * <p> Gets a distribution configuration. </p>
+ * <p> Gets a distribution configuration.</p>
  */
 export class GetDistributionConfigurationCommand extends $Command<
   GetDistributionConfigurationCommandInput,

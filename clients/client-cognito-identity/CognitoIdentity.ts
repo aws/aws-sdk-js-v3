@@ -46,6 +46,11 @@ import {
   GetOpenIdTokenForDeveloperIdentityCommandOutput,
 } from "./commands/GetOpenIdTokenForDeveloperIdentityCommand";
 import {
+  GetPrincipalTagAttributeMapCommand,
+  GetPrincipalTagAttributeMapCommandInput,
+  GetPrincipalTagAttributeMapCommandOutput,
+} from "./commands/GetPrincipalTagAttributeMapCommand";
+import {
   ListIdentitiesCommand,
   ListIdentitiesCommandInput,
   ListIdentitiesCommandOutput,
@@ -75,6 +80,11 @@ import {
   SetIdentityPoolRolesCommandInput,
   SetIdentityPoolRolesCommandOutput,
 } from "./commands/SetIdentityPoolRolesCommand";
+import {
+  SetPrincipalTagAttributeMapCommand,
+  SetPrincipalTagAttributeMapCommandInput,
+  SetPrincipalTagAttributeMapCommandOutput,
+} from "./commands/SetPrincipalTagAttributeMapCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UnlinkDeveloperIdentityCommand,
@@ -410,7 +420,7 @@ export class CognitoIdentity extends CognitoIdentityClient {
    * <p>Gets an OpenID token, using a known Cognito ID. This known Cognito ID is returned by
    *             <a>GetId</a>. You can optionally add additional logins for the identity.
    *          Supplying multiple logins creates an implicit link.</p>
-   *          <p>The OpenId token is valid for 10 minutes.</p>
+   *          <p>The OpenID token is valid for 10 minutes.</p>
    *          <p>This is a public API. You do not need any credentials to call this API.</p>
    */
   public getOpenIdToken(
@@ -476,6 +486,38 @@ export class CognitoIdentity extends CognitoIdentityClient {
     cb?: (err: any, data?: GetOpenIdTokenForDeveloperIdentityCommandOutput) => void
   ): Promise<GetOpenIdTokenForDeveloperIdentityCommandOutput> | void {
     const command = new GetOpenIdTokenForDeveloperIdentityCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Use <code>GetPrincipalTagAttributeMap</code> to list all mappings between <code>PrincipalTags</code> and user attributes.</p>
+   */
+  public getPrincipalTagAttributeMap(
+    args: GetPrincipalTagAttributeMapCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPrincipalTagAttributeMapCommandOutput>;
+  public getPrincipalTagAttributeMap(
+    args: GetPrincipalTagAttributeMapCommandInput,
+    cb: (err: any, data?: GetPrincipalTagAttributeMapCommandOutput) => void
+  ): void;
+  public getPrincipalTagAttributeMap(
+    args: GetPrincipalTagAttributeMapCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPrincipalTagAttributeMapCommandOutput) => void
+  ): void;
+  public getPrincipalTagAttributeMap(
+    args: GetPrincipalTagAttributeMapCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPrincipalTagAttributeMapCommandOutput) => void),
+    cb?: (err: any, data?: GetPrincipalTagAttributeMapCommandOutput) => void
+  ): Promise<GetPrincipalTagAttributeMapCommandOutput> | void {
+    const command = new GetPrincipalTagAttributeMapCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -713,9 +755,41 @@ export class CognitoIdentity extends CognitoIdentityClient {
   }
 
   /**
-   * <p>Assigns a set of tags to an Amazon Cognito identity pool. A tag is a label that you can
-   *          use to categorize and manage identity pools in different ways, such as by purpose, owner,
-   *          environment, or other criteria.</p>
+   * <p>You can use this operation to use default (username and clientID) attribute or custom attribute mappings.</p>
+   */
+  public setPrincipalTagAttributeMap(
+    args: SetPrincipalTagAttributeMapCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SetPrincipalTagAttributeMapCommandOutput>;
+  public setPrincipalTagAttributeMap(
+    args: SetPrincipalTagAttributeMapCommandInput,
+    cb: (err: any, data?: SetPrincipalTagAttributeMapCommandOutput) => void
+  ): void;
+  public setPrincipalTagAttributeMap(
+    args: SetPrincipalTagAttributeMapCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SetPrincipalTagAttributeMapCommandOutput) => void
+  ): void;
+  public setPrincipalTagAttributeMap(
+    args: SetPrincipalTagAttributeMapCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetPrincipalTagAttributeMapCommandOutput) => void),
+    cb?: (err: any, data?: SetPrincipalTagAttributeMapCommandOutput) => void
+  ): Promise<SetPrincipalTagAttributeMapCommandOutput> | void {
+    const command = new SetPrincipalTagAttributeMapCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Assigns a set of tags to the specified Amazon Cognito identity pool. A tag is a label
+   *          that you can use to categorize and manage identity pools in different ways, such as by
+   *          purpose, owner, environment, or other criteria.</p>
    *          <p>Each tag consists of a key and value, both of which you define. A key is a general
    *          category for more specific values. For example, if you have two versions of an identity
    *          pool, one for testing and another for production, you might assign an
@@ -824,8 +898,8 @@ export class CognitoIdentity extends CognitoIdentityClient {
   }
 
   /**
-   * <p>Removes the specified tags from an Amazon Cognito identity pool. You can use this action
-   *          up to 5 times per second, per account</p>
+   * <p>Removes the specified tags from the specified Amazon Cognito identity pool. You can use
+   *          this action up to 5 times per second, per account</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,

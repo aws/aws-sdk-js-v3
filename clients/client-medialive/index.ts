@@ -11,6 +11,7 @@ export * from "./commands/CreateInputCommand";
 export * from "./commands/CreateInputSecurityGroupCommand";
 export * from "./commands/CreateMultiplexCommand";
 export * from "./commands/CreateMultiplexProgramCommand";
+export * from "./commands/CreatePartnerInputCommand";
 export * from "./commands/CreateTagsCommand";
 export * from "./commands/DeleteChannelCommand";
 export * from "./commands/DeleteInputCommand";

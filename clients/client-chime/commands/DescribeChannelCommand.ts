@@ -21,7 +21,13 @@ export type DescribeChannelCommandInput = DescribeChannelRequest;
 export type DescribeChannelCommandOutput = DescribeChannelResponse & __MetadataBearer;
 
 /**
- * <p>Returns the full details of a channel in an Amazon Chime app instance.</p>
+ * <p>Returns the full details of a channel in an Amazon Chime <code>AppInstance</code>.</p>
+ *
+ *          <note>
+ *
+ *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
+ *         the API call as the value in the header.</p>
+ *          </note>
  */
 export class DescribeChannelCommand extends $Command<
   DescribeChannelCommandInput,

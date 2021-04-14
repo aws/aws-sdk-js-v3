@@ -68,6 +68,10 @@ import {
   ListStreamProcessorsCommandOutput,
 } from "./commands/ListStreamProcessorsCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   RecognizeCelebritiesCommandInput,
   RecognizeCelebritiesCommandOutput,
 } from "./commands/RecognizeCelebritiesCommand";
@@ -109,6 +113,8 @@ import {
   StopStreamProcessorCommandInput,
   StopStreamProcessorCommandOutput,
 } from "./commands/StopStreamProcessorCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -194,6 +200,7 @@ export type ServiceInputTypes =
   | ListCollectionsCommandInput
   | ListFacesCommandInput
   | ListStreamProcessorsCommandInput
+  | ListTagsForResourceCommandInput
   | RecognizeCelebritiesCommandInput
   | SearchFacesByImageCommandInput
   | SearchFacesCommandInput
@@ -208,7 +215,9 @@ export type ServiceInputTypes =
   | StartStreamProcessorCommandInput
   | StartTextDetectionCommandInput
   | StopProjectVersionCommandInput
-  | StopStreamProcessorCommandInput;
+  | StopStreamProcessorCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput;
 
 export type ServiceOutputTypes =
   | CompareFacesCommandOutput
@@ -244,6 +253,7 @@ export type ServiceOutputTypes =
   | ListCollectionsCommandOutput
   | ListFacesCommandOutput
   | ListStreamProcessorsCommandOutput
+  | ListTagsForResourceCommandOutput
   | RecognizeCelebritiesCommandOutput
   | SearchFacesByImageCommandOutput
   | SearchFacesCommandOutput
@@ -258,7 +268,9 @@ export type ServiceOutputTypes =
   | StartStreamProcessorCommandOutput
   | StartTextDetectionCommandOutput
   | StopProjectVersionCommandOutput
-  | StopStreamProcessorCommandOutput;
+  | StopStreamProcessorCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

@@ -105,9 +105,6 @@ export namespace InvalidInputException {
   });
 }
 
-/**
- * <p>A submitted tag is invalid.</p>
- */
 export interface InvalidTagException extends __SmithyException, $MetadataBearer {
   name: "InvalidTagException";
   $fault: "client";
@@ -136,9 +133,6 @@ export namespace ResourceNotFoundException {
   });
 }
 
-/**
- * <p>The limit in the number of tags has been exceeded.</p>
- */
 export interface TagLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "TagLimitExceededException";
   $fault: "client";
@@ -375,9 +369,9 @@ export interface RDSDataSpec {
    *     training and evaluation datasources containing non-similar data records.</p>
    *                <p>The following two <code>DataRearrangement</code> lines are examples of non-sequentially ordered
    *     training and evaluation datasources:</p>
-   *                <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "strategyParams": {"randomSeed":"RANDOMSEED"}}}</code>
+   *                <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv"}}</code>
    *                </p>
-   *                <p>Datasource for training: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "strategyParams": {"randomSeed":"RANDOMSEED"}, "complement":"true"}}</code>
+   *                <p>Datasource for training: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv", "complement":"true"}}</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -393,17 +387,17 @@ export interface RDSDataSpec {
    *             <code>DataSchemaUri</code>
    *          </p>
    *         <p>Define your <code>DataSchema</code> as a series of key-value pairs. <code>attributes</code>
-   *             and <code>excludedAttributeNames</code> have an array of key-value pairs
+   *             and <code>excludedVariableNames</code> have an array of key-value pairs
    *             for their value. Use the following format to define your <code>DataSchema</code>.</p>
    *         <p>{ "version": "1.0",</p>
    *          <p>"recordAnnotationFieldName": "F1",</p>
    *          <p>"recordWeightFieldName": "F2",</p>
-   *          <p>"targetAttributeName": "F3",</p>
+   *          <p>"targetFieldName": "F3",</p>
    *          <p>"dataFormat": "CSV",</p>
    *          <p>"dataFileContainsHeader": true,</p>
    *          <p>"attributes": [</p>
-   *          <p>{ "attributeName": "F1", "attributeType": "TEXT" }, { "attributeName": "F2", "attributeType": "NUMERIC" }, { "attributeName": "F3", "attributeType": "CATEGORICAL" }, { "attributeName": "F4", "attributeType": "NUMERIC" }, { "attributeName": "F5", "attributeType": "CATEGORICAL" }, { "attributeName": "F6", "attributeType": "TEXT" }, { "attributeName": "F7", "attributeType": "WEIGHTED_INT_SEQUENCE" }, { "attributeName": "F8", "attributeType": "WEIGHTED_STRING_SEQUENCE" } ],</p>
-   *          <p>"excludedAttributeNames": [ "F6" ] }</p>
+   *          <p>{ "fieldName": "F1", "fieldType": "TEXT" }, { "fieldName": "F2", "fieldType": "NUMERIC" }, { "fieldName": "F3", "fieldType": "CATEGORICAL" }, { "fieldName": "F4", "fieldType": "NUMERIC" }, { "fieldName": "F5", "fieldType": "CATEGORICAL" }, { "fieldName": "F6", "fieldType": "TEXT" }, { "fieldName": "F7", "fieldType": "WEIGHTED_INT_SEQUENCE" }, { "fieldName": "F8", "fieldType": "WEIGHTED_STRING_SEQUENCE" } ],</p>
+   *          <p>"excludedVariableNames": [ "F6" ] }</p>
    */
   DataSchema?: string;
 
@@ -697,9 +691,9 @@ export interface RedshiftDataSpec {
    *     training and evaluation datasources containing non-similar data records.</p>
    *                <p>The following two <code>DataRearrangement</code> lines are examples of non-sequentially ordered
    *     training and evaluation datasources:</p>
-   *                <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "strategyParams": {"randomSeed":"RANDOMSEED"}}}</code>
+   *                <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv"}}</code>
    *                </p>
-   *                <p>Datasource for training: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "strategyParams": {"randomSeed":"RANDOMSEED"}, "complement":"true"}}</code>
+   *                <p>Datasource for training: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv", "complement":"true"}}</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -714,17 +708,17 @@ export interface RedshiftDataSpec {
    *         <p>A <code>DataSchema</code> is not required if you specify a
    *             <code>DataSchemaUri</code>.</p>
    *         <p>Define your <code>DataSchema</code> as a series of key-value pairs. <code>attributes</code>
-   *             and <code>excludedAttributeNames</code> have an array of key-value pairs
+   *             and <code>excludedVariableNames</code> have an array of key-value pairs
    *             for their value. Use the following format to define your <code>DataSchema</code>.</p>
    *         <p>{ "version": "1.0",</p>
    *          <p>"recordAnnotationFieldName": "F1",</p>
    *          <p>"recordWeightFieldName": "F2",</p>
-   *          <p>"targetAttributeName": "F3",</p>
+   *          <p>"targetFieldName": "F3",</p>
    *          <p>"dataFormat": "CSV",</p>
    *          <p>"dataFileContainsHeader": true,</p>
    *          <p>"attributes": [</p>
-   *          <p>{ "attributeName": "F1", "attributeType": "TEXT" }, { "attributeName": "F2", "attributeType": "NUMERIC" }, { "attributeName": "F3", "attributeType": "CATEGORICAL" }, { "attributeName": "F4", "attributeType": "NUMERIC" }, { "attributeName": "F5", "attributeType": "CATEGORICAL" }, { "attributeName": "F6", "attributeType": "TEXT" }, { "attributeName": "F7", "attributeType": "WEIGHTED_INT_SEQUENCE" }, { "attributeName": "F8", "attributeType": "WEIGHTED_STRING_SEQUENCE" } ],</p>
-   *          <p>"excludedAttributeNames": [ "F6" ] }</p>
+   *          <p>{ "fieldName": "F1", "fieldType": "TEXT" }, { "fieldName": "F2", "fieldType": "NUMERIC" }, { "fieldName": "F3", "fieldType": "CATEGORICAL" }, { "fieldName": "F4", "fieldType": "NUMERIC" }, { "fieldName": "F5", "fieldType": "CATEGORICAL" }, { "fieldName": "F6", "fieldType": "TEXT" }, { "fieldName": "F7", "fieldType": "WEIGHTED_INT_SEQUENCE" }, { "fieldName": "F8", "fieldType": "WEIGHTED_STRING_SEQUENCE" } ],</p>
+   *          <p>"excludedVariableNames": [ "F6" ] }</p>
    */
   DataSchema?: string;
 
@@ -936,9 +930,9 @@ export interface S3DataSpec {
    *     training and evaluation datasources containing non-similar data records.</p>
    *                <p>The following two <code>DataRearrangement</code> lines are examples of non-sequentially ordered
    *     training and evaluation datasources:</p>
-   *                <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "strategyParams": { "randomSeed":"RANDOMSEED"}}}</code>
+   *                <p>Datasource for evaluation: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv"}}</code>
    *                </p>
-   *                <p>Datasource for training: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "strategyParams": {"randomSeed":"RANDOMSEED"}, "complement":"true"}}</code>
+   *                <p>Datasource for training: <code>{"splitting":{"percentBegin":70, "percentEnd":100, "strategy":"random", "randomSeed"="s3://my_s3_path/bucket/file.csv", "complement":"true"}}</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -952,17 +946,17 @@ export interface S3DataSpec {
    *             referenced in the <code>DataSource</code>.</p>
    *         <p>You must provide either the <code>DataSchema</code> or the <code>DataSchemaLocationS3</code>.</p>
    *         <p>Define your <code>DataSchema</code> as a series of key-value pairs. <code>attributes</code>
-   *             and <code>excludedAttributeNames</code> have an array of key-value pairs
+   *             and <code>excludedVariableNames</code> have an array of key-value pairs
    *             for their value. Use the following format to define your <code>DataSchema</code>.</p>
    *         <p>{ "version": "1.0",</p>
    *          <p>"recordAnnotationFieldName": "F1",</p>
    *          <p>"recordWeightFieldName": "F2",</p>
-   *          <p>"targetAttributeName": "F3",</p>
+   *          <p>"targetFieldName": "F3",</p>
    *          <p>"dataFormat": "CSV",</p>
    *          <p>"dataFileContainsHeader": true,</p>
    *          <p>"attributes": [</p>
-   *          <p>{ "attributeName": "F1", "attributeType": "TEXT" }, { "attributeName": "F2", "attributeType": "NUMERIC" }, { "attributeName": "F3", "attributeType": "CATEGORICAL" }, { "attributeName": "F4", "attributeType": "NUMERIC" }, { "attributeName": "F5", "attributeType": "CATEGORICAL" }, { "attributeName": "F6", "attributeType": "TEXT" }, { "attributeName": "F7", "attributeType": "WEIGHTED_INT_SEQUENCE" }, { "attributeName": "F8", "attributeType": "WEIGHTED_STRING_SEQUENCE" } ],</p>
-   *          <p>"excludedAttributeNames": [ "F6" ] }</p>
+   *          <p>{ "fieldName": "F1", "fieldType": "TEXT" }, { "fieldName": "F2", "fieldType": "NUMERIC" }, { "fieldName": "F3", "fieldType": "CATEGORICAL" }, { "fieldName": "F4", "fieldType": "NUMERIC" }, { "fieldName": "F5", "fieldType": "CATEGORICAL" }, { "fieldName": "F6", "fieldType": "TEXT" }, { "fieldName": "F7", "fieldType": "WEIGHTED_INT_SEQUENCE" }, { "fieldName": "F8", "fieldType": "WEIGHTED_STRING_SEQUENCE" } ],</p>
+   *          <p>"excludedVariableNames": [ "F6" ] }</p>
    */
   DataSchema?: string;
 
@@ -1147,7 +1141,7 @@ export interface CreateMLModelInput {
    *                <p>
    *                   <code>sgd.maxPasses</code> - The number of times that the training process traverses the
    *                     observations to build the <code>MLModel</code>. The value is an integer that
-   *                     ranges from <code>1</code> to <code>100</code>. The default value is
+   *                     ranges from <code>1</code> to <code>10000</code>. The default value is
    *                         <code>10</code>.</p>
    *             </li>
    *             <li>
@@ -2309,9 +2303,6 @@ export namespace DescribeEvaluationsInput {
  *         </p>
  */
 export interface PerformanceMetrics {
-  /**
-   * <p>Specific performance metric information.</p>
-   */
   Properties?: { [key: string]: string };
 }
 
@@ -2701,7 +2692,7 @@ export interface MLModel {
    *                <p>
    *                   <code>sgd.maxPasses</code> - The number of times that the training process traverses the
    *                     observations to build the <code>MLModel</code>. The value is an integer that
-   *                     ranges from <code>1</code> to <code>100</code>. The default value is
+   *                     ranges from <code>1</code> to <code>10000</code>. The default value is
    *                         <code>10</code>.</p>
    *             </li>
    *             <li>
@@ -2773,11 +2764,7 @@ export interface MLModel {
    */
   MLModelType?: MLModelType | string;
 
-  /**
-   * <p>The score threshold for the <code>MLModel</code>.</p>
-   */
   ScoreThreshold?: number;
-
   /**
    * <p>The time of the most recent edit to the <code>ScoreThreshold</code>. The time is expressed in epoch time.</p>
    */
@@ -3412,7 +3399,7 @@ export interface GetMLModelOutput {
    *                <p>
    *                   <code>sgd.maxPasses</code> - The number of times that the training process traverses the
    *                     observations to build the <code>MLModel</code>. The value is an integer that
-   *                     ranges from <code>1</code> to <code>100</code>. The default value is
+   *                     ranges from <code>1</code> to <code>10000</code>. The default value is
    *                         <code>10</code>.</p>
    *             </li>
    *             <li>
@@ -3557,9 +3544,6 @@ export interface PredictInput {
    */
   Record: { [key: string]: string } | undefined;
 
-  /**
-   * <p>The predicted endpoint for the input.</p>
-   */
   PredictEndpoint: string | undefined;
 }
 

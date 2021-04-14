@@ -25,7 +25,8 @@ export type ListNetworksCommandInput = ListNetworksInput;
 export type ListNetworksCommandOutput = ListNetworksOutput & __MetadataBearer;
 
 /**
- * <p>Returns information about the networks in which the current AWS account has members.</p>
+ * <p>Returns information about the networks in which the current AWS account participates.</p>
+ *          <p>Applies to Hyperledger Fabric and Ethereum.</p>
  */
 export class ListNetworksCommand extends $Command<
   ListNetworksCommandInput,

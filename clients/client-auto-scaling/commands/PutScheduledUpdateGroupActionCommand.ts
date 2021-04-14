@@ -21,9 +21,7 @@ export type PutScheduledUpdateGroupActionCommandInput = PutScheduledUpdateGroupA
 export type PutScheduledUpdateGroupActionCommandOutput = __MetadataBearer;
 
 /**
- * <p>Creates or updates a scheduled scaling action for an Auto Scaling group. If you leave a
- *             parameter unspecified when updating a scheduled scaling action, the corresponding value
- *             remains unchanged.</p>
+ * <p>Creates or updates a scheduled scaling action for an Auto Scaling group.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">Scheduled scaling</a> in the
  *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  */

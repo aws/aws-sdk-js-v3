@@ -25,7 +25,8 @@ export type DeleteNodeCommandInput = DeleteNodeInput;
 export type DeleteNodeCommandOutput = DeleteNodeOutput & __MetadataBearer;
 
 /**
- * <p>Deletes a peer node from a member that your AWS account owns. All data on the node is lost and cannot be recovered.</p>
+ * <p>Deletes a node that your AWS account owns. All data on the node is lost and cannot be recovered.</p>
+ *          <p>Applies to Hyperledger Fabric and Ethereum.</p>
  */
 export class DeleteNodeCommand extends $Command<
   DeleteNodeCommandInput,

@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DescribeAuditSuppressionRequest, DescribeAuditSuppressionResponse } from "../models/models_0";
+import { DescribeAuditSuppressionRequest, DescribeAuditSuppressionResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DescribeAuditSuppressionCommand,
   serializeAws_restJson1DescribeAuditSuppressionCommand,

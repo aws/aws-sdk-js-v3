@@ -30,6 +30,7 @@ import {
   AssociateHostedConnectionCommandInput,
   AssociateHostedConnectionCommandOutput,
 } from "../commands/AssociateHostedConnectionCommand";
+import { AssociateMacSecKeyCommandInput, AssociateMacSecKeyCommandOutput } from "../commands/AssociateMacSecKeyCommand";
 import {
   AssociateVirtualInterfaceCommandInput,
   AssociateVirtualInterfaceCommandOutput,
@@ -152,6 +153,10 @@ import {
   DisassociateConnectionFromLagCommandOutput,
 } from "../commands/DisassociateConnectionFromLagCommand";
 import {
+  DisassociateMacSecKeyCommandInput,
+  DisassociateMacSecKeyCommandOutput,
+} from "../commands/DisassociateMacSecKeyCommand";
+import {
   ListVirtualInterfaceTestHistoryCommandInput,
   ListVirtualInterfaceTestHistoryCommandOutput,
 } from "../commands/ListVirtualInterfaceTestHistoryCommand";
@@ -165,6 +170,7 @@ import {
 } from "../commands/StopBgpFailoverTestCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { UpdateConnectionCommandInput, UpdateConnectionCommandOutput } from "../commands/UpdateConnectionCommand";
 import {
   UpdateDirectConnectGatewayAssociationCommandInput,
   UpdateDirectConnectGatewayAssociationCommandOutput,
@@ -185,6 +191,8 @@ import {
   AllocateTransitVirtualInterfaceResult,
   AssociateConnectionWithLagRequest,
   AssociateHostedConnectionRequest,
+  AssociateMacSecKeyRequest,
+  AssociateMacSecKeyResponse,
   AssociateVirtualInterfaceRequest,
   AssociatedGateway,
   BGPPeer,
@@ -255,6 +263,8 @@ import {
   DirectConnectGatewayAttachment,
   DirectConnectServerException,
   DisassociateConnectionFromLagRequest,
+  DisassociateMacSecKeyRequest,
+  DisassociateMacSecKeyResponse,
   DuplicateTagKeysException,
   Interconnect,
   Interconnects,
@@ -265,6 +275,7 @@ import {
   Loa,
   Location,
   Locations,
+  MacSecKey,
   NewBGPPeer,
   NewPrivateVirtualInterface,
   NewPrivateVirtualInterfaceAllocation,
@@ -284,6 +295,7 @@ import {
   TooManyTagsException,
   UntagResourceRequest,
   UntagResourceResponse,
+  UpdateConnectionRequest,
   UpdateDirectConnectGatewayAssociationRequest,
   UpdateDirectConnectGatewayAssociationResult,
   UpdateLagRequest,
@@ -405,6 +417,19 @@ export const serializeAws_json1_1AssociateHostedConnectionCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AssociateHostedConnectionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1AssociateMacSecKeyCommand = async (
+  input: AssociateMacSecKeyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "OvertureService.AssociateMacSecKey",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1AssociateMacSecKeyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -926,6 +951,19 @@ export const serializeAws_json1_1DisassociateConnectionFromLagCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DisassociateMacSecKeyCommand = async (
+  input: DisassociateMacSecKeyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "OvertureService.DisassociateMacSecKey",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DisassociateMacSecKeyRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListVirtualInterfaceTestHistoryCommand = async (
   input: ListVirtualInterfaceTestHistoryCommandInput,
   context: __SerdeContext
@@ -988,6 +1026,19 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateConnectionCommand = async (
+  input: UpdateConnectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "OvertureService.UpdateConnection",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateConnectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1549,6 +1600,68 @@ const deserializeAws_json1_1AssociateHostedConnectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateHostedConnectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DirectConnectClientException":
+    case "com.amazonaws.directconnect#DirectConnectClientException":
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "DirectConnectServerException":
+    case "com.amazonaws.directconnect#DirectConnectServerException":
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1AssociateMacSecKeyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateMacSecKeyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1AssociateMacSecKeyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1AssociateMacSecKeyResponse(data, context);
+  const response: AssociateMacSecKeyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1AssociateMacSecKeyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateMacSecKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -4166,6 +4279,68 @@ const deserializeAws_json1_1DisassociateConnectionFromLagCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DisassociateMacSecKeyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateMacSecKeyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DisassociateMacSecKeyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DisassociateMacSecKeyResponse(data, context);
+  const response: DisassociateMacSecKeyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DisassociateMacSecKeyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateMacSecKeyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DirectConnectClientException":
+    case "com.amazonaws.directconnect#DirectConnectClientException":
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "DirectConnectServerException":
+    case "com.amazonaws.directconnect#DirectConnectServerException":
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1ListVirtualInterfaceTestHistoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4492,6 +4667,68 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1UpdateConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateConnectionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateConnectionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1Connection(data, context);
+  const response: UpdateConnectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateConnectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateConnectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DirectConnectClientException":
+    case "com.amazonaws.directconnect#DirectConnectClientException":
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "DirectConnectServerException":
+    case "com.amazonaws.directconnect#DirectConnectServerException":
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1UpdateDirectConnectGatewayAssociationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4701,7 +4938,7 @@ const deserializeAws_json1_1DirectConnectServerExceptionResponse = async (
   const deserialized: any = deserializeAws_json1_1DirectConnectServerException(body, context);
   const contents: DirectConnectServerException = {
     name: "DirectConnectServerException",
-    $fault: "client",
+    $fault: "server",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   };
@@ -4862,6 +5099,18 @@ const serializeAws_json1_1AssociateHostedConnectionRequest = (
   };
 };
 
+const serializeAws_json1_1AssociateMacSecKeyRequest = (
+  input: AssociateMacSecKeyRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.cak !== undefined && input.cak !== null && { cak: input.cak }),
+    ...(input.ckn !== undefined && input.ckn !== null && { ckn: input.ckn }),
+    ...(input.connectionId !== undefined && input.connectionId !== null && { connectionId: input.connectionId }),
+    ...(input.secretARN !== undefined && input.secretARN !== null && { secretARN: input.secretARN }),
+  };
+};
+
 const serializeAws_json1_1AssociateVirtualInterfaceRequest = (
   input: AssociateVirtualInterfaceRequest,
   context: __SerdeContext
@@ -4946,6 +5195,7 @@ const serializeAws_json1_1CreateConnectionRequest = (input: CreateConnectionRequ
     ...(input.lagId !== undefined && input.lagId !== null && { lagId: input.lagId }),
     ...(input.location !== undefined && input.location !== null && { location: input.location }),
     ...(input.providerName !== undefined && input.providerName !== null && { providerName: input.providerName }),
+    ...(input.requestMACSec !== undefined && input.requestMACSec !== null && { requestMACSec: input.requestMACSec }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
@@ -5039,6 +5289,7 @@ const serializeAws_json1_1CreateLagRequest = (input: CreateLagRequest, context: 
     ...(input.numberOfConnections !== undefined &&
       input.numberOfConnections !== null && { numberOfConnections: input.numberOfConnections }),
     ...(input.providerName !== undefined && input.providerName !== null && { providerName: input.providerName }),
+    ...(input.requestMACSec !== undefined && input.requestMACSec !== null && { requestMACSec: input.requestMACSec }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
@@ -5332,6 +5583,16 @@ const serializeAws_json1_1DisassociateConnectionFromLagRequest = (
   };
 };
 
+const serializeAws_json1_1DisassociateMacSecKeyRequest = (
+  input: DisassociateMacSecKeyRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.connectionId !== undefined && input.connectionId !== null && { connectionId: input.connectionId }),
+    ...(input.secretARN !== undefined && input.secretARN !== null && { secretARN: input.secretARN }),
+  };
+};
+
 const serializeAws_json1_1ListVirtualInterfaceTestHistoryRequest = (
   input: ListVirtualInterfaceTestHistoryRequest,
   context: __SerdeContext
@@ -5581,6 +5842,16 @@ const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, c
   };
 };
 
+const serializeAws_json1_1UpdateConnectionRequest = (input: UpdateConnectionRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.connectionId !== undefined && input.connectionId !== null && { connectionId: input.connectionId }),
+    ...(input.connectionName !== undefined &&
+      input.connectionName !== null && { connectionName: input.connectionName }),
+    ...(input.encryptionMode !== undefined &&
+      input.encryptionMode !== null && { encryptionMode: input.encryptionMode }),
+  };
+};
+
 const serializeAws_json1_1UpdateDirectConnectGatewayAssociationRequest = (
   input: UpdateDirectConnectGatewayAssociationRequest,
   context: __SerdeContext
@@ -5606,6 +5877,8 @@ const serializeAws_json1_1UpdateDirectConnectGatewayAssociationRequest = (
 
 const serializeAws_json1_1UpdateLagRequest = (input: UpdateLagRequest, context: __SerdeContext): any => {
   return {
+    ...(input.encryptionMode !== undefined &&
+      input.encryptionMode !== null && { encryptionMode: input.encryptionMode }),
     ...(input.lagId !== undefined && input.lagId !== null && { lagId: input.lagId }),
     ...(input.lagName !== undefined && input.lagName !== null && { lagName: input.lagName }),
     ...(input.minimumLinks !== undefined && input.minimumLinks !== null && { minimumLinks: input.minimumLinks }),
@@ -5654,6 +5927,30 @@ const deserializeAws_json1_1AssociatedGateway = (output: any, context: __SerdeCo
     region: output.region !== undefined && output.region !== null ? output.region : undefined,
     type: output.type !== undefined && output.type !== null ? output.type : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1AssociateMacSecKeyResponse = (
+  output: any,
+  context: __SerdeContext
+): AssociateMacSecKeyResponse => {
+  return {
+    connectionId: output.connectionId !== undefined && output.connectionId !== null ? output.connectionId : undefined,
+    macSecKeys:
+      output.macSecKeys !== undefined && output.macSecKeys !== null
+        ? deserializeAws_json1_1MacSecKeyList(output.macSecKeys, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AvailableMacSecPortSpeeds = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1AvailablePortSpeeds = (output: any, context: __SerdeContext): string[] => {
@@ -5762,6 +6059,8 @@ const deserializeAws_json1_1Connection = (output: any, context: __SerdeContext):
       output.connectionName !== undefined && output.connectionName !== null ? output.connectionName : undefined,
     connectionState:
       output.connectionState !== undefined && output.connectionState !== null ? output.connectionState : undefined,
+    encryptionMode:
+      output.encryptionMode !== undefined && output.encryptionMode !== null ? output.encryptionMode : undefined,
     hasLogicalRedundancy:
       output.hasLogicalRedundancy !== undefined && output.hasLogicalRedundancy !== null
         ? output.hasLogicalRedundancy
@@ -5776,8 +6075,18 @@ const deserializeAws_json1_1Connection = (output: any, context: __SerdeContext):
         ? new Date(Math.round(output.loaIssueTime * 1000))
         : undefined,
     location: output.location !== undefined && output.location !== null ? output.location : undefined,
+    macSecCapable:
+      output.macSecCapable !== undefined && output.macSecCapable !== null ? output.macSecCapable : undefined,
+    macSecKeys:
+      output.macSecKeys !== undefined && output.macSecKeys !== null
+        ? deserializeAws_json1_1MacSecKeyList(output.macSecKeys, context)
+        : undefined,
     ownerAccount: output.ownerAccount !== undefined && output.ownerAccount !== null ? output.ownerAccount : undefined,
     partnerName: output.partnerName !== undefined && output.partnerName !== null ? output.partnerName : undefined,
+    portEncryptionStatus:
+      output.portEncryptionStatus !== undefined && output.portEncryptionStatus !== null
+        ? output.portEncryptionStatus
+        : undefined,
     providerName: output.providerName !== undefined && output.providerName !== null ? output.providerName : undefined,
     region: output.region !== undefined && output.region !== null ? output.region : undefined,
     tags:
@@ -6225,6 +6534,19 @@ const deserializeAws_json1_1DirectConnectServerException = (
   } as any;
 };
 
+const deserializeAws_json1_1DisassociateMacSecKeyResponse = (
+  output: any,
+  context: __SerdeContext
+): DisassociateMacSecKeyResponse => {
+  return {
+    connectionId: output.connectionId !== undefined && output.connectionId !== null ? output.connectionId : undefined,
+    macSecKeys:
+      output.macSecKeys !== undefined && output.macSecKeys !== null
+        ? deserializeAws_json1_1MacSecKeyList(output.macSecKeys, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DuplicateTagKeysException = (
   output: any,
   context: __SerdeContext
@@ -6306,6 +6628,8 @@ const deserializeAws_json1_1Lag = (output: any, context: __SerdeContext): Lag =>
       output.connectionsBandwidth !== undefined && output.connectionsBandwidth !== null
         ? output.connectionsBandwidth
         : undefined,
+    encryptionMode:
+      output.encryptionMode !== undefined && output.encryptionMode !== null ? output.encryptionMode : undefined,
     hasLogicalRedundancy:
       output.hasLogicalRedundancy !== undefined && output.hasLogicalRedundancy !== null
         ? output.hasLogicalRedundancy
@@ -6318,6 +6642,12 @@ const deserializeAws_json1_1Lag = (output: any, context: __SerdeContext): Lag =>
     lagName: output.lagName !== undefined && output.lagName !== null ? output.lagName : undefined,
     lagState: output.lagState !== undefined && output.lagState !== null ? output.lagState : undefined,
     location: output.location !== undefined && output.location !== null ? output.location : undefined,
+    macSecCapable:
+      output.macSecCapable !== undefined && output.macSecCapable !== null ? output.macSecCapable : undefined,
+    macSecKeys:
+      output.macSecKeys !== undefined && output.macSecKeys !== null
+        ? deserializeAws_json1_1MacSecKeyList(output.macSecKeys, context)
+        : undefined,
     minimumLinks: output.minimumLinks !== undefined && output.minimumLinks !== null ? output.minimumLinks : undefined,
     numberOfConnections:
       output.numberOfConnections !== undefined && output.numberOfConnections !== null
@@ -6379,6 +6709,10 @@ const deserializeAws_json1_1Loa = (output: any, context: __SerdeContext): Loa =>
 
 const deserializeAws_json1_1Location = (output: any, context: __SerdeContext): Location => {
   return {
+    availableMacSecPortSpeeds:
+      output.availableMacSecPortSpeeds !== undefined && output.availableMacSecPortSpeeds !== null
+        ? deserializeAws_json1_1AvailableMacSecPortSpeeds(output.availableMacSecPortSpeeds, context)
+        : undefined,
     availablePortSpeeds:
       output.availablePortSpeeds !== undefined && output.availablePortSpeeds !== null
         ? deserializeAws_json1_1AvailablePortSpeeds(output.availablePortSpeeds, context)
@@ -6411,6 +6745,26 @@ const deserializeAws_json1_1Locations = (output: any, context: __SerdeContext): 
         ? deserializeAws_json1_1LocationList(output.locations, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1MacSecKey = (output: any, context: __SerdeContext): MacSecKey => {
+  return {
+    ckn: output.ckn !== undefined && output.ckn !== null ? output.ckn : undefined,
+    secretARN: output.secretARN !== undefined && output.secretARN !== null ? output.secretARN : undefined,
+    startOn: output.startOn !== undefined && output.startOn !== null ? output.startOn : undefined,
+    state: output.state !== undefined && output.state !== null ? output.state : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1MacSecKeyList = (output: any, context: __SerdeContext): MacSecKey[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1MacSecKey(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ProviderList = (output: any, context: __SerdeContext): string[] => {

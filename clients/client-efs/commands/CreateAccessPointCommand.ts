@@ -21,11 +21,13 @@ export type CreateAccessPointCommandInput = CreateAccessPointRequest;
 export type CreateAccessPointCommandOutput = AccessPointDescription & __MetadataBearer;
 
 /**
- * <p>Creates an EFS access point. An access point is an application-specific view into an EFS file system that applies an operating system user and
- *       group, and a file system path, to any file system request made through the access point. The operating system
- *       user and group override any identity information provided by the NFS client. The file system path is exposed as
- *       the access point's root directory. Applications using the access point can only access data in its own directory and below. To learn more, see
- *       <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html">Mounting a File System Using EFS Access Points</a>.</p>
+ * <p>Creates an EFS access point. An access point is an application-specific view into an EFS
+ *       file system that applies an operating system user and group, and a file system path, to any
+ *       file system request made through the access point. The operating system user and group
+ *       override any identity information provided by the NFS client. The file system path is exposed
+ *       as the access point's root directory. Applications using the access point can only access data
+ *       in its own directory and below. To learn more, see <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html">Mounting a file system using EFS access
+ *         points</a>.</p>
  *          <p>This operation requires permissions for the <code>elasticfilesystem:CreateAccessPoint</code> action.</p>
  */
 export class CreateAccessPointCommand extends $Command<

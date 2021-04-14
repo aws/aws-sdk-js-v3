@@ -135,16 +135,19 @@ export namespace InvalidParameterException {
 
 /**
  * <p>Exception that indicates that the operation would exceed a limit.</p>
- *          <p>
- *             <code>Type</code> is the type of limit that would be exceeded.</p>
- *          <p>
- *             <code>Limit</code> is the threshold that would be exceeded.</p>
  */
 export interface LimitsExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitsExceededException";
   $fault: "client";
   message?: string;
+  /**
+   * <p>The type of limit that would be exceeded.</p>
+   */
   Type?: string;
+
+  /**
+   * <p>The threshold that would be exceeded.</p>
+   */
   Limit?: number;
 }
 
@@ -728,6 +731,27 @@ export enum AutoRenew {
   ENABLED = "ENABLED",
 }
 
+/**
+ * <p>A tag associated with an AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing or other management. Typically, the tag key represents a category, such as "environment", and the tag value represents a specific value within that category, such as "test," "development," or "production". Or you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.</p>
+ */
+export interface Tag {
+  /**
+   * <p>Part of the key:value pair that defines a tag. You can use a tag key to describe a category of information, such as "customer." Tag keys are case-sensitive.</p>
+   */
+  Key?: string;
+
+  /**
+   * <p>Part of the key:value pair that defines a tag. You can use a tag value to describe a specific value within a category, such as "companyA" or "companyB." Tag values are case-sensitive.</p>
+   */
+  Value?: string;
+}
+
+export namespace Tag {
+  export const filterSensitiveLog = (obj: Tag): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateProtectionRequest {
   /**
    * <p>Friendly name for the <code>Protection</code> you are creating.</p>
@@ -771,6 +795,11 @@ export interface CreateProtectionRequest {
    *          </ul>
    */
   ResourceArn: string | undefined;
+
+  /**
+   * <p>One or more tag key-value pairs for the <a>Protection</a> object that is created.</p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace CreateProtectionRequest {
@@ -884,6 +913,11 @@ export interface CreateProtectionGroupRequest {
    * <p>The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set <code>Pattern</code> to <code>ARBITRARY</code> and you must not set it for any other <code>Pattern</code> setting. </p>
    */
   Members?: string[];
+
+  /**
+   * <p>One or more tag key-value pairs for the protection group.</p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace CreateProtectionGroupRequest {
@@ -1153,6 +1187,11 @@ export interface Protection {
    * <p>The unique identifier (ID) for the Route 53 health check that's associated with the protection. </p>
    */
   HealthCheckIds?: string[];
+
+  /**
+   * <p>The ARN (Amazon Resource Name) of the protection.</p>
+   */
+  ProtectionArn?: string;
 }
 
 export namespace Protection {
@@ -1227,6 +1266,11 @@ export interface ProtectionGroup {
    * <p>The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set <code>Pattern</code> to <code>ARBITRARY</code> and you must not set it for any other <code>Pattern</code> setting. </p>
    */
   Members: string[] | undefined;
+
+  /**
+   * <p>The ARN (Amazon Resource Name) of the protection group.</p>
+   */
+  ProtectionGroupArn?: string;
 }
 
 export namespace ProtectionGroup {
@@ -1414,6 +1458,11 @@ export interface Subscription {
    * <p>Limits settings for your subscription. </p>
    */
   SubscriptionLimits: SubscriptionLimits | undefined;
+
+  /**
+   * <p>The ARN (Amazon Resource Name) of the subscription.</p>
+   */
+  SubscriptionArn?: string;
 }
 
 export namespace Subscription {
@@ -1745,6 +1794,84 @@ export interface ListResourcesInProtectionGroupResponse {
 
 export namespace ListResourcesInProtectionGroupResponse {
   export const filterSensitiveLog = (obj: ListResourcesInProtectionGroupResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource to get tags for.</p>
+   */
+  ResourceARN: string | undefined;
+}
+
+export namespace ListTagsForResourceRequest {
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>A list of tag key and value pairs associated with the specified resource.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace ListTagsForResourceResponse {
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface TagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource that you want to add or update tags for.</p>
+   */
+  ResourceARN: string | undefined;
+
+  /**
+   * <p>The tags that you want to modify or add to the resource.</p>
+   */
+  Tags: Tag[] | undefined;
+}
+
+export namespace TagResourceRequest {
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface TagResourceResponse {}
+
+export namespace TagResourceResponse {
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource that you want to remove tags from.</p>
+   */
+  ResourceARN: string | undefined;
+
+  /**
+   * <p>The tag key for each tag that you want to remove from the resource.</p>
+   */
+  TagKeys: string[] | undefined;
+}
+
+export namespace UntagResourceRequest {
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceResponse {}
+
+export namespace UntagResourceResponse {
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
 }

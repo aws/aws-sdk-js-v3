@@ -25,8 +25,9 @@ export type StartICD10CMInferenceJobCommandInput = StartICD10CMInferenceJobReque
 export type StartICD10CMInferenceJobCommandOutput = StartICD10CMInferenceJobResponse & __MetadataBearer;
 
 /**
- * <p>Starts an asynchronous job to detect medical conditions and link them to the ICD-10-CM ontology. Use the
- *       <code>DescribeICD10CMInferenceJob</code> operation to track the status of a job.</p>
+ * <p>Starts an asynchronous job to detect medical conditions and link them to the ICD-10-CM
+ *       ontology. Use the <code>DescribeICD10CMInferenceJob</code> operation to track the status of a
+ *       job.</p>
  */
 export class StartICD10CMInferenceJobCommand extends $Command<
   StartICD10CMInferenceJobCommandInput,

@@ -24,8 +24,8 @@ export type CreateDomainCommandOutput = CreateDomainResponse & __MetadataBearer;
  * <p>Creates a domain, which is a container for all customer data, such as customer profile
  *          attributes, object types, profile keys, and encryption keys. You can create multiple
  *          domains, and each domain can have multiple third-party integrations.</p>
- *          <p>Each Amazon Connect instance can be associated with only one domain. Multiple Amazon
- *          Connect instances can be associated with one domain.</p>
+ *          <p>Each Amazon Connect instance can be associated with only one domain. Multiple Amazon Connect instances can
+ *          be associated with one domain.</p>
  */
 export class CreateDomainCommand extends $Command<
   CreateDomainCommandInput,

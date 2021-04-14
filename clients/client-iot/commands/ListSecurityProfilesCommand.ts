@@ -21,8 +21,13 @@ export type ListSecurityProfilesCommandInput = ListSecurityProfilesRequest;
 export type ListSecurityProfilesCommandOutput = ListSecurityProfilesResponse & __MetadataBearer;
 
 /**
- * <p>Lists the Device Defender security profiles you have created. You can use filters to list only those security
- *       profiles associated with a thing group or only those associated with your account.</p>
+ * <p>Lists the Device Defender security profiles
+ *       you've
+ *       created. You can filter security profiles by dimension or custom metric.</p>
+ *          <note>
+ *             <p>
+ *                <code>dimensionName</code> and <code>metricName</code> cannot be used in the same request.</p>
+ *          </note>
  */
 export class ListSecurityProfilesCommand extends $Command<
   ListSecurityProfilesCommandInput,

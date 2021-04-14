@@ -21,8 +21,13 @@ export type BatchUpdateUserCommandInput = BatchUpdateUserRequest;
 export type BatchUpdateUserCommandOutput = BatchUpdateUserResponse & __MetadataBearer;
 
 /**
- * <p>Updates user details within the <a>UpdateUserRequestItem</a> object for up to 20 users for the specified Amazon Chime account.
- *        Currently, only <code>LicenseType</code> updates are supported for this action.</p>
+ * <p>
+ * Updates user details within the
+ * <a>UpdateUserRequestItem</a>
+ * object for up to 20 users for the specified Amazon Chime account.
+ * Currently, only <code>LicenseType</code>
+ * updates are supported for this action.
+ * </p>
  */
 export class BatchUpdateUserCommand extends $Command<
   BatchUpdateUserCommandInput,

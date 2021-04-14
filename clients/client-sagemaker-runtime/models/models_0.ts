@@ -77,9 +77,15 @@ export interface InvokeEndpointInput {
   TargetVariant?: string;
 
   /**
+   * <p>If the endpoint hosts multiple containers and is configured to use direct invocation,
+   *             this parameter specifies the host name of the container to invoke.</p>
+   */
+  TargetContainerHostname?: string;
+
+  /**
    * <p>If you provide a value, it is added to the captured data when you enable data capture
-   *             on the endpoint.
-   *             For information about data capture, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-capture.html">Capture Data</a>.</p>
+   *             on the endpoint. For information about data capture, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-capture.html">Capture
+   *             Data</a>.</p>
    */
   InferenceId?: string;
 }

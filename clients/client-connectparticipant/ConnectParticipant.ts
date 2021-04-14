@@ -1,5 +1,10 @@
 import { ConnectParticipantClient } from "./ConnectParticipantClient";
 import {
+  CompleteAttachmentUploadCommand,
+  CompleteAttachmentUploadCommandInput,
+  CompleteAttachmentUploadCommandOutput,
+} from "./commands/CompleteAttachmentUploadCommand";
+import {
   CreateParticipantConnectionCommand,
   CreateParticipantConnectionCommandInput,
   CreateParticipantConnectionCommandOutput,
@@ -10,12 +15,22 @@ import {
   DisconnectParticipantCommandOutput,
 } from "./commands/DisconnectParticipantCommand";
 import {
+  GetAttachmentCommand,
+  GetAttachmentCommandInput,
+  GetAttachmentCommandOutput,
+} from "./commands/GetAttachmentCommand";
+import {
   GetTranscriptCommand,
   GetTranscriptCommandInput,
   GetTranscriptCommandOutput,
 } from "./commands/GetTranscriptCommand";
 import { SendEventCommand, SendEventCommandInput, SendEventCommandOutput } from "./commands/SendEventCommand";
 import { SendMessageCommand, SendMessageCommandInput, SendMessageCommandOutput } from "./commands/SendMessageCommand";
+import {
+  StartAttachmentUploadCommand,
+  StartAttachmentUploadCommandInput,
+  StartAttachmentUploadCommandOutput,
+} from "./commands/StartAttachmentUploadCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
@@ -28,23 +43,62 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  */
 export class ConnectParticipant extends ConnectParticipantClient {
   /**
+   * <p>Allows you to confirm that the attachment has been uploaded using the pre-signed URL
+   *             provided in StartAttachmentUpload API. </p>
+   */
+  public completeAttachmentUpload(
+    args: CompleteAttachmentUploadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CompleteAttachmentUploadCommandOutput>;
+  public completeAttachmentUpload(
+    args: CompleteAttachmentUploadCommandInput,
+    cb: (err: any, data?: CompleteAttachmentUploadCommandOutput) => void
+  ): void;
+  public completeAttachmentUpload(
+    args: CompleteAttachmentUploadCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CompleteAttachmentUploadCommandOutput) => void
+  ): void;
+  public completeAttachmentUpload(
+    args: CompleteAttachmentUploadCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CompleteAttachmentUploadCommandOutput) => void),
+    cb?: (err: any, data?: CompleteAttachmentUploadCommandOutput) => void
+  ): Promise<CompleteAttachmentUploadCommandOutput> | void {
+    const command = new CompleteAttachmentUploadCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates the participant's connection. Note that ParticipantToken is used for invoking
    *             this API instead of ConnectionToken.</p>
-   *         <p>The participant token is valid for the lifetime of the participant – until the they
-   *             are part of a contact.</p>
-   *         <p>The response URL for <code>WEBSOCKET</code> Type has a connect expiry timeout of 100s. Clients must
-   *             manually connect to the returned websocket URL and subscribe to the desired topic.  </p>
-   *         <p>For
-   *             chat, you need to publish the following on the established websocket connection:</p>
+   *         <p>The participant token is valid for the lifetime of the participant – until they are
+   *             part of a contact.</p>
+   *         <p>The response URL for <code>WEBSOCKET</code> Type has a connect expiry timeout of 100s.
+   *             Clients must manually connect to the returned websocket URL and subscribe to the desired
+   *             topic. </p>
+   *         <p>For chat, you need to publish the following on the established websocket
+   *             connection:</p>
    *
    *
    *         <p>
    *             <code>{"topic":"aws/subscribe","content":{"topics":["aws/chat"]}}</code>
    *          </p>
    *
-   *         <p>Upon websocket URL expiry, as
-   *             specified in the response ConnectionExpiry parameter, clients need to call this API
-   *             again to obtain a new websocket URL and perform the same steps as before.</p>
+   *         <p>Upon websocket URL expiry, as specified in the response ConnectionExpiry parameter,
+   *             clients need to call this API again to obtain a new websocket URL and perform the same
+   *             steps as before.</p>
+   *
+   *         <note>
+   *             <p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4
+   *                     authentication</a>.</p>
+   *         </note>
    */
   public createParticipantConnection(
     args: CreateParticipantConnectionCommandInput,
@@ -78,6 +132,8 @@ export class ConnectParticipant extends ConnectParticipantClient {
   /**
    * <p>Disconnects a participant. Note that ConnectionToken is used for invoking this API
    *             instead of ParticipantToken.</p>
+   *         <p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4
+   *                 authentication</a>.</p>
    */
   public disconnectParticipant(
     args: DisconnectParticipantCommandInput,
@@ -109,8 +165,43 @@ export class ConnectParticipant extends ConnectParticipantClient {
   }
 
   /**
-   * <p>Retrieves a transcript of the session. Note that ConnectionToken is used for invoking
-   *             this API instead of ParticipantToken.</p>
+   * <p>Provides a pre-signed URL for download of a completed attachment. This is an
+   *             asynchronous API for use with active contacts.</p>
+   */
+  public getAttachment(
+    args: GetAttachmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAttachmentCommandOutput>;
+  public getAttachment(
+    args: GetAttachmentCommandInput,
+    cb: (err: any, data?: GetAttachmentCommandOutput) => void
+  ): void;
+  public getAttachment(
+    args: GetAttachmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAttachmentCommandOutput) => void
+  ): void;
+  public getAttachment(
+    args: GetAttachmentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAttachmentCommandOutput) => void),
+    cb?: (err: any, data?: GetAttachmentCommandOutput) => void
+  ): Promise<GetAttachmentCommandOutput> | void {
+    const command = new GetAttachmentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves a transcript of the session, including details about any attachments. Note
+   *             that ConnectionToken is used for invoking this API instead of ParticipantToken.</p>
+   *         <p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4
+   *                 authentication</a>.</p>
    */
   public getTranscript(
     args: GetTranscriptCommandInput,
@@ -144,6 +235,8 @@ export class ConnectParticipant extends ConnectParticipantClient {
   /**
    * <p>Sends an event. Note that ConnectionToken is used for invoking this API instead of
    *             ParticipantToken.</p>
+   *         <p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4
+   *                 authentication</a>.</p>
    */
   public sendEvent(args: SendEventCommandInput, options?: __HttpHandlerOptions): Promise<SendEventCommandOutput>;
   public sendEvent(args: SendEventCommandInput, cb: (err: any, data?: SendEventCommandOutput) => void): void;
@@ -171,6 +264,10 @@ export class ConnectParticipant extends ConnectParticipantClient {
   /**
    * <p>Sends a message. Note that ConnectionToken is used for invoking this API instead of
    *             ParticipantToken.</p>
+   *         <note>
+   *             <p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4
+   *                     authentication</a>.</p>
+   *         </note>
    */
   public sendMessage(args: SendMessageCommandInput, options?: __HttpHandlerOptions): Promise<SendMessageCommandOutput>;
   public sendMessage(args: SendMessageCommandInput, cb: (err: any, data?: SendMessageCommandOutput) => void): void;
@@ -185,6 +282,39 @@ export class ConnectParticipant extends ConnectParticipantClient {
     cb?: (err: any, data?: SendMessageCommandOutput) => void
   ): Promise<SendMessageCommandOutput> | void {
     const command = new SendMessageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Provides a pre-signed Amazon S3 URL in response for uploading the file directly to
+   *             S3.</p>
+   */
+  public startAttachmentUpload(
+    args: StartAttachmentUploadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartAttachmentUploadCommandOutput>;
+  public startAttachmentUpload(
+    args: StartAttachmentUploadCommandInput,
+    cb: (err: any, data?: StartAttachmentUploadCommandOutput) => void
+  ): void;
+  public startAttachmentUpload(
+    args: StartAttachmentUploadCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartAttachmentUploadCommandOutput) => void
+  ): void;
+  public startAttachmentUpload(
+    args: StartAttachmentUploadCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartAttachmentUploadCommandOutput) => void),
+    cb?: (err: any, data?: StartAttachmentUploadCommandOutput) => void
+  ): Promise<StartAttachmentUploadCommandOutput> | void {
+    const command = new StartAttachmentUploadCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

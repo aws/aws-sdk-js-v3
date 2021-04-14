@@ -21,7 +21,7 @@ export type DeleteImageCommandInput = DeleteImageRequest;
 export type DeleteImageCommandOutput = DeleteImageResponse & __MetadataBearer;
 
 /**
- * <p> Deletes an image. </p>
+ * <p> Deletes an image.</p>
  */
 export class DeleteImageCommand extends $Command<
   DeleteImageCommandInput,

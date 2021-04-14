@@ -28,7 +28,7 @@ export type CreateFeatureGroupCommandOutput = CreateFeatureGroupResponse & __Met
  *          FeatureGroup. A <code>FeatureGroup</code> definition is composed of a list of
  *             <code>Features</code>, a <code>RecordIdentifierFeatureName</code>, an
  *             <code>EventTimeFeatureName</code> and configurations for its <code>OnlineStore</code>
- *          and <code>OfflineStore</code>. Check <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">AWS service quotas</a> to see
+ *             and <code>OfflineStore</code>. Check <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">AWS service quotas</a> to see
  *          the <code>FeatureGroup</code>s quota for your AWS account.</p>
  *          <important>
  *             <p>You must include at least one of <code>OnlineStoreConfig</code> and

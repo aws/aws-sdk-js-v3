@@ -21,12 +21,11 @@ export type CreateMeetingDialOutCommandInput = CreateMeetingDialOutRequest;
 export type CreateMeetingDialOutCommandOutput = CreateMeetingDialOutResponse & __MetadataBearer;
 
 /**
- * <p>Uses the join token and call metadata in a meeting request (From number, To number, and so forth) to initiate an outbound call to a
- *          public switched telephone network (PSTN) and joins them into Chime meeting. Also ensures that the From number belongs to the
- *          customer.</p>
+ * <p>Uses the join token and call metadata in a meeting request (From number, To number, and so forth) to initiate an outbound call to a public
+ *     switched telephone network (PSTN) and join them into a Chime meeting. Also ensures that the From number belongs to the customer.</p>
  *
- *          <p>To play welcome audio or implement an interactive voice response (IVR), use the <code>CreateSipMediaApplicationCall</code> API with
- *          the corresponding SIP media application ID.</p>
+ *          <p>To play welcome audio or implement an interactive voice response (IVR), use the
+ * <code>CreateSipMediaApplicationCall</code> action with the corresponding SIP media application ID.</p>
  */
 export class CreateMeetingDialOutCommand extends $Command<
   CreateMeetingDialOutCommandInput,

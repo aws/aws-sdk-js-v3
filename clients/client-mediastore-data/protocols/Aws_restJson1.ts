@@ -161,6 +161,9 @@ export const serializeAws_restJson1PutObjectCommand = async (
     ...(isSerializableHeaderValue(input.ContentType) && { "content-type": input.ContentType! }),
     ...(isSerializableHeaderValue(input.CacheControl) && { "cache-control": input.CacheControl! }),
     ...(isSerializableHeaderValue(input.StorageClass) && { "x-amz-storage-class": input.StorageClass! }),
+    ...(isSerializableHeaderValue(input.UploadAvailability) && {
+      "x-amz-upload-availability": input.UploadAvailability!,
+    }),
   };
   let resolvedPath = "/{Path+}";
   if (input.Path !== undefined) {

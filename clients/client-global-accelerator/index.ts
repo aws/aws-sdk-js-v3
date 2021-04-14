@@ -28,6 +28,7 @@ export * from "./commands/DescribeListenerCommand";
 export * from "./commands/ListAcceleratorsCommand";
 export * from "./pagination/ListAcceleratorsPaginator";
 export * from "./commands/ListByoipCidrsCommand";
+export * from "./pagination/ListByoipCidrsPaginator";
 export * from "./commands/ListCustomRoutingAcceleratorsCommand";
 export * from "./pagination/ListCustomRoutingAcceleratorsPaginator";
 export * from "./commands/ListCustomRoutingEndpointGroupsCommand";

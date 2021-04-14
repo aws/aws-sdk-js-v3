@@ -100,6 +100,11 @@ import {
   DiscoverPollEndpointCommandOutput,
 } from "./commands/DiscoverPollEndpointCommand";
 import {
+  ExecuteCommandCommand,
+  ExecuteCommandCommandInput,
+  ExecuteCommandCommandOutput,
+} from "./commands/ExecuteCommandCommand";
+import {
   ListAccountSettingsCommand,
   ListAccountSettingsCommandInput,
   ListAccountSettingsCommandOutput,
@@ -200,6 +205,11 @@ import {
   UpdateCapacityProviderCommandOutput,
 } from "./commands/UpdateCapacityProviderCommand";
 import {
+  UpdateClusterCommand,
+  UpdateClusterCommandInput,
+  UpdateClusterCommandOutput,
+} from "./commands/UpdateClusterCommand";
+import {
   UpdateClusterSettingsCommand,
   UpdateClusterSettingsCommandInput,
   UpdateClusterSettingsCommandOutput,
@@ -236,13 +246,11 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  * 		       <p>Amazon Elastic Container Service (Amazon ECS) is a highly scalable, fast, container management service that makes
  * 			it easy to run, stop, and manage Docker containers on a cluster. You can host your
  * 			cluster on a serverless infrastructure that is managed by Amazon ECS by launching your
- * 			services or tasks using the Fargate launch type. For more control, you can host your
- * 			tasks on a cluster of Amazon Elastic Compute Cloud (Amazon EC2) instances that you manage by using the EC2
- * 			launch type. For more information about launch types, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon ECS Launch
- * 			Types</a>.</p>
- * 		       <p>Amazon ECS lets you launch and stop container-based applications with simple API calls,
- * 			allows you to get the state of your cluster from a centralized service, and gives you
- * 			access to many familiar Amazon EC2 features.</p>
+ * 			services or tasks on AWS Fargate. For more control, you can host your tasks on a cluster
+ * 			of Amazon Elastic Compute Cloud (Amazon EC2) instances that you manage.</p>
+ * 		       <p>Amazon ECS makes it easy to launch and stop container-based applications with simple API
+ * 			calls, allows you to get the state of your cluster from a centralized service, and gives
+ * 			you access to many familiar Amazon EC2 features.</p>
  * 		       <p>You can use Amazon ECS to schedule the placement of containers across your cluster based on
  * 			your resource needs, isolation policies, and availability requirements. Amazon ECS eliminates
  * 			the need for you to operate your own cluster management and configuration management
@@ -1088,6 +1096,38 @@ export class ECS extends ECSClient {
     cb?: (err: any, data?: DiscoverPollEndpointCommandOutput) => void
   ): Promise<DiscoverPollEndpointCommandOutput> | void {
     const command = new DiscoverPollEndpointCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Runs a command remotely on a container within a task.</p>
+   */
+  public executeCommand(
+    args: ExecuteCommandCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExecuteCommandCommandOutput>;
+  public executeCommand(
+    args: ExecuteCommandCommandInput,
+    cb: (err: any, data?: ExecuteCommandCommandOutput) => void
+  ): void;
+  public executeCommand(
+    args: ExecuteCommandCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExecuteCommandCommandOutput) => void
+  ): void;
+  public executeCommand(
+    args: ExecuteCommandCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExecuteCommandCommandOutput) => void),
+    cb?: (err: any, data?: ExecuteCommandCommandOutput) => void
+  ): Promise<ExecuteCommandCommandOutput> | void {
+    const command = new ExecuteCommandCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1965,6 +2005,38 @@ export class ECS extends ECSClient {
     cb?: (err: any, data?: UpdateCapacityProviderCommandOutput) => void
   ): Promise<UpdateCapacityProviderCommandOutput> | void {
     const command = new UpdateCapacityProviderCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the cluster.</p>
+   */
+  public updateCluster(
+    args: UpdateClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateClusterCommandOutput>;
+  public updateCluster(
+    args: UpdateClusterCommandInput,
+    cb: (err: any, data?: UpdateClusterCommandOutput) => void
+  ): void;
+  public updateCluster(
+    args: UpdateClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateClusterCommandOutput) => void
+  ): void;
+  public updateCluster(
+    args: UpdateClusterCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateClusterCommandOutput) => void),
+    cb?: (err: any, data?: UpdateClusterCommandOutput) => void
+  ): Promise<UpdateClusterCommandOutput> | void {
+    const command = new UpdateClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

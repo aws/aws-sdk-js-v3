@@ -1275,12 +1275,10 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   * <p>Creates a running App for the specified UserProfile. Supported Apps are JupyterServer
-   *
-   *       and KernelGateway. This operation is automatically invoked by Amazon SageMaker Studio
-   *       upon access to the associated Domain, and when new kernel configurations are selected by the user.
-   *
-   *       A user may have multiple Apps active simultaneously.</p>
+   * <p>Creates a running app for the specified UserProfile. Supported apps are
+   *       <code>JupyterServer</code> and <code>KernelGateway</code>. This operation is automatically
+   *       invoked by Amazon SageMaker Studio upon access to the associated Domain, and when new kernel
+   *       configurations are selected by the user. A user may have multiple Apps active simultaneously.</p>
    */
   public createApp(args: CreateAppCommandInput, options?: __HttpHandlerOptions): Promise<CreateAppCommandOutput>;
   public createApp(args: CreateAppCommandInput, cb: (err: any, data?: CreateAppCommandOutput) => void): void;
@@ -1377,10 +1375,8 @@ export class SageMaker extends SageMakerClient {
 
   /**
    * <p>Creates an Autopilot job.</p>
-   *          <p>Find the best performing model after you run an Autopilot job by calling . Deploy that model by following the steps described in
-   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ex1-deploy-model.html">Step 6.1:
-   *             Deploy the Model to Amazon SageMaker Hosting Services</a>.</p>
-   *          <p>For information about how to use Autopilot, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development.html"> Automate Model
+   *          <p>Find the best performing model after you run an Autopilot job by calling .</p>
+   *          <p>For information about how to use Autopilot, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development.html">Automate Model
    *             Development with Amazon SageMaker Autopilot</a>.</p>
    */
   public createAutoMLJob(
@@ -1762,21 +1758,21 @@ export class SageMaker extends SageMakerClient {
    *                 Deactivating AWS STS in an AWS Region</a> in the <i>AWS Identity and Access Management User
    *                 Guide</i>.</p>
    *         <note>
-   *             <p>
-   *                 To add the IAM role policies for using this API operation,
-   *                 go to the <a href="https://console.aws.amazon.com/iam/">IAM console</a>, and
-   *                 choose Roles in the left navigation pane. Search the IAM role that you want to grant access to use
-   *                 the <a>CreateEndpoint</a> and <a>CreateEndpointConfig</a> API operations, add the following policies to the role.
-   *             </p>
+   *             <p> To add the IAM role policies for using this API operation, go to the <a href="https://console.aws.amazon.com/iam/">IAM console</a>, and choose
+   *                 Roles in the left navigation pane. Search the IAM role that you want to grant
+   *                 access to use the <a>CreateEndpoint</a> and <a>CreateEndpointConfig</a> API operations, add the following policies to
+   *                 the role. </p>
    *             <ul>
    *                <li>
-   *                   <p>Option 1: For a full Amazon SageMaker access, search and attach the <code>AmazonSageMakerFullAccess</code> policy.</p>
-   *                </li>
+   *                     <p>Option 1: For a full Amazon SageMaker access, search and attach the
+   *                             <code>AmazonSageMakerFullAccess</code> policy.</p>
+   *                 </li>
    *                <li>
-   *                   <p>Option 2: For granting a limited access to an IAM role,
-   *                     paste the following Action elements manually into the JSON file of the IAM role: </p>
+   *                     <p>Option 2: For granting a limited access to an IAM role, paste the
+   *                         following Action elements manually into the JSON file of the IAM role: </p>
    *                     <p>
-   *                      <code>"Action": ["sagemaker:CreateEndpoint", "sagemaker:CreateEndpointConfig"]</code>
+   *                      <code>"Action": ["sagemaker:CreateEndpoint",
+   *                             "sagemaker:CreateEndpointConfig"]</code>
    *                   </p>
    *                     <p>
    *                      <code>"Resource": [</code>
@@ -1790,7 +1786,9 @@ export class SageMaker extends SageMakerClient {
    *                     <p>
    *                      <code>]</code>
    *                   </p>
-   *                     <p>For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/api-permissions-reference.html">Amazon SageMaker API Permissions: Actions, Permissions, and Resources Reference</a>.</p>
+   *                     <p>For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/api-permissions-reference.html">Amazon SageMaker API
+   *                             Permissions: Actions, Permissions, and Resources
+   *                         Reference</a>.</p>
    *                 </li>
    *             </ul>
    *
@@ -1946,7 +1944,7 @@ export class SageMaker extends SageMakerClient {
    *          FeatureGroup. A <code>FeatureGroup</code> definition is composed of a list of
    *             <code>Features</code>, a <code>RecordIdentifierFeatureName</code>, an
    *             <code>EventTimeFeatureName</code> and configurations for its <code>OnlineStore</code>
-   *          and <code>OfflineStore</code>. Check <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">AWS service quotas</a> to see
+   *             and <code>OfflineStore</code>. Check <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">AWS service quotas</a> to see
    *          the <code>FeatureGroup</code>s quota for your AWS account.</p>
    *          <important>
    *             <p>You must include at least one of <code>OnlineStoreConfig</code> and
@@ -2145,7 +2143,7 @@ export class SageMaker extends SageMakerClient {
 
   /**
    * <p>Creates a job that uses workers to label the data objects in your input dataset. You
-   *             can use the labeled data to train machine learning models.</p>
+   *             can use the labeled data to train machine learning models. </p>
    *         <p>You can select your workforce from one of three providers:</p>
    *         <ul>
    *             <li>
@@ -2173,6 +2171,15 @@ export class SageMaker extends SageMakerClient {
    *             more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-data.html">Using Input and Output Data</a>.</p>
    *         <p>The output can be used as the manifest file for another labeling job or as training
    *             data for your machine learning models.</p>
+   *         <p>You can use this operation to create a static labeling job or a streaming labeling
+   *             job. A static labeling job stops if all data objects in the input manifest file
+   *             identified in <code>ManifestS3Uri</code> have been labeled. A streaming labeling job
+   *             runs perpetually until it is manually stopped, or remains idle for 10 days. You can send
+   *             new data objects to an active (<code>InProgress</code>) streaming labeling job in real
+   *             time. To learn how to create a static labeling job, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-create-labeling-job-api.html">Create a Labeling Job
+   *                 (API) </a> in the Amazon SageMaker Developer Guide. To learn how to create a streaming
+   *             labeling job, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-streaming-create-job.html">Create a Streaming Labeling
+   *                 Job</a>.</p>
    */
   public createLabelingJob(
     args: CreateLabelingJobCommandInput,
@@ -2322,8 +2329,8 @@ export class SageMaker extends SageMakerClient {
 
   /**
    * <p>Creates a model package that you can use to create Amazon SageMaker models or list on AWS
-   *             Marketplace, or a versioned model that is part of a model group. Buyers can subscribe to model packages listed on AWS Marketplace to create
-   *             models in Amazon SageMaker.</p>
+   *             Marketplace, or a versioned model that is part of a model group. Buyers can subscribe to
+   *             model packages listed on AWS Marketplace to create models in Amazon SageMaker.</p>
    *         <p>To create a model package by specifying a Docker container that contains your
    *             inference code and the Amazon S3 location of your model artifacts, provide values for
    *                 <code>InferenceSpecification</code>. To create a model from an algorithm resource
@@ -2333,7 +2340,8 @@ export class SageMaker extends SageMakerClient {
    *             <p>There are two types of model packages:</p>
    *             <ul>
    *                <li>
-   *                     <p>Versioned - a model that is part of a model group in the model registry.</p>
+   *                     <p>Versioned - a model that is part of a model group in the model
+   *                         registry.</p>
    *                 </li>
    *                <li>
    *                     <p>Unversioned - a model package that is not part of a model group.</p>
@@ -2622,8 +2630,7 @@ export class SageMaker extends SageMakerClient {
    *        This operation can only be called when the authentication mode equals IAM.
    *    </p>
    *          <note>
-   *             <p>The URL that you get from a call to <code>CreatePresignedDomainUrl</code> is valid
-   *             only for 5 minutes. If you try to use the URL after the 5-minute limit expires, you
+   *             <p>The URL that you get from a call to <code>CreatePresignedDomainUrl</code> has a default timeout of 5 minutes. You can configure this value using <code>ExpiresInSeconds</code>. If you try to use the URL after the timeout limit expires, you
    *             are directed to the AWS console sign-in page.</p>
    *          </note>
    */
@@ -2773,9 +2780,9 @@ export class SageMaker extends SageMakerClient {
   /**
    * <p>Starts a model training job. After training completes, Amazon SageMaker saves the resulting
    *             model artifacts to an Amazon S3 location that you specify. </p>
-   *         <p>If you choose to host your model using Amazon SageMaker hosting services, you can use the resulting
-   *             model artifacts as part of the model. You can also use the artifacts in a machine
-   *             learning service other than Amazon SageMaker, provided that you know how to use them for
+   *         <p>If you choose to host your model using Amazon SageMaker hosting services, you can use the
+   *             resulting model artifacts as part of the model. You can also use the artifacts in a
+   *             machine learning service other than Amazon SageMaker, provided that you know how to use them for
    *             inference.
    *
    *         </p>
@@ -2821,8 +2828,8 @@ export class SageMaker extends SageMakerClient {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>RoleArn</code> - The Amazon Resource Number (ARN) that Amazon SageMaker assumes
-   *                     to perform tasks on your behalf during model training.
+   *                   <code>RoleArn</code> - The Amazon Resource Name (ARN) that Amazon SageMaker assumes to perform tasks on
+   *                     your behalf during model training.
    *
    *                     You must grant this role the necessary permissions so that Amazon SageMaker can successfully
    *                     complete model training. </p>
@@ -2833,6 +2840,10 @@ export class SageMaker extends SageMakerClient {
    *                         <code>MaxRuntimeInSeconds</code> to set a time limit for training. Use
    *                         <code>MaxWaitTimeInSeconds</code> to specify how long you are willing to
    *                     wait for a managed spot training job to complete. </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Environment</code> - The environment variables to set in the Docker container.</p>
    *             </li>
    *          </ul>
    *         <p> For more information about Amazon SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How It Works</a>. </p>
@@ -4544,7 +4555,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   * <p>Returns information about an Amazon SageMaker job.</p>
+   * <p>Returns information about an Amazon SageMaker AutoML job.</p>
    */
   public describeAutoMLJob(
     args: DescribeAutoMLJobCommandInput,
@@ -5651,7 +5662,13 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   * <p>Returns information about a training job.</p>
+   * <p>Returns information about a training job. </p>
+   *         <p>Some of the attributes below only appear if the training job successfully starts.
+   *             If the training job fails, <code>TrainingJobStatus</code> is <code>Failed</code> and,
+   *             depending on the <code>FailureReason</code>, attributes like
+   *                 <code>TrainingStartTime</code>, <code>TrainingTimeInSeconds</code>,
+   *                 <code>TrainingEndTime</code>, and <code>BillableTimeInSeconds</code> may not be
+   *             present in the response.</p>
    */
   public describeTrainingJob(
     args: DescribeTrainingJobCommandInput,
@@ -6340,7 +6357,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   * <p>List the Candidates created for the job.</p>
+   * <p>List the candidates created for the job.</p>
    */
   public listCandidatesForAutoMLJob(
     args: ListCandidatesForAutoMLJobCommandInput,
@@ -7534,6 +7551,26 @@ export class SageMaker extends SageMakerClient {
 
   /**
    * <p>Lists training jobs.</p>
+   *         <note>
+   *             <p>When <code>StatusEquals</code> and <code>MaxResults</code> are set at the same
+   *                 time, the <code>MaxResults</code> number of training jobs are first retrieved
+   *                 ignoring the <code>StatusEquals</code> parameter and then they are filtered by the
+   *                     <code>StatusEquals</code> parameter, which is returned as a response. For
+   *                 example, if <code>ListTrainingJobs</code> is invoked with the following
+   *                 parameters:</p>
+   *             <p>
+   *                <code>{ ... MaxResults: 100, StatusEquals: InProgress ... }</code>
+   *             </p>
+   *             <p>Then, 100 trainings jobs with any status including those other than
+   *                     <code>InProgress</code> are selected first (sorted according the creation time,
+   *                 from the latest to the oldest) and those with status <code>InProgress</code> are
+   *                 returned.</p>
+   *             <p>You can quickly test the API using the following AWS CLI code.</p>
+   *             <p>
+   *                <code>aws sagemaker list-training-jobs --max-results 100 --status-equals
+   *                     InProgress</code>
+   *             </p>
+   *         </note>
    */
   public listTrainingJobs(
     args: ListTrainingJobsCommandInput,
@@ -8079,7 +8116,7 @@ export class SageMaker extends SageMakerClient {
    *         <p> To stop a job, Amazon SageMaker sends the algorithm the SIGTERM signal. This gracefully shuts the
    *             job down. If the job hasn't stopped, it sends the SIGKILL signal.</p>
    *         <p>When it receives a <code>StopCompilationJob</code> request, Amazon SageMaker changes the <a>CompilationJobSummary$CompilationJobStatus</a> of the job to
-   *                 <code>Stopping</code>. After Amazon SageMaker stops the job, it sets the <a>CompilationJobSummary$CompilationJobStatus</a> to <code>Stopped</code>.
+   *             <code>Stopping</code>. After Amazon SageMaker stops the job, it sets the <a>CompilationJobSummary$CompilationJobStatus</a> to <code>Stopped</code>.
    *         </p>
    */
   public stopCompilationJob(

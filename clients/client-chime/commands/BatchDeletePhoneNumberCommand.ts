@@ -21,11 +21,15 @@ export type BatchDeletePhoneNumberCommandInput = BatchDeletePhoneNumberRequest;
 export type BatchDeletePhoneNumberCommandOutput = BatchDeletePhoneNumberResponse & __MetadataBearer;
 
 /**
- * <p>Moves phone numbers into the <b>Deletion queue</b>. Phone
- *       numbers must be disassociated from any users or Amazon Chime Voice
- *       Connectors before they can be deleted.</p>
- *          <p>Phone numbers remain in the <b>Deletion queue</b> for 7 days
- *       before they are deleted permanently.</p>
+ * <p>
+ * Moves phone numbers into the
+ * <b>Deletion queue</b>. Phone numbers must be disassociated from any users or Amazon Chime Voice Connectors before they can be deleted.
+ * </p>
+ *
+ *          <p>
+ * Phone numbers remain in the
+ * <b>Deletion queue</b> for 7 days before they are deleted permanently.
+ * </p>
  */
 export class BatchDeletePhoneNumberCommand extends $Command<
   BatchDeletePhoneNumberCommandInput,

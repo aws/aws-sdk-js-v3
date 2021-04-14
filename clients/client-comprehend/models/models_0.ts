@@ -351,11 +351,9 @@ export namespace BatchDetectEntitiesResponse {
 }
 
 /**
- * <p>Amazon Comprehend can't process the language of the input text. For all custom entity
- *       recognition APIs (such as <code>CreateEntityRecognizer</code>), only English, Spanish, French,
- *       Italian, German, or Portuguese are accepted. For most other APIs, such as those for Custom
- *       Classification, Amazon Comprehend accepts text in all supported languages. For a list of
- *       supported languages, see <a>supported-languages</a>. </p>
+ * <p>Amazon Comprehend can't process the language of the input text. For custom entity
+ *       recognition APIs, only English, Spanish, French, Italian, German, or Portuguese are accepted.
+ *       For a list of supported languages, see <a>supported-languages</a>. </p>
  */
 export interface UnsupportedLanguageException extends __SmithyException, $MetadataBearer {
   name: "UnsupportedLanguageException";
@@ -966,6 +964,88 @@ export namespace ResourceUnavailableException {
   });
 }
 
+export interface ContainsPiiEntitiesRequest {
+  /**
+   * <p>Creates a new document classification request to analyze a single document in real-time,
+   *       returning personally identifiable information (PII) entity labels.</p>
+   */
+  Text: string | undefined;
+
+  /**
+   * <p>The language of the input documents.</p>
+   */
+  LanguageCode: LanguageCode | string | undefined;
+}
+
+export namespace ContainsPiiEntitiesRequest {
+  export const filterSensitiveLog = (obj: ContainsPiiEntitiesRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum PiiEntityType {
+  ADDRESS = "ADDRESS",
+  AGE = "AGE",
+  ALL = "ALL",
+  AWS_ACCESS_KEY = "AWS_ACCESS_KEY",
+  AWS_SECRET_KEY = "AWS_SECRET_KEY",
+  BANK_ACCOUNT_NUMBER = "BANK_ACCOUNT_NUMBER",
+  BANK_ROUTING = "BANK_ROUTING",
+  CREDIT_DEBIT_CVV = "CREDIT_DEBIT_CVV",
+  CREDIT_DEBIT_EXPIRY = "CREDIT_DEBIT_EXPIRY",
+  CREDIT_DEBIT_NUMBER = "CREDIT_DEBIT_NUMBER",
+  DATE_TIME = "DATE_TIME",
+  DRIVER_ID = "DRIVER_ID",
+  EMAIL = "EMAIL",
+  IP_ADDRESS = "IP_ADDRESS",
+  MAC_ADDRESS = "MAC_ADDRESS",
+  NAME = "NAME",
+  PASSPORT_NUMBER = "PASSPORT_NUMBER",
+  PASSWORD = "PASSWORD",
+  PHONE = "PHONE",
+  PIN = "PIN",
+  SSN = "SSN",
+  URL = "URL",
+  USERNAME = "USERNAME",
+}
+
+/**
+ * <p>Specifies one of the label or labels that categorize the personally identifiable
+ *       information (PII) entity being analyzed.</p>
+ */
+export interface EntityLabel {
+  /**
+   * <p>The name of the label.</p>
+   */
+  Name?: PiiEntityType | string;
+
+  /**
+   * <p>The level of confidence that Amazon Comprehend has in the accuracy of the
+   *       detection.</p>
+   */
+  Score?: number;
+}
+
+export namespace EntityLabel {
+  export const filterSensitiveLog = (obj: EntityLabel): any => ({
+    ...obj,
+  });
+}
+
+export interface ContainsPiiEntitiesResponse {
+  /**
+   * <p>The labels used in the document being analyzed. Individual labels represent personally
+   *       identifiable information (PII) entity types.</p>
+   */
+  Labels?: EntityLabel[];
+}
+
+export namespace ContainsPiiEntitiesResponse {
+  export const filterSensitiveLog = (obj: ContainsPiiEntitiesResponse): any => ({
+    ...obj,
+  });
+}
+
 export enum DocumentClassifierDataFormat {
   AUGMENTED_MANIFEST = "AUGMENTED_MANIFEST",
   COMPREHEND_CSV = "COMPREHEND_CSV",
@@ -1228,6 +1308,23 @@ export interface CreateDocumentClassifierRequest {
    *       labels is a pipe (|).</p>
    */
   Mode?: DocumentClassifierMode | string;
+
+  /**
+   * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt
+   *       trained custom models. The ModelKmsKeyId can be either of the following formats:</p>
+   *          <ul>
+   *             <li>
+   *                <p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Amazon Resource Name (ARN) of a KMS Key:
+   *             <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  ModelKmsKeyId?: string;
 }
 
 export namespace CreateDocumentClassifierRequest {
@@ -1362,6 +1459,13 @@ export interface CreateEndpointRequest {
    *       endpoint to indicate its use by the sales department. </p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS identity and Access Management (IAM) role that
+   *       grants Amazon Comprehend read access to trained custom models encrypted with a customer
+   *       managed key (ModelKmsKeyId).</p>
+   */
+  DataAccessRoleArn?: string;
 }
 
 export namespace CreateEndpointRequest {
@@ -1619,6 +1723,23 @@ export interface CreateEntityRecognizerRequest {
    *         VPC</a>. </p>
    */
   VpcConfig?: VpcConfig;
+
+  /**
+   * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt
+   *       trained custom models. The ModelKmsKeyId can be either of the following formats</p>
+   *          <ul>
+   *             <li>
+   *                <p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Amazon Resource Name (ARN) of a KMS Key:
+   *             <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  ModelKmsKeyId?: string;
 }
 
 export namespace CreateEntityRecognizerRequest {
@@ -2069,6 +2190,23 @@ export interface DocumentClassifierProperties {
    *       trained in one mode and this cannot be changed once the classifier is trained.</p>
    */
   Mode?: DocumentClassifierMode | string;
+
+  /**
+   * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt
+   *       trained custom models. The ModelKmsKeyId can be either of the following formats:</p>
+   *          <ul>
+   *             <li>
+   *                <p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Amazon Resource Name (ARN) of a KMS Key:
+   *             <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  ModelKmsKeyId?: string;
 }
 
 export namespace DocumentClassifierProperties {
@@ -2276,6 +2414,13 @@ export interface EndpointProperties {
    * <p>The date and time that the endpoint was last modified.</p>
    */
   LastModifiedTime?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS identity and Access Management (IAM) role that
+   *       grants Amazon Comprehend read access to trained custom models encrypted with a customer
+   *       managed key (ModelKmsKeyId).</p>
+   */
+  DataAccessRoleArn?: string;
 }
 
 export namespace EndpointProperties {
@@ -2643,6 +2788,23 @@ export interface EntityRecognizerProperties {
    *         VPC</a>. </p>
    */
   VpcConfig?: VpcConfig;
+
+  /**
+   * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt
+   *       trained custom models. The ModelKmsKeyId can be either of the following formats: </p>
+   *          <ul>
+   *             <li>
+   *                <p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Amazon Resource Name (ARN) of a KMS Key:
+   *             <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  ModelKmsKeyId?: string;
 }
 
 export namespace EntityRecognizerProperties {
@@ -2716,12 +2878,14 @@ export interface EventsDetectionJobProperties {
   EndTime?: Date;
 
   /**
-   * <p>The input data configuration that you supplied when you created the events detection job.</p>
+   * <p>The input data configuration that you supplied when you created the events detection
+   *       job.</p>
    */
   InputDataConfig?: InputDataConfig;
 
   /**
-   * <p>The output data configuration that you supplied when you created the events detection job.</p>
+   * <p>The output data configuration that you supplied when you created the events detection
+   *       job.</p>
    */
   OutputDataConfig?: OutputDataConfig;
 
@@ -2924,32 +3088,6 @@ export namespace PiiOutputDataConfig {
 export enum PiiEntitiesDetectionMaskMode {
   MASK = "MASK",
   REPLACE_WITH_PII_ENTITY_TYPE = "REPLACE_WITH_PII_ENTITY_TYPE",
-}
-
-export enum PiiEntityType {
-  ADDRESS = "ADDRESS",
-  AGE = "AGE",
-  ALL = "ALL",
-  AWS_ACCESS_KEY = "AWS_ACCESS_KEY",
-  AWS_SECRET_KEY = "AWS_SECRET_KEY",
-  BANK_ACCOUNT_NUMBER = "BANK_ACCOUNT_NUMBER",
-  BANK_ROUTING = "BANK_ROUTING",
-  CREDIT_DEBIT_CVV = "CREDIT_DEBIT_CVV",
-  CREDIT_DEBIT_EXPIRY = "CREDIT_DEBIT_EXPIRY",
-  CREDIT_DEBIT_NUMBER = "CREDIT_DEBIT_NUMBER",
-  DATE_TIME = "DATE_TIME",
-  DRIVER_ID = "DRIVER_ID",
-  EMAIL = "EMAIL",
-  IP_ADDRESS = "IP_ADDRESS",
-  MAC_ADDRESS = "MAC_ADDRESS",
-  NAME = "NAME",
-  PASSPORT_NUMBER = "PASSPORT_NUMBER",
-  PASSWORD = "PASSWORD",
-  PHONE = "PHONE",
-  PIN = "PIN",
-  SSN = "SSN",
-  URL = "URL",
-  USERNAME = "USERNAME",
 }
 
 /**
@@ -3828,9 +3966,9 @@ export namespace ListDominantLanguageDetectionJobsResponse {
 }
 
 /**
- * <p>The filter used to determine which endpoints are returned. You can filter jobs on
- *       their name, model, status, or the date and time that they were created. You can only set one
- *       filter at a time. </p>
+ * <p>The filter used to determine which endpoints are returned. You can filter jobs on their
+ *       name, model, status, or the date and time that they were created. You can only set one filter
+ *       at a time. </p>
  */
 export interface EndpointFilter {
   /**
@@ -4835,7 +4973,8 @@ export interface StartEventsDetectionJobRequest {
   LanguageCode: LanguageCode | string | undefined;
 
   /**
-   * <p>An unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.</p>
+   * <p>An unique identifier for the request. If you don't set the client request token, Amazon
+   *       Comprehend generates one.</p>
    */
   ClientRequestToken?: string;
 

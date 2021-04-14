@@ -19,10 +19,14 @@ export type ListUsersCommandOutput = ListUsersResponse & __MetadataBearer;
 
 /**
  * <p>Lists the IAM users that have the specified path prefix. If no path prefix is
- *          specified, the operation returns all users in the AWS account. If there are none, the
- *          operation returns an empty list.</p>
- *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
- *          parameters.</p>
+ *             specified, the operation returns all users in the AWS account. If there are none, the
+ *             operation returns an empty list.</p>
+ *         <note>
+ *             <p>IAM resource-listing operations return a subset of the available
+ *    attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view all of the information for a user, see <a>GetUser</a>.</p>
+ *         </note>
+ *         <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
+ *             parameters.</p>
  */
 export class ListUsersCommand extends $Command<ListUsersCommandInput, ListUsersCommandOutput, IAMClientResolvedConfig> {
   // Start section: command_properties

@@ -1139,6 +1139,94 @@ export namespace CreateDataSourceResponse {
   });
 }
 
+export enum ConflictDetectionType {
+  NONE = "NONE",
+  VERSION = "VERSION",
+}
+
+export enum ConflictHandlerType {
+  AUTOMERGE = "AUTOMERGE",
+  LAMBDA = "LAMBDA",
+  NONE = "NONE",
+  OPTIMISTIC_CONCURRENCY = "OPTIMISTIC_CONCURRENCY",
+}
+
+/**
+ * <p>The <code>LambdaConflictHandlerConfig</code> object when configuring LAMBDA as the
+ *          Conflict Handler.</p>
+ */
+export interface LambdaConflictHandlerConfig {
+  /**
+   * <p>The Arn for the Lambda function to use as the Conflict Handler.</p>
+   */
+  lambdaConflictHandlerArn?: string;
+}
+
+export namespace LambdaConflictHandlerConfig {
+  export const filterSensitiveLog = (obj: LambdaConflictHandlerConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a Sync configuration for a resolver.</p>
+ *          <p>Contains information on which Conflict Detection as well as Resolution strategy should
+ *          be performed when the resolver is invoked.</p>
+ */
+export interface SyncConfig {
+  /**
+   * <p>The Conflict Resolution strategy to perform in the event of a conflict.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>OPTIMISTIC_CONCURRENCY</b>: Resolve conflicts by
+   *                rejecting mutations when versions do not match the latest version at the
+   *                server.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>AUTOMERGE</b>: Resolve conflicts with the
+   *                Automerge conflict resolution strategy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>LAMBDA</b>: Resolve conflicts with a Lambda
+   *                function supplied in the LambdaConflictHandlerConfig.</p>
+   *             </li>
+   *          </ul>
+   */
+  conflictHandler?: ConflictHandlerType | string;
+
+  /**
+   * <p>The Conflict Detection strategy to use.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>VERSION</b>: Detect conflicts based on object
+   *                versions for this resolver.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>NONE</b>: Do not detect conflicts when executing
+   *                this resolver.</p>
+   *             </li>
+   *          </ul>
+   */
+  conflictDetection?: ConflictDetectionType | string;
+
+  /**
+   * <p>The <code>LambdaConflictHandlerConfig</code> when configuring LAMBDA as the Conflict
+   *          Handler.</p>
+   */
+  lambdaConflictHandlerConfig?: LambdaConflictHandlerConfig;
+}
+
+export namespace SyncConfig {
+  export const filterSensitiveLog = (obj: SyncConfig): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateFunctionRequest {
   /**
    * <p>The GraphQL API ID.</p>
@@ -1177,6 +1265,13 @@ export interface CreateFunctionRequest {
    *          is 2018-05-29. </p>
    */
   functionVersion: string | undefined;
+
+  /**
+   * <p>Describes a Sync configuration for a resolver.</p>
+   *          <p>Contains information on which Conflict Detection as well as Resolution strategy should
+   *          be performed when the resolver is invoked.</p>
+   */
+  syncConfig?: SyncConfig;
 }
 
 export namespace CreateFunctionRequest {
@@ -1231,6 +1326,13 @@ export interface FunctionConfiguration {
    *          the template is supported.</p>
    */
   functionVersion?: string;
+
+  /**
+   * <p>Describes a Sync configuration for a resolver.</p>
+   *          <p>Contains information on which Conflict Detection as well as Resolution strategy should
+   *          be performed when the resolver is invoked.</p>
+   */
+  syncConfig?: SyncConfig;
 }
 
 export namespace FunctionConfiguration {
@@ -1541,94 +1643,6 @@ export interface PipelineConfig {
 
 export namespace PipelineConfig {
   export const filterSensitiveLog = (obj: PipelineConfig): any => ({
-    ...obj,
-  });
-}
-
-export enum ConflictDetectionType {
-  NONE = "NONE",
-  VERSION = "VERSION",
-}
-
-export enum ConflictHandlerType {
-  AUTOMERGE = "AUTOMERGE",
-  LAMBDA = "LAMBDA",
-  NONE = "NONE",
-  OPTIMISTIC_CONCURRENCY = "OPTIMISTIC_CONCURRENCY",
-}
-
-/**
- * <p>The <code>LambdaConflictHandlerConfig</code> object when configuring LAMBDA as the
- *          Conflict Handler.</p>
- */
-export interface LambdaConflictHandlerConfig {
-  /**
-   * <p>The Arn for the Lambda function to use as the Conflict Handler.</p>
-   */
-  lambdaConflictHandlerArn?: string;
-}
-
-export namespace LambdaConflictHandlerConfig {
-  export const filterSensitiveLog = (obj: LambdaConflictHandlerConfig): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a Sync configuration for a resolver.</p>
- *          <p>Contains information on which Conflict Detection as well as Resolution strategy should
- *          be performed when the resolver is invoked.</p>
- */
-export interface SyncConfig {
-  /**
-   * <p>The Conflict Resolution strategy to perform in the event of a conflict.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>OPTIMISTIC_CONCURRENCY</b>: Resolve conflicts by
-   *                rejecting mutations when versions do not match the latest version at the
-   *                server.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>AUTOMERGE</b>: Resolve conflicts with the
-   *                Automerge conflict resolution strategy.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>LAMBDA</b>: Resolve conflicts with a Lambda
-   *                function supplied in the LambdaConflictHandlerConfig.</p>
-   *             </li>
-   *          </ul>
-   */
-  conflictHandler?: ConflictHandlerType | string;
-
-  /**
-   * <p>The Conflict Detection strategy to use.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>VERSION</b>: Detect conflicts based on object
-   *                versions for this resolver.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>NONE</b>: Do not detect conflicts when executing
-   *                this resolver.</p>
-   *             </li>
-   *          </ul>
-   */
-  conflictDetection?: ConflictDetectionType | string;
-
-  /**
-   * <p>The <code>LambdaConflictHandlerConfig</code> when configuring LAMBDA as the Conflict
-   *          Handler.</p>
-   */
-  lambdaConflictHandlerConfig?: LambdaConflictHandlerConfig;
-}
-
-export namespace SyncConfig {
-  export const filterSensitiveLog = (obj: SyncConfig): any => ({
     ...obj,
   });
 }
@@ -3089,6 +3103,13 @@ export interface UpdateFunctionRequest {
    *          is 2018-05-29. </p>
    */
   functionVersion: string | undefined;
+
+  /**
+   * <p>Describes a Sync configuration for a resolver.</p>
+   *          <p>Contains information on which Conflict Detection as well as Resolution strategy should
+   *          be performed when the resolver is invoked.</p>
+   */
+  syncConfig?: SyncConfig;
 }
 
 export namespace UpdateFunctionRequest {

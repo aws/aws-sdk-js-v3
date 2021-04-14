@@ -21,7 +21,11 @@ export type ListAppInstanceUsersCommandInput = ListAppInstanceUsersRequest;
 export type ListAppInstanceUsersCommandOutput = ListAppInstanceUsersResponse & __MetadataBearer;
 
 /**
- * <p>List all <code>AppInstanceUsers</code> created under a single app instance.</p>
+ * <p>
+ * List all
+ * <code>AppInstanceUsers</code>
+ * created under a single <code>AppInstance</code>.
+ * </p>
  */
 export class ListAppInstanceUsersCommand extends $Command<
   ListAppInstanceUsersCommandInput,

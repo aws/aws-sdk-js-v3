@@ -219,6 +219,8 @@ import {
   TemplateLocation,
   TemplateSummary,
   ThrottlingException,
+  Tool,
+  UploadConfiguration,
   VPCConfig,
   VPCConfigResponse,
   WorldConfig,
@@ -7735,6 +7737,18 @@ const serializeAws_restJson1RobotApplicationConfig = (input: RobotApplicationCon
       input.applicationVersion !== null && { applicationVersion: input.applicationVersion }),
     ...(input.launchConfig !== undefined &&
       input.launchConfig !== null && { launchConfig: serializeAws_restJson1LaunchConfig(input.launchConfig, context) }),
+    ...(input.tools !== undefined &&
+      input.tools !== null && { tools: serializeAws_restJson1Tools(input.tools, context) }),
+    ...(input.uploadConfigurations !== undefined &&
+      input.uploadConfigurations !== null && {
+        uploadConfigurations: serializeAws_restJson1UploadConfigurations(input.uploadConfigurations, context),
+      }),
+    ...(input.useDefaultTools !== undefined &&
+      input.useDefaultTools !== null && { useDefaultTools: input.useDefaultTools }),
+    ...(input.useDefaultUploadConfigurations !== undefined &&
+      input.useDefaultUploadConfigurations !== null && {
+        useDefaultUploadConfigurations: input.useDefaultUploadConfigurations,
+      }),
   };
 };
 
@@ -7799,6 +7813,18 @@ const serializeAws_restJson1SimulationApplicationConfig = (
       input.applicationVersion !== null && { applicationVersion: input.applicationVersion }),
     ...(input.launchConfig !== undefined &&
       input.launchConfig !== null && { launchConfig: serializeAws_restJson1LaunchConfig(input.launchConfig, context) }),
+    ...(input.tools !== undefined &&
+      input.tools !== null && { tools: serializeAws_restJson1Tools(input.tools, context) }),
+    ...(input.uploadConfigurations !== undefined &&
+      input.uploadConfigurations !== null && {
+        uploadConfigurations: serializeAws_restJson1UploadConfigurations(input.uploadConfigurations, context),
+      }),
+    ...(input.useDefaultTools !== undefined &&
+      input.useDefaultTools !== null && { useDefaultTools: input.useDefaultTools }),
+    ...(input.useDefaultUploadConfigurations !== undefined &&
+      input.useDefaultUploadConfigurations !== null && {
+        useDefaultUploadConfigurations: input.useDefaultUploadConfigurations,
+      }),
     ...(input.worldConfigs !== undefined &&
       input.worldConfigs !== null && { worldConfigs: serializeAws_restJson1WorldConfigs(input.worldConfigs, context) }),
   };
@@ -7915,6 +7941,48 @@ const serializeAws_restJson1TemplateLocation = (input: TemplateLocation, context
     ...(input.s3Bucket !== undefined && input.s3Bucket !== null && { s3Bucket: input.s3Bucket }),
     ...(input.s3Key !== undefined && input.s3Key !== null && { s3Key: input.s3Key }),
   };
+};
+
+const serializeAws_restJson1Tool = (input: Tool, context: __SerdeContext): any => {
+  return {
+    ...(input.command !== undefined && input.command !== null && { command: input.command }),
+    ...(input.exitBehavior !== undefined && input.exitBehavior !== null && { exitBehavior: input.exitBehavior }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.streamOutputToCloudWatch !== undefined &&
+      input.streamOutputToCloudWatch !== null && { streamOutputToCloudWatch: input.streamOutputToCloudWatch }),
+    ...(input.streamUI !== undefined && input.streamUI !== null && { streamUI: input.streamUI }),
+  };
+};
+
+const serializeAws_restJson1Tools = (input: Tool[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1Tool(entry, context);
+    });
+};
+
+const serializeAws_restJson1UploadConfiguration = (input: UploadConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.path !== undefined && input.path !== null && { path: input.path }),
+    ...(input.uploadBehavior !== undefined &&
+      input.uploadBehavior !== null && { uploadBehavior: input.uploadBehavior }),
+  };
+};
+
+const serializeAws_restJson1UploadConfigurations = (input: UploadConfiguration[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1UploadConfiguration(entry, context);
+    });
 };
 
 const serializeAws_restJson1VPCConfig = (input: VPCConfig, context: __SerdeContext): any => {
@@ -8413,6 +8481,20 @@ const deserializeAws_restJson1RobotApplicationConfig = (
       output.launchConfig !== undefined && output.launchConfig !== null
         ? deserializeAws_restJson1LaunchConfig(output.launchConfig, context)
         : undefined,
+    tools:
+      output.tools !== undefined && output.tools !== null
+        ? deserializeAws_restJson1Tools(output.tools, context)
+        : undefined,
+    uploadConfigurations:
+      output.uploadConfigurations !== undefined && output.uploadConfigurations !== null
+        ? deserializeAws_restJson1UploadConfigurations(output.uploadConfigurations, context)
+        : undefined,
+    useDefaultTools:
+      output.useDefaultTools !== undefined && output.useDefaultTools !== null ? output.useDefaultTools : undefined,
+    useDefaultUploadConfigurations:
+      output.useDefaultUploadConfigurations !== undefined && output.useDefaultUploadConfigurations !== null
+        ? output.useDefaultUploadConfigurations
+        : undefined,
   } as any;
 };
 
@@ -8586,6 +8668,20 @@ const deserializeAws_restJson1SimulationApplicationConfig = (
     launchConfig:
       output.launchConfig !== undefined && output.launchConfig !== null
         ? deserializeAws_restJson1LaunchConfig(output.launchConfig, context)
+        : undefined,
+    tools:
+      output.tools !== undefined && output.tools !== null
+        ? deserializeAws_restJson1Tools(output.tools, context)
+        : undefined,
+    uploadConfigurations:
+      output.uploadConfigurations !== undefined && output.uploadConfigurations !== null
+        ? deserializeAws_restJson1UploadConfigurations(output.uploadConfigurations, context)
+        : undefined,
+    useDefaultTools:
+      output.useDefaultTools !== undefined && output.useDefaultTools !== null ? output.useDefaultTools : undefined,
+    useDefaultUploadConfigurations:
+      output.useDefaultUploadConfigurations !== undefined && output.useDefaultUploadConfigurations !== null
+        ? output.useDefaultUploadConfigurations
         : undefined,
     worldConfigs:
       output.worldConfigs !== undefined && output.worldConfigs !== null
@@ -8944,6 +9040,50 @@ const deserializeAws_restJson1TemplateSummary = (output: any, context: __SerdeCo
         : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1Tool = (output: any, context: __SerdeContext): Tool => {
+  return {
+    command: output.command !== undefined && output.command !== null ? output.command : undefined,
+    exitBehavior: output.exitBehavior !== undefined && output.exitBehavior !== null ? output.exitBehavior : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    streamOutputToCloudWatch:
+      output.streamOutputToCloudWatch !== undefined && output.streamOutputToCloudWatch !== null
+        ? output.streamOutputToCloudWatch
+        : undefined,
+    streamUI: output.streamUI !== undefined && output.streamUI !== null ? output.streamUI : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Tools = (output: any, context: __SerdeContext): Tool[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Tool(entry, context);
+    });
+};
+
+const deserializeAws_restJson1UploadConfiguration = (output: any, context: __SerdeContext): UploadConfiguration => {
+  return {
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    path: output.path !== undefined && output.path !== null ? output.path : undefined,
+    uploadBehavior:
+      output.uploadBehavior !== undefined && output.uploadBehavior !== null ? output.uploadBehavior : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1UploadConfigurations = (output: any, context: __SerdeContext): UploadConfiguration[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1UploadConfiguration(entry, context);
+    });
 };
 
 const deserializeAws_restJson1VPCConfig = (output: any, context: __SerdeContext): VPCConfig => {

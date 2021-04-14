@@ -21,7 +21,7 @@ export type UpdateSipMediaApplicationCommandInput = UpdateSipMediaApplicationReq
 export type UpdateSipMediaApplicationCommandOutput = UpdateSipMediaApplicationResponse & __MetadataBearer;
 
 /**
- * <p>Updates the details for the specified SIP media application.</p>
+ * <p>Updates the details of the specified SIP media application.</p>
  */
 export class UpdateSipMediaApplicationCommand extends $Command<
   UpdateSipMediaApplicationCommandInput,

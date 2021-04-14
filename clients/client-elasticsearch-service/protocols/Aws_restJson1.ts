@@ -35,6 +35,10 @@ import {
 } from "../commands/DeleteOutboundCrossClusterSearchConnectionCommand";
 import { DeletePackageCommandInput, DeletePackageCommandOutput } from "../commands/DeletePackageCommand";
 import {
+  DescribeDomainAutoTunesCommandInput,
+  DescribeDomainAutoTunesCommandOutput,
+} from "../commands/DescribeDomainAutoTunesCommand";
+import {
   DescribeElasticsearchDomainCommandInput,
   DescribeElasticsearchDomainCommandOutput,
 } from "../commands/DescribeElasticsearchDomainCommand";
@@ -126,6 +130,14 @@ import {
   AdvancedSecurityOptions,
   AdvancedSecurityOptionsInput,
   AdvancedSecurityOptionsStatus,
+  AutoTune,
+  AutoTuneDetails,
+  AutoTuneMaintenanceSchedule,
+  AutoTuneOptions,
+  AutoTuneOptionsInput,
+  AutoTuneOptionsOutput,
+  AutoTuneOptionsStatus,
+  AutoTuneStatus,
   BaseException,
   CognitoOptions,
   CognitoOptionsStatus,
@@ -138,6 +150,7 @@ import {
   DomainInfo,
   DomainInformation,
   DomainPackageDetails,
+  Duration,
   EBSOptions,
   EBSOptionsStatus,
   ESPartitionInstanceType,
@@ -179,6 +192,7 @@ import {
   SAMLIdp,
   SAMLOptionsInput,
   SAMLOptionsOutput,
+  ScheduledAutoTuneDetails,
   ServiceSoftwareOptions,
   SnapshotOptions,
   SnapshotOptionsStatus,
@@ -343,6 +357,10 @@ export const serializeAws_restJson1CreateElasticsearchDomainCommand = async (
           context
         ),
       }),
+    ...(input.AutoTuneOptions !== undefined &&
+      input.AutoTuneOptions !== null && {
+        AutoTuneOptions: serializeAws_restJson1AutoTuneOptionsInput(input.AutoTuneOptions, context),
+      }),
     ...(input.CognitoOptions !== undefined &&
       input.CognitoOptions !== null && {
         CognitoOptions: serializeAws_restJson1CognitoOptions(input.CognitoOptions, context),
@@ -382,6 +400,8 @@ export const serializeAws_restJson1CreateElasticsearchDomainCommand = async (
       input.SnapshotOptions !== null && {
         SnapshotOptions: serializeAws_restJson1SnapshotOptions(input.SnapshotOptions, context),
       }),
+    ...(input.TagList !== undefined &&
+      input.TagList !== null && { TagList: serializeAws_restJson1TagList(input.TagList, context) }),
     ...(input.VPCOptions !== undefined &&
       input.VPCOptions !== null && { VPCOptions: serializeAws_restJson1VPCOptions(input.VPCOptions, context) }),
   });
@@ -587,6 +607,40 @@ export const serializeAws_restJson1DeletePackageCommand = async (
     hostname,
     port,
     method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeDomainAutoTunesCommand = async (
+  input: DescribeDomainAutoTunesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = "/2015-01-01/es/domain/{DomainName}/autoTunes";
+  if (input.DomainName !== undefined) {
+    const labelValue: string = input.DomainName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DomainName.");
+    }
+    resolvedPath = resolvedPath.replace("{DomainName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DomainName.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
     headers,
     path: resolvedPath,
     body,
@@ -1311,6 +1365,10 @@ export const serializeAws_restJson1UpdateElasticsearchDomainConfigCommand = asyn
           context
         ),
       }),
+    ...(input.AutoTuneOptions !== undefined &&
+      input.AutoTuneOptions !== null && {
+        AutoTuneOptions: serializeAws_restJson1AutoTuneOptions(input.AutoTuneOptions, context),
+      }),
     ...(input.CognitoOptions !== undefined &&
       input.CognitoOptions !== null && {
         CognitoOptions: serializeAws_restJson1CognitoOptions(input.CognitoOptions, context),
@@ -1328,9 +1386,20 @@ export const serializeAws_restJson1UpdateElasticsearchDomainConfigCommand = asyn
           context
         ),
       }),
+    ...(input.EncryptionAtRestOptions !== undefined &&
+      input.EncryptionAtRestOptions !== null && {
+        EncryptionAtRestOptions: serializeAws_restJson1EncryptionAtRestOptions(input.EncryptionAtRestOptions, context),
+      }),
     ...(input.LogPublishingOptions !== undefined &&
       input.LogPublishingOptions !== null && {
         LogPublishingOptions: serializeAws_restJson1LogPublishingOptions(input.LogPublishingOptions, context),
+      }),
+    ...(input.NodeToNodeEncryptionOptions !== undefined &&
+      input.NodeToNodeEncryptionOptions !== null && {
+        NodeToNodeEncryptionOptions: serializeAws_restJson1NodeToNodeEncryptionOptions(
+          input.NodeToNodeEncryptionOptions,
+          context
+        ),
       }),
     ...(input.SnapshotOptions !== undefined &&
       input.SnapshotOptions !== null && {
@@ -2367,6 +2436,89 @@ const deserializeAws_restJson1DeletePackageCommandError = async (
     case "com.amazonaws.elasticsearchservice#ConflictException":
       response = {
         ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalException":
+    case "com.amazonaws.elasticsearchservice#InternalException":
+      response = {
+        ...(await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.elasticsearchservice#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.elasticsearchservice#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DescribeDomainAutoTunesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDomainAutoTunesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeDomainAutoTunesCommandError(output, context);
+  }
+  const contents: DescribeDomainAutoTunesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    AutoTunes: undefined,
+    NextToken: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.AutoTunes !== undefined && data.AutoTunes !== null) {
+    contents.AutoTunes = deserializeAws_restJson1AutoTuneList(data.AutoTunes, context);
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = data.NextToken;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeDomainAutoTunesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDomainAutoTunesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BaseException":
+    case "com.amazonaws.elasticsearchservice#BaseException":
+      response = {
+        ...(await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4938,6 +5090,62 @@ const serializeAws_restJson1AdvancedSecurityOptionsInput = (
   };
 };
 
+const serializeAws_restJson1AutoTuneMaintenanceSchedule = (
+  input: AutoTuneMaintenanceSchedule,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CronExpressionForRecurrence !== undefined &&
+      input.CronExpressionForRecurrence !== null && { CronExpressionForRecurrence: input.CronExpressionForRecurrence }),
+    ...(input.Duration !== undefined &&
+      input.Duration !== null && { Duration: serializeAws_restJson1Duration(input.Duration, context) }),
+    ...(input.StartAt !== undefined &&
+      input.StartAt !== null && { StartAt: Math.round(input.StartAt.getTime() / 1000) }),
+  };
+};
+
+const serializeAws_restJson1AutoTuneMaintenanceScheduleList = (
+  input: AutoTuneMaintenanceSchedule[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1AutoTuneMaintenanceSchedule(entry, context);
+    });
+};
+
+const serializeAws_restJson1AutoTuneOptions = (input: AutoTuneOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.DesiredState !== undefined && input.DesiredState !== null && { DesiredState: input.DesiredState }),
+    ...(input.MaintenanceSchedules !== undefined &&
+      input.MaintenanceSchedules !== null && {
+        MaintenanceSchedules: serializeAws_restJson1AutoTuneMaintenanceScheduleList(
+          input.MaintenanceSchedules,
+          context
+        ),
+      }),
+    ...(input.RollbackOnDisable !== undefined &&
+      input.RollbackOnDisable !== null && { RollbackOnDisable: input.RollbackOnDisable }),
+  };
+};
+
+const serializeAws_restJson1AutoTuneOptionsInput = (input: AutoTuneOptionsInput, context: __SerdeContext): any => {
+  return {
+    ...(input.DesiredState !== undefined && input.DesiredState !== null && { DesiredState: input.DesiredState }),
+    ...(input.MaintenanceSchedules !== undefined &&
+      input.MaintenanceSchedules !== null && {
+        MaintenanceSchedules: serializeAws_restJson1AutoTuneMaintenanceScheduleList(
+          input.MaintenanceSchedules,
+          context
+        ),
+      }),
+  };
+};
+
 const serializeAws_restJson1CognitoOptions = (input: CognitoOptions, context: __SerdeContext): any => {
   return {
     ...(input.Enabled !== undefined && input.Enabled !== null && { Enabled: input.Enabled }),
@@ -5014,6 +5222,13 @@ const serializeAws_restJson1DomainNameList = (input: string[], context: __SerdeC
       }
       return entry;
     });
+};
+
+const serializeAws_restJson1Duration = (input: Duration, context: __SerdeContext): any => {
+  return {
+    ...(input.Unit !== undefined && input.Unit !== null && { Unit: input.Unit }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+  };
 };
 
 const serializeAws_restJson1EBSOptions = (input: EBSOptions, context: __SerdeContext): any => {
@@ -5308,6 +5523,121 @@ const deserializeAws_restJson1AdvancedSecurityOptionsStatus = (
   } as any;
 };
 
+const deserializeAws_restJson1AutoTune = (output: any, context: __SerdeContext): AutoTune => {
+  return {
+    AutoTuneDetails:
+      output.AutoTuneDetails !== undefined && output.AutoTuneDetails !== null
+        ? deserializeAws_restJson1AutoTuneDetails(output.AutoTuneDetails, context)
+        : undefined,
+    AutoTuneType: output.AutoTuneType !== undefined && output.AutoTuneType !== null ? output.AutoTuneType : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AutoTuneDetails = (output: any, context: __SerdeContext): AutoTuneDetails => {
+  return {
+    ScheduledAutoTuneDetails:
+      output.ScheduledAutoTuneDetails !== undefined && output.ScheduledAutoTuneDetails !== null
+        ? deserializeAws_restJson1ScheduledAutoTuneDetails(output.ScheduledAutoTuneDetails, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AutoTuneList = (output: any, context: __SerdeContext): AutoTune[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AutoTune(entry, context);
+    });
+};
+
+const deserializeAws_restJson1AutoTuneMaintenanceSchedule = (
+  output: any,
+  context: __SerdeContext
+): AutoTuneMaintenanceSchedule => {
+  return {
+    CronExpressionForRecurrence:
+      output.CronExpressionForRecurrence !== undefined && output.CronExpressionForRecurrence !== null
+        ? output.CronExpressionForRecurrence
+        : undefined,
+    Duration:
+      output.Duration !== undefined && output.Duration !== null
+        ? deserializeAws_restJson1Duration(output.Duration, context)
+        : undefined,
+    StartAt:
+      output.StartAt !== undefined && output.StartAt !== null ? new Date(Math.round(output.StartAt * 1000)) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AutoTuneMaintenanceScheduleList = (
+  output: any,
+  context: __SerdeContext
+): AutoTuneMaintenanceSchedule[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AutoTuneMaintenanceSchedule(entry, context);
+    });
+};
+
+const deserializeAws_restJson1AutoTuneOptions = (output: any, context: __SerdeContext): AutoTuneOptions => {
+  return {
+    DesiredState: output.DesiredState !== undefined && output.DesiredState !== null ? output.DesiredState : undefined,
+    MaintenanceSchedules:
+      output.MaintenanceSchedules !== undefined && output.MaintenanceSchedules !== null
+        ? deserializeAws_restJson1AutoTuneMaintenanceScheduleList(output.MaintenanceSchedules, context)
+        : undefined,
+    RollbackOnDisable:
+      output.RollbackOnDisable !== undefined && output.RollbackOnDisable !== null
+        ? output.RollbackOnDisable
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AutoTuneOptionsOutput = (output: any, context: __SerdeContext): AutoTuneOptionsOutput => {
+  return {
+    ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
+    State: output.State !== undefined && output.State !== null ? output.State : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AutoTuneOptionsStatus = (output: any, context: __SerdeContext): AutoTuneOptionsStatus => {
+  return {
+    Options:
+      output.Options !== undefined && output.Options !== null
+        ? deserializeAws_restJson1AutoTuneOptions(output.Options, context)
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? deserializeAws_restJson1AutoTuneStatus(output.Status, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AutoTuneStatus = (output: any, context: __SerdeContext): AutoTuneStatus => {
+  return {
+    CreationDate:
+      output.CreationDate !== undefined && output.CreationDate !== null
+        ? new Date(Math.round(output.CreationDate * 1000))
+        : undefined,
+    ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
+    PendingDeletion:
+      output.PendingDeletion !== undefined && output.PendingDeletion !== null ? output.PendingDeletion : undefined,
+    State: output.State !== undefined && output.State !== null ? output.State : undefined,
+    UpdateDate:
+      output.UpdateDate !== undefined && output.UpdateDate !== null
+        ? new Date(Math.round(output.UpdateDate * 1000))
+        : undefined,
+    UpdateVersion:
+      output.UpdateVersion !== undefined && output.UpdateVersion !== null ? output.UpdateVersion : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1CognitoOptions = (output: any, context: __SerdeContext): CognitoOptions => {
   return {
     Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
@@ -5456,6 +5786,13 @@ const deserializeAws_restJson1DomainPackageDetailsList = (
     });
 };
 
+const deserializeAws_restJson1Duration = (output: any, context: __SerdeContext): Duration => {
+  return {
+    Unit: output.Unit !== undefined && output.Unit !== null ? output.Unit : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1EBSOptions = (output: any, context: __SerdeContext): EBSOptions => {
   return {
     EBSEnabled: output.EBSEnabled !== undefined && output.EBSEnabled !== null ? output.EBSEnabled : undefined,
@@ -5545,6 +5882,10 @@ const deserializeAws_restJson1ElasticsearchDomainConfig = (
       output.AdvancedSecurityOptions !== undefined && output.AdvancedSecurityOptions !== null
         ? deserializeAws_restJson1AdvancedSecurityOptionsStatus(output.AdvancedSecurityOptions, context)
         : undefined,
+    AutoTuneOptions:
+      output.AutoTuneOptions !== undefined && output.AutoTuneOptions !== null
+        ? deserializeAws_restJson1AutoTuneOptionsStatus(output.AutoTuneOptions, context)
+        : undefined,
     CognitoOptions:
       output.CognitoOptions !== undefined && output.CognitoOptions !== null
         ? deserializeAws_restJson1CognitoOptionsStatus(output.CognitoOptions, context)
@@ -5603,6 +5944,10 @@ const deserializeAws_restJson1ElasticsearchDomainStatus = (
     AdvancedSecurityOptions:
       output.AdvancedSecurityOptions !== undefined && output.AdvancedSecurityOptions !== null
         ? deserializeAws_restJson1AdvancedSecurityOptions(output.AdvancedSecurityOptions, context)
+        : undefined,
+    AutoTuneOptions:
+      output.AutoTuneOptions !== undefined && output.AutoTuneOptions !== null
+        ? deserializeAws_restJson1AutoTuneOptionsOutput(output.AutoTuneOptions, context)
         : undefined,
     CognitoOptions:
       output.CognitoOptions !== undefined && output.CognitoOptions !== null
@@ -6230,6 +6575,18 @@ const deserializeAws_restJson1SAMLOptionsOutput = (output: any, context: __Serde
         ? output.SessionTimeoutMinutes
         : undefined,
     SubjectKey: output.SubjectKey !== undefined && output.SubjectKey !== null ? output.SubjectKey : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ScheduledAutoTuneDetails = (
+  output: any,
+  context: __SerdeContext
+): ScheduledAutoTuneDetails => {
+  return {
+    Action: output.Action !== undefined && output.Action !== null ? output.Action : undefined,
+    ActionType: output.ActionType !== undefined && output.ActionType !== null ? output.ActionType : undefined,
+    Date: output.Date !== undefined && output.Date !== null ? new Date(Math.round(output.Date * 1000)) : undefined,
+    Severity: output.Severity !== undefined && output.Severity !== null ? output.Severity : undefined,
   } as any;
 };
 

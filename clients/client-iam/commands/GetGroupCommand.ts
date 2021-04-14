@@ -19,7 +19,7 @@ export type GetGroupCommandOutput = GetGroupResponse & __MetadataBearer;
 
 /**
  * <p> Returns a list of IAM users that are in the specified IAM group. You can paginate
- *          the results using the <code>MaxItems</code> and <code>Marker</code> parameters.</p>
+ *             the results using the <code>MaxItems</code> and <code>Marker</code> parameters.</p>
  */
 export class GetGroupCommand extends $Command<GetGroupCommandInput, GetGroupCommandOutput, IAMClientResolvedConfig> {
   // Start section: command_properties

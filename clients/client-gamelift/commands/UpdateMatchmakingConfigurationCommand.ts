@@ -29,53 +29,22 @@ export type UpdateMatchmakingConfigurationCommandOutput = UpdateMatchmakingConfi
  *          </p>
  *         <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-configuration.html">
- *             Design a FlexMatch Matchmaker</a>
+ *             Design a FlexMatch matchmaker</a>
  *          </p>
  *         <p>
- *             <b>Related operations</b>
+ *             <b>Related actions</b>
  *          </p>
- *         <ul>
- *             <li>
- *                <p>
- *                   <a>CreateMatchmakingConfiguration</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DescribeMatchmakingConfigurations</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateMatchmakingConfiguration</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteMatchmakingConfiguration</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>CreateMatchmakingRuleSet</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DescribeMatchmakingRuleSets</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ValidateMatchmakingRuleSet</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteMatchmakingRuleSet</a>
- *                </p>
- *             </li>
- *          </ul>
+ *                     <p>
+ *             <a>CreateMatchmakingConfiguration</a> |
+ *                     <a>DescribeMatchmakingConfigurations</a> |
+ *                     <a>UpdateMatchmakingConfiguration</a> |
+ *                     <a>DeleteMatchmakingConfiguration</a> |
+ *                     <a>CreateMatchmakingRuleSet</a> |
+ *                     <a>DescribeMatchmakingRuleSets</a> |
+ *                     <a>ValidateMatchmakingRuleSet</a> |
+ *                     <a>DeleteMatchmakingRuleSet</a> |
+ *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          </p>
  */
 export class UpdateMatchmakingConfigurationCommand extends $Command<
   UpdateMatchmakingConfigurationCommandInput,

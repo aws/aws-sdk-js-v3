@@ -110,6 +110,11 @@ import {
   CreateDBProxyCommandOutput,
 } from "./commands/CreateDBProxyCommand";
 import {
+  CreateDBProxyEndpointCommand,
+  CreateDBProxyEndpointCommandInput,
+  CreateDBProxyEndpointCommandOutput,
+} from "./commands/CreateDBProxyEndpointCommand";
+import {
   CreateDBSecurityGroupCommand,
   CreateDBSecurityGroupCommandInput,
   CreateDBSecurityGroupCommandOutput,
@@ -184,6 +189,11 @@ import {
   DeleteDBProxyCommandInput,
   DeleteDBProxyCommandOutput,
 } from "./commands/DeleteDBProxyCommand";
+import {
+  DeleteDBProxyEndpointCommand,
+  DeleteDBProxyEndpointCommandInput,
+  DeleteDBProxyEndpointCommandOutput,
+} from "./commands/DeleteDBProxyEndpointCommand";
 import {
   DeleteDBSecurityGroupCommand,
   DeleteDBSecurityGroupCommandInput,
@@ -310,6 +320,11 @@ import {
   DescribeDBProxiesCommandOutput,
 } from "./commands/DescribeDBProxiesCommand";
 import {
+  DescribeDBProxyEndpointsCommand,
+  DescribeDBProxyEndpointsCommandInput,
+  DescribeDBProxyEndpointsCommandOutput,
+} from "./commands/DescribeDBProxyEndpointsCommand";
+import {
   DescribeDBProxyTargetGroupsCommand,
   DescribeDBProxyTargetGroupsCommandInput,
   DescribeDBProxyTargetGroupsCommandOutput,
@@ -430,6 +445,11 @@ import {
   FailoverDBClusterCommandOutput,
 } from "./commands/FailoverDBClusterCommand";
 import {
+  FailoverGlobalClusterCommand,
+  FailoverGlobalClusterCommandInput,
+  FailoverGlobalClusterCommandOutput,
+} from "./commands/FailoverGlobalClusterCommand";
+import {
   ImportInstallationMediaCommand,
   ImportInstallationMediaCommandInput,
   ImportInstallationMediaCommandOutput,
@@ -484,6 +504,11 @@ import {
   ModifyDBProxyCommandInput,
   ModifyDBProxyCommandOutput,
 } from "./commands/ModifyDBProxyCommand";
+import {
+  ModifyDBProxyEndpointCommand,
+  ModifyDBProxyEndpointCommandInput,
+  ModifyDBProxyEndpointCommandOutput,
+} from "./commands/ModifyDBProxyEndpointCommand";
 import {
   ModifyDBProxyTargetGroupCommand,
   ModifyDBProxyTargetGroupCommandInput,
@@ -1258,8 +1283,7 @@ export class RDS extends RDSClient {
    *         <p>A custom AZ is an on-premises AZ that is integrated with a VMware vSphere cluster.</p>
    *         <p>For more information about RDS on VMware, see the
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html">
-   *                 <i>RDS on VMware User Guide.</i>
-   *             </a>
+   *                 RDS on VMware User Guide.</a>
    *          </p>
    */
   public createCustomAvailabilityZone(
@@ -1636,6 +1660,42 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * <p>
+   *         Creates a <code>DBProxyEndpoint</code>. Only applies to proxies that are associated with Aurora DB clusters.
+   *         You can use DB proxy endpoints to specify read/write or read-only access to the DB cluster. You can also use
+   *         DB proxy endpoints to access a DB proxy through a different VPC than the proxy's default VPC.
+   *       </p>
+   */
+  public createDBProxyEndpoint(
+    args: CreateDBProxyEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDBProxyEndpointCommandOutput>;
+  public createDBProxyEndpoint(
+    args: CreateDBProxyEndpointCommandInput,
+    cb: (err: any, data?: CreateDBProxyEndpointCommandOutput) => void
+  ): void;
+  public createDBProxyEndpoint(
+    args: CreateDBProxyEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDBProxyEndpointCommandOutput) => void
+  ): void;
+  public createDBProxyEndpoint(
+    args: CreateDBProxyEndpointCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDBProxyEndpointCommandOutput) => void),
+    cb?: (err: any, data?: CreateDBProxyEndpointCommandOutput) => void
+  ): Promise<CreateDBProxyEndpointCommandOutput> | void {
+    const command = new CreateDBProxyEndpointCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a new DB security group. DB security groups control access to a DB instance.</p>
    *          <note>
    *             <p>A DB security group controls access to EC2-Classic DB instances that are not in a VPC.</p>
@@ -1874,8 +1934,7 @@ export class RDS extends RDSClient {
    *         <p>A custom AZ is an on-premises AZ that is integrated with a VMware vSphere cluster.</p>
    *         <p>For more information about RDS on VMware, see the
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html">
-   *                 <i>RDS on VMware User Guide.</i>
-   *             </a>
+   *                 RDS on VMware User Guide.</a>
    *          </p>
    */
   public deleteCustomAvailabilityZone(
@@ -2188,7 +2247,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <p>Deletes an existing proxy.</p>
+   * <p>Deletes an existing DB proxy.</p>
    */
   public deleteDBProxy(
     args: DeleteDBProxyCommandInput,
@@ -2209,6 +2268,40 @@ export class RDS extends RDSClient {
     cb?: (err: any, data?: DeleteDBProxyCommandOutput) => void
   ): Promise<DeleteDBProxyCommandOutput> | void {
     const command = new DeleteDBProxyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a <code>DBProxyEndpoint</code>. Doing so removes the ability to access the DB proxy using the
+   *         endpoint that you defined. The endpoint that you delete might have provided capabilities such as read/write
+   *         or read-only operations, or using a different VPC than the DB proxy's default VPC.</p>
+   */
+  public deleteDBProxyEndpoint(
+    args: DeleteDBProxyEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDBProxyEndpointCommandOutput>;
+  public deleteDBProxyEndpoint(
+    args: DeleteDBProxyEndpointCommandInput,
+    cb: (err: any, data?: DeleteDBProxyEndpointCommandOutput) => void
+  ): void;
+  public deleteDBProxyEndpoint(
+    args: DeleteDBProxyEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDBProxyEndpointCommandOutput) => void
+  ): void;
+  public deleteDBProxyEndpoint(
+    args: DeleteDBProxyEndpointCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDBProxyEndpointCommandOutput) => void),
+    cb?: (err: any, data?: DeleteDBProxyEndpointCommandOutput) => void
+  ): Promise<DeleteDBProxyEndpointCommandOutput> | void {
+    const command = new DeleteDBProxyEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2562,8 +2655,7 @@ export class RDS extends RDSClient {
    *         <p>A custom AZ is an on-premises AZ that is integrated with a VMware vSphere cluster.</p>
    *         <p>For more information about RDS on VMware, see the
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html">
-   *                 <i>RDS on VMware User Guide.</i>
-   *             </a>
+   *                 RDS on VMware User Guide.</a>
    *          </p>
    */
   public describeCustomAvailabilityZones(
@@ -3097,6 +3189,38 @@ export class RDS extends RDSClient {
     cb?: (err: any, data?: DescribeDBProxiesCommandOutput) => void
   ): Promise<DescribeDBProxiesCommandOutput> | void {
     const command = new DescribeDBProxiesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns information about DB proxy endpoints.</p>
+   */
+  public describeDBProxyEndpoints(
+    args: DescribeDBProxyEndpointsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDBProxyEndpointsCommandOutput>;
+  public describeDBProxyEndpoints(
+    args: DescribeDBProxyEndpointsCommandInput,
+    cb: (err: any, data?: DescribeDBProxyEndpointsCommandOutput) => void
+  ): void;
+  public describeDBProxyEndpoints(
+    args: DescribeDBProxyEndpointsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDBProxyEndpointsCommandOutput) => void
+  ): void;
+  public describeDBProxyEndpoints(
+    args: DescribeDBProxyEndpointsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDBProxyEndpointsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDBProxyEndpointsCommandOutput) => void
+  ): Promise<DescribeDBProxyEndpointsCommandOutput> | void {
+    const command = new DescribeDBProxyEndpointsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3789,8 +3913,8 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <p>Returns a list of the source AWS Regions where the current AWS Region can create a
-   *             read replica or copy a DB snapshot from. This API action supports pagination.</p>
+   * <p>Returns a list of the source AWS Regions where the current AWS Region can create a read replica,
+   *          copy a DB snapshot from, or replicate automated backups from. This API action supports pagination.</p>
    */
   public describeSourceRegions(
     args: DescribeSourceRegionsCommandInput,
@@ -3924,6 +4048,52 @@ export class RDS extends RDSClient {
     cb?: (err: any, data?: FailoverDBClusterCommandOutput) => void
   ): Promise<FailoverDBClusterCommandOutput> | void {
     const command = new FailoverDBClusterCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Initiates the failover process for an Aurora global database (<a>GlobalCluster</a>).</p>
+   *          <p>A failover for an Aurora global database promotes one of secondary read-only DB clusters to be
+   *        the primary DB cluster and demotes the primary DB cluster to being a secondary (read-only) DB cluster. In other words,
+   *      the role of the current primary DB cluster and the selected (target) DB cluster are switched. The selected
+   *      secondary DB cluster assumes full read/write capabilities for the Aurora global database.</p>
+   *          <p>For more information about failing over an Amazon Aurora global database, see
+   *         <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-disaster-recovery.html#aurora-global-database-disaster-recovery.managed-failover">Managed planned failover for Amazon Aurora global
+   *         databases</a> in the <i>Amazon Aurora User Guide.</i>
+   *          </p>
+   *          <note>
+   *             <p>This action applies to <a>GlobalCluster</a> (Aurora global databases) only. Use this action only on
+   *        healthy Aurora global databases with running Aurora DB clusters and no Region-wide outages, to test disaster recovery scenarios or to
+   *         reconfigure your Aurora global database topology.
+   *        </p>
+   *          </note>
+   */
+  public failoverGlobalCluster(
+    args: FailoverGlobalClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<FailoverGlobalClusterCommandOutput>;
+  public failoverGlobalCluster(
+    args: FailoverGlobalClusterCommandInput,
+    cb: (err: any, data?: FailoverGlobalClusterCommandOutput) => void
+  ): void;
+  public failoverGlobalCluster(
+    args: FailoverGlobalClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: FailoverGlobalClusterCommandOutput) => void
+  ): void;
+  public failoverGlobalCluster(
+    args: FailoverGlobalClusterCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: FailoverGlobalClusterCommandOutput) => void),
+    cb?: (err: any, data?: FailoverGlobalClusterCommandOutput) => void
+  ): Promise<FailoverGlobalClusterCommandOutput> | void {
+    const command = new FailoverGlobalClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -4408,6 +4578,38 @@ export class RDS extends RDSClient {
     cb?: (err: any, data?: ModifyDBProxyCommandOutput) => void
   ): Promise<ModifyDBProxyCommandOutput> | void {
     const command = new ModifyDBProxyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Changes the settings for an existing DB proxy endpoint.</p>
+   */
+  public modifyDBProxyEndpoint(
+    args: ModifyDBProxyEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyDBProxyEndpointCommandOutput>;
+  public modifyDBProxyEndpoint(
+    args: ModifyDBProxyEndpointCommandInput,
+    cb: (err: any, data?: ModifyDBProxyEndpointCommandOutput) => void
+  ): void;
+  public modifyDBProxyEndpoint(
+    args: ModifyDBProxyEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyDBProxyEndpointCommandOutput) => void
+  ): void;
+  public modifyDBProxyEndpoint(
+    args: ModifyDBProxyEndpointCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyDBProxyEndpointCommandOutput) => void),
+    cb?: (err: any, data?: ModifyDBProxyEndpointCommandOutput) => void
+  ): Promise<ModifyDBProxyEndpointCommandOutput> | void {
+    const command = new ModifyDBProxyEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -5415,7 +5617,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <p>Revokes ingress from a DBSecurityGroup for previously authorized IP ranges or EC2 or VPC Security Groups. Required parameters for this API are one of CIDRIP, EC2SecurityGroupId for VPC, or (EC2SecurityGroupOwnerId and either EC2SecurityGroupName or EC2SecurityGroupId).</p>
+   * <p>Revokes ingress from a DBSecurityGroup for previously authorized IP ranges or EC2 or VPC security groups. Required parameters for this API are one of CIDRIP, EC2SecurityGroupId for VPC, or (EC2SecurityGroupOwnerId and either EC2SecurityGroupName or EC2SecurityGroupId).</p>
    */
   public revokeDBSecurityGroupIngress(
     args: RevokeDBSecurityGroupIngressCommandInput,

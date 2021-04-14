@@ -21,7 +21,7 @@ export type ListOpsMetadataCommandInput = ListOpsMetadataRequest;
 export type ListOpsMetadataCommandOutput = ListOpsMetadataResult & __MetadataBearer;
 
 /**
- * <p>Systems Manager calls this API action when displaying all AppManager OpsMetadata objects or
+ * <p>Systems Manager calls this API action when displaying all Application Manager OpsMetadata objects or
  *    blobs.</p>
  */
 export class ListOpsMetadataCommand extends $Command<

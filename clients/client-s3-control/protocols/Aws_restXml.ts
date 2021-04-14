@@ -1,11 +1,23 @@
 import { CreateAccessPointCommandInput, CreateAccessPointCommandOutput } from "../commands/CreateAccessPointCommand";
+import {
+  CreateAccessPointForObjectLambdaCommandInput,
+  CreateAccessPointForObjectLambdaCommandOutput,
+} from "../commands/CreateAccessPointForObjectLambdaCommand";
 import { CreateBucketCommandInput, CreateBucketCommandOutput } from "../commands/CreateBucketCommand";
 import { CreateJobCommandInput, CreateJobCommandOutput } from "../commands/CreateJobCommand";
 import { DeleteAccessPointCommandInput, DeleteAccessPointCommandOutput } from "../commands/DeleteAccessPointCommand";
 import {
+  DeleteAccessPointForObjectLambdaCommandInput,
+  DeleteAccessPointForObjectLambdaCommandOutput,
+} from "../commands/DeleteAccessPointForObjectLambdaCommand";
+import {
   DeleteAccessPointPolicyCommandInput,
   DeleteAccessPointPolicyCommandOutput,
 } from "../commands/DeleteAccessPointPolicyCommand";
+import {
+  DeleteAccessPointPolicyForObjectLambdaCommandInput,
+  DeleteAccessPointPolicyForObjectLambdaCommandOutput,
+} from "../commands/DeleteAccessPointPolicyForObjectLambdaCommand";
 import { DeleteBucketCommandInput, DeleteBucketCommandOutput } from "../commands/DeleteBucketCommand";
 import {
   DeleteBucketLifecycleConfigurationCommandInput,
@@ -32,13 +44,29 @@ import {
 import { DescribeJobCommandInput, DescribeJobCommandOutput } from "../commands/DescribeJobCommand";
 import { GetAccessPointCommandInput, GetAccessPointCommandOutput } from "../commands/GetAccessPointCommand";
 import {
+  GetAccessPointConfigurationForObjectLambdaCommandInput,
+  GetAccessPointConfigurationForObjectLambdaCommandOutput,
+} from "../commands/GetAccessPointConfigurationForObjectLambdaCommand";
+import {
+  GetAccessPointForObjectLambdaCommandInput,
+  GetAccessPointForObjectLambdaCommandOutput,
+} from "../commands/GetAccessPointForObjectLambdaCommand";
+import {
   GetAccessPointPolicyCommandInput,
   GetAccessPointPolicyCommandOutput,
 } from "../commands/GetAccessPointPolicyCommand";
 import {
+  GetAccessPointPolicyForObjectLambdaCommandInput,
+  GetAccessPointPolicyForObjectLambdaCommandOutput,
+} from "../commands/GetAccessPointPolicyForObjectLambdaCommand";
+import {
   GetAccessPointPolicyStatusCommandInput,
   GetAccessPointPolicyStatusCommandOutput,
 } from "../commands/GetAccessPointPolicyStatusCommand";
+import {
+  GetAccessPointPolicyStatusForObjectLambdaCommandInput,
+  GetAccessPointPolicyStatusForObjectLambdaCommandOutput,
+} from "../commands/GetAccessPointPolicyStatusForObjectLambdaCommand";
 import { GetBucketCommandInput, GetBucketCommandOutput } from "../commands/GetBucketCommand";
 import {
   GetBucketLifecycleConfigurationCommandInput,
@@ -60,6 +88,10 @@ import {
   GetStorageLensConfigurationTaggingCommandOutput,
 } from "../commands/GetStorageLensConfigurationTaggingCommand";
 import { ListAccessPointsCommandInput, ListAccessPointsCommandOutput } from "../commands/ListAccessPointsCommand";
+import {
+  ListAccessPointsForObjectLambdaCommandInput,
+  ListAccessPointsForObjectLambdaCommandOutput,
+} from "../commands/ListAccessPointsForObjectLambdaCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "../commands/ListJobsCommand";
 import {
   ListRegionalBucketsCommandInput,
@@ -70,9 +102,17 @@ import {
   ListStorageLensConfigurationsCommandOutput,
 } from "../commands/ListStorageLensConfigurationsCommand";
 import {
+  PutAccessPointConfigurationForObjectLambdaCommandInput,
+  PutAccessPointConfigurationForObjectLambdaCommandOutput,
+} from "../commands/PutAccessPointConfigurationForObjectLambdaCommand";
+import {
   PutAccessPointPolicyCommandInput,
   PutAccessPointPolicyCommandOutput,
 } from "../commands/PutAccessPointPolicyCommand";
+import {
+  PutAccessPointPolicyForObjectLambdaCommandInput,
+  PutAccessPointPolicyForObjectLambdaCommandOutput,
+} from "../commands/PutAccessPointPolicyForObjectLambdaCommand";
 import {
   PutBucketLifecycleConfigurationCommandInput,
   PutBucketLifecycleConfigurationCommandOutput,
@@ -99,6 +139,7 @@ import {
   AccessPoint,
   AccountLevel,
   ActivityMetrics,
+  AwsLambdaTransformation,
   BadRequestException,
   BucketAlreadyExists,
   BucketAlreadyOwnedByYou,
@@ -131,6 +172,12 @@ import {
   NoncurrentVersionExpiration,
   NoncurrentVersionTransition,
   NotFoundException,
+  ObjectLambdaAccessPoint,
+  ObjectLambdaAllowedFeature,
+  ObjectLambdaConfiguration,
+  ObjectLambdaContentTransformation,
+  ObjectLambdaTransformationConfiguration,
+  ObjectLambdaTransformationConfigurationAction,
   PolicyStatus,
   PrefixLevel,
   PrefixLevelStorageMetrics,
@@ -140,6 +187,7 @@ import {
   S3AccessControlPolicy,
   S3BucketDestination,
   S3CopyObjectOperation,
+  S3DeleteObjectTaggingOperation,
   S3Grant,
   S3Grantee,
   S3InitiateRestoreObjectOperation,
@@ -223,6 +271,56 @@ export const serializeAws_restXmlCreateAccessPointCommand = async (
   }
   if (input.VpcConfiguration !== undefined) {
     const node = serializeAws_restXmlVpcConfiguration(input.VpcConfiguration, context).withName("VpcConfiguration");
+    bodyNode.addChildNode(node);
+  }
+  body += bodyNode.toString();
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restXmlCreateAccessPointForObjectLambdaCommand = async (
+  input: CreateAccessPointForObjectLambdaCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/xml",
+    ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
+  };
+  let resolvedPath = "/v20180820/accesspointforobjectlambda/{Name}";
+  if (input.Name !== undefined) {
+    const labelValue: string = input.Name;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Name.");
+    }
+    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Name.");
+  }
+  let body: any;
+  body = '<?xml version="1.0" encoding="UTF-8"?>';
+  const bodyNode = new __XmlNode("CreateAccessPointForObjectLambdaRequest");
+  bodyNode.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+  if (input.Configuration !== undefined) {
+    const node = serializeAws_restXmlObjectLambdaConfiguration(input.Configuration, context).withName("Configuration");
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
@@ -423,6 +521,47 @@ export const serializeAws_restXmlDeleteAccessPointCommand = async (
   });
 };
 
+export const serializeAws_restXmlDeleteAccessPointForObjectLambdaCommand = async (
+  input: DeleteAccessPointForObjectLambdaCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
+  };
+  let resolvedPath = "/v20180820/accesspointforobjectlambda/{Name}";
+  if (input.Name !== undefined) {
+    const labelValue: string = input.Name;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Name.");
+    }
+    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Name.");
+  }
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restXmlDeleteAccessPointPolicyCommand = async (
   input: DeleteAccessPointPolicyCommandInput,
   context: __SerdeContext
@@ -431,6 +570,47 @@ export const serializeAws_restXmlDeleteAccessPointPolicyCommand = async (
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/accesspoint/{Name}/policy";
+  if (input.Name !== undefined) {
+    const labelValue: string = input.Name;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Name.");
+    }
+    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Name.");
+  }
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restXmlDeleteAccessPointPolicyForObjectLambdaCommand = async (
+  input: DeleteAccessPointPolicyForObjectLambdaCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
+  };
+  let resolvedPath = "/v20180820/accesspointforobjectlambda/{Name}/policy";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -865,6 +1045,88 @@ export const serializeAws_restXmlGetAccessPointCommand = async (
   });
 };
 
+export const serializeAws_restXmlGetAccessPointConfigurationForObjectLambdaCommand = async (
+  input: GetAccessPointConfigurationForObjectLambdaCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
+  };
+  let resolvedPath = "/v20180820/accesspointforobjectlambda/{Name}/configuration";
+  if (input.Name !== undefined) {
+    const labelValue: string = input.Name;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Name.");
+    }
+    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Name.");
+  }
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restXmlGetAccessPointForObjectLambdaCommand = async (
+  input: GetAccessPointForObjectLambdaCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
+  };
+  let resolvedPath = "/v20180820/accesspointforobjectlambda/{Name}";
+  if (input.Name !== undefined) {
+    const labelValue: string = input.Name;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Name.");
+    }
+    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Name.");
+  }
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restXmlGetAccessPointPolicyCommand = async (
   input: GetAccessPointPolicyCommandInput,
   context: __SerdeContext
@@ -906,6 +1168,47 @@ export const serializeAws_restXmlGetAccessPointPolicyCommand = async (
   });
 };
 
+export const serializeAws_restXmlGetAccessPointPolicyForObjectLambdaCommand = async (
+  input: GetAccessPointPolicyForObjectLambdaCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
+  };
+  let resolvedPath = "/v20180820/accesspointforobjectlambda/{Name}/policy";
+  if (input.Name !== undefined) {
+    const labelValue: string = input.Name;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Name.");
+    }
+    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Name.");
+  }
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restXmlGetAccessPointPolicyStatusCommand = async (
   input: GetAccessPointPolicyStatusCommandInput,
   context: __SerdeContext
@@ -914,6 +1217,47 @@ export const serializeAws_restXmlGetAccessPointPolicyStatusCommand = async (
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
   let resolvedPath = "/v20180820/accesspoint/{Name}/policyStatus";
+  if (input.Name !== undefined) {
+    const labelValue: string = input.Name;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Name.");
+    }
+    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Name.");
+  }
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restXmlGetAccessPointPolicyStatusForObjectLambdaCommand = async (
+  input: GetAccessPointPolicyStatusForObjectLambdaCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
+  };
+  let resolvedPath = "/v20180820/accesspointforobjectlambda/{Name}/policyStatus";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
@@ -1304,6 +1648,43 @@ export const serializeAws_restXmlListAccessPointsCommand = async (
   });
 };
 
+export const serializeAws_restXmlListAccessPointsForObjectLambdaCommand = async (
+  input: ListAccessPointsForObjectLambdaCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
+  };
+  let resolvedPath = "/v20180820/accesspointforobjectlambda";
+  const query: any = {
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+  };
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restXmlListJobsCommand = async (
   input: ListJobsCommandInput,
   context: __SerdeContext
@@ -1416,6 +1797,56 @@ export const serializeAws_restXmlListStorageLensConfigurationsCommand = async (
   });
 };
 
+export const serializeAws_restXmlPutAccessPointConfigurationForObjectLambdaCommand = async (
+  input: PutAccessPointConfigurationForObjectLambdaCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/xml",
+    ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
+  };
+  let resolvedPath = "/v20180820/accesspointforobjectlambda/{Name}/configuration";
+  if (input.Name !== undefined) {
+    const labelValue: string = input.Name;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Name.");
+    }
+    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Name.");
+  }
+  let body: any;
+  body = '<?xml version="1.0" encoding="UTF-8"?>';
+  const bodyNode = new __XmlNode("PutAccessPointConfigurationForObjectLambdaRequest");
+  bodyNode.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+  if (input.Configuration !== undefined) {
+    const node = serializeAws_restXmlObjectLambdaConfiguration(input.Configuration, context).withName("Configuration");
+    bodyNode.addChildNode(node);
+  }
+  body += bodyNode.toString();
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restXmlPutAccessPointPolicyCommand = async (
   input: PutAccessPointPolicyCommandInput,
   context: __SerdeContext
@@ -1440,6 +1871,56 @@ export const serializeAws_restXmlPutAccessPointPolicyCommand = async (
   bodyNode.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
   if (input.Policy !== undefined) {
     const node = new __XmlNode("Policy").addChildNode(new __XmlText(input.Policy)).withName("Policy");
+    bodyNode.addChildNode(node);
+  }
+  body += bodyNode.toString();
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restXmlPutAccessPointPolicyForObjectLambdaCommand = async (
+  input: PutAccessPointPolicyForObjectLambdaCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/xml",
+    ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
+  };
+  let resolvedPath = "/v20180820/accesspointforobjectlambda/{Name}/policy";
+  if (input.Name !== undefined) {
+    const labelValue: string = input.Name;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Name.");
+    }
+    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Name.");
+  }
+  let body: any;
+  body = '<?xml version="1.0" encoding="UTF-8"?>';
+  const bodyNode = new __XmlNode("PutAccessPointPolicyForObjectLambdaRequest");
+  bodyNode.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+  if (input.Policy !== undefined) {
+    const node = new __XmlNode("ObjectLambdaPolicy").addChildNode(new __XmlText(input.Policy)).withName("Policy");
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
@@ -1963,6 +2444,53 @@ const deserializeAws_restXmlCreateAccessPointCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restXmlCreateAccessPointForObjectLambdaCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAccessPointForObjectLambdaCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlCreateAccessPointForObjectLambdaCommandError(output, context);
+  }
+  const contents: CreateAccessPointForObjectLambdaCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ObjectLambdaAccessPointArn: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data["ObjectLambdaAccessPointArn"] !== undefined) {
+    contents.ObjectLambdaAccessPointArn = data["ObjectLambdaAccessPointArn"];
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlCreateAccessPointForObjectLambdaCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAccessPointForObjectLambdaCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restXmlCreateBucketCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2152,6 +2680,49 @@ const deserializeAws_restXmlDeleteAccessPointCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restXmlDeleteAccessPointForObjectLambdaCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAccessPointForObjectLambdaCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlDeleteAccessPointForObjectLambdaCommandError(output, context);
+  }
+  const contents: DeleteAccessPointForObjectLambdaCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlDeleteAccessPointForObjectLambdaCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAccessPointForObjectLambdaCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restXmlDeleteAccessPointPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2170,6 +2741,49 @@ const deserializeAws_restXmlDeleteAccessPointPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAccessPointPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restXmlDeleteAccessPointPolicyForObjectLambdaCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAccessPointPolicyForObjectLambdaCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlDeleteAccessPointPolicyForObjectLambdaCommandError(output, context);
+  }
+  const contents: DeleteAccessPointPolicyForObjectLambdaCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlDeleteAccessPointPolicyForObjectLambdaCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAccessPointPolicyForObjectLambdaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -2712,6 +3326,111 @@ const deserializeAws_restXmlGetAccessPointCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restXmlGetAccessPointConfigurationForObjectLambdaCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAccessPointConfigurationForObjectLambdaCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlGetAccessPointConfigurationForObjectLambdaCommandError(output, context);
+  }
+  const contents: GetAccessPointConfigurationForObjectLambdaCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Configuration: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data["Configuration"] !== undefined) {
+    contents.Configuration = deserializeAws_restXmlObjectLambdaConfiguration(data["Configuration"], context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlGetAccessPointConfigurationForObjectLambdaCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAccessPointConfigurationForObjectLambdaCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restXmlGetAccessPointForObjectLambdaCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAccessPointForObjectLambdaCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlGetAccessPointForObjectLambdaCommandError(output, context);
+  }
+  const contents: GetAccessPointForObjectLambdaCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    CreationDate: undefined,
+    Name: undefined,
+    PublicAccessBlockConfiguration: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data["CreationDate"] !== undefined) {
+    contents.CreationDate = new Date(data["CreationDate"]);
+  }
+  if (data["Name"] !== undefined) {
+    contents.Name = data["Name"];
+  }
+  if (data["PublicAccessBlockConfiguration"] !== undefined) {
+    contents.PublicAccessBlockConfiguration = deserializeAws_restXmlPublicAccessBlockConfiguration(
+      data["PublicAccessBlockConfiguration"],
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlGetAccessPointForObjectLambdaCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAccessPointForObjectLambdaCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restXmlGetAccessPointPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2759,6 +3478,53 @@ const deserializeAws_restXmlGetAccessPointPolicyCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restXmlGetAccessPointPolicyForObjectLambdaCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAccessPointPolicyForObjectLambdaCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlGetAccessPointPolicyForObjectLambdaCommandError(output, context);
+  }
+  const contents: GetAccessPointPolicyForObjectLambdaCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Policy: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data["Policy"] !== undefined) {
+    contents.Policy = data["Policy"];
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlGetAccessPointPolicyForObjectLambdaCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAccessPointPolicyForObjectLambdaCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restXmlGetAccessPointPolicyStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2781,6 +3547,53 @@ const deserializeAws_restXmlGetAccessPointPolicyStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccessPointPolicyStatusCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restXmlGetAccessPointPolicyStatusForObjectLambdaCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAccessPointPolicyStatusForObjectLambdaCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlGetAccessPointPolicyStatusForObjectLambdaCommandError(output, context);
+  }
+  const contents: GetAccessPointPolicyStatusForObjectLambdaCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    PolicyStatus: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data["PolicyStatus"] !== undefined) {
+    contents.PolicyStatus = deserializeAws_restXmlPolicyStatus(data["PolicyStatus"], context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlGetAccessPointPolicyStatusForObjectLambdaCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAccessPointPolicyStatusForObjectLambdaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -3287,6 +4100,66 @@ const deserializeAws_restXmlListAccessPointsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restXmlListAccessPointsForObjectLambdaCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAccessPointsForObjectLambdaCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlListAccessPointsForObjectLambdaCommandError(output, context);
+  }
+  const contents: ListAccessPointsForObjectLambdaCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    NextToken: undefined,
+    ObjectLambdaAccessPointList: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data["NextToken"] !== undefined) {
+    contents.NextToken = data["NextToken"];
+  }
+  if (data.ObjectLambdaAccessPointList === "") {
+    contents.ObjectLambdaAccessPointList = [];
+  }
+  if (
+    data["ObjectLambdaAccessPointList"] !== undefined &&
+    data["ObjectLambdaAccessPointList"]["ObjectLambdaAccessPoint"] !== undefined
+  ) {
+    contents.ObjectLambdaAccessPointList = deserializeAws_restXmlObjectLambdaAccessPointList(
+      __getArrayIfSingleItem(data["ObjectLambdaAccessPointList"]["ObjectLambdaAccessPoint"]),
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlListAccessPointsForObjectLambdaCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAccessPointsForObjectLambdaCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restXmlListJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3482,6 +4355,49 @@ const deserializeAws_restXmlListStorageLensConfigurationsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restXmlPutAccessPointConfigurationForObjectLambdaCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutAccessPointConfigurationForObjectLambdaCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlPutAccessPointConfigurationForObjectLambdaCommandError(output, context);
+  }
+  const contents: PutAccessPointConfigurationForObjectLambdaCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlPutAccessPointConfigurationForObjectLambdaCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutAccessPointConfigurationForObjectLambdaCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restXmlPutAccessPointPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3500,6 +4416,49 @@ const deserializeAws_restXmlPutAccessPointPolicyCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutAccessPointPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restXmlPutAccessPointPolicyForObjectLambdaCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutAccessPointPolicyForObjectLambdaCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlPutAccessPointPolicyForObjectLambdaCommandError(output, context);
+  }
+  const contents: PutAccessPointPolicyForObjectLambdaCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlPutAccessPointPolicyForObjectLambdaCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutAccessPointPolicyForObjectLambdaCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -4268,6 +5227,23 @@ const serializeAws_restXmlActivityMetrics = (input: ActivityMetrics, context: __
   return bodyNode;
 };
 
+const serializeAws_restXmlAwsLambdaTransformation = (input: AwsLambdaTransformation, context: __SerdeContext): any => {
+  const bodyNode = new __XmlNode("AwsLambdaTransformation");
+  if (input.FunctionArn !== undefined && input.FunctionArn !== null) {
+    const node = new __XmlNode("FunctionArnString")
+      .addChildNode(new __XmlText(input.FunctionArn))
+      .withName("FunctionArn");
+    bodyNode.addChildNode(node);
+  }
+  if (input.FunctionPayload !== undefined && input.FunctionPayload !== null) {
+    const node = new __XmlNode("AwsLambdaTransformationPayload")
+      .addChildNode(new __XmlText(input.FunctionPayload))
+      .withName("FunctionPayload");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
 const serializeAws_restXmlBucketLevel = (input: BucketLevel, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("BucketLevel");
   if (input.ActivityMetrics !== undefined && input.ActivityMetrics !== null) {
@@ -4430,6 +5406,12 @@ const serializeAws_restXmlJobOperation = (input: JobOperation, context: __SerdeC
   if (input.S3PutObjectTagging !== undefined && input.S3PutObjectTagging !== null) {
     const node = serializeAws_restXmlS3SetObjectTaggingOperation(input.S3PutObjectTagging, context).withName(
       "S3PutObjectTagging"
+    );
+    bodyNode.addChildNode(node);
+  }
+  if (input.S3DeleteObjectTagging !== undefined && input.S3DeleteObjectTagging !== null) {
+    const node = serializeAws_restXmlS3DeleteObjectTaggingOperation(input.S3DeleteObjectTagging, context).withName(
+      "S3DeleteObjectTagging"
     );
     bodyNode.addChildNode(node);
   }
@@ -4672,6 +5654,132 @@ const serializeAws_restXmlNoncurrentVersionTransitionList = (
     });
 };
 
+const serializeAws_restXmlObjectLambdaAllowedFeaturesList = (
+  input: (ObjectLambdaAllowedFeature | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = new __XmlNode("ObjectLambdaAllowedFeature").addChildNode(new __XmlText(entry));
+      return node.withName("AllowedFeature");
+    });
+};
+
+const serializeAws_restXmlObjectLambdaConfiguration = (
+  input: ObjectLambdaConfiguration,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("ObjectLambdaConfiguration");
+  if (input.SupportingAccessPoint !== undefined && input.SupportingAccessPoint !== null) {
+    const node = new __XmlNode("ObjectLambdaSupportingAccessPointArn")
+      .addChildNode(new __XmlText(input.SupportingAccessPoint))
+      .withName("SupportingAccessPoint");
+    bodyNode.addChildNode(node);
+  }
+  if (input.CloudWatchMetricsEnabled !== undefined && input.CloudWatchMetricsEnabled !== null) {
+    const node = new __XmlNode("Boolean")
+      .addChildNode(new __XmlText(String(input.CloudWatchMetricsEnabled)))
+      .withName("CloudWatchMetricsEnabled");
+    bodyNode.addChildNode(node);
+  }
+  if (input.AllowedFeatures !== undefined && input.AllowedFeatures !== null) {
+    const nodes = serializeAws_restXmlObjectLambdaAllowedFeaturesList(input.AllowedFeatures, context);
+    const containerNode = new __XmlNode("AllowedFeatures");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
+  }
+  if (input.TransformationConfigurations !== undefined && input.TransformationConfigurations !== null) {
+    const nodes = serializeAws_restXmlObjectLambdaTransformationConfigurationsList(
+      input.TransformationConfigurations,
+      context
+    );
+    const containerNode = new __XmlNode("TransformationConfigurations");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
+  }
+  return bodyNode;
+};
+
+const serializeAws_restXmlObjectLambdaContentTransformation = (
+  input: ObjectLambdaContentTransformation,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("ObjectLambdaContentTransformation");
+  ObjectLambdaContentTransformation.visit(input, {
+    AwsLambda: (value) => {
+      const node = serializeAws_restXmlAwsLambdaTransformation(value, context).withName("AwsLambda");
+      bodyNode.addChildNode(node);
+    },
+    _: (name: string, value: any) => {
+      if (!(value instanceof __XmlNode || value instanceof __XmlText)) {
+        throw new Error("Unable to serialize unknown union members in XML.");
+      }
+      bodyNode.addChildNode(new __XmlNode(name).addChildNode(value));
+    },
+  });
+  return bodyNode;
+};
+
+const serializeAws_restXmlObjectLambdaTransformationConfiguration = (
+  input: ObjectLambdaTransformationConfiguration,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("ObjectLambdaTransformationConfiguration");
+  if (input.Actions !== undefined && input.Actions !== null) {
+    const nodes = serializeAws_restXmlObjectLambdaTransformationConfigurationActionsList(input.Actions, context);
+    const containerNode = new __XmlNode("Actions");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
+  }
+  if (input.ContentTransformation !== undefined && input.ContentTransformation !== null) {
+    const node = serializeAws_restXmlObjectLambdaContentTransformation(input.ContentTransformation, context).withName(
+      "ContentTransformation"
+    );
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
+const serializeAws_restXmlObjectLambdaTransformationConfigurationActionsList = (
+  input: (ObjectLambdaTransformationConfigurationAction | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = new __XmlNode("ObjectLambdaTransformationConfigurationAction").addChildNode(new __XmlText(entry));
+      return node.withName("Action");
+    });
+};
+
+const serializeAws_restXmlObjectLambdaTransformationConfigurationsList = (
+  input: ObjectLambdaTransformationConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = serializeAws_restXmlObjectLambdaTransformationConfiguration(entry, context);
+      return node.withName("TransformationConfiguration");
+    });
+};
+
 const serializeAws_restXmlPrefixLevel = (input: PrefixLevel, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("PrefixLevel");
   if (input.StorageMetrics !== undefined && input.StorageMetrics !== null) {
@@ -4908,6 +6016,14 @@ const serializeAws_restXmlS3CopyObjectOperation = (input: S3CopyObjectOperation,
       .withName("ObjectLockRetainUntilDate");
     bodyNode.addChildNode(node);
   }
+  return bodyNode;
+};
+
+const serializeAws_restXmlS3DeleteObjectTaggingOperation = (
+  input: S3DeleteObjectTaggingOperation,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("S3DeleteObjectTaggingOperation");
   return bodyNode;
 };
 
@@ -5458,6 +6574,23 @@ const deserializeAws_restXmlActivityMetrics = (output: any, context: __SerdeCont
   return contents;
 };
 
+const deserializeAws_restXmlAwsLambdaTransformation = (
+  output: any,
+  context: __SerdeContext
+): AwsLambdaTransformation => {
+  let contents: any = {
+    FunctionArn: undefined,
+    FunctionPayload: undefined,
+  };
+  if (output["FunctionArn"] !== undefined) {
+    contents.FunctionArn = output["FunctionArn"];
+  }
+  if (output["FunctionPayload"] !== undefined) {
+    contents.FunctionPayload = output["FunctionPayload"];
+  }
+  return contents;
+};
+
 const deserializeAws_restXmlBucketLevel = (output: any, context: __SerdeContext): BucketLevel => {
   let contents: any = {
     ActivityMetrics: undefined,
@@ -5749,6 +6882,7 @@ const deserializeAws_restXmlJobOperation = (output: any, context: __SerdeContext
     S3PutObjectCopy: undefined,
     S3PutObjectAcl: undefined,
     S3PutObjectTagging: undefined,
+    S3DeleteObjectTagging: undefined,
     S3InitiateRestoreObject: undefined,
     S3PutObjectLegalHold: undefined,
     S3PutObjectRetention: undefined,
@@ -5765,6 +6899,12 @@ const deserializeAws_restXmlJobOperation = (output: any, context: __SerdeContext
   if (output["S3PutObjectTagging"] !== undefined) {
     contents.S3PutObjectTagging = deserializeAws_restXmlS3SetObjectTaggingOperation(
       output["S3PutObjectTagging"],
+      context
+    );
+  }
+  if (output["S3DeleteObjectTagging"] !== undefined) {
+    contents.S3DeleteObjectTagging = deserializeAws_restXmlS3DeleteObjectTaggingOperation(
+      output["S3DeleteObjectTagging"],
       context
     );
   }
@@ -6038,6 +7178,157 @@ const deserializeAws_restXmlNoncurrentVersionTransitionList = (
     });
 };
 
+const deserializeAws_restXmlObjectLambdaAccessPoint = (
+  output: any,
+  context: __SerdeContext
+): ObjectLambdaAccessPoint => {
+  let contents: any = {
+    Name: undefined,
+    ObjectLambdaAccessPointArn: undefined,
+  };
+  if (output["Name"] !== undefined) {
+    contents.Name = output["Name"];
+  }
+  if (output["ObjectLambdaAccessPointArn"] !== undefined) {
+    contents.ObjectLambdaAccessPointArn = output["ObjectLambdaAccessPointArn"];
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlObjectLambdaAccessPointList = (
+  output: any,
+  context: __SerdeContext
+): ObjectLambdaAccessPoint[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlObjectLambdaAccessPoint(entry, context);
+    });
+};
+
+const deserializeAws_restXmlObjectLambdaAllowedFeaturesList = (
+  output: any,
+  context: __SerdeContext
+): (ObjectLambdaAllowedFeature | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const deserializeAws_restXmlObjectLambdaConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ObjectLambdaConfiguration => {
+  let contents: any = {
+    SupportingAccessPoint: undefined,
+    CloudWatchMetricsEnabled: undefined,
+    AllowedFeatures: undefined,
+    TransformationConfigurations: undefined,
+  };
+  if (output["SupportingAccessPoint"] !== undefined) {
+    contents.SupportingAccessPoint = output["SupportingAccessPoint"];
+  }
+  if (output["CloudWatchMetricsEnabled"] !== undefined) {
+    contents.CloudWatchMetricsEnabled = output["CloudWatchMetricsEnabled"] == "true";
+  }
+  if (output.AllowedFeatures === "") {
+    contents.AllowedFeatures = [];
+  }
+  if (output["AllowedFeatures"] !== undefined && output["AllowedFeatures"]["AllowedFeature"] !== undefined) {
+    contents.AllowedFeatures = deserializeAws_restXmlObjectLambdaAllowedFeaturesList(
+      __getArrayIfSingleItem(output["AllowedFeatures"]["AllowedFeature"]),
+      context
+    );
+  }
+  if (output.TransformationConfigurations === "") {
+    contents.TransformationConfigurations = [];
+  }
+  if (
+    output["TransformationConfigurations"] !== undefined &&
+    output["TransformationConfigurations"]["TransformationConfiguration"] !== undefined
+  ) {
+    contents.TransformationConfigurations = deserializeAws_restXmlObjectLambdaTransformationConfigurationsList(
+      __getArrayIfSingleItem(output["TransformationConfigurations"]["TransformationConfiguration"]),
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlObjectLambdaContentTransformation = (
+  output: any,
+  context: __SerdeContext
+): ObjectLambdaContentTransformation => {
+  if (output["AwsLambda"] !== undefined) {
+    return {
+      AwsLambda: deserializeAws_restXmlAwsLambdaTransformation(output["AwsLambda"], context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+const deserializeAws_restXmlObjectLambdaTransformationConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ObjectLambdaTransformationConfiguration => {
+  let contents: any = {
+    Actions: undefined,
+    ContentTransformation: undefined,
+  };
+  if (output.Actions === "") {
+    contents.Actions = [];
+  }
+  if (output["Actions"] !== undefined && output["Actions"]["Action"] !== undefined) {
+    contents.Actions = deserializeAws_restXmlObjectLambdaTransformationConfigurationActionsList(
+      __getArrayIfSingleItem(output["Actions"]["Action"]),
+      context
+    );
+  }
+  if (output["ContentTransformation"] !== undefined) {
+    contents.ContentTransformation = deserializeAws_restXmlObjectLambdaContentTransformation(
+      output["ContentTransformation"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlObjectLambdaTransformationConfigurationActionsList = (
+  output: any,
+  context: __SerdeContext
+): (ObjectLambdaTransformationConfigurationAction | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const deserializeAws_restXmlObjectLambdaTransformationConfigurationsList = (
+  output: any,
+  context: __SerdeContext
+): ObjectLambdaTransformationConfiguration[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlObjectLambdaTransformationConfiguration(entry, context);
+    });
+};
+
 const deserializeAws_restXmlPolicyStatus = (output: any, context: __SerdeContext): PolicyStatus => {
   let contents: any = {
     IsPublic: undefined,
@@ -6288,6 +7579,14 @@ const deserializeAws_restXmlS3CopyObjectOperation = (output: any, context: __Ser
   if (output["ObjectLockRetainUntilDate"] !== undefined) {
     contents.ObjectLockRetainUntilDate = new Date(output["ObjectLockRetainUntilDate"]);
   }
+  return contents;
+};
+
+const deserializeAws_restXmlS3DeleteObjectTaggingOperation = (
+  output: any,
+  context: __SerdeContext
+): S3DeleteObjectTaggingOperation => {
+  let contents: any = {};
   return contents;
 };
 

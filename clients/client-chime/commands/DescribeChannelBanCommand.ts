@@ -22,6 +22,12 @@ export type DescribeChannelBanCommandOutput = DescribeChannelBanResponse & __Met
 
 /**
  * <p>Returns the full details of a channel ban.</p>
+ *
+ *          <note>
+ *
+ *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
+ *         the API call as the value in the header.</p>
+ *          </note>
  */
 export class DescribeChannelBanCommand extends $Command<
   DescribeChannelBanCommandInput,

@@ -24,11 +24,13 @@ export type UpdateRecoveryPointLifecycleCommandOutput = UpdateRecoveryPointLifec
  * <p>Sets the transition lifecycle of a recovery point.</p>
  *          <p>The lifecycle defines when a protected resource is transitioned to cold storage and when
  *          it expires. AWS Backup transitions and expires backups automatically according to the
- *          lifecycle that you define. </p>
+ *          lifecycle that you define.</p>
  *          <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90
  *          days. Therefore, the “expire after days” setting must be 90 days greater than the
  *          “transition to cold after days” setting. The “transition to cold after days” setting cannot
- *          be changed after a backup has been transitioned to cold. </p>
+ *          be changed after a backup has been transitioned to cold.</p>
+ *          <p>Only Amazon EFS file system backups can be transitioned to cold storage.</p>
+ *          <p>Does not support continuous backups.</p>
  */
 export class UpdateRecoveryPointLifecycleCommand extends $Command<
   UpdateRecoveryPointLifecycleCommandInput,

@@ -1119,7 +1119,8 @@ export namespace CompareFacesResponse {
 }
 
 /**
- * <p>The input image size exceeds the allowed limit. For more information, see
+ * <p>The input image size exceeds the allowed limit. If you are calling
+ *       DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more information, see
  *       Limits in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
  */
 export interface ImageTooLargeException extends __SmithyException, $MetadataBearer {
@@ -1330,6 +1331,13 @@ export interface CreateCollectionRequest {
    * <p>ID for the collection that you are creating.</p>
    */
   CollectionId: string | undefined;
+
+  /**
+   * <p>
+   *       A set of tags (key-value pairs) that you want to attach to the collection.
+   *     </p>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace CreateCollectionRequest {
@@ -1378,6 +1386,30 @@ export interface ResourceAlreadyExistsException extends __SmithyException, $Meta
 
 export namespace ResourceAlreadyExistsException {
   export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p></p>
+ *
+ *
+ *          <p>The size of the collection or tag list exceeds the allowed limit. For more information, see
+ *       Limits in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
+ */
+export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
+  name: "ServiceQuotaExceededException";
+  $fault: "client";
+  Message?: string;
+  Code?: string;
+  /**
+   * <p>A universally unique identifier (UUID) for the request.</p>
+   */
+  Logref?: string;
+}
+
+export namespace ServiceQuotaExceededException {
+  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
     ...obj,
   });
 }
@@ -1536,6 +1568,13 @@ export interface CreateProjectVersionRequest {
    * <p>The dataset to use for testing.</p>
    */
   TestingData: TestingData | undefined;
+
+  /**
+   * <p>
+   *       A set of tags (key-value pairs) that you want to attach to the model.
+   *     </p>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace CreateProjectVersionRequest {
@@ -1713,6 +1752,13 @@ export interface CreateStreamProcessorRequest {
    * <p>ARN of the IAM role that allows access to the stream processor.</p>
    */
   RoleArn: string | undefined;
+
+  /**
+   * <p>
+   *       A set of tags (key-value pairs) that you want to attach to the stream processor.
+   *     </p>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace CreateStreamProcessorRequest {
@@ -2589,9 +2635,9 @@ export namespace DetectFacesResponse {
  */
 export interface DetectionFilter {
   /**
-   * <p>Sets confidence of word detection. Words with detection confidence below this will be excluded
-   *       from the result. Values should be between 0.5 and 1 as Text in Video will not return any result below
-   *       0.5.</p>
+   * <p>Sets the confidence of word detection. Words with detection confidence below this will be excluded
+   *       from the result. Values should be between 50 and 100 as Text in Video will not return any result below
+   *       50.</p>
    */
   MinConfidence?: number;
 
@@ -3033,7 +3079,7 @@ export interface ProtectiveEquipmentSummary {
   PersonsWithRequiredEquipment?: number[];
 
   /**
-   * <p>An array of IDs for persons who are not wearing all of the types of PPE specified in the RequiredEquipmentTypes field of
+   * <p>An array of IDs for persons who are not wearing all of the types of PPE specified in the <code>RequiredEquipmentTypes</code> field of
    *          the detected personal protective equipment.
    *       </p>
    */
@@ -4475,30 +4521,6 @@ export namespace IndexFacesResponse {
   });
 }
 
-/**
- * <p></p>
- *
- *
- *          <p>The size of the collection exceeds the allowed limit. For more information, see
- *       Limits in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
- */
-export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
-  name: "ServiceQuotaExceededException";
-  $fault: "client";
-  Message?: string;
-  Code?: string;
-  /**
-   * <p>A universally unique identifier (UUID) for the request.</p>
-   */
-  Logref?: string;
-}
-
-export namespace ServiceQuotaExceededException {
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
-}
-
 export interface ListCollectionsRequest {
   /**
    * <p>Pagination token from the previous response.</p>
@@ -4650,6 +4672,36 @@ export interface ListStreamProcessorsResponse {
 
 export namespace ListStreamProcessorsResponse {
   export const filterSensitiveLog = (obj: ListStreamProcessorsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>
+   *       Amazon Resource Name (ARN) of the model, collection, or stream processor that contains the tags that you want a list of.
+   *     </p>
+   */
+  ResourceArn: string | undefined;
+}
+
+export namespace ListTagsForResourceRequest {
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>
+   *       A list of key-value tags assigned to the resource.
+   *     </p>
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace ListTagsForResourceResponse {
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
 }
@@ -5523,6 +5575,66 @@ export interface StopStreamProcessorResponse {}
 
 export namespace StopStreamProcessorResponse {
   export const filterSensitiveLog = (obj: StopStreamProcessorResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface TagResourceRequest {
+  /**
+   * <p>
+   *       Amazon Resource Name (ARN) of the model, collection, or stream processor that you want to assign the tags to.
+   *     </p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>
+   *       The key-value tags to assign to the resource.
+   *     </p>
+   */
+  Tags: { [key: string]: string } | undefined;
+}
+
+export namespace TagResourceRequest {
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface TagResourceResponse {}
+
+export namespace TagResourceResponse {
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceRequest {
+  /**
+   * <p>
+   *       Amazon Resource Name (ARN) of the model, collection, or stream processor that you want to remove the tags from.
+   *     </p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>
+   *       A list of the tags that you want to remove.
+   *     </p>
+   */
+  TagKeys: string[] | undefined;
+}
+
+export namespace UntagResourceRequest {
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceResponse {}
+
+export namespace UntagResourceResponse {
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
 }

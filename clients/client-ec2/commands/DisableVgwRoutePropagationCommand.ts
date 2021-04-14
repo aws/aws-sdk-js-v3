@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DisableVgwRoutePropagationRequest } from "../models/models_3";
+import { DisableVgwRoutePropagationRequest } from "../models/models_4";
 import {
   deserializeAws_ec2DisableVgwRoutePropagationCommand,
   serializeAws_ec2DisableVgwRoutePropagationCommand,

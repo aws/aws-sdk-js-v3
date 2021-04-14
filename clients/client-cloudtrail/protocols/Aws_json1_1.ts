@@ -31,6 +31,7 @@ import {
   CloudTrailAccessNotEnabledException,
   CloudTrailInvalidClientTokenIdException,
   CloudWatchLogsDeliveryUnavailableException,
+  ConflictException,
   CreateTrailRequest,
   CreateTrailResponse,
   DataResource,
@@ -780,6 +781,14 @@ const deserializeAws_json1_1DeleteTrailCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.cloudtrail#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InsufficientDependencyServiceAccessPermissionException":
     case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
       response = {
@@ -1772,6 +1781,14 @@ const deserializeAws_json1_1PutInsightSelectorsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "KmsException":
+    case "com.amazonaws.cloudtrail#KmsException":
+      response = {
+        ...(await deserializeAws_json1_1KmsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "NotOrganizationMasterAccountException":
     case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
       response = {
@@ -1784,6 +1801,14 @@ const deserializeAws_json1_1PutInsightSelectorsCommandError = async (
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "S3BucketDoesNotExistException":
+    case "com.amazonaws.cloudtrail#S3BucketDoesNotExistException":
+      response = {
+        ...(await deserializeAws_json1_1S3BucketDoesNotExistExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2467,6 +2492,21 @@ const deserializeAws_json1_1CloudWatchLogsDeliveryUnavailableExceptionResponse =
   const deserialized: any = deserializeAws_json1_1CloudWatchLogsDeliveryUnavailableException(body, context);
   const contents: CloudWatchLogsDeliveryUnavailableException = {
     name: "CloudWatchLogsDeliveryUnavailableException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1ConflictExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ConflictException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ConflictException(body, context);
+  const contents: ConflictException = {
+    name: "ConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -3563,6 +3603,12 @@ const deserializeAws_json1_1CloudWatchLogsDeliveryUnavailableException = (
   output: any,
   context: __SerdeContext
 ): CloudWatchLogsDeliveryUnavailableException => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;

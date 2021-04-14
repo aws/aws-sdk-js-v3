@@ -24,10 +24,10 @@ export type DeletePolicyCommandOutput = __MetadataBearer;
  * <p>Deletes the resource-based policy attached to a private CA. Deletion will remove any
  * 			access that the policy has granted. If there is no policy attached to the private CA,
  * 			this action will return successful.</p>
- * 		       <p>If you delete a policy that was applied through AWS Resource Access Manager (RAM),
- * 			the CA will be removed from all shares in which it was included. </p>
- * 		       <p>The AWS Certificate Manager Service Linked Role that the policy supports is not affected when you delete
- * 			the policy. </p>
+ * 		       <p>If you delete a policy that was applied through AWS Resource Access Manager (RAM), the
+ * 			CA will be removed from all shares in which it was included. </p>
+ * 		       <p>The AWS Certificate Manager Service Linked Role that the policy supports is not affected when you
+ * 			delete the policy. </p>
  * 		       <p>The current policy can be shown with <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_GetPolicy.html">GetPolicy</a> and updated with <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_PutPolicy.html">PutPolicy</a>.</p>
  * 		       <p class="title">
  *             <b>About Policies</b>
@@ -36,7 +36,7 @@ export type DeletePolicyCommandOutput = __MetadataBearer;
  *             <li>
  * 			            <p>A policy grants access on a private CA to an AWS customer account, to AWS Organizations, or to
  * 			an AWS Organizations unit. Policies are under the control of a CA administrator. For more information,
- * 			see <a href="acm-pca/latest/userguide/pca-rbp.html">Using a Resource Based Policy with ACM Private CA</a>.</p>
+ * 			see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-rbp.html">Using a Resource Based Policy with ACM Private CA</a>.</p>
  * 		          </li>
  *             <li>
  * 			            <p>A policy permits a user of AWS Certificate Manager (ACM) to issue ACM certificates
@@ -52,8 +52,8 @@ export type DeletePolicyCommandOutput = __MetadataBearer;
  * 		          </li>
  *             <li>
  * 			            <p>Updates made in AWS Resource Manager (RAM) are reflected in policies. For more information,
- * 			see <a href="acm-pca/latest/userguide/pca-ram.html">Using AWS Resource Access Manager
- * 			(RAM) with ACM Private CA</a>.</p>
+ * 			see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-ram.html">Attach a Policy for Cross-Account
+ * 			Access</a>.</p>
  * 		          </li>
  *          </ul>
  */

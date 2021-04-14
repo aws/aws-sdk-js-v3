@@ -75,13 +75,13 @@ export namespace GetVoiceConnectorTerminationRequest {
 }
 
 /**
- * <p>Termination settings enable your SIP hosts to make outbound calls using your Amazon
- *       Chime Voice Connector.</p>
+ * <p>Termination settings enable your SIP hosts to make outbound calls using your Amazon Chime
+ *             Voice Connector.</p>
  */
 export interface Termination {
   /**
-   * <p>The limit on calls per second. Max value based on account service quota. Default value
-   *       of 1.</p>
+   * <p>The limit on calls per second. Max value based on account service quota. Default value of
+   *             1.</p>
    */
   CpsLimit?: number;
 
@@ -141,8 +141,8 @@ export namespace GetVoiceConnectorTerminationHealthRequest {
 }
 
 /**
- * <p>The termination health details, including the source IP address and timestamp of the
- *       last successful SIP <code>OPTIONS</code> message from your SIP infrastructure.</p>
+ * <p>The termination health details, including the source IP address and timestamp of the last
+ *             successful SIP <code>OPTIONS</code> message from your SIP infrastructure.</p>
  */
 export interface TerminationHealth {
   /**
@@ -176,8 +176,8 @@ export namespace GetVoiceConnectorTerminationHealthResponse {
 }
 
 /**
- * <p>Invitation object returned after emailing users to invite them to join the
- *         Amazon Chime <code>Team</code> account.</p>
+ * <p>Invitation object returned after emailing users to invite them to join the Amazon Chime
+ *                 <code>Team</code> account.</p>
  */
 export interface Invite {
   /**
@@ -277,12 +277,12 @@ export namespace ListAccountsRequest {
 
 export interface ListAccountsResponse {
   /**
-   * <p>The list of accounts.</p>
+   * <p>List of Amazon Chime accounts and account details.</p>
    */
   Accounts?: Account[];
 
   /**
-   * <p>The account's user token.</p>
+   * <p>The token to use to retrieve the next page of results.</p>
    */
   NextToken?: string;
 }
@@ -295,7 +295,7 @@ export namespace ListAccountsResponse {
 
 export interface ListAppInstanceAdminsRequest {
   /**
-   * <p>The ARN of the app instance.</p>
+   * <p>The ARN of the <code>AppInstance</code>.</p>
    */
   AppInstanceArn: string | undefined;
 
@@ -319,7 +319,7 @@ export namespace ListAppInstanceAdminsRequest {
 
 export interface ListAppInstanceAdminsResponse {
   /**
-   * <p>The ARN of the app instance.</p>
+   * <p>The ARN of the <code>AppInstance</code>.</p>
    */
   AppInstanceArn?: string;
 
@@ -346,12 +346,12 @@ export namespace ListAppInstanceAdminsResponse {
 
 export interface ListAppInstancesRequest {
   /**
-   * <p>The maximum number of app instances that you want to return.</p>
+   * <p>The maximum number of <code>AppInstance</code>s that you want to return.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The token passed by previous API requests until you reach the maximum number of app instances.</p>
+   * <p>The token passed by previous API requests until you reach the maximum number of <code>AppInstance</code>s.</p>
    */
   NextToken?: string;
 }
@@ -365,12 +365,12 @@ export namespace ListAppInstancesRequest {
 
 export interface ListAppInstancesResponse {
   /**
-   * <p>The information for each app instance.</p>
+   * <p>The information for each <code>AppInstance</code>.</p>
    */
   AppInstances?: AppInstanceSummary[];
 
   /**
-   * <p>The token passed by previous API requests until the maximum number of app instances is reached.</p>
+   * <p>The token passed by previous API requests until the maximum number of <code>AppInstance</code>s is reached.</p>
    */
   NextToken?: string;
 }
@@ -387,7 +387,7 @@ export namespace ListAppInstancesResponse {
 
 export interface ListAppInstanceUsersRequest {
   /**
-   * <p>The ARN of the app instance.</p>
+   * <p>The ARN of the <code>AppInstance</code>.</p>
    */
   AppInstanceArn: string | undefined;
 
@@ -411,12 +411,12 @@ export namespace ListAppInstanceUsersRequest {
 
 export interface ListAppInstanceUsersResponse {
   /**
-   * <p>The ARN of the app instance.</p>
+   * <p>The ARN of the <code>AppInstance</code>.</p>
    */
   AppInstanceArn?: string;
 
   /**
-   * <p>The information for each of the requested app instance users.</p>
+   * <p>The information for each requested <code>AppInstanceUser</code>.</p>
    */
   AppInstanceUsers?: AppInstanceUserSummary[];
 
@@ -567,6 +567,11 @@ export interface ListChannelBansRequest {
    * <p>The token passed by previous API calls until all requested bans are returned.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   */
+  ChimeBearer?: string;
 }
 
 export namespace ListChannelBansRequest {
@@ -609,8 +614,8 @@ export interface ListChannelMembershipsRequest {
 
   /**
    * <p>The membership type of a user, <code>DEFAULT</code> or <code>HIDDEN</code>. Default members are always returned as part of
-   *            <code>ListChannelMemberships</code>. Hidden members are only returned if the type filter in <code>ListChannelMemberships</code>
-   *            equals <code>HIDDEN</code>. Otherwise hidden members are not returned.</p>
+   *     <code>ListChannelMemberships</code>. Hidden members are only returned if the type filter in <code>ListChannelMemberships</code> equals
+   *     <code>HIDDEN</code>. Otherwise hidden members are not returned.</p>
    */
   Type?: ChannelMembershipType | string;
 
@@ -620,9 +625,14 @@ export interface ListChannelMembershipsRequest {
   MaxResults?: number;
 
   /**
-   * <p>The token passed by previous API calls until all requested channel memberships are returned..</p>
+   * <p>The token passed by previous API calls until all requested channel memberships are returned.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   */
+  ChimeBearer?: string;
 }
 
 export namespace ListChannelMembershipsRequest {
@@ -661,12 +671,12 @@ export namespace ListChannelMembershipsResponse {
 
 export interface ListChannelMembershipsForAppInstanceUserRequest {
   /**
-   * <p>The ARN of the app instance users</p>
+   * <p>The ARN of the <code>AppInstanceUser</code>s</p>
    */
   AppInstanceUserArn?: string;
 
   /**
-   * <p>The maximum number of users that you want returned. </p>
+   * <p>The maximum number of users that you want returned.</p>
    */
   MaxResults?: number;
 
@@ -674,6 +684,11 @@ export interface ListChannelMembershipsForAppInstanceUserRequest {
    * <p>The token returned from previous API requests until the number of channel memberships is reached.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   */
+  ChimeBearer?: string;
 }
 
 export namespace ListChannelMembershipsForAppInstanceUserRequest {
@@ -724,7 +739,7 @@ export interface ListChannelMessagesRequest {
   SortOrder?: SortOrder | string;
 
   /**
-   * <p>The initial or starting time stamp for your requested messages. </p>
+   * <p>The initial or starting time stamp for your requested messages.</p>
    */
   NotBefore?: Date;
 
@@ -742,6 +757,11 @@ export interface ListChannelMessagesRequest {
    * <p>The token passed by previous API calls until all requested messages are returned.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   */
+  ChimeBearer?: string;
 }
 
 export namespace ListChannelMessagesRequest {
@@ -763,7 +783,7 @@ export interface ListChannelMessagesResponse {
   NextToken?: string;
 
   /**
-   * <p>The information about and content of each requested message.</p>
+   * <p>The information about, and content of, each requested message.</p>
    */
   ChannelMessages?: ChannelMessageSummary[];
 }
@@ -793,6 +813,11 @@ export interface ListChannelModeratorsRequest {
    * <p>The token passed by previous API calls until all requested moderators are returned.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   */
+  ChimeBearer?: string;
 }
 
 export namespace ListChannelModeratorsRequest {
@@ -831,13 +856,18 @@ export namespace ListChannelModeratorsResponse {
 
 export interface ListChannelsRequest {
   /**
-   * <p>The ARN of the app instance.</p>
+   * <p>The ARN of the <code>AppInstance</code>.</p>
    */
   AppInstanceArn: string | undefined;
 
   /**
-   * <p>The privacy setting. <code>PUBLIC</code> retrieves all the public channels. <code>PRIVATE</code> retrieves private channels. Only
-   *            an app instance administrator can retrieve private channels.</p>
+   * <p>
+   * The privacy setting.
+   * <code>PUBLIC</code>
+   * retrieves all the public channels.
+   * <code>PRIVATE</code>
+   * retrieves private channels. Only an <code>AppInstanceAdmin</code> can retrieve private channels.
+   * </p>
    */
   Privacy?: ChannelPrivacy | string;
 
@@ -850,6 +880,11 @@ export interface ListChannelsRequest {
    * <p>The token passed by previous API calls until all requested channels are returned.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   */
+  ChimeBearer?: string;
 }
 
 export namespace ListChannelsRequest {
@@ -894,6 +929,11 @@ export interface ListChannelsModeratedByAppInstanceUserRequest {
    * <p>The token returned from previous API requests until the number of channels moderated by the user is reached.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   */
+  ChimeBearer?: string;
 }
 
 export namespace ListChannelsModeratedByAppInstanceUserRequest {
@@ -1509,7 +1549,7 @@ export namespace LogoutUserResponse {
 
 export interface PutAppInstanceRetentionSettingsRequest {
   /**
-   * <p>The ARN of the app instance.</p>
+   * <p>The ARN of the <code>AppInstance</code>.</p>
    */
   AppInstanceArn: string | undefined;
 
@@ -1545,12 +1585,12 @@ export namespace PutAppInstanceRetentionSettingsResponse {
 
 export interface PutAppInstanceStreamingConfigurationsRequest {
   /**
-   * <p>The ARN of the app instance.</p>
+   * <p>The ARN of the <code>AppInstance</code>.</p>
    */
   AppInstanceArn: string | undefined;
 
   /**
-   * <p>The streaming configurations set for an app instance.</p>
+   * <p>The streaming configurations set for an <code>AppInstance</code>.</p>
    */
   AppInstanceStreamingConfigurations: AppInstanceStreamingConfiguration[] | undefined;
 }
@@ -1568,7 +1608,7 @@ export namespace PutAppInstanceStreamingConfigurationsRequest {
 
 export interface PutAppInstanceStreamingConfigurationsResponse {
   /**
-   * <p>The streaming configurations of an app instance.</p>
+   * <p>The streaming configurations of an <code>AppInstance</code>.</p>
    */
   AppInstanceStreamingConfigurations?: AppInstanceStreamingConfiguration[];
 }
@@ -1668,7 +1708,7 @@ export namespace PutRetentionSettingsResponse {
 
 export interface PutSipMediaApplicationLoggingConfigurationRequest {
   /**
-   * <p>The ID of the specified SIP media application</p>
+   * <p>The SIP media application ID.</p>
    */
   SipMediaApplicationId: string | undefined;
 
@@ -1686,7 +1726,7 @@ export namespace PutSipMediaApplicationLoggingConfigurationRequest {
 
 export interface PutSipMediaApplicationLoggingConfigurationResponse {
   /**
-   * <p>The actual logging configuration.</p>
+   * <p>Logging configuration of the SIP media application.</p>
    */
   SipMediaApplicationLoggingConfiguration?: SipMediaApplicationLoggingConfiguration;
 }
@@ -1941,6 +1981,11 @@ export interface RedactChannelMessageRequest {
    * <p>The ID of the message being redacted.</p>
    */
   MessageId: string | undefined;
+
+  /**
+   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   */
+  ChimeBearer?: string;
 }
 
 export namespace RedactChannelMessageRequest {
@@ -2199,7 +2244,7 @@ export interface SendChannelMessageRequest {
   Persistence: ChannelMessagePersistenceType | string | undefined;
 
   /**
-   * <p>The optional metadata for each message. </p>
+   * <p>The optional metadata for each message.</p>
    */
   Metadata?: string;
 
@@ -2207,6 +2252,11 @@ export interface SendChannelMessageRequest {
    * <p>The <code>Idempotency</code> token for each client request.</p>
    */
   ClientRequestToken?: string;
+
+  /**
+   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   */
+  ChimeBearer?: string;
 }
 
 export namespace SendChannelMessageRequest {
@@ -2225,7 +2275,7 @@ export interface SendChannelMessageResponse {
   ChannelArn?: string;
 
   /**
-   * <p>The ID string assigned to each message. </p>
+   * <p>The ID string assigned to each message.</p>
    */
   MessageId?: string;
 }
@@ -2382,7 +2432,7 @@ export namespace UpdateAccountRequest {
 
 export interface UpdateAccountResponse {
   /**
-   * <p>The Amazon Chime account details. An AWS account can have multiple Amazon Chime accounts.</p>
+   * <p>The updated Amazon Chime account details.</p>
    */
   Account?: Account;
 }
@@ -2421,7 +2471,7 @@ export namespace UpdateAccountSettingsResponse {
 
 export interface UpdateAppInstanceRequest {
   /**
-   * <p>The ARN of the app instance.</p>
+   * <p>The ARN of the <code>AppInstance</code>.</p>
    */
   AppInstanceArn: string | undefined;
 
@@ -2446,7 +2496,7 @@ export namespace UpdateAppInstanceRequest {
 
 export interface UpdateAppInstanceResponse {
   /**
-   * <p>The ARN of the app instance.</p>
+   * <p>The ARN of the <code>AppInstance</code>.</p>
    */
   AppInstanceArn?: string;
 }
@@ -2459,17 +2509,17 @@ export namespace UpdateAppInstanceResponse {
 
 export interface UpdateAppInstanceUserRequest {
   /**
-   * <p>The ARN of the app instance user.</p>
+   * <p>The ARN of the <code>AppInstanceUser</code>.</p>
    */
   AppInstanceUserArn: string | undefined;
 
   /**
-   * <p>The name of the app instance user.</p>
+   * <p>The name of the <code>AppInstanceUser</code>.</p>
    */
   Name: string | undefined;
 
   /**
-   * <p>The metadata of the app instance user.</p>
+   * <p>The metadata of the <code>AppInstanceUser</code>.</p>
    */
   Metadata?: string;
 }
@@ -2484,7 +2534,7 @@ export namespace UpdateAppInstanceUserRequest {
 
 export interface UpdateAppInstanceUserResponse {
   /**
-   * <p>The ARN of the app instance user.</p>
+   * <p>The ARN of the <code>AppInstanceUser</code>.</p>
    */
   AppInstanceUserArn?: string;
 }
@@ -2549,9 +2599,14 @@ export interface UpdateChannelRequest {
   Mode: ChannelMode | string | undefined;
 
   /**
-   * <p>The metadata of the channel.</p>
+   * <p>The metadata for the update request.</p>
    */
   Metadata?: string;
+
+  /**
+   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   */
+  ChimeBearer?: string;
 }
 
 export namespace UpdateChannelRequest {
@@ -2595,6 +2650,11 @@ export interface UpdateChannelMessageRequest {
    * <p>The metadata of the message being updated.</p>
    */
   Metadata?: string;
+
+  /**
+   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   */
+  ChimeBearer?: string;
 }
 
 export namespace UpdateChannelMessageRequest {
@@ -2628,6 +2688,11 @@ export interface UpdateChannelReadMarkerRequest {
    * <p>The ARN of the channel.</p>
    */
   ChannelArn: string | undefined;
+
+  /**
+   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   */
+  ChimeBearer?: string;
 }
 
 export namespace UpdateChannelReadMarkerRequest {
@@ -2936,8 +3001,8 @@ export interface UpdateUserRequest {
   UserId: string | undefined;
 
   /**
-   * <p>The user license type to update. This must be a supported license type for the Amazon
-   *        Chime account that the user belongs to.</p>
+   * <p>The user license type to update. This must be a supported license type for the Amazon Chime
+   *             account that the user belongs to.</p>
    */
   LicenseType?: License | string;
 
@@ -3046,7 +3111,11 @@ export interface UpdateVoiceConnectorGroupRequest {
   Name: string | undefined;
 
   /**
-   * <p>The <code>VoiceConnectorItems</code> to associate with the group.</p>
+   * <p>
+   * The
+   * <code>VoiceConnectorItems</code>
+   * to associate with the group.
+   * </p>
    */
   VoiceConnectorItems: VoiceConnectorItem[] | undefined;
 }

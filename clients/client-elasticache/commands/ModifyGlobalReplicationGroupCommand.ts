@@ -21,7 +21,7 @@ export type ModifyGlobalReplicationGroupCommandInput = ModifyGlobalReplicationGr
 export type ModifyGlobalReplicationGroupCommandOutput = ModifyGlobalReplicationGroupResult & __MetadataBearer;
 
 /**
- * <p>Modifies the settings for a Global Datastore.</p>
+ * <p>Modifies the settings for a Global datastore.</p>
  */
 export class ModifyGlobalReplicationGroupCommand extends $Command<
   ModifyGlobalReplicationGroupCommandInput,

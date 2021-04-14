@@ -58,6 +58,8 @@ export interface Tag {
 export namespace Tag {
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
+    ...(obj.Key && { Key: SENSITIVE_STRING }),
+    ...(obj.Value && { Value: SENSITIVE_STRING }),
   });
 }
 
@@ -90,6 +92,52 @@ export interface CreateEnvironmentEC2Request {
   subnetId?: string;
 
   /**
+   * <p>The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. To choose an AMI for the instance, you must specify a valid AMI alias or a valid AWS Systems Manager (SSM) path.</p>
+   *          <p>The default AMI is used if the parameter isn't explicitly assigned a value in the request.
+   *    </p>
+   *          <p>
+   *             <b>AMI aliases </b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Amazon Linux (default): <code>amazonlinux-1-x86_64</code>
+   *                   </b>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Amazon Linux 2: <code>amazonlinux-2-x86_64</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Ubuntu 18.04: <code>ubuntu-18.04-x86_64</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *
+   *          <p>
+   *             <b>SSM paths</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Amazon Linux (default): <code>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64</code>
+   *                   </b>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Amazon Linux 2: <code>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Ubuntu 18.04: <code>resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  imageId?: string;
+
+  /**
    * <p>The number of minutes until the running instance is shut down after the environment has last been used.</p>
    */
   automaticStopTimeMinutes?: number;
@@ -105,7 +153,8 @@ export interface CreateEnvironmentEC2Request {
   tags?: Tag[];
 
   /**
-   * <p>The connection type used for connecting to an Amazon EC2 environment.</p>
+   * <p>The connection type used for connecting to an Amazon EC2 environment. Valid values are <code>CONNECT_SSH</code> (default) and <code>CONNECT_SSM</code> (connected through AWS Systems Manager).</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html">Accessing no-ingress EC2 instances with AWS Systems Manager</a> in the <i>AWS Cloud9 User Guide</i>.</p>
    */
   connectionType?: ConnectionType | string;
 }
@@ -114,6 +163,7 @@ export namespace CreateEnvironmentEC2Request {
   export const filterSensitiveLog = (obj: CreateEnvironmentEC2Request): any => ({
     ...obj,
     ...(obj.description && { description: SENSITIVE_STRING }),
+    ...(obj.tags && { tags: SENSITIVE_STRING }),
   });
 }
 
@@ -280,22 +330,22 @@ export interface EnvironmentMember {
    *             </li>
    *          </ul>
    */
-  permissions?: Permissions | string;
+  permissions: Permissions | string | undefined;
 
   /**
    * <p>The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.</p>
    */
-  userId?: string;
+  userId: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the environment member.</p>
    */
-  userArn?: string;
+  userArn: string | undefined;
 
   /**
    * <p>The ID of the environment for the environment member.</p>
    */
-  environmentId?: string;
+  environmentId: string | undefined;
 
   /**
    * <p>The time, expressed in epoch time format, when the environment member last opened the environment.</p>
@@ -313,7 +363,7 @@ export interface CreateEnvironmentMembershipResult {
   /**
    * <p>Information about the environment member that was added.</p>
    */
-  membership?: EnvironmentMember;
+  membership: EnvironmentMember | undefined;
 }
 
 export namespace CreateEnvironmentMembershipResult {
@@ -504,6 +554,20 @@ export namespace EnvironmentLifecycle {
   });
 }
 
+export enum ManagedCredentialsStatus {
+  DISABLED_BY_COLLABORATOR = "DISABLED_BY_COLLABORATOR",
+  DISABLED_BY_DEFAULT = "DISABLED_BY_DEFAULT",
+  DISABLED_BY_OWNER = "DISABLED_BY_OWNER",
+  ENABLED_BY_OWNER = "ENABLED_BY_OWNER",
+  ENABLED_ON_CREATE = "ENABLED_ON_CREATE",
+  FAILED_REMOVAL_BY_COLLABORATOR = "FAILED_REMOVAL_BY_COLLABORATOR",
+  FAILED_REMOVAL_BY_OWNER = "FAILED_REMOVAL_BY_OWNER",
+  PENDING_REMOVAL_BY_COLLABORATOR = "PENDING_REMOVAL_BY_COLLABORATOR",
+  PENDING_REMOVAL_BY_OWNER = "PENDING_REMOVAL_BY_OWNER",
+  PENDING_START_REMOVAL_BY_COLLABORATOR = "PENDING_START_REMOVAL_BY_COLLABORATOR",
+  PENDING_START_REMOVAL_BY_OWNER = "PENDING_START_REMOVAL_BY_OWNER",
+}
+
 export enum EnvironmentType {
   EC2 = "ec2",
   SSH = "ssh",
@@ -541,27 +605,85 @@ export interface Environment {
    *             </li>
    *          </ul>
    */
-  type?: EnvironmentType | string;
+  type: EnvironmentType | string | undefined;
 
   /**
-   * <p>The connection type used for connecting to an Amazon EC2 environment.</p>
+   * <p>The connection type used for connecting to an Amazon EC2 environment. <code>CONNECT_SSH</code> is selected by default.</p>
    */
   connectionType?: ConnectionType | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the environment.</p>
    */
-  arn?: string;
+  arn: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the environment owner.</p>
    */
-  ownerArn?: string;
+  ownerArn: string | undefined;
 
   /**
    * <p>The state of the environment in its creation or deletion lifecycle.</p>
    */
   lifecycle?: EnvironmentLifecycle;
+
+  /**
+   * <p>Describes the status of AWS managed temporary credentials for the AWS Cloud9 environment. Available values
+   *       are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED_ON_CREATE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED_BY_OWNER</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED_BY_DEFAULT</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED_BY_OWNER</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED_BY_COLLABORATOR</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING_REMOVAL_BY_COLLABORATOR</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING_REMOVAL_BY_OWNER</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED_REMOVAL_BY_COLLABORATOR</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED_BY_OWNER</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED_BY_DEFAULT</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  managedCredentialsStatus?: ManagedCredentialsStatus | string;
 }
 
 export namespace Environment {
@@ -642,12 +764,12 @@ export interface DescribeEnvironmentStatusResult {
    *             </li>
    *          </ul>
    */
-  status?: EnvironmentStatus | string;
+  status: EnvironmentStatus | string | undefined;
 
   /**
    * <p>Any informational message about the status of the environment.</p>
    */
-  message?: string;
+  message: string | undefined;
 }
 
 export namespace DescribeEnvironmentStatusResult {
@@ -715,6 +837,7 @@ export interface ListTagsForResourceResponse {
 export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
+    ...(obj.Tags && { Tags: SENSITIVE_STRING }),
   });
 }
 
@@ -750,6 +873,7 @@ export interface TagResourceRequest {
 export namespace TagResourceRequest {
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
+    ...(obj.Tags && { Tags: SENSITIVE_STRING }),
   });
 }
 
@@ -776,6 +900,7 @@ export interface UntagResourceRequest {
 export namespace UntagResourceRequest {
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
+    ...(obj.TagKeys && { TagKeys: SENSITIVE_STRING }),
   });
 }
 

@@ -26,6 +26,11 @@ import {
   AssignTapePoolCommandOutput,
 } from "./commands/AssignTapePoolCommand";
 import {
+  AssociateFileSystemCommand,
+  AssociateFileSystemCommandInput,
+  AssociateFileSystemCommandOutput,
+} from "./commands/AssociateFileSystemCommand";
+import {
   AttachVolumeCommand,
   AttachVolumeCommandInput,
   AttachVolumeCommandOutput,
@@ -158,6 +163,11 @@ import {
   DescribeChapCredentialsCommandOutput,
 } from "./commands/DescribeChapCredentialsCommand";
 import {
+  DescribeFileSystemAssociationsCommand,
+  DescribeFileSystemAssociationsCommandInput,
+  DescribeFileSystemAssociationsCommandOutput,
+} from "./commands/DescribeFileSystemAssociationsCommand";
+import {
   DescribeGatewayInformationCommand,
   DescribeGatewayInformationCommandInput,
   DescribeGatewayInformationCommandOutput,
@@ -232,6 +242,11 @@ import {
   DisableGatewayCommandInput,
   DisableGatewayCommandOutput,
 } from "./commands/DisableGatewayCommand";
+import {
+  DisassociateFileSystemCommand,
+  DisassociateFileSystemCommandInput,
+  DisassociateFileSystemCommandOutput,
+} from "./commands/DisassociateFileSystemCommand";
 import { JoinDomainCommand, JoinDomainCommandInput, JoinDomainCommandOutput } from "./commands/JoinDomainCommand";
 import {
   ListAutomaticTapeCreationPoliciesCommand,
@@ -243,6 +258,11 @@ import {
   ListFileSharesCommandInput,
   ListFileSharesCommandOutput,
 } from "./commands/ListFileSharesCommand";
+import {
+  ListFileSystemAssociationsCommand,
+  ListFileSystemAssociationsCommandInput,
+  ListFileSystemAssociationsCommandOutput,
+} from "./commands/ListFileSystemAssociationsCommand";
 import {
   ListGatewaysCommand,
   ListGatewaysCommandInput,
@@ -346,6 +366,11 @@ import {
   UpdateChapCredentialsCommandInput,
   UpdateChapCredentialsCommandOutput,
 } from "./commands/UpdateChapCredentialsCommand";
+import {
+  UpdateFileSystemAssociationCommand,
+  UpdateFileSystemAssociationCommandInput,
+  UpdateFileSystemAssociationCommandOutput,
+} from "./commands/UpdateFileSystemAssociationCommand";
 import {
   UpdateGatewayInformationCommand,
   UpdateGatewayInformationCommandInput,
@@ -592,7 +617,7 @@ export class StorageGateway extends StorageGatewayClient {
 
   /**
    * <p>Configures one or more gateway local disks as upload buffer for a specified gateway.
-   *          This operation is supported for the stored volume, cached volume and tape gateway
+   *          This operation is supported for the stored volume, cached volume, and tape gateway
    *          types.</p>
    *
    *          <p>In the request, you specify the gateway Amazon Resource Name (ARN) to which you want to
@@ -700,6 +725,41 @@ export class StorageGateway extends StorageGatewayClient {
     cb?: (err: any, data?: AssignTapePoolCommandOutput) => void
   ): Promise<AssignTapePoolCommandOutput> | void {
     const command = new AssignTapePoolCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Associate an Amazon FSx file system with the Amazon FSx file gateway. After the
+   *          association process is complete, the file shares on the Amazon FSx file system are
+   *          available for access through the gateway. This operation only supports the Amazon FSx file
+   *          gateway type.</p>
+   */
+  public associateFileSystem(
+    args: AssociateFileSystemCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateFileSystemCommandOutput>;
+  public associateFileSystem(
+    args: AssociateFileSystemCommandInput,
+    cb: (err: any, data?: AssociateFileSystemCommandOutput) => void
+  ): void;
+  public associateFileSystem(
+    args: AssociateFileSystemCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateFileSystemCommandOutput) => void
+  ): void;
+  public associateFileSystem(
+    args: AssociateFileSystemCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateFileSystemCommandOutput) => void),
+    cb?: (err: any, data?: AssociateFileSystemCommandOutput) => void
+  ): Promise<AssociateFileSystemCommandOutput> | void {
+    const command = new AssociateFileSystemCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -955,7 +1015,7 @@ export class StorageGateway extends StorageGatewayClient {
    * <p>Initiates a snapshot of a volume.</p>
    *
    *          <p>AWS Storage Gateway provides the ability to back up point-in-time snapshots of your data
-   *          to Amazon Simple Storage (Amazon S3) for durable off-site recovery, as well as import the
+   *          to Amazon Simple Storage (Amazon S3) for durable off-site recovery, and also import the
    *          data to an Amazon Elastic Block Store (EBS) volume in Amazon Elastic Compute Cloud (EC2).
    *          You can take snapshots of your gateway volume on a scheduled or ad hoc basis. This API
    *          enables you to take an ad hoc snapshot. For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#SchedulingSnapshot">Editing a
@@ -1580,7 +1640,7 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   * <p>Returns information about the most recent High Availability monitoring test that was
+   * <p>Returns information about the most recent high availability monitoring test that was
    *          performed on the host in a cluster. If a test isn't performed, the status and start
    *          time in the response would be null.</p>
    */
@@ -1801,6 +1861,39 @@ export class StorageGateway extends StorageGatewayClient {
     cb?: (err: any, data?: DescribeChapCredentialsCommandOutput) => void
   ): Promise<DescribeChapCredentialsCommandOutput> | void {
     const command = new DescribeChapCredentialsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets the file system association information. This operation is only supported for
+   *          Amazon FSx file gateways.</p>
+   */
+  public describeFileSystemAssociations(
+    args: DescribeFileSystemAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeFileSystemAssociationsCommandOutput>;
+  public describeFileSystemAssociations(
+    args: DescribeFileSystemAssociationsCommandInput,
+    cb: (err: any, data?: DescribeFileSystemAssociationsCommandOutput) => void
+  ): void;
+  public describeFileSystemAssociations(
+    args: DescribeFileSystemAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeFileSystemAssociationsCommandOutput) => void
+  ): void;
+  public describeFileSystemAssociations(
+    args: DescribeFileSystemAssociationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFileSystemAssociationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeFileSystemAssociationsCommandOutput) => void
+  ): Promise<DescribeFileSystemAssociationsCommandOutput> | void {
+    const command = new DescribeFileSystemAssociationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2343,6 +2436,40 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
+   * <p>Disassociates an Amazon FSx file system from the specified gateway. After the
+   *          disassociation process finishes, the gateway can no longer access the Amazon FSx file
+   *          system. This operation is only supported in the Amazon FSx file gateway type.</p>
+   */
+  public disassociateFileSystem(
+    args: DisassociateFileSystemCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateFileSystemCommandOutput>;
+  public disassociateFileSystem(
+    args: DisassociateFileSystemCommandInput,
+    cb: (err: any, data?: DisassociateFileSystemCommandOutput) => void
+  ): void;
+  public disassociateFileSystem(
+    args: DisassociateFileSystemCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateFileSystemCommandOutput) => void
+  ): void;
+  public disassociateFileSystem(
+    args: DisassociateFileSystemCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateFileSystemCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateFileSystemCommandOutput) => void
+  ): Promise<DisassociateFileSystemCommandOutput> | void {
+    const command = new DisassociateFileSystemCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Adds a file gateway to an Active Directory domain. This operation is only supported for
    *          file gateways that support the SMB file protocol.</p>
    */
@@ -2428,6 +2555,40 @@ export class StorageGateway extends StorageGatewayClient {
     cb?: (err: any, data?: ListFileSharesCommandOutput) => void
   ): Promise<ListFileSharesCommandOutput> | void {
     const command = new ListFileSharesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a list of <code>FileSystemAssociationSummary</code> objects. Each object contains a
+   *          summary of a file system association. This operation is only supported for Amazon FSx file
+   *          gateways.</p>
+   */
+  public listFileSystemAssociations(
+    args: ListFileSystemAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFileSystemAssociationsCommandOutput>;
+  public listFileSystemAssociations(
+    args: ListFileSystemAssociationsCommandInput,
+    cb: (err: any, data?: ListFileSystemAssociationsCommandOutput) => void
+  ): void;
+  public listFileSystemAssociations(
+    args: ListFileSystemAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFileSystemAssociationsCommandOutput) => void
+  ): void;
+  public listFileSystemAssociations(
+    args: ListFileSystemAssociationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFileSystemAssociationsCommandOutput) => void),
+    cb?: (err: any, data?: ListFileSystemAssociationsCommandOutput) => void
+  ): Promise<ListFileSystemAssociationsCommandOutput> | void {
+    const command = new ListFileSystemAssociationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2779,21 +2940,24 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   * <p>Refreshes the cache for the specified file share. This operation finds objects in the
-   *          Amazon S3 bucket that were added, removed, or replaced since the gateway last listed the
-   *          bucket's contents and cached the results. This operation is only supported in the file
-   *          gateway type. You can subscribe to be notified through an Amazon CloudWatch event when your
-   *          RefreshCache operation completes. For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-notification">Getting notified about file operations</a> in the <i>AWS Storage Gateway
+   * <p>Refreshes the cached inventory of objects for the specified file share. This operation
+   *          finds objects in the Amazon S3 bucket that were added, removed, or replaced since the
+   *          gateway last listed the bucket's contents and cached the results. This operation does
+   *          not import files into the file gateway cache storage. It only updates the cached inventory
+   *          to reflect changes in the inventory of the objects in the S3 bucket. This operation is only
+   *          supported in the file gateway type. You can subscribe to be notified through an Amazon
+   *          CloudWatch event when your <code>RefreshCache</code> operation completes. For more
+   *          information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-notification">Getting notified about file operations</a> in the <i>AWS Storage Gateway
    *             User Guide</i>.</p>
    *
    *          <p>When this API is called, it only initiates the refresh operation. When the API call
    *          completes and returns a success code, it doesn't necessarily mean that the file
    *          refresh has completed. You should use the refresh-complete notification to determine that
    *          the operation has completed before you check for new files on the gateway file share. You
-   *          can subscribe to be notified through an CloudWatch event when your
-   *             <code>RefreshCache</code> operation completes.</p>
+   *          can subscribe to be notified through a CloudWatch event when your <code>RefreshCache</code>
+   *          operation completes.</p>
    *
-   *          <p>Throttle limit: This API is asynchronous so the gateway will accept no more than two
+   *          <p>Throttle limit: This API is asynchronous, so the gateway will accept no more than two
    *          refreshes at any time. We recommend using the refresh-complete CloudWatch event
    *          notification before issuing additional requests. For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-notification">Getting notified about file operations</a> in the <i>AWS Storage Gateway
    *             User Guide</i>.</p>
@@ -3339,6 +3503,39 @@ export class StorageGateway extends StorageGatewayClient {
     cb?: (err: any, data?: UpdateChapCredentialsCommandOutput) => void
   ): Promise<UpdateChapCredentialsCommandOutput> | void {
     const command = new UpdateChapCredentialsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a file system association. This operation is only supported in the Amazon FSx
+   *          file gateway type.</p>
+   */
+  public updateFileSystemAssociation(
+    args: UpdateFileSystemAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateFileSystemAssociationCommandOutput>;
+  public updateFileSystemAssociation(
+    args: UpdateFileSystemAssociationCommandInput,
+    cb: (err: any, data?: UpdateFileSystemAssociationCommandOutput) => void
+  ): void;
+  public updateFileSystemAssociation(
+    args: UpdateFileSystemAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateFileSystemAssociationCommandOutput) => void
+  ): void;
+  public updateFileSystemAssociation(
+    args: UpdateFileSystemAssociationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFileSystemAssociationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateFileSystemAssociationCommandOutput) => void
+  ): Promise<UpdateFileSystemAssociationCommandOutput> | void {
+    const command = new UpdateFileSystemAssociationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

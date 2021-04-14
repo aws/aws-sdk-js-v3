@@ -22,16 +22,16 @@ export type AbortMultipartUploadCommandInput = AbortMultipartUploadRequest;
 export type AbortMultipartUploadCommandOutput = AbortMultipartUploadOutput & __MetadataBearer;
 
 /**
- * <p>This operation aborts a multipart upload. After a multipart upload is aborted, no
+ * <p>This action aborts a multipart upload. After a multipart upload is aborted, no
  *          additional parts can be uploaded using that upload ID. The storage consumed by any
  *          previously uploaded parts will be freed. However, if any part uploads are currently in
  *          progress, those part uploads might or might not succeed. As a result, it might be necessary
  *          to abort a given multipart upload multiple times in order to completely free all storage
  *          consumed by all parts. </p>
  *          <p>To verify that all parts have been removed, so you don't get charged for the part
- *          storage, you should call the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html">ListParts</a> operation and ensure that
+ *          storage, you should call the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html">ListParts</a> action and ensure that
  *          the parts list is empty.</p>
- *          <p>For information about permissions required to use the multipart upload API, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload API and
+ *          <p>For information about permissions required to use the multipart upload, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload and
  *          Permissions</a>.</p>
  *          <p>The following operations are related to <code>AbortMultipartUpload</code>:</p>
  *          <ul>

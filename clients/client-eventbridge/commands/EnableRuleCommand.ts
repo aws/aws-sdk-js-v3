@@ -21,11 +21,10 @@ export type EnableRuleCommandInput = EnableRuleRequest;
 export type EnableRuleCommandOutput = __MetadataBearer;
 
 /**
- * <p>Enables the specified rule. If the rule does not exist, the operation
- *             fails.</p>
+ * <p>Enables the specified rule. If the rule does not exist, the operation fails.</p>
  *
- *         <p>When you enable a rule, incoming events might not immediately start matching to a
- *             newly enabled rule. Allow a short period of time for changes to take effect.</p>
+ *          <p>When you enable a rule, incoming events might not immediately start matching to a newly
+ *       enabled rule. Allow a short period of time for changes to take effect.</p>
  */
 export class EnableRuleCommand extends $Command<
   EnableRuleCommandInput,

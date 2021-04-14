@@ -40,6 +40,10 @@ import {
   InitiateLayerUploadCommandInput,
   InitiateLayerUploadCommandOutput,
 } from "./commands/InitiateLayerUploadCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
 import { PutImageCommandInput, PutImageCommandOutput } from "./commands/PutImageCommand";
 import {
   PutRegistryCatalogDataCommandInput,
@@ -53,6 +57,8 @@ import {
   SetRepositoryPolicyCommandInput,
   SetRepositoryPolicyCommandOutput,
 } from "./commands/SetRepositoryPolicyCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UploadLayerPartCommandInput, UploadLayerPartCommandOutput } from "./commands/UploadLayerPartCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -121,10 +127,13 @@ export type ServiceInputTypes =
   | GetRepositoryCatalogDataCommandInput
   | GetRepositoryPolicyCommandInput
   | InitiateLayerUploadCommandInput
+  | ListTagsForResourceCommandInput
   | PutImageCommandInput
   | PutRegistryCatalogDataCommandInput
   | PutRepositoryCatalogDataCommandInput
   | SetRepositoryPolicyCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UploadLayerPartCommandInput;
 
 export type ServiceOutputTypes =
@@ -143,10 +152,13 @@ export type ServiceOutputTypes =
   | GetRepositoryCatalogDataCommandOutput
   | GetRepositoryPolicyCommandOutput
   | InitiateLayerUploadCommandOutput
+  | ListTagsForResourceCommandOutput
   | PutImageCommandOutput
   | PutRegistryCatalogDataCommandOutput
   | PutRepositoryCatalogDataCommandOutput
   | SetRepositoryPolicyCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UploadLayerPartCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

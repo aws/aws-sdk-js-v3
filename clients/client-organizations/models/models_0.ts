@@ -170,6 +170,7 @@ export enum HandshakeConstraintViolationExceptionReason {
   INVITE_DISABLED_DURING_ENABLE_ALL_FEATURES = "INVITE_DISABLED_DURING_ENABLE_ALL_FEATURES",
   ORGANIZATION_ALREADY_HAS_ALL_FEATURES = "ORGANIZATION_ALREADY_HAS_ALL_FEATURES",
   ORGANIZATION_FROM_DIFFERENT_SELLER_OF_RECORD = "ORGANIZATION_FROM_DIFFERENT_SELLER_OF_RECORD",
+  ORGANIZATION_IS_ALREADY_PENDING_ALL_FEATURES_MIGRATION = "ORGANIZATION_IS_ALREADY_PENDING_ALL_FEATURES_MIGRATION",
   ORGANIZATION_MEMBERSHIP_CHANGE_RATE_LIMIT_EXCEEDED = "ORGANIZATION_MEMBERSHIP_CHANGE_RATE_LIMIT_EXCEEDED",
   PAYMENT_INSTRUMENT_REQUIRED = "PAYMENT_INSTRUMENT_REQUIRED",
 }
@@ -210,6 +211,11 @@ export enum HandshakeConstraintViolationExceptionReason {
  *             <li>
  *                 <p>ORGANIZATION_ALREADY_HAS_ALL_FEATURES: The handshake request is invalid
  *                     because the organization has already enabled all features.</p>
+ *             </li>
+ *             <li>
+ *                 <p>ORGANIZATION_IS_ALREADY_PENDING_ALL_FEATURES_MIGRATION: The handshake request
+ *                     is invalid because the organization has already started the process to enable all
+ *                     features.</p>
  *             </li>
  *             <li>
  *                 <p>ORGANIZATION_FROM_DIFFERENT_SELLER_OF_RECORD: The request failed because the
@@ -278,6 +284,7 @@ export enum InvalidInputExceptionReason {
   DUPLICATE_TAG_KEY = "DUPLICATE_TAG_KEY",
   IMMUTABLE_POLICY = "IMMUTABLE_POLICY",
   INPUT_REQUIRED = "INPUT_REQUIRED",
+  INVALID_EMAIL_ADDRESS_TARGET = "INVALID_EMAIL_ADDRESS_TARGET",
   INVALID_ENUM = "INVALID_ENUM",
   INVALID_ENUM_POLICY_TYPE = "INVALID_ENUM_POLICY_TYPE",
   INVALID_FULL_NAME_TARGET = "INVALID_FULL_NAME_TARGET",
@@ -319,6 +326,10 @@ export enum InvalidInputExceptionReason {
  *             </li>
  *             <li>
  *                 <p>INPUT_REQUIRED: You must include a value for all required parameters.</p>
+ *             </li>
+ *             <li>
+ *                 <p>INVALID_EMAIL_ADDRESS_TARGET: You specified an invalid email address for the
+ *                     invited account owner.</p>
  *             </li>
  *             <li>
  *                 <p>INVALID_ENUM: You specified an invalid value.</p>
@@ -473,8 +484,8 @@ export interface Account {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the account.</p>
-   *         <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns">ARN Formats Supported by
-   *     Organizations</a> in the <i>AWS Organizations User Guide</i>.</p>
+   *         <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies">ARN
+   *     Formats Supported by Organizations</a> in the <i>AWS Service Authorization Reference</i>.</p>
    */
   Arn?: string;
 
@@ -1029,9 +1040,9 @@ export interface CreateAccountRequest {
   /**
    * <p>(Optional)</p>
    *         <p>The name of an IAM role that AWS Organizations automatically preconfigures in the new member
-   *             account. This role trusts the management account, allowing users in the management account
-   *             to assume the role, as permitted by the management account administrator. The role has
-   *             administrator permissions in the new member account.</p>
+   *             account. This role trusts the management account, allowing users in the management
+   *             account to assume the role, as permitted by the management account administrator. The
+   *             role has administrator permissions in the new member account.</p>
    *         <p>If you don't specify this parameter, the role name defaults to
    *                 <code>OrganizationAccountAccessRole</code>.</p>
    *         <p>For more information about how to use this role to access the member account, see the
@@ -1095,12 +1106,16 @@ export enum CreateAccountFailureReason {
   ACCOUNT_LIMIT_EXCEEDED = "ACCOUNT_LIMIT_EXCEEDED",
   CONCURRENT_ACCOUNT_MODIFICATION = "CONCURRENT_ACCOUNT_MODIFICATION",
   EMAIL_ALREADY_EXISTS = "EMAIL_ALREADY_EXISTS",
+  FAILED_BUSINESS_VALIDATION = "FAILED_BUSINESS_VALIDATION",
   GOVCLOUD_ACCOUNT_ALREADY_EXISTS = "GOVCLOUD_ACCOUNT_ALREADY_EXISTS",
   INTERNAL_FAILURE = "INTERNAL_FAILURE",
   INVALID_ADDRESS = "INVALID_ADDRESS",
   INVALID_EMAIL = "INVALID_EMAIL",
+  INVALID_IDENTITY_FOR_BUSINESS_VALIDATION = "INVALID_IDENTITY_FOR_BUSINESS_VALIDATION",
   MISSING_BUSINESS_VALIDATION = "MISSING_BUSINESS_VALIDATION",
   MISSING_PAYMENT_INSTRUMENT = "MISSING_PAYMENT_INSTRUMENT",
+  PENDING_BUSINESS_VALIDATIONv = "PENDING_BUSINESS_VALIDATION",
+  UNKNOWN_BUSINESS_VALIDATION = "UNKNOWN_BUSINESS_VALIDATION",
 }
 
 export enum CreateAccountState {
@@ -1173,9 +1188,18 @@ export interface CreateAccountStatus {
    *                     account with that email address already exists.</p>
    *             </li>
    *             <li>
+   *                 <p>FAILED_BUSINESS_VALIDATION: The AWS account that owns your organization
+   *                     failed to receive business license validation.</p>
+   *             </li>
+   *             <li>
    *                 <p>GOVCLOUD_ACCOUNT_ALREADY_EXISTS: The account in the AWS GovCloud (US) Region
    *                     could not be created because this Region already includes an account with that
    *                     email address.</p>
+   *             </li>
+   *             <li>
+   *                 <p>IDENTITY_INVALID_BUSINESS_VALIDATION: The AWS account that owns your
+   *                     organization can't complete business license validation because it doesn't have
+   *                     valid identity data.</p>
    *             </li>
    *             <li>
    *                 <p>INVALID_ADDRESS: The account could not be created because the address you
@@ -1197,6 +1221,14 @@ export interface CreateAccountStatus {
    *             <li>
    *                 <p> MISSING_PAYMENT_INSTRUMENT: You must configure the management account with a
    *                     valid payment method, such as a credit card.</p>
+   *             </li>
+   *             <li>
+   *                 <p>PENDING_BUSINESS_VALIDATION: The AWS account that owns your organization is
+   *                     still in the process of completing business license validation.</p>
+   *             </li>
+   *             <li>
+   *                 <p>UNKNOWN_BUSINESS_VALIDATION: The AWS account that owns your organization has
+   *                     an unknown issue with business license validation.</p>
    *             </li>
    *          </ul>
    */
@@ -1434,8 +1466,8 @@ export interface Organization {
 
   /**
    * <p>The Amazon Resource Name (ARN) of an organization.</p>
-   *         <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns">ARN Formats Supported by
-   *     Organizations</a> in the <i>AWS Organizations User Guide</i>.</p>
+   *         <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies">ARN
+   *     Formats Supported by Organizations</a> in the <i>AWS Service Authorization Reference</i>.</p>
    */
   Arn?: string;
 
@@ -1451,8 +1483,8 @@ export interface Organization {
   /**
    * <p>The Amazon Resource Name (ARN) of the account that is designated as the
    *             management account for the organization.</p>
-   *         <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns">ARN Formats Supported by
-   *     Organizations</a> in the <i>AWS Organizations User Guide</i>.</p>
+   *         <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies">ARN
+   *     Formats Supported by Organizations</a> in the <i>AWS Service Authorization Reference</i>.</p>
    */
   MasterAccountArn?: string;
 
@@ -1565,8 +1597,8 @@ export interface OrganizationalUnit {
 
   /**
    * <p>The Amazon Resource Name (ARN) of this OU.</p>
-   *         <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns">ARN Formats Supported by
-   *     Organizations</a> in the <i>AWS Organizations User Guide</i>.</p>
+   *         <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies">ARN
+   *     Formats Supported by Organizations</a> in the <i>AWS Service Authorization Reference</i>.</p>
    */
   Arn?: string;
 
@@ -1709,8 +1741,8 @@ export interface PolicySummary {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the policy.</p>
-   *         <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns">ARN Formats Supported by
-   *     Organizations</a> in the <i>AWS Organizations User Guide</i>.</p>
+   *         <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies">ARN
+   *     Formats Supported by Organizations</a> in the <i>AWS Service Authorization Reference</i>.</p>
    */
   Arn?: string;
 
@@ -2084,9 +2116,9 @@ export interface DescribeEffectivePolicyRequest {
   PolicyType: EffectivePolicyType | string | undefined;
 
   /**
-   * <p>When you're signed in as the management account, specify the ID of the account that you
-   *             want details about. Specifying an organization root or organizational unit (OU) as the
-   *             target is not supported.</p>
+   * <p>When you're signed in as the management account, specify the ID of the account that
+   *             you want details about. Specifying an organization root or organizational unit (OU) as
+   *             the target is not supported.</p>
    */
   TargetId?: string;
 }
@@ -2396,8 +2428,8 @@ export interface Root {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the root.</p>
-   *         <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns">ARN Formats Supported by
-   *     Organizations</a> in the <i>AWS Organizations User Guide</i>.</p>
+   *         <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies">ARN
+   *     Formats Supported by Organizations</a> in the <i>AWS Service Authorization Reference</i>.</p>
    */
   Arn?: string;
 
@@ -3890,8 +3922,8 @@ export interface PolicyTargetSummary {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the policy target.</p>
-   *         <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns">ARN Formats Supported by
-   *     Organizations</a> in the <i>AWS Organizations User Guide</i>.</p>
+   *         <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies">ARN
+   *     Formats Supported by Organizations</a> in the <i>AWS Service Authorization Reference</i>.</p>
    */
   Arn?: string;
 
@@ -4342,8 +4374,8 @@ export interface Handshake {
 
   /**
    * <p>The Amazon Resource Name (ARN) of a handshake.</p>
-   *         <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns">ARN Formats Supported by
-   *     Organizations</a> in the <i>AWS Organizations User Guide</i>.</p>
+   *         <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies">ARN
+   *     Formats Supported by Organizations</a> in the <i>AWS Service Authorization Reference</i>.</p>
    */
   Arn?: string;
 

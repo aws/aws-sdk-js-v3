@@ -16,8 +16,20 @@ import {
 import { ListSecretsCommandInput, ListSecretsCommandOutput } from "./commands/ListSecretsCommand";
 import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
 import { PutSecretValueCommandInput, PutSecretValueCommandOutput } from "./commands/PutSecretValueCommand";
+import {
+  RemoveRegionsFromReplicationCommandInput,
+  RemoveRegionsFromReplicationCommandOutput,
+} from "./commands/RemoveRegionsFromReplicationCommand";
+import {
+  ReplicateSecretToRegionsCommandInput,
+  ReplicateSecretToRegionsCommandOutput,
+} from "./commands/ReplicateSecretToRegionsCommand";
 import { RestoreSecretCommandInput, RestoreSecretCommandOutput } from "./commands/RestoreSecretCommand";
 import { RotateSecretCommandInput, RotateSecretCommandOutput } from "./commands/RotateSecretCommand";
+import {
+  StopReplicationToReplicaCommandInput,
+  StopReplicationToReplicaCommandOutput,
+} from "./commands/StopReplicationToReplicaCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateSecretCommandInput, UpdateSecretCommandOutput } from "./commands/UpdateSecretCommand";
@@ -93,8 +105,11 @@ export type ServiceInputTypes =
   | ListSecretsCommandInput
   | PutResourcePolicyCommandInput
   | PutSecretValueCommandInput
+  | RemoveRegionsFromReplicationCommandInput
+  | ReplicateSecretToRegionsCommandInput
   | RestoreSecretCommandInput
   | RotateSecretCommandInput
+  | StopReplicationToReplicaCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateSecretCommandInput
@@ -114,8 +129,11 @@ export type ServiceOutputTypes =
   | ListSecretsCommandOutput
   | PutResourcePolicyCommandOutput
   | PutSecretValueCommandOutput
+  | RemoveRegionsFromReplicationCommandOutput
+  | ReplicateSecretToRegionsCommandOutput
   | RestoreSecretCommandOutput
   | RotateSecretCommandOutput
+  | StopReplicationToReplicaCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateSecretCommandOutput
