@@ -15,6 +15,9 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isAwsService;
+import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isSigV4Service;
+
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -31,6 +34,9 @@ import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.MapUtils;
 
+// TODO: This javadoc is specific to needs of AWS client. However it has elements that would be needed by non-AWS
+// clients too, like logger, region for SigV4. We should refactor these into different Integration or rename this
+// class to be generic.
 /**
  * AWS clients need to know the service name for collecting metrics, the
  * region name used to resolve endpoints, the max attempt to retry a request
@@ -82,10 +88,14 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
         writer.addImport("Provider", "__Provider", TypeScriptDependency.AWS_SDK_TYPES.packageName);
         writer.addImport("Logger", "__Logger", TypeScriptDependency.AWS_SDK_TYPES.packageName);
 
-        writer.writeDocs("Unique service identifier.\n@internal")
-                .write("serviceId?: string;\n");
-        writer.writeDocs("The AWS region to which this client will send requests")
-                .write("region?: string | __Provider<string>;\n");
+        if (isAwsService(settings, model)) {
+            writer.writeDocs("Unique service identifier.\n@internal")
+                    .write("serviceId?: string;\n");
+        }
+        if (isSigV4Service(settings, model)) {
+            writer.writeDocs("The AWS region to which this client will send requests or use as signingRegion")
+                    .write("region?: string | __Provider<string>;\n");
+        }
         writer.writeDocs("Value for how many times a request will be made at most in case of retry.")
                 .write("maxAttempts?: number | __Provider<number>;\n");
         writer.writeDocs("Optional logger for logging debug/info/warn/error.")
@@ -114,11 +124,17 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                         + "trait was found on " + service.getId());
             }
         }
-        runtimeConfigs.putAll(getDefaultConfig(target));
+        runtimeConfigs.putAll(getDefaultConfig(target, settings, model));
         return runtimeConfigs;
     }
 
-    private Map<String, Consumer<TypeScriptWriter>> getDefaultConfig(LanguageTarget target) {
+    private Map<String, Consumer<TypeScriptWriter>> getDefaultConfig(
+            LanguageTarget target,
+            TypeScriptSettings settings,
+            Model model
+    ) {
+        Map<String, Consumer<TypeScriptWriter>> defaultConfigs = new HashMap();
+        boolean isSigV4Service = isSigV4Service(settings, model);
         switch (target) {
             case SHARED:
                 return MapUtils.of(
@@ -128,40 +144,46 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                         }
                 );
             case BROWSER:
-                return MapUtils.of(
-                        "region", writer -> {
-                            writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
-                            writer.addImport("invalidProvider", "invalidProvider",
-                                    TypeScriptDependency.INVALID_DEPENDENCY.packageName);
-                            writer.write("region: invalidProvider(\"Region is missing\"),");
-                        },
-                        "maxAttempts", writer -> {
-                            writer.addDependency(TypeScriptDependency.MIDDLEWARE_RETRY);
-                            writer.addImport("DEFAULT_MAX_ATTEMPTS", "DEFAULT_MAX_ATTEMPTS",
-                                    TypeScriptDependency.MIDDLEWARE_RETRY.packageName);
-                            writer.write("maxAttempts: DEFAULT_MAX_ATTEMPTS,");
-                        }
-                );
+                if (isSigV4Service) {
+                    defaultConfigs.put("region", writer -> {
+                        writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
+                        writer.addImport("invalidProvider", "invalidProvider",
+                                TypeScriptDependency.INVALID_DEPENDENCY.packageName);
+                        writer.write("region: invalidProvider(\"Region is missing\"),");
+                    });
+                }
+                defaultConfigs.put("maxAttempts", writer -> {
+                    writer.addDependency(TypeScriptDependency.MIDDLEWARE_RETRY);
+                    writer.addImport("DEFAULT_MAX_ATTEMPTS", "DEFAULT_MAX_ATTEMPTS",
+                            TypeScriptDependency.MIDDLEWARE_RETRY.packageName);
+                    writer.write("maxAttempts: DEFAULT_MAX_ATTEMPTS,");
+                });
+                return defaultConfigs;
             case NODE:
-                return MapUtils.of(
-                        "region", writer -> {
-                            writer.addDependency(AwsDependency.NODE_CONFIG_PROVIDER);
-                            writer.addImport("loadConfig", "loadNodeConfig",
-                                    AwsDependency.NODE_CONFIG_PROVIDER.packageName);
-                            writer.addDependency(TypeScriptDependency.CONFIG_RESOLVER);
-                            writer.addImport("NODE_REGION_CONFIG_OPTIONS", "NODE_REGION_CONFIG_OPTIONS",
-                                    TypeScriptDependency.CONFIG_RESOLVER.packageName);
-                            writer.addImport("NODE_REGION_CONFIG_FILE_OPTIONS", "NODE_REGION_CONFIG_FILE_OPTIONS",
-                                    TypeScriptDependency.CONFIG_RESOLVER.packageName);
-                            writer.write(
+                if (isSigV4Service) {
+                    // TODO: For non-AWS service, figure out how the region should be configured.
+                    defaultConfigs.put("region", writer -> {
+                        writer.addDependency(AwsDependency.NODE_CONFIG_PROVIDER);
+                        writer.addImport("loadConfig", "loadNodeConfig",
+                                AwsDependency.NODE_CONFIG_PROVIDER.packageName);
+                        writer.addDependency(TypeScriptDependency.CONFIG_RESOLVER);
+                        writer.addImport("NODE_REGION_CONFIG_OPTIONS", "NODE_REGION_CONFIG_OPTIONS",
+                                TypeScriptDependency.CONFIG_RESOLVER.packageName);
+                        writer.addImport("NODE_REGION_CONFIG_FILE_OPTIONS", "NODE_REGION_CONFIG_FILE_OPTIONS",
+                                TypeScriptDependency.CONFIG_RESOLVER.packageName);
+                        writer.write(
                                 "region: loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS),");
-                        },
-                        "maxAttempts", writer -> {
-                            writer.addImport("NODE_MAX_ATTEMPT_CONFIG_OPTIONS", "NODE_MAX_ATTEMPT_CONFIG_OPTIONS",
-                                TypeScriptDependency.MIDDLEWARE_RETRY.packageName);
-                            writer.write("maxAttempts: loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),");
-                        }
-                );
+                    });
+                }
+                defaultConfigs.put("maxAttempts", writer -> {
+                    writer.addDependency(AwsDependency.NODE_CONFIG_PROVIDER);
+                    writer.addImport("loadConfig", "loadNodeConfig",
+                            AwsDependency.NODE_CONFIG_PROVIDER.packageName);
+                    writer.addImport("NODE_MAX_ATTEMPT_CONFIG_OPTIONS", "NODE_MAX_ATTEMPT_CONFIG_OPTIONS",
+                        TypeScriptDependency.MIDDLEWARE_RETRY.packageName);
+                    writer.write("maxAttempts: loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),");
+                });
+                return defaultConfigs;
             default:
                 return Collections.emptyMap();
         }

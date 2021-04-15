@@ -44,6 +44,7 @@ public final class AwsServiceIdIntegration implements TypeScriptIntegration {
                 return symbol;
             }
 
+            // TODO: Should this WARNING be avoided somehow if client is not for an AWS service?
             // If the SDK service ID trait is present, use that, otherwise fall back to
             // the default naming strategy for the service.
             return shape.getTrait(ServiceTrait.class)
