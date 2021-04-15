@@ -4,7 +4,6 @@
     "strict": true,
     "sourceMap": false,
     "declaration": true,
-    "stripInternal": true,
     "declarationDir": "./dist/types",
     "rootDir": "./src",
     "outDir": "./dist/es",
