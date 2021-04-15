@@ -1,8 +1,10 @@
 import { isAbsolute, join, relative, resolve, sep } from "path";
-import { BindOption } from "typedoc";
+import { BindOption, ProjectReflection, Reflection } from "typedoc";
 import { Component, RendererComponent } from "typedoc/dist/lib/output/components";
 import { PageEvent } from "typedoc/dist/lib/output/events";
 import { NavigationItem } from "typedoc/dist/lib/output/models/NavigationItem";
+
+const isClientModel = (model: Reflection | undefined) => model?.sources[0]?.fileName.startsWith(`clients${sep}`);
 
 const PROJECT_ROOT = join(__dirname, "..", "..", "..", "..");
 @Component({ name: "SdkIndexLinkClientPlugin" })
@@ -45,6 +47,15 @@ export class SdkIndexLinkClientPlugin extends RendererComponent {
     // Skip rendering empty landing page for each client.
     if (page.model._skipRendering) {
       page.preventDefault();
+    }
+
+    // Update the client doc link int globals.html
+    if (page.filename.endsWith("globals.html")) {
+      (page.model as ProjectReflection).children.filter(isClientModel).forEach((clientModel) => {
+        const clientName = clientModel.sources[0].fileName.split(sep)[1];
+        const clientDocDir = clientDocsPattern.replace(/{{CLIENT}}/g, clientName);
+        clientModel.url = join(clientDocDir, "index.html");
+      });
     }
   }
 
@@ -89,6 +100,6 @@ export class SdkIndexLinkClientPlugin extends RendererComponent {
   }
 
   private isClient(item: NavigationItem): boolean {
-    return item?.reflection?.sources[0].fileName.startsWith(`clients${sep}`);
+    return isClientModel(item?.reflection);
   }
 }
