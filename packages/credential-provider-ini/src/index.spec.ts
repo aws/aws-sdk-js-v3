@@ -853,8 +853,8 @@ credential_source = ${credentialSource}
         });
         return expect(async () => await provider()).rejects.toMatchObject({
           message:
-            `Unsupported credential source in profile default. Got ${someProvider}, expect EcsContainer or ` +
-            `Ec2InstanceMetadata or Environment`,
+            `Unsupported credential source in profile default. Got ${someProvider}, expected EcsContainer or ` +
+            `Ec2InstanceMetadata or Environment.`,
         });
       });
 

@@ -128,25 +128,19 @@ interface AssumeRoleWithProviderProfile extends Profile {
   credential_source: string;
 }
 
-const isAssumeRoleWithSourceProfile = (arg: any): arg is AssumeRoleWithSourceProfile =>
+const isAssumeRoleProfile = (arg: any) =>
   Boolean(arg) &&
   typeof arg === "object" &&
   typeof arg.role_arn === "string" &&
-  typeof arg.source_profile === "string" &&
-  typeof arg.credential_source === "undefined" &&
   ["undefined", "string"].indexOf(typeof arg.role_session_name) > -1 &&
   ["undefined", "string"].indexOf(typeof arg.external_id) > -1 &&
   ["undefined", "string"].indexOf(typeof arg.mfa_serial) > -1;
 
+const isAssumeRoleWithSourceProfile = (arg: any): arg is AssumeRoleWithSourceProfile =>
+  isAssumeRoleProfile(arg) && typeof arg.source_profile === "string" && typeof arg.credential_source === "undefined";
+
 const isAssumeRoleWithProviderProfile = (arg: any): arg is AssumeRoleWithProviderProfile =>
-  Boolean(arg) &&
-  typeof arg === "object" &&
-  typeof arg.role_arn === "string" &&
-  typeof arg.credential_source === "string" &&
-  typeof arg.source_profile === "undefined" &&
-  ["undefined", "string"].indexOf(typeof arg.role_session_name) > -1 &&
-  ["undefined", "string"].indexOf(typeof arg.external_id) > -1 &&
-  ["undefined", "string"].indexOf(typeof arg.mfa_serial) > -1;
+  isAssumeRoleProfile(arg) && typeof arg.credential_source === "string" && typeof arg.source_profile === "undefined";
 
 /**
  * Creates a credential provider that will read from ini files and supports
@@ -282,7 +276,7 @@ const resolveCredentialSource = (credentialSource: string, profileName: string):
   } else {
     throw new ProviderError(
       `Unsupported credential source in profile ${profileName}. Got ${credentialSource}, ` +
-        `expect EcsContainer or Ec2InstanceMetadata or Environment`
+        `expected EcsContainer or Ec2InstanceMetadata or Environment.`
     );
   }
 };
