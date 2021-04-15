@@ -15,6 +15,8 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isAwsService;
+
 import java.util.Collections;
 import java.util.Map;
 import java.util.function.BiConsumer;
@@ -39,7 +41,7 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
             SymbolProvider symbolProvider,
             BiConsumer<String, Consumer<TypeScriptWriter>> writerFactory
     ) {
-        if (!settings.generateClient()) {
+        if (!settings.generateClient() || !isAwsService(settings, model)) {
             return;
         }
 
@@ -55,7 +57,7 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
             SymbolProvider symbolProvider,
             TypeScriptWriter writer
     ) {
-        if (!settings.generateClient()) {
+        if (!settings.generateClient() || !isAwsService(settings, model)) {
             return;
         }
 
@@ -71,7 +73,7 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
             SymbolProvider symbolProvider,
             LanguageTarget target
     ) {
-        if (!settings.generateClient()) {
+        if (!settings.generateClient() || !isAwsService(settings, model)) {
             return Collections.emptyMap();
         }
 
