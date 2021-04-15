@@ -1,3 +1,5 @@
+import { fromEnv } from "@aws-sdk/credential-provider-env";
+import { fromContainerMetadata, fromInstanceMetadata } from "@aws-sdk/credential-provider-imds";
 import { fromTokenFile } from "@aws-sdk/credential-provider-web-identity";
 import { ENV_CONFIG_PATH, ENV_CREDENTIALS_PATH } from "@aws-sdk/shared-ini-file-loader";
 import { Credentials } from "@aws-sdk/types";
@@ -53,6 +55,10 @@ jest.mock("os", () => {
 import { homedir } from "os";
 
 jest.mock("@aws-sdk/credential-provider-web-identity");
+
+jest.mock("@aws-sdk/credential-provider-imds");
+
+jest.mock("@aws-sdk/credential-provider-env");
 
 const DEFAULT_CREDS = {
   accessKeyId: "AKIAIOSFODNN7EXAMPLE",
@@ -750,6 +756,131 @@ source_profile = default`.trim()
       return expect(provider()).rejects.toMatchObject({
         message: "Profile foo requires multi-factor authentication, but no MFA code callback was provided.",
         tryNextLink: false,
+      });
+    });
+
+    describe("assume role with source credential providers", () => {
+      const setUpTest = (credentialSource: string) => {
+        const roleArn = `arn:aws:iam::123456789:role/${credentialSource}`;
+        const roleSessionName = `${credentialSource}SessionName`;
+        const mfaSerial = `mfaSerial${credentialSource}`;
+        const mfaCode = Date.now().toString(10);
+        __addMatcher(
+          join(homedir(), ".aws", "credentials"),
+          `
+[default]
+role_arn = ${roleArn}
+role_session_name = ${roleSessionName}
+mfa_serial = ${mfaSerial}
+credential_source = ${credentialSource}
+          `.trim()
+        );
+        return {
+          roleArn,
+          roleSessionName,
+          mfaSerial,
+          mfaCode,
+        };
+      };
+
+      it("should assume role from source credentials from EC2 instance provider", async () => {
+        (fromInstanceMetadata as jest.Mock).mockReturnValueOnce(() => Promise.resolve(FOO_CREDS));
+        const { roleArn, roleSessionName, mfaCode, mfaSerial } = setUpTest("Ec2InstanceMetadata");
+        const provider = fromIni({
+          mfaCodeProvider(mfa) {
+            expect(mfa).toBe(mfaSerial);
+            return Promise.resolve(mfaCode);
+          },
+          roleAssumer(sourceCreds: Credentials, params: AssumeRoleParams): Promise<Credentials> {
+            expect(fromInstanceMetadata as jest.Mock).toBeCalledTimes(1);
+            expect(params.RoleSessionName).toBe(roleSessionName);
+            expect(params.RoleArn).toBe(roleArn);
+            expect(params.TokenCode).toBe(mfaCode);
+            expect(sourceCreds).toEqual(FOO_CREDS);
+            return Promise.resolve(FIZZ_CREDS);
+          },
+        });
+        expect(await provider()).toEqual(FIZZ_CREDS);
+      });
+
+      it("should assume role from source credentials from environmental variable provider", async () => {
+        (fromEnv as jest.Mock).mockReturnValueOnce(() => Promise.resolve(FOO_CREDS));
+        const { roleArn, roleSessionName, mfaCode, mfaSerial } = setUpTest("Environment");
+        const provider = fromIni({
+          mfaCodeProvider(mfa) {
+            expect(mfa).toBe(mfaSerial);
+            return Promise.resolve(mfaCode);
+          },
+          roleAssumer(sourceCreds: Credentials, params: AssumeRoleParams): Promise<Credentials> {
+            expect(fromEnv as jest.Mock).toBeCalledTimes(1);
+            expect(params.RoleSessionName).toBe(roleSessionName);
+            expect(params.RoleArn).toBe(roleArn);
+            expect(params.TokenCode).toBe(mfaCode);
+            expect(sourceCreds).toEqual(FOO_CREDS);
+            return Promise.resolve(FIZZ_CREDS);
+          },
+        });
+        expect(await provider()).toEqual(FIZZ_CREDS);
+      });
+
+      it("should assume role from source credentials from ECS container provider", async () => {
+        (fromContainerMetadata as jest.Mock).mockReturnValueOnce(() => Promise.resolve(FOO_CREDS));
+        const { roleArn, roleSessionName, mfaCode, mfaSerial } = setUpTest("EcsContainer");
+        const provider = fromIni({
+          mfaCodeProvider(mfa) {
+            expect(mfa).toBe(mfaSerial);
+            return Promise.resolve(mfaCode);
+          },
+          roleAssumer(sourceCreds: Credentials, params: AssumeRoleParams): Promise<Credentials> {
+            expect(fromContainerMetadata as jest.Mock).toBeCalledTimes(1);
+            expect(params.RoleSessionName).toBe(roleSessionName);
+            expect(params.RoleArn).toBe(roleArn);
+            expect(params.TokenCode).toBe(mfaCode);
+            expect(sourceCreds).toEqual(FOO_CREDS);
+            return Promise.resolve(FIZZ_CREDS);
+          },
+        });
+        expect(await provider()).toEqual(FIZZ_CREDS);
+      });
+
+      it("should throw if source credentials provider is not supported", () => {
+        const someProvider = "SomeProvider";
+        setUpTest(someProvider);
+        const provider = fromIni({
+          roleAssumer(): Promise<Credentials> {
+            return Promise.resolve(FIZZ_CREDS);
+          },
+        });
+        return expect(async () => await provider()).rejects.toMatchObject({
+          message:
+            `Unsupported credential source in profile default. Got ${someProvider}, expected EcsContainer or ` +
+            `Ec2InstanceMetadata or Environment.`,
+        });
+      });
+
+      it("should throw if both source profile and credential source is specified", async () => {
+        __addMatcher(
+          join(homedir(), ".aws", "credentials"),
+          `
+[profile A]
+aws_access_key_id = abc123
+aws_secret_access_key = def456
+[default]
+role_arn = arn:aws:iam::123456789:role/Role
+credential_source = Ec2InstanceMetadata
+source_profile = A
+          `.trim()
+        );
+        try {
+          await fromIni({
+            roleAssumer(): Promise<Credentials> {
+              return Promise.resolve(FIZZ_CREDS);
+            },
+          })();
+          fail("Expected error to be thrown");
+        } catch (e) {
+          expect(e).toBeDefined();
+        }
       });
     });
   });

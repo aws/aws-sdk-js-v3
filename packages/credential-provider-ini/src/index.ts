@@ -1,3 +1,5 @@
+import { fromEnv } from "@aws-sdk/credential-provider-env";
+import { fromContainerMetadata, fromInstanceMetadata } from "@aws-sdk/credential-provider-imds";
 import { AssumeRoleWithWebIdentityParams, fromTokenFile } from "@aws-sdk/credential-provider-web-identity";
 import { ProviderError } from "@aws-sdk/property-provider";
 import {
@@ -115,19 +117,30 @@ const isWebIdentityProfile = (arg: any): arg is WebIdentityProfile =>
   typeof arg.web_identity_token_file === "string" &&
   typeof arg.role_arn === "string" &&
   ["undefined", "string"].indexOf(typeof arg.role_session_name) > -1;
-interface AssumeRoleProfile extends Profile {
+
+interface AssumeRoleWithSourceProfile extends Profile {
   role_arn: string;
   source_profile: string;
 }
 
-const isAssumeRoleWithSourceProfile = (arg: any): arg is AssumeRoleProfile =>
+interface AssumeRoleWithProviderProfile extends Profile {
+  role_arn: string;
+  credential_source: string;
+}
+
+const isAssumeRoleProfile = (arg: any) =>
   Boolean(arg) &&
   typeof arg === "object" &&
   typeof arg.role_arn === "string" &&
-  typeof arg.source_profile === "string" &&
   ["undefined", "string"].indexOf(typeof arg.role_session_name) > -1 &&
   ["undefined", "string"].indexOf(typeof arg.external_id) > -1 &&
   ["undefined", "string"].indexOf(typeof arg.mfa_serial) > -1;
+
+const isAssumeRoleWithSourceProfile = (arg: any): arg is AssumeRoleWithSourceProfile =>
+  isAssumeRoleProfile(arg) && typeof arg.source_profile === "string" && typeof arg.credential_source === "undefined";
+
+const isAssumeRoleWithProviderProfile = (arg: any): arg is AssumeRoleWithProviderProfile =>
+  isAssumeRoleProfile(arg) && typeof arg.credential_source === "string" && typeof arg.source_profile === "undefined";
 
 /**
  * Creates a credential provider that will read from ini files and supports
@@ -177,13 +190,14 @@ const resolveProfileData = async (
 
   // If this is the first profile visited, role assumption keys should be
   // given precedence over static credentials.
-  if (isAssumeRoleWithSourceProfile(data)) {
+  if (isAssumeRoleWithSourceProfile(data) || isAssumeRoleWithProviderProfile(data)) {
     const {
       external_id: ExternalId,
       mfa_serial,
       role_arn: RoleArn,
       role_session_name: RoleSessionName = "aws-sdk-js-" + Date.now(),
       source_profile,
+      credential_source,
     } = data;
 
     if (!options.roleAssumer) {
@@ -193,7 +207,7 @@ const resolveProfileData = async (
       );
     }
 
-    if (source_profile in visitedProfiles) {
+    if (source_profile && source_profile in visitedProfiles) {
       throw new ProviderError(
         `Detected a cycle attempting to resolve credentials for profile` +
           ` ${getMasterProfileName(options)}. Profiles visited: ` +
@@ -202,10 +216,13 @@ const resolveProfileData = async (
       );
     }
 
-    const sourceCreds = resolveProfileData(source_profile, profiles, options, {
-      ...visitedProfiles,
-      [source_profile]: true,
-    });
+    const sourceCreds = source_profile
+      ? resolveProfileData(source_profile, profiles, options, {
+          ...visitedProfiles,
+          [source_profile]: true,
+        })
+      : resolveCredentialSource(credential_source!, profileName)();
+
     const params: AssumeRoleParams = { RoleArn, RoleSessionName, ExternalId };
     if (mfa_serial) {
       if (!options.mfaCodeProvider) {
@@ -239,6 +256,29 @@ const resolveProfileData = async (
   // (whether via a parameter, an environment variable, or another profile's
   // `source_profile` key).
   throw new ProviderError(`Profile ${profileName} could not be found or parsed in shared` + ` credentials file.`);
+};
+
+/**
+ * Resolve the `credential_source` entry from the profile, and return the
+ * credential providers respectively. No memoization is needed for the
+ * credential source providers because memoization should be added outside the
+ * fromIni() provider. The source credential needs to be refreshed every time
+ * fromIni() is called.
+ */
+const resolveCredentialSource = (credentialSource: string, profileName: string): CredentialProvider => {
+  const sourceProvidersMap: { [name: string]: () => CredentialProvider } = {
+    EcsContainer: fromContainerMetadata,
+    Ec2InstanceMetadata: fromInstanceMetadata,
+    Environment: fromEnv,
+  };
+  if (credentialSource in sourceProvidersMap) {
+    return sourceProvidersMap[credentialSource]();
+  } else {
+    throw new ProviderError(
+      `Unsupported credential source in profile ${profileName}. Got ${credentialSource}, ` +
+        `expected EcsContainer or Ec2InstanceMetadata or Environment.`
+    );
+  }
 };
 
 const resolveStaticCredentials = (profile: StaticCredsProfile): Promise<Credentials> =>

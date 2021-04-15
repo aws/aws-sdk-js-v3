@@ -82,7 +82,7 @@ aws_access_key_id=foo4
 aws_secret_access_key=bar4
 ```
 
-### source profile with static credentials
+### profile with source profile
 
 ```ini
 [second]
@@ -92,6 +92,30 @@ aws_secret_access_key=bar
 [first]
 source_profile=first
 role_arn=arn:aws:iam::123456789012:role/example-role-arn
+```
+
+### profile with source provider
+
+You can supply `credential_source` options to tell the SDK where to source
+credentials for the call to `AssumeRole`. The supported credential providers are
+listed bellow:
+
+```ini
+[default]
+role_arn=arn:aws:iam::123456789012:role/example-role-arn
+credential_source = Ec2InstanceMetadata
+```
+
+```ini
+[default]
+role_arn=arn:aws:iam::123456789012:role/example-role-arn
+credential_source = Environment
+```
+
+```ini
+[default]
+role_arn=arn:aws:iam::123456789012:role/example-role-arn
+credential_source = EcsContainer
 ```
 
 ### profile with web_identity_token_file
