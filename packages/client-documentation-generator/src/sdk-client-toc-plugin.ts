@@ -86,7 +86,7 @@ export class SdkClientTocPlugin extends RendererComponent {
 
   private isInputOrOutput(model: DeclarationReflection): boolean {
     return (
-      model.kindOf(ReflectionKind.TypeAlias) &&
+      model.kindOf(ReflectionKind.Interface) &&
       (model.name.endsWith("CommandInput") || model.name.endsWith("CommandOutput"))
     );
   }
