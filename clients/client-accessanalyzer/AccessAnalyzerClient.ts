@@ -212,7 +212,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type AccessAnalyzerClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type AccessAnalyzerClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -220,8 +220,12 @@ export type AccessAnalyzerClientConfig = Partial<__SmithyConfiguration<__HttpHan
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of AccessAnalyzerClient class constructor that set the region, credentials and other options.
+ */
+export interface AccessAnalyzerClientConfig extends AccessAnalyzerClientConfigType {}
 
-export type AccessAnalyzerClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type AccessAnalyzerClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -229,6 +233,10 @@ export type AccessAnalyzerClientResolvedConfig = __SmithyResolvedConfiguration<_
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of AccessAnalyzerClient class. This is resolved and normalized from the {@link AccessAnalyzerClientConfig | constructor configuration interface}.
+ */
+export interface AccessAnalyzerClientResolvedConfig extends AccessAnalyzerClientResolvedConfigType {}
 
 /**
  * <p>AWS IAM Access Analyzer helps identify potential resource-access risks by enabling you to identify
@@ -245,6 +253,9 @@ export class AccessAnalyzerClient extends __Client<
   ServiceOutputTypes,
   AccessAnalyzerClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of AccessAnalyzerClient class. This is resolved and normalized from the {@link AccessAnalyzerClientConfig | constructor configuration interface}.
+   */
   readonly config: AccessAnalyzerClientResolvedConfig;
 
   constructor(configuration: AccessAnalyzerClientConfig) {

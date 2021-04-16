@@ -209,7 +209,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type ComputeOptimizerClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type ComputeOptimizerClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -217,8 +217,12 @@ export type ComputeOptimizerClientConfig = Partial<__SmithyConfiguration<__HttpH
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of ComputeOptimizerClient class constructor that set the region, credentials and other options.
+ */
+export interface ComputeOptimizerClientConfig extends ComputeOptimizerClientConfigType {}
 
-export type ComputeOptimizerClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type ComputeOptimizerClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -226,6 +230,10 @@ export type ComputeOptimizerClientResolvedConfig = __SmithyResolvedConfiguration
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of ComputeOptimizerClient class. This is resolved and normalized from the {@link ComputeOptimizerClientConfig | constructor configuration interface}.
+ */
+export interface ComputeOptimizerClientResolvedConfig extends ComputeOptimizerClientResolvedConfigType {}
 
 /**
  * <p>AWS Compute Optimizer is a service that analyzes the configuration and utilization metrics of your
@@ -245,6 +253,9 @@ export class ComputeOptimizerClient extends __Client<
   ServiceOutputTypes,
   ComputeOptimizerClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of ComputeOptimizerClient class. This is resolved and normalized from the {@link ComputeOptimizerClientConfig | constructor configuration interface}.
+   */
   readonly config: ComputeOptimizerClientResolvedConfig;
 
   constructor(configuration: ComputeOptimizerClientConfig) {

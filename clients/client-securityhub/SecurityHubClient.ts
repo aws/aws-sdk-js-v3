@@ -356,7 +356,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type SecurityHubClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type SecurityHubClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -364,8 +364,12 @@ export type SecurityHubClientConfig = Partial<__SmithyConfiguration<__HttpHandle
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of SecurityHubClient class constructor that set the region, credentials and other options.
+ */
+export interface SecurityHubClientConfig extends SecurityHubClientConfigType {}
 
-export type SecurityHubClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type SecurityHubClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -373,6 +377,10 @@ export type SecurityHubClientResolvedConfig = __SmithyResolvedConfiguration<__Ht
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of SecurityHubClient class. This is resolved and normalized from the {@link SecurityHubClientConfig | constructor configuration interface}.
+ */
+export interface SecurityHubClientResolvedConfig extends SecurityHubClientResolvedConfigType {}
 
 /**
  * <p>Security Hub provides you with a comprehensive view of the security state of your AWS
@@ -437,6 +445,9 @@ export class SecurityHubClient extends __Client<
   ServiceOutputTypes,
   SecurityHubClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of SecurityHubClient class. This is resolved and normalized from the {@link SecurityHubClientConfig | constructor configuration interface}.
+   */
   readonly config: SecurityHubClientResolvedConfig;
 
   constructor(configuration: SecurityHubClientConfig) {

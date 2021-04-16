@@ -188,7 +188,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type DLMClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type DLMClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -196,8 +196,12 @@ export type DLMClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of DLMClient class constructor that set the region, credentials and other options.
+ */
+export interface DLMClientConfig extends DLMClientConfigType {}
 
-export type DLMClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type DLMClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -205,6 +209,10 @@ export type DLMClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of DLMClient class. This is resolved and normalized from the {@link DLMClientConfig | constructor configuration interface}.
+ */
+export interface DLMClientResolvedConfig extends DLMClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon Data Lifecycle Manager</fullname> <p>With Amazon Data Lifecycle Manager, you can manage the lifecycle of your AWS resources. You create lifecycle policies, which are used to automate operations on the specified resources.</p> <p>Amazon DLM supports Amazon EBS volumes and snapshots. For information about using Amazon DLM with Amazon EBS, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html">Automating the Amazon EBS Snapshot Lifecycle</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -215,6 +223,9 @@ export class DLMClient extends __Client<
   ServiceOutputTypes,
   DLMClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of DLMClient class. This is resolved and normalized from the {@link DLMClientConfig | constructor configuration interface}.
+   */
   readonly config: DLMClientResolvedConfig;
 
   constructor(configuration: DLMClientConfig) {

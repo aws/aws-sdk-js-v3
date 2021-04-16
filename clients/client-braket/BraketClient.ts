@@ -167,7 +167,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type BraketClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type BraketClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -175,8 +175,12 @@ export type BraketClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOpti
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of BraketClient class constructor that set the region, credentials and other options.
+ */
+export interface BraketClientConfig extends BraketClientConfigType {}
 
-export type BraketClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type BraketClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -184,6 +188,10 @@ export type BraketClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHan
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of BraketClient class. This is resolved and normalized from the {@link BraketClientConfig | constructor configuration interface}.
+ */
+export interface BraketClientResolvedConfig extends BraketClientResolvedConfigType {}
 
 /**
  * <p>The Amazon Braket API Reference provides information about the operations and structures supported in Amazon Braket.</p>
@@ -194,6 +202,9 @@ export class BraketClient extends __Client<
   ServiceOutputTypes,
   BraketClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of BraketClient class. This is resolved and normalized from the {@link BraketClientConfig | constructor configuration interface}.
+   */
   readonly config: BraketClientResolvedConfig;
 
   constructor(configuration: BraketClientConfig) {

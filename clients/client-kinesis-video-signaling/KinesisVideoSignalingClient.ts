@@ -160,7 +160,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type KinesisVideoSignalingClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type KinesisVideoSignalingClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -168,8 +168,12 @@ export type KinesisVideoSignalingClientConfig = Partial<__SmithyConfiguration<__
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of KinesisVideoSignalingClient class constructor that set the region, credentials and other options.
+ */
+export interface KinesisVideoSignalingClientConfig extends KinesisVideoSignalingClientConfigType {}
 
-export type KinesisVideoSignalingClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type KinesisVideoSignalingClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -177,6 +181,10 @@ export type KinesisVideoSignalingClientResolvedConfig = __SmithyResolvedConfigur
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of KinesisVideoSignalingClient class. This is resolved and normalized from the {@link KinesisVideoSignalingClientConfig | constructor configuration interface}.
+ */
+export interface KinesisVideoSignalingClientResolvedConfig extends KinesisVideoSignalingClientResolvedConfigType {}
 
 /**
  * <p>Kinesis Video Streams Signaling Service is a intermediate service that establishes a
@@ -189,6 +197,9 @@ export class KinesisVideoSignalingClient extends __Client<
   ServiceOutputTypes,
   KinesisVideoSignalingClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of KinesisVideoSignalingClient class. This is resolved and normalized from the {@link KinesisVideoSignalingClientConfig | constructor configuration interface}.
+   */
   readonly config: KinesisVideoSignalingClientResolvedConfig;
 
   constructor(configuration: KinesisVideoSignalingClientConfig) {

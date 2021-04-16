@@ -299,7 +299,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type EventBridgeClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type EventBridgeClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -307,8 +307,12 @@ export type EventBridgeClientConfig = Partial<__SmithyConfiguration<__HttpHandle
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of EventBridgeClient class constructor that set the region, credentials and other options.
+ */
+export interface EventBridgeClientConfig extends EventBridgeClientConfigType {}
 
-export type EventBridgeClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type EventBridgeClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -316,6 +320,10 @@ export type EventBridgeClientResolvedConfig = __SmithyResolvedConfiguration<__Ht
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of EventBridgeClient class. This is resolved and normalized from the {@link EventBridgeClientConfig | constructor configuration interface}.
+ */
+export interface EventBridgeClientResolvedConfig extends EventBridgeClientResolvedConfigType {}
 
 /**
  * <p>Amazon EventBridge helps you to respond to state changes in your AWS resources.
@@ -347,6 +355,9 @@ export class EventBridgeClient extends __Client<
   ServiceOutputTypes,
   EventBridgeClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of EventBridgeClient class. This is resolved and normalized from the {@link EventBridgeClientConfig | constructor configuration interface}.
+   */
   readonly config: EventBridgeClientResolvedConfig;
 
   constructor(configuration: EventBridgeClientConfig) {

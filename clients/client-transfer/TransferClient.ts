@@ -221,7 +221,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type TransferClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type TransferClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -229,8 +229,12 @@ export type TransferClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOp
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of TransferClient class constructor that set the region, credentials and other options.
+ */
+export interface TransferClientConfig extends TransferClientConfigType {}
 
-export type TransferClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type TransferClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -238,6 +242,10 @@ export type TransferClientResolvedConfig = __SmithyResolvedConfiguration<__HttpH
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of TransferClient class. This is resolved and normalized from the {@link TransferClientConfig | constructor configuration interface}.
+ */
+export interface TransferClientResolvedConfig extends TransferClientResolvedConfigType {}
 
 /**
  * <p>AWS Transfer Family is a fully managed service that enables the transfer of files over the
@@ -256,6 +264,9 @@ export class TransferClient extends __Client<
   ServiceOutputTypes,
   TransferClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of TransferClient class. This is resolved and normalized from the {@link TransferClientConfig | constructor configuration interface}.
+   */
   readonly config: TransferClientResolvedConfig;
 
   constructor(configuration: TransferClientConfig) {

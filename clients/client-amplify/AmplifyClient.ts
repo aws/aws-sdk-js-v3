@@ -290,7 +290,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type AmplifyClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type AmplifyClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -298,8 +298,12 @@ export type AmplifyClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOpt
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of AmplifyClient class constructor that set the region, credentials and other options.
+ */
+export interface AmplifyClientConfig extends AmplifyClientConfigType {}
 
-export type AmplifyClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type AmplifyClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -307,6 +311,10 @@ export type AmplifyClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHa
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of AmplifyClient class. This is resolved and normalized from the {@link AmplifyClientConfig | constructor configuration interface}.
+ */
+export interface AmplifyClientResolvedConfig extends AmplifyClientResolvedConfigType {}
 
 /**
  * <p>Amplify enables developers to develop and deploy cloud-powered mobile and web apps.
@@ -322,6 +330,9 @@ export class AmplifyClient extends __Client<
   ServiceOutputTypes,
   AmplifyClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of AmplifyClient class. This is resolved and normalized from the {@link AmplifyClientConfig | constructor configuration interface}.
+   */
   readonly config: AmplifyClientResolvedConfig;
 
   constructor(configuration: AmplifyClientConfig) {

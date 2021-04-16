@@ -154,7 +154,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type PersonalizeRuntimeClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type PersonalizeRuntimeClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -162,8 +162,12 @@ export type PersonalizeRuntimeClientConfig = Partial<__SmithyConfiguration<__Htt
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of PersonalizeRuntimeClient class constructor that set the region, credentials and other options.
+ */
+export interface PersonalizeRuntimeClientConfig extends PersonalizeRuntimeClientConfigType {}
 
-export type PersonalizeRuntimeClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type PersonalizeRuntimeClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -171,6 +175,10 @@ export type PersonalizeRuntimeClientResolvedConfig = __SmithyResolvedConfigurati
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of PersonalizeRuntimeClient class. This is resolved and normalized from the {@link PersonalizeRuntimeClientConfig | constructor configuration interface}.
+ */
+export interface PersonalizeRuntimeClientResolvedConfig extends PersonalizeRuntimeClientResolvedConfigType {}
 
 /**
  * <p></p>
@@ -181,6 +189,9 @@ export class PersonalizeRuntimeClient extends __Client<
   ServiceOutputTypes,
   PersonalizeRuntimeClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of PersonalizeRuntimeClient class. This is resolved and normalized from the {@link PersonalizeRuntimeClientConfig | constructor configuration interface}.
+   */
   readonly config: PersonalizeRuntimeClientResolvedConfig;
 
   constructor(configuration: PersonalizeRuntimeClientConfig) {

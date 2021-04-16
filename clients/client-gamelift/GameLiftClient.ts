@@ -575,7 +575,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type GameLiftClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type GameLiftClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -583,8 +583,12 @@ export type GameLiftClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOp
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of GameLiftClient class constructor that set the region, credentials and other options.
+ */
+export interface GameLiftClientConfig extends GameLiftClientConfigType {}
 
-export type GameLiftClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type GameLiftClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -592,6 +596,10 @@ export type GameLiftClientResolvedConfig = __SmithyResolvedConfiguration<__HttpH
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of GameLiftClient class. This is resolved and normalized from the {@link GameLiftClientConfig | constructor configuration interface}.
+ */
+export interface GameLiftClientResolvedConfig extends GameLiftClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon GameLift Service</fullname>
@@ -652,6 +660,9 @@ export class GameLiftClient extends __Client<
   ServiceOutputTypes,
   GameLiftClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of GameLiftClient class. This is resolved and normalized from the {@link GameLiftClientConfig | constructor configuration interface}.
+   */
   readonly config: GameLiftClientResolvedConfig;
 
   constructor(configuration: GameLiftClientConfig) {

@@ -197,7 +197,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type SyntheticsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type SyntheticsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -205,8 +205,12 @@ export type SyntheticsClientConfig = Partial<__SmithyConfiguration<__HttpHandler
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of SyntheticsClient class constructor that set the region, credentials and other options.
+ */
+export interface SyntheticsClientConfig extends SyntheticsClientConfigType {}
 
-export type SyntheticsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type SyntheticsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -214,6 +218,10 @@ export type SyntheticsClientResolvedConfig = __SmithyResolvedConfiguration<__Htt
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of SyntheticsClient class. This is resolved and normalized from the {@link SyntheticsClientConfig | constructor configuration interface}.
+ */
+export interface SyntheticsClientResolvedConfig extends SyntheticsClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon CloudWatch Synthetics</fullname>
@@ -239,6 +247,9 @@ export class SyntheticsClient extends __Client<
   ServiceOutputTypes,
   SyntheticsClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of SyntheticsClient class. This is resolved and normalized from the {@link SyntheticsClientConfig | constructor configuration interface}.
+   */
   readonly config: SyntheticsClientResolvedConfig;
 
   constructor(configuration: SyntheticsClientConfig) {

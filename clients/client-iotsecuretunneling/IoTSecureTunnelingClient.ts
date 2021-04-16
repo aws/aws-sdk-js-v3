@@ -173,7 +173,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type IoTSecureTunnelingClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type IoTSecureTunnelingClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -181,8 +181,12 @@ export type IoTSecureTunnelingClientConfig = Partial<__SmithyConfiguration<__Htt
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of IoTSecureTunnelingClient class constructor that set the region, credentials and other options.
+ */
+export interface IoTSecureTunnelingClientConfig extends IoTSecureTunnelingClientConfigType {}
 
-export type IoTSecureTunnelingClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type IoTSecureTunnelingClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -190,6 +194,10 @@ export type IoTSecureTunnelingClientResolvedConfig = __SmithyResolvedConfigurati
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of IoTSecureTunnelingClient class. This is resolved and normalized from the {@link IoTSecureTunnelingClientConfig | constructor configuration interface}.
+ */
+export interface IoTSecureTunnelingClientResolvedConfig extends IoTSecureTunnelingClientResolvedConfigType {}
 
 /**
  * <fullname>AWS IoT Secure Tunneling</fullname>
@@ -204,6 +212,9 @@ export class IoTSecureTunnelingClient extends __Client<
   ServiceOutputTypes,
   IoTSecureTunnelingClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of IoTSecureTunnelingClient class. This is resolved and normalized from the {@link IoTSecureTunnelingClientConfig | constructor configuration interface}.
+   */
   readonly config: IoTSecureTunnelingClientResolvedConfig;
 
   constructor(configuration: IoTSecureTunnelingClientConfig) {

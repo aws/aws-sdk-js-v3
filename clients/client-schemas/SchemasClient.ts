@@ -260,7 +260,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type SchemasClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type SchemasClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -268,8 +268,12 @@ export type SchemasClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOpt
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of SchemasClient class constructor that set the region, credentials and other options.
+ */
+export interface SchemasClientConfig extends SchemasClientConfigType {}
 
-export type SchemasClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type SchemasClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -277,6 +281,10 @@ export type SchemasClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHa
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of SchemasClient class. This is resolved and normalized from the {@link SchemasClientConfig | constructor configuration interface}.
+ */
+export interface SchemasClientResolvedConfig extends SchemasClientResolvedConfigType {}
 
 /**
  * <p>Amazon EventBridge Schema Registry</p>
@@ -287,6 +295,9 @@ export class SchemasClient extends __Client<
   ServiceOutputTypes,
   SchemasClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of SchemasClient class. This is resolved and normalized from the {@link SchemasClientConfig | constructor configuration interface}.
+   */
   readonly config: SchemasClientResolvedConfig;
 
   constructor(configuration: SchemasClientConfig) {

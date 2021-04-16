@@ -317,7 +317,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type IoTThingsGraphClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type IoTThingsGraphClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -325,8 +325,12 @@ export type IoTThingsGraphClientConfig = Partial<__SmithyConfiguration<__HttpHan
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of IoTThingsGraphClient class constructor that set the region, credentials and other options.
+ */
+export interface IoTThingsGraphClientConfig extends IoTThingsGraphClientConfigType {}
 
-export type IoTThingsGraphClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type IoTThingsGraphClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -334,6 +338,10 @@ export type IoTThingsGraphClientResolvedConfig = __SmithyResolvedConfiguration<_
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of IoTThingsGraphClient class. This is resolved and normalized from the {@link IoTThingsGraphClientConfig | constructor configuration interface}.
+ */
+export interface IoTThingsGraphClientResolvedConfig extends IoTThingsGraphClientResolvedConfigType {}
 
 /**
  * <fullname>AWS IoT Things Graph</fullname>
@@ -348,6 +356,9 @@ export class IoTThingsGraphClient extends __Client<
   ServiceOutputTypes,
   IoTThingsGraphClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of IoTThingsGraphClient class. This is resolved and normalized from the {@link IoTThingsGraphClientConfig | constructor configuration interface}.
+   */
   readonly config: IoTThingsGraphClientResolvedConfig;
 
   constructor(configuration: IoTThingsGraphClientConfig) {

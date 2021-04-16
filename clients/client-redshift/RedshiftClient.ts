@@ -638,7 +638,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type RedshiftClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type RedshiftClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -646,8 +646,12 @@ export type RedshiftClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOp
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of RedshiftClient class constructor that set the region, credentials and other options.
+ */
+export interface RedshiftClientConfig extends RedshiftClientConfigType {}
 
-export type RedshiftClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type RedshiftClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -655,6 +659,10 @@ export type RedshiftClientResolvedConfig = __SmithyResolvedConfiguration<__HttpH
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of RedshiftClient class. This is resolved and normalized from the {@link RedshiftClientConfig | constructor configuration interface}.
+ */
+export interface RedshiftClientResolvedConfig extends RedshiftClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon Redshift</fullname>
@@ -686,6 +694,9 @@ export class RedshiftClient extends __Client<
   ServiceOutputTypes,
   RedshiftClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of RedshiftClient class. This is resolved and normalized from the {@link RedshiftClientConfig | constructor configuration interface}.
+   */
   readonly config: RedshiftClientResolvedConfig;
 
   constructor(configuration: RedshiftClientConfig) {

@@ -167,7 +167,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type MarketplaceCatalogClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type MarketplaceCatalogClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -175,8 +175,12 @@ export type MarketplaceCatalogClientConfig = Partial<__SmithyConfiguration<__Htt
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of MarketplaceCatalogClient class constructor that set the region, credentials and other options.
+ */
+export interface MarketplaceCatalogClientConfig extends MarketplaceCatalogClientConfigType {}
 
-export type MarketplaceCatalogClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type MarketplaceCatalogClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -184,6 +188,10 @@ export type MarketplaceCatalogClientResolvedConfig = __SmithyResolvedConfigurati
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of MarketplaceCatalogClient class. This is resolved and normalized from the {@link MarketplaceCatalogClientConfig | constructor configuration interface}.
+ */
+export interface MarketplaceCatalogClientResolvedConfig extends MarketplaceCatalogClientResolvedConfigType {}
 
 /**
  * <p>Catalog API actions allow you to manage your entities through list, describe, and update
@@ -200,6 +208,9 @@ export class MarketplaceCatalogClient extends __Client<
   ServiceOutputTypes,
   MarketplaceCatalogClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of MarketplaceCatalogClient class. This is resolved and normalized from the {@link MarketplaceCatalogClientConfig | constructor configuration interface}.
+   */
   readonly config: MarketplaceCatalogClientResolvedConfig;
 
   constructor(configuration: MarketplaceCatalogClientConfig) {

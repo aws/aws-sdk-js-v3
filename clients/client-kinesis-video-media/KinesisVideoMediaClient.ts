@@ -150,7 +150,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type KinesisVideoMediaClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type KinesisVideoMediaClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -158,8 +158,12 @@ export type KinesisVideoMediaClientConfig = Partial<__SmithyConfiguration<__Http
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of KinesisVideoMediaClient class constructor that set the region, credentials and other options.
+ */
+export interface KinesisVideoMediaClientConfig extends KinesisVideoMediaClientConfigType {}
 
-export type KinesisVideoMediaClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type KinesisVideoMediaClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -167,6 +171,10 @@ export type KinesisVideoMediaClientResolvedConfig = __SmithyResolvedConfiguratio
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of KinesisVideoMediaClient class. This is resolved and normalized from the {@link KinesisVideoMediaClientConfig | constructor configuration interface}.
+ */
+export interface KinesisVideoMediaClientResolvedConfig extends KinesisVideoMediaClientResolvedConfigType {}
 
 /**
  * <p></p>
@@ -177,6 +185,9 @@ export class KinesisVideoMediaClient extends __Client<
   ServiceOutputTypes,
   KinesisVideoMediaClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of KinesisVideoMediaClient class. This is resolved and normalized from the {@link KinesisVideoMediaClientConfig | constructor configuration interface}.
+   */
   readonly config: KinesisVideoMediaClientResolvedConfig;
 
   constructor(configuration: KinesisVideoMediaClientConfig) {

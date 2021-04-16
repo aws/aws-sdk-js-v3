@@ -197,7 +197,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type ResourceGroupsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type ResourceGroupsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -205,8 +205,12 @@ export type ResourceGroupsClientConfig = Partial<__SmithyConfiguration<__HttpHan
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of ResourceGroupsClient class constructor that set the region, credentials and other options.
+ */
+export interface ResourceGroupsClientConfig extends ResourceGroupsClientConfigType {}
 
-export type ResourceGroupsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type ResourceGroupsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -214,6 +218,10 @@ export type ResourceGroupsClientResolvedConfig = __SmithyResolvedConfiguration<_
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of ResourceGroupsClient class. This is resolved and normalized from the {@link ResourceGroupsClientConfig | constructor configuration interface}.
+ */
+export interface ResourceGroupsClientResolvedConfig extends ResourceGroupsClientResolvedConfigType {}
 
 /**
  * <fullname>AWS Resource Groups</fullname>
@@ -259,6 +267,9 @@ export class ResourceGroupsClient extends __Client<
   ServiceOutputTypes,
   ResourceGroupsClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of ResourceGroupsClient class. This is resolved and normalized from the {@link ResourceGroupsClientConfig | constructor configuration interface}.
+   */
   readonly config: ResourceGroupsClientResolvedConfig;
 
   constructor(configuration: ResourceGroupsClientConfig) {

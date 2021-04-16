@@ -248,7 +248,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type MigrationHubClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type MigrationHubClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -256,8 +256,12 @@ export type MigrationHubClientConfig = Partial<__SmithyConfiguration<__HttpHandl
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of MigrationHubClient class constructor that set the region, credentials and other options.
+ */
+export interface MigrationHubClientConfig extends MigrationHubClientConfigType {}
 
-export type MigrationHubClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type MigrationHubClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -265,6 +269,10 @@ export type MigrationHubClientResolvedConfig = __SmithyResolvedConfiguration<__H
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of MigrationHubClient class. This is resolved and normalized from the {@link MigrationHubClientConfig | constructor configuration interface}.
+ */
+export interface MigrationHubClientResolvedConfig extends MigrationHubClientResolvedConfigType {}
 
 /**
  * <p>The AWS Migration Hub API methods help to obtain server and application migration status
@@ -280,6 +288,9 @@ export class MigrationHubClient extends __Client<
   ServiceOutputTypes,
   MigrationHubClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of MigrationHubClient class. This is resolved and normalized from the {@link MigrationHubClientConfig | constructor configuration interface}.
+   */
   readonly config: MigrationHubClientResolvedConfig;
 
   constructor(configuration: MigrationHubClientConfig) {

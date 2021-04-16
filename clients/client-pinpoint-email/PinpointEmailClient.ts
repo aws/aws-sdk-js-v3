@@ -380,7 +380,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type PinpointEmailClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type PinpointEmailClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -388,8 +388,12 @@ export type PinpointEmailClientConfig = Partial<__SmithyConfiguration<__HttpHand
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of PinpointEmailClient class constructor that set the region, credentials and other options.
+ */
+export interface PinpointEmailClientConfig extends PinpointEmailClientConfigType {}
 
-export type PinpointEmailClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type PinpointEmailClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -397,6 +401,10 @@ export type PinpointEmailClientResolvedConfig = __SmithyResolvedConfiguration<__
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of PinpointEmailClient class. This is resolved and normalized from the {@link PinpointEmailClientConfig | constructor configuration interface}.
+ */
+export interface PinpointEmailClientResolvedConfig extends PinpointEmailClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon Pinpoint Email Service</fullname>
@@ -435,6 +443,9 @@ export class PinpointEmailClient extends __Client<
   ServiceOutputTypes,
   PinpointEmailClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of PinpointEmailClient class. This is resolved and normalized from the {@link PinpointEmailClientConfig | constructor configuration interface}.
+   */
   readonly config: PinpointEmailClientResolvedConfig;
 
   constructor(configuration: PinpointEmailClientConfig) {

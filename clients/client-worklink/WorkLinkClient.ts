@@ -308,7 +308,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type WorkLinkClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type WorkLinkClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -316,8 +316,12 @@ export type WorkLinkClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOp
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of WorkLinkClient class constructor that set the region, credentials and other options.
+ */
+export interface WorkLinkClientConfig extends WorkLinkClientConfigType {}
 
-export type WorkLinkClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type WorkLinkClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -325,6 +329,10 @@ export type WorkLinkClientResolvedConfig = __SmithyResolvedConfiguration<__HttpH
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of WorkLinkClient class. This is resolved and normalized from the {@link WorkLinkClientConfig | constructor configuration interface}.
+ */
+export interface WorkLinkClientResolvedConfig extends WorkLinkClientResolvedConfigType {}
 
 /**
  * <p>Amazon WorkLink is a cloud-based service that provides secure access
@@ -341,6 +349,9 @@ export class WorkLinkClient extends __Client<
   ServiceOutputTypes,
   WorkLinkClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of WorkLinkClient class. This is resolved and normalized from the {@link WorkLinkClientConfig | constructor configuration interface}.
+   */
   readonly config: WorkLinkClientResolvedConfig;
 
   constructor(configuration: WorkLinkClientConfig) {

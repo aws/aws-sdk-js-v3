@@ -266,7 +266,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type CustomerProfilesClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type CustomerProfilesClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -274,8 +274,12 @@ export type CustomerProfilesClientConfig = Partial<__SmithyConfiguration<__HttpH
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of CustomerProfilesClient class constructor that set the region, credentials and other options.
+ */
+export interface CustomerProfilesClientConfig extends CustomerProfilesClientConfigType {}
 
-export type CustomerProfilesClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type CustomerProfilesClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -283,6 +287,10 @@ export type CustomerProfilesClientResolvedConfig = __SmithyResolvedConfiguration
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of CustomerProfilesClient class. This is resolved and normalized from the {@link CustomerProfilesClientConfig | constructor configuration interface}.
+ */
+export interface CustomerProfilesClientResolvedConfig extends CustomerProfilesClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon Connect Customer Profiles</fullname>
@@ -302,6 +310,9 @@ export class CustomerProfilesClient extends __Client<
   ServiceOutputTypes,
   CustomerProfilesClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of CustomerProfilesClient class. This is resolved and normalized from the {@link CustomerProfilesClientConfig | constructor configuration interface}.
+   */
   readonly config: CustomerProfilesClientResolvedConfig;
 
   constructor(configuration: CustomerProfilesClientConfig) {

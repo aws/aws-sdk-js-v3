@@ -224,7 +224,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type SQSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type SQSClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -232,8 +232,12 @@ export type SQSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of SQSClient class constructor that set the region, credentials and other options.
+ */
+export interface SQSClientConfig extends SQSClientConfigType {}
 
-export type SQSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type SQSClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -241,6 +245,10 @@ export type SQSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of SQSClient class. This is resolved and normalized from the {@link SQSClientConfig | constructor configuration interface}.
+ */
+export interface SQSClientResolvedConfig extends SQSClientResolvedConfigType {}
 
 /**
  * <p>Welcome to the <i>Amazon Simple Queue Service API Reference</i>.</p>
@@ -319,6 +327,9 @@ export class SQSClient extends __Client<
   ServiceOutputTypes,
   SQSClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of SQSClient class. This is resolved and normalized from the {@link SQSClientConfig | constructor configuration interface}.
+   */
   readonly config: SQSClientResolvedConfig;
 
   constructor(configuration: SQSClientConfig) {

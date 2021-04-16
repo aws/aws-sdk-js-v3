@@ -347,7 +347,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type ElasticsearchServiceClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type ElasticsearchServiceClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -355,8 +355,12 @@ export type ElasticsearchServiceClientConfig = Partial<__SmithyConfiguration<__H
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of ElasticsearchServiceClient class constructor that set the region, credentials and other options.
+ */
+export interface ElasticsearchServiceClientConfig extends ElasticsearchServiceClientConfigType {}
 
-export type ElasticsearchServiceClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type ElasticsearchServiceClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -364,6 +368,10 @@ export type ElasticsearchServiceClientResolvedConfig = __SmithyResolvedConfigura
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of ElasticsearchServiceClient class. This is resolved and normalized from the {@link ElasticsearchServiceClientConfig | constructor configuration interface}.
+ */
+export interface ElasticsearchServiceClientResolvedConfig extends ElasticsearchServiceClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon Elasticsearch Configuration Service</fullname>
@@ -380,6 +388,9 @@ export class ElasticsearchServiceClient extends __Client<
   ServiceOutputTypes,
   ElasticsearchServiceClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of ElasticsearchServiceClient class. This is resolved and normalized from the {@link ElasticsearchServiceClientConfig | constructor configuration interface}.
+   */
   readonly config: ElasticsearchServiceClientResolvedConfig;
 
   constructor(configuration: ElasticsearchServiceClientConfig) {

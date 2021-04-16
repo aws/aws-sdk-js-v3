@@ -612,7 +612,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type CognitoIdentityProviderClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type CognitoIdentityProviderClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -620,8 +620,12 @@ export type CognitoIdentityProviderClientConfig = Partial<__SmithyConfiguration<
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of CognitoIdentityProviderClient class constructor that set the region, credentials and other options.
+ */
+export interface CognitoIdentityProviderClientConfig extends CognitoIdentityProviderClientConfigType {}
 
-export type CognitoIdentityProviderClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type CognitoIdentityProviderClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -629,6 +633,10 @@ export type CognitoIdentityProviderClientResolvedConfig = __SmithyResolvedConfig
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of CognitoIdentityProviderClient class. This is resolved and normalized from the {@link CognitoIdentityProviderClientConfig | constructor configuration interface}.
+ */
+export interface CognitoIdentityProviderClientResolvedConfig extends CognitoIdentityProviderClientResolvedConfigType {}
 
 /**
  * <p>Using the Amazon Cognito User Pools API, you can create a user pool to manage
@@ -644,6 +652,9 @@ export class CognitoIdentityProviderClient extends __Client<
   ServiceOutputTypes,
   CognitoIdentityProviderClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of CognitoIdentityProviderClient class. This is resolved and normalized from the {@link CognitoIdentityProviderClientConfig | constructor configuration interface}.
+   */
   readonly config: CognitoIdentityProviderClientResolvedConfig;
 
   constructor(configuration: CognitoIdentityProviderClientConfig) {

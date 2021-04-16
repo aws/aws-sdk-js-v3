@@ -227,7 +227,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type SnowballClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type SnowballClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -235,8 +235,12 @@ export type SnowballClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOp
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of SnowballClient class constructor that set the region, credentials and other options.
+ */
+export interface SnowballClientConfig extends SnowballClientConfigType {}
 
-export type SnowballClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type SnowballClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -244,6 +248,10 @@ export type SnowballClientResolvedConfig = __SmithyResolvedConfiguration<__HttpH
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of SnowballClient class. This is resolved and normalized from the {@link SnowballClientConfig | constructor configuration interface}.
+ */
+export interface SnowballClientResolvedConfig extends SnowballClientResolvedConfigType {}
 
 /**
  * <p>AWS Snow Family is a petabyte-scale data transport solution that uses secure devices to
@@ -260,6 +268,9 @@ export class SnowballClient extends __Client<
   ServiceOutputTypes,
   SnowballClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of SnowballClient class. This is resolved and normalized from the {@link SnowballClientConfig | constructor configuration interface}.
+   */
   readonly config: SnowballClientResolvedConfig;
 
   constructor(configuration: SnowballClientConfig) {

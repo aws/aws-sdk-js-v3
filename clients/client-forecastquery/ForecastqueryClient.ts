@@ -150,7 +150,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type ForecastqueryClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type ForecastqueryClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -158,8 +158,12 @@ export type ForecastqueryClientConfig = Partial<__SmithyConfiguration<__HttpHand
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of ForecastqueryClient class constructor that set the region, credentials and other options.
+ */
+export interface ForecastqueryClientConfig extends ForecastqueryClientConfigType {}
 
-export type ForecastqueryClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type ForecastqueryClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -167,6 +171,10 @@ export type ForecastqueryClientResolvedConfig = __SmithyResolvedConfiguration<__
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of ForecastqueryClient class. This is resolved and normalized from the {@link ForecastqueryClientConfig | constructor configuration interface}.
+ */
+export interface ForecastqueryClientResolvedConfig extends ForecastqueryClientResolvedConfigType {}
 
 /**
  * <p>Provides APIs for creating and managing Amazon Forecast resources.</p>
@@ -177,6 +185,9 @@ export class ForecastqueryClient extends __Client<
   ServiceOutputTypes,
   ForecastqueryClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of ForecastqueryClient class. This is resolved and normalized from the {@link ForecastqueryClientConfig | constructor configuration interface}.
+   */
   readonly config: ForecastqueryClientResolvedConfig;
 
   constructor(configuration: ForecastqueryClientConfig) {

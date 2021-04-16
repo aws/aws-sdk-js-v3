@@ -290,7 +290,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type Route53DomainsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type Route53DomainsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -298,8 +298,12 @@ export type Route53DomainsClientConfig = Partial<__SmithyConfiguration<__HttpHan
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of Route53DomainsClient class constructor that set the region, credentials and other options.
+ */
+export interface Route53DomainsClientConfig extends Route53DomainsClientConfigType {}
 
-export type Route53DomainsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type Route53DomainsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -307,6 +311,10 @@ export type Route53DomainsClientResolvedConfig = __SmithyResolvedConfiguration<_
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of Route53DomainsClient class. This is resolved and normalized from the {@link Route53DomainsClientConfig | constructor configuration interface}.
+ */
+export interface Route53DomainsClientResolvedConfig extends Route53DomainsClientResolvedConfigType {}
 
 /**
  * <p>Amazon Route 53 API actions let you register domain names and perform related operations.</p>
@@ -317,6 +325,9 @@ export class Route53DomainsClient extends __Client<
   ServiceOutputTypes,
   Route53DomainsClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of Route53DomainsClient class. This is resolved and normalized from the {@link Route53DomainsClientConfig | constructor configuration interface}.
+   */
   readonly config: Route53DomainsClientResolvedConfig;
 
   constructor(configuration: Route53DomainsClientConfig) {

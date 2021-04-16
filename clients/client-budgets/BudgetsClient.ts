@@ -239,7 +239,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type BudgetsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type BudgetsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -247,8 +247,12 @@ export type BudgetsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOpt
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of BudgetsClient class constructor that set the region, credentials and other options.
+ */
+export interface BudgetsClientConfig extends BudgetsClientConfigType {}
 
-export type BudgetsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type BudgetsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -256,6 +260,10 @@ export type BudgetsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHa
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of BudgetsClient class. This is resolved and normalized from the {@link BudgetsClientConfig | constructor configuration interface}.
+ */
+export interface BudgetsClientResolvedConfig extends BudgetsClientResolvedConfigType {}
 
 /**
  * <p>The AWS Budgets API enables you to use AWS Budgets to plan your service usage, service costs, and instance reservations. The API reference provides descriptions, syntax, and usage examples for each of the actions and data types for AWS Budgets. </p>
@@ -308,6 +316,9 @@ export class BudgetsClient extends __Client<
   ServiceOutputTypes,
   BudgetsClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of BudgetsClient class. This is resolved and normalized from the {@link BudgetsClientConfig | constructor configuration interface}.
+   */
   readonly config: BudgetsClientResolvedConfig;
 
   constructor(configuration: BudgetsClientConfig) {

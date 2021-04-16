@@ -512,7 +512,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type SESClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type SESClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -520,8 +520,12 @@ export type SESClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of SESClient class constructor that set the region, credentials and other options.
+ */
+export interface SESClientConfig extends SESClientConfigType {}
 
-export type SESClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type SESClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -529,6 +533,10 @@ export type SESClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of SESClient class. This is resolved and normalized from the {@link SESClientConfig | constructor configuration interface}.
+ */
+export interface SESClientResolvedConfig extends SESClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon Simple Email Service</fullname>
@@ -547,6 +555,9 @@ export class SESClient extends __Client<
   ServiceOutputTypes,
   SESClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of SESClient class. This is resolved and normalized from the {@link SESClientConfig | constructor configuration interface}.
+   */
   readonly config: SESClientResolvedConfig;
 
   constructor(configuration: SESClientConfig) {

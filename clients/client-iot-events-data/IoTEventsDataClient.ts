@@ -164,7 +164,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type IoTEventsDataClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type IoTEventsDataClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -172,8 +172,12 @@ export type IoTEventsDataClientConfig = Partial<__SmithyConfiguration<__HttpHand
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of IoTEventsDataClient class constructor that set the region, credentials and other options.
+ */
+export interface IoTEventsDataClientConfig extends IoTEventsDataClientConfigType {}
 
-export type IoTEventsDataClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type IoTEventsDataClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -181,6 +185,10 @@ export type IoTEventsDataClientResolvedConfig = __SmithyResolvedConfiguration<__
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of IoTEventsDataClient class. This is resolved and normalized from the {@link IoTEventsDataClientConfig | constructor configuration interface}.
+ */
+export interface IoTEventsDataClientResolvedConfig extends IoTEventsDataClientResolvedConfigType {}
 
 /**
  * <p>AWS IoT Events monitors your equipment or device fleets for failures or changes in operation,
@@ -193,6 +201,9 @@ export class IoTEventsDataClient extends __Client<
   ServiceOutputTypes,
   IoTEventsDataClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of IoTEventsDataClient class. This is resolved and normalized from the {@link IoTEventsDataClientConfig | constructor configuration interface}.
+   */
   readonly config: IoTEventsDataClientResolvedConfig;
 
   constructor(configuration: IoTEventsDataClientConfig) {

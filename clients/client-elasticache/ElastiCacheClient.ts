@@ -476,7 +476,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type ElastiCacheClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type ElastiCacheClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -484,8 +484,12 @@ export type ElastiCacheClientConfig = Partial<__SmithyConfiguration<__HttpHandle
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of ElastiCacheClient class constructor that set the region, credentials and other options.
+ */
+export interface ElastiCacheClientConfig extends ElastiCacheClientConfigType {}
 
-export type ElastiCacheClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type ElastiCacheClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -493,6 +497,10 @@ export type ElastiCacheClientResolvedConfig = __SmithyResolvedConfiguration<__Ht
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of ElastiCacheClient class. This is resolved and normalized from the {@link ElastiCacheClientConfig | constructor configuration interface}.
+ */
+export interface ElastiCacheClientResolvedConfig extends ElastiCacheClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon ElastiCache</fullname>
@@ -512,6 +520,9 @@ export class ElastiCacheClient extends __Client<
   ServiceOutputTypes,
   ElastiCacheClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of ElastiCacheClient class. This is resolved and normalized from the {@link ElastiCacheClientConfig | constructor configuration interface}.
+   */
   readonly config: ElastiCacheClientResolvedConfig;
 
   constructor(configuration: ElastiCacheClientConfig) {

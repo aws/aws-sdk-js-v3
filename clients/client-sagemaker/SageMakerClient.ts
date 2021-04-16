@@ -1181,7 +1181,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type SageMakerClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type SageMakerClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -1189,8 +1189,12 @@ export type SageMakerClientConfig = Partial<__SmithyConfiguration<__HttpHandlerO
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of SageMakerClient class constructor that set the region, credentials and other options.
+ */
+export interface SageMakerClientConfig extends SageMakerClientConfigType {}
 
-export type SageMakerClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type SageMakerClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -1198,6 +1202,10 @@ export type SageMakerClientResolvedConfig = __SmithyResolvedConfiguration<__Http
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of SageMakerClient class. This is resolved and normalized from the {@link SageMakerClientConfig | constructor configuration interface}.
+ */
+export interface SageMakerClientResolvedConfig extends SageMakerClientResolvedConfigType {}
 
 /**
  * <p>Provides APIs for creating and managing Amazon SageMaker resources. </p>
@@ -1223,6 +1231,9 @@ export class SageMakerClient extends __Client<
   ServiceOutputTypes,
   SageMakerClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of SageMakerClient class. This is resolved and normalized from the {@link SageMakerClientConfig | constructor configuration interface}.
+   */
   readonly config: SageMakerClientResolvedConfig;
 
   constructor(configuration: SageMakerClientConfig) {

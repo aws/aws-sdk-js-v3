@@ -227,7 +227,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type AppflowClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type AppflowClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -235,8 +235,12 @@ export type AppflowClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOpt
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of AppflowClient class constructor that set the region, credentials and other options.
+ */
+export interface AppflowClientConfig extends AppflowClientConfigType {}
 
-export type AppflowClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type AppflowClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -244,6 +248,10 @@ export type AppflowClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHa
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of AppflowClient class. This is resolved and normalized from the {@link AppflowClientConfig | constructor configuration interface}.
+ */
+export interface AppflowClientResolvedConfig extends AppflowClientResolvedConfigType {}
 
 /**
  * <p>Welcome to the Amazon AppFlow API reference. This guide is for developers who need detailed information about the Amazon AppFlow API operations, data types, and errors. </p>
@@ -284,6 +292,9 @@ export class AppflowClient extends __Client<
   ServiceOutputTypes,
   AppflowClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of AppflowClient class. This is resolved and normalized from the {@link AppflowClientConfig | constructor configuration interface}.
+   */
   readonly config: AppflowClientResolvedConfig;
 
   constructor(configuration: AppflowClientConfig) {

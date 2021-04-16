@@ -209,7 +209,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type CloudTrailClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type CloudTrailClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -217,8 +217,12 @@ export type CloudTrailClientConfig = Partial<__SmithyConfiguration<__HttpHandler
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of CloudTrailClient class constructor that set the region, credentials and other options.
+ */
+export interface CloudTrailClientConfig extends CloudTrailClientConfigType {}
 
-export type CloudTrailClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type CloudTrailClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -226,6 +230,10 @@ export type CloudTrailClientResolvedConfig = __SmithyResolvedConfiguration<__Htt
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of CloudTrailClient class. This is resolved and normalized from the {@link CloudTrailClientConfig | constructor configuration interface}.
+ */
+export interface CloudTrailClientResolvedConfig extends CloudTrailClientResolvedConfigType {}
 
 /**
  * <fullname>AWS CloudTrail</fullname>
@@ -250,6 +258,9 @@ export class CloudTrailClient extends __Client<
   ServiceOutputTypes,
   CloudTrailClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of CloudTrailClient class. This is resolved and normalized from the {@link CloudTrailClientConfig | constructor configuration interface}.
+   */
   readonly config: CloudTrailClientResolvedConfig;
 
   constructor(configuration: CloudTrailClientConfig) {

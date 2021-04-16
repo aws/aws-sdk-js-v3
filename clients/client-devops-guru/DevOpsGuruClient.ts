@@ -245,7 +245,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type DevOpsGuruClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type DevOpsGuruClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -253,8 +253,12 @@ export type DevOpsGuruClientConfig = Partial<__SmithyConfiguration<__HttpHandler
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of DevOpsGuruClient class constructor that set the region, credentials and other options.
+ */
+export interface DevOpsGuruClientConfig extends DevOpsGuruClientConfigType {}
 
-export type DevOpsGuruClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type DevOpsGuruClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -262,6 +266,10 @@ export type DevOpsGuruClientResolvedConfig = __SmithyResolvedConfiguration<__Htt
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of DevOpsGuruClient class. This is resolved and normalized from the {@link DevOpsGuruClientConfig | constructor configuration interface}.
+ */
+export interface DevOpsGuruClientResolvedConfig extends DevOpsGuruClientResolvedConfigType {}
 
 export class DevOpsGuruClient extends __Client<
   __HttpHandlerOptions,
@@ -269,6 +277,9 @@ export class DevOpsGuruClient extends __Client<
   ServiceOutputTypes,
   DevOpsGuruClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of DevOpsGuruClient class. This is resolved and normalized from the {@link DevOpsGuruClientConfig | constructor configuration interface}.
+   */
   readonly config: DevOpsGuruClientResolvedConfig;
 
   constructor(configuration: DevOpsGuruClientConfig) {

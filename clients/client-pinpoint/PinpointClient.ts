@@ -593,7 +593,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type PinpointClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type PinpointClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -601,8 +601,12 @@ export type PinpointClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOp
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of PinpointClient class constructor that set the region, credentials and other options.
+ */
+export interface PinpointClientConfig extends PinpointClientConfigType {}
 
-export type PinpointClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type PinpointClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -610,6 +614,10 @@ export type PinpointClientResolvedConfig = __SmithyResolvedConfiguration<__HttpH
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of PinpointClient class. This is resolved and normalized from the {@link PinpointClientConfig | constructor configuration interface}.
+ */
+export interface PinpointClientResolvedConfig extends PinpointClientResolvedConfigType {}
 
 /**
  * <p>Doc Engage API - Amazon Pinpoint API</p>
@@ -620,6 +628,9 @@ export class PinpointClient extends __Client<
   ServiceOutputTypes,
   PinpointClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of PinpointClient class. This is resolved and normalized from the {@link PinpointClientConfig | constructor configuration interface}.
+   */
   readonly config: PinpointClientResolvedConfig;
 
   constructor(configuration: PinpointClientConfig) {

@@ -323,7 +323,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type WAFV2ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type WAFV2ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -331,8 +331,12 @@ export type WAFV2ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptio
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of WAFV2Client class constructor that set the region, credentials and other options.
+ */
+export interface WAFV2ClientConfig extends WAFV2ClientConfigType {}
 
-export type WAFV2ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type WAFV2ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -340,6 +344,10 @@ export type WAFV2ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHand
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of WAFV2Client class. This is resolved and normalized from the {@link WAFV2ClientConfig | constructor configuration interface}.
+ */
+export interface WAFV2ClientResolvedConfig extends WAFV2ClientResolvedConfigType {}
 
 /**
  * <note>
@@ -406,6 +414,9 @@ export class WAFV2Client extends __Client<
   ServiceOutputTypes,
   WAFV2ClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of WAFV2Client class. This is resolved and normalized from the {@link WAFV2ClientConfig | constructor configuration interface}.
+   */
   readonly config: WAFV2ClientResolvedConfig;
 
   constructor(configuration: WAFV2ClientConfig) {

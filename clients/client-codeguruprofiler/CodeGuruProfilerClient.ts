@@ -203,7 +203,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type CodeGuruProfilerClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type CodeGuruProfilerClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -211,8 +211,12 @@ export type CodeGuruProfilerClientConfig = Partial<__SmithyConfiguration<__HttpH
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of CodeGuruProfilerClient class constructor that set the region, credentials and other options.
+ */
+export interface CodeGuruProfilerClientConfig extends CodeGuruProfilerClientConfigType {}
 
-export type CodeGuruProfilerClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type CodeGuruProfilerClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -220,6 +224,10 @@ export type CodeGuruProfilerClientResolvedConfig = __SmithyResolvedConfiguration
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of CodeGuruProfilerClient class. This is resolved and normalized from the {@link CodeGuruProfilerClientConfig | constructor configuration interface}.
+ */
+export interface CodeGuruProfilerClientResolvedConfig extends CodeGuruProfilerClientResolvedConfigType {}
 
 /**
  * <p>This section provides documentation for the Amazon CodeGuru Profiler API operations.</p>
@@ -230,6 +238,9 @@ export class CodeGuruProfilerClient extends __Client<
   ServiceOutputTypes,
   CodeGuruProfilerClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of CodeGuruProfilerClient class. This is resolved and normalized from the {@link CodeGuruProfilerClientConfig | constructor configuration interface}.
+   */
   readonly config: CodeGuruProfilerClientResolvedConfig;
 
   constructor(configuration: CodeGuruProfilerClientConfig) {

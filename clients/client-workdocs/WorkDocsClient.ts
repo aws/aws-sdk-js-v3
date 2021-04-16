@@ -320,7 +320,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type WorkDocsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type WorkDocsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -328,8 +328,12 @@ export type WorkDocsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOp
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of WorkDocsClient class constructor that set the region, credentials and other options.
+ */
+export interface WorkDocsClientConfig extends WorkDocsClientConfigType {}
 
-export type WorkDocsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type WorkDocsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -337,6 +341,10 @@ export type WorkDocsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpH
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of WorkDocsClient class. This is resolved and normalized from the {@link WorkDocsClientConfig | constructor configuration interface}.
+ */
+export interface WorkDocsClientResolvedConfig extends WorkDocsClientResolvedConfigType {}
 
 /**
  * <p>The WorkDocs API is designed for the following use cases:</p>
@@ -379,6 +387,9 @@ export class WorkDocsClient extends __Client<
   ServiceOutputTypes,
   WorkDocsClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of WorkDocsClient class. This is resolved and normalized from the {@link WorkDocsClientConfig | constructor configuration interface}.
+   */
   readonly config: WorkDocsClientResolvedConfig;
 
   constructor(configuration: WorkDocsClientConfig) {

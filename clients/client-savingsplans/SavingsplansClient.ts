@@ -194,7 +194,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type SavingsplansClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type SavingsplansClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -202,8 +202,12 @@ export type SavingsplansClientConfig = Partial<__SmithyConfiguration<__HttpHandl
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of SavingsplansClient class constructor that set the region, credentials and other options.
+ */
+export interface SavingsplansClientConfig extends SavingsplansClientConfigType {}
 
-export type SavingsplansClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type SavingsplansClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -211,6 +215,10 @@ export type SavingsplansClientResolvedConfig = __SmithyResolvedConfiguration<__H
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of SavingsplansClient class. This is resolved and normalized from the {@link SavingsplansClientConfig | constructor configuration interface}.
+ */
+export interface SavingsplansClientResolvedConfig extends SavingsplansClientResolvedConfigType {}
 
 /**
  * <p>Savings Plans are a pricing model that offer significant savings on AWS usage (for
@@ -224,6 +232,9 @@ export class SavingsplansClient extends __Client<
   ServiceOutputTypes,
   SavingsplansClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of SavingsplansClient class. This is resolved and normalized from the {@link SavingsplansClientConfig | constructor configuration interface}.
+   */
   readonly config: SavingsplansClientResolvedConfig;
 
   constructor(configuration: SavingsplansClientConfig) {

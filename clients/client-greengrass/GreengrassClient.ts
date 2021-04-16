@@ -653,7 +653,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type GreengrassClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type GreengrassClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -661,8 +661,12 @@ export type GreengrassClientConfig = Partial<__SmithyConfiguration<__HttpHandler
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of GreengrassClient class constructor that set the region, credentials and other options.
+ */
+export interface GreengrassClientConfig extends GreengrassClientConfigType {}
 
-export type GreengrassClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type GreengrassClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -670,6 +674,10 @@ export type GreengrassClientResolvedConfig = __SmithyResolvedConfiguration<__Htt
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of GreengrassClient class. This is resolved and normalized from the {@link GreengrassClientConfig | constructor configuration interface}.
+ */
+export interface GreengrassClientResolvedConfig extends GreengrassClientResolvedConfigType {}
 
 /**
  * AWS IoT Greengrass seamlessly extends AWS onto physical devices so they can act locally on the data they generate, while still using the cloud for management, analytics, and durable storage. AWS IoT Greengrass ensures your devices can respond quickly to local events and operate with intermittent connectivity. AWS IoT Greengrass minimizes the cost of transmitting data to the cloud by allowing you to author AWS Lambda functions that execute locally.
@@ -680,6 +688,9 @@ export class GreengrassClient extends __Client<
   ServiceOutputTypes,
   GreengrassClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of GreengrassClient class. This is resolved and normalized from the {@link GreengrassClientConfig | constructor configuration interface}.
+   */
   readonly config: GreengrassClientResolvedConfig;
 
   constructor(configuration: GreengrassClientConfig) {

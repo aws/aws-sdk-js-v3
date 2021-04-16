@@ -296,7 +296,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type LexModelBuildingServiceClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type LexModelBuildingServiceClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -304,8 +304,12 @@ export type LexModelBuildingServiceClientConfig = Partial<__SmithyConfiguration<
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of LexModelBuildingServiceClient class constructor that set the region, credentials and other options.
+ */
+export interface LexModelBuildingServiceClientConfig extends LexModelBuildingServiceClientConfigType {}
 
-export type LexModelBuildingServiceClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type LexModelBuildingServiceClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -313,6 +317,10 @@ export type LexModelBuildingServiceClientResolvedConfig = __SmithyResolvedConfig
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of LexModelBuildingServiceClient class. This is resolved and normalized from the {@link LexModelBuildingServiceClientConfig | constructor configuration interface}.
+ */
+export interface LexModelBuildingServiceClientResolvedConfig extends LexModelBuildingServiceClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon Lex Build-Time Actions</fullname>
@@ -326,6 +334,9 @@ export class LexModelBuildingServiceClient extends __Client<
   ServiceOutputTypes,
   LexModelBuildingServiceClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of LexModelBuildingServiceClient class. This is resolved and normalized from the {@link LexModelBuildingServiceClientConfig | constructor configuration interface}.
+   */
   readonly config: LexModelBuildingServiceClientResolvedConfig;
 
   constructor(configuration: LexModelBuildingServiceClientConfig) {

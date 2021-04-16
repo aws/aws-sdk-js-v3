@@ -251,7 +251,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type MediaConnectClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type MediaConnectClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -259,8 +259,12 @@ export type MediaConnectClientConfig = Partial<__SmithyConfiguration<__HttpHandl
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of MediaConnectClient class constructor that set the region, credentials and other options.
+ */
+export interface MediaConnectClientConfig extends MediaConnectClientConfigType {}
 
-export type MediaConnectClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type MediaConnectClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -268,6 +272,10 @@ export type MediaConnectClientResolvedConfig = __SmithyResolvedConfiguration<__H
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of MediaConnectClient class. This is resolved and normalized from the {@link MediaConnectClientConfig | constructor configuration interface}.
+ */
+export interface MediaConnectClientResolvedConfig extends MediaConnectClientResolvedConfigType {}
 
 /**
  * API for AWS Elemental MediaConnect
@@ -278,6 +286,9 @@ export class MediaConnectClient extends __Client<
   ServiceOutputTypes,
   MediaConnectClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of MediaConnectClient class. This is resolved and normalized from the {@link MediaConnectClientConfig | constructor configuration interface}.
+   */
   readonly config: MediaConnectClientResolvedConfig;
 
   constructor(configuration: MediaConnectClientConfig) {

@@ -176,7 +176,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type ConnectParticipantClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type ConnectParticipantClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -184,8 +184,12 @@ export type ConnectParticipantClientConfig = Partial<__SmithyConfiguration<__Htt
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of ConnectParticipantClient class constructor that set the region, credentials and other options.
+ */
+export interface ConnectParticipantClientConfig extends ConnectParticipantClientConfigType {}
 
-export type ConnectParticipantClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type ConnectParticipantClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -193,6 +197,10 @@ export type ConnectParticipantClientResolvedConfig = __SmithyResolvedConfigurati
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of ConnectParticipantClient class. This is resolved and normalized from the {@link ConnectParticipantClientConfig | constructor configuration interface}.
+ */
+export interface ConnectParticipantClientResolvedConfig extends ConnectParticipantClientResolvedConfigType {}
 
 /**
  * <p>Amazon Connect is a cloud-based contact center solution that makes it easy to set up and manage
@@ -208,6 +216,9 @@ export class ConnectParticipantClient extends __Client<
   ServiceOutputTypes,
   ConnectParticipantClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of ConnectParticipantClient class. This is resolved and normalized from the {@link ConnectParticipantClientConfig | constructor configuration interface}.
+   */
   readonly config: ConnectParticipantClientResolvedConfig;
 
   constructor(configuration: ConnectParticipantClientConfig) {

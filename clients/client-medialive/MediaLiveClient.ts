@@ -374,7 +374,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type MediaLiveClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type MediaLiveClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -382,8 +382,12 @@ export type MediaLiveClientConfig = Partial<__SmithyConfiguration<__HttpHandlerO
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of MediaLiveClient class constructor that set the region, credentials and other options.
+ */
+export interface MediaLiveClientConfig extends MediaLiveClientConfigType {}
 
-export type MediaLiveClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type MediaLiveClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -391,6 +395,10 @@ export type MediaLiveClientResolvedConfig = __SmithyResolvedConfiguration<__Http
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of MediaLiveClient class. This is resolved and normalized from the {@link MediaLiveClientConfig | constructor configuration interface}.
+ */
+export interface MediaLiveClientResolvedConfig extends MediaLiveClientResolvedConfigType {}
 
 /**
  * API for AWS Elemental MediaLive
@@ -401,6 +409,9 @@ export class MediaLiveClient extends __Client<
   ServiceOutputTypes,
   MediaLiveClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of MediaLiveClient class. This is resolved and normalized from the {@link MediaLiveClientConfig | constructor configuration interface}.
+   */
   readonly config: MediaLiveClientResolvedConfig;
 
   constructor(configuration: MediaLiveClientConfig) {

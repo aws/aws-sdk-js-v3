@@ -425,7 +425,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type LambdaClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type LambdaClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -433,8 +433,12 @@ export type LambdaClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOpti
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of LambdaClient class constructor that set the region, credentials and other options.
+ */
+export interface LambdaClientConfig extends LambdaClientConfigType {}
 
-export type LambdaClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type LambdaClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -442,6 +446,10 @@ export type LambdaClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHan
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of LambdaClient class. This is resolved and normalized from the {@link LambdaClientConfig | constructor configuration interface}.
+ */
+export interface LambdaClientResolvedConfig extends LambdaClientResolvedConfigType {}
 
 /**
  * <fullname>AWS Lambda</fullname>
@@ -458,6 +466,9 @@ export class LambdaClient extends __Client<
   ServiceOutputTypes,
   LambdaClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of LambdaClient class. This is resolved and normalized from the {@link LambdaClientConfig | constructor configuration interface}.
+   */
   readonly config: LambdaClientResolvedConfig;
 
   constructor(configuration: LambdaClientConfig) {

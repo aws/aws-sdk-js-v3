@@ -314,7 +314,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type AppMeshClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type AppMeshClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -322,8 +322,12 @@ export type AppMeshClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOpt
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of AppMeshClient class constructor that set the region, credentials and other options.
+ */
+export interface AppMeshClientConfig extends AppMeshClientConfigType {}
 
-export type AppMeshClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type AppMeshClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -331,6 +335,10 @@ export type AppMeshClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHa
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of AppMeshClient class. This is resolved and normalized from the {@link AppMeshClientConfig | constructor configuration interface}.
+ */
+export interface AppMeshClientResolvedConfig extends AppMeshClientResolvedConfigType {}
 
 /**
  * <p>AWS App Mesh is a service mesh based on the Envoy proxy that makes it easy to monitor and
@@ -353,6 +361,9 @@ export class AppMeshClient extends __Client<
   ServiceOutputTypes,
   AppMeshClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of AppMeshClient class. This is resolved and normalized from the {@link AppMeshClientConfig | constructor configuration interface}.
+   */
   readonly config: AppMeshClientResolvedConfig;
 
   constructor(configuration: AppMeshClientConfig) {

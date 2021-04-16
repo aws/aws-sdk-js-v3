@@ -191,7 +191,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type JsonProtocolClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type JsonProtocolClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -199,8 +199,12 @@ export type JsonProtocolClientConfig = Partial<__SmithyConfiguration<__HttpHandl
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of JsonProtocolClient class constructor that set the region, credentials and other options.
+ */
+export interface JsonProtocolClientConfig extends JsonProtocolClientConfigType {}
 
-export type JsonProtocolClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type JsonProtocolClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -208,6 +212,10 @@ export type JsonProtocolClientResolvedConfig = __SmithyResolvedConfiguration<__H
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of JsonProtocolClient class. This is resolved and normalized from the {@link JsonProtocolClientConfig | constructor configuration interface}.
+ */
+export interface JsonProtocolClientResolvedConfig extends JsonProtocolClientResolvedConfigType {}
 
 export class JsonProtocolClient extends __Client<
   __HttpHandlerOptions,
@@ -215,6 +223,9 @@ export class JsonProtocolClient extends __Client<
   ServiceOutputTypes,
   JsonProtocolClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of JsonProtocolClient class. This is resolved and normalized from the {@link JsonProtocolClientConfig | constructor configuration interface}.
+   */
   readonly config: JsonProtocolClientResolvedConfig;
 
   constructor(configuration: JsonProtocolClientConfig) {

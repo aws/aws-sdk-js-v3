@@ -251,7 +251,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type KendraClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type KendraClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -259,8 +259,12 @@ export type KendraClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOpti
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of KendraClient class constructor that set the region, credentials and other options.
+ */
+export interface KendraClientConfig extends KendraClientConfigType {}
 
-export type KendraClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type KendraClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -268,6 +272,10 @@ export type KendraClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHan
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of KendraClient class. This is resolved and normalized from the {@link KendraClientConfig | constructor configuration interface}.
+ */
+export interface KendraClientResolvedConfig extends KendraClientResolvedConfigType {}
 
 /**
  * <p>Amazon Kendra is a service for indexing large document sets.</p>
@@ -278,6 +286,9 @@ export class KendraClient extends __Client<
   ServiceOutputTypes,
   KendraClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of KendraClient class. This is resolved and normalized from the {@link KendraClientConfig | constructor configuration interface}.
+   */
   readonly config: KendraClientResolvedConfig;
 
   constructor(configuration: KendraClientConfig) {

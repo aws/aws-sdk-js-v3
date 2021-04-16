@@ -161,7 +161,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type IdentitystoreClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type IdentitystoreClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -169,8 +169,12 @@ export type IdentitystoreClientConfig = Partial<__SmithyConfiguration<__HttpHand
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of IdentitystoreClient class constructor that set the region, credentials and other options.
+ */
+export interface IdentitystoreClientConfig extends IdentitystoreClientConfigType {}
 
-export type IdentitystoreClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type IdentitystoreClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -178,6 +182,10 @@ export type IdentitystoreClientResolvedConfig = __SmithyResolvedConfiguration<__
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of IdentitystoreClient class. This is resolved and normalized from the {@link IdentitystoreClientConfig | constructor configuration interface}.
+ */
+export interface IdentitystoreClientResolvedConfig extends IdentitystoreClientResolvedConfigType {}
 
 export class IdentitystoreClient extends __Client<
   __HttpHandlerOptions,
@@ -185,6 +193,9 @@ export class IdentitystoreClient extends __Client<
   ServiceOutputTypes,
   IdentitystoreClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of IdentitystoreClient class. This is resolved and normalized from the {@link IdentitystoreClientConfig | constructor configuration interface}.
+   */
   readonly config: IdentitystoreClientResolvedConfig;
 
   constructor(configuration: IdentitystoreClientConfig) {

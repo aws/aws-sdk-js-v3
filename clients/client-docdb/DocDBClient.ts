@@ -362,7 +362,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type DocDBClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type DocDBClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -370,8 +370,12 @@ export type DocDBClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptio
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of DocDBClient class constructor that set the region, credentials and other options.
+ */
+export interface DocDBClientConfig extends DocDBClientConfigType {}
 
-export type DocDBClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type DocDBClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -379,6 +383,10 @@ export type DocDBClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHand
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of DocDBClient class. This is resolved and normalized from the {@link DocDBClientConfig | constructor configuration interface}.
+ */
+export interface DocDBClientResolvedConfig extends DocDBClientResolvedConfigType {}
 
 /**
  * <p>Amazon DocumentDB API documentation</p>
@@ -389,6 +397,9 @@ export class DocDBClient extends __Client<
   ServiceOutputTypes,
   DocDBClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of DocDBClient class. This is resolved and normalized from the {@link DocDBClientConfig | constructor configuration interface}.
+   */
   readonly config: DocDBClientResolvedConfig;
 
   constructor(configuration: DocDBClientConfig) {

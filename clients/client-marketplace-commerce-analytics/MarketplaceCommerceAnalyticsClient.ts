@@ -154,7 +154,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type MarketplaceCommerceAnalyticsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type MarketplaceCommerceAnalyticsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -162,8 +162,12 @@ export type MarketplaceCommerceAnalyticsClientConfig = Partial<__SmithyConfigura
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of MarketplaceCommerceAnalyticsClient class constructor that set the region, credentials and other options.
+ */
+export interface MarketplaceCommerceAnalyticsClientConfig extends MarketplaceCommerceAnalyticsClientConfigType {}
 
-export type MarketplaceCommerceAnalyticsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type MarketplaceCommerceAnalyticsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -171,6 +175,11 @@ export type MarketplaceCommerceAnalyticsClientResolvedConfig = __SmithyResolvedC
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of MarketplaceCommerceAnalyticsClient class. This is resolved and normalized from the {@link MarketplaceCommerceAnalyticsClientConfig | constructor configuration interface}.
+ */
+export interface MarketplaceCommerceAnalyticsClientResolvedConfig
+  extends MarketplaceCommerceAnalyticsClientResolvedConfigType {}
 
 /**
  * Provides AWS Marketplace business intelligence data on-demand.
@@ -181,6 +190,9 @@ export class MarketplaceCommerceAnalyticsClient extends __Client<
   ServiceOutputTypes,
   MarketplaceCommerceAnalyticsClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of MarketplaceCommerceAnalyticsClient class. This is resolved and normalized from the {@link MarketplaceCommerceAnalyticsClientConfig | constructor configuration interface}.
+   */
   readonly config: MarketplaceCommerceAnalyticsClientResolvedConfig;
 
   constructor(configuration: MarketplaceCommerceAnalyticsClientConfig) {

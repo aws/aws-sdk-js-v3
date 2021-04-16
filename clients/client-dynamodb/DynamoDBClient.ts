@@ -350,7 +350,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type DynamoDBClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type DynamoDBClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -358,8 +358,12 @@ export type DynamoDBClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOp
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of DynamoDBClient class constructor that set the region, credentials and other options.
+ */
+export interface DynamoDBClientConfig extends DynamoDBClientConfigType {}
 
-export type DynamoDBClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type DynamoDBClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -367,6 +371,10 @@ export type DynamoDBClientResolvedConfig = __SmithyResolvedConfiguration<__HttpH
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of DynamoDBClient class. This is resolved and normalized from the {@link DynamoDBClientConfig | constructor configuration interface}.
+ */
+export interface DynamoDBClientResolvedConfig extends DynamoDBClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon DynamoDB</fullname>
@@ -395,6 +403,9 @@ export class DynamoDBClient extends __Client<
   ServiceOutputTypes,
   DynamoDBClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of DynamoDBClient class. This is resolved and normalized from the {@link DynamoDBClientConfig | constructor configuration interface}.
+   */
   readonly config: DynamoDBClientResolvedConfig;
 
   constructor(configuration: DynamoDBClientConfig) {

@@ -221,7 +221,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type OpsWorksCMClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type OpsWorksCMClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -229,8 +229,12 @@ export type OpsWorksCMClientConfig = Partial<__SmithyConfiguration<__HttpHandler
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of OpsWorksCMClient class constructor that set the region, credentials and other options.
+ */
+export interface OpsWorksCMClientConfig extends OpsWorksCMClientConfigType {}
 
-export type OpsWorksCMClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type OpsWorksCMClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -238,6 +242,10 @@ export type OpsWorksCMClientResolvedConfig = __SmithyResolvedConfiguration<__Htt
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of OpsWorksCMClient class. This is resolved and normalized from the {@link OpsWorksCMClientConfig | constructor configuration interface}.
+ */
+export interface OpsWorksCMClientResolvedConfig extends OpsWorksCMClientResolvedConfigType {}
 
 /**
  * <fullname>AWS OpsWorks CM</fullname>
@@ -335,6 +343,9 @@ export class OpsWorksCMClient extends __Client<
   ServiceOutputTypes,
   OpsWorksCMClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of OpsWorksCMClient class. This is resolved and normalized from the {@link OpsWorksCMClientConfig | constructor configuration interface}.
+   */
   readonly config: OpsWorksCMClientResolvedConfig;
 
   constructor(configuration: OpsWorksCMClientConfig) {

@@ -224,7 +224,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type EC2ProtocolClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type EC2ProtocolClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -232,8 +232,12 @@ export type EC2ProtocolClientConfig = Partial<__SmithyConfiguration<__HttpHandle
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of EC2ProtocolClient class constructor that set the region, credentials and other options.
+ */
+export interface EC2ProtocolClientConfig extends EC2ProtocolClientConfigType {}
 
-export type EC2ProtocolClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type EC2ProtocolClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -241,6 +245,10 @@ export type EC2ProtocolClientResolvedConfig = __SmithyResolvedConfiguration<__Ht
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of EC2ProtocolClient class. This is resolved and normalized from the {@link EC2ProtocolClientConfig | constructor configuration interface}.
+ */
+export interface EC2ProtocolClientResolvedConfig extends EC2ProtocolClientResolvedConfigType {}
 
 /**
  * An EC2 query service that sends query requests and XML responses.
@@ -251,6 +259,9 @@ export class EC2ProtocolClient extends __Client<
   ServiceOutputTypes,
   EC2ProtocolClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of EC2ProtocolClient class. This is resolved and normalized from the {@link EC2ProtocolClientConfig | constructor configuration interface}.
+   */
   readonly config: EC2ProtocolClientResolvedConfig;
 
   constructor(configuration: EC2ProtocolClientConfig) {

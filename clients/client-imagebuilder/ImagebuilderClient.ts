@@ -338,7 +338,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type ImagebuilderClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type ImagebuilderClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -346,8 +346,12 @@ export type ImagebuilderClientConfig = Partial<__SmithyConfiguration<__HttpHandl
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of ImagebuilderClient class constructor that set the region, credentials and other options.
+ */
+export interface ImagebuilderClientConfig extends ImagebuilderClientConfigType {}
 
-export type ImagebuilderClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type ImagebuilderClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -355,6 +359,10 @@ export type ImagebuilderClientResolvedConfig = __SmithyResolvedConfiguration<__H
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of ImagebuilderClient class. This is resolved and normalized from the {@link ImagebuilderClientConfig | constructor configuration interface}.
+ */
+export interface ImagebuilderClientResolvedConfig extends ImagebuilderClientResolvedConfigType {}
 
 /**
  * <p>EC2 Image Builder is a fully managed AWS service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date “golden” server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.</p>
@@ -365,6 +373,9 @@ export class ImagebuilderClient extends __Client<
   ServiceOutputTypes,
   ImagebuilderClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of ImagebuilderClient class. This is resolved and normalized from the {@link ImagebuilderClientConfig | constructor configuration interface}.
+   */
   readonly config: ImagebuilderClientResolvedConfig;
 
   constructor(configuration: ImagebuilderClientConfig) {

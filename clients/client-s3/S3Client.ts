@@ -613,7 +613,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   eventStreamSerdeProvider?: __EventStreamSerdeProvider;
 }
 
-export type S3ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type S3ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -623,8 +623,12 @@ export type S3ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>
   BucketEndpointInputConfig &
   UserAgentInputConfig &
   EventStreamSerdeInputConfig;
+/**
+ * The configuration interface of S3Client class constructor that set the region, credentials and other options.
+ */
+export interface S3ClientConfig extends S3ClientConfigType {}
 
-export type S3ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type S3ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -634,6 +638,10 @@ export type S3ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandler
   BucketEndpointResolvedConfig &
   UserAgentResolvedConfig &
   EventStreamSerdeResolvedConfig;
+/**
+ * The resolved configuration interface of S3Client class. This is resolved and normalized from the {@link S3ClientConfig | constructor configuration interface}.
+ */
+export interface S3ClientResolvedConfig extends S3ClientResolvedConfigType {}
 
 /**
  * <p></p>
@@ -644,6 +652,9 @@ export class S3Client extends __Client<
   ServiceOutputTypes,
   S3ClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of S3Client class. This is resolved and normalized from the {@link S3ClientConfig | constructor configuration interface}.
+   */
   readonly config: S3ClientResolvedConfig;
 
   constructor(configuration: S3ClientConfig) {

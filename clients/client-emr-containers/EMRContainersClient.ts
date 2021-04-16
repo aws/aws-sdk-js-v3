@@ -221,7 +221,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type EMRContainersClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type EMRContainersClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -229,8 +229,12 @@ export type EMRContainersClientConfig = Partial<__SmithyConfiguration<__HttpHand
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of EMRContainersClient class constructor that set the region, credentials and other options.
+ */
+export interface EMRContainersClientConfig extends EMRContainersClientConfigType {}
 
-export type EMRContainersClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type EMRContainersClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -238,6 +242,10 @@ export type EMRContainersClientResolvedConfig = __SmithyResolvedConfiguration<__
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of EMRContainersClient class. This is resolved and normalized from the {@link EMRContainersClientConfig | constructor configuration interface}.
+ */
+export interface EMRContainersClientResolvedConfig extends EMRContainersClientResolvedConfigType {}
 
 /**
  * <p>Amazon EMR on EKS provides a deployment option for Amazon EMR that allows you to run
@@ -269,6 +277,9 @@ export class EMRContainersClient extends __Client<
   ServiceOutputTypes,
   EMRContainersClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of EMRContainersClient class. This is resolved and normalized from the {@link EMRContainersClientConfig | constructor configuration interface}.
+   */
   readonly config: EMRContainersClientResolvedConfig;
 
   constructor(configuration: EMRContainersClientConfig) {

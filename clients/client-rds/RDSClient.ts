@@ -836,7 +836,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type RDSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type RDSClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -844,8 +844,12 @@ export type RDSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of RDSClient class constructor that set the region, credentials and other options.
+ */
+export interface RDSClientConfig extends RDSClientConfigType {}
 
-export type RDSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type RDSClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -853,6 +857,10 @@ export type RDSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of RDSClient class. This is resolved and normalized from the {@link RDSClientConfig | constructor configuration interface}.
+ */
+export interface RDSClientResolvedConfig extends RDSClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon Relational Database Service</fullname>
@@ -919,6 +927,9 @@ export class RDSClient extends __Client<
   ServiceOutputTypes,
   RDSClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of RDSClient class. This is resolved and normalized from the {@link RDSClientConfig | constructor configuration interface}.
+   */
   readonly config: RDSClientResolvedConfig;
 
   constructor(configuration: RDSClientConfig) {

@@ -152,7 +152,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type TimestreamQueryClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type TimestreamQueryClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -160,8 +160,12 @@ export type TimestreamQueryClientConfig = Partial<__SmithyConfiguration<__HttpHa
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of TimestreamQueryClient class constructor that set the region, credentials and other options.
+ */
+export interface TimestreamQueryClientConfig extends TimestreamQueryClientConfigType {}
 
-export type TimestreamQueryClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type TimestreamQueryClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -169,6 +173,10 @@ export type TimestreamQueryClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of TimestreamQueryClient class. This is resolved and normalized from the {@link TimestreamQueryClientConfig | constructor configuration interface}.
+ */
+export interface TimestreamQueryClientResolvedConfig extends TimestreamQueryClientResolvedConfigType {}
 
 /**
  * <p>
@@ -181,6 +189,9 @@ export class TimestreamQueryClient extends __Client<
   ServiceOutputTypes,
   TimestreamQueryClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of TimestreamQueryClient class. This is resolved and normalized from the {@link TimestreamQueryClientConfig | constructor configuration interface}.
+   */
   readonly config: TimestreamQueryClientResolvedConfig;
 
   constructor(configuration: TimestreamQueryClientConfig) {

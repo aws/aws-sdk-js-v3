@@ -306,7 +306,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type GlacierClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type GlacierClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -314,8 +314,12 @@ export type GlacierClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOpt
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of GlacierClient class constructor that set the region, credentials and other options.
+ */
+export interface GlacierClientConfig extends GlacierClientConfigType {}
 
-export type GlacierClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type GlacierClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -323,6 +327,10 @@ export type GlacierClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHa
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of GlacierClient class. This is resolved and normalized from the {@link GlacierClientConfig | constructor configuration interface}.
+ */
+export interface GlacierClientResolvedConfig extends GlacierClientResolvedConfigType {}
 
 /**
  * <p> Amazon S3 Glacier (Glacier) is a storage solution for "cold data."</p>
@@ -370,6 +378,9 @@ export class GlacierClient extends __Client<
   ServiceOutputTypes,
   GlacierClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of GlacierClient class. This is resolved and normalized from the {@link GlacierClientConfig | constructor configuration interface}.
+   */
   readonly config: GlacierClientResolvedConfig;
 
   constructor(configuration: GlacierClientConfig) {

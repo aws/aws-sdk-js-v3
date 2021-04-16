@@ -299,7 +299,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type NetworkManagerClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type NetworkManagerClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -307,8 +307,12 @@ export type NetworkManagerClientConfig = Partial<__SmithyConfiguration<__HttpHan
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of NetworkManagerClient class constructor that set the region, credentials and other options.
+ */
+export interface NetworkManagerClientConfig extends NetworkManagerClientConfigType {}
 
-export type NetworkManagerClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type NetworkManagerClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -316,6 +320,10 @@ export type NetworkManagerClientResolvedConfig = __SmithyResolvedConfiguration<_
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of NetworkManagerClient class. This is resolved and normalized from the {@link NetworkManagerClientConfig | constructor configuration interface}.
+ */
+export interface NetworkManagerClientResolvedConfig extends NetworkManagerClientResolvedConfigType {}
 
 /**
  * <p>Transit Gateway Network Manager (Network Manager) enables you to create a global network, in which you can monitor your
@@ -328,6 +336,9 @@ export class NetworkManagerClient extends __Client<
   ServiceOutputTypes,
   NetworkManagerClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of NetworkManagerClient class. This is resolved and normalized from the {@link NetworkManagerClientConfig | constructor configuration interface}.
+   */
   readonly config: NetworkManagerClientResolvedConfig;
 
   constructor(configuration: NetworkManagerClientConfig) {

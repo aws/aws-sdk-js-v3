@@ -260,7 +260,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type FMSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type FMSClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -268,8 +268,12 @@ export type FMSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of FMSClient class constructor that set the region, credentials and other options.
+ */
+export interface FMSClientConfig extends FMSClientConfigType {}
 
-export type FMSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type FMSClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -277,6 +281,10 @@ export type FMSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of FMSClient class. This is resolved and normalized from the {@link FMSClientConfig | constructor configuration interface}.
+ */
+export interface FMSClientResolvedConfig extends FMSClientResolvedConfigType {}
 
 /**
  * <fullname>AWS Firewall Manager</fullname>
@@ -294,6 +302,9 @@ export class FMSClient extends __Client<
   ServiceOutputTypes,
   FMSClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of FMSClient class. This is resolved and normalized from the {@link FMSClientConfig | constructor configuration interface}.
+   */
   readonly config: FMSClientResolvedConfig;
 
   constructor(configuration: FMSClientConfig) {

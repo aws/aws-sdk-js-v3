@@ -293,7 +293,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type TranscribeClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type TranscribeClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -301,8 +301,12 @@ export type TranscribeClientConfig = Partial<__SmithyConfiguration<__HttpHandler
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of TranscribeClient class constructor that set the region, credentials and other options.
+ */
+export interface TranscribeClientConfig extends TranscribeClientConfigType {}
 
-export type TranscribeClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type TranscribeClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -310,6 +314,10 @@ export type TranscribeClientResolvedConfig = __SmithyResolvedConfiguration<__Htt
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of TranscribeClient class. This is resolved and normalized from the {@link TranscribeClientConfig | constructor configuration interface}.
+ */
+export interface TranscribeClientResolvedConfig extends TranscribeClientResolvedConfigType {}
 
 /**
  * <p>Operations and objects for transcribing speech to text.</p>
@@ -320,6 +328,9 @@ export class TranscribeClient extends __Client<
   ServiceOutputTypes,
   TranscribeClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of TranscribeClient class. This is resolved and normalized from the {@link TranscribeClientConfig | constructor configuration interface}.
+   */
   readonly config: TranscribeClientResolvedConfig;
 
   constructor(configuration: TranscribeClientConfig) {

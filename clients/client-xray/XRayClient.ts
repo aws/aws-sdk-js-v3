@@ -254,7 +254,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type XRayClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type XRayClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -262,8 +262,12 @@ export type XRayClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOption
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of XRayClient class constructor that set the region, credentials and other options.
+ */
+export interface XRayClientConfig extends XRayClientConfigType {}
 
-export type XRayClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type XRayClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -271,6 +275,10 @@ export type XRayClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandl
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of XRayClient class. This is resolved and normalized from the {@link XRayClientConfig | constructor configuration interface}.
+ */
+export interface XRayClientResolvedConfig extends XRayClientResolvedConfigType {}
 
 /**
  * <p>AWS X-Ray provides APIs for managing debug traces and retrieving service maps
@@ -282,6 +290,9 @@ export class XRayClient extends __Client<
   ServiceOutputTypes,
   XRayClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of XRayClient class. This is resolved and normalized from the {@link XRayClientConfig | constructor configuration interface}.
+   */
   readonly config: XRayClientResolvedConfig;
 
   constructor(configuration: XRayClientConfig) {

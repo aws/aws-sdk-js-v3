@@ -203,7 +203,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type AppIntegrationsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type AppIntegrationsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -211,8 +211,12 @@ export type AppIntegrationsClientConfig = Partial<__SmithyConfiguration<__HttpHa
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of AppIntegrationsClient class constructor that set the region, credentials and other options.
+ */
+export interface AppIntegrationsClientConfig extends AppIntegrationsClientConfigType {}
 
-export type AppIntegrationsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type AppIntegrationsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -220,6 +224,10 @@ export type AppIntegrationsClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of AppIntegrationsClient class. This is resolved and normalized from the {@link AppIntegrationsClientConfig | constructor configuration interface}.
+ */
+export interface AppIntegrationsClientResolvedConfig extends AppIntegrationsClientResolvedConfigType {}
 
 /**
  * <p>The Amazon AppIntegrations APIs are in preview release and are subject to change.</p>
@@ -233,6 +241,9 @@ export class AppIntegrationsClient extends __Client<
   ServiceOutputTypes,
   AppIntegrationsClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of AppIntegrationsClient class. This is resolved and normalized from the {@link AppIntegrationsClientConfig | constructor configuration interface}.
+   */
   readonly config: AppIntegrationsClientResolvedConfig;
 
   constructor(configuration: AppIntegrationsClientConfig) {

@@ -197,7 +197,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type CloudHSMV2ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type CloudHSMV2ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -205,8 +205,12 @@ export type CloudHSMV2ClientConfig = Partial<__SmithyConfiguration<__HttpHandler
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of CloudHSMV2Client class constructor that set the region, credentials and other options.
+ */
+export interface CloudHSMV2ClientConfig extends CloudHSMV2ClientConfigType {}
 
-export type CloudHSMV2ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type CloudHSMV2ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -214,6 +218,10 @@ export type CloudHSMV2ClientResolvedConfig = __SmithyResolvedConfiguration<__Htt
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of CloudHSMV2Client class. This is resolved and normalized from the {@link CloudHSMV2ClientConfig | constructor configuration interface}.
+ */
+export interface CloudHSMV2ClientResolvedConfig extends CloudHSMV2ClientResolvedConfigType {}
 
 /**
  * <p>For more information about AWS CloudHSM, see <a href="http://aws.amazon.com/cloudhsm/">AWS CloudHSM</a> and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
@@ -225,6 +233,9 @@ export class CloudHSMV2Client extends __Client<
   ServiceOutputTypes,
   CloudHSMV2ClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of CloudHSMV2Client class. This is resolved and normalized from the {@link CloudHSMV2ClientConfig | constructor configuration interface}.
+   */
   readonly config: CloudHSMV2ClientResolvedConfig;
 
   constructor(configuration: CloudHSMV2ClientConfig) {

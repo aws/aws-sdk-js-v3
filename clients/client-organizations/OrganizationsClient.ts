@@ -377,7 +377,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type OrganizationsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type OrganizationsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -385,8 +385,12 @@ export type OrganizationsClientConfig = Partial<__SmithyConfiguration<__HttpHand
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of OrganizationsClient class constructor that set the region, credentials and other options.
+ */
+export interface OrganizationsClientConfig extends OrganizationsClientConfigType {}
 
-export type OrganizationsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type OrganizationsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -394,6 +398,10 @@ export type OrganizationsClientResolvedConfig = __SmithyResolvedConfiguration<__
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of OrganizationsClient class. This is resolved and normalized from the {@link OrganizationsClientConfig | constructor configuration interface}.
+ */
+export interface OrganizationsClientResolvedConfig extends OrganizationsClientResolvedConfigType {}
 
 /**
  * <fullname>AWS Organizations</fullname>
@@ -404,6 +412,9 @@ export class OrganizationsClient extends __Client<
   ServiceOutputTypes,
   OrganizationsClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of OrganizationsClient class. This is resolved and normalized from the {@link OrganizationsClientConfig | constructor configuration interface}.
+   */
   readonly config: OrganizationsClientResolvedConfig;
 
   constructor(configuration: OrganizationsClientConfig) {

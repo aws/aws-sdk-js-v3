@@ -200,7 +200,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type LookoutVisionClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type LookoutVisionClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -208,8 +208,12 @@ export type LookoutVisionClientConfig = Partial<__SmithyConfiguration<__HttpHand
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of LookoutVisionClient class constructor that set the region, credentials and other options.
+ */
+export interface LookoutVisionClientConfig extends LookoutVisionClientConfigType {}
 
-export type LookoutVisionClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type LookoutVisionClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -217,6 +221,10 @@ export type LookoutVisionClientResolvedConfig = __SmithyResolvedConfiguration<__
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of LookoutVisionClient class. This is resolved and normalized from the {@link LookoutVisionClientConfig | constructor configuration interface}.
+ */
+export interface LookoutVisionClientResolvedConfig extends LookoutVisionClientResolvedConfigType {}
 
 /**
  * <p>This is the Amazon Lookout for Vision API Reference. It provides descriptions of actions,
@@ -233,6 +241,9 @@ export class LookoutVisionClient extends __Client<
   ServiceOutputTypes,
   LookoutVisionClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of LookoutVisionClient class. This is resolved and normalized from the {@link LookoutVisionClientConfig | constructor configuration interface}.
+   */
   readonly config: LookoutVisionClientResolvedConfig;
 
   constructor(configuration: LookoutVisionClientConfig) {

@@ -234,7 +234,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type CognitoIdentityClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type CognitoIdentityClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -242,8 +242,12 @@ export type CognitoIdentityClientConfig = Partial<__SmithyConfiguration<__HttpHa
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of CognitoIdentityClient class constructor that set the region, credentials and other options.
+ */
+export interface CognitoIdentityClientConfig extends CognitoIdentityClientConfigType {}
 
-export type CognitoIdentityClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type CognitoIdentityClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -251,6 +255,10 @@ export type CognitoIdentityClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of CognitoIdentityClient class. This is resolved and normalized from the {@link CognitoIdentityClientConfig | constructor configuration interface}.
+ */
+export interface CognitoIdentityClientResolvedConfig extends CognitoIdentityClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon Cognito Federated Identities</fullname>
@@ -274,6 +282,9 @@ export class CognitoIdentityClient extends __Client<
   ServiceOutputTypes,
   CognitoIdentityClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of CognitoIdentityClient class. This is resolved and normalized from the {@link CognitoIdentityClientConfig | constructor configuration interface}.
+   */
   readonly config: CognitoIdentityClientResolvedConfig;
 
   constructor(configuration: CognitoIdentityClientConfig) {

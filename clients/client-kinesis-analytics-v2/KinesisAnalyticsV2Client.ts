@@ -287,7 +287,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type KinesisAnalyticsV2ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type KinesisAnalyticsV2ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -295,8 +295,12 @@ export type KinesisAnalyticsV2ClientConfig = Partial<__SmithyConfiguration<__Htt
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of KinesisAnalyticsV2Client class constructor that set the region, credentials and other options.
+ */
+export interface KinesisAnalyticsV2ClientConfig extends KinesisAnalyticsV2ClientConfigType {}
 
-export type KinesisAnalyticsV2ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type KinesisAnalyticsV2ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -304,6 +308,10 @@ export type KinesisAnalyticsV2ClientResolvedConfig = __SmithyResolvedConfigurati
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of KinesisAnalyticsV2Client class. This is resolved and normalized from the {@link KinesisAnalyticsV2ClientConfig | constructor configuration interface}.
+ */
+export interface KinesisAnalyticsV2ClientResolvedConfig extends KinesisAnalyticsV2ClientResolvedConfigType {}
 
 /**
  * <p>Amazon Kinesis Data Analytics is a fully managed service that you can use to process and analyze streaming data using Java, SQL, or Scala. The service
@@ -316,6 +324,9 @@ export class KinesisAnalyticsV2Client extends __Client<
   ServiceOutputTypes,
   KinesisAnalyticsV2ClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of KinesisAnalyticsV2Client class. This is resolved and normalized from the {@link KinesisAnalyticsV2ClientConfig | constructor configuration interface}.
+   */
   readonly config: KinesisAnalyticsV2ClientResolvedConfig;
 
   constructor(configuration: KinesisAnalyticsV2ClientConfig) {

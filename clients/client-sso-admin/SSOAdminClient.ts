@@ -323,7 +323,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type SSOAdminClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type SSOAdminClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -331,8 +331,12 @@ export type SSOAdminClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOp
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of SSOAdminClient class constructor that set the region, credentials and other options.
+ */
+export interface SSOAdminClientConfig extends SSOAdminClientConfigType {}
 
-export type SSOAdminClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type SSOAdminClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -340,6 +344,10 @@ export type SSOAdminClientResolvedConfig = __SmithyResolvedConfiguration<__HttpH
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of SSOAdminClient class. This is resolved and normalized from the {@link SSOAdminClientConfig | constructor configuration interface}.
+ */
+export interface SSOAdminClientResolvedConfig extends SSOAdminClientResolvedConfigType {}
 
 export class SSOAdminClient extends __Client<
   __HttpHandlerOptions,
@@ -347,6 +355,9 @@ export class SSOAdminClient extends __Client<
   ServiceOutputTypes,
   SSOAdminClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of SSOAdminClient class. This is resolved and normalized from the {@link SSOAdminClientConfig | constructor configuration interface}.
+   */
   readonly config: SSOAdminClientResolvedConfig;
 
   constructor(configuration: SSOAdminClientConfig) {

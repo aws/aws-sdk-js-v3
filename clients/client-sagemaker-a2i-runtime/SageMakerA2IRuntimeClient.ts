@@ -164,7 +164,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type SageMakerA2IRuntimeClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type SageMakerA2IRuntimeClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -172,8 +172,12 @@ export type SageMakerA2IRuntimeClientConfig = Partial<__SmithyConfiguration<__Ht
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of SageMakerA2IRuntimeClient class constructor that set the region, credentials and other options.
+ */
+export interface SageMakerA2IRuntimeClientConfig extends SageMakerA2IRuntimeClientConfigType {}
 
-export type SageMakerA2IRuntimeClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type SageMakerA2IRuntimeClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -181,6 +185,10 @@ export type SageMakerA2IRuntimeClientResolvedConfig = __SmithyResolvedConfigurat
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of SageMakerA2IRuntimeClient class. This is resolved and normalized from the {@link SageMakerA2IRuntimeClientConfig | constructor configuration interface}.
+ */
+export interface SageMakerA2IRuntimeClientResolvedConfig extends SageMakerA2IRuntimeClientResolvedConfigType {}
 
 /**
  * <important>
@@ -220,6 +228,9 @@ export class SageMakerA2IRuntimeClient extends __Client<
   ServiceOutputTypes,
   SageMakerA2IRuntimeClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of SageMakerA2IRuntimeClient class. This is resolved and normalized from the {@link SageMakerA2IRuntimeClientConfig | constructor configuration interface}.
+   */
   readonly config: SageMakerA2IRuntimeClientResolvedConfig;
 
   constructor(configuration: SageMakerA2IRuntimeClientConfig) {

@@ -173,7 +173,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type IoTDataPlaneClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type IoTDataPlaneClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -181,8 +181,12 @@ export type IoTDataPlaneClientConfig = Partial<__SmithyConfiguration<__HttpHandl
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of IoTDataPlaneClient class constructor that set the region, credentials and other options.
+ */
+export interface IoTDataPlaneClientConfig extends IoTDataPlaneClientConfigType {}
 
-export type IoTDataPlaneClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type IoTDataPlaneClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -190,6 +194,10 @@ export type IoTDataPlaneClientResolvedConfig = __SmithyResolvedConfiguration<__H
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of IoTDataPlaneClient class. This is resolved and normalized from the {@link IoTDataPlaneClientConfig | constructor configuration interface}.
+ */
+export interface IoTDataPlaneClientResolvedConfig extends IoTDataPlaneClientResolvedConfigType {}
 
 /**
  * <fullname>AWS IoT</fullname>
@@ -210,6 +218,9 @@ export class IoTDataPlaneClient extends __Client<
   ServiceOutputTypes,
   IoTDataPlaneClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of IoTDataPlaneClient class. This is resolved and normalized from the {@link IoTDataPlaneClientConfig | constructor configuration interface}.
+   */
   readonly config: IoTDataPlaneClientResolvedConfig;
 
   constructor(configuration: IoTDataPlaneClientConfig) {

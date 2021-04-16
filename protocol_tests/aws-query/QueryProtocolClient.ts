@@ -254,7 +254,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type QueryProtocolClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type QueryProtocolClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -262,8 +262,12 @@ export type QueryProtocolClientConfig = Partial<__SmithyConfiguration<__HttpHand
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of QueryProtocolClient class constructor that set the region, credentials and other options.
+ */
+export interface QueryProtocolClientConfig extends QueryProtocolClientConfigType {}
 
-export type QueryProtocolClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type QueryProtocolClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -271,6 +275,10 @@ export type QueryProtocolClientResolvedConfig = __SmithyResolvedConfiguration<__
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of QueryProtocolClient class. This is resolved and normalized from the {@link QueryProtocolClientConfig | constructor configuration interface}.
+ */
+export interface QueryProtocolClientResolvedConfig extends QueryProtocolClientResolvedConfigType {}
 
 /**
  * A query service that sends query requests and XML responses.
@@ -281,6 +289,9 @@ export class QueryProtocolClient extends __Client<
   ServiceOutputTypes,
   QueryProtocolClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of QueryProtocolClient class. This is resolved and normalized from the {@link QueryProtocolClientConfig | constructor configuration interface}.
+   */
   readonly config: QueryProtocolClientResolvedConfig;
 
   constructor(configuration: QueryProtocolClientConfig) {

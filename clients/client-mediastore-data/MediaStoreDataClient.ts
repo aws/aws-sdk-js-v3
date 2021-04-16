@@ -164,7 +164,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type MediaStoreDataClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type MediaStoreDataClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -172,8 +172,12 @@ export type MediaStoreDataClientConfig = Partial<__SmithyConfiguration<__HttpHan
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of MediaStoreDataClient class constructor that set the region, credentials and other options.
+ */
+export interface MediaStoreDataClientConfig extends MediaStoreDataClientConfigType {}
 
-export type MediaStoreDataClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type MediaStoreDataClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -181,6 +185,10 @@ export type MediaStoreDataClientResolvedConfig = __SmithyResolvedConfiguration<_
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of MediaStoreDataClient class. This is resolved and normalized from the {@link MediaStoreDataClientConfig | constructor configuration interface}.
+ */
+export interface MediaStoreDataClientResolvedConfig extends MediaStoreDataClientResolvedConfigType {}
 
 /**
  * <p>An AWS Elemental MediaStore asset is an object, similar to an object in the Amazon S3
@@ -193,6 +201,9 @@ export class MediaStoreDataClient extends __Client<
   ServiceOutputTypes,
   MediaStoreDataClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of MediaStoreDataClient class. This is resolved and normalized from the {@link MediaStoreDataClientConfig | constructor configuration interface}.
+   */
   readonly config: MediaStoreDataClientResolvedConfig;
 
   constructor(configuration: MediaStoreDataClientConfig) {

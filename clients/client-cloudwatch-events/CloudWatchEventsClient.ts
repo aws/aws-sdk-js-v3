@@ -299,7 +299,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type CloudWatchEventsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type CloudWatchEventsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -307,8 +307,12 @@ export type CloudWatchEventsClientConfig = Partial<__SmithyConfiguration<__HttpH
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of CloudWatchEventsClient class constructor that set the region, credentials and other options.
+ */
+export interface CloudWatchEventsClientConfig extends CloudWatchEventsClientConfigType {}
 
-export type CloudWatchEventsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type CloudWatchEventsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -316,6 +320,10 @@ export type CloudWatchEventsClientResolvedConfig = __SmithyResolvedConfiguration
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of CloudWatchEventsClient class. This is resolved and normalized from the {@link CloudWatchEventsClientConfig | constructor configuration interface}.
+ */
+export interface CloudWatchEventsClientResolvedConfig extends CloudWatchEventsClientResolvedConfigType {}
 
 /**
  * <p>Amazon EventBridge helps you to respond to state changes in your AWS resources.
@@ -347,6 +355,9 @@ export class CloudWatchEventsClient extends __Client<
   ServiceOutputTypes,
   CloudWatchEventsClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of CloudWatchEventsClient class. This is resolved and normalized from the {@link CloudWatchEventsClientConfig | constructor configuration interface}.
+   */
   readonly config: CloudWatchEventsClientResolvedConfig;
 
   constructor(configuration: CloudWatchEventsClientConfig) {

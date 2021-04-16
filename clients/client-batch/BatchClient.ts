@@ -230,7 +230,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type BatchClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type BatchClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -238,8 +238,12 @@ export type BatchClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptio
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of BatchClient class constructor that set the region, credentials and other options.
+ */
+export interface BatchClientConfig extends BatchClientConfigType {}
 
-export type BatchClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type BatchClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -247,6 +251,10 @@ export type BatchClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHand
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of BatchClient class. This is resolved and normalized from the {@link BatchClientConfig | constructor configuration interface}.
+ */
+export interface BatchClientResolvedConfig extends BatchClientResolvedConfigType {}
 
 /**
  * <p>Using AWS Batch, you can run batch computing workloads on the AWS Cloud. Batch computing is a common means for
@@ -266,6 +274,9 @@ export class BatchClient extends __Client<
   ServiceOutputTypes,
   BatchClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of BatchClient class. This is resolved and normalized from the {@link BatchClientConfig | constructor configuration interface}.
+   */
   readonly config: BatchClientResolvedConfig;
 
   constructor(configuration: BatchClientConfig) {

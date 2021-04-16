@@ -767,7 +767,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type IAMClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type IAMClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -775,8 +775,12 @@ export type IAMClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of IAMClient class constructor that set the region, credentials and other options.
+ */
+export interface IAMClientConfig extends IAMClientConfigType {}
 
-export type IAMClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type IAMClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -784,6 +788,10 @@ export type IAMClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of IAMClient class. This is resolved and normalized from the {@link IAMClientConfig | constructor configuration interface}.
+ */
+export interface IAMClientResolvedConfig extends IAMClientResolvedConfigType {}
 
 /**
  * <fullname>AWS Identity and Access Management</fullname>
@@ -798,6 +806,9 @@ export class IAMClient extends __Client<
   ServiceOutputTypes,
   IAMClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of IAMClient class. This is resolved and normalized from the {@link IAMClientConfig | constructor configuration interface}.
+   */
   readonly config: IAMClientResolvedConfig;
 
   constructor(configuration: IAMClientConfig) {

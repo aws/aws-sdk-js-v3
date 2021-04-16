@@ -236,7 +236,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type AmplifyBackendClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type AmplifyBackendClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -244,8 +244,12 @@ export type AmplifyBackendClientConfig = Partial<__SmithyConfiguration<__HttpHan
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of AmplifyBackendClient class constructor that set the region, credentials and other options.
+ */
+export interface AmplifyBackendClientConfig extends AmplifyBackendClientConfigType {}
 
-export type AmplifyBackendClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type AmplifyBackendClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -253,6 +257,10 @@ export type AmplifyBackendClientResolvedConfig = __SmithyResolvedConfiguration<_
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of AmplifyBackendClient class. This is resolved and normalized from the {@link AmplifyBackendClientConfig | constructor configuration interface}.
+ */
+export interface AmplifyBackendClientResolvedConfig extends AmplifyBackendClientResolvedConfigType {}
 
 /**
  * <p>AWS Amplify Admin API</p>
@@ -263,6 +271,9 @@ export class AmplifyBackendClient extends __Client<
   ServiceOutputTypes,
   AmplifyBackendClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of AmplifyBackendClient class. This is resolved and normalized from the {@link AmplifyBackendClientConfig | constructor configuration interface}.
+   */
   readonly config: AmplifyBackendClientResolvedConfig;
 
   constructor(configuration: AmplifyBackendClientConfig) {

@@ -230,7 +230,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type MediaPackageClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type MediaPackageClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -238,8 +238,12 @@ export type MediaPackageClientConfig = Partial<__SmithyConfiguration<__HttpHandl
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of MediaPackageClient class constructor that set the region, credentials and other options.
+ */
+export interface MediaPackageClientConfig extends MediaPackageClientConfigType {}
 
-export type MediaPackageClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type MediaPackageClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -247,6 +251,10 @@ export type MediaPackageClientResolvedConfig = __SmithyResolvedConfiguration<__H
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of MediaPackageClient class. This is resolved and normalized from the {@link MediaPackageClientConfig | constructor configuration interface}.
+ */
+export interface MediaPackageClientResolvedConfig extends MediaPackageClientResolvedConfigType {}
 
 /**
  * AWS Elemental MediaPackage
@@ -257,6 +265,9 @@ export class MediaPackageClient extends __Client<
   ServiceOutputTypes,
   MediaPackageClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of MediaPackageClient class. This is resolved and normalized from the {@link MediaPackageClientConfig | constructor configuration interface}.
+   */
   readonly config: MediaPackageClientResolvedConfig;
 
   constructor(configuration: MediaPackageClientConfig) {

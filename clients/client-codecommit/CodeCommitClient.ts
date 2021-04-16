@@ -524,7 +524,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type CodeCommitClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type CodeCommitClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -532,8 +532,12 @@ export type CodeCommitClientConfig = Partial<__SmithyConfiguration<__HttpHandler
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of CodeCommitClient class constructor that set the region, credentials and other options.
+ */
+export interface CodeCommitClientConfig extends CodeCommitClientConfigType {}
 
-export type CodeCommitClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type CodeCommitClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -541,6 +545,10 @@ export type CodeCommitClientResolvedConfig = __SmithyResolvedConfiguration<__Htt
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of CodeCommitClient class. This is resolved and normalized from the {@link CodeCommitClientConfig | constructor configuration interface}.
+ */
+export interface CodeCommitClientResolvedConfig extends CodeCommitClientResolvedConfigType {}
 
 /**
  * <fullname>AWS CodeCommit</fullname>
@@ -947,6 +955,9 @@ export class CodeCommitClient extends __Client<
   ServiceOutputTypes,
   CodeCommitClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of CodeCommitClient class. This is resolved and normalized from the {@link CodeCommitClientConfig | constructor configuration interface}.
+   */
   readonly config: CodeCommitClientResolvedConfig;
 
   constructor(configuration: CodeCommitClientConfig) {

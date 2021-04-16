@@ -212,7 +212,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type CodeStarClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type CodeStarClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -220,8 +220,12 @@ export type CodeStarClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOp
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of CodeStarClient class constructor that set the region, credentials and other options.
+ */
+export interface CodeStarClientConfig extends CodeStarClientConfigType {}
 
-export type CodeStarClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type CodeStarClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -229,6 +233,10 @@ export type CodeStarClientResolvedConfig = __SmithyResolvedConfiguration<__HttpH
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of CodeStarClient class. This is resolved and normalized from the {@link CodeStarClientConfig | constructor configuration interface}.
+ */
+export interface CodeStarClientResolvedConfig extends CodeStarClientResolvedConfigType {}
 
 /**
  * <fullname>AWS CodeStar</fullname>
@@ -328,6 +336,9 @@ export class CodeStarClient extends __Client<
   ServiceOutputTypes,
   CodeStarClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of CodeStarClient class. This is resolved and normalized from the {@link CodeStarClientConfig | constructor configuration interface}.
+   */
   readonly config: CodeStarClientResolvedConfig;
 
   constructor(configuration: CodeStarClientConfig) {

@@ -233,7 +233,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type MediaConvertClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type MediaConvertClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -241,8 +241,12 @@ export type MediaConvertClientConfig = Partial<__SmithyConfiguration<__HttpHandl
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of MediaConvertClient class constructor that set the region, credentials and other options.
+ */
+export interface MediaConvertClientConfig extends MediaConvertClientConfigType {}
 
-export type MediaConvertClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type MediaConvertClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -250,6 +254,10 @@ export type MediaConvertClientResolvedConfig = __SmithyResolvedConfiguration<__H
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of MediaConvertClient class. This is resolved and normalized from the {@link MediaConvertClientConfig | constructor configuration interface}.
+ */
+export interface MediaConvertClientResolvedConfig extends MediaConvertClientResolvedConfigType {}
 
 /**
  * AWS Elemental MediaConvert
@@ -260,6 +268,9 @@ export class MediaConvertClient extends __Client<
   ServiceOutputTypes,
   MediaConvertClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of MediaConvertClient class. This is resolved and normalized from the {@link MediaConvertClientConfig | constructor configuration interface}.
+   */
   readonly config: MediaConvertClientResolvedConfig;
 
   constructor(configuration: MediaConvertClientConfig) {

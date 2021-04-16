@@ -518,7 +518,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type CloudFrontClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type CloudFrontClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -526,8 +526,12 @@ export type CloudFrontClientConfig = Partial<__SmithyConfiguration<__HttpHandler
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of CloudFrontClient class constructor that set the region, credentials and other options.
+ */
+export interface CloudFrontClientConfig extends CloudFrontClientConfigType {}
 
-export type CloudFrontClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type CloudFrontClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -535,6 +539,10 @@ export type CloudFrontClientResolvedConfig = __SmithyResolvedConfiguration<__Htt
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of CloudFrontClient class. This is resolved and normalized from the {@link CloudFrontClientConfig | constructor configuration interface}.
+ */
+export interface CloudFrontClientResolvedConfig extends CloudFrontClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon CloudFront</fullname>
@@ -547,6 +555,9 @@ export class CloudFrontClient extends __Client<
   ServiceOutputTypes,
   CloudFrontClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of CloudFrontClient class. This is resolved and normalized from the {@link CloudFrontClientConfig | constructor configuration interface}.
+   */
   readonly config: CloudFrontClientResolvedConfig;
 
   constructor(configuration: CloudFrontClientConfig) {

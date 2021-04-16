@@ -383,7 +383,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type GlobalAcceleratorClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type GlobalAcceleratorClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -391,8 +391,12 @@ export type GlobalAcceleratorClientConfig = Partial<__SmithyConfiguration<__Http
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of GlobalAcceleratorClient class constructor that set the region, credentials and other options.
+ */
+export interface GlobalAcceleratorClientConfig extends GlobalAcceleratorClientConfigType {}
 
-export type GlobalAcceleratorClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type GlobalAcceleratorClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -400,6 +404,10 @@ export type GlobalAcceleratorClientResolvedConfig = __SmithyResolvedConfiguratio
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of GlobalAcceleratorClient class. This is resolved and normalized from the {@link GlobalAcceleratorClientConfig | constructor configuration interface}.
+ */
+export interface GlobalAcceleratorClientResolvedConfig extends GlobalAcceleratorClientResolvedConfigType {}
 
 /**
  * <fullname>AWS Global Accelerator</fullname>
@@ -557,6 +565,9 @@ export class GlobalAcceleratorClient extends __Client<
   ServiceOutputTypes,
   GlobalAcceleratorClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of GlobalAcceleratorClient class. This is resolved and normalized from the {@link GlobalAcceleratorClientConfig | constructor configuration interface}.
+   */
   readonly config: GlobalAcceleratorClientResolvedConfig;
 
   constructor(configuration: GlobalAcceleratorClientConfig) {
