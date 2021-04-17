@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListWebsiteCertificateAuthoritiesCommandInput = ListWebsiteCertificateAuthoritiesRequest;
-export type ListWebsiteCertificateAuthoritiesCommandOutput = ListWebsiteCertificateAuthoritiesResponse &
-  __MetadataBearer;
+export interface ListWebsiteCertificateAuthoritiesCommandInput extends ListWebsiteCertificateAuthoritiesRequest {}
+export interface ListWebsiteCertificateAuthoritiesCommandOutput
+  extends ListWebsiteCertificateAuthoritiesResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of certificate authorities added for the current account and

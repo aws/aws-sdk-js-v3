@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSegmentExportJobsCommandInput = GetSegmentExportJobsRequest;
-export type GetSegmentExportJobsCommandOutput = GetSegmentExportJobsResponse & __MetadataBearer;
+export interface GetSegmentExportJobsCommandInput extends GetSegmentExportJobsRequest {}
+export interface GetSegmentExportJobsCommandOutput extends GetSegmentExportJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the status and settings of the export jobs for a segment.</p>

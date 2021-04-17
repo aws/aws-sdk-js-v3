@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreatePublicKeyCommandInput = CreatePublicKeyRequest;
-export type CreatePublicKeyCommandOutput = CreatePublicKeyResult & __MetadataBearer;
+export interface CreatePublicKeyCommandInput extends CreatePublicKeyRequest {}
+export interface CreatePublicKeyCommandOutput extends CreatePublicKeyResult, __MetadataBearer {}
 
 /**
  * <p>Uploads a public key to CloudFront that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">signed URLs and signed cookies</a>, or with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html">field-level encryption</a>.</p>

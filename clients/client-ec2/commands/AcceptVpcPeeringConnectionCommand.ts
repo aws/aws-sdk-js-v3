@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AcceptVpcPeeringConnectionCommandInput = AcceptVpcPeeringConnectionRequest;
-export type AcceptVpcPeeringConnectionCommandOutput = AcceptVpcPeeringConnectionResult & __MetadataBearer;
+export interface AcceptVpcPeeringConnectionCommandInput extends AcceptVpcPeeringConnectionRequest {}
+export interface AcceptVpcPeeringConnectionCommandOutput extends AcceptVpcPeeringConnectionResult, __MetadataBearer {}
 
 /**
  * <p>Accept a VPC peering connection request. To accept a request, the VPC peering connection must

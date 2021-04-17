@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTrialCommandInput = DescribeTrialRequest;
-export type DescribeTrialCommandOutput = DescribeTrialResponse & __MetadataBearer;
+export interface DescribeTrialCommandInput extends DescribeTrialRequest {}
+export interface DescribeTrialCommandOutput extends DescribeTrialResponse, __MetadataBearer {}
 
 /**
  * <p>Provides a list of a trial's properties.</p>

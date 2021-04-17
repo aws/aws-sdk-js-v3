@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateForecastCommandInput = CreateForecastRequest;
-export type CreateForecastCommandOutput = CreateForecastResponse & __MetadataBearer;
+export interface CreateForecastCommandInput extends CreateForecastRequest {}
+export interface CreateForecastCommandOutput extends CreateForecastResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a forecast for each item in the <code>TARGET_TIME_SERIES</code> dataset that was

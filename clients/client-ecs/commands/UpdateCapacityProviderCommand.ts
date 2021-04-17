@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateCapacityProviderCommandInput = UpdateCapacityProviderRequest;
-export type UpdateCapacityProviderCommandOutput = UpdateCapacityProviderResponse & __MetadataBearer;
+export interface UpdateCapacityProviderCommandInput extends UpdateCapacityProviderRequest {}
+export interface UpdateCapacityProviderCommandOutput extends UpdateCapacityProviderResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies the parameters for a capacity provider.</p>

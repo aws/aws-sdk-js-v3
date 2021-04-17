@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTransformJobCommandInput = DescribeTransformJobRequest;
-export type DescribeTransformJobCommandOutput = DescribeTransformJobResponse & __MetadataBearer;
+export interface DescribeTransformJobCommandInput extends DescribeTransformJobRequest {}
+export interface DescribeTransformJobCommandOutput extends DescribeTransformJobResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about a transform job.</p>

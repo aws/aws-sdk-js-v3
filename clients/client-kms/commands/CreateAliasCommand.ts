@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateAliasCommandInput = CreateAliasRequest;
-export type CreateAliasCommandOutput = __MetadataBearer;
+export interface CreateAliasCommandInput extends CreateAliasRequest {}
+export interface CreateAliasCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Creates a friendly name for a customer master key (CMK). You can use an alias to identify

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyVpnTunnelOptionsCommandInput = ModifyVpnTunnelOptionsRequest;
-export type ModifyVpnTunnelOptionsCommandOutput = ModifyVpnTunnelOptionsResult & __MetadataBearer;
+export interface ModifyVpnTunnelOptionsCommandInput extends ModifyVpnTunnelOptionsRequest {}
+export interface ModifyVpnTunnelOptionsCommandOutput extends ModifyVpnTunnelOptionsResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the options for a VPN tunnel in an AWS Site-to-Site VPN connection. You can modify

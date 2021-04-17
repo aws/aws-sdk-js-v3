@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDataCatalogCommandInput = CreateDataCatalogInput;
-export type CreateDataCatalogCommandOutput = CreateDataCatalogOutput & __MetadataBearer;
+export interface CreateDataCatalogCommandInput extends CreateDataCatalogInput {}
+export interface CreateDataCatalogCommandOutput extends CreateDataCatalogOutput, __MetadataBearer {}
 
 /**
  * <p>Creates (registers) a data catalog with the specified name and properties. Catalogs

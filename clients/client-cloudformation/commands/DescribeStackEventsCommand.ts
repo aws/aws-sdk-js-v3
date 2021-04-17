@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeStackEventsCommandInput = DescribeStackEventsInput;
-export type DescribeStackEventsCommandOutput = DescribeStackEventsOutput & __MetadataBearer;
+export interface DescribeStackEventsCommandInput extends DescribeStackEventsInput {}
+export interface DescribeStackEventsCommandOutput extends DescribeStackEventsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns all stack related events for a specified stack in reverse chronological

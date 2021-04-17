@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDestinationsCommandInput = DescribeDestinationsRequest;
-export type DescribeDestinationsCommandOutput = DescribeDestinationsResponse & __MetadataBearer;
+export interface DescribeDestinationsCommandInput extends DescribeDestinationsRequest {}
+export interface DescribeDestinationsCommandOutput extends DescribeDestinationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all your destinations. The results are ASCII-sorted by destination name.</p>

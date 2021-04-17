@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAccessPolicyCommandInput = DescribeAccessPolicyRequest;
-export type DescribeAccessPolicyCommandOutput = DescribeAccessPolicyResponse & __MetadataBearer;
+export interface DescribeAccessPolicyCommandInput extends DescribeAccessPolicyRequest {}
+export interface DescribeAccessPolicyCommandOutput extends DescribeAccessPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Describes an access policy, which specifies an identity's access to an AWS IoT SiteWise Monitor portal or

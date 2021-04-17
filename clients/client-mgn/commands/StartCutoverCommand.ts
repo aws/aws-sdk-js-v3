@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartCutoverCommandInput = StartCutoverRequest;
-export type StartCutoverCommandOutput = StartCutoverResponse & __MetadataBearer;
+export interface StartCutoverCommandInput extends StartCutoverRequest {}
+export interface StartCutoverCommandOutput extends StartCutoverResponse, __MetadataBearer {}
 
 /**
  * <p>Launches a Cutover Instance for specific Source Servers. This command starts a LAUNCH job whose initiatedBy property is StartCutover and changes the SourceServer.lifeCycle.state property to CUTTING_OVER.</p>

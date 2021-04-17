@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetEbsDefaultKmsKeyIdCommandInput = GetEbsDefaultKmsKeyIdRequest;
-export type GetEbsDefaultKmsKeyIdCommandOutput = GetEbsDefaultKmsKeyIdResult & __MetadataBearer;
+export interface GetEbsDefaultKmsKeyIdCommandInput extends GetEbsDefaultKmsKeyIdRequest {}
+export interface GetEbsDefaultKmsKeyIdCommandOutput extends GetEbsDefaultKmsKeyIdResult, __MetadataBearer {}
 
 /**
  * <p>Describes the default customer master key (CMK) for EBS encryption by default for your account in this Region.

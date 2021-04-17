@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListConfigsCommandInput = ListConfigsRequest;
-export type ListConfigsCommandOutput = ListConfigsResponse & __MetadataBearer;
+export interface ListConfigsCommandInput extends ListConfigsRequest {}
+export interface ListConfigsCommandOutput extends ListConfigsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of <code>Config</code> objects.</p>

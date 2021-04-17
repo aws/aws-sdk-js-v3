@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetRelationalDatabasesCommandInput = GetRelationalDatabasesRequest;
-export type GetRelationalDatabasesCommandOutput = GetRelationalDatabasesResult & __MetadataBearer;
+export interface GetRelationalDatabasesCommandInput extends GetRelationalDatabasesRequest {}
+export interface GetRelationalDatabasesCommandOutput extends GetRelationalDatabasesResult, __MetadataBearer {}
 
 /**
  * <p>Returns information about all of your databases in Amazon Lightsail.</p>

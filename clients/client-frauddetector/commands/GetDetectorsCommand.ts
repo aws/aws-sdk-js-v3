@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDetectorsCommandInput = GetDetectorsRequest;
-export type GetDetectorsCommandOutput = GetDetectorsResult & __MetadataBearer;
+export interface GetDetectorsCommandInput extends GetDetectorsRequest {}
+export interface GetDetectorsCommandOutput extends GetDetectorsResult, __MetadataBearer {}
 
 /**
  * <p>Gets all detectors or a single detector if a <code>detectorId</code> is specified. This is a paginated API. If you

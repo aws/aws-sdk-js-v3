@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelIngestionCommandInput = CancelIngestionRequest;
-export type CancelIngestionCommandOutput = CancelIngestionResponse & __MetadataBearer;
+export interface CancelIngestionCommandInput extends CancelIngestionRequest {}
+export interface CancelIngestionCommandOutput extends CancelIngestionResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels an ongoing ingestion of data into SPICE.</p>

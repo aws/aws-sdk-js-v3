@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateDimensionCommandInput = UpdateDimensionRequest;
-export type UpdateDimensionCommandOutput = UpdateDimensionResponse & __MetadataBearer;
+export interface UpdateDimensionCommandInput extends UpdateDimensionRequest {}
+export interface UpdateDimensionCommandOutput extends UpdateDimensionResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the definition for a dimension. You

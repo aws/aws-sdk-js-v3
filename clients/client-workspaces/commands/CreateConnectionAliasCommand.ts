@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateConnectionAliasCommandInput = CreateConnectionAliasRequest;
-export type CreateConnectionAliasCommandOutput = CreateConnectionAliasResult & __MetadataBearer;
+export interface CreateConnectionAliasCommandInput extends CreateConnectionAliasRequest {}
+export interface CreateConnectionAliasCommandOutput extends CreateConnectionAliasResult, __MetadataBearer {}
 
 /**
  * <p>Creates the specified connection alias for use with cross-Region redirection. For more information, see

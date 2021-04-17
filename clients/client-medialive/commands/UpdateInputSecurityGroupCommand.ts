@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateInputSecurityGroupCommandInput = UpdateInputSecurityGroupRequest;
-export type UpdateInputSecurityGroupCommandOutput = UpdateInputSecurityGroupResponse & __MetadataBearer;
+export interface UpdateInputSecurityGroupCommandInput extends UpdateInputSecurityGroupRequest {}
+export interface UpdateInputSecurityGroupCommandOutput extends UpdateInputSecurityGroupResponse, __MetadataBearer {}
 
 /**
  * Update an Input Security Group's Whilelists.

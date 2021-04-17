@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListSubscriptionDefinitionsCommandInput = ListSubscriptionDefinitionsRequest;
-export type ListSubscriptionDefinitionsCommandOutput = ListSubscriptionDefinitionsResponse & __MetadataBearer;
+export interface ListSubscriptionDefinitionsCommandInput extends ListSubscriptionDefinitionsRequest {}
+export interface ListSubscriptionDefinitionsCommandOutput
+  extends ListSubscriptionDefinitionsResponse,
+    __MetadataBearer {}
 
 /**
  * Retrieves a list of subscription definitions.

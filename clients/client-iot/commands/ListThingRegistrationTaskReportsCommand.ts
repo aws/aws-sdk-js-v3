@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListThingRegistrationTaskReportsCommandInput = ListThingRegistrationTaskReportsRequest;
-export type ListThingRegistrationTaskReportsCommandOutput = ListThingRegistrationTaskReportsResponse & __MetadataBearer;
+export interface ListThingRegistrationTaskReportsCommandInput extends ListThingRegistrationTaskReportsRequest {}
+export interface ListThingRegistrationTaskReportsCommandOutput
+  extends ListThingRegistrationTaskReportsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Information about the thing registration tasks.</p>

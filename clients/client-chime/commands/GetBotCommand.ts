@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBotCommandInput = GetBotRequest;
-export type GetBotCommandOutput = GetBotResponse & __MetadataBearer;
+export interface GetBotCommandInput extends GetBotRequest {}
+export interface GetBotCommandOutput extends GetBotResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves details for the specified bot, such as bot email address, bot type, status, and display name.</p>

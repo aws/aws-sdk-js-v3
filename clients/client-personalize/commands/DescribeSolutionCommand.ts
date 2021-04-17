@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeSolutionCommandInput = DescribeSolutionRequest;
-export type DescribeSolutionCommandOutput = DescribeSolutionResponse & __MetadataBearer;
+export interface DescribeSolutionCommandInput extends DescribeSolutionRequest {}
+export interface DescribeSolutionCommandOutput extends DescribeSolutionResponse, __MetadataBearer {}
 
 /**
  * <p>Describes a solution.

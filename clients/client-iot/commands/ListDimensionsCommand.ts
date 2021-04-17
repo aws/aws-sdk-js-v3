@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDimensionsCommandInput = ListDimensionsRequest;
-export type ListDimensionsCommandOutput = ListDimensionsResponse & __MetadataBearer;
+export interface ListDimensionsCommandInput extends ListDimensionsRequest {}
+export interface ListDimensionsCommandOutput extends ListDimensionsResponse, __MetadataBearer {}
 
 /**
  * <p>List the set of dimensions that are defined for your AWS account.</p>

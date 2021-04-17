@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDeviceUsageDataCommandInput = DeleteDeviceUsageDataRequest;
-export type DeleteDeviceUsageDataCommandOutput = DeleteDeviceUsageDataResponse & __MetadataBearer;
+export interface DeleteDeviceUsageDataCommandInput extends DeleteDeviceUsageDataRequest {}
+export interface DeleteDeviceUsageDataCommandOutput extends DeleteDeviceUsageDataResponse, __MetadataBearer {}
 
 /**
  * <p>When this action is called for a specified shared device, it allows authorized users to

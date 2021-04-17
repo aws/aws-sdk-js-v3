@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetRelationalDatabaseBlueprintsCommandInput = GetRelationalDatabaseBlueprintsRequest;
-export type GetRelationalDatabaseBlueprintsCommandOutput = GetRelationalDatabaseBlueprintsResult & __MetadataBearer;
+export interface GetRelationalDatabaseBlueprintsCommandInput extends GetRelationalDatabaseBlueprintsRequest {}
+export interface GetRelationalDatabaseBlueprintsCommandOutput
+  extends GetRelationalDatabaseBlueprintsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Returns a list of available database blueprints in Amazon Lightsail. A blueprint describes

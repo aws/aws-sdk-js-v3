@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateServiceCommandInput = CreateServiceRequest;
-export type CreateServiceCommandOutput = CreateServiceResponse & __MetadataBearer;
+export interface CreateServiceCommandInput extends CreateServiceRequest {}
+export interface CreateServiceCommandOutput extends CreateServiceResponse, __MetadataBearer {}
 
 /**
  * <p>Runs and maintains a desired number of tasks from a specified task definition. If the

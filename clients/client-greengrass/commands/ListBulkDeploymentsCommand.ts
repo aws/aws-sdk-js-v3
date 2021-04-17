@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListBulkDeploymentsCommandInput = ListBulkDeploymentsRequest;
-export type ListBulkDeploymentsCommandOutput = ListBulkDeploymentsResponse & __MetadataBearer;
+export interface ListBulkDeploymentsCommandInput extends ListBulkDeploymentsRequest {}
+export interface ListBulkDeploymentsCommandOutput extends ListBulkDeploymentsResponse, __MetadataBearer {}
 
 /**
  * Returns a list of bulk deployments.

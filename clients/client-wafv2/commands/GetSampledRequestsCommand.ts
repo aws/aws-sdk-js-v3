@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSampledRequestsCommandInput = GetSampledRequestsRequest;
-export type GetSampledRequestsCommandOutput = GetSampledRequestsResponse & __MetadataBearer;
+export interface GetSampledRequestsCommandInput extends GetSampledRequestsRequest {}
+export interface GetSampledRequestsCommandOutput extends GetSampledRequestsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets detailed information about a specified number of requests--a sample--that AWS WAF randomly selects from among the first 5,000 requests that your AWS resource received during a time range that you choose. You can specify a sample size of up to 500 requests, and you can specify any time range in the previous three hours.</p>

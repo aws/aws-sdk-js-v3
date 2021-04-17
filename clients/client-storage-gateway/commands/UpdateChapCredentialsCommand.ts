@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateChapCredentialsCommandInput = UpdateChapCredentialsInput;
-export type UpdateChapCredentialsCommandOutput = UpdateChapCredentialsOutput & __MetadataBearer;
+export interface UpdateChapCredentialsCommandInput extends UpdateChapCredentialsInput {}
+export interface UpdateChapCredentialsCommandOutput extends UpdateChapCredentialsOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the Challenge-Handshake Authentication Protocol (CHAP) credentials for a

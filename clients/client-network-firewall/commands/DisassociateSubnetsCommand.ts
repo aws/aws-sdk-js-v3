@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateSubnetsCommandInput = DisassociateSubnetsRequest;
-export type DisassociateSubnetsCommandOutput = DisassociateSubnetsResponse & __MetadataBearer;
+export interface DisassociateSubnetsCommandInput extends DisassociateSubnetsRequest {}
+export interface DisassociateSubnetsCommandOutput extends DisassociateSubnetsResponse, __MetadataBearer {}
 
 /**
  * <p>Removes the specified subnet associations from the firewall. This removes the

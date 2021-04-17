@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DetachObjectCommandInput = DetachObjectRequest;
-export type DetachObjectCommandOutput = DetachObjectResponse & __MetadataBearer;
+export interface DetachObjectCommandInput extends DetachObjectRequest {}
+export interface DetachObjectCommandOutput extends DetachObjectResponse, __MetadataBearer {}
 
 /**
  * <p>Detaches a given object from the parent object. The object that is to be detached from the

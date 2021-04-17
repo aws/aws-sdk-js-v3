@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeRuleGroupCommandInput = DescribeRuleGroupRequest;
-export type DescribeRuleGroupCommandOutput = DescribeRuleGroupResponse & __MetadataBearer;
+export interface DescribeRuleGroupCommandInput extends DescribeRuleGroupRequest {}
+export interface DescribeRuleGroupCommandOutput extends DescribeRuleGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the data objects for the specified rule group. </p>

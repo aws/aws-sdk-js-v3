@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisableInsightRulesCommandInput = DisableInsightRulesInput;
-export type DisableInsightRulesCommandOutput = DisableInsightRulesOutput & __MetadataBearer;
+export interface DisableInsightRulesCommandInput extends DisableInsightRulesInput {}
+export interface DisableInsightRulesCommandOutput extends DisableInsightRulesOutput, __MetadataBearer {}
 
 /**
  * <p>Disables the specified Contributor Insights rules. When rules are disabled, they do not analyze log groups and do

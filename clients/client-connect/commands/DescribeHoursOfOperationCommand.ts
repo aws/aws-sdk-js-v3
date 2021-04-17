@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeHoursOfOperationCommandInput = DescribeHoursOfOperationRequest;
-export type DescribeHoursOfOperationCommandOutput = DescribeHoursOfOperationResponse & __MetadataBearer;
+export interface DescribeHoursOfOperationCommandInput extends DescribeHoursOfOperationRequest {}
+export interface DescribeHoursOfOperationCommandOutput extends DescribeHoursOfOperationResponse, __MetadataBearer {}
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>

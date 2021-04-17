@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopQueryExecutionCommandInput = StopQueryExecutionInput;
-export type StopQueryExecutionCommandOutput = StopQueryExecutionOutput & __MetadataBearer;
+export interface StopQueryExecutionCommandInput extends StopQueryExecutionInput {}
+export interface StopQueryExecutionCommandOutput extends StopQueryExecutionOutput, __MetadataBearer {}
 
 /**
  * <p>Stops a query execution. Requires you to have access to the workgroup in which the

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetIdentityDkimAttributesCommandInput = GetIdentityDkimAttributesRequest;
-export type GetIdentityDkimAttributesCommandOutput = GetIdentityDkimAttributesResponse & __MetadataBearer;
+export interface GetIdentityDkimAttributesCommandInput extends GetIdentityDkimAttributesRequest {}
+export interface GetIdentityDkimAttributesCommandOutput extends GetIdentityDkimAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the current status of Easy DKIM signing for an entity. For domain name

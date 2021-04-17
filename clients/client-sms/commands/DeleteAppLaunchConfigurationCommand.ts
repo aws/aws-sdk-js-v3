@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAppLaunchConfigurationCommandInput = DeleteAppLaunchConfigurationRequest;
-export type DeleteAppLaunchConfigurationCommandOutput = DeleteAppLaunchConfigurationResponse & __MetadataBearer;
+export interface DeleteAppLaunchConfigurationCommandInput extends DeleteAppLaunchConfigurationRequest {}
+export interface DeleteAppLaunchConfigurationCommandOutput
+  extends DeleteAppLaunchConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes the launch configuration for the specified application.</p>

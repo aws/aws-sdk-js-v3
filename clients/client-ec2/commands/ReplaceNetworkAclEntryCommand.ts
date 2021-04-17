@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ReplaceNetworkAclEntryCommandInput = ReplaceNetworkAclEntryRequest;
-export type ReplaceNetworkAclEntryCommandOutput = __MetadataBearer;
+export interface ReplaceNetworkAclEntryCommandInput extends ReplaceNetworkAclEntryRequest {}
+export interface ReplaceNetworkAclEntryCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Replaces an entry (rule) in a network ACL. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network ACLs</a> in the

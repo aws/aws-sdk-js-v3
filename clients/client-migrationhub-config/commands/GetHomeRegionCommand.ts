@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetHomeRegionCommandInput = GetHomeRegionRequest;
-export type GetHomeRegionCommandOutput = GetHomeRegionResult & __MetadataBearer;
+export interface GetHomeRegionCommandInput extends GetHomeRegionRequest {}
+export interface GetHomeRegionCommandOutput extends GetHomeRegionResult, __MetadataBearer {}
 
 /**
  * <p>Returns the calling account’s home region, if configured. This API is used by other AWS

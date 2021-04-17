@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteRegistryCommandInput = DeleteRegistryInput;
-export type DeleteRegistryCommandOutput = DeleteRegistryResponse & __MetadataBearer;
+export interface DeleteRegistryCommandInput extends DeleteRegistryInput {}
+export interface DeleteRegistryCommandOutput extends DeleteRegistryResponse, __MetadataBearer {}
 
 /**
  * <p>Delete the entire registry including schema and all of its versions. To get the status of the delete operation, you can call the <code>GetRegistry</code> API after the asynchronous call. Deleting a registry will disable all online operations for the registry such as the <code>UpdateRegistry</code>, <code>CreateSchema</code>, <code>UpdateSchema</code>, and <code>RegisterSchemaVersion</code> APIs. </p>

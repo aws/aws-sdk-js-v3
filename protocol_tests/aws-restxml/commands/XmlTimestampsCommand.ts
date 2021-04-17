@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type XmlTimestampsCommandInput = XmlTimestampsInputOutput;
-export type XmlTimestampsCommandOutput = XmlTimestampsInputOutput & __MetadataBearer;
+export interface XmlTimestampsCommandInput extends XmlTimestampsInputOutput {}
+export interface XmlTimestampsCommandOutput extends XmlTimestampsInputOutput, __MetadataBearer {}
 
 /**
  * This tests how timestamps are serialized, including using the

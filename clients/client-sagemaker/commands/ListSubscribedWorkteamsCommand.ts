@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListSubscribedWorkteamsCommandInput = ListSubscribedWorkteamsRequest;
-export type ListSubscribedWorkteamsCommandOutput = ListSubscribedWorkteamsResponse & __MetadataBearer;
+export interface ListSubscribedWorkteamsCommandInput extends ListSubscribedWorkteamsRequest {}
+export interface ListSubscribedWorkteamsCommandOutput extends ListSubscribedWorkteamsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of the work teams that you are subscribed to in the AWS Marketplace. The

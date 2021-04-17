@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListCreateAccountStatusCommandInput = ListCreateAccountStatusRequest;
-export type ListCreateAccountStatusCommandOutput = ListCreateAccountStatusResponse & __MetadataBearer;
+export interface ListCreateAccountStatusCommandInput extends ListCreateAccountStatusRequest {}
+export interface ListCreateAccountStatusCommandOutput extends ListCreateAccountStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the account creation requests that match the specified status that is currently

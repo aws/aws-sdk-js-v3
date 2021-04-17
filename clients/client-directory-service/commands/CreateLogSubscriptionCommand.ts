@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateLogSubscriptionCommandInput = CreateLogSubscriptionRequest;
-export type CreateLogSubscriptionCommandOutput = CreateLogSubscriptionResult & __MetadataBearer;
+export interface CreateLogSubscriptionCommandInput extends CreateLogSubscriptionRequest {}
+export interface CreateLogSubscriptionCommandOutput extends CreateLogSubscriptionResult, __MetadataBearer {}
 
 /**
  * <p>Creates a subscription to forward real-time Directory Service domain controller security

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateTransitGatewayConnectCommandInput = CreateTransitGatewayConnectRequest;
-export type CreateTransitGatewayConnectCommandOutput = CreateTransitGatewayConnectResult & __MetadataBearer;
+export interface CreateTransitGatewayConnectCommandInput extends CreateTransitGatewayConnectRequest {}
+export interface CreateTransitGatewayConnectCommandOutput extends CreateTransitGatewayConnectResult, __MetadataBearer {}
 
 /**
  * <p>Creates a Connect attachment from a specified transit gateway attachment. A Connect attachment is a GRE-based tunnel attachment that you can use to establish a connection between a transit gateway and an appliance.</p>

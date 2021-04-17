@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteBucketAnalyticsConfigurationCommandInput = DeleteBucketAnalyticsConfigurationRequest;
-export type DeleteBucketAnalyticsConfigurationCommandOutput = __MetadataBearer;
+export interface DeleteBucketAnalyticsConfigurationCommandInput extends DeleteBucketAnalyticsConfigurationRequest {}
+export interface DeleteBucketAnalyticsConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes an analytics configuration for the bucket (specified by the analytics

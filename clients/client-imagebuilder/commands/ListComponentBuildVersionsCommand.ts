@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListComponentBuildVersionsCommandInput = ListComponentBuildVersionsRequest;
-export type ListComponentBuildVersionsCommandOutput = ListComponentBuildVersionsResponse & __MetadataBearer;
+export interface ListComponentBuildVersionsCommandInput extends ListComponentBuildVersionsRequest {}
+export interface ListComponentBuildVersionsCommandOutput extends ListComponentBuildVersionsResponse, __MetadataBearer {}
 
 /**
  * <p> Returns the list of component build versions for the specified semantic version.</p>

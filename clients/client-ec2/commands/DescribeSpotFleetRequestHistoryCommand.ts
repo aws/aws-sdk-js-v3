@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeSpotFleetRequestHistoryCommandInput = DescribeSpotFleetRequestHistoryRequest;
-export type DescribeSpotFleetRequestHistoryCommandOutput = DescribeSpotFleetRequestHistoryResponse & __MetadataBearer;
+export interface DescribeSpotFleetRequestHistoryCommandInput extends DescribeSpotFleetRequestHistoryRequest {}
+export interface DescribeSpotFleetRequestHistoryCommandOutput
+  extends DescribeSpotFleetRequestHistoryResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the events for the specified Spot Fleet request during the specified time.</p>

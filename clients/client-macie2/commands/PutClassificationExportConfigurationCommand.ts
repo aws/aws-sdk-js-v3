@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutClassificationExportConfigurationCommandInput = PutClassificationExportConfigurationRequest;
-export type PutClassificationExportConfigurationCommandOutput = PutClassificationExportConfigurationResponse &
-  __MetadataBearer;
+export interface PutClassificationExportConfigurationCommandInput extends PutClassificationExportConfigurationRequest {}
+export interface PutClassificationExportConfigurationCommandOutput
+  extends PutClassificationExportConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Creates or updates the configuration settings for storing data classification results.</p>

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetEffectivePermissionsForPathCommandInput = GetEffectivePermissionsForPathRequest;
-export type GetEffectivePermissionsForPathCommandOutput = GetEffectivePermissionsForPathResponse & __MetadataBearer;
+export interface GetEffectivePermissionsForPathCommandInput extends GetEffectivePermissionsForPathRequest {}
+export interface GetEffectivePermissionsForPathCommandOutput
+  extends GetEffectivePermissionsForPathResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the Lake Formation permissions for a specified table or database resource located

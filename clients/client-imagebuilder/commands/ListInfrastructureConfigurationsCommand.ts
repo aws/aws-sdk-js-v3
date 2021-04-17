@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListInfrastructureConfigurationsCommandInput = ListInfrastructureConfigurationsRequest;
-export type ListInfrastructureConfigurationsCommandOutput = ListInfrastructureConfigurationsResponse & __MetadataBearer;
+export interface ListInfrastructureConfigurationsCommandInput extends ListInfrastructureConfigurationsRequest {}
+export interface ListInfrastructureConfigurationsCommandOutput
+  extends ListInfrastructureConfigurationsResponse,
+    __MetadataBearer {}
 
 /**
  * <p> Returns a list of infrastructure configurations.</p>

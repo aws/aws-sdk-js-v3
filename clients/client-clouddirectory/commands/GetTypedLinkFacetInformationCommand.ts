@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetTypedLinkFacetInformationCommandInput = GetTypedLinkFacetInformationRequest;
-export type GetTypedLinkFacetInformationCommandOutput = GetTypedLinkFacetInformationResponse & __MetadataBearer;
+export interface GetTypedLinkFacetInformationCommandInput extends GetTypedLinkFacetInformationRequest {}
+export interface GetTypedLinkFacetInformationCommandOutput
+  extends GetTypedLinkFacetInformationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the identity attribute order for a specific <a>TypedLinkFacet</a>. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>

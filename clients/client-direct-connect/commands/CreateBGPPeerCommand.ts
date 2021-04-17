@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateBGPPeerCommandInput = CreateBGPPeerRequest;
-export type CreateBGPPeerCommandOutput = CreateBGPPeerResponse & __MetadataBearer;
+export interface CreateBGPPeerCommandInput extends CreateBGPPeerRequest {}
+export interface CreateBGPPeerCommandOutput extends CreateBGPPeerResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a BGP peer on the specified virtual interface.</p>

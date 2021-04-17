@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ClassifyDocumentCommandInput = ClassifyDocumentRequest;
-export type ClassifyDocumentCommandOutput = ClassifyDocumentResponse & __MetadataBearer;
+export interface ClassifyDocumentCommandInput extends ClassifyDocumentRequest {}
+export interface ClassifyDocumentCommandOutput extends ClassifyDocumentResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new document classification request to analyze a single document in real-time,

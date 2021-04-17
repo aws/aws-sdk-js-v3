@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterVolumeCommandInput = RegisterVolumeRequest;
-export type RegisterVolumeCommandOutput = RegisterVolumeResult & __MetadataBearer;
+export interface RegisterVolumeCommandInput extends RegisterVolumeRequest {}
+export interface RegisterVolumeCommandOutput extends RegisterVolumeResult, __MetadataBearer {}
 
 /**
  * <p>Registers an Amazon EBS volume with a specified stack. A volume can be registered with only one

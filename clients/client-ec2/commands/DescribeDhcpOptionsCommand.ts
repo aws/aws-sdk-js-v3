@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDhcpOptionsCommandInput = DescribeDhcpOptionsRequest;
-export type DescribeDhcpOptionsCommandOutput = DescribeDhcpOptionsResult & __MetadataBearer;
+export interface DescribeDhcpOptionsCommandInput extends DescribeDhcpOptionsRequest {}
+export interface DescribeDhcpOptionsCommandOutput extends DescribeDhcpOptionsResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more of your DHCP options sets.</p>

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterCertificateWithoutCACommandInput = RegisterCertificateWithoutCARequest;
-export type RegisterCertificateWithoutCACommandOutput = RegisterCertificateWithoutCAResponse & __MetadataBearer;
+export interface RegisterCertificateWithoutCACommandInput extends RegisterCertificateWithoutCARequest {}
+export interface RegisterCertificateWithoutCACommandOutput
+  extends RegisterCertificateWithoutCAResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Register a certificate that does not have a certificate authority (CA).</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TestInvokeMethodCommandInput = TestInvokeMethodRequest;
-export type TestInvokeMethodCommandOutput = TestInvokeMethodResponse & __MetadataBearer;
+export interface TestInvokeMethodCommandInput extends TestInvokeMethodRequest {}
+export interface TestInvokeMethodCommandOutput extends TestInvokeMethodResponse, __MetadataBearer {}
 
 /**
  * <p>Simulate the execution of a <a>Method</a> in your <a>RestApi</a> with headers, parameters, and an incoming request body.</p>

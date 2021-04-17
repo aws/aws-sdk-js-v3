@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateAssetCommandInput = UpdateAssetRequest;
-export type UpdateAssetCommandOutput = UpdateAssetResponse & __MetadataBearer;
+export interface UpdateAssetCommandInput extends UpdateAssetRequest {}
+export interface UpdateAssetCommandOutput extends UpdateAssetResponse, __MetadataBearer {}
 
 /**
  * <p>This operation updates an asset.</p>

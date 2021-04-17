@@ -17,10 +17,17 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UploadArchiveCommandInput = Omit<UploadArchiveInput, "body"> & {
+type UploadArchiveCommandInputType = Omit<UploadArchiveInput, "body"> & {
+  /**
+   * For *`UploadArchiveInput["body"]`*, see {@link UploadArchiveInput.body}.
+   */
   body?: UploadArchiveInput["body"] | string | Uint8Array | Buffer;
 };
-export type UploadArchiveCommandOutput = ArchiveCreationOutput & __MetadataBearer;
+/**
+ * This interface extends from `UploadArchiveInput` interface. There are more parameters than `body` defined in {@link UploadArchiveInput}
+ */
+export interface UploadArchiveCommandInput extends UploadArchiveCommandInputType {}
+export interface UploadArchiveCommandOutput extends ArchiveCreationOutput, __MetadataBearer {}
 
 /**
  * <p>This operation adds an archive to a vault. This is a synchronous operation, and for a

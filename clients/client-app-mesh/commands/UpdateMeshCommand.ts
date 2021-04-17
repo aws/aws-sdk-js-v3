@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateMeshCommandInput = UpdateMeshInput;
-export type UpdateMeshCommandOutput = UpdateMeshOutput & __MetadataBearer;
+export interface UpdateMeshCommandInput extends UpdateMeshInput {}
+export interface UpdateMeshCommandOutput extends UpdateMeshOutput, __MetadataBearer {}
 
 /**
  * <p>Updates an existing service mesh.</p>

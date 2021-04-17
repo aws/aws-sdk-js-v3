@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetModelVersionCommandInput = GetModelVersionRequest;
-export type GetModelVersionCommandOutput = GetModelVersionResult & __MetadataBearer;
+export interface GetModelVersionCommandInput extends GetModelVersionRequest {}
+export interface GetModelVersionCommandOutput extends GetModelVersionResult, __MetadataBearer {}
 
 /**
  * <p>Gets the details of the specified model version.</p>

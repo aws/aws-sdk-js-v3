@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeSnapshotsCommandInput = DescribeSnapshotsRequest;
-export type DescribeSnapshotsCommandOutput = DescribeSnapshotsResult & __MetadataBearer;
+export interface DescribeSnapshotsCommandInput extends DescribeSnapshotsRequest {}
+export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the specified EBS snapshots available to you or all of the EBS snapshots

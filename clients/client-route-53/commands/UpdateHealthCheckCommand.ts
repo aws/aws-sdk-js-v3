@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateHealthCheckCommandInput = UpdateHealthCheckRequest;
-export type UpdateHealthCheckCommandOutput = UpdateHealthCheckResponse & __MetadataBearer;
+export interface UpdateHealthCheckCommandInput extends UpdateHealthCheckRequest {}
+export interface UpdateHealthCheckCommandOutput extends UpdateHealthCheckResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing health check. Note that some values can't be updated. </p>

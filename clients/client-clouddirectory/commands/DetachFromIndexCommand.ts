@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DetachFromIndexCommandInput = DetachFromIndexRequest;
-export type DetachFromIndexCommandOutput = DetachFromIndexResponse & __MetadataBearer;
+export interface DetachFromIndexCommandInput extends DetachFromIndexRequest {}
+export interface DetachFromIndexCommandOutput extends DetachFromIndexResponse, __MetadataBearer {}
 
 /**
  * <p>Detaches the specified object from the specified index.</p>

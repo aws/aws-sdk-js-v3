@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeLifecycleHookTypesCommandInput = {};
-export type DescribeLifecycleHookTypesCommandOutput = DescribeLifecycleHookTypesAnswer & __MetadataBearer;
+export interface DescribeLifecycleHookTypesCommandInput {}
+export interface DescribeLifecycleHookTypesCommandOutput extends DescribeLifecycleHookTypesAnswer, __MetadataBearer {}
 
 /**
  * <p>Describes the available types of lifecycle hooks.</p>

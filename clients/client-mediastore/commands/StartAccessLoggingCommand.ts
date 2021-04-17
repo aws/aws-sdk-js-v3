@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartAccessLoggingCommandInput = StartAccessLoggingInput;
-export type StartAccessLoggingCommandOutput = StartAccessLoggingOutput & __MetadataBearer;
+export interface StartAccessLoggingCommandInput extends StartAccessLoggingInput {}
+export interface StartAccessLoggingCommandOutput extends StartAccessLoggingOutput, __MetadataBearer {}
 
 /**
  * <p>Starts access logging on the specified container. When you enable access logging on a container, MediaStore delivers access logs for objects stored in that container to Amazon CloudWatch Logs.</p>

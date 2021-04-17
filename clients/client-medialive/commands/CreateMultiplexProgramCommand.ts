@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateMultiplexProgramCommandInput = CreateMultiplexProgramRequest;
-export type CreateMultiplexProgramCommandOutput = CreateMultiplexProgramResponse & __MetadataBearer;
+export interface CreateMultiplexProgramCommandInput extends CreateMultiplexProgramRequest {}
+export interface CreateMultiplexProgramCommandOutput extends CreateMultiplexProgramResponse, __MetadataBearer {}
 
 /**
  * Create a new program in the multiplex.

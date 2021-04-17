@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateStudioCommandInput = CreateStudioInput;
-export type CreateStudioCommandOutput = CreateStudioOutput & __MetadataBearer;
+export interface CreateStudioCommandInput extends CreateStudioInput {}
+export interface CreateStudioCommandOutput extends CreateStudioOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a new Amazon EMR Studio.</p>

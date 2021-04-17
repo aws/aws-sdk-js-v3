@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeCacheCommandInput = DescribeCacheInput;
-export type DescribeCacheCommandOutput = DescribeCacheOutput & __MetadataBearer;
+export interface DescribeCacheCommandInput extends DescribeCacheInput {}
+export interface DescribeCacheCommandOutput extends DescribeCacheOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about the cache of a gateway. This operation is only supported in

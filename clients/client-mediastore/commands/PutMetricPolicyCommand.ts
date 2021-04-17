@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutMetricPolicyCommandInput = PutMetricPolicyInput;
-export type PutMetricPolicyCommandOutput = PutMetricPolicyOutput & __MetadataBearer;
+export interface PutMetricPolicyCommandInput extends PutMetricPolicyInput {}
+export interface PutMetricPolicyCommandOutput extends PutMetricPolicyOutput, __MetadataBearer {}
 
 /**
  * <p>The metric policy that you want to add to the container. A metric policy allows AWS Elemental MediaStore to send metrics to Amazon CloudWatch. It takes up to 20 minutes for the new policy to take effect.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateGlobalSettingsCommandInput = UpdateGlobalSettingsRequest;
-export type UpdateGlobalSettingsCommandOutput = __MetadataBearer;
+export interface UpdateGlobalSettingsCommandInput extends UpdateGlobalSettingsRequest {}
+export interface UpdateGlobalSettingsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates global settings for the administrator's AWS account, such as Amazon Chime Business Calling and Amazon Chime Voice Connector settings.</p>

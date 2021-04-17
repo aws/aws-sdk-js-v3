@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListSitesCommandInput = ListSitesInput;
-export type ListSitesCommandOutput = ListSitesOutput & __MetadataBearer;
+export interface ListSitesCommandInput extends ListSitesInput {}
+export interface ListSitesCommandOutput extends ListSitesOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the sites for the specified AWS account.</p>

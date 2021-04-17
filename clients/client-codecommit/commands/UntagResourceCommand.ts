@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UntagResourceCommandInput = UntagResourceInput;
-export type UntagResourceCommandOutput = __MetadataBearer;
+export interface UntagResourceCommandInput extends UntagResourceInput {}
+export interface UntagResourceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes tags for a resource in AWS CodeCommit. For a list of valid resources in AWS

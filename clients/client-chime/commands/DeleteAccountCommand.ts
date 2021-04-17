@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAccountCommandInput = DeleteAccountRequest;
-export type DeleteAccountCommandOutput = DeleteAccountResponse & __MetadataBearer;
+export interface DeleteAccountCommandInput extends DeleteAccountRequest {}
+export interface DeleteAccountCommandOutput extends DeleteAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified Amazon Chime account. You must suspend all users before deleting

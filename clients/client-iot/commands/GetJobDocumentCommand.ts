@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetJobDocumentCommandInput = GetJobDocumentRequest;
-export type GetJobDocumentCommandOutput = GetJobDocumentResponse & __MetadataBearer;
+export interface GetJobDocumentCommandInput extends GetJobDocumentRequest {}
+export interface GetJobDocumentCommandOutput extends GetJobDocumentResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a job document.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteReportGroupCommandInput = DeleteReportGroupInput;
-export type DeleteReportGroupCommandOutput = DeleteReportGroupOutput & __MetadataBearer;
+export interface DeleteReportGroupCommandInput extends DeleteReportGroupInput {}
+export interface DeleteReportGroupCommandOutput extends DeleteReportGroupOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes a report group. Before you delete a report group, you must delete its reports. </p>

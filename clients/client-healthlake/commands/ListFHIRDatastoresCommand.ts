@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListFHIRDatastoresCommandInput = ListFHIRDatastoresRequest;
-export type ListFHIRDatastoresCommandOutput = ListFHIRDatastoresResponse & __MetadataBearer;
+export interface ListFHIRDatastoresCommandInput extends ListFHIRDatastoresRequest {}
+export interface ListFHIRDatastoresCommandOutput extends ListFHIRDatastoresResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all FHIR Data Stores that are in the user’s account, regardless of Data Store

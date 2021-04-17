@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RevokeEndpointAccessCommandInput = RevokeEndpointAccessMessage;
-export type RevokeEndpointAccessCommandOutput = EndpointAuthorization & __MetadataBearer;
+export interface RevokeEndpointAccessCommandInput extends RevokeEndpointAccessMessage {}
+export interface RevokeEndpointAccessCommandOutput extends EndpointAuthorization, __MetadataBearer {}
 
 /**
  * <p>Revokes access to a cluster.</p>

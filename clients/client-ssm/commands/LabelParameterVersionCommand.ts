@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type LabelParameterVersionCommandInput = LabelParameterVersionRequest;
-export type LabelParameterVersionCommandOutput = LabelParameterVersionResult & __MetadataBearer;
+export interface LabelParameterVersionCommandInput extends LabelParameterVersionRequest {}
+export interface LabelParameterVersionCommandOutput extends LabelParameterVersionResult, __MetadataBearer {}
 
 /**
  * <p>A parameter label is a user-defined alias to help you manage different versions of a

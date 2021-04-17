@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddTagsCommandInput = AddTagsRequest;
-export type AddTagsCommandOutput = __MetadataBearer;
+export interface AddTagsCommandInput extends AddTagsRequest {}
+export interface AddTagsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Attaches tags to an existing Elasticsearch domain. Tags are a set of case-sensitive key value pairs. An Elasticsearch domain may have up to 10 tags.  See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-awsresorcetagging" target="_blank">

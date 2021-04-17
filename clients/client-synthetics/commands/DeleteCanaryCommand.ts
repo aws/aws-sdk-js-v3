@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteCanaryCommandInput = DeleteCanaryRequest;
-export type DeleteCanaryCommandOutput = DeleteCanaryResponse & __MetadataBearer;
+export interface DeleteCanaryCommandInput extends DeleteCanaryRequest {}
+export interface DeleteCanaryCommandOutput extends DeleteCanaryResponse, __MetadataBearer {}
 
 /**
  * <p>Permanently deletes the specified canary.</p>

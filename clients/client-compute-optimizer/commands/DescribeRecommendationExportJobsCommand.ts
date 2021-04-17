@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeRecommendationExportJobsCommandInput = DescribeRecommendationExportJobsRequest;
-export type DescribeRecommendationExportJobsCommandOutput = DescribeRecommendationExportJobsResponse & __MetadataBearer;
+export interface DescribeRecommendationExportJobsCommandInput extends DescribeRecommendationExportJobsRequest {}
+export interface DescribeRecommendationExportJobsCommandOutput
+  extends DescribeRecommendationExportJobsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Describes recommendation export jobs created in the last seven days.</p>

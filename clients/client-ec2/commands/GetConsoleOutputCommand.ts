@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetConsoleOutputCommandInput = GetConsoleOutputRequest;
-export type GetConsoleOutputCommandOutput = GetConsoleOutputResult & __MetadataBearer;
+export interface GetConsoleOutputCommandInput extends GetConsoleOutputRequest {}
+export interface GetConsoleOutputCommandOutput extends GetConsoleOutputResult, __MetadataBearer {}
 
 /**
  * <p>Gets the console output for the specified instance. For Linux instances, the instance

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateProjectCommandInput = CreateProjectRequest;
-export type CreateProjectCommandOutput = CreateProjectResponse & __MetadataBearer;
+export interface CreateProjectCommandInput extends CreateProjectRequest {}
+export interface CreateProjectCommandOutput extends CreateProjectResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an empty Amazon Lookout for Vision project. After you create the project, add a dataset by calling

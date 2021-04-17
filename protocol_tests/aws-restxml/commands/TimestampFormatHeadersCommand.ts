@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TimestampFormatHeadersCommandInput = TimestampFormatHeadersIO;
-export type TimestampFormatHeadersCommandOutput = TimestampFormatHeadersIO & __MetadataBearer;
+export interface TimestampFormatHeadersCommandInput extends TimestampFormatHeadersIO {}
+export interface TimestampFormatHeadersCommandOutput extends TimestampFormatHeadersIO, __MetadataBearer {}
 
 /**
  * The example tests how timestamp request and response headers are serialized.

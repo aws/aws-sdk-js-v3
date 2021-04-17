@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListStreamsCommandInput = ListStreamsInput;
-export type ListStreamsCommandOutput = ListStreamsOutput & __MetadataBearer;
+export interface ListStreamsCommandInput extends ListStreamsInput {}
+export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns an array of <code>StreamInfo</code> objects. Each object describes a

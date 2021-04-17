@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateOpenIDConnectProviderCommandInput = CreateOpenIDConnectProviderRequest;
-export type CreateOpenIDConnectProviderCommandOutput = CreateOpenIDConnectProviderResponse & __MetadataBearer;
+export interface CreateOpenIDConnectProviderCommandInput extends CreateOpenIDConnectProviderRequest {}
+export interface CreateOpenIDConnectProviderCommandOutput
+  extends CreateOpenIDConnectProviderResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Creates an IAM entity to describe an identity provider (IdP) that supports <a href="http://openid.net/connect/">OpenID Connect (OIDC)</a>.</p>

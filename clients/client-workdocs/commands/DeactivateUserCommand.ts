@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeactivateUserCommandInput = DeactivateUserRequest;
-export type DeactivateUserCommandOutput = __MetadataBearer;
+export interface DeactivateUserCommandInput extends DeactivateUserRequest {}
+export interface DeactivateUserCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deactivates the specified user, which revokes the user's access to Amazon

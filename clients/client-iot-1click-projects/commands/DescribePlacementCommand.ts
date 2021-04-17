@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribePlacementCommandInput = DescribePlacementRequest;
-export type DescribePlacementCommandOutput = DescribePlacementResponse & __MetadataBearer;
+export interface DescribePlacementCommandInput extends DescribePlacementRequest {}
+export interface DescribePlacementCommandOutput extends DescribePlacementResponse, __MetadataBearer {}
 
 /**
  * <p>Describes a placement in a project.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateRateBasedRuleCommandInput = CreateRateBasedRuleRequest;
-export type CreateRateBasedRuleCommandOutput = CreateRateBasedRuleResponse & __MetadataBearer;
+export interface CreateRateBasedRuleCommandInput extends CreateRateBasedRuleRequest {}
+export interface CreateRateBasedRuleCommandOutput extends CreateRateBasedRuleResponse, __MetadataBearer {}
 
 /**
  * <note>

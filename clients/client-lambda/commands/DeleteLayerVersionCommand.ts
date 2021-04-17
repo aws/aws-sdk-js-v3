@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteLayerVersionCommandInput = DeleteLayerVersionRequest;
-export type DeleteLayerVersionCommandOutput = __MetadataBearer;
+export interface DeleteLayerVersionCommandInput extends DeleteLayerVersionRequest {}
+export interface DeleteLayerVersionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda

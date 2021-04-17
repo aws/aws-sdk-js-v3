@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteClusterParameterGroupCommandInput = DeleteClusterParameterGroupMessage;
-export type DeleteClusterParameterGroupCommandOutput = __MetadataBearer;
+export interface DeleteClusterParameterGroupCommandInput extends DeleteClusterParameterGroupMessage {}
+export interface DeleteClusterParameterGroupCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a specified Amazon Redshift parameter group.</p>

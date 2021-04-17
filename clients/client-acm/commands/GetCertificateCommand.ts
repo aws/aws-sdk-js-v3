@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetCertificateCommandInput = GetCertificateRequest;
-export type GetCertificateCommandOutput = GetCertificateResponse & __MetadataBearer;
+export interface GetCertificateCommandInput extends GetCertificateRequest {}
+export interface GetCertificateCommandOutput extends GetCertificateResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves an Amazon-issued certificate and its certificate chain. The chain consists of

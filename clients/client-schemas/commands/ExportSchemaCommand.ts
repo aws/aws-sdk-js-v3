@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ExportSchemaCommandInput = ExportSchemaRequest;
-export type ExportSchemaCommandOutput = ExportSchemaResponse & __MetadataBearer;
+export interface ExportSchemaCommandInput extends ExportSchemaRequest {}
+export interface ExportSchemaCommandOutput extends ExportSchemaResponse, __MetadataBearer {}
 
 export class ExportSchemaCommand extends $Command<
   ExportSchemaCommandInput,

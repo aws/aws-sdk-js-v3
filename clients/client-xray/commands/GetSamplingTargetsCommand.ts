@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSamplingTargetsCommandInput = GetSamplingTargetsRequest;
-export type GetSamplingTargetsCommandOutput = GetSamplingTargetsResult & __MetadataBearer;
+export interface GetSamplingTargetsCommandInput extends GetSamplingTargetsRequest {}
+export interface GetSamplingTargetsCommandOutput extends GetSamplingTargetsResult, __MetadataBearer {}
 
 /**
  * <p>Requests a sampling quota for rules that the service is using to sample requests.

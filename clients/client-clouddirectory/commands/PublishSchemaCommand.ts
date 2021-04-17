@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PublishSchemaCommandInput = PublishSchemaRequest;
-export type PublishSchemaCommandOutput = PublishSchemaResponse & __MetadataBearer;
+export interface PublishSchemaCommandInput extends PublishSchemaRequest {}
+export interface PublishSchemaCommandOutput extends PublishSchemaResponse, __MetadataBearer {}
 
 /**
  * <p>Publishes a development schema with a major version and a recommended minor version.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetParameterCommandInput = GetParameterRequest;
-export type GetParameterCommandOutput = GetParameterResult & __MetadataBearer;
+export interface GetParameterCommandInput extends GetParameterRequest {}
+export interface GetParameterCommandOutput extends GetParameterResult, __MetadataBearer {}
 
 /**
  * <p>Get information about a parameter by using the parameter name. Don't confuse this API action

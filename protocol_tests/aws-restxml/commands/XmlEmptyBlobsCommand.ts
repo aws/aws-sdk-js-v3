@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type XmlEmptyBlobsCommandInput = XmlBlobsInputOutput;
-export type XmlEmptyBlobsCommandOutput = XmlBlobsInputOutput & __MetadataBearer;
+export interface XmlEmptyBlobsCommandInput extends XmlBlobsInputOutput {}
+export interface XmlEmptyBlobsCommandOutput extends XmlBlobsInputOutput, __MetadataBearer {}
 
 /**
  * Blobs are base64 encoded

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutVoiceConnectorProxyCommandInput = PutVoiceConnectorProxyRequest;
-export type PutVoiceConnectorProxyCommandOutput = PutVoiceConnectorProxyResponse & __MetadataBearer;
+export interface PutVoiceConnectorProxyCommandInput extends PutVoiceConnectorProxyRequest {}
+export interface PutVoiceConnectorProxyCommandOutput extends PutVoiceConnectorProxyResponse, __MetadataBearer {}
 
 /**
  * <p>Puts the specified proxy configuration to the specified Amazon Chime Voice Connector.</p>

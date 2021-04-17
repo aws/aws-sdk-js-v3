@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyReplicationTaskCommandInput = ModifyReplicationTaskMessage;
-export type ModifyReplicationTaskCommandOutput = ModifyReplicationTaskResponse & __MetadataBearer;
+export interface ModifyReplicationTaskCommandInput extends ModifyReplicationTaskMessage {}
+export interface ModifyReplicationTaskCommandOutput extends ModifyReplicationTaskResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies the specified replication task.</p>

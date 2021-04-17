@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutOrganizationConfigRuleCommandInput = PutOrganizationConfigRuleRequest;
-export type PutOrganizationConfigRuleCommandOutput = PutOrganizationConfigRuleResponse & __MetadataBearer;
+export interface PutOrganizationConfigRuleCommandInput extends PutOrganizationConfigRuleRequest {}
+export interface PutOrganizationConfigRuleCommandOutput extends PutOrganizationConfigRuleResponse, __MetadataBearer {}
 
 /**
  * <p>Adds or updates organization config rule for your entire organization evaluating whether your AWS resources comply with your

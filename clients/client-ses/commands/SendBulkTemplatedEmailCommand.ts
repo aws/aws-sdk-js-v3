@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SendBulkTemplatedEmailCommandInput = SendBulkTemplatedEmailRequest;
-export type SendBulkTemplatedEmailCommandOutput = SendBulkTemplatedEmailResponse & __MetadataBearer;
+export interface SendBulkTemplatedEmailCommandInput extends SendBulkTemplatedEmailRequest {}
+export interface SendBulkTemplatedEmailCommandOutput extends SendBulkTemplatedEmailResponse, __MetadataBearer {}
 
 /**
  * <p>Composes an email message to multiple destinations. The message body is created using

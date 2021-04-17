@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetPublicKeyCommandInput = GetPublicKeyRequest;
-export type GetPublicKeyCommandOutput = GetPublicKeyResult & __MetadataBearer;
+export interface GetPublicKeyCommandInput extends GetPublicKeyRequest {}
+export interface GetPublicKeyCommandOutput extends GetPublicKeyResult, __MetadataBearer {}
 
 /**
  * <p>Gets a public key.</p>

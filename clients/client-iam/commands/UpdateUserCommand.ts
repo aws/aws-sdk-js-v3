@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateUserCommandInput = UpdateUserRequest;
-export type UpdateUserCommandOutput = __MetadataBearer;
+export interface UpdateUserCommandInput extends UpdateUserRequest {}
+export interface UpdateUserCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates the name and/or the path of the specified IAM user.</p>

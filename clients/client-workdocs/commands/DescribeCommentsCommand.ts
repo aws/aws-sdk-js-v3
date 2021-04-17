@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeCommentsCommandInput = DescribeCommentsRequest;
-export type DescribeCommentsCommandOutput = DescribeCommentsResponse & __MetadataBearer;
+export interface DescribeCommentsCommandInput extends DescribeCommentsRequest {}
+export interface DescribeCommentsCommandOutput extends DescribeCommentsResponse, __MetadataBearer {}
 
 /**
  * <p>List all the comments for the specified document version.</p>

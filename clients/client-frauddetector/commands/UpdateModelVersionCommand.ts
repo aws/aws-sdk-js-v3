@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateModelVersionCommandInput = UpdateModelVersionRequest;
-export type UpdateModelVersionCommandOutput = UpdateModelVersionResult & __MetadataBearer;
+export interface UpdateModelVersionCommandInput extends UpdateModelVersionRequest {}
+export interface UpdateModelVersionCommandOutput extends UpdateModelVersionResult, __MetadataBearer {}
 
 /**
  * <p>Updates a model version. Updating a model version retrains an existing model version using updated training data and produces a new minor version of the model. You can update the training data set location and data access role attributes using this action. This action creates and trains a new minor version of the model, for example version 1.01, 1.02, 1.03.</p>

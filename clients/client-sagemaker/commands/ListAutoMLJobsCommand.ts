@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAutoMLJobsCommandInput = ListAutoMLJobsRequest;
-export type ListAutoMLJobsCommandOutput = ListAutoMLJobsResponse & __MetadataBearer;
+export interface ListAutoMLJobsCommandInput extends ListAutoMLJobsRequest {}
+export interface ListAutoMLJobsCommandOutput extends ListAutoMLJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Request a list of jobs.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopConfigurationRecorderCommandInput = StopConfigurationRecorderRequest;
-export type StopConfigurationRecorderCommandOutput = __MetadataBearer;
+export interface StopConfigurationRecorderCommandInput extends StopConfigurationRecorderRequest {}
+export interface StopConfigurationRecorderCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Stops recording configurations of the AWS resources you have selected to record in your AWS account.</p>

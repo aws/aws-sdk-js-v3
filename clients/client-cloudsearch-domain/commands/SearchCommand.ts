@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SearchCommandInput = SearchRequest;
-export type SearchCommandOutput = SearchResponse & __MetadataBearer;
+export interface SearchCommandInput extends SearchRequest {}
+export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of documents that match the specified search criteria. How you specify the search criteria depends on which query parser you use. Amazon CloudSearch supports four query parsers:</p>

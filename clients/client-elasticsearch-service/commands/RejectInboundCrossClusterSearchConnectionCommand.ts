@@ -24,9 +24,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RejectInboundCrossClusterSearchConnectionCommandInput = RejectInboundCrossClusterSearchConnectionRequest;
-export type RejectInboundCrossClusterSearchConnectionCommandOutput = RejectInboundCrossClusterSearchConnectionResponse &
-  __MetadataBearer;
+export interface RejectInboundCrossClusterSearchConnectionCommandInput
+  extends RejectInboundCrossClusterSearchConnectionRequest {}
+export interface RejectInboundCrossClusterSearchConnectionCommandOutput
+  extends RejectInboundCrossClusterSearchConnectionResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Allows the destination domain owner to reject an inbound cross-cluster search connection request.</p>

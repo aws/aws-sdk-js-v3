@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AdminListUserAuthEventsCommandInput = AdminListUserAuthEventsRequest;
-export type AdminListUserAuthEventsCommandOutput = AdminListUserAuthEventsResponse & __MetadataBearer;
+export interface AdminListUserAuthEventsCommandInput extends AdminListUserAuthEventsRequest {}
+export interface AdminListUserAuthEventsCommandOutput extends AdminListUserAuthEventsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists a history of user activity and any risks detected as part of Amazon Cognito

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListModelsCommandInput = ListModelsRequest;
-export type ListModelsCommandOutput = ListModelsResponse & __MetadataBearer;
+export interface ListModelsCommandInput extends ListModelsRequest {}
+export interface ListModelsCommandOutput extends ListModelsResponse, __MetadataBearer {}
 
 /**
  * <p>Generates a list of all models in the account, including model name and ARN, dataset,

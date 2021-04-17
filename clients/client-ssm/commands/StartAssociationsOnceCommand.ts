@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartAssociationsOnceCommandInput = StartAssociationsOnceRequest;
-export type StartAssociationsOnceCommandOutput = StartAssociationsOnceResult & __MetadataBearer;
+export interface StartAssociationsOnceCommandInput extends StartAssociationsOnceRequest {}
+export interface StartAssociationsOnceCommandOutput extends StartAssociationsOnceResult, __MetadataBearer {}
 
 /**
  * <p>Use this API action to run an association immediately and only one time. This action can be

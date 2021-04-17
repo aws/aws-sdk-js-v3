@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeRegionsCommandInput = DescribeRegionsRequest;
-export type DescribeRegionsCommandOutput = DescribeRegionsResult & __MetadataBearer;
+export interface DescribeRegionsCommandInput extends DescribeRegionsRequest {}
+export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __MetadataBearer {}
 
 /**
  * <p>Provides information about the Regions that are configured for multi-Region

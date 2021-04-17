@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateCertificateFromCsrCommandInput = CreateCertificateFromCsrRequest;
-export type CreateCertificateFromCsrCommandOutput = CreateCertificateFromCsrResponse & __MetadataBearer;
+export interface CreateCertificateFromCsrCommandInput extends CreateCertificateFromCsrRequest {}
+export interface CreateCertificateFromCsrCommandOutput extends CreateCertificateFromCsrResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an X.509 certificate using the specified certificate signing

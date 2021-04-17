@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeProtectionCommandInput = DescribeProtectionRequest;
-export type DescribeProtectionCommandOutput = DescribeProtectionResponse & __MetadataBearer;
+export interface DescribeProtectionCommandInput extends DescribeProtectionRequest {}
+export interface DescribeProtectionCommandOutput extends DescribeProtectionResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the details of a <a>Protection</a> object.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListFindingsFiltersCommandInput = ListFindingsFiltersRequest;
-export type ListFindingsFiltersCommandOutput = ListFindingsFiltersResponse & __MetadataBearer;
+export interface ListFindingsFiltersCommandInput extends ListFindingsFiltersRequest {}
+export interface ListFindingsFiltersCommandOutput extends ListFindingsFiltersResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a subset of information about all the findings filters for an account.</p>

@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateListenerCommandInput = CreateListenerRequest;
-export type CreateListenerCommandOutput = CreateListenerResponse & __MetadataBearer;
+export interface CreateListenerCommandInput extends CreateListenerRequest {}
+export interface CreateListenerCommandOutput extends CreateListenerResponse, __MetadataBearer {}
 
 /**
  * <p>Create a listener to process inbound connections from clients to an accelerator. Connections arrive to assigned static

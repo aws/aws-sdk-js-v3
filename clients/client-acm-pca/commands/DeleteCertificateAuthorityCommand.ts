@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteCertificateAuthorityCommandInput = DeleteCertificateAuthorityRequest;
-export type DeleteCertificateAuthorityCommandOutput = __MetadataBearer;
+export interface DeleteCertificateAuthorityCommandInput extends DeleteCertificateAuthorityRequest {}
+export interface DeleteCertificateAuthorityCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a private certificate authority (CA). You must provide the Amazon Resource

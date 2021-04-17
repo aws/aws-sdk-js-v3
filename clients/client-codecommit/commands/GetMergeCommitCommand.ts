@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetMergeCommitCommandInput = GetMergeCommitInput;
-export type GetMergeCommitCommandOutput = GetMergeCommitOutput & __MetadataBearer;
+export interface GetMergeCommitCommandInput extends GetMergeCommitInput {}
+export interface GetMergeCommitCommandOutput extends GetMergeCommitOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about a specified merge commit.</p>

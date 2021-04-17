@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DetachLoadBalancersCommandInput = DetachLoadBalancersType;
-export type DetachLoadBalancersCommandOutput = DetachLoadBalancersResultType & __MetadataBearer;
+export interface DetachLoadBalancersCommandInput extends DetachLoadBalancersType {}
+export interface DetachLoadBalancersCommandOutput extends DetachLoadBalancersResultType, __MetadataBearer {}
 
 /**
  * <p>Detaches one or more Classic Load Balancers from the specified Auto Scaling group.</p>

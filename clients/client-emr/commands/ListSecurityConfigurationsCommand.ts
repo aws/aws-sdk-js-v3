@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListSecurityConfigurationsCommandInput = ListSecurityConfigurationsInput;
-export type ListSecurityConfigurationsCommandOutput = ListSecurityConfigurationsOutput & __MetadataBearer;
+export interface ListSecurityConfigurationsCommandInput extends ListSecurityConfigurationsInput {}
+export interface ListSecurityConfigurationsCommandOutput extends ListSecurityConfigurationsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists all the security configurations visible to this account, providing their creation

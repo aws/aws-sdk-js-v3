@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeStreamProcessorCommandInput = DescribeStreamProcessorRequest;
-export type DescribeStreamProcessorCommandOutput = DescribeStreamProcessorResponse & __MetadataBearer;
+export interface DescribeStreamProcessorCommandInput extends DescribeStreamProcessorRequest {}
+export interface DescribeStreamProcessorCommandOutput extends DescribeStreamProcessorResponse, __MetadataBearer {}
 
 /**
  * <p>Provides information about a stream processor created by <a>CreateStreamProcessor</a>. You can get information about the input and output streams, the input parameters for the face recognition being performed,

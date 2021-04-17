@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateInstancesCommandInput = CreateInstancesRequest;
-export type CreateInstancesCommandOutput = CreateInstancesResult & __MetadataBearer;
+export interface CreateInstancesCommandInput extends CreateInstancesRequest {}
+export interface CreateInstancesCommandOutput extends CreateInstancesResult, __MetadataBearer {}
 
 /**
  * <p>Creates one or more Amazon Lightsail instances.</p>

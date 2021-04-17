@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDBClusterEndpointCommandInput = CreateDBClusterEndpointMessage;
-export type CreateDBClusterEndpointCommandOutput = DBClusterEndpoint & __MetadataBearer;
+export interface CreateDBClusterEndpointCommandInput extends CreateDBClusterEndpointMessage {}
+export interface CreateDBClusterEndpointCommandOutput extends DBClusterEndpoint, __MetadataBearer {}
 
 /**
  * <p>Creates a new custom endpoint and associates it with an Amazon Aurora DB cluster.</p>

@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetQueueUrlCommandInput = GetQueueUrlRequest;
-export type GetQueueUrlCommandOutput = GetQueueUrlResult & __MetadataBearer;
+export interface GetQueueUrlCommandInput extends GetQueueUrlRequest {}
+export interface GetQueueUrlCommandOutput extends GetQueueUrlResult, __MetadataBearer {}
 
 /**
  * <p>Returns the URL of an existing Amazon SQS queue.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetOperationsForResourceCommandInput = GetOperationsForResourceRequest;
-export type GetOperationsForResourceCommandOutput = GetOperationsForResourceResult & __MetadataBearer;
+export interface GetOperationsForResourceCommandInput extends GetOperationsForResourceRequest {}
+export interface GetOperationsForResourceCommandOutput extends GetOperationsForResourceResult, __MetadataBearer {}
 
 /**
  * <p>Gets operations for a specific resource (e.g., an instance or a static IP).</p>

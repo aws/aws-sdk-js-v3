@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetModelTemplateCommandInput = GetModelTemplateRequest;
-export type GetModelTemplateCommandOutput = GetModelTemplateResponse & __MetadataBearer;
+export interface GetModelTemplateCommandInput extends GetModelTemplateRequest {}
+export interface GetModelTemplateCommandOutput extends GetModelTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a model template.</p>

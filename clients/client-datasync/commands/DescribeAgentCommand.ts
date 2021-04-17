@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAgentCommandInput = DescribeAgentRequest;
-export type DescribeAgentCommandOutput = DescribeAgentResponse & __MetadataBearer;
+export interface DescribeAgentCommandInput extends DescribeAgentRequest {}
+export interface DescribeAgentCommandOutput extends DescribeAgentResponse, __MetadataBearer {}
 
 /**
  * <p>Returns metadata such as the name, the network interfaces, and the status (that is,

@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutConfigurationSetDeliveryOptionsCommandInput = PutConfigurationSetDeliveryOptionsRequest;
-export type PutConfigurationSetDeliveryOptionsCommandOutput = PutConfigurationSetDeliveryOptionsResponse &
-  __MetadataBearer;
+export interface PutConfigurationSetDeliveryOptionsCommandInput extends PutConfigurationSetDeliveryOptionsRequest {}
+export interface PutConfigurationSetDeliveryOptionsCommandOutput
+  extends PutConfigurationSetDeliveryOptionsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Associate a configuration set with a dedicated IP pool. You can use dedicated IP pools

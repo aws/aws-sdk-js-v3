@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateRelationalDatabaseCommandInput = CreateRelationalDatabaseRequest;
-export type CreateRelationalDatabaseCommandOutput = CreateRelationalDatabaseResult & __MetadataBearer;
+export interface CreateRelationalDatabaseCommandInput extends CreateRelationalDatabaseRequest {}
+export interface CreateRelationalDatabaseCommandOutput extends CreateRelationalDatabaseResult, __MetadataBearer {}
 
 /**
  * <p>Creates a new database in Amazon Lightsail.</p>

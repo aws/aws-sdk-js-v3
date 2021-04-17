@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateSubscriptionDefinitionCommandInput = CreateSubscriptionDefinitionRequest;
-export type CreateSubscriptionDefinitionCommandOutput = CreateSubscriptionDefinitionResponse & __MetadataBearer;
+export interface CreateSubscriptionDefinitionCommandInput extends CreateSubscriptionDefinitionRequest {}
+export interface CreateSubscriptionDefinitionCommandOutput
+  extends CreateSubscriptionDefinitionResponse,
+    __MetadataBearer {}
 
 /**
  * Creates a subscription definition. You may provide the initial version of the subscription definition now or use ''CreateSubscriptionDefinitionVersion'' at a later time.

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListCoreDefinitionVersionsCommandInput = ListCoreDefinitionVersionsRequest;
-export type ListCoreDefinitionVersionsCommandOutput = ListCoreDefinitionVersionsResponse & __MetadataBearer;
+export interface ListCoreDefinitionVersionsCommandInput extends ListCoreDefinitionVersionsRequest {}
+export interface ListCoreDefinitionVersionsCommandOutput extends ListCoreDefinitionVersionsResponse, __MetadataBearer {}
 
 /**
  * Lists the versions of a core definition.

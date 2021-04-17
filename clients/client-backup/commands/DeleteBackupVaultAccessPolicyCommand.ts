@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteBackupVaultAccessPolicyCommandInput = DeleteBackupVaultAccessPolicyInput;
-export type DeleteBackupVaultAccessPolicyCommandOutput = __MetadataBearer;
+export interface DeleteBackupVaultAccessPolicyCommandInput extends DeleteBackupVaultAccessPolicyInput {}
+export interface DeleteBackupVaultAccessPolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the policy document that manages permissions on a backup vault.</p>

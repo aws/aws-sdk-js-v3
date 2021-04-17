@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSlotTypeVersionsCommandInput = GetSlotTypeVersionsRequest;
-export type GetSlotTypeVersionsCommandOutput = GetSlotTypeVersionsResponse & __MetadataBearer;
+export interface GetSlotTypeVersionsCommandInput extends GetSlotTypeVersionsRequest {}
+export interface GetSlotTypeVersionsCommandOutput extends GetSlotTypeVersionsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about all versions of a slot type.</p>

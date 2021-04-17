@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetCoreDeviceCommandInput = GetCoreDeviceRequest;
-export type GetCoreDeviceCommandOutput = GetCoreDeviceResponse & __MetadataBearer;
+export interface GetCoreDeviceCommandInput extends GetCoreDeviceRequest {}
+export interface GetCoreDeviceCommandOutput extends GetCoreDeviceResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves metadata for a AWS IoT Greengrass core device.</p>

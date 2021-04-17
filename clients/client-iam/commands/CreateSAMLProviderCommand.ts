@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateSAMLProviderCommandInput = CreateSAMLProviderRequest;
-export type CreateSAMLProviderCommandOutput = CreateSAMLProviderResponse & __MetadataBearer;
+export interface CreateSAMLProviderCommandInput extends CreateSAMLProviderRequest {}
+export interface CreateSAMLProviderCommandOutput extends CreateSAMLProviderResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an IAM resource that describes an identity provider (IdP) that supports SAML

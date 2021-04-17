@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateStreamCommandInput = CreateStreamInput;
-export type CreateStreamCommandOutput = __MetadataBearer;
+export interface CreateStreamCommandInput extends CreateStreamInput {}
+export interface CreateStreamCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Creates a Kinesis data stream. A stream captures and transports data records that

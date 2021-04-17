@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelInputDeviceTransferCommandInput = CancelInputDeviceTransferRequest;
-export type CancelInputDeviceTransferCommandOutput = CancelInputDeviceTransferResponse & __MetadataBearer;
+export interface CancelInputDeviceTransferCommandInput extends CancelInputDeviceTransferRequest {}
+export interface CancelInputDeviceTransferCommandOutput extends CancelInputDeviceTransferResponse, __MetadataBearer {}
 
 /**
  * Cancel an input device transfer that you have requested.

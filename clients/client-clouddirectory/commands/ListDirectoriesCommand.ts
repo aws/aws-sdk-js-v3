@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDirectoriesCommandInput = ListDirectoriesRequest;
-export type ListDirectoriesCommandOutput = ListDirectoriesResponse & __MetadataBearer;
+export interface ListDirectoriesCommandInput extends ListDirectoriesRequest {}
+export interface ListDirectoriesCommandOutput extends ListDirectoriesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists directories created within an account.</p>

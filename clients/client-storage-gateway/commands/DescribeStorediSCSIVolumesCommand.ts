@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeStorediSCSIVolumesCommandInput = DescribeStorediSCSIVolumesInput;
-export type DescribeStorediSCSIVolumesCommandOutput = DescribeStorediSCSIVolumesOutput & __MetadataBearer;
+export interface DescribeStorediSCSIVolumesCommandInput extends DescribeStorediSCSIVolumesInput {}
+export interface DescribeStorediSCSIVolumesCommandOutput extends DescribeStorediSCSIVolumesOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the description of the gateway volumes specified in the request. The list of

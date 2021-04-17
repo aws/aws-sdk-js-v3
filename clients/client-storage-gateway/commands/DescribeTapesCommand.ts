@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTapesCommandInput = DescribeTapesInput;
-export type DescribeTapesCommandOutput = DescribeTapesOutput & __MetadataBearer;
+export interface DescribeTapesCommandInput extends DescribeTapesInput {}
+export interface DescribeTapesCommandOutput extends DescribeTapesOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a description of the specified Amazon Resource Name (ARN) of virtual tapes. If a

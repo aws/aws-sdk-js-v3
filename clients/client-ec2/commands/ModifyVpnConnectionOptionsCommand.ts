@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyVpnConnectionOptionsCommandInput = ModifyVpnConnectionOptionsRequest;
-export type ModifyVpnConnectionOptionsCommandOutput = ModifyVpnConnectionOptionsResult & __MetadataBearer;
+export interface ModifyVpnConnectionOptionsCommandInput extends ModifyVpnConnectionOptionsRequest {}
+export interface ModifyVpnConnectionOptionsCommandOutput extends ModifyVpnConnectionOptionsResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the connection options for your Site-to-Site VPN connection.</p>

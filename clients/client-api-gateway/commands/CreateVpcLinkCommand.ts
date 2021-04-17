@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateVpcLinkCommandInput = CreateVpcLinkRequest;
-export type CreateVpcLinkCommandOutput = VpcLink & __MetadataBearer;
+export interface CreateVpcLinkCommandInput extends CreateVpcLinkRequest {}
+export interface CreateVpcLinkCommandOutput extends VpcLink, __MetadataBearer {}
 
 /**
  * <p>Creates a VPC link, under the caller's account in a selected region, in an asynchronous operation that typically takes 2-4 minutes to complete and become operational. The caller must have permissions to create and update VPC Endpoint services.</p>

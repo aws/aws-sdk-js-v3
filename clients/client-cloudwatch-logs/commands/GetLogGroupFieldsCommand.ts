@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetLogGroupFieldsCommandInput = GetLogGroupFieldsRequest;
-export type GetLogGroupFieldsCommandOutput = GetLogGroupFieldsResponse & __MetadataBearer;
+export interface GetLogGroupFieldsCommandInput extends GetLogGroupFieldsRequest {}
+export interface GetLogGroupFieldsCommandOutput extends GetLogGroupFieldsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of the fields that are included in log events in the specified log group, along with the percentage of log events

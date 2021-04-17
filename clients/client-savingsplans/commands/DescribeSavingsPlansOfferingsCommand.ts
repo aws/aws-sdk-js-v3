@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeSavingsPlansOfferingsCommandInput = DescribeSavingsPlansOfferingsRequest;
-export type DescribeSavingsPlansOfferingsCommandOutput = DescribeSavingsPlansOfferingsResponse & __MetadataBearer;
+export interface DescribeSavingsPlansOfferingsCommandInput extends DescribeSavingsPlansOfferingsRequest {}
+export interface DescribeSavingsPlansOfferingsCommandOutput
+  extends DescribeSavingsPlansOfferingsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the specified Savings Plans offerings.</p>

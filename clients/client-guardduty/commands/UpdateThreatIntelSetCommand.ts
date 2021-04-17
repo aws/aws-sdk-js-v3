@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateThreatIntelSetCommandInput = UpdateThreatIntelSetRequest;
-export type UpdateThreatIntelSetCommandOutput = UpdateThreatIntelSetResponse & __MetadataBearer;
+export interface UpdateThreatIntelSetCommandInput extends UpdateThreatIntelSetRequest {}
+export interface UpdateThreatIntelSetCommandOutput extends UpdateThreatIntelSetResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the ThreatIntelSet specified by the ThreatIntelSet ID.</p>

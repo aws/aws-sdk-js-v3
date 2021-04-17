@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBucketVersioningCommandInput = GetBucketVersioningRequest;
-export type GetBucketVersioningCommandOutput = GetBucketVersioningOutput & __MetadataBearer;
+export interface GetBucketVersioningCommandInput extends GetBucketVersioningRequest {}
+export interface GetBucketVersioningCommandOutput extends GetBucketVersioningOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the versioning state of a bucket.</p>

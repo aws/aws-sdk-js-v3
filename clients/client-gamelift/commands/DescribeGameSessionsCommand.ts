@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeGameSessionsCommandInput = DescribeGameSessionsInput;
-export type DescribeGameSessionsCommandOutput = DescribeGameSessionsOutput & __MetadataBearer;
+export interface DescribeGameSessionsCommandInput extends DescribeGameSessionsInput {}
+export interface DescribeGameSessionsCommandOutput extends DescribeGameSessionsOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves a set of one or more game sessions in a specific fleet location. You can

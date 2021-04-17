@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDeviceInstanceCommandInput = GetDeviceInstanceRequest;
-export type GetDeviceInstanceCommandOutput = GetDeviceInstanceResult & __MetadataBearer;
+export interface GetDeviceInstanceCommandInput extends GetDeviceInstanceRequest {}
+export interface GetDeviceInstanceCommandOutput extends GetDeviceInstanceResult, __MetadataBearer {}
 
 /**
  * <p>Returns information about a device instance that belongs to a private device fleet.</p>

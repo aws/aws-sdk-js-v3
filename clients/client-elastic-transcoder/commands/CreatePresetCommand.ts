@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreatePresetCommandInput = CreatePresetRequest;
-export type CreatePresetCommandOutput = CreatePresetResponse & __MetadataBearer;
+export interface CreatePresetCommandInput extends CreatePresetRequest {}
+export interface CreatePresetCommandOutput extends CreatePresetResponse, __MetadataBearer {}
 
 /**
  * <p>The CreatePreset operation creates a preset with settings that you specify.</p>

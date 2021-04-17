@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetPolicyCommandInput = GetPolicyRequest;
-export type GetPolicyCommandOutput = GetPolicyResponse & __MetadataBearer;
+export interface GetPolicyCommandInput extends GetPolicyRequest {}
+export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the <a href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html">resource-based IAM policy</a> for a function, version, or alias.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribePatchGroupsCommandInput = DescribePatchGroupsRequest;
-export type DescribePatchGroupsCommandOutput = DescribePatchGroupsResult & __MetadataBearer;
+export interface DescribePatchGroupsCommandInput extends DescribePatchGroupsRequest {}
+export interface DescribePatchGroupsCommandOutput extends DescribePatchGroupsResult, __MetadataBearer {}
 
 /**
  * <p>Lists all patch groups that have been registered with patch baselines.</p>

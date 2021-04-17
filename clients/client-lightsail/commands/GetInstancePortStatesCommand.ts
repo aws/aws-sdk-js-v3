@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetInstancePortStatesCommandInput = GetInstancePortStatesRequest;
-export type GetInstancePortStatesCommandOutput = GetInstancePortStatesResult & __MetadataBearer;
+export interface GetInstancePortStatesCommandInput extends GetInstancePortStatesRequest {}
+export interface GetInstancePortStatesCommandOutput extends GetInstancePortStatesResult, __MetadataBearer {}
 
 /**
  * <p>Returns the firewall port states for a specific Amazon Lightsail instance, the IP addresses

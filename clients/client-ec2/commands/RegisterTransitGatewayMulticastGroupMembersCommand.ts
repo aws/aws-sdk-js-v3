@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterTransitGatewayMulticastGroupMembersCommandInput = RegisterTransitGatewayMulticastGroupMembersRequest;
-export type RegisterTransitGatewayMulticastGroupMembersCommandOutput = RegisterTransitGatewayMulticastGroupMembersResult &
-  __MetadataBearer;
+export interface RegisterTransitGatewayMulticastGroupMembersCommandInput
+  extends RegisterTransitGatewayMulticastGroupMembersRequest {}
+export interface RegisterTransitGatewayMulticastGroupMembersCommandOutput
+  extends RegisterTransitGatewayMulticastGroupMembersResult,
+    __MetadataBearer {}
 
 /**
  * <p>Registers members (network interfaces) with the  transit gateway multicast group. A member is a network interface associated

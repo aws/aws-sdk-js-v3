@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateMonitoringSubscriptionCommandInput = CreateMonitoringSubscriptionRequest;
-export type CreateMonitoringSubscriptionCommandOutput = CreateMonitoringSubscriptionResult & __MetadataBearer;
+export interface CreateMonitoringSubscriptionCommandInput extends CreateMonitoringSubscriptionRequest {}
+export interface CreateMonitoringSubscriptionCommandOutput
+  extends CreateMonitoringSubscriptionResult,
+    __MetadataBearer {}
 
 /**
  * <p>Enables additional CloudWatch metrics for the specified CloudFront distribution. The

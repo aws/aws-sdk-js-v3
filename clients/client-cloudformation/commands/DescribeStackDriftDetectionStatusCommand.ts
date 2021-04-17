@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeStackDriftDetectionStatusCommandInput = DescribeStackDriftDetectionStatusInput;
-export type DescribeStackDriftDetectionStatusCommandOutput = DescribeStackDriftDetectionStatusOutput & __MetadataBearer;
+export interface DescribeStackDriftDetectionStatusCommandInput extends DescribeStackDriftDetectionStatusInput {}
+export interface DescribeStackDriftDetectionStatusCommandOutput
+  extends DescribeStackDriftDetectionStatusOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Returns information about a stack drift detection operation. A stack drift detection

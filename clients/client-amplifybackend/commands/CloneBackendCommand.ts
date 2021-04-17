@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CloneBackendCommandInput = CloneBackendRequest;
-export type CloneBackendCommandOutput = CloneBackendResponse & __MetadataBearer;
+export interface CloneBackendCommandInput extends CloneBackendRequest {}
+export interface CloneBackendCommandOutput extends CloneBackendResponse, __MetadataBearer {}
 
 /**
  * <p>This operation clones an existing backend.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateChannelReadMarkerCommandInput = UpdateChannelReadMarkerRequest;
-export type UpdateChannelReadMarkerCommandOutput = UpdateChannelReadMarkerResponse & __MetadataBearer;
+export interface UpdateChannelReadMarkerCommandInput extends UpdateChannelReadMarkerRequest {}
+export interface UpdateChannelReadMarkerCommandOutput extends UpdateChannelReadMarkerResponse, __MetadataBearer {}
 
 /**
  * <p>The details of the time when a user last read messages in a channel.</p>

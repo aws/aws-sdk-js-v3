@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchGetAggregateResourceConfigCommandInput = BatchGetAggregateResourceConfigRequest;
-export type BatchGetAggregateResourceConfigCommandOutput = BatchGetAggregateResourceConfigResponse & __MetadataBearer;
+export interface BatchGetAggregateResourceConfigCommandInput extends BatchGetAggregateResourceConfigRequest {}
+export interface BatchGetAggregateResourceConfigCommandOutput
+  extends BatchGetAggregateResourceConfigResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the current configuration items for resources that are present in your AWS Config aggregator. The operation also returns a list of resources that are not processed in the current request.

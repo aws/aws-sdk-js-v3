@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSerialConsoleAccessStatusCommandInput = GetSerialConsoleAccessStatusRequest;
-export type GetSerialConsoleAccessStatusCommandOutput = GetSerialConsoleAccessStatusResult & __MetadataBearer;
+export interface GetSerialConsoleAccessStatusCommandInput extends GetSerialConsoleAccessStatusRequest {}
+export interface GetSerialConsoleAccessStatusCommandOutput
+  extends GetSerialConsoleAccessStatusResult,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves the access status of your account to the EC2 serial console of all instances. By

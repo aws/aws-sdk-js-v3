@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDBInstanceReadReplicaCommandInput = CreateDBInstanceReadReplicaMessage;
-export type CreateDBInstanceReadReplicaCommandOutput = CreateDBInstanceReadReplicaResult & __MetadataBearer;
+export interface CreateDBInstanceReadReplicaCommandInput extends CreateDBInstanceReadReplicaMessage {}
+export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstanceReadReplicaResult, __MetadataBearer {}
 
 /**
  * <p>Creates a new DB instance that acts as a read replica for an existing source DB

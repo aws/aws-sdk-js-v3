@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateIPSetCommandInput = UpdateIPSetRequest;
-export type UpdateIPSetCommandOutput = UpdateIPSetResponse & __MetadataBearer;
+export interface UpdateIPSetCommandInput extends UpdateIPSetRequest {}
+export interface UpdateIPSetCommandOutput extends UpdateIPSetResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the specified <a>IPSet</a>. </p>

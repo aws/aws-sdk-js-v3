@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateWorkflowCommandInput = CreateWorkflowRequest;
-export type CreateWorkflowCommandOutput = CreateWorkflowResponse & __MetadataBearer;
+export interface CreateWorkflowCommandInput extends CreateWorkflowRequest {}
+export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new workflow.</p>

@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type QueryCommandInput = QueryInput;
-export type QueryCommandOutput = QueryOutput & __MetadataBearer;
+export interface QueryCommandInput extends QueryInput {}
+export interface QueryCommandOutput extends QueryOutput, __MetadataBearer {}
 
 /**
  * <p>The <code>Query</code> operation finds items based on primary key values.

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeThemeCommandInput = DescribeThemeRequest;
-export type DescribeThemeCommandOutput = DescribeThemeResponse & __MetadataBearer;
+export interface DescribeThemeCommandInput extends DescribeThemeRequest {}
+export interface DescribeThemeCommandOutput extends DescribeThemeResponse, __MetadataBearer {}
 
 /**
  * <p>Describes a theme.</p>

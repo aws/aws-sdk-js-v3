@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSecurityConfigurationsCommandInput = GetSecurityConfigurationsRequest;
-export type GetSecurityConfigurationsCommandOutput = GetSecurityConfigurationsResponse & __MetadataBearer;
+export interface GetSecurityConfigurationsCommandInput extends GetSecurityConfigurationsRequest {}
+export interface GetSecurityConfigurationsCommandOutput extends GetSecurityConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of all security configurations.</p>

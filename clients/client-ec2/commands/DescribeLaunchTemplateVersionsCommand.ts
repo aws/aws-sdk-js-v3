@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeLaunchTemplateVersionsCommandInput = DescribeLaunchTemplateVersionsRequest;
-export type DescribeLaunchTemplateVersionsCommandOutput = DescribeLaunchTemplateVersionsResult & __MetadataBearer;
+export interface DescribeLaunchTemplateVersionsCommandInput extends DescribeLaunchTemplateVersionsRequest {}
+export interface DescribeLaunchTemplateVersionsCommandOutput
+  extends DescribeLaunchTemplateVersionsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Describes one or more versions of a specified launch template. You can describe all

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchCreateTableRowsCommandInput = BatchCreateTableRowsRequest;
-export type BatchCreateTableRowsCommandOutput = BatchCreateTableRowsResult & __MetadataBearer;
+export interface BatchCreateTableRowsCommandInput extends BatchCreateTableRowsRequest {}
+export interface BatchCreateTableRowsCommandOutput extends BatchCreateTableRowsResult, __MetadataBearer {}
 
 /**
  * <p>

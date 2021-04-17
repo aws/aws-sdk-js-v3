@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetVoiceConnectorTerminationCommandInput = GetVoiceConnectorTerminationRequest;
-export type GetVoiceConnectorTerminationCommandOutput = GetVoiceConnectorTerminationResponse & __MetadataBearer;
+export interface GetVoiceConnectorTerminationCommandInput extends GetVoiceConnectorTerminationRequest {}
+export interface GetVoiceConnectorTerminationCommandOutput
+  extends GetVoiceConnectorTerminationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves termination setting details for the specified Amazon Chime Voice Connector.</p>

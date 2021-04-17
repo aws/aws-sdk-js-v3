@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartPiiEntitiesDetectionJobCommandInput = StartPiiEntitiesDetectionJobRequest;
-export type StartPiiEntitiesDetectionJobCommandOutput = StartPiiEntitiesDetectionJobResponse & __MetadataBearer;
+export interface StartPiiEntitiesDetectionJobCommandInput extends StartPiiEntitiesDetectionJobRequest {}
+export interface StartPiiEntitiesDetectionJobCommandOutput
+  extends StartPiiEntitiesDetectionJobResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Starts an asynchronous PII entity detection job for a collection of documents.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeUsersCommandInput = DescribeUsersRequest;
-export type DescribeUsersCommandOutput = DescribeUsersResponse & __MetadataBearer;
+export interface DescribeUsersCommandInput extends DescribeUsersRequest {}
+export interface DescribeUsersCommandOutput extends DescribeUsersResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the specified users. You can describe all users or filter the results

@@ -18,8 +18,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListVPCAssociationAuthorizationsCommandInput = ListVPCAssociationAuthorizationsRequest;
-export type ListVPCAssociationAuthorizationsCommandOutput = ListVPCAssociationAuthorizationsResponse & __MetadataBearer;
+export interface ListVPCAssociationAuthorizationsCommandInput extends ListVPCAssociationAuthorizationsRequest {}
+export interface ListVPCAssociationAuthorizationsCommandOutput
+  extends ListVPCAssociationAuthorizationsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets a list of the VPCs that were created by other accounts and that can be associated with a

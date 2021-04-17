@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SendBonusCommandInput = SendBonusRequest;
-export type SendBonusCommandOutput = SendBonusResponse & __MetadataBearer;
+export interface SendBonusCommandInput extends SendBonusRequest {}
+export interface SendBonusCommandOutput extends SendBonusResponse, __MetadataBearer {}
 
 /**
  * <p>

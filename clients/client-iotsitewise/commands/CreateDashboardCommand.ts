@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDashboardCommandInput = CreateDashboardRequest;
-export type CreateDashboardCommandOutput = CreateDashboardResponse & __MetadataBearer;
+export interface CreateDashboardCommandInput extends CreateDashboardRequest {}
+export interface CreateDashboardCommandOutput extends CreateDashboardResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a dashboard in an AWS IoT SiteWise Monitor project.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAppliedSchemaVersionCommandInput = GetAppliedSchemaVersionRequest;
-export type GetAppliedSchemaVersionCommandOutput = GetAppliedSchemaVersionResponse & __MetadataBearer;
+export interface GetAppliedSchemaVersionCommandInput extends GetAppliedSchemaVersionRequest {}
+export interface GetAppliedSchemaVersionCommandOutput extends GetAppliedSchemaVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Returns current applied schema version ARN, including the minor version in use.</p>

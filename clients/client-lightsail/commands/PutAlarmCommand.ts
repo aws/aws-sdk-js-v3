@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutAlarmCommandInput = PutAlarmRequest;
-export type PutAlarmCommandOutput = PutAlarmResult & __MetadataBearer;
+export interface PutAlarmCommandInput extends PutAlarmRequest {}
+export interface PutAlarmCommandOutput extends PutAlarmResult, __MetadataBearer {}
 
 /**
  * <p>Creates or updates an alarm, and associates it with the specified metric.</p>

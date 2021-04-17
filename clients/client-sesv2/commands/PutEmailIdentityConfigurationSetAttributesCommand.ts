@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutEmailIdentityConfigurationSetAttributesCommandInput = PutEmailIdentityConfigurationSetAttributesRequest;
-export type PutEmailIdentityConfigurationSetAttributesCommandOutput = PutEmailIdentityConfigurationSetAttributesResponse &
-  __MetadataBearer;
+export interface PutEmailIdentityConfigurationSetAttributesCommandInput
+  extends PutEmailIdentityConfigurationSetAttributesRequest {}
+export interface PutEmailIdentityConfigurationSetAttributesCommandOutput
+  extends PutEmailIdentityConfigurationSetAttributesResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Used to associate a configuration set with an email identity.</p>

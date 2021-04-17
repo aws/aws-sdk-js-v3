@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeContactCommandInput = DescribeContactRequest;
-export type DescribeContactCommandOutput = DescribeContactResponse & __MetadataBearer;
+export interface DescribeContactCommandInput extends DescribeContactRequest {}
+export interface DescribeContactCommandOutput extends DescribeContactResponse, __MetadataBearer {}
 
 /**
  * <p>Describes an existing contact.</p>

@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyFleetCommandInput = ModifyFleetRequest;
-export type ModifyFleetCommandOutput = ModifyFleetResult & __MetadataBearer;
+export interface ModifyFleetCommandInput extends ModifyFleetRequest {}
+export interface ModifyFleetCommandOutput extends ModifyFleetResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the specified EC2 Fleet.</p>

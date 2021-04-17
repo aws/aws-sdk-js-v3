@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteLoggingConfigurationCommandInput = DeleteLoggingConfigurationRequest;
-export type DeleteLoggingConfigurationCommandOutput = DeleteLoggingConfigurationResponse & __MetadataBearer;
+export interface DeleteLoggingConfigurationCommandInput extends DeleteLoggingConfigurationRequest {}
+export interface DeleteLoggingConfigurationCommandOutput extends DeleteLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <note>

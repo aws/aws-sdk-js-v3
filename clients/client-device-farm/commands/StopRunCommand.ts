@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopRunCommandInput = StopRunRequest;
-export type StopRunCommandOutput = StopRunResult & __MetadataBearer;
+export interface StopRunCommandInput extends StopRunRequest {}
+export interface StopRunCommandOutput extends StopRunResult, __MetadataBearer {}
 
 /**
  * <p>Initiates a stop request for the current test run. AWS Device Farm immediately stops the run on devices

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPartnerAccountsCommandInput = ListPartnerAccountsRequest;
-export type ListPartnerAccountsCommandOutput = ListPartnerAccountsResponse & __MetadataBearer;
+export interface ListPartnerAccountsCommandInput extends ListPartnerAccountsRequest {}
+export interface ListPartnerAccountsCommandOutput extends ListPartnerAccountsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the partner accounts associated with your AWS account.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateVocabularyFilterCommandInput = UpdateVocabularyFilterRequest;
-export type UpdateVocabularyFilterCommandOutput = UpdateVocabularyFilterResponse & __MetadataBearer;
+export interface UpdateVocabularyFilterCommandInput extends UpdateVocabularyFilterRequest {}
+export interface UpdateVocabularyFilterCommandOutput extends UpdateVocabularyFilterResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a vocabulary filter with a new list of filtered words.</p>

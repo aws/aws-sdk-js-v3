@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSAMLProviderCommandInput = GetSAMLProviderRequest;
-export type GetSAMLProviderCommandOutput = GetSAMLProviderResponse & __MetadataBearer;
+export interface GetSAMLProviderCommandInput extends GetSAMLProviderRequest {}
+export interface GetSAMLProviderCommandOutput extends GetSAMLProviderResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the SAML provider metadocument that was uploaded when the IAM SAML provider

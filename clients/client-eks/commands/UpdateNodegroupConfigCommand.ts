@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateNodegroupConfigCommandInput = UpdateNodegroupConfigRequest;
-export type UpdateNodegroupConfigCommandOutput = UpdateNodegroupConfigResponse & __MetadataBearer;
+export interface UpdateNodegroupConfigCommandInput extends UpdateNodegroupConfigRequest {}
+export interface UpdateNodegroupConfigCommandOutput extends UpdateNodegroupConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an Amazon EKS managed node group configuration. Your node group continues to

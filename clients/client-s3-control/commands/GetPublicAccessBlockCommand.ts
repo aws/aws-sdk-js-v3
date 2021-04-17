@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetPublicAccessBlockCommandInput = GetPublicAccessBlockRequest;
-export type GetPublicAccessBlockCommandOutput = GetPublicAccessBlockOutput & __MetadataBearer;
+export interface GetPublicAccessBlockCommandInput extends GetPublicAccessBlockRequest {}
+export interface GetPublicAccessBlockCommandOutput extends GetPublicAccessBlockOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves the <code>PublicAccessBlock</code> configuration for an AWS account. For more

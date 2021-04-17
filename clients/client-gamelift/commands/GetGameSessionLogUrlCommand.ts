@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetGameSessionLogUrlCommandInput = GetGameSessionLogUrlInput;
-export type GetGameSessionLogUrlCommandOutput = GetGameSessionLogUrlOutput & __MetadataBearer;
+export interface GetGameSessionLogUrlCommandInput extends GetGameSessionLogUrlInput {}
+export interface GetGameSessionLogUrlCommandOutput extends GetGameSessionLogUrlOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves the location of stored game session logs for a specified game session.

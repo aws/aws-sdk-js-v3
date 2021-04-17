@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyReportDefinitionCommandInput = ModifyReportDefinitionRequest;
-export type ModifyReportDefinitionCommandOutput = ModifyReportDefinitionResponse & __MetadataBearer;
+export interface ModifyReportDefinitionCommandInput extends ModifyReportDefinitionRequest {}
+export interface ModifyReportDefinitionCommandOutput extends ModifyReportDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Allows you to programatically update your report preferences.</p>

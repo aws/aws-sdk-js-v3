@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetKMSEncryptionKeyCommandInput = {};
-export type GetKMSEncryptionKeyCommandOutput = GetKMSEncryptionKeyResult & __MetadataBearer;
+export interface GetKMSEncryptionKeyCommandInput {}
+export interface GetKMSEncryptionKeyCommandOutput extends GetKMSEncryptionKeyResult, __MetadataBearer {}
 
 /**
  * <p>Gets the encryption key if a Key Management Service (KMS) customer master key (CMK) has been specified to be used to encrypt content in Amazon Fraud Detector.</p>

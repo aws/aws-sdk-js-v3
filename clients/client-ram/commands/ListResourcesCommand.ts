@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListResourcesCommandInput = ListResourcesRequest;
-export type ListResourcesCommandOutput = ListResourcesResponse & __MetadataBearer;
+export interface ListResourcesCommandInput extends ListResourcesRequest {}
+export interface ListResourcesCommandOutput extends ListResourcesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the resources that you added to a resource shares or the resources that are shared with you.</p>

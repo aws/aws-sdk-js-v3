@@ -17,8 +17,9 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateApprovalRuleTemplateFromRepositoryCommandInput = DisassociateApprovalRuleTemplateFromRepositoryInput;
-export type DisassociateApprovalRuleTemplateFromRepositoryCommandOutput = __MetadataBearer;
+export interface DisassociateApprovalRuleTemplateFromRepositoryCommandInput
+  extends DisassociateApprovalRuleTemplateFromRepositoryInput {}
+export interface DisassociateApprovalRuleTemplateFromRepositoryCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes the association between a template and a repository so that approval rules

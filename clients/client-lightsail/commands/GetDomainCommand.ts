@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDomainCommandInput = GetDomainRequest;
-export type GetDomainCommandOutput = GetDomainResult & __MetadataBearer;
+export interface GetDomainCommandInput extends GetDomainRequest {}
+export interface GetDomainCommandOutput extends GetDomainResult, __MetadataBearer {}
 
 /**
  * <p>Returns information about a specific domain recordset.</p>

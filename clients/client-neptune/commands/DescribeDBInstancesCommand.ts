@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDBInstancesCommandInput = DescribeDBInstancesMessage;
-export type DescribeDBInstancesCommandOutput = DBInstanceMessage & __MetadataBearer;
+export interface DescribeDBInstancesCommandInput extends DescribeDBInstancesMessage {}
+export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __MetadataBearer {}
 
 /**
  * <p>Returns information about provisioned instances, and supports pagination.</p>

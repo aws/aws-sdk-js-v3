@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListFaqsCommandInput = ListFaqsRequest;
-export type ListFaqsCommandOutput = ListFaqsResponse & __MetadataBearer;
+export interface ListFaqsCommandInput extends ListFaqsRequest {}
+export interface ListFaqsCommandOutput extends ListFaqsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of FAQ lists associated with an index.</p>

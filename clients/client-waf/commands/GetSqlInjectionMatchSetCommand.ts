@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSqlInjectionMatchSetCommandInput = GetSqlInjectionMatchSetRequest;
-export type GetSqlInjectionMatchSetCommandOutput = GetSqlInjectionMatchSetResponse & __MetadataBearer;
+export interface GetSqlInjectionMatchSetCommandInput extends GetSqlInjectionMatchSetRequest {}
+export interface GetSqlInjectionMatchSetCommandOutput extends GetSqlInjectionMatchSetResponse, __MetadataBearer {}
 
 /**
  * <note>

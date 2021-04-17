@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateNotificationSubscriptionCommandInput = CreateNotificationSubscriptionRequest;
-export type CreateNotificationSubscriptionCommandOutput = CreateNotificationSubscriptionResponse & __MetadataBearer;
+export interface CreateNotificationSubscriptionCommandInput extends CreateNotificationSubscriptionRequest {}
+export interface CreateNotificationSubscriptionCommandOutput
+  extends CreateNotificationSubscriptionResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Configure Amazon WorkDocs to use Amazon SNS notifications. The endpoint receives a

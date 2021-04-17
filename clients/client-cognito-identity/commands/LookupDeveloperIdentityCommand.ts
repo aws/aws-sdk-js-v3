@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type LookupDeveloperIdentityCommandInput = LookupDeveloperIdentityInput;
-export type LookupDeveloperIdentityCommandOutput = LookupDeveloperIdentityResponse & __MetadataBearer;
+export interface LookupDeveloperIdentityCommandInput extends LookupDeveloperIdentityInput {}
+export interface LookupDeveloperIdentityCommandOutput extends LookupDeveloperIdentityResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the <code>IdentityID</code> associated with a

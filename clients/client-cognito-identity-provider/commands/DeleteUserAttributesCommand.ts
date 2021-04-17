@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteUserAttributesCommandInput = DeleteUserAttributesRequest;
-export type DeleteUserAttributesCommandOutput = DeleteUserAttributesResponse & __MetadataBearer;
+export interface DeleteUserAttributesCommandInput extends DeleteUserAttributesRequest {}
+export interface DeleteUserAttributesCommandOutput extends DeleteUserAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the attributes for a user.</p>

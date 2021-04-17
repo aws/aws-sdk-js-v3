@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchDeleteImportDataCommandInput = BatchDeleteImportDataRequest;
-export type BatchDeleteImportDataCommandOutput = BatchDeleteImportDataResponse & __MetadataBearer;
+export interface BatchDeleteImportDataCommandInput extends BatchDeleteImportDataRequest {}
+export interface BatchDeleteImportDataCommandOutput extends BatchDeleteImportDataResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes one or more import tasks, each identified by their import ID. Each import task has

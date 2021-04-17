@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAutomationStepExecutionsCommandInput = DescribeAutomationStepExecutionsRequest;
-export type DescribeAutomationStepExecutionsCommandOutput = DescribeAutomationStepExecutionsResult & __MetadataBearer;
+export interface DescribeAutomationStepExecutionsCommandInput extends DescribeAutomationStepExecutionsRequest {}
+export interface DescribeAutomationStepExecutionsCommandOutput
+  extends DescribeAutomationStepExecutionsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Information about all active and terminated step executions in an Automation

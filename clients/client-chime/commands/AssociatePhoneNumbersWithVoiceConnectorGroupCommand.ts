@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput = AssociatePhoneNumbersWithVoiceConnectorGroupRequest;
-export type AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput = AssociatePhoneNumbersWithVoiceConnectorGroupResponse &
-  __MetadataBearer;
+export interface AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput
+  extends AssociatePhoneNumbersWithVoiceConnectorGroupRequest {}
+export interface AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput
+  extends AssociatePhoneNumbersWithVoiceConnectorGroupResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Associates phone numbers with the specified Amazon Chime Voice Connector group.</p>

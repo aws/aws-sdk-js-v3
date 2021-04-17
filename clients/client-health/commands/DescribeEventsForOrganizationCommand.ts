@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeEventsForOrganizationCommandInput = DescribeEventsForOrganizationRequest;
-export type DescribeEventsForOrganizationCommandOutput = DescribeEventsForOrganizationResponse & __MetadataBearer;
+export interface DescribeEventsForOrganizationCommandInput extends DescribeEventsForOrganizationRequest {}
+export interface DescribeEventsForOrganizationCommandOutput
+  extends DescribeEventsForOrganizationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns information about events across your organization in AWS Organizations. You can use

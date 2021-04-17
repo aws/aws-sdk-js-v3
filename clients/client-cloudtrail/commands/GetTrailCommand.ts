@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetTrailCommandInput = GetTrailRequest;
-export type GetTrailCommandOutput = GetTrailResponse & __MetadataBearer;
+export interface GetTrailCommandInput extends GetTrailRequest {}
+export interface GetTrailCommandOutput extends GetTrailResponse, __MetadataBearer {}
 
 /**
  * <p>Returns settings information for a specified trail.</p>

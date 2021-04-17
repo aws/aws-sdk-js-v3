@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAnomalyMonitorCommandInput = DeleteAnomalyMonitorRequest;
-export type DeleteAnomalyMonitorCommandOutput = DeleteAnomalyMonitorResponse & __MetadataBearer;
+export interface DeleteAnomalyMonitorCommandInput extends DeleteAnomalyMonitorRequest {}
+export interface DeleteAnomalyMonitorCommandOutput extends DeleteAnomalyMonitorResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a cost anomaly monitor. </p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateFirewallCommandInput = CreateFirewallRequest;
-export type CreateFirewallCommandOutput = CreateFirewallResponse & __MetadataBearer;
+export interface CreateFirewallCommandInput extends CreateFirewallRequest {}
+export interface CreateFirewallCommandOutput extends CreateFirewallResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an AWS Network Firewall <a>Firewall</a> and accompanying <a>FirewallStatus</a> for a VPC. </p>

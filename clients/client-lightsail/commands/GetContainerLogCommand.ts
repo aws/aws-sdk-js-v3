@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetContainerLogCommandInput = GetContainerLogRequest;
-export type GetContainerLogCommandOutput = GetContainerLogResult & __MetadataBearer;
+export interface GetContainerLogCommandInput extends GetContainerLogRequest {}
+export interface GetContainerLogCommandOutput extends GetContainerLogResult, __MetadataBearer {}
 
 /**
  * <p>Returns the log events of a container of your Amazon Lightsail container service.</p>

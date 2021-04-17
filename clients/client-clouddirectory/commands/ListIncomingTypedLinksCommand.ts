@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListIncomingTypedLinksCommandInput = ListIncomingTypedLinksRequest;
-export type ListIncomingTypedLinksCommandOutput = ListIncomingTypedLinksResponse & __MetadataBearer;
+export interface ListIncomingTypedLinksCommandInput extends ListIncomingTypedLinksRequest {}
+export interface ListIncomingTypedLinksCommandOutput extends ListIncomingTypedLinksResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a paginated list of all the incoming <a>TypedLinkSpecifier</a>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ExportTransitGatewayRoutesCommandInput = ExportTransitGatewayRoutesRequest;
-export type ExportTransitGatewayRoutesCommandOutput = ExportTransitGatewayRoutesResult & __MetadataBearer;
+export interface ExportTransitGatewayRoutesCommandInput extends ExportTransitGatewayRoutesRequest {}
+export interface ExportTransitGatewayRoutesCommandOutput extends ExportTransitGatewayRoutesResult, __MetadataBearer {}
 
 /**
  * <p>Exports routes from the specified transit gateway route table to the specified S3 bucket.

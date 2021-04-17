@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteCustomAvailabilityZoneCommandInput = DeleteCustomAvailabilityZoneMessage;
-export type DeleteCustomAvailabilityZoneCommandOutput = DeleteCustomAvailabilityZoneResult & __MetadataBearer;
+export interface DeleteCustomAvailabilityZoneCommandInput extends DeleteCustomAvailabilityZoneMessage {}
+export interface DeleteCustomAvailabilityZoneCommandOutput
+  extends DeleteCustomAvailabilityZoneResult,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes a custom Availability Zone (AZ).</p>

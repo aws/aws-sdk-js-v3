@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPoliciesGrantingServiceAccessCommandInput = ListPoliciesGrantingServiceAccessRequest;
-export type ListPoliciesGrantingServiceAccessCommandOutput = ListPoliciesGrantingServiceAccessResponse &
-  __MetadataBearer;
+export interface ListPoliciesGrantingServiceAccessCommandInput extends ListPoliciesGrantingServiceAccessRequest {}
+export interface ListPoliciesGrantingServiceAccessCommandOutput
+  extends ListPoliciesGrantingServiceAccessResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of policies that the IAM identity (user, group, or role) can use to

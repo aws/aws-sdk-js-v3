@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListInvitationsCommandInput = ListInvitationsRequest;
-export type ListInvitationsCommandOutput = ListInvitationsResponse & __MetadataBearer;
+export interface ListInvitationsCommandInput extends ListInvitationsRequest {}
+export interface ListInvitationsCommandOutput extends ListInvitationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all GuardDuty membership invitations that were sent to the current AWS

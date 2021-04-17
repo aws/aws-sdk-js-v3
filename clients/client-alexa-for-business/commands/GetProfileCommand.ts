@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetProfileCommandInput = GetProfileRequest;
-export type GetProfileCommandOutput = GetProfileResponse & __MetadataBearer;
+export interface GetProfileCommandInput extends GetProfileRequest {}
+export interface GetProfileCommandOutput extends GetProfileResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the details of a room profile by profile ARN.</p>

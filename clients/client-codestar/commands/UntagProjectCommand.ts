@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UntagProjectCommandInput = UntagProjectRequest;
-export type UntagProjectCommandOutput = UntagProjectResult & __MetadataBearer;
+export interface UntagProjectCommandInput extends UntagProjectRequest {}
+export interface UntagProjectCommandOutput extends UntagProjectResult, __MetadataBearer {}
 
 /**
  * <p>Removes tags from a project.</p>

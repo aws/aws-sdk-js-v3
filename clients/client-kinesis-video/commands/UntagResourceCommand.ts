@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UntagResourceCommandInput = UntagResourceInput;
-export type UntagResourceCommandOutput = UntagResourceOutput & __MetadataBearer;
+export interface UntagResourceCommandInput extends UntagResourceInput {}
+export interface UntagResourceCommandOutput extends UntagResourceOutput, __MetadataBearer {}
 
 /**
  * <p>Removes one or more tags from a signaling channel. In the request, specify only a tag

@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTypesCommandInput = ListTypesInput;
-export type ListTypesCommandOutput = ListTypesOutput & __MetadataBearer;
+export interface ListTypesCommandInput extends ListTypesInput {}
+export interface ListTypesCommandOutput extends ListTypesOutput, __MetadataBearer {}
 
 /**
  * <p>Returns summary information about extension that have been registered with CloudFormation.</p>

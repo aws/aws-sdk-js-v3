@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetLayerVersionCommandInput = GetLayerVersionRequest;
-export type GetLayerVersionCommandOutput = GetLayerVersionResponse & __MetadataBearer;
+export interface GetLayerVersionCommandInput extends GetLayerVersionRequest {}
+export interface GetLayerVersionCommandOutput extends GetLayerVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda

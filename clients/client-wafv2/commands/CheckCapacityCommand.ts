@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CheckCapacityCommandInput = CheckCapacityRequest;
-export type CheckCapacityCommandOutput = CheckCapacityResponse & __MetadataBearer;
+export interface CheckCapacityCommandInput extends CheckCapacityRequest {}
+export interface CheckCapacityCommandOutput extends CheckCapacityResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the web ACL capacity unit (WCU) requirements for a specified scope and set of rules.

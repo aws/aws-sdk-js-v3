@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteClusterCommandInput = DeleteClusterRequest;
-export type DeleteClusterCommandOutput = DeleteClusterResponse & __MetadataBearer;
+export interface DeleteClusterCommandInput extends DeleteClusterRequest {}
+export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified AWS CloudHSM cluster. Before you can delete a cluster, you must

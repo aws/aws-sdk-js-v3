@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAnomaliesForInsightCommandInput = ListAnomaliesForInsightRequest;
-export type ListAnomaliesForInsightCommandOutput = ListAnomaliesForInsightResponse & __MetadataBearer;
+export interface ListAnomaliesForInsightCommandInput extends ListAnomaliesForInsightRequest {}
+export interface ListAnomaliesForInsightCommandOutput extends ListAnomaliesForInsightResponse, __MetadataBearer {}
 
 /**
  * <p>

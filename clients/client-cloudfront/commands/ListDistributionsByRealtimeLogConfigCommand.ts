@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDistributionsByRealtimeLogConfigCommandInput = ListDistributionsByRealtimeLogConfigRequest;
-export type ListDistributionsByRealtimeLogConfigCommandOutput = ListDistributionsByRealtimeLogConfigResult &
-  __MetadataBearer;
+export interface ListDistributionsByRealtimeLogConfigCommandInput extends ListDistributionsByRealtimeLogConfigRequest {}
+export interface ListDistributionsByRealtimeLogConfigCommandOutput
+  extends ListDistributionsByRealtimeLogConfigResult,
+    __MetadataBearer {}
 
 /**
  * <p>Gets a list of distributions that have a cache behavior that’s associated with the specified

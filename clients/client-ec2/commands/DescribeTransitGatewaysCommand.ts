@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTransitGatewaysCommandInput = DescribeTransitGatewaysRequest;
-export type DescribeTransitGatewaysCommandOutput = DescribeTransitGatewaysResult & __MetadataBearer;
+export interface DescribeTransitGatewaysCommandInput extends DescribeTransitGatewaysRequest {}
+export interface DescribeTransitGatewaysCommandOutput extends DescribeTransitGatewaysResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more transit gateways. By default, all transit gateways are described. Alternatively, you can

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeRoutingProfileCommandInput = DescribeRoutingProfileRequest;
-export type DescribeRoutingProfileCommandOutput = DescribeRoutingProfileResponse & __MetadataBearer;
+export interface DescribeRoutingProfileCommandInput extends DescribeRoutingProfileRequest {}
+export interface DescribeRoutingProfileCommandOutput extends DescribeRoutingProfileResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the specified routing profile.</p>

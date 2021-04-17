@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDeviceDefinitionVersionCommandInput = GetDeviceDefinitionVersionRequest;
-export type GetDeviceDefinitionVersionCommandOutput = GetDeviceDefinitionVersionResponse & __MetadataBearer;
+export interface GetDeviceDefinitionVersionCommandInput extends GetDeviceDefinitionVersionRequest {}
+export interface GetDeviceDefinitionVersionCommandOutput extends GetDeviceDefinitionVersionResponse, __MetadataBearer {}
 
 /**
  * Retrieves information about a device definition version.

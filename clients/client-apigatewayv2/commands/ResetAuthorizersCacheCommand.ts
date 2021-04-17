@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ResetAuthorizersCacheCommandInput = ResetAuthorizersCacheRequest;
-export type ResetAuthorizersCacheCommandOutput = __MetadataBearer;
+export interface ResetAuthorizersCacheCommandInput extends ResetAuthorizersCacheRequest {}
+export interface ResetAuthorizersCacheCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Resets all authorizer cache entries on a stage. Supported only for HTTP APIs.</p>

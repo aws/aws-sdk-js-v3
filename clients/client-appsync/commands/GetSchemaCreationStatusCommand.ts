@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSchemaCreationStatusCommandInput = GetSchemaCreationStatusRequest;
-export type GetSchemaCreationStatusCommandOutput = GetSchemaCreationStatusResponse & __MetadataBearer;
+export interface GetSchemaCreationStatusCommandInput extends GetSchemaCreationStatusRequest {}
+export interface GetSchemaCreationStatusCommandOutput extends GetSchemaCreationStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the current status of a schema creation operation.</p>

@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAccessPointsCommandInput = ListAccessPointsRequest;
-export type ListAccessPointsCommandOutput = ListAccessPointsResult & __MetadataBearer;
+export interface ListAccessPointsCommandInput extends ListAccessPointsRequest {}
+export interface ListAccessPointsCommandOutput extends ListAccessPointsResult, __MetadataBearer {}
 
 /**
  * <p>Returns a list of the access points currently associated with the specified bucket. You

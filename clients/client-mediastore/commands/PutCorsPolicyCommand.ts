@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutCorsPolicyCommandInput = PutCorsPolicyInput;
-export type PutCorsPolicyCommandOutput = PutCorsPolicyOutput & __MetadataBearer;
+export interface PutCorsPolicyCommandInput extends PutCorsPolicyInput {}
+export interface PutCorsPolicyCommandOutput extends PutCorsPolicyOutput, __MetadataBearer {}
 
 /**
  * <p>Sets the cross-origin resource sharing (CORS) configuration on a container so that

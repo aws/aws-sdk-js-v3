@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateIntentVersionCommandInput = CreateIntentVersionRequest;
-export type CreateIntentVersionCommandOutput = CreateIntentVersionResponse & __MetadataBearer;
+export interface CreateIntentVersionCommandInput extends CreateIntentVersionRequest {}
+export interface CreateIntentVersionCommandOutput extends CreateIntentVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new version of an intent based on the

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopImageBuilderCommandInput = StopImageBuilderRequest;
-export type StopImageBuilderCommandOutput = StopImageBuilderResult & __MetadataBearer;
+export interface StopImageBuilderCommandInput extends StopImageBuilderRequest {}
+export interface StopImageBuilderCommandOutput extends StopImageBuilderResult, __MetadataBearer {}
 
 /**
  * <p>Stops the specified image builder.</p>

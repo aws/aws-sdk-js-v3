@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeReplicationInstancesCommandInput = DescribeReplicationInstancesMessage;
-export type DescribeReplicationInstancesCommandOutput = DescribeReplicationInstancesResponse & __MetadataBearer;
+export interface DescribeReplicationInstancesCommandInput extends DescribeReplicationInstancesMessage {}
+export interface DescribeReplicationInstancesCommandOutput
+  extends DescribeReplicationInstancesResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns information about replication instances for your account in the current

@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeInstanceHealthCommandInput = DescribeEndPointStateInput;
-export type DescribeInstanceHealthCommandOutput = DescribeEndPointStateOutput & __MetadataBearer;
+export interface DescribeInstanceHealthCommandInput extends DescribeEndPointStateInput {}
+export interface DescribeInstanceHealthCommandOutput extends DescribeEndPointStateOutput, __MetadataBearer {}
 
 /**
  * <p>Describes the state of the specified instances with respect to the specified load balancer. If no instances are specified, the call describes the state of all instances that are currently registered with the load balancer. If instances are specified, their state is returned even if they are no longer registered with the load balancer. The state of terminated instances is not returned.</p>

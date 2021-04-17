@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ConfirmTransitVirtualInterfaceCommandInput = ConfirmTransitVirtualInterfaceRequest;
-export type ConfirmTransitVirtualInterfaceCommandOutput = ConfirmTransitVirtualInterfaceResponse & __MetadataBearer;
+export interface ConfirmTransitVirtualInterfaceCommandInput extends ConfirmTransitVirtualInterfaceRequest {}
+export interface ConfirmTransitVirtualInterfaceCommandOutput
+  extends ConfirmTransitVirtualInterfaceResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Accepts ownership of a transit virtual interface created by another AWS account.</p>

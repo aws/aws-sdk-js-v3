@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UnshareApplicationCommandInput = UnshareApplicationRequest;
-export type UnshareApplicationCommandOutput = __MetadataBearer;
+export interface UnshareApplicationCommandInput extends UnshareApplicationRequest {}
+export interface UnshareApplicationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Unshares an application from an AWS Organization.</p><p>This operation can be called only from the organization's master account.</p>

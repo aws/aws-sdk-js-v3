@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateKmsKeyCommandInput = AssociateKmsKeyRequest;
-export type AssociateKmsKeyCommandOutput = __MetadataBearer;
+export interface AssociateKmsKeyCommandInput extends AssociateKmsKeyRequest {}
+export interface AssociateKmsKeyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Associates the specified AWS Key Management Service (AWS KMS) customer master key (CMK) with the specified log group.</p>

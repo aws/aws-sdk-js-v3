@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateDataSourceCommandInput = UpdateDataSourceInput;
-export type UpdateDataSourceCommandOutput = UpdateDataSourceOutput & __MetadataBearer;
+export interface UpdateDataSourceCommandInput extends UpdateDataSourceInput {}
+export interface UpdateDataSourceCommandOutput extends UpdateDataSourceOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the <code>DataSourceName</code> of a <code>DataSource</code>.</p>

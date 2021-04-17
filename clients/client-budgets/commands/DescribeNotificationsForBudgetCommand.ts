@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeNotificationsForBudgetCommandInput = DescribeNotificationsForBudgetRequest;
-export type DescribeNotificationsForBudgetCommandOutput = DescribeNotificationsForBudgetResponse & __MetadataBearer;
+export interface DescribeNotificationsForBudgetCommandInput extends DescribeNotificationsForBudgetRequest {}
+export interface DescribeNotificationsForBudgetCommandOutput
+  extends DescribeNotificationsForBudgetResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Lists the notifications that are associated with a budget.</p>

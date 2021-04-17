@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeVolumeStatusCommandInput = DescribeVolumeStatusRequest;
-export type DescribeVolumeStatusCommandOutput = DescribeVolumeStatusResult & __MetadataBearer;
+export interface DescribeVolumeStatusCommandInput extends DescribeVolumeStatusRequest {}
+export interface DescribeVolumeStatusCommandOutput extends DescribeVolumeStatusResult, __MetadataBearer {}
 
 /**
  * <p>Describes the status of the specified volumes. Volume status provides the result of the

@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeEntityCommandInput = DescribeEntityRequest;
-export type DescribeEntityCommandOutput = DescribeEntityResponse & __MetadataBearer;
+export interface DescribeEntityCommandInput extends DescribeEntityRequest {}
+export interface DescribeEntityCommandOutput extends DescribeEntityResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the metadata and content of the entity.</p>

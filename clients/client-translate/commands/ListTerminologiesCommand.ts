@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTerminologiesCommandInput = ListTerminologiesRequest;
-export type ListTerminologiesCommandOutput = ListTerminologiesResponse & __MetadataBearer;
+export interface ListTerminologiesCommandInput extends ListTerminologiesRequest {}
+export interface ListTerminologiesCommandOutput extends ListTerminologiesResponse, __MetadataBearer {}
 
 /**
  * <p>Provides a list of custom terminologies associated with your account.</p>

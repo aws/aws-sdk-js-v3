@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPolicyVersionsCommandInput = ListPolicyVersionsRequest;
-export type ListPolicyVersionsCommandOutput = ListPolicyVersionsResponse & __MetadataBearer;
+export interface ListPolicyVersionsCommandInput extends ListPolicyVersionsRequest {}
+export interface ListPolicyVersionsCommandOutput extends ListPolicyVersionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the versions of the specified policy and identifies the default

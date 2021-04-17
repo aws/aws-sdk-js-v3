@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListBulkDeploymentDetailedReportsCommandInput = ListBulkDeploymentDetailedReportsRequest;
-export type ListBulkDeploymentDetailedReportsCommandOutput = ListBulkDeploymentDetailedReportsResponse &
-  __MetadataBearer;
+export interface ListBulkDeploymentDetailedReportsCommandInput extends ListBulkDeploymentDetailedReportsRequest {}
+export interface ListBulkDeploymentDetailedReportsCommandOutput
+  extends ListBulkDeploymentDetailedReportsResponse,
+    __MetadataBearer {}
 
 /**
  * Gets a paginated list of the deployments that have been started in a bulk deployment operation, and their current deployment status.

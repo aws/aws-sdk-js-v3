@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeJobsCommandInput = DescribeJobsRequest;
-export type DescribeJobsCommandOutput = DescribeJobsResponse & __MetadataBearer;
+export interface DescribeJobsCommandInput extends DescribeJobsRequest {}
+export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes a list of AWS Batch jobs.</p>

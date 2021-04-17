@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAccountLimitsCommandInput = {};
-export type DescribeAccountLimitsCommandOutput = DescribeAccountLimitsAnswer & __MetadataBearer;
+export interface DescribeAccountLimitsCommandInput {}
+export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimitsAnswer, __MetadataBearer {}
 
 /**
  * <p>Describes the current Amazon EC2 Auto Scaling resource quotas for your AWS account.</p>

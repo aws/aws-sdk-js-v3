@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutResourceAttributesCommandInput = PutResourceAttributesRequest;
-export type PutResourceAttributesCommandOutput = PutResourceAttributesResult & __MetadataBearer;
+export interface PutResourceAttributesCommandInput extends PutResourceAttributesRequest {}
+export interface PutResourceAttributesCommandOutput extends PutResourceAttributesResult, __MetadataBearer {}
 
 /**
  * <p>Provides identifying details of the resource being migrated so that it can be associated

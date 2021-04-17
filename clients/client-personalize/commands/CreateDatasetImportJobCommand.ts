@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDatasetImportJobCommandInput = CreateDatasetImportJobRequest;
-export type CreateDatasetImportJobCommandOutput = CreateDatasetImportJobResponse & __MetadataBearer;
+export interface CreateDatasetImportJobCommandInput extends CreateDatasetImportJobRequest {}
+export interface CreateDatasetImportJobCommandOutput extends CreateDatasetImportJobResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a job that imports training data from your data source (an Amazon S3 bucket) to an

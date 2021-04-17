@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDiscoveredResourceCountsCommandInput = GetDiscoveredResourceCountsRequest;
-export type GetDiscoveredResourceCountsCommandOutput = GetDiscoveredResourceCountsResponse & __MetadataBearer;
+export interface GetDiscoveredResourceCountsCommandInput extends GetDiscoveredResourceCountsRequest {}
+export interface GetDiscoveredResourceCountsCommandOutput
+  extends GetDiscoveredResourceCountsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the resource types, the number of each resource type,

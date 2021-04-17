@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDestinationCommandInput = GetDestinationRequest;
-export type GetDestinationCommandOutput = GetDestinationResponse & __MetadataBearer;
+export interface GetDestinationCommandInput extends GetDestinationRequest {}
+export interface GetDestinationCommandOutput extends GetDestinationResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about a destination.</p>

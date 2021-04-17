@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAttachedIndicesCommandInput = ListAttachedIndicesRequest;
-export type ListAttachedIndicesCommandOutput = ListAttachedIndicesResponse & __MetadataBearer;
+export interface ListAttachedIndicesCommandInput extends ListAttachedIndicesRequest {}
+export interface ListAttachedIndicesCommandOutput extends ListAttachedIndicesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists indices attached to the specified object.</p>

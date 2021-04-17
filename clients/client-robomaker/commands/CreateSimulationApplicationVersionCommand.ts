@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateSimulationApplicationVersionCommandInput = CreateSimulationApplicationVersionRequest;
-export type CreateSimulationApplicationVersionCommandOutput = CreateSimulationApplicationVersionResponse &
-  __MetadataBearer;
+export interface CreateSimulationApplicationVersionCommandInput extends CreateSimulationApplicationVersionRequest {}
+export interface CreateSimulationApplicationVersionCommandOutput
+  extends CreateSimulationApplicationVersionResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Creates a simulation application with a specific revision id.</p>

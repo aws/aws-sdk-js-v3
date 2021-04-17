@@ -15,8 +15,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPartsCommandInput = ListPartsRequest;
-export type ListPartsCommandOutput = ListPartsOutput & __MetadataBearer;
+export interface ListPartsCommandInput extends ListPartsRequest {}
+export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the parts that have been uploaded for a specific multipart upload. This operation

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateConferenceProviderCommandInput = UpdateConferenceProviderRequest;
-export type UpdateConferenceProviderCommandOutput = UpdateConferenceProviderResponse & __MetadataBearer;
+export interface UpdateConferenceProviderCommandInput extends UpdateConferenceProviderRequest {}
+export interface UpdateConferenceProviderCommandOutput extends UpdateConferenceProviderResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing conference provider's settings.</p>

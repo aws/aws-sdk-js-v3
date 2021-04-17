@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisableMetricsCollectionCommandInput = DisableMetricsCollectionQuery;
-export type DisableMetricsCollectionCommandOutput = __MetadataBearer;
+export interface DisableMetricsCollectionCommandInput extends DisableMetricsCollectionQuery {}
+export interface DisableMetricsCollectionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Disables group metrics for the specified Auto Scaling group.</p>

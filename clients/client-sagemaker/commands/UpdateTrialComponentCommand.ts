@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateTrialComponentCommandInput = UpdateTrialComponentRequest;
-export type UpdateTrialComponentCommandOutput = UpdateTrialComponentResponse & __MetadataBearer;
+export interface UpdateTrialComponentCommandInput extends UpdateTrialComponentRequest {}
+export interface UpdateTrialComponentCommandOutput extends UpdateTrialComponentResponse, __MetadataBearer {}
 
 /**
  * <p>Updates one or more properties of a trial component.</p>

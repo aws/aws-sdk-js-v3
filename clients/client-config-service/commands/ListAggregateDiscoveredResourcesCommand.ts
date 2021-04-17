@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAggregateDiscoveredResourcesCommandInput = ListAggregateDiscoveredResourcesRequest;
-export type ListAggregateDiscoveredResourcesCommandOutput = ListAggregateDiscoveredResourcesResponse & __MetadataBearer;
+export interface ListAggregateDiscoveredResourcesCommandInput extends ListAggregateDiscoveredResourcesRequest {}
+export interface ListAggregateDiscoveredResourcesCommandOutput
+  extends ListAggregateDiscoveredResourcesResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Accepts a resource type and returns a list of resource identifiers that are aggregated for a specific resource type across accounts and regions.

@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeregisterTransitGatewayMulticastGroupSourcesCommandInput = DeregisterTransitGatewayMulticastGroupSourcesRequest;
-export type DeregisterTransitGatewayMulticastGroupSourcesCommandOutput = DeregisterTransitGatewayMulticastGroupSourcesResult &
-  __MetadataBearer;
+export interface DeregisterTransitGatewayMulticastGroupSourcesCommandInput
+  extends DeregisterTransitGatewayMulticastGroupSourcesRequest {}
+export interface DeregisterTransitGatewayMulticastGroupSourcesCommandOutput
+  extends DeregisterTransitGatewayMulticastGroupSourcesResult,
+    __MetadataBearer {}
 
 /**
  * <p>Deregisters the specified sources (network interfaces) from the  transit gateway multicast group.</p>

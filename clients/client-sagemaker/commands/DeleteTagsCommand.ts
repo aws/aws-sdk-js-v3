@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteTagsCommandInput = DeleteTagsInput;
-export type DeleteTagsCommandOutput = DeleteTagsOutput & __MetadataBearer;
+export interface DeleteTagsCommandInput extends DeleteTagsInput {}
+export interface DeleteTagsCommandOutput extends DeleteTagsOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified tags from an Amazon SageMaker resource.</p>

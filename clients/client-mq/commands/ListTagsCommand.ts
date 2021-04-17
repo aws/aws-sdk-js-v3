@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTagsCommandInput = ListTagsRequest;
-export type ListTagsCommandOutput = ListTagsResponse & __MetadataBearer;
+export interface ListTagsCommandInput extends ListTagsRequest {}
+export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBearer {}
 
 /**
  * Lists tags for a resource.

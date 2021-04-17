@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListThingGroupsCommandInput = ListThingGroupsRequest;
-export type ListThingGroupsCommandOutput = ListThingGroupsResponse & __MetadataBearer;
+export interface ListThingGroupsCommandInput extends ListThingGroupsRequest {}
+export interface ListThingGroupsCommandOutput extends ListThingGroupsResponse, __MetadataBearer {}
 
 /**
  * <p>List the thing groups in your account.</p>

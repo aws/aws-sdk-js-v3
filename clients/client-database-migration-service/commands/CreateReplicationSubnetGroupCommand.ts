@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateReplicationSubnetGroupCommandInput = CreateReplicationSubnetGroupMessage;
-export type CreateReplicationSubnetGroupCommandOutput = CreateReplicationSubnetGroupResponse & __MetadataBearer;
+export interface CreateReplicationSubnetGroupCommandInput extends CreateReplicationSubnetGroupMessage {}
+export interface CreateReplicationSubnetGroupCommandOutput
+  extends CreateReplicationSubnetGroupResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Creates a replication subnet group given a list of the subnet IDs in a VPC.</p>

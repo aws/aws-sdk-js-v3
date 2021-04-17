@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateAliasCommandInput = UpdateAliasRequest;
-export type UpdateAliasCommandOutput = __MetadataBearer;
+export interface UpdateAliasCommandInput extends UpdateAliasRequest {}
+export interface UpdateAliasCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Associates an existing AWS KMS alias with a different customer master key (CMK). Each alias

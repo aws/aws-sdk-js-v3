@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListProvisioningArtifactsForServiceActionCommandInput = ListProvisioningArtifactsForServiceActionInput;
-export type ListProvisioningArtifactsForServiceActionCommandOutput = ListProvisioningArtifactsForServiceActionOutput &
-  __MetadataBearer;
+export interface ListProvisioningArtifactsForServiceActionCommandInput
+  extends ListProvisioningArtifactsForServiceActionInput {}
+export interface ListProvisioningArtifactsForServiceActionCommandOutput
+  extends ListProvisioningArtifactsForServiceActionOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Lists all provisioning artifacts (also known as versions) for the specified self-service action.</p>

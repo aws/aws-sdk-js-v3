@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AcceptVpcEndpointConnectionsCommandInput = AcceptVpcEndpointConnectionsRequest;
-export type AcceptVpcEndpointConnectionsCommandOutput = AcceptVpcEndpointConnectionsResult & __MetadataBearer;
+export interface AcceptVpcEndpointConnectionsCommandInput extends AcceptVpcEndpointConnectionsRequest {}
+export interface AcceptVpcEndpointConnectionsCommandOutput
+  extends AcceptVpcEndpointConnectionsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Accepts one or more interface VPC endpoint connection requests to your VPC endpoint

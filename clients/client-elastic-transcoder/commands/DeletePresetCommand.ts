@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeletePresetCommandInput = DeletePresetRequest;
-export type DeletePresetCommandOutput = DeletePresetResponse & __MetadataBearer;
+export interface DeletePresetCommandInput extends DeletePresetRequest {}
+export interface DeletePresetCommandOutput extends DeletePresetResponse, __MetadataBearer {}
 
 /**
  * <p>The DeletePreset operation removes a preset that you've added in an AWS region.</p>

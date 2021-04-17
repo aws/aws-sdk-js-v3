@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListKafkaVersionsCommandInput = ListKafkaVersionsRequest;
-export type ListKafkaVersionsCommandOutput = ListKafkaVersionsResponse & __MetadataBearer;
+export interface ListKafkaVersionsCommandInput extends ListKafkaVersionsRequest {}
+export interface ListKafkaVersionsCommandOutput extends ListKafkaVersionsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of Kafka versions.</p>

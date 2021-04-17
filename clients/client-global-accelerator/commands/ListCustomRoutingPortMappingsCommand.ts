@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListCustomRoutingPortMappingsCommandInput = ListCustomRoutingPortMappingsRequest;
-export type ListCustomRoutingPortMappingsCommandOutput = ListCustomRoutingPortMappingsResponse & __MetadataBearer;
+export interface ListCustomRoutingPortMappingsCommandInput extends ListCustomRoutingPortMappingsRequest {}
+export interface ListCustomRoutingPortMappingsCommandOutput
+  extends ListCustomRoutingPortMappingsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Provides a complete mapping from the public accelerator IP address and port to destination EC2 instance

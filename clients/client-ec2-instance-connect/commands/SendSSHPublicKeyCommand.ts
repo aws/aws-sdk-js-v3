@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SendSSHPublicKeyCommandInput = SendSSHPublicKeyRequest;
-export type SendSSHPublicKeyCommandOutput = SendSSHPublicKeyResponse & __MetadataBearer;
+export interface SendSSHPublicKeyCommandInput extends SendSSHPublicKeyRequest {}
+export interface SendSSHPublicKeyCommandOutput extends SendSSHPublicKeyResponse, __MetadataBearer {}
 
 /**
  * <p>Pushes an SSH public key to the specified EC2 instance for use by the specified user.

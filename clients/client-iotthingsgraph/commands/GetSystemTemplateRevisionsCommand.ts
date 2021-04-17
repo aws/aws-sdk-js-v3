@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSystemTemplateRevisionsCommandInput = GetSystemTemplateRevisionsRequest;
-export type GetSystemTemplateRevisionsCommandOutput = GetSystemTemplateRevisionsResponse & __MetadataBearer;
+export interface GetSystemTemplateRevisionsCommandInput extends GetSystemTemplateRevisionsRequest {}
+export interface GetSystemTemplateRevisionsCommandOutput extends GetSystemTemplateRevisionsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets revisions made to the specified system template. Only the previous 100 revisions are stored. If the system has been deprecated, this action will return

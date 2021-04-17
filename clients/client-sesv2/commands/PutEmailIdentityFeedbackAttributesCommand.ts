@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutEmailIdentityFeedbackAttributesCommandInput = PutEmailIdentityFeedbackAttributesRequest;
-export type PutEmailIdentityFeedbackAttributesCommandOutput = PutEmailIdentityFeedbackAttributesResponse &
-  __MetadataBearer;
+export interface PutEmailIdentityFeedbackAttributesCommandInput extends PutEmailIdentityFeedbackAttributesRequest {}
+export interface PutEmailIdentityFeedbackAttributesCommandOutput
+  extends PutEmailIdentityFeedbackAttributesResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Used to enable or disable feedback forwarding for an identity. This setting determines

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateCommentCommandInput = CreateCommentRequest;
-export type CreateCommentCommandOutput = CreateCommentResponse & __MetadataBearer;
+export interface CreateCommentCommandInput extends CreateCommentRequest {}
+export interface CreateCommentCommandOutput extends CreateCommentResponse, __MetadataBearer {}
 
 /**
  * <p>Adds a new comment to the specified document version.</p>

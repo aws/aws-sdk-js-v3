@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDeploymentsCommandInput = ListDeploymentsRequest;
-export type ListDeploymentsCommandOutput = ListDeploymentsResponse & __MetadataBearer;
+export interface ListDeploymentsCommandInput extends ListDeploymentsRequest {}
+export interface ListDeploymentsCommandOutput extends ListDeploymentsResponse, __MetadataBearer {}
 
 /**
  * Returns a history of deployments for the group.

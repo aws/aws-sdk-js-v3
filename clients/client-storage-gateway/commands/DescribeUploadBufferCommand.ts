@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeUploadBufferCommandInput = DescribeUploadBufferInput;
-export type DescribeUploadBufferCommandOutput = DescribeUploadBufferOutput & __MetadataBearer;
+export interface DescribeUploadBufferCommandInput extends DescribeUploadBufferInput {}
+export interface DescribeUploadBufferCommandOutput extends DescribeUploadBufferOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about the upload buffer of a gateway. This operation is supported

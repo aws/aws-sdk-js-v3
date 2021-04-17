@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddCustomRoutingEndpointsCommandInput = AddCustomRoutingEndpointsRequest;
-export type AddCustomRoutingEndpointsCommandOutput = AddCustomRoutingEndpointsResponse & __MetadataBearer;
+export interface AddCustomRoutingEndpointsCommandInput extends AddCustomRoutingEndpointsRequest {}
+export interface AddCustomRoutingEndpointsCommandOutput extends AddCustomRoutingEndpointsResponse, __MetadataBearer {}
 
 /**
  * <p>Associate a virtual private cloud (VPC) subnet endpoint with your custom routing accelerator.</p>

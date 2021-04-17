@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteTagsCommandInput = DeleteTagsMessage;
-export type DeleteTagsCommandOutput = __MetadataBearer;
+export interface DeleteTagsCommandInput extends DeleteTagsMessage {}
+export interface DeleteTagsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes tags from a resource. You must provide the ARN of the resource

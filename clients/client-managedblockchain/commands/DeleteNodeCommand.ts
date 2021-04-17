@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteNodeCommandInput = DeleteNodeInput;
-export type DeleteNodeCommandOutput = DeleteNodeOutput & __MetadataBearer;
+export interface DeleteNodeCommandInput extends DeleteNodeInput {}
+export interface DeleteNodeCommandOutput extends DeleteNodeOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes a node that your AWS account owns. All data on the node is lost and cannot be recovered.</p>

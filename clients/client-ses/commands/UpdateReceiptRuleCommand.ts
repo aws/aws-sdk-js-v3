@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateReceiptRuleCommandInput = UpdateReceiptRuleRequest;
-export type UpdateReceiptRuleCommandOutput = UpdateReceiptRuleResponse & __MetadataBearer;
+export interface UpdateReceiptRuleCommandInput extends UpdateReceiptRuleRequest {}
+export interface UpdateReceiptRuleCommandOutput extends UpdateReceiptRuleResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a receipt rule.</p>

@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddRegionCommandInput = AddRegionRequest;
-export type AddRegionCommandOutput = AddRegionResult & __MetadataBearer;
+export interface AddRegionCommandInput extends AddRegionRequest {}
+export interface AddRegionCommandOutput extends AddRegionResult, __MetadataBearer {}
 
 /**
  * <p>Adds two domain controllers in the specified Region for the specified directory.</p>

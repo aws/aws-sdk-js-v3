@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetTextDetectionCommandInput = GetTextDetectionRequest;
-export type GetTextDetectionCommandOutput = GetTextDetectionResponse & __MetadataBearer;
+export interface GetTextDetectionCommandInput extends GetTextDetectionRequest {}
+export interface GetTextDetectionCommandOutput extends GetTextDetectionResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the text detection results of a Amazon Rekognition Video analysis started by <a>StartTextDetection</a>.</p>

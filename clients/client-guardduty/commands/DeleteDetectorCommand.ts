@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDetectorCommandInput = DeleteDetectorRequest;
-export type DeleteDetectorCommandOutput = DeleteDetectorResponse & __MetadataBearer;
+export interface DeleteDetectorCommandInput extends DeleteDetectorRequest {}
+export interface DeleteDetectorCommandOutput extends DeleteDetectorResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an Amazon GuardDuty detector that is specified by the detector ID.</p>

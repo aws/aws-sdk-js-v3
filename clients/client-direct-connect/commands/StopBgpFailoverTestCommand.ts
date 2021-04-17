@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopBgpFailoverTestCommandInput = StopBgpFailoverTestRequest;
-export type StopBgpFailoverTestCommandOutput = StopBgpFailoverTestResponse & __MetadataBearer;
+export interface StopBgpFailoverTestCommandInput extends StopBgpFailoverTestRequest {}
+export interface StopBgpFailoverTestCommandOutput extends StopBgpFailoverTestResponse, __MetadataBearer {}
 
 /**
  * <p>Stops the virtual interface failover test.</p>

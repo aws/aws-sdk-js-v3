@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListFiltersCommandInput = ListFiltersRequest;
-export type ListFiltersCommandOutput = ListFiltersResponse & __MetadataBearer;
+export interface ListFiltersCommandInput extends ListFiltersRequest {}
+export interface ListFiltersCommandOutput extends ListFiltersResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all filters that belong to a given dataset group.</p>

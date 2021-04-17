@@ -17,8 +17,9 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ImportCertificateAuthorityCertificateCommandInput = ImportCertificateAuthorityCertificateRequest;
-export type ImportCertificateAuthorityCertificateCommandOutput = __MetadataBearer;
+export interface ImportCertificateAuthorityCertificateCommandInput
+  extends ImportCertificateAuthorityCertificateRequest {}
+export interface ImportCertificateAuthorityCertificateCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Imports a signed private CA certificate into ACM Private CA. This action is used when you are

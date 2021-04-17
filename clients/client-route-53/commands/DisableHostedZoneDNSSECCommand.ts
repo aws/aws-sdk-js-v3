@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisableHostedZoneDNSSECCommandInput = DisableHostedZoneDNSSECRequest;
-export type DisableHostedZoneDNSSECCommandOutput = DisableHostedZoneDNSSECResponse & __MetadataBearer;
+export interface DisableHostedZoneDNSSECCommandInput extends DisableHostedZoneDNSSECRequest {}
+export interface DisableHostedZoneDNSSECCommandOutput extends DisableHostedZoneDNSSECResponse, __MetadataBearer {}
 
 /**
  * <p>Disables DNSSEC signing in a specific hosted zone. This action does not deactivate any key-signing keys (KSKs)

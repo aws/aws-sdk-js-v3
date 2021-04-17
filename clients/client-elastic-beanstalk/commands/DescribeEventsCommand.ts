@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeEventsCommandInput = DescribeEventsMessage;
-export type DescribeEventsCommandOutput = EventDescriptionsMessage & __MetadataBearer;
+export interface DescribeEventsCommandInput extends DescribeEventsMessage {}
+export interface DescribeEventsCommandOutput extends EventDescriptionsMessage, __MetadataBearer {}
 
 /**
  * <p>Returns list of event descriptions matching criteria up to the last 6 weeks.</p>

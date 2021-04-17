@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetUsagePlanKeyCommandInput = GetUsagePlanKeyRequest;
-export type GetUsagePlanKeyCommandOutput = UsagePlanKey & __MetadataBearer;
+export interface GetUsagePlanKeyCommandInput extends GetUsagePlanKeyRequest {}
+export interface GetUsagePlanKeyCommandOutput extends UsagePlanKey, __MetadataBearer {}
 
 /**
  * <p>Gets a usage plan key of a given key identifier.</p>

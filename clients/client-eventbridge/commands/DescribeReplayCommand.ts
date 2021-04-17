@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeReplayCommandInput = DescribeReplayRequest;
-export type DescribeReplayCommandOutput = DescribeReplayResponse & __MetadataBearer;
+export interface DescribeReplayCommandInput extends DescribeReplayRequest {}
+export interface DescribeReplayCommandOutput extends DescribeReplayResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves details about a replay. Use <code>DescribeReplay</code> to determine the

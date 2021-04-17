@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteHapgCommandInput = DeleteHapgRequest;
-export type DeleteHapgCommandOutput = DeleteHapgResponse & __MetadataBearer;
+export interface DeleteHapgCommandInput extends DeleteHapgRequest {}
+export interface DeleteHapgCommandOutput extends DeleteHapgResponse, __MetadataBearer {}
 
 /**
  * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For

@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ResolveCustomerCommandInput = ResolveCustomerRequest;
-export type ResolveCustomerCommandOutput = ResolveCustomerResult & __MetadataBearer;
+export interface ResolveCustomerCommandInput extends ResolveCustomerRequest {}
+export interface ResolveCustomerCommandOutput extends ResolveCustomerResult, __MetadataBearer {}
 
 /**
  * <p>ResolveCustomer is called by a SaaS application during the registration process.

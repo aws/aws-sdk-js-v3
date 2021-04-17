@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetContainerRecipeCommandInput = GetContainerRecipeRequest;
-export type GetContainerRecipeCommandOutput = GetContainerRecipeResponse & __MetadataBearer;
+export interface GetContainerRecipeCommandInput extends GetContainerRecipeRequest {}
+export interface GetContainerRecipeCommandOutput extends GetContainerRecipeResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a container recipe.</p>

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteRelationalDatabaseSnapshotCommandInput = DeleteRelationalDatabaseSnapshotRequest;
-export type DeleteRelationalDatabaseSnapshotCommandOutput = DeleteRelationalDatabaseSnapshotResult & __MetadataBearer;
+export interface DeleteRelationalDatabaseSnapshotCommandInput extends DeleteRelationalDatabaseSnapshotRequest {}
+export interface DeleteRelationalDatabaseSnapshotCommandOutput
+  extends DeleteRelationalDatabaseSnapshotResult,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes a database snapshot in Amazon Lightsail.</p>

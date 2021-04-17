@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeBudgetCommandInput = DescribeBudgetRequest;
-export type DescribeBudgetCommandOutput = DescribeBudgetResponse & __MetadataBearer;
+export interface DescribeBudgetCommandInput extends DescribeBudgetRequest {}
+export interface DescribeBudgetCommandOutput extends DescribeBudgetResponse, __MetadataBearer {}
 
 /**
  * <p>Describes a budget.</p>

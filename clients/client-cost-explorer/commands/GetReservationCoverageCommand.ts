@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetReservationCoverageCommandInput = GetReservationCoverageRequest;
-export type GetReservationCoverageCommandOutput = GetReservationCoverageResponse & __MetadataBearer;
+export interface GetReservationCoverageCommandInput extends GetReservationCoverageRequest {}
+export interface GetReservationCoverageCommandOutput extends GetReservationCoverageResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the reservation coverage for your account. This enables you to see how much of your Amazon Elastic Compute Cloud, Amazon ElastiCache, Amazon Relational Database Service, or

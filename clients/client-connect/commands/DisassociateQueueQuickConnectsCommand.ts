@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateQueueQuickConnectsCommandInput = DisassociateQueueQuickConnectsRequest;
-export type DisassociateQueueQuickConnectsCommandOutput = __MetadataBearer;
+export interface DisassociateQueueQuickConnectsCommandInput extends DisassociateQueueQuickConnectsRequest {}
+export interface DisassociateQueueQuickConnectsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>

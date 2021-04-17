@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisableRadiusCommandInput = DisableRadiusRequest;
-export type DisableRadiusCommandOutput = DisableRadiusResult & __MetadataBearer;
+export interface DisableRadiusCommandInput extends DisableRadiusRequest {}
+export interface DisableRadiusCommandOutput extends DisableRadiusResult, __MetadataBearer {}
 
 /**
  * <p>Disables multi-factor authentication (MFA) with the Remote Authentication Dial In User Service (RADIUS) server for an AD Connector or Microsoft AD directory.</p>

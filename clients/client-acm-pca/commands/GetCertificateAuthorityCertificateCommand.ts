@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetCertificateAuthorityCertificateCommandInput = GetCertificateAuthorityCertificateRequest;
-export type GetCertificateAuthorityCertificateCommandOutput = GetCertificateAuthorityCertificateResponse &
-  __MetadataBearer;
+export interface GetCertificateAuthorityCertificateCommandInput extends GetCertificateAuthorityCertificateRequest {}
+export interface GetCertificateAuthorityCertificateCommandOutput
+  extends GetCertificateAuthorityCertificateResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves the certificate and certificate chain for your private certificate authority

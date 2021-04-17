@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AuthorizeSecurityGroupEgressCommandInput = AuthorizeSecurityGroupEgressRequest;
-export type AuthorizeSecurityGroupEgressCommandOutput = __MetadataBearer;
+export interface AuthorizeSecurityGroupEgressCommandInput extends AuthorizeSecurityGroupEgressRequest {}
+export interface AuthorizeSecurityGroupEgressCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>[VPC only] Adds the specified egress rules to a security group for use with a VPC.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GrantFlowEntitlementsCommandInput = GrantFlowEntitlementsRequest;
-export type GrantFlowEntitlementsCommandOutput = GrantFlowEntitlementsResponse & __MetadataBearer;
+export interface GrantFlowEntitlementsCommandInput extends GrantFlowEntitlementsRequest {}
+export interface GrantFlowEntitlementsCommandOutput extends GrantFlowEntitlementsResponse, __MetadataBearer {}
 
 /**
  * Grants entitlements to an existing flow.

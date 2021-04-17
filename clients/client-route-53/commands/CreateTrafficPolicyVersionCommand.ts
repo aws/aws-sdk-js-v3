@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateTrafficPolicyVersionCommandInput = CreateTrafficPolicyVersionRequest;
-export type CreateTrafficPolicyVersionCommandOutput = CreateTrafficPolicyVersionResponse & __MetadataBearer;
+export interface CreateTrafficPolicyVersionCommandInput extends CreateTrafficPolicyVersionRequest {}
+export interface CreateTrafficPolicyVersionCommandOutput extends CreateTrafficPolicyVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new version of an existing traffic policy. When you create a new version of a traffic policy, you specify the ID of the

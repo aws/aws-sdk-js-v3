@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeregisterDevicesCommandInput = DeregisterDevicesRequest;
-export type DeregisterDevicesCommandOutput = __MetadataBearer;
+export interface DeregisterDevicesCommandInput extends DeregisterDevicesRequest {}
+export interface DeregisterDevicesCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deregisters the specified devices. After you deregister a device, you will need to re-register the devices.</p>

@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetObjectLegalHoldCommandInput = GetObjectLegalHoldRequest;
-export type GetObjectLegalHoldCommandOutput = GetObjectLegalHoldOutput & __MetadataBearer;
+export interface GetObjectLegalHoldCommandInput extends GetObjectLegalHoldRequest {}
+export interface GetObjectLegalHoldCommandOutput extends GetObjectLegalHoldOutput, __MetadataBearer {}
 
 /**
  * <p>Gets an object's current Legal Hold status. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking Objects</a>.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SearchPlaceIndexForTextCommandInput = SearchPlaceIndexForTextRequest;
-export type SearchPlaceIndexForTextCommandOutput = SearchPlaceIndexForTextResponse & __MetadataBearer;
+export interface SearchPlaceIndexForTextCommandInput extends SearchPlaceIndexForTextRequest {}
+export interface SearchPlaceIndexForTextCommandOutput extends SearchPlaceIndexForTextResponse, __MetadataBearer {}
 
 /**
  * <p>Geocodes free-form text, such as an address, name, city, or region to allow you to

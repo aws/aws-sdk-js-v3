@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateOrganizationalUnitCommandInput = UpdateOrganizationalUnitRequest;
-export type UpdateOrganizationalUnitCommandOutput = UpdateOrganizationalUnitResponse & __MetadataBearer;
+export interface UpdateOrganizationalUnitCommandInput extends UpdateOrganizationalUnitRequest {}
+export interface UpdateOrganizationalUnitCommandOutput extends UpdateOrganizationalUnitResponse, __MetadataBearer {}
 
 /**
  * <p>Renames the specified organizational unit (OU). The ID and ARN don't change. The child

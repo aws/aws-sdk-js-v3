@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RejectVpcPeeringConnectionCommandInput = RejectVpcPeeringConnectionRequest;
-export type RejectVpcPeeringConnectionCommandOutput = RejectVpcPeeringConnectionResult & __MetadataBearer;
+export interface RejectVpcPeeringConnectionCommandInput extends RejectVpcPeeringConnectionRequest {}
+export interface RejectVpcPeeringConnectionCommandOutput extends RejectVpcPeeringConnectionResult, __MetadataBearer {}
 
 /**
  * <p>Rejects a VPC peering connection request. The VPC peering connection must be in the

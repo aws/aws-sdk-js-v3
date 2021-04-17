@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListCloudFrontOriginAccessIdentitiesCommandInput = ListCloudFrontOriginAccessIdentitiesRequest;
-export type ListCloudFrontOriginAccessIdentitiesCommandOutput = ListCloudFrontOriginAccessIdentitiesResult &
-  __MetadataBearer;
+export interface ListCloudFrontOriginAccessIdentitiesCommandInput extends ListCloudFrontOriginAccessIdentitiesRequest {}
+export interface ListCloudFrontOriginAccessIdentitiesCommandOutput
+  extends ListCloudFrontOriginAccessIdentitiesResult,
+    __MetadataBearer {}
 
 /**
  * <p>Lists origin access identities.</p>

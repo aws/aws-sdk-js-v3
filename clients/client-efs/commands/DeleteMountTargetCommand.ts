@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteMountTargetCommandInput = DeleteMountTargetRequest;
-export type DeleteMountTargetCommandOutput = __MetadataBearer;
+export interface DeleteMountTargetCommandInput extends DeleteMountTargetRequest {}
+export interface DeleteMountTargetCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified mount target.</p>

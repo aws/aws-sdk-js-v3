@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartBuildBatchCommandInput = StartBuildBatchInput;
-export type StartBuildBatchCommandOutput = StartBuildBatchOutput & __MetadataBearer;
+export interface StartBuildBatchCommandInput extends StartBuildBatchInput {}
+export interface StartBuildBatchCommandOutput extends StartBuildBatchOutput, __MetadataBearer {}
 
 /**
  * <p>Starts a batch build for a project.</p>

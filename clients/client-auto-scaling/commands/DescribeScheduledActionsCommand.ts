@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeScheduledActionsCommandInput = DescribeScheduledActionsType;
-export type DescribeScheduledActionsCommandOutput = ScheduledActionsType & __MetadataBearer;
+export interface DescribeScheduledActionsCommandInput extends DescribeScheduledActionsType {}
+export interface DescribeScheduledActionsCommandOutput extends ScheduledActionsType, __MetadataBearer {}
 
 /**
  * <p>Describes the actions scheduled for your Auto Scaling group that haven't run or that have not

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAnomalyDetectorCommandInput = DeleteAnomalyDetectorRequest;
-export type DeleteAnomalyDetectorCommandOutput = DeleteAnomalyDetectorResponse & __MetadataBearer;
+export interface DeleteAnomalyDetectorCommandInput extends DeleteAnomalyDetectorRequest {}
+export interface DeleteAnomalyDetectorCommandOutput extends DeleteAnomalyDetectorResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a detector. Deleting an anomaly detector will delete all of its corresponding resources including any

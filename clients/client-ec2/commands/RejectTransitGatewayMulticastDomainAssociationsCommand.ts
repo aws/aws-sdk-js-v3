@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RejectTransitGatewayMulticastDomainAssociationsCommandInput = RejectTransitGatewayMulticastDomainAssociationsRequest;
-export type RejectTransitGatewayMulticastDomainAssociationsCommandOutput = RejectTransitGatewayMulticastDomainAssociationsResult &
-  __MetadataBearer;
+export interface RejectTransitGatewayMulticastDomainAssociationsCommandInput
+  extends RejectTransitGatewayMulticastDomainAssociationsRequest {}
+export interface RejectTransitGatewayMulticastDomainAssociationsCommandOutput
+  extends RejectTransitGatewayMulticastDomainAssociationsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Rejects a request to associate cross-account subnets with a transit gateway multicast domain.</p>

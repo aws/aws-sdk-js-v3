@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeJobCommandInput = DescribeJobRequest;
-export type DescribeJobCommandOutput = DescribeJobResult & __MetadataBearer;
+export interface DescribeJobCommandInput extends DescribeJobRequest {}
+export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves the configuration parameters and status for a Batch Operations job. For more

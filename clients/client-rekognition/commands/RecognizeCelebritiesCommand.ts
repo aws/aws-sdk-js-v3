@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RecognizeCelebritiesCommandInput = RecognizeCelebritiesRequest;
-export type RecognizeCelebritiesCommandOutput = RecognizeCelebritiesResponse & __MetadataBearer;
+export interface RecognizeCelebritiesCommandInput extends RecognizeCelebritiesRequest {}
+export interface RecognizeCelebritiesCommandOutput extends RecognizeCelebritiesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns an array of celebrities recognized in the input image.  For more information, see Recognizing Celebrities

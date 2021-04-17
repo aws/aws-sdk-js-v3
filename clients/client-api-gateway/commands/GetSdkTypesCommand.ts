@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSdkTypesCommandInput = GetSdkTypesRequest;
-export type GetSdkTypesCommandOutput = SdkTypes & __MetadataBearer;
+export interface GetSdkTypesCommandInput extends GetSdkTypesRequest {}
+export interface GetSdkTypesCommandOutput extends SdkTypes, __MetadataBearer {}
 
 export class GetSdkTypesCommand extends $Command<
   GetSdkTypesCommandInput,

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DetachInstancesCommandInput = DetachInstancesQuery;
-export type DetachInstancesCommandOutput = DetachInstancesAnswer & __MetadataBearer;
+export interface DetachInstancesCommandInput extends DetachInstancesQuery {}
+export interface DetachInstancesCommandOutput extends DetachInstancesAnswer, __MetadataBearer {}
 
 /**
  * <p>Removes one or more instances from the specified Auto Scaling group.</p>

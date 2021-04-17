@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeRegionsCommandInput = DescribeRegionsRequest;
-export type DescribeRegionsCommandOutput = DescribeRegionsResult & __MetadataBearer;
+export interface DescribeRegionsCommandInput extends DescribeRegionsRequest {}
+export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the Regions that are enabled for your account, or all Regions.</p>

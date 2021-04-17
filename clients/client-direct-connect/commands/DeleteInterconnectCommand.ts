@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteInterconnectCommandInput = DeleteInterconnectRequest;
-export type DeleteInterconnectCommandOutput = DeleteInterconnectResponse & __MetadataBearer;
+export interface DeleteInterconnectCommandInput extends DeleteInterconnectRequest {}
+export interface DeleteInterconnectCommandOutput extends DeleteInterconnectResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified interconnect.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartPipelineExecutionCommandInput = StartPipelineExecutionInput;
-export type StartPipelineExecutionCommandOutput = StartPipelineExecutionOutput & __MetadataBearer;
+export interface StartPipelineExecutionCommandInput extends StartPipelineExecutionInput {}
+export interface StartPipelineExecutionCommandOutput extends StartPipelineExecutionOutput, __MetadataBearer {}
 
 /**
  * <p>Starts the specified pipeline. Specifically, it begins processing the latest commit

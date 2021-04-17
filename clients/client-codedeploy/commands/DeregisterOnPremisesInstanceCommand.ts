@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeregisterOnPremisesInstanceCommandInput = DeregisterOnPremisesInstanceInput;
-export type DeregisterOnPremisesInstanceCommandOutput = __MetadataBearer;
+export interface DeregisterOnPremisesInstanceCommandInput extends DeregisterOnPremisesInstanceInput {}
+export interface DeregisterOnPremisesInstanceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deregisters an on-premises instance.</p>

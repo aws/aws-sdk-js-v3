@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutPermissionCommandInput = PutPermissionRequest;
-export type PutPermissionCommandOutput = PutPermissionResponse & __MetadataBearer;
+export interface PutPermissionCommandInput extends PutPermissionRequest {}
+export interface PutPermissionCommandOutput extends PutPermissionResponse, __MetadataBearer {}
 
 /**
  * <p>

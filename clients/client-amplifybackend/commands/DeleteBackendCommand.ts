@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteBackendCommandInput = DeleteBackendRequest;
-export type DeleteBackendCommandOutput = DeleteBackendResponse & __MetadataBearer;
+export interface DeleteBackendCommandInput extends DeleteBackendRequest {}
+export interface DeleteBackendCommandOutput extends DeleteBackendResponse, __MetadataBearer {}
 
 /**
  * <p>Removes an existing environment from your Amplify project.</p>

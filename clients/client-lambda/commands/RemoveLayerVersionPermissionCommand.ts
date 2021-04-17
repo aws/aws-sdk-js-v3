@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RemoveLayerVersionPermissionCommandInput = RemoveLayerVersionPermissionRequest;
-export type RemoveLayerVersionPermissionCommandOutput = __MetadataBearer;
+export interface RemoveLayerVersionPermissionCommandInput extends RemoveLayerVersionPermissionRequest {}
+export interface RemoveLayerVersionPermissionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes a statement from the permissions policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda

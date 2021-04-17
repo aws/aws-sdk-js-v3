@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DetachNetworkInterfaceCommandInput = DetachNetworkInterfaceRequest;
-export type DetachNetworkInterfaceCommandOutput = __MetadataBearer;
+export interface DetachNetworkInterfaceCommandInput extends DetachNetworkInterfaceRequest {}
+export interface DetachNetworkInterfaceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Detaches a network interface from an instance.</p>

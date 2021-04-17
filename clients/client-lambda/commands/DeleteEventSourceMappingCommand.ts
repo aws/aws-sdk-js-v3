@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteEventSourceMappingCommandInput = DeleteEventSourceMappingRequest;
-export type DeleteEventSourceMappingCommandOutput = EventSourceMappingConfiguration & __MetadataBearer;
+export interface DeleteEventSourceMappingCommandInput extends DeleteEventSourceMappingRequest {}
+export interface DeleteEventSourceMappingCommandOutput extends EventSourceMappingConfiguration, __MetadataBearer {}
 
 /**
  * <p>Deletes an <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-invocation-modes.html">event source

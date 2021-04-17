@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAssessmentRunsCommandInput = DescribeAssessmentRunsRequest;
-export type DescribeAssessmentRunsCommandOutput = DescribeAssessmentRunsResponse & __MetadataBearer;
+export interface DescribeAssessmentRunsCommandInput extends DescribeAssessmentRunsRequest {}
+export interface DescribeAssessmentRunsCommandOutput extends DescribeAssessmentRunsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the assessment runs that are specified by the ARNs of the assessment

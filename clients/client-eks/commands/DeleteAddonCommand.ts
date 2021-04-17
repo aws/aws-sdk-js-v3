@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAddonCommandInput = DeleteAddonRequest;
-export type DeleteAddonCommandOutput = DeleteAddonResponse & __MetadataBearer;
+export interface DeleteAddonCommandInput extends DeleteAddonRequest {}
+export interface DeleteAddonCommandOutput extends DeleteAddonResponse, __MetadataBearer {}
 
 /**
  * <p>Delete an Amazon EKS add-on.</p>

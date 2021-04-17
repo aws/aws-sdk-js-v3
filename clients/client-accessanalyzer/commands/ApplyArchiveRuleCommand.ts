@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ApplyArchiveRuleCommandInput = ApplyArchiveRuleRequest;
-export type ApplyArchiveRuleCommandOutput = __MetadataBearer;
+export interface ApplyArchiveRuleCommandInput extends ApplyArchiveRuleRequest {}
+export interface ApplyArchiveRuleCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Retroactively applies the archive rule to existing findings that meet the archive rule

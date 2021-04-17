@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListApprovalRuleTemplatesCommandInput = ListApprovalRuleTemplatesInput;
-export type ListApprovalRuleTemplatesCommandOutput = ListApprovalRuleTemplatesOutput & __MetadataBearer;
+export interface ListApprovalRuleTemplatesCommandInput extends ListApprovalRuleTemplatesInput {}
+export interface ListApprovalRuleTemplatesCommandOutput extends ListApprovalRuleTemplatesOutput, __MetadataBearer {}
 
 /**
  * <p>Lists all approval rule templates in the specified AWS Region in your AWS account. If

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateTagsForResourceCommandInput = UpdateTagsForResourceMessage;
-export type UpdateTagsForResourceCommandOutput = __MetadataBearer;
+export interface UpdateTagsForResourceCommandInput extends UpdateTagsForResourceMessage {}
+export interface UpdateTagsForResourceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Update the list of tags applied to an AWS Elastic Beanstalk resource. Two lists can be passed: <code>TagsToAdd</code>

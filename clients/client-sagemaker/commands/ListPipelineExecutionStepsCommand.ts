@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPipelineExecutionStepsCommandInput = ListPipelineExecutionStepsRequest;
-export type ListPipelineExecutionStepsCommandOutput = ListPipelineExecutionStepsResponse & __MetadataBearer;
+export interface ListPipelineExecutionStepsCommandInput extends ListPipelineExecutionStepsRequest {}
+export interface ListPipelineExecutionStepsCommandOutput extends ListPipelineExecutionStepsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of <code>PipeLineExecutionStep</code> objects.</p>

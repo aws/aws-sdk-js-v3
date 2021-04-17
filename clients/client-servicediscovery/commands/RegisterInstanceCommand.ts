@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterInstanceCommandInput = RegisterInstanceRequest;
-export type RegisterInstanceCommandOutput = RegisterInstanceResponse & __MetadataBearer;
+export interface RegisterInstanceCommandInput extends RegisterInstanceRequest {}
+export interface RegisterInstanceCommandOutput extends RegisterInstanceResponse, __MetadataBearer {}
 
 /**
  * <p>Creates or updates one or more records and, optionally, creates a health check based on the settings in a

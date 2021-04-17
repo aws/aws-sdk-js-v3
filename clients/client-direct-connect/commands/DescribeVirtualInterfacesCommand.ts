@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeVirtualInterfacesCommandInput = DescribeVirtualInterfacesRequest;
-export type DescribeVirtualInterfacesCommandOutput = VirtualInterfaces & __MetadataBearer;
+export interface DescribeVirtualInterfacesCommandInput extends DescribeVirtualInterfacesRequest {}
+export interface DescribeVirtualInterfacesCommandOutput extends VirtualInterfaces, __MetadataBearer {}
 
 /**
  * <p>Displays all virtual interfaces for an AWS account. Virtual interfaces deleted fewer

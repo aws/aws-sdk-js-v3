@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeChannelMembershipForAppInstanceUserCommandInput = DescribeChannelMembershipForAppInstanceUserRequest;
-export type DescribeChannelMembershipForAppInstanceUserCommandOutput = DescribeChannelMembershipForAppInstanceUserResponse &
-  __MetadataBearer;
+export interface DescribeChannelMembershipForAppInstanceUserCommandInput
+  extends DescribeChannelMembershipForAppInstanceUserRequest {}
+export interface DescribeChannelMembershipForAppInstanceUserCommandOutput
+  extends DescribeChannelMembershipForAppInstanceUserResponse,
+    __MetadataBearer {}
 
 /**
  * <p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateStreamCommandInput = CreateStreamInput;
-export type CreateStreamCommandOutput = CreateStreamOutput & __MetadataBearer;
+export interface CreateStreamCommandInput extends CreateStreamInput {}
+export interface CreateStreamCommandOutput extends CreateStreamOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a new Kinesis video stream. </p>

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RevokeCacheSecurityGroupIngressCommandInput = RevokeCacheSecurityGroupIngressMessage;
-export type RevokeCacheSecurityGroupIngressCommandOutput = RevokeCacheSecurityGroupIngressResult & __MetadataBearer;
+export interface RevokeCacheSecurityGroupIngressCommandInput extends RevokeCacheSecurityGroupIngressMessage {}
+export interface RevokeCacheSecurityGroupIngressCommandOutput
+  extends RevokeCacheSecurityGroupIngressResult,
+    __MetadataBearer {}
 
 /**
  * <p>Revokes ingress from a cache security group.

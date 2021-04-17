@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateElasticsearchDomainConfigCommandInput = UpdateElasticsearchDomainConfigRequest;
-export type UpdateElasticsearchDomainConfigCommandOutput = UpdateElasticsearchDomainConfigResponse & __MetadataBearer;
+export interface UpdateElasticsearchDomainConfigCommandInput extends UpdateElasticsearchDomainConfigRequest {}
+export interface UpdateElasticsearchDomainConfigCommandOutput
+  extends UpdateElasticsearchDomainConfigResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Modifies the cluster configuration of the specified Elasticsearch domain, setting as setting the instance type and the number of instances. </p>

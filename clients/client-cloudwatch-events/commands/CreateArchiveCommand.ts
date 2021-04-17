@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateArchiveCommandInput = CreateArchiveRequest;
-export type CreateArchiveCommandOutput = CreateArchiveResponse & __MetadataBearer;
+export interface CreateArchiveCommandInput extends CreateArchiveRequest {}
+export interface CreateArchiveCommandOutput extends CreateArchiveResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an archive of events with the specified settings. When you create an archive,

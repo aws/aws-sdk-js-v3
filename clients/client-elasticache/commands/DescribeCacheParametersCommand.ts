@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeCacheParametersCommandInput = DescribeCacheParametersMessage;
-export type DescribeCacheParametersCommandOutput = CacheParameterGroupDetails & __MetadataBearer;
+export interface DescribeCacheParametersCommandInput extends DescribeCacheParametersMessage {}
+export interface DescribeCacheParametersCommandOutput extends CacheParameterGroupDetails, __MetadataBearer {}
 
 /**
  * <p>Returns the detailed parameter list for a

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateDatasetGroupCommandInput = UpdateDatasetGroupRequest;
-export type UpdateDatasetGroupCommandOutput = UpdateDatasetGroupResponse & __MetadataBearer;
+export interface UpdateDatasetGroupCommandInput extends UpdateDatasetGroupRequest {}
+export interface UpdateDatasetGroupCommandOutput extends UpdateDatasetGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Replaces the datasets in a dataset group with the specified datasets.</p>

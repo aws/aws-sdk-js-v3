@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopCompilationJobCommandInput = StopCompilationJobRequest;
-export type StopCompilationJobCommandOutput = __MetadataBearer;
+export interface StopCompilationJobCommandInput extends StopCompilationJobRequest {}
+export interface StopCompilationJobCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Stops a model compilation job.</p>

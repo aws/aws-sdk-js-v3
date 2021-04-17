@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutEventSelectorsCommandInput = PutEventSelectorsRequest;
-export type PutEventSelectorsCommandOutput = PutEventSelectorsResponse & __MetadataBearer;
+export interface PutEventSelectorsCommandInput extends PutEventSelectorsRequest {}
+export interface PutEventSelectorsCommandOutput extends PutEventSelectorsResponse, __MetadataBearer {}
 
 /**
  * <p>Configures an event selector or advanced event selectors for your trail.

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TestEventPatternCommandInput = TestEventPatternRequest;
-export type TestEventPatternCommandOutput = TestEventPatternResponse & __MetadataBearer;
+export interface TestEventPatternCommandInput extends TestEventPatternRequest {}
+export interface TestEventPatternCommandOutput extends TestEventPatternResponse, __MetadataBearer {}
 
 /**
  * <p>Tests whether the specified event pattern matches the provided event.</p>

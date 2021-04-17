@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateMLTransformCommandInput = UpdateMLTransformRequest;
-export type UpdateMLTransformCommandOutput = UpdateMLTransformResponse & __MetadataBearer;
+export interface UpdateMLTransformCommandInput extends UpdateMLTransformRequest {}
+export interface UpdateMLTransformCommandOutput extends UpdateMLTransformResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing machine learning transform. Call this operation to tune the algorithm parameters to achieve better results.</p>

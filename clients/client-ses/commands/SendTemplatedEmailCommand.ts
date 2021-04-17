@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SendTemplatedEmailCommandInput = SendTemplatedEmailRequest;
-export type SendTemplatedEmailCommandOutput = SendTemplatedEmailResponse & __MetadataBearer;
+export interface SendTemplatedEmailCommandInput extends SendTemplatedEmailRequest {}
+export interface SendTemplatedEmailCommandOutput extends SendTemplatedEmailResponse, __MetadataBearer {}
 
 /**
  * <p>Composes an email message using an email template and immediately queues it for

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetMaintenanceWindowExecutionTaskCommandInput = GetMaintenanceWindowExecutionTaskRequest;
-export type GetMaintenanceWindowExecutionTaskCommandOutput = GetMaintenanceWindowExecutionTaskResult & __MetadataBearer;
+export interface GetMaintenanceWindowExecutionTaskCommandInput extends GetMaintenanceWindowExecutionTaskRequest {}
+export interface GetMaintenanceWindowExecutionTaskCommandOutput
+  extends GetMaintenanceWindowExecutionTaskResult,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves the details about a specific task run as part of a maintenance window

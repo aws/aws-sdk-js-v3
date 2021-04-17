@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AttachRolePolicyCommandInput = AttachRolePolicyRequest;
-export type AttachRolePolicyCommandOutput = __MetadataBearer;
+export interface AttachRolePolicyCommandInput extends AttachRolePolicyRequest {}
+export interface AttachRolePolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Attaches the specified managed policy to the specified IAM role. When you attach a

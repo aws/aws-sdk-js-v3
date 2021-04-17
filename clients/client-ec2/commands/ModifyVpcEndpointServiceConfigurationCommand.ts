@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyVpcEndpointServiceConfigurationCommandInput = ModifyVpcEndpointServiceConfigurationRequest;
-export type ModifyVpcEndpointServiceConfigurationCommandOutput = ModifyVpcEndpointServiceConfigurationResult &
-  __MetadataBearer;
+export interface ModifyVpcEndpointServiceConfigurationCommandInput
+  extends ModifyVpcEndpointServiceConfigurationRequest {}
+export interface ModifyVpcEndpointServiceConfigurationCommandOutput
+  extends ModifyVpcEndpointServiceConfigurationResult,
+    __MetadataBearer {}
 
 /**
  * <p>Modifies the attributes of your VPC endpoint service configuration. You can change the

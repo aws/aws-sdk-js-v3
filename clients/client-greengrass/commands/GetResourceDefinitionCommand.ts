@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetResourceDefinitionCommandInput = GetResourceDefinitionRequest;
-export type GetResourceDefinitionCommandOutput = GetResourceDefinitionResponse & __MetadataBearer;
+export interface GetResourceDefinitionCommandInput extends GetResourceDefinitionRequest {}
+export interface GetResourceDefinitionCommandOutput extends GetResourceDefinitionResponse, __MetadataBearer {}
 
 /**
  * Retrieves information about a resource definition, including its creation time and latest version.

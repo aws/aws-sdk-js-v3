@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDataCatalogsCommandInput = ListDataCatalogsInput;
-export type ListDataCatalogsCommandOutput = ListDataCatalogsOutput & __MetadataBearer;
+export interface ListDataCatalogsCommandInput extends ListDataCatalogsInput {}
+export interface ListDataCatalogsCommandOutput extends ListDataCatalogsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the data catalogs in the current AWS account.</p>

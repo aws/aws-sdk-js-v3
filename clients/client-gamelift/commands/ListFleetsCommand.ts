@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListFleetsCommandInput = ListFleetsInput;
-export type ListFleetsCommandOutput = ListFleetsOutput & __MetadataBearer;
+export interface ListFleetsCommandInput extends ListFleetsInput {}
+export interface ListFleetsCommandOutput extends ListFleetsOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves a collection of fleet resources in an AWS Region. You can call this operation

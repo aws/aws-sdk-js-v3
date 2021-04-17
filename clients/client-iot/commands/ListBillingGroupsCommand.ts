@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListBillingGroupsCommandInput = ListBillingGroupsRequest;
-export type ListBillingGroupsCommandOutput = ListBillingGroupsResponse & __MetadataBearer;
+export interface ListBillingGroupsCommandInput extends ListBillingGroupsRequest {}
+export interface ListBillingGroupsCommandOutput extends ListBillingGroupsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the billing groups you have created.</p>

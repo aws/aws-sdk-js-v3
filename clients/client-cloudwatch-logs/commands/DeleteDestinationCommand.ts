@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDestinationCommandInput = DeleteDestinationRequest;
-export type DeleteDestinationCommandOutput = __MetadataBearer;
+export interface DeleteDestinationCommandInput extends DeleteDestinationRequest {}
+export interface DeleteDestinationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified destination, and eventually disables all the

@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListUserPoolsCommandInput = ListUserPoolsRequest;
-export type ListUserPoolsCommandOutput = ListUserPoolsResponse & __MetadataBearer;
+export interface ListUserPoolsCommandInput extends ListUserPoolsRequest {}
+export interface ListUserPoolsCommandOutput extends ListUserPoolsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the user pools associated with an AWS account.</p>

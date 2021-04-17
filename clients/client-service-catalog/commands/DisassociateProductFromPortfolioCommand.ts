@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateProductFromPortfolioCommandInput = DisassociateProductFromPortfolioInput;
-export type DisassociateProductFromPortfolioCommandOutput = DisassociateProductFromPortfolioOutput & __MetadataBearer;
+export interface DisassociateProductFromPortfolioCommandInput extends DisassociateProductFromPortfolioInput {}
+export interface DisassociateProductFromPortfolioCommandOutput
+  extends DisassociateProductFromPortfolioOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Disassociates the specified product from the specified portfolio. </p>

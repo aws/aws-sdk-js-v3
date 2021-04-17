@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RestoreBackupCommandInput = RestoreBackupRequest;
-export type RestoreBackupCommandOutput = RestoreBackupResponse & __MetadataBearer;
+export interface RestoreBackupCommandInput extends RestoreBackupRequest {}
+export interface RestoreBackupCommandOutput extends RestoreBackupResponse, __MetadataBearer {}
 
 /**
  * <p>Restores a specified AWS CloudHSM backup that is in the

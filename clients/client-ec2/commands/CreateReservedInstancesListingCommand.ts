@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateReservedInstancesListingCommandInput = CreateReservedInstancesListingRequest;
-export type CreateReservedInstancesListingCommandOutput = CreateReservedInstancesListingResult & __MetadataBearer;
+export interface CreateReservedInstancesListingCommandInput extends CreateReservedInstancesListingRequest {}
+export interface CreateReservedInstancesListingCommandOutput
+  extends CreateReservedInstancesListingResult,
+    __MetadataBearer {}
 
 /**
  * <p>Creates a listing for Amazon EC2 Standard Reserved Instances to be sold in the Reserved Instance

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyVpcAttributeCommandInput = ModifyVpcAttributeRequest;
-export type ModifyVpcAttributeCommandOutput = __MetadataBearer;
+export interface ModifyVpcAttributeCommandInput extends ModifyVpcAttributeRequest {}
+export interface ModifyVpcAttributeCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Modifies the specified attribute of the specified VPC.</p>

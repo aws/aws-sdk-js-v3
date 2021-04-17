@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteProjectVersionCommandInput = DeleteProjectVersionRequest;
-export type DeleteProjectVersionCommandOutput = DeleteProjectVersionResponse & __MetadataBearer;
+export interface DeleteProjectVersionCommandInput extends DeleteProjectVersionRequest {}
+export interface DeleteProjectVersionCommandOutput extends DeleteProjectVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an Amazon Rekognition Custom Labels model.  </p>

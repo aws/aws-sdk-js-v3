@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateVirtualNodeCommandInput = UpdateVirtualNodeInput;
-export type UpdateVirtualNodeCommandOutput = UpdateVirtualNodeOutput & __MetadataBearer;
+export interface UpdateVirtualNodeCommandInput extends UpdateVirtualNodeInput {}
+export interface UpdateVirtualNodeCommandOutput extends UpdateVirtualNodeOutput, __MetadataBearer {}
 
 /**
  * <p>Updates an existing virtual node in a specified service mesh.</p>

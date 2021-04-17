@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartDataIngestionJobCommandInput = StartDataIngestionJobRequest;
-export type StartDataIngestionJobCommandOutput = StartDataIngestionJobResponse & __MetadataBearer;
+export interface StartDataIngestionJobCommandInput extends StartDataIngestionJobRequest {}
+export interface StartDataIngestionJobCommandOutput extends StartDataIngestionJobResponse, __MetadataBearer {}
 
 /**
  * <p>Starts a data ingestion job. Amazon Lookout for Equipment returns the job status. </p>

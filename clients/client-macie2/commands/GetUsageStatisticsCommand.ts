@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetUsageStatisticsCommandInput = GetUsageStatisticsRequest;
-export type GetUsageStatisticsCommandOutput = GetUsageStatisticsResponse & __MetadataBearer;
+export interface GetUsageStatisticsCommandInput extends GetUsageStatisticsRequest {}
+export interface GetUsageStatisticsCommandOutput extends GetUsageStatisticsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves (queries) quotas and aggregated usage data for one or more accounts.</p>

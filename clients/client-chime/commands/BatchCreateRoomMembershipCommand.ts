@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchCreateRoomMembershipCommandInput = BatchCreateRoomMembershipRequest;
-export type BatchCreateRoomMembershipCommandOutput = BatchCreateRoomMembershipResponse & __MetadataBearer;
+export interface BatchCreateRoomMembershipCommandInput extends BatchCreateRoomMembershipRequest {}
+export interface BatchCreateRoomMembershipCommandOutput extends BatchCreateRoomMembershipResponse, __MetadataBearer {}
 
 /**
  * <p>Adds up to 50 members to a chat room in an Amazon Chime Enterprise account. Members can be users or bots. The member role designates whether the member is a chat room administrator or a general chat room member.</p>

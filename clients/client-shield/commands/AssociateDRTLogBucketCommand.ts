@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateDRTLogBucketCommandInput = AssociateDRTLogBucketRequest;
-export type AssociateDRTLogBucketCommandOutput = AssociateDRTLogBucketResponse & __MetadataBearer;
+export interface AssociateDRTLogBucketCommandInput extends AssociateDRTLogBucketRequest {}
+export interface AssociateDRTLogBucketCommandOutput extends AssociateDRTLogBucketResponse, __MetadataBearer {}
 
 /**
  * <p>Authorizes the DDoS Response Team (DRT) to access the specified Amazon S3 bucket containing your AWS WAF logs. You can associate up to 10 Amazon S3 buckets with your subscription.</p>

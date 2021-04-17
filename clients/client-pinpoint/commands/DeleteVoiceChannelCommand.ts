@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteVoiceChannelCommandInput = DeleteVoiceChannelRequest;
-export type DeleteVoiceChannelCommandOutput = DeleteVoiceChannelResponse & __MetadataBearer;
+export interface DeleteVoiceChannelCommandInput extends DeleteVoiceChannelRequest {}
+export interface DeleteVoiceChannelCommandOutput extends DeleteVoiceChannelResponse, __MetadataBearer {}
 
 /**
  * <p>Disables the voice channel for an application and deletes any existing settings for the channel.</p>

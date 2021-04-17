@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateResolverQueryLogConfigCommandInput = AssociateResolverQueryLogConfigRequest;
-export type AssociateResolverQueryLogConfigCommandOutput = AssociateResolverQueryLogConfigResponse & __MetadataBearer;
+export interface AssociateResolverQueryLogConfigCommandInput extends AssociateResolverQueryLogConfigRequest {}
+export interface AssociateResolverQueryLogConfigCommandOutput
+  extends AssociateResolverQueryLogConfigResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Associates an Amazon VPC with a specified query logging configuration. Route 53 Resolver logs DNS queries that originate in all of the Amazon VPCs

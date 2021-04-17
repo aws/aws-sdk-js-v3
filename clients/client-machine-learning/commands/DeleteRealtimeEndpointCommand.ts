@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteRealtimeEndpointCommandInput = DeleteRealtimeEndpointInput;
-export type DeleteRealtimeEndpointCommandOutput = DeleteRealtimeEndpointOutput & __MetadataBearer;
+export interface DeleteRealtimeEndpointCommandInput extends DeleteRealtimeEndpointInput {}
+export interface DeleteRealtimeEndpointCommandOutput extends DeleteRealtimeEndpointOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes a real time endpoint of an <code>MLModel</code>.</p>

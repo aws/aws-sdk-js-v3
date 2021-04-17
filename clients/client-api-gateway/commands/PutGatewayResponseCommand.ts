@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutGatewayResponseCommandInput = PutGatewayResponseRequest;
-export type PutGatewayResponseCommandOutput = GatewayResponse & __MetadataBearer;
+export interface PutGatewayResponseCommandInput extends PutGatewayResponseRequest {}
+export interface PutGatewayResponseCommandOutput extends GatewayResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a customization of a <a>GatewayResponse</a> of a specified response type and status code on the given <a>RestApi</a>.</p>

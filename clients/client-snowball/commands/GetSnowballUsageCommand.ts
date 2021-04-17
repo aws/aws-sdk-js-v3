@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSnowballUsageCommandInput = GetSnowballUsageRequest;
-export type GetSnowballUsageCommandOutput = GetSnowballUsageResult & __MetadataBearer;
+export interface GetSnowballUsageCommandInput extends GetSnowballUsageRequest {}
+export interface GetSnowballUsageCommandOutput extends GetSnowballUsageResult, __MetadataBearer {}
 
 /**
  * <p>Returns information about the Snow Family service limit for your account, and also the

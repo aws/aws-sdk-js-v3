@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdatePullRequestDescriptionCommandInput = UpdatePullRequestDescriptionInput;
-export type UpdatePullRequestDescriptionCommandOutput = UpdatePullRequestDescriptionOutput & __MetadataBearer;
+export interface UpdatePullRequestDescriptionCommandInput extends UpdatePullRequestDescriptionInput {}
+export interface UpdatePullRequestDescriptionCommandOutput
+  extends UpdatePullRequestDescriptionOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Replaces the contents of the description of a pull request.</p>

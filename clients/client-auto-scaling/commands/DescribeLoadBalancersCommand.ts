@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeLoadBalancersCommandInput = DescribeLoadBalancersRequest;
-export type DescribeLoadBalancersCommandOutput = DescribeLoadBalancersResponse & __MetadataBearer;
+export interface DescribeLoadBalancersCommandInput extends DescribeLoadBalancersRequest {}
+export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancersResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the load balancers for the specified Auto Scaling group.</p>

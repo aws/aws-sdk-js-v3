@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateEnvironmentMembershipCommandInput = UpdateEnvironmentMembershipRequest;
-export type UpdateEnvironmentMembershipCommandOutput = UpdateEnvironmentMembershipResult & __MetadataBearer;
+export interface UpdateEnvironmentMembershipCommandInput extends UpdateEnvironmentMembershipRequest {}
+export interface UpdateEnvironmentMembershipCommandOutput extends UpdateEnvironmentMembershipResult, __MetadataBearer {}
 
 /**
  * <p>Changes the settings of an existing environment member for an AWS Cloud9 development environment.</p>

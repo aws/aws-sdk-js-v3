@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchDeleteClusterSnapshotsCommandInput = BatchDeleteClusterSnapshotsRequest;
-export type BatchDeleteClusterSnapshotsCommandOutput = BatchDeleteClusterSnapshotsResult & __MetadataBearer;
+export interface BatchDeleteClusterSnapshotsCommandInput extends BatchDeleteClusterSnapshotsRequest {}
+export interface BatchDeleteClusterSnapshotsCommandOutput extends BatchDeleteClusterSnapshotsResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a set of cluster snapshots.</p>

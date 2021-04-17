@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ReplicateSecretToRegionsCommandInput = ReplicateSecretToRegionsRequest;
-export type ReplicateSecretToRegionsCommandOutput = ReplicateSecretToRegionsResponse & __MetadataBearer;
+export interface ReplicateSecretToRegionsCommandInput extends ReplicateSecretToRegionsRequest {}
+export interface ReplicateSecretToRegionsCommandOutput extends ReplicateSecretToRegionsResponse, __MetadataBearer {}
 
 /**
  * <p>Converts an existing secret to a multi-Region secret and begins replication the secret to a

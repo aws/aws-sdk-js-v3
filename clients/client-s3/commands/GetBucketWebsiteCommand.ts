@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBucketWebsiteCommandInput = GetBucketWebsiteRequest;
-export type GetBucketWebsiteCommandOutput = GetBucketWebsiteOutput & __MetadataBearer;
+export interface GetBucketWebsiteCommandInput extends GetBucketWebsiteRequest {}
+export interface GetBucketWebsiteCommandOutput extends GetBucketWebsiteOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the website configuration for a bucket. To host website on Amazon S3, you can

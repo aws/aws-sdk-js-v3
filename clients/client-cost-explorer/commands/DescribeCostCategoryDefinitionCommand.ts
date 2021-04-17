@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeCostCategoryDefinitionCommandInput = DescribeCostCategoryDefinitionRequest;
-export type DescribeCostCategoryDefinitionCommandOutput = DescribeCostCategoryDefinitionResponse & __MetadataBearer;
+export interface DescribeCostCategoryDefinitionCommandInput extends DescribeCostCategoryDefinitionRequest {}
+export interface DescribeCostCategoryDefinitionCommandOutput
+  extends DescribeCostCategoryDefinitionResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the name, ARN, rules, definition, and effective dates of a Cost Category that's defined in the account.</p>

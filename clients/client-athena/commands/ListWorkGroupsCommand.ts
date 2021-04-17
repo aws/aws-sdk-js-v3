@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListWorkGroupsCommandInput = ListWorkGroupsInput;
-export type ListWorkGroupsCommandOutput = ListWorkGroupsOutput & __MetadataBearer;
+export interface ListWorkGroupsCommandInput extends ListWorkGroupsInput {}
+export interface ListWorkGroupsCommandOutput extends ListWorkGroupsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists available workgroups for the account.</p>

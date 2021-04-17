@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AllocateHostedConnectionCommandInput = AllocateHostedConnectionRequest;
-export type AllocateHostedConnectionCommandOutput = Connection & __MetadataBearer;
+export interface AllocateHostedConnectionCommandInput extends AllocateHostedConnectionRequest {}
+export interface AllocateHostedConnectionCommandOutput extends Connection, __MetadataBearer {}
 
 /**
  * <p>Creates a hosted connection on the specified interconnect or a link aggregation group (LAG) of interconnects.</p>

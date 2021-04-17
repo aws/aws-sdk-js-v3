@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RemoveAttributesCommandInput = RemoveAttributesRequest;
-export type RemoveAttributesCommandOutput = RemoveAttributesResponse & __MetadataBearer;
+export interface RemoveAttributesCommandInput extends RemoveAttributesRequest {}
+export interface RemoveAttributesCommandOutput extends RemoveAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Removes one or more attributes, of the same attribute type, from all the endpoints that are associated with an application.</p>

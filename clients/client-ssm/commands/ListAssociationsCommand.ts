@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAssociationsCommandInput = ListAssociationsRequest;
-export type ListAssociationsCommandOutput = ListAssociationsResult & __MetadataBearer;
+export interface ListAssociationsCommandInput extends ListAssociationsRequest {}
+export interface ListAssociationsCommandOutput extends ListAssociationsResult, __MetadataBearer {}
 
 /**
  * <p>Returns all State Manager associations in the current AWS account and Region. You can limit

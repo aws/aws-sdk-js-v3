@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RestoreManagedPrefixListVersionCommandInput = RestoreManagedPrefixListVersionRequest;
-export type RestoreManagedPrefixListVersionCommandOutput = RestoreManagedPrefixListVersionResult & __MetadataBearer;
+export interface RestoreManagedPrefixListVersionCommandInput extends RestoreManagedPrefixListVersionRequest {}
+export interface RestoreManagedPrefixListVersionCommandOutput
+  extends RestoreManagedPrefixListVersionResult,
+    __MetadataBearer {}
 
 /**
  * <p>Restores the entries from a previous version of a managed prefix list to a new version of the prefix list.</p>

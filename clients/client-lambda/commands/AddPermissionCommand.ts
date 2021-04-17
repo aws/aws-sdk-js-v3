@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddPermissionCommandInput = AddPermissionRequest;
-export type AddPermissionCommandOutput = AddPermissionResponse & __MetadataBearer;
+export interface AddPermissionCommandInput extends AddPermissionRequest {}
+export interface AddPermissionCommandOutput extends AddPermissionResponse, __MetadataBearer {}
 
 /**
  * <p>Grants an AWS service or another account permission to use a function. You can apply the policy at the

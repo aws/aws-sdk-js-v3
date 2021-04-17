@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartImportCommandInput = StartImportRequest;
-export type StartImportCommandOutput = StartImportResponse & __MetadataBearer;
+export interface StartImportCommandInput extends StartImportRequest {}
+export interface StartImportCommandOutput extends StartImportResponse, __MetadataBearer {}
 
 /**
  * <p>Starts a job to import a resource to Amazon Lex.</p>

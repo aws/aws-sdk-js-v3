@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDeploymentGroupsCommandInput = ListDeploymentGroupsInput;
-export type ListDeploymentGroupsCommandOutput = ListDeploymentGroupsOutput & __MetadataBearer;
+export interface ListDeploymentGroupsCommandInput extends ListDeploymentGroupsInput {}
+export interface ListDeploymentGroupsCommandOutput extends ListDeploymentGroupsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the deployment groups for an application registered with the IAM user or AWS

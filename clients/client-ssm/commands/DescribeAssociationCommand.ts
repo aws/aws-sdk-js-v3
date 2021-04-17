@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAssociationCommandInput = DescribeAssociationRequest;
-export type DescribeAssociationCommandOutput = DescribeAssociationResult & __MetadataBearer;
+export interface DescribeAssociationCommandInput extends DescribeAssociationRequest {}
+export interface DescribeAssociationCommandOutput extends DescribeAssociationResult, __MetadataBearer {}
 
 /**
  * <p>Describes the association for the specified target or instance. If you created the

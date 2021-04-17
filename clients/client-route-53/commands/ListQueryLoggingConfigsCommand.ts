@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListQueryLoggingConfigsCommandInput = ListQueryLoggingConfigsRequest;
-export type ListQueryLoggingConfigsCommandOutput = ListQueryLoggingConfigsResponse & __MetadataBearer;
+export interface ListQueryLoggingConfigsCommandInput extends ListQueryLoggingConfigsRequest {}
+export interface ListQueryLoggingConfigsCommandOutput extends ListQueryLoggingConfigsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the configurations for DNS query logging that are associated with the current AWS account or the configuration

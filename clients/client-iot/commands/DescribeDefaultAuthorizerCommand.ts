@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDefaultAuthorizerCommandInput = DescribeDefaultAuthorizerRequest;
-export type DescribeDefaultAuthorizerCommandOutput = DescribeDefaultAuthorizerResponse & __MetadataBearer;
+export interface DescribeDefaultAuthorizerCommandInput extends DescribeDefaultAuthorizerRequest {}
+export interface DescribeDefaultAuthorizerCommandOutput extends DescribeDefaultAuthorizerResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the default authorizer.</p>

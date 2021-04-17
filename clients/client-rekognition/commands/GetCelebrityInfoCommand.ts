@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetCelebrityInfoCommandInput = GetCelebrityInfoRequest;
-export type GetCelebrityInfoCommandOutput = GetCelebrityInfoResponse & __MetadataBearer;
+export interface GetCelebrityInfoCommandInput extends GetCelebrityInfoRequest {}
+export interface GetCelebrityInfoCommandOutput extends GetCelebrityInfoResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the name and additional information about a celebrity based on his or her

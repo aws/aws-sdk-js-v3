@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetMergeOptionsCommandInput = GetMergeOptionsInput;
-export type GetMergeOptionsCommandOutput = GetMergeOptionsOutput & __MetadataBearer;
+export interface GetMergeOptionsCommandInput extends GetMergeOptionsInput {}
+export interface GetMergeOptionsCommandOutput extends GetMergeOptionsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about the merge options available for merging two specified

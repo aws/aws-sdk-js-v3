@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDBProxyTargetsCommandInput = DescribeDBProxyTargetsRequest;
-export type DescribeDBProxyTargetsCommandOutput = DescribeDBProxyTargetsResponse & __MetadataBearer;
+export interface DescribeDBProxyTargetsCommandInput extends DescribeDBProxyTargetsRequest {}
+export interface DescribeDBProxyTargetsCommandOutput extends DescribeDBProxyTargetsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about <code>DBProxyTarget</code> objects. This API supports pagination.</p>

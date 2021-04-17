@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AnalyzeDocumentCommandInput = AnalyzeDocumentRequest;
-export type AnalyzeDocumentCommandOutput = AnalyzeDocumentResponse & __MetadataBearer;
+export interface AnalyzeDocumentCommandInput extends AnalyzeDocumentRequest {}
+export interface AnalyzeDocumentCommandOutput extends AnalyzeDocumentResponse, __MetadataBearer {}
 
 /**
  * <p>Analyzes an input document for relationships between detected items.  </p>

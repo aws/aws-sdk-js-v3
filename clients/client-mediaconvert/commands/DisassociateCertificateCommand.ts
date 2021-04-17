@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateCertificateCommandInput = DisassociateCertificateRequest;
-export type DisassociateCertificateCommandOutput = DisassociateCertificateResponse & __MetadataBearer;
+export interface DisassociateCertificateCommandInput extends DisassociateCertificateRequest {}
+export interface DisassociateCertificateCommandOutput extends DisassociateCertificateResponse, __MetadataBearer {}
 
 /**
  * Removes an association between the Amazon Resource Name (ARN) of an AWS Certificate Manager (ACM) certificate and an AWS Elemental MediaConvert resource.

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetLabelDetectionCommandInput = GetLabelDetectionRequest;
-export type GetLabelDetectionCommandOutput = GetLabelDetectionResponse & __MetadataBearer;
+export interface GetLabelDetectionCommandInput extends GetLabelDetectionRequest {}
+export interface GetLabelDetectionCommandOutput extends GetLabelDetectionResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the label detection results of a Amazon Rekognition Video analysis started by <a>StartLabelDetection</a>.  </p>

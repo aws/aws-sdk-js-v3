@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeHandshakeCommandInput = DescribeHandshakeRequest;
-export type DescribeHandshakeCommandOutput = DescribeHandshakeResponse & __MetadataBearer;
+export interface DescribeHandshakeCommandInput extends DescribeHandshakeRequest {}
+export interface DescribeHandshakeCommandOutput extends DescribeHandshakeResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about a previously requested handshake. The handshake ID comes

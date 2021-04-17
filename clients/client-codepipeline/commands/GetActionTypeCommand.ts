@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetActionTypeCommandInput = GetActionTypeInput;
-export type GetActionTypeCommandOutput = GetActionTypeOutput & __MetadataBearer;
+export interface GetActionTypeCommandInput extends GetActionTypeInput {}
+export interface GetActionTypeCommandOutput extends GetActionTypeOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about an action type created for an external provider, where the

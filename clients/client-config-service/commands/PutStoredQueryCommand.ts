@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutStoredQueryCommandInput = PutStoredQueryRequest;
-export type PutStoredQueryCommandOutput = PutStoredQueryResponse & __MetadataBearer;
+export interface PutStoredQueryCommandInput extends PutStoredQueryRequest {}
+export interface PutStoredQueryCommandOutput extends PutStoredQueryResponse, __MetadataBearer {}
 
 /**
  * <p>Saves a new query or updates an existing saved query. The <code>QueryName</code> must be unique for a single AWS account and a single AWS Region.

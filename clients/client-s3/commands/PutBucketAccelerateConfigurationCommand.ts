@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutBucketAccelerateConfigurationCommandInput = PutBucketAccelerateConfigurationRequest;
-export type PutBucketAccelerateConfigurationCommandOutput = __MetadataBearer;
+export interface PutBucketAccelerateConfigurationCommandInput extends PutBucketAccelerateConfigurationRequest {}
+export interface PutBucketAccelerateConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Sets the accelerate configuration of an existing bucket. Amazon S3 Transfer Acceleration is a

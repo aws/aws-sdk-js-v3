@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListArtifactsCommandInput = ListArtifactsRequest;
-export type ListArtifactsCommandOutput = ListArtifactsResult & __MetadataBearer;
+export interface ListArtifactsCommandInput extends ListArtifactsRequest {}
+export interface ListArtifactsCommandOutput extends ListArtifactsResult, __MetadataBearer {}
 
 /**
  * <p>Gets information about artifacts.</p>

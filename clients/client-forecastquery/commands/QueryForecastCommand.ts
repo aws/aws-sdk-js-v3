@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type QueryForecastCommandInput = QueryForecastRequest;
-export type QueryForecastCommandOutput = QueryForecastResponse & __MetadataBearer;
+export interface QueryForecastCommandInput extends QueryForecastRequest {}
+export interface QueryForecastCommandOutput extends QueryForecastResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a forecast for a single item, filtered by the supplied criteria.</p>

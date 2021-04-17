@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateGameSessionQueueCommandInput = UpdateGameSessionQueueInput;
-export type UpdateGameSessionQueueCommandOutput = UpdateGameSessionQueueOutput & __MetadataBearer;
+export interface UpdateGameSessionQueueCommandInput extends UpdateGameSessionQueueInput {}
+export interface UpdateGameSessionQueueCommandOutput extends UpdateGameSessionQueueOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the configuration of a game session queue, which determines how the queue

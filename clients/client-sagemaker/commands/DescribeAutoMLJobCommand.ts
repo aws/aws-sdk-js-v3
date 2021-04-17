@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAutoMLJobCommandInput = DescribeAutoMLJobRequest;
-export type DescribeAutoMLJobCommandOutput = DescribeAutoMLJobResponse & __MetadataBearer;
+export interface DescribeAutoMLJobCommandInput extends DescribeAutoMLJobRequest {}
+export interface DescribeAutoMLJobCommandOutput extends DescribeAutoMLJobResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about an Amazon SageMaker AutoML job.</p>

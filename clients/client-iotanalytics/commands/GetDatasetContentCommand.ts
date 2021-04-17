@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDatasetContentCommandInput = GetDatasetContentRequest;
-export type GetDatasetContentCommandOutput = GetDatasetContentResponse & __MetadataBearer;
+export interface GetDatasetContentCommandInput extends GetDatasetContentRequest {}
+export interface GetDatasetContentCommandOutput extends GetDatasetContentResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the contents of a data set as presigned URIs.</p>

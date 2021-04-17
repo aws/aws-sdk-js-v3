@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteSipRuleCommandInput = DeleteSipRuleRequest;
-export type DeleteSipRuleCommandOutput = __MetadataBearer;
+export interface DeleteSipRuleCommandInput extends DeleteSipRuleRequest {}
+export interface DeleteSipRuleCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a SIP rule. You must disable a SIP rule before you can delete it.</p>

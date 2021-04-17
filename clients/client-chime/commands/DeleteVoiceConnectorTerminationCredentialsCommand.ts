@@ -17,8 +17,9 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteVoiceConnectorTerminationCredentialsCommandInput = DeleteVoiceConnectorTerminationCredentialsRequest;
-export type DeleteVoiceConnectorTerminationCredentialsCommandOutput = __MetadataBearer;
+export interface DeleteVoiceConnectorTerminationCredentialsCommandInput
+  extends DeleteVoiceConnectorTerminationCredentialsRequest {}
+export interface DeleteVoiceConnectorTerminationCredentialsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified SIP credentials used by your equipment to authenticate during call termination.</p>

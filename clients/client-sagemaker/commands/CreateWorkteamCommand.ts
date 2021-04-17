@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateWorkteamCommandInput = CreateWorkteamRequest;
-export type CreateWorkteamCommandOutput = CreateWorkteamResponse & __MetadataBearer;
+export interface CreateWorkteamCommandInput extends CreateWorkteamRequest {}
+export interface CreateWorkteamCommandOutput extends CreateWorkteamResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new work team for labeling your data. A work team is defined by one or more

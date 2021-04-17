@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CheckDomainTransferabilityCommandInput = CheckDomainTransferabilityRequest;
-export type CheckDomainTransferabilityCommandOutput = CheckDomainTransferabilityResponse & __MetadataBearer;
+export interface CheckDomainTransferabilityCommandInput extends CheckDomainTransferabilityRequest {}
+export interface CheckDomainTransferabilityCommandOutput extends CheckDomainTransferabilityResponse, __MetadataBearer {}
 
 /**
  * <p>Checks whether a domain name can be transferred to Amazon Route 53. </p>

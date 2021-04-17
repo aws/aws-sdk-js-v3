@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateManagedInstanceRoleCommandInput = UpdateManagedInstanceRoleRequest;
-export type UpdateManagedInstanceRoleCommandOutput = UpdateManagedInstanceRoleResult & __MetadataBearer;
+export interface UpdateManagedInstanceRoleCommandInput extends UpdateManagedInstanceRoleRequest {}
+export interface UpdateManagedInstanceRoleCommandOutput extends UpdateManagedInstanceRoleResult, __MetadataBearer {}
 
 /**
  * <p>Changes the Amazon Identity and Access Management (IAM) role that is assigned to the

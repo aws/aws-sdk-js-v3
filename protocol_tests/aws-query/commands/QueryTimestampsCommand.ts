@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type QueryTimestampsCommandInput = QueryTimestampsInput;
-export type QueryTimestampsCommandOutput = __MetadataBearer;
+export interface QueryTimestampsCommandInput extends QueryTimestampsInput {}
+export interface QueryTimestampsCommandOutput extends __MetadataBearer {}
 
 /**
  * This test serializes timestamps.

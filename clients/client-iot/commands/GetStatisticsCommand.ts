@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetStatisticsCommandInput = GetStatisticsRequest;
-export type GetStatisticsCommandOutput = GetStatisticsResponse & __MetadataBearer;
+export interface GetStatisticsCommandInput extends GetStatisticsRequest {}
+export interface GetStatisticsCommandOutput extends GetStatisticsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the count, average, sum, minimum, maximum, sum of squares, variance,

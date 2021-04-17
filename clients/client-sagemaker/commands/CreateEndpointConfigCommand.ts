@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateEndpointConfigCommandInput = CreateEndpointConfigInput;
-export type CreateEndpointConfigCommandOutput = CreateEndpointConfigOutput & __MetadataBearer;
+export interface CreateEndpointConfigCommandInput extends CreateEndpointConfigInput {}
+export interface CreateEndpointConfigCommandOutput extends CreateEndpointConfigOutput, __MetadataBearer {}
 
 /**
  * <p>Creates an endpoint configuration that Amazon SageMaker hosting services uses to deploy models. In

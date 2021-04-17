@@ -21,9 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteVPCAssociationAuthorizationCommandInput = DeleteVPCAssociationAuthorizationRequest;
-export type DeleteVPCAssociationAuthorizationCommandOutput = DeleteVPCAssociationAuthorizationResponse &
-  __MetadataBearer;
+export interface DeleteVPCAssociationAuthorizationCommandInput extends DeleteVPCAssociationAuthorizationRequest {}
+export interface DeleteVPCAssociationAuthorizationCommandOutput
+  extends DeleteVPCAssociationAuthorizationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Removes authorization to submit an <code>AssociateVPCWithHostedZone</code> request to associate a specified VPC

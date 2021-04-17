@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeStepCommandInput = DescribeStepInput;
-export type DescribeStepCommandOutput = DescribeStepOutput & __MetadataBearer;
+export interface DescribeStepCommandInput extends DescribeStepInput {}
+export interface DescribeStepCommandOutput extends DescribeStepOutput, __MetadataBearer {}
 
 /**
  * <p>Provides more detail about the cluster step.</p>

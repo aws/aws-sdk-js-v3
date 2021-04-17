@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteSchemaVersionsCommandInput = DeleteSchemaVersionsInput;
-export type DeleteSchemaVersionsCommandOutput = DeleteSchemaVersionsResponse & __MetadataBearer;
+export interface DeleteSchemaVersionsCommandInput extends DeleteSchemaVersionsInput {}
+export interface DeleteSchemaVersionsCommandOutput extends DeleteSchemaVersionsResponse, __MetadataBearer {}
 
 /**
  * <p>Remove versions from the specified schema. A version number or range may be supplied. If the compatibility mode forbids deleting of a version that is necessary, such as BACKWARDS_FULL, an error is returned.  Calling the <code>GetSchemaVersions</code> API after this call will list the status of the deleted versions.</p>

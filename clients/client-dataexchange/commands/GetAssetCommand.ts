@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAssetCommandInput = GetAssetRequest;
-export type GetAssetCommandOutput = GetAssetResponse & __MetadataBearer;
+export interface GetAssetCommandInput extends GetAssetRequest {}
+export interface GetAssetCommandOutput extends GetAssetResponse, __MetadataBearer {}
 
 /**
  * <p>This operation returns information about an asset.</p>

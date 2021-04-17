@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GenerateRandomCommandInput = GenerateRandomRequest;
-export type GenerateRandomCommandOutput = GenerateRandomResponse & __MetadataBearer;
+export interface GenerateRandomCommandInput extends GenerateRandomRequest {}
+export interface GenerateRandomCommandOutput extends GenerateRandomResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a random byte string that is cryptographically secure.</p>

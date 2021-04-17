@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SendMessageBatchCommandInput = SendMessageBatchRequest;
-export type SendMessageBatchCommandOutput = SendMessageBatchResult & __MetadataBearer;
+export interface SendMessageBatchCommandInput extends SendMessageBatchRequest {}
+export interface SendMessageBatchCommandOutput extends SendMessageBatchResult, __MetadataBearer {}
 
 /**
  * <p>Delivers up to ten messages to the specified queue. This is a batch version of <code>

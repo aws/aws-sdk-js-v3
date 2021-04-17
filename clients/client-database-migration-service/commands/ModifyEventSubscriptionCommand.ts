@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyEventSubscriptionCommandInput = ModifyEventSubscriptionMessage;
-export type ModifyEventSubscriptionCommandOutput = ModifyEventSubscriptionResponse & __MetadataBearer;
+export interface ModifyEventSubscriptionCommandInput extends ModifyEventSubscriptionMessage {}
+export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscriptionResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies an existing AWS DMS event notification subscription. </p>

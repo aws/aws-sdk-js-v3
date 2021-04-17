@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type HttpPayloadTraitsCommandInput = HttpPayloadTraitsInputOutput;
-export type HttpPayloadTraitsCommandOutput = HttpPayloadTraitsInputOutput & __MetadataBearer;
+export interface HttpPayloadTraitsCommandInput extends HttpPayloadTraitsInputOutput {}
+export interface HttpPayloadTraitsCommandOutput extends HttpPayloadTraitsInputOutput, __MetadataBearer {}
 
 /**
  * This examples serializes a blob shape in the payload.

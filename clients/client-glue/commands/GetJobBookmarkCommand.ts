@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetJobBookmarkCommandInput = GetJobBookmarkRequest;
-export type GetJobBookmarkCommandOutput = GetJobBookmarkResponse & __MetadataBearer;
+export interface GetJobBookmarkCommandInput extends GetJobBookmarkRequest {}
+export interface GetJobBookmarkCommandOutput extends GetJobBookmarkResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information on a job bookmark entry.</p>

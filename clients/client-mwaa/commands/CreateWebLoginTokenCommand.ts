@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateWebLoginTokenCommandInput = CreateWebLoginTokenRequest;
-export type CreateWebLoginTokenCommandOutput = CreateWebLoginTokenResponse & __MetadataBearer;
+export interface CreateWebLoginTokenCommandInput extends CreateWebLoginTokenRequest {}
+export interface CreateWebLoginTokenCommandOutput extends CreateWebLoginTokenResponse, __MetadataBearer {}
 
 /**
  * <p>Create a JWT token to be used to login to Airflow Web UI with claims based Authentication.</p>

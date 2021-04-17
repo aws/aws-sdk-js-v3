@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteInsightRulesCommandInput = DeleteInsightRulesInput;
-export type DeleteInsightRulesCommandOutput = DeleteInsightRulesOutput & __MetadataBearer;
+export interface DeleteInsightRulesCommandInput extends DeleteInsightRulesInput {}
+export interface DeleteInsightRulesCommandOutput extends DeleteInsightRulesOutput, __MetadataBearer {}
 
 /**
  * <p>Permanently deletes the specified Contributor Insights rules.</p>

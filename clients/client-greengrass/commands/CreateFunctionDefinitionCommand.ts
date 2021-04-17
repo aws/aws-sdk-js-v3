@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateFunctionDefinitionCommandInput = CreateFunctionDefinitionRequest;
-export type CreateFunctionDefinitionCommandOutput = CreateFunctionDefinitionResponse & __MetadataBearer;
+export interface CreateFunctionDefinitionCommandInput extends CreateFunctionDefinitionRequest {}
+export interface CreateFunctionDefinitionCommandOutput extends CreateFunctionDefinitionResponse, __MetadataBearer {}
 
 /**
  * Creates a Lambda function definition which contains a list of Lambda functions and their configurations to be used in a group. You can create an initial version of the definition by providing a list of Lambda functions and their configurations now, or use ''CreateFunctionDefinitionVersion'' later.

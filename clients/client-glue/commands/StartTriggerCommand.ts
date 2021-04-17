@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartTriggerCommandInput = StartTriggerRequest;
-export type StartTriggerCommandOutput = StartTriggerResponse & __MetadataBearer;
+export interface StartTriggerCommandInput extends StartTriggerRequest {}
+export interface StartTriggerCommandOutput extends StartTriggerResponse, __MetadataBearer {}
 
 /**
  * <p>Starts an existing trigger. See <a href="https://docs.aws.amazon.com/glue/latest/dg/trigger-job.html">Triggering

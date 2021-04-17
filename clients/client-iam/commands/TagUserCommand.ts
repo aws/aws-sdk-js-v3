@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TagUserCommandInput = TagUserRequest;
-export type TagUserCommandOutput = __MetadataBearer;
+export interface TagUserCommandInput extends TagUserRequest {}
+export interface TagUserCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Adds one or more tags to an IAM user. If a tag with the same key name already exists,

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteGameSessionQueueCommandInput = DeleteGameSessionQueueInput;
-export type DeleteGameSessionQueueCommandOutput = DeleteGameSessionQueueOutput & __MetadataBearer;
+export interface DeleteGameSessionQueueCommandInput extends DeleteGameSessionQueueInput {}
+export interface DeleteGameSessionQueueCommandOutput extends DeleteGameSessionQueueOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes a game session queue. Once a queue is successfully deleted, unfulfilled <a>StartGameSessionPlacement</a> requests that reference the queue will fail.

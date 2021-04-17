@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type HttpPayloadTraitsWithMediaTypeCommandInput = HttpPayloadTraitsWithMediaTypeInputOutput;
-export type HttpPayloadTraitsWithMediaTypeCommandOutput = HttpPayloadTraitsWithMediaTypeInputOutput & __MetadataBearer;
+export interface HttpPayloadTraitsWithMediaTypeCommandInput extends HttpPayloadTraitsWithMediaTypeInputOutput {}
+export interface HttpPayloadTraitsWithMediaTypeCommandOutput
+  extends HttpPayloadTraitsWithMediaTypeInputOutput,
+    __MetadataBearer {}
 
 /**
  * This examples uses a `@mediaType` trait on the payload to force a custom

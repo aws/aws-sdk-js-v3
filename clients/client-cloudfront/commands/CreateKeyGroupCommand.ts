@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateKeyGroupCommandInput = CreateKeyGroupRequest;
-export type CreateKeyGroupCommandOutput = CreateKeyGroupResult & __MetadataBearer;
+export interface CreateKeyGroupCommandInput extends CreateKeyGroupRequest {}
+export interface CreateKeyGroupCommandOutput extends CreateKeyGroupResult, __MetadataBearer {}
 
 /**
  * <p>Creates a key group that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">CloudFront signed URLs and signed cookies</a>.</p>

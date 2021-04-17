@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetGrantCommandInput = GetGrantRequest;
-export type GetGrantCommandOutput = GetGrantResponse & __MetadataBearer;
+export interface GetGrantCommandInput extends GetGrantRequest {}
+export interface GetGrantCommandOutput extends GetGrantResponse, __MetadataBearer {}
 
 /**
  * <p>Gets detailed information about the specified grant.</p>

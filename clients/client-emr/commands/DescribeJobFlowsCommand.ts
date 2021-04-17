@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeJobFlowsCommandInput = DescribeJobFlowsInput;
-export type DescribeJobFlowsCommandOutput = DescribeJobFlowsOutput & __MetadataBearer;
+export interface DescribeJobFlowsCommandInput extends DescribeJobFlowsInput {}
+export interface DescribeJobFlowsCommandOutput extends DescribeJobFlowsOutput, __MetadataBearer {}
 
 /**
  * @deprecated

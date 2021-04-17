@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteWebhookCommandInput = DeleteWebhookInput;
-export type DeleteWebhookCommandOutput = DeleteWebhookOutput & __MetadataBearer;
+export interface DeleteWebhookCommandInput extends DeleteWebhookInput {}
+export interface DeleteWebhookCommandOutput extends DeleteWebhookOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes a previously created webhook by name. Deleting the webhook stops AWS

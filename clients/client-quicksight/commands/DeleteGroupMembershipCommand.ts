@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteGroupMembershipCommandInput = DeleteGroupMembershipRequest;
-export type DeleteGroupMembershipCommandOutput = DeleteGroupMembershipResponse & __MetadataBearer;
+export interface DeleteGroupMembershipCommandInput extends DeleteGroupMembershipRequest {}
+export interface DeleteGroupMembershipCommandOutput extends DeleteGroupMembershipResponse, __MetadataBearer {}
 
 /**
  * <p>Removes a user from a group so that the user is no longer a member of the group.</p>

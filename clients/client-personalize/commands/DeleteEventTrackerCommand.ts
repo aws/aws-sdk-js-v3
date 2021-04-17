@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteEventTrackerCommandInput = DeleteEventTrackerRequest;
-export type DeleteEventTrackerCommandOutput = __MetadataBearer;
+export interface DeleteEventTrackerCommandInput extends DeleteEventTrackerRequest {}
+export interface DeleteEventTrackerCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the event tracker. Does not delete the event-interactions dataset from

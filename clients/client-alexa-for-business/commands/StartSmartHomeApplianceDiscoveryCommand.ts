@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartSmartHomeApplianceDiscoveryCommandInput = StartSmartHomeApplianceDiscoveryRequest;
-export type StartSmartHomeApplianceDiscoveryCommandOutput = StartSmartHomeApplianceDiscoveryResponse & __MetadataBearer;
+export interface StartSmartHomeApplianceDiscoveryCommandInput extends StartSmartHomeApplianceDiscoveryRequest {}
+export interface StartSmartHomeApplianceDiscoveryCommandOutput
+  extends StartSmartHomeApplianceDiscoveryResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Initiates the discovery of any smart home appliances associated with the

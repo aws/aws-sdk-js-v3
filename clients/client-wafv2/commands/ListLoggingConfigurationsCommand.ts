@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListLoggingConfigurationsCommandInput = ListLoggingConfigurationsRequest;
-export type ListLoggingConfigurationsCommandOutput = ListLoggingConfigurationsResponse & __MetadataBearer;
+export interface ListLoggingConfigurationsCommandInput extends ListLoggingConfigurationsRequest {}
+export interface ListLoggingConfigurationsCommandOutput extends ListLoggingConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves an array of your <a>LoggingConfiguration</a> objects.</p>

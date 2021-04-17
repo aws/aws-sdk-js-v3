@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteEmailIdentityPolicyCommandInput = DeleteEmailIdentityPolicyRequest;
-export type DeleteEmailIdentityPolicyCommandOutput = DeleteEmailIdentityPolicyResponse & __MetadataBearer;
+export interface DeleteEmailIdentityPolicyCommandInput extends DeleteEmailIdentityPolicyRequest {}
+export interface DeleteEmailIdentityPolicyCommandOutput extends DeleteEmailIdentityPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified sending authorization policy for the given identity (an email

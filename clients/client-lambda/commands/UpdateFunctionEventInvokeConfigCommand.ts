@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateFunctionEventInvokeConfigCommandInput = UpdateFunctionEventInvokeConfigRequest;
-export type UpdateFunctionEventInvokeConfigCommandOutput = FunctionEventInvokeConfig & __MetadataBearer;
+export interface UpdateFunctionEventInvokeConfigCommandInput extends UpdateFunctionEventInvokeConfigRequest {}
+export interface UpdateFunctionEventInvokeConfigCommandOutput extends FunctionEventInvokeConfig, __MetadataBearer {}
 
 /**
  * <p>Updates the configuration for asynchronous invocation for a function, version, or alias.</p>

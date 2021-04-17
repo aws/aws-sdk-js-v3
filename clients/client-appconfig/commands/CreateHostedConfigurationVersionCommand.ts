@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateHostedConfigurationVersionCommandInput = CreateHostedConfigurationVersionRequest;
-export type CreateHostedConfigurationVersionCommandOutput = HostedConfigurationVersion & __MetadataBearer;
+export interface CreateHostedConfigurationVersionCommandInput extends CreateHostedConfigurationVersionRequest {}
+export interface CreateHostedConfigurationVersionCommandOutput extends HostedConfigurationVersion, __MetadataBearer {}
 
 /**
  * <p>Create a new configuration in the AppConfig configuration store.</p>

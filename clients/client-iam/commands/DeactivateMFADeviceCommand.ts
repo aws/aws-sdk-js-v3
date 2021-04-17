@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeactivateMFADeviceCommandInput = DeactivateMFADeviceRequest;
-export type DeactivateMFADeviceCommandOutput = __MetadataBearer;
+export interface DeactivateMFADeviceCommandInput extends DeactivateMFADeviceRequest {}
+export interface DeactivateMFADeviceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deactivates the specified MFA device and removes it from association with the user

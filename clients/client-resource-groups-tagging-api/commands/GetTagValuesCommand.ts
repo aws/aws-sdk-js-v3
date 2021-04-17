@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetTagValuesCommandInput = GetTagValuesInput;
-export type GetTagValuesCommandOutput = GetTagValuesOutput & __MetadataBearer;
+export interface GetTagValuesCommandInput extends GetTagValuesInput {}
+export interface GetTagValuesCommandOutput extends GetTagValuesOutput, __MetadataBearer {}
 
 /**
  * <p>Returns all tag values for the specified key that are used in the specified AWS

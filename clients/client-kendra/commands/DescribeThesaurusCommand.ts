@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeThesaurusCommandInput = DescribeThesaurusRequest;
-export type DescribeThesaurusCommandOutput = DescribeThesaurusResponse & __MetadataBearer;
+export interface DescribeThesaurusCommandInput extends DescribeThesaurusRequest {}
+export interface DescribeThesaurusCommandOutput extends DescribeThesaurusResponse, __MetadataBearer {}
 
 /**
  * <p>Describes an existing Amazon Kendra thesaurus.</p>

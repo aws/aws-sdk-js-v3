@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetMailboxDetailsCommandInput = GetMailboxDetailsRequest;
-export type GetMailboxDetailsCommandOutput = GetMailboxDetailsResponse & __MetadataBearer;
+export interface GetMailboxDetailsCommandInput extends GetMailboxDetailsRequest {}
+export interface GetMailboxDetailsCommandOutput extends GetMailboxDetailsResponse, __MetadataBearer {}
 
 /**
  * <p>Requests a user's mailbox details for a specified organization and user.</p>

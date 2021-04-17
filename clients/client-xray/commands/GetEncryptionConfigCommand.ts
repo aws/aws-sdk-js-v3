@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetEncryptionConfigCommandInput = GetEncryptionConfigRequest;
-export type GetEncryptionConfigCommandOutput = GetEncryptionConfigResult & __MetadataBearer;
+export interface GetEncryptionConfigCommandInput extends GetEncryptionConfigRequest {}
+export interface GetEncryptionConfigCommandOutput extends GetEncryptionConfigResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves the current encryption configuration for X-Ray data.</p>

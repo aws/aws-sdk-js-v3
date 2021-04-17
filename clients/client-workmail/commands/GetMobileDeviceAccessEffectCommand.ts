@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetMobileDeviceAccessEffectCommandInput = GetMobileDeviceAccessEffectRequest;
-export type GetMobileDeviceAccessEffectCommandOutput = GetMobileDeviceAccessEffectResponse & __MetadataBearer;
+export interface GetMobileDeviceAccessEffectCommandInput extends GetMobileDeviceAccessEffectRequest {}
+export interface GetMobileDeviceAccessEffectCommandOutput
+  extends GetMobileDeviceAccessEffectResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Simulates the effect of the mobile device access rules for the given attributes of a sample access event. Use this method to test the effects of the current set of mobile device access

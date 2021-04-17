@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteEventSubscriptionCommandInput = DeleteEventSubscriptionMessage;
-export type DeleteEventSubscriptionCommandOutput = DeleteEventSubscriptionResult & __MetadataBearer;
+export interface DeleteEventSubscriptionCommandInput extends DeleteEventSubscriptionMessage {}
+export interface DeleteEventSubscriptionCommandOutput extends DeleteEventSubscriptionResult, __MetadataBearer {}
 
 /**
  * <p>Deletes an event notification subscription.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeKeyCommandInput = DescribeKeyRequest;
-export type DescribeKeyCommandOutput = DescribeKeyResponse & __MetadataBearer;
+export interface DescribeKeyCommandInput extends DescribeKeyRequest {}
+export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __MetadataBearer {}
 
 /**
  * <p>Provides detailed information about a customer master key (CMK). You can run

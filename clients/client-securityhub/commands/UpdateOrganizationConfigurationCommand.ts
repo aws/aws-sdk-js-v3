@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateOrganizationConfigurationCommandInput = UpdateOrganizationConfigurationRequest;
-export type UpdateOrganizationConfigurationCommandOutput = UpdateOrganizationConfigurationResponse & __MetadataBearer;
+export interface UpdateOrganizationConfigurationCommandInput extends UpdateOrganizationConfigurationRequest {}
+export interface UpdateOrganizationConfigurationCommandOutput
+  extends UpdateOrganizationConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Used to update the configuration related to Organizations. Can only be called from a

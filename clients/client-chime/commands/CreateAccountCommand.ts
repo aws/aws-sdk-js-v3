@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateAccountCommandInput = CreateAccountRequest;
-export type CreateAccountCommandOutput = CreateAccountResponse & __MetadataBearer;
+export interface CreateAccountCommandInput extends CreateAccountRequest {}
+export interface CreateAccountCommandOutput extends CreateAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an Amazon Chime account under the administrator's AWS account. Only <code>Team</code>

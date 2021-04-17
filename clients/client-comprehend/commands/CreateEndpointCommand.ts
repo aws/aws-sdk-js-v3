@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateEndpointCommandInput = CreateEndpointRequest;
-export type CreateEndpointCommandOutput = CreateEndpointResponse & __MetadataBearer;
+export interface CreateEndpointCommandInput extends CreateEndpointRequest {}
+export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a model-specific endpoint for synchronous inference for a previously trained

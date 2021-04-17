@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListImagePackagesCommandInput = ListImagePackagesRequest;
-export type ListImagePackagesCommandOutput = ListImagePackagesResponse & __MetadataBearer;
+export interface ListImagePackagesCommandInput extends ListImagePackagesRequest {}
+export interface ListImagePackagesCommandOutput extends ListImagePackagesResponse, __MetadataBearer {}
 
 /**
  * <p>List the Packages that are associated with an Image Build Version, as determined by AWS Systems Manager Inventory at build time.</p>

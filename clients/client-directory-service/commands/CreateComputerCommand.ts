@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateComputerCommandInput = CreateComputerRequest;
-export type CreateComputerCommandOutput = CreateComputerResult & __MetadataBearer;
+export interface CreateComputerCommandInput extends CreateComputerRequest {}
+export interface CreateComputerCommandOutput extends CreateComputerResult, __MetadataBearer {}
 
 /**
  * <p>Creates an Active Directory computer object in the specified directory.</p>

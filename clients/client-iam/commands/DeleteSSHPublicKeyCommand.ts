@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteSSHPublicKeyCommandInput = DeleteSSHPublicKeyRequest;
-export type DeleteSSHPublicKeyCommandOutput = __MetadataBearer;
+export interface DeleteSSHPublicKeyCommandInput extends DeleteSSHPublicKeyRequest {}
+export interface DeleteSSHPublicKeyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified SSH public key.</p>

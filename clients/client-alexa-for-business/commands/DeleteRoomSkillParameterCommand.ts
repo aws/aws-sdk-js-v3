@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteRoomSkillParameterCommandInput = DeleteRoomSkillParameterRequest;
-export type DeleteRoomSkillParameterCommandOutput = DeleteRoomSkillParameterResponse & __MetadataBearer;
+export interface DeleteRoomSkillParameterCommandInput extends DeleteRoomSkillParameterRequest {}
+export interface DeleteRoomSkillParameterCommandOutput extends DeleteRoomSkillParameterResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes room skill parameter details by room, skill, and parameter key ID.</p>

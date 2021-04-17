@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeCopyJobCommandInput = DescribeCopyJobInput;
-export type DescribeCopyJobCommandOutput = DescribeCopyJobOutput & __MetadataBearer;
+export interface DescribeCopyJobCommandInput extends DescribeCopyJobInput {}
+export interface DescribeCopyJobCommandOutput extends DescribeCopyJobOutput, __MetadataBearer {}
 
 /**
  * <p>Returns metadata associated with creating a copy of a resource.</p>

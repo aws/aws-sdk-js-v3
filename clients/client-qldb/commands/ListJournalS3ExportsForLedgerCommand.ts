@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListJournalS3ExportsForLedgerCommandInput = ListJournalS3ExportsForLedgerRequest;
-export type ListJournalS3ExportsForLedgerCommandOutput = ListJournalS3ExportsForLedgerResponse & __MetadataBearer;
+export interface ListJournalS3ExportsForLedgerCommandInput extends ListJournalS3ExportsForLedgerRequest {}
+export interface ListJournalS3ExportsForLedgerCommandOutput
+  extends ListJournalS3ExportsForLedgerResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns an array of journal export job descriptions for a specified ledger.</p>

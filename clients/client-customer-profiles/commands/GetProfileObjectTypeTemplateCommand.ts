@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetProfileObjectTypeTemplateCommandInput = GetProfileObjectTypeTemplateRequest;
-export type GetProfileObjectTypeTemplateCommandOutput = GetProfileObjectTypeTemplateResponse & __MetadataBearer;
+export interface GetProfileObjectTypeTemplateCommandInput extends GetProfileObjectTypeTemplateRequest {}
+export interface GetProfileObjectTypeTemplateCommandOutput
+  extends GetProfileObjectTypeTemplateResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the template information for a specific object type.</p>

@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListChannelsModeratedByAppInstanceUserCommandInput = ListChannelsModeratedByAppInstanceUserRequest;
-export type ListChannelsModeratedByAppInstanceUserCommandOutput = ListChannelsModeratedByAppInstanceUserResponse &
-  __MetadataBearer;
+export interface ListChannelsModeratedByAppInstanceUserCommandInput
+  extends ListChannelsModeratedByAppInstanceUserRequest {}
+export interface ListChannelsModeratedByAppInstanceUserCommandOutput
+  extends ListChannelsModeratedByAppInstanceUserResponse,
+    __MetadataBearer {}
 
 /**
  * <p>A list of the channels moderated by an <code>AppInstanceUser</code>.</p>

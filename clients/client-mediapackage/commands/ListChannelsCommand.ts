@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListChannelsCommandInput = ListChannelsRequest;
-export type ListChannelsCommandOutput = ListChannelsResponse & __MetadataBearer;
+export interface ListChannelsCommandInput extends ListChannelsRequest {}
+export interface ListChannelsCommandOutput extends ListChannelsResponse, __MetadataBearer {}
 
 /**
  * Returns a collection of Channels.

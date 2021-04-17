@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListEndpointsByPlatformApplicationCommandInput = ListEndpointsByPlatformApplicationInput;
-export type ListEndpointsByPlatformApplicationCommandOutput = ListEndpointsByPlatformApplicationResponse &
-  __MetadataBearer;
+export interface ListEndpointsByPlatformApplicationCommandInput extends ListEndpointsByPlatformApplicationInput {}
+export interface ListEndpointsByPlatformApplicationCommandOutput
+  extends ListEndpointsByPlatformApplicationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Lists the endpoints and endpoint attributes for devices in a supported push

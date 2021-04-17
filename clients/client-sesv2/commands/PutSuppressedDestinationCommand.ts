@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutSuppressedDestinationCommandInput = PutSuppressedDestinationRequest;
-export type PutSuppressedDestinationCommandOutput = PutSuppressedDestinationResponse & __MetadataBearer;
+export interface PutSuppressedDestinationCommandInput extends PutSuppressedDestinationRequest {}
+export interface PutSuppressedDestinationCommandOutput extends PutSuppressedDestinationResponse, __MetadataBearer {}
 
 /**
  * <p>Adds an email address to the suppression list for your account.</p>

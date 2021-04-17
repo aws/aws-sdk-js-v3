@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ResetPersonalPINCommandInput = ResetPersonalPINRequest;
-export type ResetPersonalPINCommandOutput = ResetPersonalPINResponse & __MetadataBearer;
+export interface ResetPersonalPINCommandInput extends ResetPersonalPINRequest {}
+export interface ResetPersonalPINCommandOutput extends ResetPersonalPINResponse, __MetadataBearer {}
 
 /**
  * <p>Resets the personal meeting PIN for the specified user on an Amazon Chime account. Returns

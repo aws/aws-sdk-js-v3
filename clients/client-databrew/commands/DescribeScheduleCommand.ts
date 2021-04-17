@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeScheduleCommandInput = DescribeScheduleRequest;
-export type DescribeScheduleCommandOutput = DescribeScheduleResponse & __MetadataBearer;
+export interface DescribeScheduleCommandInput extends DescribeScheduleRequest {}
+export interface DescribeScheduleCommandOutput extends DescribeScheduleResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the definition of a specific DataBrew schedule.</p>

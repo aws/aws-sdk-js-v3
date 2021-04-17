@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListSharedProjectsCommandInput = ListSharedProjectsInput;
-export type ListSharedProjectsCommandOutput = ListSharedProjectsOutput & __MetadataBearer;
+export interface ListSharedProjectsCommandInput extends ListSharedProjectsInput {}
+export interface ListSharedProjectsCommandOutput extends ListSharedProjectsOutput, __MetadataBearer {}
 
 /**
  * <p> Gets a list of projects that are shared with other AWS accounts or users. </p>

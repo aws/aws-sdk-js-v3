@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type XmlEnumsCommandInput = XmlEnumsInputOutput;
-export type XmlEnumsCommandOutput = XmlEnumsInputOutput & __MetadataBearer;
+export interface XmlEnumsCommandInput extends XmlEnumsInputOutput {}
+export interface XmlEnumsCommandOutput extends XmlEnumsInputOutput, __MetadataBearer {}
 
 /**
  * This example serializes enums as top level properties, in lists, sets, and maps.

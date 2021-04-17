@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateWorkspaceImagePermissionCommandInput = UpdateWorkspaceImagePermissionRequest;
-export type UpdateWorkspaceImagePermissionCommandOutput = UpdateWorkspaceImagePermissionResult & __MetadataBearer;
+export interface UpdateWorkspaceImagePermissionCommandInput extends UpdateWorkspaceImagePermissionRequest {}
+export interface UpdateWorkspaceImagePermissionCommandOutput
+  extends UpdateWorkspaceImagePermissionResult,
+    __MetadataBearer {}
 
 /**
  * <p>Shares or unshares an image with one account in the same AWS Region by specifying whether that account has

@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterPatchBaselineForPatchGroupCommandInput = RegisterPatchBaselineForPatchGroupRequest;
-export type RegisterPatchBaselineForPatchGroupCommandOutput = RegisterPatchBaselineForPatchGroupResult &
-  __MetadataBearer;
+export interface RegisterPatchBaselineForPatchGroupCommandInput extends RegisterPatchBaselineForPatchGroupRequest {}
+export interface RegisterPatchBaselineForPatchGroupCommandOutput
+  extends RegisterPatchBaselineForPatchGroupResult,
+    __MetadataBearer {}
 
 /**
  * <p>Registers a patch baseline for a patch group.</p>

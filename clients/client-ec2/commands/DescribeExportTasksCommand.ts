@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeExportTasksCommandInput = DescribeExportTasksRequest;
-export type DescribeExportTasksCommandOutput = DescribeExportTasksResult & __MetadataBearer;
+export interface DescribeExportTasksCommandInput extends DescribeExportTasksRequest {}
+export interface DescribeExportTasksCommandOutput extends DescribeExportTasksResult, __MetadataBearer {}
 
 /**
  * <p>Describes the specified export instance tasks or all of your export instance tasks.</p>

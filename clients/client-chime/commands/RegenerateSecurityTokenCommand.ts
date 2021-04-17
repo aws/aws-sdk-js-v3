@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegenerateSecurityTokenCommandInput = RegenerateSecurityTokenRequest;
-export type RegenerateSecurityTokenCommandOutput = RegenerateSecurityTokenResponse & __MetadataBearer;
+export interface RegenerateSecurityTokenCommandInput extends RegenerateSecurityTokenRequest {}
+export interface RegenerateSecurityTokenCommandOutput extends RegenerateSecurityTokenResponse, __MetadataBearer {}
 
 /**
  * <p>Regenerates the security token for a bot.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteNotificationChannelCommandInput = DeleteNotificationChannelRequest;
-export type DeleteNotificationChannelCommandOutput = __MetadataBearer;
+export interface DeleteNotificationChannelCommandInput extends DeleteNotificationChannelRequest {}
+export interface DeleteNotificationChannelCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes an AWS Firewall Manager association with the IAM role and the Amazon Simple

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDirectoryConfigCommandInput = CreateDirectoryConfigRequest;
-export type CreateDirectoryConfigCommandOutput = CreateDirectoryConfigResult & __MetadataBearer;
+export interface CreateDirectoryConfigCommandInput extends CreateDirectoryConfigRequest {}
+export interface CreateDirectoryConfigCommandOutput extends CreateDirectoryConfigResult, __MetadataBearer {}
 
 /**
  * <p>Creates a Directory Config object in AppStream 2.0. This object includes the configuration information required to join fleets and image builders to Microsoft Active Directory domains.</p>

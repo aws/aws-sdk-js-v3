@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListOrganizationsCommandInput = ListOrganizationsRequest;
-export type ListOrganizationsCommandOutput = ListOrganizationsResponse & __MetadataBearer;
+export interface ListOrganizationsCommandInput extends ListOrganizationsRequest {}
+export interface ListOrganizationsCommandOutput extends ListOrganizationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns summaries of the customer's organizations.</p>

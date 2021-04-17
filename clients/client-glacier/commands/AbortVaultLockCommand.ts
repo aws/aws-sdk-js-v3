@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AbortVaultLockCommandInput = AbortVaultLockInput;
-export type AbortVaultLockCommandOutput = __MetadataBearer;
+export interface AbortVaultLockCommandInput extends AbortVaultLockInput {}
+export interface AbortVaultLockCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This operation aborts the vault locking process if the vault lock is not in the

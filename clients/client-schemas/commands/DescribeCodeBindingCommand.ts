@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeCodeBindingCommandInput = DescribeCodeBindingRequest;
-export type DescribeCodeBindingCommandOutput = DescribeCodeBindingResponse & __MetadataBearer;
+export interface DescribeCodeBindingCommandInput extends DescribeCodeBindingRequest {}
+export interface DescribeCodeBindingCommandOutput extends DescribeCodeBindingResponse, __MetadataBearer {}
 
 /**
  * <p>Describe the code binding URI.</p>

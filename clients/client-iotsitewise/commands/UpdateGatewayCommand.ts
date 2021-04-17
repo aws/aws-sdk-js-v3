@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateGatewayCommandInput = UpdateGatewayRequest;
-export type UpdateGatewayCommandOutput = __MetadataBearer;
+export interface UpdateGatewayCommandInput extends UpdateGatewayRequest {}
+export interface UpdateGatewayCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates a gateway's name.</p>

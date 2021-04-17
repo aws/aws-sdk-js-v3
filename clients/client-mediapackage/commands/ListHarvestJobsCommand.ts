@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListHarvestJobsCommandInput = ListHarvestJobsRequest;
-export type ListHarvestJobsCommandOutput = ListHarvestJobsResponse & __MetadataBearer;
+export interface ListHarvestJobsCommandInput extends ListHarvestJobsRequest {}
+export interface ListHarvestJobsCommandOutput extends ListHarvestJobsResponse, __MetadataBearer {}
 
 /**
  * Returns a collection of HarvestJob records.

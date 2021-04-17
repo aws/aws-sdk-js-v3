@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchGetBuildsCommandInput = BatchGetBuildsInput;
-export type BatchGetBuildsCommandOutput = BatchGetBuildsOutput & __MetadataBearer;
+export interface BatchGetBuildsCommandInput extends BatchGetBuildsInput {}
+export interface BatchGetBuildsCommandOutput extends BatchGetBuildsOutput, __MetadataBearer {}
 
 /**
  * <p>Gets information about one or more builds.</p>

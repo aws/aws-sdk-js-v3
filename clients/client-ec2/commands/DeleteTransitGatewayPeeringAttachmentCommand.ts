@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteTransitGatewayPeeringAttachmentCommandInput = DeleteTransitGatewayPeeringAttachmentRequest;
-export type DeleteTransitGatewayPeeringAttachmentCommandOutput = DeleteTransitGatewayPeeringAttachmentResult &
-  __MetadataBearer;
+export interface DeleteTransitGatewayPeeringAttachmentCommandInput
+  extends DeleteTransitGatewayPeeringAttachmentRequest {}
+export interface DeleteTransitGatewayPeeringAttachmentCommandOutput
+  extends DeleteTransitGatewayPeeringAttachmentResult,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes a transit gateway peering attachment.</p>

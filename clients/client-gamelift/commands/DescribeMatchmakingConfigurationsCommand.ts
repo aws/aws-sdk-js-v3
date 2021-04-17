@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeMatchmakingConfigurationsCommandInput = DescribeMatchmakingConfigurationsInput;
-export type DescribeMatchmakingConfigurationsCommandOutput = DescribeMatchmakingConfigurationsOutput & __MetadataBearer;
+export interface DescribeMatchmakingConfigurationsCommandInput extends DescribeMatchmakingConfigurationsInput {}
+export interface DescribeMatchmakingConfigurationsCommandOutput
+  extends DescribeMatchmakingConfigurationsOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves the details of FlexMatch matchmaking configurations. </p>

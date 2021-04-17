@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteInstanceProfileCommandInput = DeleteInstanceProfileRequest;
-export type DeleteInstanceProfileCommandOutput = DeleteInstanceProfileResult & __MetadataBearer;
+export interface DeleteInstanceProfileCommandInput extends DeleteInstanceProfileRequest {}
+export interface DeleteInstanceProfileCommandOutput extends DeleteInstanceProfileResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a profile that can be applied to one or more private device instances.</p>

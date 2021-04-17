@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type InviteMembersCommandInput = InviteMembersRequest;
-export type InviteMembersCommandOutput = InviteMembersResponse & __MetadataBearer;
+export interface InviteMembersCommandInput extends InviteMembersRequest {}
+export interface InviteMembersCommandOutput extends InviteMembersResponse, __MetadataBearer {}
 
 /**
  * <p>Invites other AWS accounts (created as members of the current AWS account by

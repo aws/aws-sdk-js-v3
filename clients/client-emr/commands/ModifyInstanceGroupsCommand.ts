@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyInstanceGroupsCommandInput = ModifyInstanceGroupsInput;
-export type ModifyInstanceGroupsCommandOutput = __MetadataBearer;
+export interface ModifyInstanceGroupsCommandInput extends ModifyInstanceGroupsInput {}
+export interface ModifyInstanceGroupsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>ModifyInstanceGroups modifies the number of nodes and configuration settings of an

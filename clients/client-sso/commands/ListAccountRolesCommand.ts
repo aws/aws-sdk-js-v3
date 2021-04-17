@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAccountRolesCommandInput = ListAccountRolesRequest;
-export type ListAccountRolesCommandOutput = ListAccountRolesResponse & __MetadataBearer;
+export interface ListAccountRolesCommandInput extends ListAccountRolesRequest {}
+export interface ListAccountRolesCommandOutput extends ListAccountRolesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all roles that are assigned to the user for a given AWS account.</p>

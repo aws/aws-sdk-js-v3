@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateLogStreamCommandInput = CreateLogStreamRequest;
-export type CreateLogStreamCommandOutput = __MetadataBearer;
+export interface CreateLogStreamCommandInput extends CreateLogStreamRequest {}
+export interface CreateLogStreamCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Creates a log stream for the specified log group. A log stream is a sequence of log events

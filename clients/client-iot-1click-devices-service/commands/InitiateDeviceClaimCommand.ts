@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type InitiateDeviceClaimCommandInput = InitiateDeviceClaimRequest;
-export type InitiateDeviceClaimCommandOutput = InitiateDeviceClaimResponse & __MetadataBearer;
+export interface InitiateDeviceClaimCommandInput extends InitiateDeviceClaimRequest {}
+export interface InitiateDeviceClaimCommandOutput extends InitiateDeviceClaimResponse, __MetadataBearer {}
 
 /**
  * <p>Given a device ID, initiates a claim request for the associated device.</p><note>

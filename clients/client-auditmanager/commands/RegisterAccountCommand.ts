@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterAccountCommandInput = RegisterAccountRequest;
-export type RegisterAccountCommandOutput = RegisterAccountResponse & __MetadataBearer;
+export interface RegisterAccountCommandInput extends RegisterAccountRequest {}
+export interface RegisterAccountCommandOutput extends RegisterAccountResponse, __MetadataBearer {}
 
 /**
  * <p>

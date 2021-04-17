@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteOrganizationalUnitCommandInput = DeleteOrganizationalUnitRequest;
-export type DeleteOrganizationalUnitCommandOutput = __MetadataBearer;
+export interface DeleteOrganizationalUnitCommandInput extends DeleteOrganizationalUnitRequest {}
+export interface DeleteOrganizationalUnitCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes an organizational unit (OU) from a root or another OU. You must first remove

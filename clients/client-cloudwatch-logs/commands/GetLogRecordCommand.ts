@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetLogRecordCommandInput = GetLogRecordRequest;
-export type GetLogRecordCommandOutput = GetLogRecordResponse & __MetadataBearer;
+export interface GetLogRecordCommandInput extends GetLogRecordRequest {}
+export interface GetLogRecordCommandOutput extends GetLogRecordResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves all of the fields and values of a single log event. All fields are retrieved,

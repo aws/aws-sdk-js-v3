@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SearchSystemInstancesCommandInput = SearchSystemInstancesRequest;
-export type SearchSystemInstancesCommandOutput = SearchSystemInstancesResponse & __MetadataBearer;
+export interface SearchSystemInstancesCommandInput extends SearchSystemInstancesRequest {}
+export interface SearchSystemInstancesCommandOutput extends SearchSystemInstancesResponse, __MetadataBearer {}
 
 /**
  * <p>Searches for system instances in the user's account.</p>

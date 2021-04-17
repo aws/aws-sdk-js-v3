@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteConnectionAliasCommandInput = DeleteConnectionAliasRequest;
-export type DeleteConnectionAliasCommandOutput = DeleteConnectionAliasResult & __MetadataBearer;
+export interface DeleteConnectionAliasCommandInput extends DeleteConnectionAliasRequest {}
+export interface DeleteConnectionAliasCommandOutput extends DeleteConnectionAliasResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified connection alias. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html">

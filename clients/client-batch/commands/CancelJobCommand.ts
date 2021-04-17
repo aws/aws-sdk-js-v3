@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelJobCommandInput = CancelJobRequest;
-export type CancelJobCommandOutput = CancelJobResponse & __MetadataBearer;
+export interface CancelJobCommandInput extends CancelJobRequest {}
+export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels a job in an AWS Batch job queue. Jobs that are in the <code>SUBMITTED</code>, <code>PENDING</code>, or

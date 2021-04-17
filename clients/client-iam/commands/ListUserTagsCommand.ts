@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListUserTagsCommandInput = ListUserTagsRequest;
-export type ListUserTagsCommandOutput = ListUserTagsResponse & __MetadataBearer;
+export interface ListUserTagsCommandInput extends ListUserTagsRequest {}
+export interface ListUserTagsCommandOutput extends ListUserTagsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the tags that are attached to the specified IAM user. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the

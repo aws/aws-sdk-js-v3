@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteCoreDefinitionCommandInput = DeleteCoreDefinitionRequest;
-export type DeleteCoreDefinitionCommandOutput = DeleteCoreDefinitionResponse & __MetadataBearer;
+export interface DeleteCoreDefinitionCommandInput extends DeleteCoreDefinitionRequest {}
+export interface DeleteCoreDefinitionCommandOutput extends DeleteCoreDefinitionResponse, __MetadataBearer {}
 
 /**
  * Deletes a core definition.

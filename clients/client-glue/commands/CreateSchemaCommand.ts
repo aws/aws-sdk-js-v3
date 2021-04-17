@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateSchemaCommandInput = CreateSchemaInput;
-export type CreateSchemaCommandOutput = CreateSchemaResponse & __MetadataBearer;
+export interface CreateSchemaCommandInput extends CreateSchemaInput {}
+export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new schema set and registers the schema definition. Returns an error if the schema set already exists without actually registering the version.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDeploymentCommandInput = CreateDeploymentRequest;
-export type CreateDeploymentCommandOutput = CreateDeploymentResult & __MetadataBearer;
+export interface CreateDeploymentCommandInput extends CreateDeploymentRequest {}
+export interface CreateDeploymentCommandOutput extends CreateDeploymentResult, __MetadataBearer {}
 
 /**
  * <p>Runs deployment or stack commands. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-deploying.html">Deploying

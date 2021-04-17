@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutChannelPolicyCommandInput = PutChannelPolicyRequest;
-export type PutChannelPolicyCommandOutput = PutChannelPolicyResponse & __MetadataBearer;
+export interface PutChannelPolicyCommandInput extends PutChannelPolicyRequest {}
+export interface PutChannelPolicyCommandOutput extends PutChannelPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an IAM policy for the channel.</p>

@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TagCommandInput = TagInput;
-export type TagCommandOutput = TagOutput & __MetadataBearer;
+export interface TagCommandInput extends TagInput {}
+export interface TagCommandOutput extends TagOutput, __MetadataBearer {}
 
 /**
  * <p>Adds tags to a resource group with the specified ARN. Existing tags on a resource

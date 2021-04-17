@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSSHPublicKeyCommandInput = GetSSHPublicKeyRequest;
-export type GetSSHPublicKeyCommandOutput = GetSSHPublicKeyResponse & __MetadataBearer;
+export interface GetSSHPublicKeyCommandInput extends GetSSHPublicKeyRequest {}
+export interface GetSSHPublicKeyCommandOutput extends GetSSHPublicKeyResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the specified SSH public key, including metadata about the key.</p>

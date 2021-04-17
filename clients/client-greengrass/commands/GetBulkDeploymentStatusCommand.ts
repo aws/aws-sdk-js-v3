@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBulkDeploymentStatusCommandInput = GetBulkDeploymentStatusRequest;
-export type GetBulkDeploymentStatusCommandOutput = GetBulkDeploymentStatusResponse & __MetadataBearer;
+export interface GetBulkDeploymentStatusCommandInput extends GetBulkDeploymentStatusRequest {}
+export interface GetBulkDeploymentStatusCommandOutput extends GetBulkDeploymentStatusResponse, __MetadataBearer {}
 
 /**
  * Returns the status of a bulk deployment.

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreatePullRequestApprovalRuleCommandInput = CreatePullRequestApprovalRuleInput;
-export type CreatePullRequestApprovalRuleCommandOutput = CreatePullRequestApprovalRuleOutput & __MetadataBearer;
+export interface CreatePullRequestApprovalRuleCommandInput extends CreatePullRequestApprovalRuleInput {}
+export interface CreatePullRequestApprovalRuleCommandOutput
+  extends CreatePullRequestApprovalRuleOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Creates an approval rule for a pull request.</p>

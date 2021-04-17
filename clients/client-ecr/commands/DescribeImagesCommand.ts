@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeImagesCommandInput = DescribeImagesRequest;
-export type DescribeImagesCommandOutput = DescribeImagesResponse & __MetadataBearer;
+export interface DescribeImagesCommandInput extends DescribeImagesRequest {}
+export interface DescribeImagesCommandOutput extends DescribeImagesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns metadata about the images in a repository.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPhoneNumberOrdersCommandInput = ListPhoneNumberOrdersRequest;
-export type ListPhoneNumberOrdersCommandOutput = ListPhoneNumberOrdersResponse & __MetadataBearer;
+export interface ListPhoneNumberOrdersCommandInput extends ListPhoneNumberOrdersRequest {}
+export interface ListPhoneNumberOrdersCommandOutput extends ListPhoneNumberOrdersResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the phone number orders for the administrator's Amazon Chime account.</p>

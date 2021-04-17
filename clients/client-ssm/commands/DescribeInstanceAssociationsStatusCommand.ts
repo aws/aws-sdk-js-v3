@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeInstanceAssociationsStatusCommandInput = DescribeInstanceAssociationsStatusRequest;
-export type DescribeInstanceAssociationsStatusCommandOutput = DescribeInstanceAssociationsStatusResult &
-  __MetadataBearer;
+export interface DescribeInstanceAssociationsStatusCommandInput extends DescribeInstanceAssociationsStatusRequest {}
+export interface DescribeInstanceAssociationsStatusCommandOutput
+  extends DescribeInstanceAssociationsStatusResult,
+    __MetadataBearer {}
 
 /**
  * <p>The status of the associations for the instance(s).</p>

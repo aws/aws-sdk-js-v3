@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeConfigurationOptionsCommandInput = DescribeConfigurationOptionsMessage;
-export type DescribeConfigurationOptionsCommandOutput = ConfigurationOptionsDescription & __MetadataBearer;
+export interface DescribeConfigurationOptionsCommandInput extends DescribeConfigurationOptionsMessage {}
+export interface DescribeConfigurationOptionsCommandOutput extends ConfigurationOptionsDescription, __MetadataBearer {}
 
 /**
  * <p>Describes the configuration options that are used in a particular configuration

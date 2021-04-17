@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateMonitoringCommandInput = UpdateMonitoringRequest;
-export type UpdateMonitoringCommandOutput = UpdateMonitoringResponse & __MetadataBearer;
+export interface UpdateMonitoringCommandInput extends UpdateMonitoringRequest {}
+export interface UpdateMonitoringCommandOutput extends UpdateMonitoringResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the monitoring settings for the cluster. You can use this operation to specify which Apache Kafka metrics you want Amazon MSK to send to Amazon CloudWatch. You can also specify settings for open monitoring with Prometheus.</p>

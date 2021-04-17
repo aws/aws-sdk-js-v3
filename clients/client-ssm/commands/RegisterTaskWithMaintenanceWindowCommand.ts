@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterTaskWithMaintenanceWindowCommandInput = RegisterTaskWithMaintenanceWindowRequest;
-export type RegisterTaskWithMaintenanceWindowCommandOutput = RegisterTaskWithMaintenanceWindowResult & __MetadataBearer;
+export interface RegisterTaskWithMaintenanceWindowCommandInput extends RegisterTaskWithMaintenanceWindowRequest {}
+export interface RegisterTaskWithMaintenanceWindowCommandOutput
+  extends RegisterTaskWithMaintenanceWindowResult,
+    __MetadataBearer {}
 
 /**
  * <p>Adds a new task to a maintenance window.</p>

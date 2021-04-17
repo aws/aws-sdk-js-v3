@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyClusterCommandInput = ModifyClusterInput;
-export type ModifyClusterCommandOutput = ModifyClusterOutput & __MetadataBearer;
+export interface ModifyClusterCommandInput extends ModifyClusterInput {}
+export interface ModifyClusterCommandOutput extends ModifyClusterOutput, __MetadataBearer {}
 
 /**
  * <p>Modifies the number of steps that can be executed concurrently for the cluster specified

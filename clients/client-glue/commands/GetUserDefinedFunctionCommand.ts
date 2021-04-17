@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetUserDefinedFunctionCommandInput = GetUserDefinedFunctionRequest;
-export type GetUserDefinedFunctionCommandOutput = GetUserDefinedFunctionResponse & __MetadataBearer;
+export interface GetUserDefinedFunctionCommandInput extends GetUserDefinedFunctionRequest {}
+export interface GetUserDefinedFunctionCommandOutput extends GetUserDefinedFunctionResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a specified function definition from the Data Catalog.</p>

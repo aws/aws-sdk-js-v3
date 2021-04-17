@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateAttributeGroupCommandInput = DisassociateAttributeGroupRequest;
-export type DisassociateAttributeGroupCommandOutput = DisassociateAttributeGroupResponse & __MetadataBearer;
+export interface DisassociateAttributeGroupCommandInput extends DisassociateAttributeGroupRequest {}
+export interface DisassociateAttributeGroupCommandOutput extends DisassociateAttributeGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates an attribute group from an application to remove the extra attributes contained in the attribute group from the application's metadata. This operation reverts <code>AssociateAttributeGroup</code>.</p>

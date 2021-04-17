@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeLocalGatewaysCommandInput = DescribeLocalGatewaysRequest;
-export type DescribeLocalGatewaysCommandOutput = DescribeLocalGatewaysResult & __MetadataBearer;
+export interface DescribeLocalGatewaysCommandInput extends DescribeLocalGatewaysRequest {}
+export interface DescribeLocalGatewaysCommandOutput extends DescribeLocalGatewaysResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more local gateways. By default, all local gateways are described.

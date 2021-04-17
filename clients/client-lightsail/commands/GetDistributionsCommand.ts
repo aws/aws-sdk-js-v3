@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDistributionsCommandInput = GetDistributionsRequest;
-export type GetDistributionsCommandOutput = GetDistributionsResult & __MetadataBearer;
+export interface GetDistributionsCommandInput extends GetDistributionsRequest {}
+export interface GetDistributionsCommandOutput extends GetDistributionsResult, __MetadataBearer {}
 
 /**
  * <p>Returns information about one or more of your Amazon Lightsail content delivery network

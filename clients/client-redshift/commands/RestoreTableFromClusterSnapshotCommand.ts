@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RestoreTableFromClusterSnapshotCommandInput = RestoreTableFromClusterSnapshotMessage;
-export type RestoreTableFromClusterSnapshotCommandOutput = RestoreTableFromClusterSnapshotResult & __MetadataBearer;
+export interface RestoreTableFromClusterSnapshotCommandInput extends RestoreTableFromClusterSnapshotMessage {}
+export interface RestoreTableFromClusterSnapshotCommandOutput
+  extends RestoreTableFromClusterSnapshotResult,
+    __MetadataBearer {}
 
 /**
  * <p>Creates a new table from a table in an Amazon Redshift cluster snapshot. You must

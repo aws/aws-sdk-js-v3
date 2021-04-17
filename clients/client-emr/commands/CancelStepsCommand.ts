@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelStepsCommandInput = CancelStepsInput;
-export type CancelStepsCommandOutput = CancelStepsOutput & __MetadataBearer;
+export interface CancelStepsCommandInput extends CancelStepsInput {}
+export interface CancelStepsCommandOutput extends CancelStepsOutput, __MetadataBearer {}
 
 /**
  * <p>Cancels a pending step or steps in a running cluster. Available only in Amazon EMR

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateRepositoryDescriptionCommandInput = UpdateRepositoryDescriptionInput;
-export type UpdateRepositoryDescriptionCommandOutput = __MetadataBearer;
+export interface UpdateRepositoryDescriptionCommandInput extends UpdateRepositoryDescriptionInput {}
+export interface UpdateRepositoryDescriptionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Sets or changes the comment or description for a repository.</p>

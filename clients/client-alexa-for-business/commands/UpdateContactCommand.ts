@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateContactCommandInput = UpdateContactRequest;
-export type UpdateContactCommandOutput = UpdateContactResponse & __MetadataBearer;
+export interface UpdateContactCommandInput extends UpdateContactRequest {}
+export interface UpdateContactCommandOutput extends UpdateContactResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the contact details by the contact ARN.</p>

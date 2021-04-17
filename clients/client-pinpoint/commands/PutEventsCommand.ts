@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutEventsCommandInput = PutEventsRequest;
-export type PutEventsCommandOutput = PutEventsResponse & __MetadataBearer;
+export interface PutEventsCommandInput extends PutEventsRequest {}
+export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new event to record for endpoints, or creates or updates endpoint data that existing events are associated with.</p>

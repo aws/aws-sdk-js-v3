@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateTrackerCommandInput = CreateTrackerRequest;
-export type CreateTrackerCommandOutput = CreateTrackerResponse & __MetadataBearer;
+export interface CreateTrackerCommandInput extends CreateTrackerRequest {}
+export interface CreateTrackerCommandOutput extends CreateTrackerResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a tracker resource in your AWS account, which lets you retrieve current and

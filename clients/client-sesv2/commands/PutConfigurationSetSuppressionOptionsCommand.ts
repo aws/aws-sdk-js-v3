@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutConfigurationSetSuppressionOptionsCommandInput = PutConfigurationSetSuppressionOptionsRequest;
-export type PutConfigurationSetSuppressionOptionsCommandOutput = PutConfigurationSetSuppressionOptionsResponse &
-  __MetadataBearer;
+export interface PutConfigurationSetSuppressionOptionsCommandInput
+  extends PutConfigurationSetSuppressionOptionsRequest {}
+export interface PutConfigurationSetSuppressionOptionsCommandOutput
+  extends PutConfigurationSetSuppressionOptionsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Specify the account suppression list preferences for a configuration set.</p>

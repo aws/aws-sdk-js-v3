@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetInsightImpactGraphCommandInput = GetInsightImpactGraphRequest;
-export type GetInsightImpactGraphCommandOutput = GetInsightImpactGraphResult & __MetadataBearer;
+export interface GetInsightImpactGraphCommandInput extends GetInsightImpactGraphRequest {}
+export interface GetInsightImpactGraphCommandOutput extends GetInsightImpactGraphResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves a service graph structure filtered by the specified insight. The service graph is limited to only

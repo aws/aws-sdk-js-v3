@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SendUsersMessagesCommandInput = SendUsersMessagesRequest;
-export type SendUsersMessagesCommandOutput = SendUsersMessagesResponse & __MetadataBearer;
+export interface SendUsersMessagesCommandInput extends SendUsersMessagesRequest {}
+export interface SendUsersMessagesCommandOutput extends SendUsersMessagesResponse, __MetadataBearer {}
 
 /**
  * <p>Creates and sends a message to a list of users.</p>

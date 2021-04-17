@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreatePipelineCommandInput = CreatePipelineInput;
-export type CreatePipelineCommandOutput = CreatePipelineOutput & __MetadataBearer;
+export interface CreatePipelineCommandInput extends CreatePipelineInput {}
+export interface CreatePipelineCommandOutput extends CreatePipelineOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a new, empty pipeline. Use <a>PutPipelineDefinition</a> to populate the pipeline.</p>

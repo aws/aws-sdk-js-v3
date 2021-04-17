@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAcceptedPortfolioSharesCommandInput = ListAcceptedPortfolioSharesInput;
-export type ListAcceptedPortfolioSharesCommandOutput = ListAcceptedPortfolioSharesOutput & __MetadataBearer;
+export interface ListAcceptedPortfolioSharesCommandInput extends ListAcceptedPortfolioSharesInput {}
+export interface ListAcceptedPortfolioSharesCommandOutput extends ListAcceptedPortfolioSharesOutput, __MetadataBearer {}
 
 /**
  * <p>Lists all portfolios for which sharing was accepted by this account.</p>

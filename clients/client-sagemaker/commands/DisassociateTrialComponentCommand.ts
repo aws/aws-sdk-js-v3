@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateTrialComponentCommandInput = DisassociateTrialComponentRequest;
-export type DisassociateTrialComponentCommandOutput = DisassociateTrialComponentResponse & __MetadataBearer;
+export interface DisassociateTrialComponentCommandInput extends DisassociateTrialComponentRequest {}
+export interface DisassociateTrialComponentCommandOutput extends DisassociateTrialComponentResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates a trial component from a trial. This doesn't effect other trials the

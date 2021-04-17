@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SearchThingsCommandInput = SearchThingsRequest;
-export type SearchThingsCommandOutput = SearchThingsResponse & __MetadataBearer;
+export interface SearchThingsCommandInput extends SearchThingsRequest {}
+export interface SearchThingsCommandOutput extends SearchThingsResponse, __MetadataBearer {}
 
 /**
  * <p>Searches for things associated with the specified entity. You can search by both device and device model.</p>

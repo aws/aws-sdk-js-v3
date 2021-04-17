@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListJobsByPipelineCommandInput = ListJobsByPipelineRequest;
-export type ListJobsByPipelineCommandOutput = ListJobsByPipelineResponse & __MetadataBearer;
+export interface ListJobsByPipelineCommandInput extends ListJobsByPipelineRequest {}
+export interface ListJobsByPipelineCommandOutput extends ListJobsByPipelineResponse, __MetadataBearer {}
 
 /**
  * <p>The ListJobsByPipeline operation gets a list of the jobs currently in a pipeline.</p>

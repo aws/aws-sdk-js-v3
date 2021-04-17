@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateLogPatternCommandInput = UpdateLogPatternRequest;
-export type UpdateLogPatternCommandOutput = UpdateLogPatternResponse & __MetadataBearer;
+export interface UpdateLogPatternCommandInput extends UpdateLogPatternRequest {}
+export interface UpdateLogPatternCommandOutput extends UpdateLogPatternResponse, __MetadataBearer {}
 
 /**
  * <p>Adds a log pattern to a <code>LogPatternSet</code>.</p>

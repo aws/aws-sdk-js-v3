@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateClassificationJobCommandInput = CreateClassificationJobRequest;
-export type CreateClassificationJobCommandOutput = CreateClassificationJobResponse & __MetadataBearer;
+export interface CreateClassificationJobCommandInput extends CreateClassificationJobRequest {}
+export interface CreateClassificationJobCommandOutput extends CreateClassificationJobResponse, __MetadataBearer {}
 
 /**
  * <p>Creates and defines the settings for a classification job.</p>

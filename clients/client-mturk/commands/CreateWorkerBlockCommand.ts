@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateWorkerBlockCommandInput = CreateWorkerBlockRequest;
-export type CreateWorkerBlockCommandOutput = CreateWorkerBlockResponse & __MetadataBearer;
+export interface CreateWorkerBlockCommandInput extends CreateWorkerBlockRequest {}
+export interface CreateWorkerBlockCommandOutput extends CreateWorkerBlockResponse, __MetadataBearer {}
 
 /**
  * <p>The <code>CreateWorkerBlock</code> operation allows you to prevent a Worker from working on your HITs. For example, you can block a Worker who is producing poor quality work. You can block up to 100,000 Workers.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateCampaignCommandInput = CreateCampaignRequest;
-export type CreateCampaignCommandOutput = CreateCampaignResponse & __MetadataBearer;
+export interface CreateCampaignCommandInput extends CreateCampaignRequest {}
+export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new campaign for an application or updates the settings of an existing campaign for an application.</p>

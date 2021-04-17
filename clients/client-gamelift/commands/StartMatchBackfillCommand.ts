@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartMatchBackfillCommandInput = StartMatchBackfillInput;
-export type StartMatchBackfillCommandOutput = StartMatchBackfillOutput & __MetadataBearer;
+export interface StartMatchBackfillCommandInput extends StartMatchBackfillInput {}
+export interface StartMatchBackfillCommandOutput extends StartMatchBackfillOutput, __MetadataBearer {}
 
 /**
  * <p>Finds new players to fill open slots in currently running game sessions.

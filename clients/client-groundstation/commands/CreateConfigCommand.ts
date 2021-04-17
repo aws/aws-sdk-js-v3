@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateConfigCommandInput = CreateConfigRequest;
-export type CreateConfigCommandOutput = ConfigIdResponse & __MetadataBearer;
+export interface CreateConfigCommandInput extends CreateConfigRequest {}
+export interface CreateConfigCommandOutput extends ConfigIdResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a <code>Config</code> with the specified <code>configData</code> parameters.</p>

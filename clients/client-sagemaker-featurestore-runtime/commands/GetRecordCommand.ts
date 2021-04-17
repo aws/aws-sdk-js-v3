@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetRecordCommandInput = GetRecordRequest;
-export type GetRecordCommandOutput = GetRecordResponse & __MetadataBearer;
+export interface GetRecordCommandInput extends GetRecordRequest {}
+export interface GetRecordCommandOutput extends GetRecordResponse, __MetadataBearer {}
 
 /**
  * <p>Use for <code>OnlineStore</code> serving from a <code>FeatureStore</code>. Only the

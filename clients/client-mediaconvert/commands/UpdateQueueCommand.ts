@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateQueueCommandInput = UpdateQueueRequest;
-export type UpdateQueueCommandOutput = UpdateQueueResponse & __MetadataBearer;
+export interface UpdateQueueCommandInput extends UpdateQueueRequest {}
+export interface UpdateQueueCommandOutput extends UpdateQueueResponse, __MetadataBearer {}
 
 /**
  * Modify one of your existing queues.

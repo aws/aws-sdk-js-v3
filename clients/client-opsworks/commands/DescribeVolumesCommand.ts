@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeVolumesCommandInput = DescribeVolumesRequest;
-export type DescribeVolumesCommandOutput = DescribeVolumesResult & __MetadataBearer;
+export interface DescribeVolumesCommandInput extends DescribeVolumesRequest {}
+export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __MetadataBearer {}
 
 /**
  * <p>Describes an instance's Amazon EBS volumes.</p>

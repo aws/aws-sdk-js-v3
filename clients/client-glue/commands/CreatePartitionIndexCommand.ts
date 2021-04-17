@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreatePartitionIndexCommandInput = CreatePartitionIndexRequest;
-export type CreatePartitionIndexCommandOutput = CreatePartitionIndexResponse & __MetadataBearer;
+export interface CreatePartitionIndexCommandInput extends CreatePartitionIndexRequest {}
+export interface CreatePartitionIndexCommandOutput extends CreatePartitionIndexResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a specified partition index in an existing table.</p>

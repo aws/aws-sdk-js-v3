@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteStudioSessionMappingCommandInput = DeleteStudioSessionMappingInput;
-export type DeleteStudioSessionMappingCommandOutput = __MetadataBearer;
+export interface DeleteStudioSessionMappingCommandInput extends DeleteStudioSessionMappingInput {}
+export interface DeleteStudioSessionMappingCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes a user or group from an Amazon EMR Studio.</p>

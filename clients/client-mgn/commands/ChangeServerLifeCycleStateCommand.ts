@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ChangeServerLifeCycleStateCommandInput = ChangeServerLifeCycleStateRequest;
-export type ChangeServerLifeCycleStateCommandOutput = SourceServer & __MetadataBearer;
+export interface ChangeServerLifeCycleStateCommandInput extends ChangeServerLifeCycleStateRequest {}
+export interface ChangeServerLifeCycleStateCommandOutput extends SourceServer, __MetadataBearer {}
 
 /**
  * <p>Allows the user to set the SourceServer.LifeCycle.state property for specific Source Server IDs to one of the following: READY_FOR_TEST or READY_FOR_CUTOVER. This command only works if the Source Server is already launchable (dataReplicationInfo.lagDuration is not null.)</p>

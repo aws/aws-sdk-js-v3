@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetInstancesHealthStatusCommandInput = GetInstancesHealthStatusRequest;
-export type GetInstancesHealthStatusCommandOutput = GetInstancesHealthStatusResponse & __MetadataBearer;
+export interface GetInstancesHealthStatusCommandInput extends GetInstancesHealthStatusRequest {}
+export interface GetInstancesHealthStatusCommandOutput extends GetInstancesHealthStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the current health status (<code>Healthy</code>, <code>Unhealthy</code>, or <code>Unknown</code>) of one or

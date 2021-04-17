@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateAssumeRolePolicyCommandInput = UpdateAssumeRolePolicyRequest;
-export type UpdateAssumeRolePolicyCommandOutput = __MetadataBearer;
+export interface UpdateAssumeRolePolicyCommandInput extends UpdateAssumeRolePolicyRequest {}
+export interface UpdateAssumeRolePolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates the policy that grants an IAM entity permission to assume a role. This is

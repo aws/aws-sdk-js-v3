@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListActivitiesCommandInput = ListActivitiesInput;
-export type ListActivitiesCommandOutput = ListActivitiesOutput & __MetadataBearer;
+export interface ListActivitiesCommandInput extends ListActivitiesInput {}
+export interface ListActivitiesCommandOutput extends ListActivitiesOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the existing activities.</p>

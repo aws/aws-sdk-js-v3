@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetEventStreamCommandInput = GetEventStreamRequest;
-export type GetEventStreamCommandOutput = GetEventStreamResponse & __MetadataBearer;
+export interface GetEventStreamCommandInput extends GetEventStreamRequest {}
+export interface GetEventStreamCommandOutput extends GetEventStreamResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the event stream settings for an application.</p>

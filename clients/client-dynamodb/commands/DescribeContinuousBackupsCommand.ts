@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeContinuousBackupsCommandInput = DescribeContinuousBackupsInput;
-export type DescribeContinuousBackupsCommandOutput = DescribeContinuousBackupsOutput & __MetadataBearer;
+export interface DescribeContinuousBackupsCommandInput extends DescribeContinuousBackupsInput {}
+export interface DescribeContinuousBackupsCommandOutput extends DescribeContinuousBackupsOutput, __MetadataBearer {}
 
 /**
  * <p>Checks the status of continuous backups and point in time recovery on the specified table.

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SignOutUserCommandInput = SignOutUserRequest;
-export type SignOutUserCommandOutput = SignOutUserResponse & __MetadataBearer;
+export interface SignOutUserCommandInput extends SignOutUserRequest {}
+export interface SignOutUserCommandOutput extends SignOutUserResponse, __MetadataBearer {}
 
 /**
  * <p>Signs the user out from all of their devices. The user can sign in again if they have

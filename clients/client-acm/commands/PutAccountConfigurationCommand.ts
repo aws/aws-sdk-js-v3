@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutAccountConfigurationCommandInput = PutAccountConfigurationRequest;
-export type PutAccountConfigurationCommandOutput = __MetadataBearer;
+export interface PutAccountConfigurationCommandInput extends PutAccountConfigurationRequest {}
+export interface PutAccountConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Adds or modifies

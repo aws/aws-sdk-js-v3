@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribePackagesCommandInput = DescribePackagesRequest;
-export type DescribePackagesCommandOutput = DescribePackagesResponse & __MetadataBearer;
+export interface DescribePackagesCommandInput extends DescribePackagesRequest {}
+export interface DescribePackagesCommandOutput extends DescribePackagesResponse, __MetadataBearer {}
 
 /**
  * <p>Describes all packages available to Amazon ES. Includes options for filtering, limiting the number of results, and pagination.</p>

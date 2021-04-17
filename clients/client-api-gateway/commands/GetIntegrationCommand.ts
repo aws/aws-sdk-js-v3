@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetIntegrationCommandInput = GetIntegrationRequest;
-export type GetIntegrationCommandOutput = Integration & __MetadataBearer;
+export interface GetIntegrationCommandInput extends GetIntegrationRequest {}
+export interface GetIntegrationCommandOutput extends Integration, __MetadataBearer {}
 
 /**
  * <p>Get the integration settings.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TagServerCertificateCommandInput = TagServerCertificateRequest;
-export type TagServerCertificateCommandOutput = __MetadataBearer;
+export interface TagServerCertificateCommandInput extends TagServerCertificateRequest {}
+export interface TagServerCertificateCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Adds one or more tags to an IAM server certificate. If a tag with the same key name

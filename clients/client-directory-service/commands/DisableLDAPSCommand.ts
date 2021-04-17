@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisableLDAPSCommandInput = DisableLDAPSRequest;
-export type DisableLDAPSCommandOutput = DisableLDAPSResult & __MetadataBearer;
+export interface DisableLDAPSCommandInput extends DisableLDAPSRequest {}
+export interface DisableLDAPSCommandOutput extends DisableLDAPSResult, __MetadataBearer {}
 
 /**
  * <p>Deactivates LDAP secure calls for the specified directory.</p>

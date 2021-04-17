@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type VerifyDomainDkimCommandInput = VerifyDomainDkimRequest;
-export type VerifyDomainDkimCommandOutput = VerifyDomainDkimResponse & __MetadataBearer;
+export interface VerifyDomainDkimCommandInput extends VerifyDomainDkimRequest {}
+export interface VerifyDomainDkimCommandOutput extends VerifyDomainDkimResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a set of DKIM tokens for a domain identity.</p>

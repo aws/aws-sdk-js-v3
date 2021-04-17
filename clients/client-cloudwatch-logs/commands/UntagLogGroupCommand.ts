@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UntagLogGroupCommandInput = UntagLogGroupRequest;
-export type UntagLogGroupCommandOutput = __MetadataBearer;
+export interface UntagLogGroupCommandInput extends UntagLogGroupRequest {}
+export interface UntagLogGroupCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes the specified tags from the specified log group.</p>

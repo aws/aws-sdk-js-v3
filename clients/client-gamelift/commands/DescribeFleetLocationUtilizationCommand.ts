@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeFleetLocationUtilizationCommandInput = DescribeFleetLocationUtilizationInput;
-export type DescribeFleetLocationUtilizationCommandOutput = DescribeFleetLocationUtilizationOutput & __MetadataBearer;
+export interface DescribeFleetLocationUtilizationCommandInput extends DescribeFleetLocationUtilizationInput {}
+export interface DescribeFleetLocationUtilizationCommandOutput
+  extends DescribeFleetLocationUtilizationOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves current usage data for a fleet location. Utilization data provides a

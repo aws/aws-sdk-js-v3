@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RestoreDBClusterFromS3CommandInput = RestoreDBClusterFromS3Message;
-export type RestoreDBClusterFromS3CommandOutput = RestoreDBClusterFromS3Result & __MetadataBearer;
+export interface RestoreDBClusterFromS3CommandInput extends RestoreDBClusterFromS3Message {}
+export interface RestoreDBClusterFromS3CommandOutput extends RestoreDBClusterFromS3Result, __MetadataBearer {}
 
 /**
  * <p>Creates an Amazon Aurora DB cluster from MySQL data stored in an Amazon S3 bucket.

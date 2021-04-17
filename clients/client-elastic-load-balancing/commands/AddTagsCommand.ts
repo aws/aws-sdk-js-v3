@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddTagsCommandInput = AddTagsInput;
-export type AddTagsCommandOutput = AddTagsOutput & __MetadataBearer;
+export interface AddTagsCommandInput extends AddTagsInput {}
+export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
 
 /**
  * <p>Adds the specified tags to the specified load balancer. Each load balancer can have a maximum of 10 tags.</p>

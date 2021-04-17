@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeVpcEndpointServiceConfigurationsCommandInput = DescribeVpcEndpointServiceConfigurationsRequest;
-export type DescribeVpcEndpointServiceConfigurationsCommandOutput = DescribeVpcEndpointServiceConfigurationsResult &
-  __MetadataBearer;
+export interface DescribeVpcEndpointServiceConfigurationsCommandInput
+  extends DescribeVpcEndpointServiceConfigurationsRequest {}
+export interface DescribeVpcEndpointServiceConfigurationsCommandOutput
+  extends DescribeVpcEndpointServiceConfigurationsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the VPC endpoint service configurations in your account (your services).</p>

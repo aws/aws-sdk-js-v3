@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AuthorizeEndpointAccessCommandInput = AuthorizeEndpointAccessMessage;
-export type AuthorizeEndpointAccessCommandOutput = EndpointAuthorization & __MetadataBearer;
+export interface AuthorizeEndpointAccessCommandInput extends AuthorizeEndpointAccessMessage {}
+export interface AuthorizeEndpointAccessCommandOutput extends EndpointAuthorization, __MetadataBearer {}
 
 /**
  * <p>Grants access to a cluster.</p>

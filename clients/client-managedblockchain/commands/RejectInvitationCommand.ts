@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RejectInvitationCommandInput = RejectInvitationInput;
-export type RejectInvitationCommandOutput = RejectInvitationOutput & __MetadataBearer;
+export interface RejectInvitationCommandInput extends RejectInvitationInput {}
+export interface RejectInvitationCommandOutput extends RejectInvitationOutput, __MetadataBearer {}
 
 /**
  * <p>Rejects an invitation to join a network. This action can be called by a principal in an AWS account that has received an invitation to create a member and join a network.</p>

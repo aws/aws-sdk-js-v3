@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateWirelessGatewayFromThingCommandInput = DisassociateWirelessGatewayFromThingRequest;
-export type DisassociateWirelessGatewayFromThingCommandOutput = DisassociateWirelessGatewayFromThingResponse &
-  __MetadataBearer;
+export interface DisassociateWirelessGatewayFromThingCommandInput extends DisassociateWirelessGatewayFromThingRequest {}
+export interface DisassociateWirelessGatewayFromThingCommandOutput
+  extends DisassociateWirelessGatewayFromThingResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Disassociates a wireless gateway from its currently associated thing.</p>

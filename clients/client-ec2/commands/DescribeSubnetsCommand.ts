@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeSubnetsCommandInput = DescribeSubnetsRequest;
-export type DescribeSubnetsCommandOutput = DescribeSubnetsResult & __MetadataBearer;
+export interface DescribeSubnetsCommandInput extends DescribeSubnetsRequest {}
+export interface DescribeSubnetsCommandOutput extends DescribeSubnetsResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more of your subnets.</p>

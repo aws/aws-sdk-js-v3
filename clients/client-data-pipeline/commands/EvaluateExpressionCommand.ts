@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type EvaluateExpressionCommandInput = EvaluateExpressionInput;
-export type EvaluateExpressionCommandOutput = EvaluateExpressionOutput & __MetadataBearer;
+export interface EvaluateExpressionCommandInput extends EvaluateExpressionInput {}
+export interface EvaluateExpressionCommandOutput extends EvaluateExpressionOutput, __MetadataBearer {}
 
 /**
  * <p>Task runners call <code>EvaluateExpression</code> to evaluate a string in the context of the specified object.

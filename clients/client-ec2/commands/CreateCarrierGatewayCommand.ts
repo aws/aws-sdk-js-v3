@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateCarrierGatewayCommandInput = CreateCarrierGatewayRequest;
-export type CreateCarrierGatewayCommandOutput = CreateCarrierGatewayResult & __MetadataBearer;
+export interface CreateCarrierGatewayCommandInput extends CreateCarrierGatewayRequest {}
+export interface CreateCarrierGatewayCommandOutput extends CreateCarrierGatewayResult, __MetadataBearer {}
 
 /**
  * <p>Creates a carrier gateway.   For more information about carrier gateways, see <a href="https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#wavelength-carrier-gateway">Carrier gateways</a> in the <i>AWS Wavelength Developer

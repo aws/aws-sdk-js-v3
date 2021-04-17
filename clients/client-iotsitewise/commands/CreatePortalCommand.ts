@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreatePortalCommandInput = CreatePortalRequest;
-export type CreatePortalCommandOutput = CreatePortalResponse & __MetadataBearer;
+export interface CreatePortalCommandInput extends CreatePortalRequest {}
+export interface CreatePortalCommandOutput extends CreatePortalResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a portal, which can contain projects and dashboards. AWS IoT SiteWise Monitor uses AWS SSO or IAM

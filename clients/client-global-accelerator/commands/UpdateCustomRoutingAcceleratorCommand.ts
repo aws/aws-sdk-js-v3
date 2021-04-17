@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateCustomRoutingAcceleratorCommandInput = UpdateCustomRoutingAcceleratorRequest;
-export type UpdateCustomRoutingAcceleratorCommandOutput = UpdateCustomRoutingAcceleratorResponse & __MetadataBearer;
+export interface UpdateCustomRoutingAcceleratorCommandInput extends UpdateCustomRoutingAcceleratorRequest {}
+export interface UpdateCustomRoutingAcceleratorCommandOutput
+  extends UpdateCustomRoutingAcceleratorResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Update a custom routing accelerator. </p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTrailsCommandInput = DescribeTrailsRequest;
-export type DescribeTrailsCommandOutput = DescribeTrailsResponse & __MetadataBearer;
+export interface DescribeTrailsCommandInput extends DescribeTrailsRequest {}
+export interface DescribeTrailsCommandOutput extends DescribeTrailsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves settings for one or more trails associated with the current region for your account.</p>

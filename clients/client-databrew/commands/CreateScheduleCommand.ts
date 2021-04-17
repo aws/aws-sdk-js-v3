@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateScheduleCommandInput = CreateScheduleRequest;
-export type CreateScheduleCommandOutput = CreateScheduleResponse & __MetadataBearer;
+export interface CreateScheduleCommandInput extends CreateScheduleRequest {}
+export interface CreateScheduleCommandOutput extends CreateScheduleResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new schedule for one or more DataBrew jobs. Jobs can be run at a specific

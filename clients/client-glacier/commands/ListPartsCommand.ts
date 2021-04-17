@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPartsCommandInput = ListPartsInput;
-export type ListPartsCommandOutput = ListPartsOutput & __MetadataBearer;
+export interface ListPartsCommandInput extends ListPartsInput {}
+export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBearer {}
 
 /**
  * <p>This operation lists the parts of an archive that have been uploaded in a specific

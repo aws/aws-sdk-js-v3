@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDeviceRegistrationCommandInput = GetDeviceRegistrationRequest;
-export type GetDeviceRegistrationCommandOutput = GetDeviceRegistrationResult & __MetadataBearer;
+export interface GetDeviceRegistrationCommandInput extends GetDeviceRegistrationRequest {}
+export interface GetDeviceRegistrationCommandOutput extends GetDeviceRegistrationResult, __MetadataBearer {}
 
 /**
  * <p>Use to check if a device is registered with SageMaker Edge Manager.</p>

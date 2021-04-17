@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RespondToAuthChallengeCommandInput = RespondToAuthChallengeRequest;
-export type RespondToAuthChallengeCommandOutput = RespondToAuthChallengeResponse & __MetadataBearer;
+export interface RespondToAuthChallengeCommandInput extends RespondToAuthChallengeRequest {}
+export interface RespondToAuthChallengeCommandOutput extends RespondToAuthChallengeResponse, __MetadataBearer {}
 
 /**
  * <p>Responds to the authentication challenge.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateExternalConnectionCommandInput = AssociateExternalConnectionRequest;
-export type AssociateExternalConnectionCommandOutput = AssociateExternalConnectionResult & __MetadataBearer;
+export interface AssociateExternalConnectionCommandInput extends AssociateExternalConnectionRequest {}
+export interface AssociateExternalConnectionCommandOutput extends AssociateExternalConnectionResult, __MetadataBearer {}
 
 /**
  * <p>Adds an existing external connection to a repository. One external connection is allowed

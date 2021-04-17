@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAccountSettingCommandInput = DeleteAccountSettingRequest;
-export type DeleteAccountSettingCommandOutput = DeleteAccountSettingResponse & __MetadataBearer;
+export interface DeleteAccountSettingCommandInput extends DeleteAccountSettingRequest {}
+export interface DeleteAccountSettingCommandOutput extends DeleteAccountSettingResponse, __MetadataBearer {}
 
 /**
  * <p>Disables an account setting for a specified IAM user, IAM role, or the root user for

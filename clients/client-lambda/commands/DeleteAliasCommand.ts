@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAliasCommandInput = DeleteAliasRequest;
-export type DeleteAliasCommandOutput = __MetadataBearer;
+export interface DeleteAliasCommandInput extends DeleteAliasRequest {}
+export interface DeleteAliasCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.</p>

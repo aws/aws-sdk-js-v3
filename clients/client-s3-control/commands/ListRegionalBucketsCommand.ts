@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListRegionalBucketsCommandInput = ListRegionalBucketsRequest;
-export type ListRegionalBucketsCommandOutput = ListRegionalBucketsResult & __MetadataBearer;
+export interface ListRegionalBucketsCommandInput extends ListRegionalBucketsRequest {}
+export interface ListRegionalBucketsCommandOutput extends ListRegionalBucketsResult, __MetadataBearer {}
 
 /**
  * <p>Returns a list of all Outposts buckets in an Outpost that are owned by the authenticated

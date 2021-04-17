@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ExportTableToPointInTimeCommandInput = ExportTableToPointInTimeInput;
-export type ExportTableToPointInTimeCommandOutput = ExportTableToPointInTimeOutput & __MetadataBearer;
+export interface ExportTableToPointInTimeCommandInput extends ExportTableToPointInTimeInput {}
+export interface ExportTableToPointInTimeCommandOutput extends ExportTableToPointInTimeOutput, __MetadataBearer {}
 
 /**
  * <p>Exports table data to an S3 bucket. The table must have point in time recovery

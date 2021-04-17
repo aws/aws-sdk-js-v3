@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDirectoryCommandInput = GetDirectoryRequest;
-export type GetDirectoryCommandOutput = GetDirectoryResponse & __MetadataBearer;
+export interface GetDirectoryCommandInput extends GetDirectoryRequest {}
+export interface GetDirectoryCommandOutput extends GetDirectoryResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves metadata about a directory.</p>

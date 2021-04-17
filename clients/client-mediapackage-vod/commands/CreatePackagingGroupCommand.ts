@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreatePackagingGroupCommandInput = CreatePackagingGroupRequest;
-export type CreatePackagingGroupCommandOutput = CreatePackagingGroupResponse & __MetadataBearer;
+export interface CreatePackagingGroupCommandInput extends CreatePackagingGroupRequest {}
+export interface CreatePackagingGroupCommandOutput extends CreatePackagingGroupResponse, __MetadataBearer {}
 
 /**
  * Creates a new MediaPackage VOD PackagingGroup resource.

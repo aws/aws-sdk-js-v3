@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDBSecurityGroupCommandInput = CreateDBSecurityGroupMessage;
-export type CreateDBSecurityGroupCommandOutput = CreateDBSecurityGroupResult & __MetadataBearer;
+export interface CreateDBSecurityGroupCommandInput extends CreateDBSecurityGroupMessage {}
+export interface CreateDBSecurityGroupCommandOutput extends CreateDBSecurityGroupResult, __MetadataBearer {}
 
 /**
  * <p>Creates a new DB security group. DB security groups control access to a DB instance.</p>

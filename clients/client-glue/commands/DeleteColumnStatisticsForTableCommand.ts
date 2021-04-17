@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteColumnStatisticsForTableCommandInput = DeleteColumnStatisticsForTableRequest;
-export type DeleteColumnStatisticsForTableCommandOutput = DeleteColumnStatisticsForTableResponse & __MetadataBearer;
+export interface DeleteColumnStatisticsForTableCommandInput extends DeleteColumnStatisticsForTableRequest {}
+export interface DeleteColumnStatisticsForTableCommandOutput
+  extends DeleteColumnStatisticsForTableResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves table statistics of columns.</p>

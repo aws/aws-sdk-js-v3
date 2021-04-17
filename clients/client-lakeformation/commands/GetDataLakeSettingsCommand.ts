@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDataLakeSettingsCommandInput = GetDataLakeSettingsRequest;
-export type GetDataLakeSettingsCommandOutput = GetDataLakeSettingsResponse & __MetadataBearer;
+export interface GetDataLakeSettingsCommandInput extends GetDataLakeSettingsRequest {}
+export interface GetDataLakeSettingsCommandOutput extends GetDataLakeSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the list of the data lake administrators of a Lake Formation-managed data lake. </p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetRegexPatternSetCommandInput = GetRegexPatternSetRequest;
-export type GetRegexPatternSetCommandOutput = GetRegexPatternSetResponse & __MetadataBearer;
+export interface GetRegexPatternSetCommandInput extends GetRegexPatternSetRequest {}
+export interface GetRegexPatternSetCommandOutput extends GetRegexPatternSetResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the specified <a>RegexPatternSet</a>.</p>

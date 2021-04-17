@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutResourcePolicyCommandInput = PutResourcePolicyRequest;
-export type PutResourcePolicyCommandOutput = PutResourcePolicyResponse & __MetadataBearer;
+export interface PutResourcePolicyCommandInput extends PutResourcePolicyRequest {}
+export interface PutResourcePolicyCommandOutput extends PutResourcePolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Creates or updates an AWS Identity and Access Management policy for your rule group or firewall policy. Use this to share rule groups and firewall policies between accounts. This operation works in conjunction with the AWS Resource Access Manager (RAM) service

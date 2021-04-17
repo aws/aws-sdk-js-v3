@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListChannelMessagesCommandInput = ListChannelMessagesRequest;
-export type ListChannelMessagesCommandOutput = ListChannelMessagesResponse & __MetadataBearer;
+export interface ListChannelMessagesCommandInput extends ListChannelMessagesRequest {}
+export interface ListChannelMessagesCommandOutput extends ListChannelMessagesResponse, __MetadataBearer {}
 
 /**
  * <p>List all the messages in a channel. Returns a paginated list of <code>ChannelMessages</code>.

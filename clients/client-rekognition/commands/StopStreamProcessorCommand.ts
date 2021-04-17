@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopStreamProcessorCommandInput = StopStreamProcessorRequest;
-export type StopStreamProcessorCommandOutput = StopStreamProcessorResponse & __MetadataBearer;
+export interface StopStreamProcessorCommandInput extends StopStreamProcessorRequest {}
+export interface StopStreamProcessorCommandOutput extends StopStreamProcessorResponse, __MetadataBearer {}
 
 /**
  * <p>Stops a running stream processor that was created by <a>CreateStreamProcessor</a>.</p>

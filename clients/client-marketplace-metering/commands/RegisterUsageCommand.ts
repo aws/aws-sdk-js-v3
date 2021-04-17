@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterUsageCommandInput = RegisterUsageRequest;
-export type RegisterUsageCommandOutput = RegisterUsageResult & __MetadataBearer;
+export interface RegisterUsageCommandInput extends RegisterUsageRequest {}
+export interface RegisterUsageCommandOutput extends RegisterUsageResult, __MetadataBearer {}
 
 /**
  * <p>Paid container software products sold through AWS Marketplace must integrate with

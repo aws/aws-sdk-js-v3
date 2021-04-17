@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TestInvokeAuthorizerCommandInput = TestInvokeAuthorizerRequest;
-export type TestInvokeAuthorizerCommandOutput = TestInvokeAuthorizerResponse & __MetadataBearer;
+export interface TestInvokeAuthorizerCommandInput extends TestInvokeAuthorizerRequest {}
+export interface TestInvokeAuthorizerCommandOutput extends TestInvokeAuthorizerResponse, __MetadataBearer {}
 
 /**
  * <p>Simulate the execution of an <a>Authorizer</a> in your <a>RestApi</a> with headers, parameters, and an incoming request body.</p>

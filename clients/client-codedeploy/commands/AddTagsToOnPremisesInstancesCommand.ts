@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddTagsToOnPremisesInstancesCommandInput = AddTagsToOnPremisesInstancesInput;
-export type AddTagsToOnPremisesInstancesCommandOutput = __MetadataBearer;
+export interface AddTagsToOnPremisesInstancesCommandInput extends AddTagsToOnPremisesInstancesInput {}
+export interface AddTagsToOnPremisesInstancesCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Adds tags to on-premises instances.</p>

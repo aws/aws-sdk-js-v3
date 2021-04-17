@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchImportFindingsCommandInput = BatchImportFindingsRequest;
-export type BatchImportFindingsCommandOutput = BatchImportFindingsResponse & __MetadataBearer;
+export interface BatchImportFindingsCommandInput extends BatchImportFindingsRequest {}
+export interface BatchImportFindingsCommandOutput extends BatchImportFindingsResponse, __MetadataBearer {}
 
 /**
  * <p>Imports security findings generated from an integrated product into Security Hub.

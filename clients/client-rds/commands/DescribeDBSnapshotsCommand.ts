@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDBSnapshotsCommandInput = DescribeDBSnapshotsMessage;
-export type DescribeDBSnapshotsCommandOutput = DBSnapshotMessage & __MetadataBearer;
+export interface DescribeDBSnapshotsCommandInput extends DescribeDBSnapshotsMessage {}
+export interface DescribeDBSnapshotsCommandOutput extends DBSnapshotMessage, __MetadataBearer {}
 
 /**
  * <p>Returns information about DB snapshots. This API action supports pagination.</p>

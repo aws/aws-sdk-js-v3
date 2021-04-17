@@ -16,8 +16,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetObjectCommandInput = GetObjectRequest;
-export type GetObjectCommandOutput = GetObjectOutput & __MetadataBearer;
+export interface GetObjectCommandInput extends GetObjectRequest {}
+export interface GetObjectCommandOutput extends GetObjectOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves objects from Amazon S3. To use <code>GET</code>, you must have <code>READ</code>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddJobFlowStepsCommandInput = AddJobFlowStepsInput;
-export type AddJobFlowStepsCommandOutput = AddJobFlowStepsOutput & __MetadataBearer;
+export interface AddJobFlowStepsCommandInput extends AddJobFlowStepsInput {}
+export interface AddJobFlowStepsCommandOutput extends AddJobFlowStepsOutput, __MetadataBearer {}
 
 /**
  * <p>AddJobFlowSteps adds new steps to a running cluster. A maximum of 256 steps are allowed

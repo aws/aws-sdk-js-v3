@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeEventTrackerCommandInput = DescribeEventTrackerRequest;
-export type DescribeEventTrackerCommandOutput = DescribeEventTrackerResponse & __MetadataBearer;
+export interface DescribeEventTrackerCommandInput extends DescribeEventTrackerRequest {}
+export interface DescribeEventTrackerCommandOutput extends DescribeEventTrackerResponse, __MetadataBearer {}
 
 /**
  * <p>Describes an event tracker. The response includes the <code>trackingId</code> and

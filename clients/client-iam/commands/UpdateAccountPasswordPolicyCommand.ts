@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateAccountPasswordPolicyCommandInput = UpdateAccountPasswordPolicyRequest;
-export type UpdateAccountPasswordPolicyCommandOutput = __MetadataBearer;
+export interface UpdateAccountPasswordPolicyCommandInput extends UpdateAccountPasswordPolicyRequest {}
+export interface UpdateAccountPasswordPolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates the password policy settings for the AWS account.</p>

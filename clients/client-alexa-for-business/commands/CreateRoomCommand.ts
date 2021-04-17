@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateRoomCommandInput = CreateRoomRequest;
-export type CreateRoomCommandOutput = CreateRoomResponse & __MetadataBearer;
+export interface CreateRoomCommandInput extends CreateRoomRequest {}
+export interface CreateRoomCommandOutput extends CreateRoomResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a room with the specified details.</p>

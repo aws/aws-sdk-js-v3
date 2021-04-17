@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDevEndpointsCommandInput = ListDevEndpointsRequest;
-export type ListDevEndpointsCommandOutput = ListDevEndpointsResponse & __MetadataBearer;
+export interface ListDevEndpointsCommandInput extends ListDevEndpointsRequest {}
+export interface ListDevEndpointsCommandOutput extends ListDevEndpointsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the names of all <code>DevEndpoint</code> resources in this AWS account, or the

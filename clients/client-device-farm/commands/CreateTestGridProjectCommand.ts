@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateTestGridProjectCommandInput = CreateTestGridProjectRequest;
-export type CreateTestGridProjectCommandOutput = CreateTestGridProjectResult & __MetadataBearer;
+export interface CreateTestGridProjectCommandInput extends CreateTestGridProjectRequest {}
+export interface CreateTestGridProjectCommandOutput extends CreateTestGridProjectResult, __MetadataBearer {}
 
 /**
  * <p>Creates a Selenium testing project. Projects are used to track <a>TestGridSession</a>

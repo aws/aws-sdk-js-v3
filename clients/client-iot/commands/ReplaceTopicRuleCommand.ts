@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ReplaceTopicRuleCommandInput = ReplaceTopicRuleRequest;
-export type ReplaceTopicRuleCommandOutput = __MetadataBearer;
+export interface ReplaceTopicRuleCommandInput extends ReplaceTopicRuleRequest {}
+export interface ReplaceTopicRuleCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Replaces the rule. You must specify all parameters for the new rule. Creating rules

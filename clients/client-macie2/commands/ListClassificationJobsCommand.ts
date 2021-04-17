@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListClassificationJobsCommandInput = ListClassificationJobsRequest;
-export type ListClassificationJobsCommandOutput = ListClassificationJobsResponse & __MetadataBearer;
+export interface ListClassificationJobsCommandInput extends ListClassificationJobsRequest {}
+export interface ListClassificationJobsCommandOutput extends ListClassificationJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a subset of information about one or more classification jobs.</p>

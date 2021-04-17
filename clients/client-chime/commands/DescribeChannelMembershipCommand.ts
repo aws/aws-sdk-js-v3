@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeChannelMembershipCommandInput = DescribeChannelMembershipRequest;
-export type DescribeChannelMembershipCommandOutput = DescribeChannelMembershipResponse & __MetadataBearer;
+export interface DescribeChannelMembershipCommandInput extends DescribeChannelMembershipRequest {}
+export interface DescribeChannelMembershipCommandOutput extends DescribeChannelMembershipResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the full details of a user's channel membership.</p>

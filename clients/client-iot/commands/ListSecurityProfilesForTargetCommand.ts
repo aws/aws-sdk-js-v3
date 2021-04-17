@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListSecurityProfilesForTargetCommandInput = ListSecurityProfilesForTargetRequest;
-export type ListSecurityProfilesForTargetCommandOutput = ListSecurityProfilesForTargetResponse & __MetadataBearer;
+export interface ListSecurityProfilesForTargetCommandInput extends ListSecurityProfilesForTargetRequest {}
+export interface ListSecurityProfilesForTargetCommandOutput
+  extends ListSecurityProfilesForTargetResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Lists the Device Defender security profiles attached to a target (thing group).</p>

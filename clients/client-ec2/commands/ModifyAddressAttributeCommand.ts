@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyAddressAttributeCommandInput = ModifyAddressAttributeRequest;
-export type ModifyAddressAttributeCommandOutput = ModifyAddressAttributeResult & __MetadataBearer;
+export interface ModifyAddressAttributeCommandInput extends ModifyAddressAttributeRequest {}
+export interface ModifyAddressAttributeCommandOutput extends ModifyAddressAttributeResult, __MetadataBearer {}
 
 /**
  * <p>Modifies an attribute of the specified Elastic IP address. For requirements, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS">Using reverse DNS for email applications</a>.</p>

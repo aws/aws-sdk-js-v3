@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDomainCommandInput = CreateDomainRequest;
-export type CreateDomainCommandOutput = CreateDomainResponse & __MetadataBearer;
+export interface CreateDomainCommandInput extends CreateDomainRequest {}
+export interface CreateDomainCommandOutput extends CreateDomainResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new search domain. For more information,

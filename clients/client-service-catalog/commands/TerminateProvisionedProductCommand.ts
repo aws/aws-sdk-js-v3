@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TerminateProvisionedProductCommandInput = TerminateProvisionedProductInput;
-export type TerminateProvisionedProductCommandOutput = TerminateProvisionedProductOutput & __MetadataBearer;
+export interface TerminateProvisionedProductCommandInput extends TerminateProvisionedProductInput {}
+export interface TerminateProvisionedProductCommandOutput extends TerminateProvisionedProductOutput, __MetadataBearer {}
 
 /**
  * <p>Terminates the specified provisioned product.</p>

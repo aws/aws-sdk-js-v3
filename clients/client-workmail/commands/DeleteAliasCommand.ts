@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAliasCommandInput = DeleteAliasRequest;
-export type DeleteAliasCommandOutput = DeleteAliasResponse & __MetadataBearer;
+export interface DeleteAliasCommandInput extends DeleteAliasRequest {}
+export interface DeleteAliasCommandOutput extends DeleteAliasResponse, __MetadataBearer {}
 
 /**
  * <p>Remove one or more specified aliases from a set of aliases for a given

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopDataSourceSyncJobCommandInput = StopDataSourceSyncJobRequest;
-export type StopDataSourceSyncJobCommandOutput = __MetadataBearer;
+export interface StopDataSourceSyncJobCommandInput extends StopDataSourceSyncJobRequest {}
+export interface StopDataSourceSyncJobCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Stops a running synchronization job. You can't stop a scheduled

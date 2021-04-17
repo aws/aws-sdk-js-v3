@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchDisassociateProjectAssetsCommandInput = BatchDisassociateProjectAssetsRequest;
-export type BatchDisassociateProjectAssetsCommandOutput = BatchDisassociateProjectAssetsResponse & __MetadataBearer;
+export interface BatchDisassociateProjectAssetsCommandInput extends BatchDisassociateProjectAssetsRequest {}
+export interface BatchDisassociateProjectAssetsCommandOutput
+  extends BatchDisassociateProjectAssetsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Disassociates a group (batch) of assets from an AWS IoT SiteWise Monitor project.</p>

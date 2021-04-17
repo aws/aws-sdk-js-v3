@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ImportAppCatalogCommandInput = ImportAppCatalogRequest;
-export type ImportAppCatalogCommandOutput = ImportAppCatalogResponse & __MetadataBearer;
+export interface ImportAppCatalogCommandInput extends ImportAppCatalogRequest {}
+export interface ImportAppCatalogCommandOutput extends ImportAppCatalogResponse, __MetadataBearer {}
 
 /**
  * <p>Allows application import from AWS Migration Hub.</p>

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetFlowLogsIntegrationTemplateCommandInput = GetFlowLogsIntegrationTemplateRequest;
-export type GetFlowLogsIntegrationTemplateCommandOutput = GetFlowLogsIntegrationTemplateResult & __MetadataBearer;
+export interface GetFlowLogsIntegrationTemplateCommandInput extends GetFlowLogsIntegrationTemplateRequest {}
+export interface GetFlowLogsIntegrationTemplateCommandOutput
+  extends GetFlowLogsIntegrationTemplateResult,
+    __MetadataBearer {}
 
 /**
  * <p>Generates a CloudFormation template that streamlines and automates the integration of VPC flow logs

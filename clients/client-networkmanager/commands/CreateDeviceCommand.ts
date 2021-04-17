@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDeviceCommandInput = CreateDeviceRequest;
-export type CreateDeviceCommandOutput = CreateDeviceResponse & __MetadataBearer;
+export interface CreateDeviceCommandInput extends CreateDeviceRequest {}
+export interface CreateDeviceCommandOutput extends CreateDeviceResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new device in a global network. If you specify both a site ID and a

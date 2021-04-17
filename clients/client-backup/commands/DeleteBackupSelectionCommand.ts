@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteBackupSelectionCommandInput = DeleteBackupSelectionInput;
-export type DeleteBackupSelectionCommandOutput = __MetadataBearer;
+export interface DeleteBackupSelectionCommandInput extends DeleteBackupSelectionInput {}
+export interface DeleteBackupSelectionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the resource selection associated with a backup plan that is specified by the

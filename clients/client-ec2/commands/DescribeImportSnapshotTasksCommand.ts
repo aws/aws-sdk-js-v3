@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeImportSnapshotTasksCommandInput = DescribeImportSnapshotTasksRequest;
-export type DescribeImportSnapshotTasksCommandOutput = DescribeImportSnapshotTasksResult & __MetadataBearer;
+export interface DescribeImportSnapshotTasksCommandInput extends DescribeImportSnapshotTasksRequest {}
+export interface DescribeImportSnapshotTasksCommandOutput extends DescribeImportSnapshotTasksResult, __MetadataBearer {}
 
 /**
  * <p>Describes your import snapshot tasks.</p>

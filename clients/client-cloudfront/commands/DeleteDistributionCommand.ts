@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDistributionCommandInput = DeleteDistributionRequest;
-export type DeleteDistributionCommandOutput = __MetadataBearer;
+export interface DeleteDistributionCommandInput extends DeleteDistributionRequest {}
+export interface DeleteDistributionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Delete a distribution. </p>

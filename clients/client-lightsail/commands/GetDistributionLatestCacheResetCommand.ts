@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDistributionLatestCacheResetCommandInput = GetDistributionLatestCacheResetRequest;
-export type GetDistributionLatestCacheResetCommandOutput = GetDistributionLatestCacheResetResult & __MetadataBearer;
+export interface GetDistributionLatestCacheResetCommandInput extends GetDistributionLatestCacheResetRequest {}
+export interface GetDistributionLatestCacheResetCommandOutput
+  extends GetDistributionLatestCacheResetResult,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the timestamp and status of the last cache reset of a specific Amazon Lightsail

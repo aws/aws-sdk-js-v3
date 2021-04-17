@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutRemediationConfigurationsCommandInput = PutRemediationConfigurationsRequest;
-export type PutRemediationConfigurationsCommandOutput = PutRemediationConfigurationsResponse & __MetadataBearer;
+export interface PutRemediationConfigurationsCommandInput extends PutRemediationConfigurationsRequest {}
+export interface PutRemediationConfigurationsCommandOutput
+  extends PutRemediationConfigurationsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Adds or updates the remediation configuration with a specific AWS Config rule with the

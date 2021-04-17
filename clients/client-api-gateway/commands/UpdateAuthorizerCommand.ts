@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateAuthorizerCommandInput = UpdateAuthorizerRequest;
-export type UpdateAuthorizerCommandOutput = Authorizer & __MetadataBearer;
+export interface UpdateAuthorizerCommandInput extends UpdateAuthorizerRequest {}
+export interface UpdateAuthorizerCommandOutput extends Authorizer, __MetadataBearer {}
 
 /**
  * <p>Updates an existing <a>Authorizer</a> resource.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyReservedInstancesCommandInput = ModifyReservedInstancesRequest;
-export type ModifyReservedInstancesCommandOutput = ModifyReservedInstancesResult & __MetadataBearer;
+export interface ModifyReservedInstancesCommandInput extends ModifyReservedInstancesRequest {}
+export interface ModifyReservedInstancesCommandOutput extends ModifyReservedInstancesResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the Availability Zone, instance count, instance type, or network platform

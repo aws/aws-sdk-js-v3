@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAttendeeCommandInput = DeleteAttendeeRequest;
-export type DeleteAttendeeCommandOutput = __MetadataBearer;
+export interface DeleteAttendeeCommandInput extends DeleteAttendeeRequest {}
+export interface DeleteAttendeeCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>

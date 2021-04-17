@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteResourcesByExternalIdCommandInput = DeleteResourcesByExternalIdInput;
-export type DeleteResourcesByExternalIdCommandOutput = DeleteResourcesByExternalIdOutput & __MetadataBearer;
+export interface DeleteResourcesByExternalIdCommandInput extends DeleteResourcesByExternalIdInput {}
+export interface DeleteResourcesByExternalIdCommandOutput extends DeleteResourcesByExternalIdOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes resources linked to an external ID.</p>

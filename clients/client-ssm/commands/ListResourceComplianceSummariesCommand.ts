@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListResourceComplianceSummariesCommandInput = ListResourceComplianceSummariesRequest;
-export type ListResourceComplianceSummariesCommandOutput = ListResourceComplianceSummariesResult & __MetadataBearer;
+export interface ListResourceComplianceSummariesCommandInput extends ListResourceComplianceSummariesRequest {}
+export interface ListResourceComplianceSummariesCommandOutput
+  extends ListResourceComplianceSummariesResult,
+    __MetadataBearer {}
 
 /**
  * <p>Returns a resource-level summary count. The summary includes information about compliant and

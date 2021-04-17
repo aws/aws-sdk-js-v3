@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeMaintenanceWindowsForTargetCommandInput = DescribeMaintenanceWindowsForTargetRequest;
-export type DescribeMaintenanceWindowsForTargetCommandOutput = DescribeMaintenanceWindowsForTargetResult &
-  __MetadataBearer;
+export interface DescribeMaintenanceWindowsForTargetCommandInput extends DescribeMaintenanceWindowsForTargetRequest {}
+export interface DescribeMaintenanceWindowsForTargetCommandOutput
+  extends DescribeMaintenanceWindowsForTargetResult,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the maintenance window targets or tasks that an instance is

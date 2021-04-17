@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteCorsConfigurationCommandInput = DeleteCorsConfigurationRequest;
-export type DeleteCorsConfigurationCommandOutput = __MetadataBearer;
+export interface DeleteCorsConfigurationCommandInput extends DeleteCorsConfigurationRequest {}
+export interface DeleteCorsConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a CORS configuration.</p>

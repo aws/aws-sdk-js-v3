@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteCostCategoryDefinitionCommandInput = DeleteCostCategoryDefinitionRequest;
-export type DeleteCostCategoryDefinitionCommandOutput = DeleteCostCategoryDefinitionResponse & __MetadataBearer;
+export interface DeleteCostCategoryDefinitionCommandInput extends DeleteCostCategoryDefinitionRequest {}
+export interface DeleteCostCategoryDefinitionCommandOutput
+  extends DeleteCostCategoryDefinitionResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes a Cost Category. Expenses from this month going forward will no longer be categorized with this Cost Category.</p>

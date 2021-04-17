@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetMedicalVocabularyCommandInput = GetMedicalVocabularyRequest;
-export type GetMedicalVocabularyCommandOutput = GetMedicalVocabularyResponse & __MetadataBearer;
+export interface GetMedicalVocabularyCommandInput extends GetMedicalVocabularyRequest {}
+export interface GetMedicalVocabularyCommandOutput extends GetMedicalVocabularyResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about a medical vocabulary.</p>

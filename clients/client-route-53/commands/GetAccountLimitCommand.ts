@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAccountLimitCommandInput = GetAccountLimitRequest;
-export type GetAccountLimitCommandOutput = GetAccountLimitResponse & __MetadataBearer;
+export interface GetAccountLimitCommandInput extends GetAccountLimitRequest {}
+export interface GetAccountLimitCommandOutput extends GetAccountLimitResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the specified limit for the current account, for example, the maximum number of health checks that you

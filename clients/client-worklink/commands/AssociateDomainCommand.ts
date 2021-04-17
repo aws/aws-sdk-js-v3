@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateDomainCommandInput = AssociateDomainRequest;
-export type AssociateDomainCommandOutput = AssociateDomainResponse & __MetadataBearer;
+export interface AssociateDomainCommandInput extends AssociateDomainRequest {}
+export interface AssociateDomainCommandOutput extends AssociateDomainResponse, __MetadataBearer {}
 
 /**
  * <p>Specifies a domain to be associated to Amazon WorkLink.</p>

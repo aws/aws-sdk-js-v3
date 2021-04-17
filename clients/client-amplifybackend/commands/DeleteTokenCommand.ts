@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteTokenCommandInput = DeleteTokenRequest;
-export type DeleteTokenCommandOutput = DeleteTokenResponse & __MetadataBearer;
+export interface DeleteTokenCommandInput extends DeleteTokenRequest {}
+export interface DeleteTokenCommandOutput extends DeleteTokenResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the challenge token based on the given appId and sessionId.</p>

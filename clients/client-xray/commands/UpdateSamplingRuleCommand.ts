@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateSamplingRuleCommandInput = UpdateSamplingRuleRequest;
-export type UpdateSamplingRuleCommandOutput = UpdateSamplingRuleResult & __MetadataBearer;
+export interface UpdateSamplingRuleCommandInput extends UpdateSamplingRuleRequest {}
+export interface UpdateSamplingRuleCommandOutput extends UpdateSamplingRuleResult, __MetadataBearer {}
 
 /**
  * <p>Modifies a sampling rule's configuration.</p>

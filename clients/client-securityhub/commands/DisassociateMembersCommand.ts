@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateMembersCommandInput = DisassociateMembersRequest;
-export type DisassociateMembersCommandOutput = DisassociateMembersResponse & __MetadataBearer;
+export interface DisassociateMembersCommandInput extends DisassociateMembersRequest {}
+export interface DisassociateMembersCommandOutput extends DisassociateMembersResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates the specified member accounts from the associated master account.</p>

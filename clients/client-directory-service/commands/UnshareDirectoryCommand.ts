@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UnshareDirectoryCommandInput = UnshareDirectoryRequest;
-export type UnshareDirectoryCommandOutput = UnshareDirectoryResult & __MetadataBearer;
+export interface UnshareDirectoryCommandInput extends UnshareDirectoryRequest {}
+export interface UnshareDirectoryCommandOutput extends UnshareDirectoryResult, __MetadataBearer {}
 
 /**
  * <p>Stops the directory sharing between the directory owner and consumer accounts. </p>

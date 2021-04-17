@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetUserEndpointsCommandInput = GetUserEndpointsRequest;
-export type GetUserEndpointsCommandOutput = GetUserEndpointsResponse & __MetadataBearer;
+export interface GetUserEndpointsCommandInput extends GetUserEndpointsRequest {}
+export interface GetUserEndpointsCommandOutput extends GetUserEndpointsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about all the endpoints that are associated with a specific user ID.</p>

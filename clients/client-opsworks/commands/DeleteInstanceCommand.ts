@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteInstanceCommandInput = DeleteInstanceRequest;
-export type DeleteInstanceCommandOutput = __MetadataBearer;
+export interface DeleteInstanceCommandInput extends DeleteInstanceRequest {}
+export interface DeleteInstanceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a specified instance, which terminates the associated Amazon EC2 instance. You must stop an instance before you can delete it.</p>

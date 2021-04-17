@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateStreamProcessorCommandInput = CreateStreamProcessorRequest;
-export type CreateStreamProcessorCommandOutput = CreateStreamProcessorResponse & __MetadataBearer;
+export interface CreateStreamProcessorCommandInput extends CreateStreamProcessorRequest {}
+export interface CreateStreamProcessorCommandOutput extends CreateStreamProcessorResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an Amazon Rekognition stream processor that you can use to detect and recognize faces in a streaming video.</p>

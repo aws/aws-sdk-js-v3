@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateEdgePackagingJobCommandInput = CreateEdgePackagingJobRequest;
-export type CreateEdgePackagingJobCommandOutput = __MetadataBearer;
+export interface CreateEdgePackagingJobCommandInput extends CreateEdgePackagingJobRequest {}
+export interface CreateEdgePackagingJobCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Starts a SageMaker Edge Manager model packaging job. Edge Manager will use the model artifacts from the Amazon Simple Storage Service bucket that you specify. After the model has been packaged, Amazon SageMaker saves the resulting artifacts to an S3 bucket that you specify.</p>

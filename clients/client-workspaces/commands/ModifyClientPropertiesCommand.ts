@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyClientPropertiesCommandInput = ModifyClientPropertiesRequest;
-export type ModifyClientPropertiesCommandOutput = ModifyClientPropertiesResult & __MetadataBearer;
+export interface ModifyClientPropertiesCommandInput extends ModifyClientPropertiesRequest {}
+export interface ModifyClientPropertiesCommandOutput extends ModifyClientPropertiesResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the properties of the specified Amazon WorkSpaces clients.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateOpsItemCommandInput = CreateOpsItemRequest;
-export type CreateOpsItemCommandOutput = CreateOpsItemResponse & __MetadataBearer;
+export interface CreateOpsItemCommandInput extends CreateOpsItemRequest {}
+export interface CreateOpsItemCommandOutput extends CreateOpsItemResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new OpsItem. You must have permission in AWS Identity and Access Management (IAM)

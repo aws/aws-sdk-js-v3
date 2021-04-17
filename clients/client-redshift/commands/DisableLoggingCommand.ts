@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisableLoggingCommandInput = DisableLoggingMessage;
-export type DisableLoggingCommandOutput = LoggingStatus & __MetadataBearer;
+export interface DisableLoggingCommandInput extends DisableLoggingMessage {}
+export interface DisableLoggingCommandOutput extends LoggingStatus, __MetadataBearer {}
 
 /**
  * <p>Stops logging information, such as queries and connection attempts, for the

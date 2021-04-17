@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeUserPoolCommandInput = DescribeUserPoolRequest;
-export type DescribeUserPoolCommandOutput = DescribeUserPoolResponse & __MetadataBearer;
+export interface DescribeUserPoolCommandInput extends DescribeUserPoolRequest {}
+export interface DescribeUserPoolCommandOutput extends DescribeUserPoolResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the configuration information and metadata of the specified user pool.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteCloudFrontOriginAccessIdentityCommandInput = DeleteCloudFrontOriginAccessIdentityRequest;
-export type DeleteCloudFrontOriginAccessIdentityCommandOutput = __MetadataBearer;
+export interface DeleteCloudFrontOriginAccessIdentityCommandInput extends DeleteCloudFrontOriginAccessIdentityRequest {}
+export interface DeleteCloudFrontOriginAccessIdentityCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Delete an origin access identity. </p>

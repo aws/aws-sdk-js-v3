@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDirectoryCommandInput = CreateDirectoryRequest;
-export type CreateDirectoryCommandOutput = CreateDirectoryResponse & __MetadataBearer;
+export interface CreateDirectoryCommandInput extends CreateDirectoryRequest {}
+export interface CreateDirectoryCommandOutput extends CreateDirectoryResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a <a>Directory</a> by copying the published schema into the

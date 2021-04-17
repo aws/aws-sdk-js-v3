@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetRecommenderConfigurationCommandInput = GetRecommenderConfigurationRequest;
-export type GetRecommenderConfigurationCommandOutput = GetRecommenderConfigurationResponse & __MetadataBearer;
+export interface GetRecommenderConfigurationCommandInput extends GetRecommenderConfigurationRequest {}
+export interface GetRecommenderConfigurationCommandOutput
+  extends GetRecommenderConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves information about an Amazon Pinpoint configuration for a recommender model.</p>

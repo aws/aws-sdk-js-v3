@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateThemeAliasCommandInput = CreateThemeAliasRequest;
-export type CreateThemeAliasCommandOutput = CreateThemeAliasResponse & __MetadataBearer;
+export interface CreateThemeAliasCommandInput extends CreateThemeAliasRequest {}
+export interface CreateThemeAliasCommandOutput extends CreateThemeAliasResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a theme alias for a theme.</p>

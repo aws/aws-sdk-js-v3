@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateDistributionCommandInput = UpdateDistributionRequest;
-export type UpdateDistributionCommandOutput = UpdateDistributionResult & __MetadataBearer;
+export interface UpdateDistributionCommandInput extends UpdateDistributionRequest {}
+export interface UpdateDistributionCommandOutput extends UpdateDistributionResult, __MetadataBearer {}
 
 /**
  * <p>Updates the configuration for a web distribution. </p>

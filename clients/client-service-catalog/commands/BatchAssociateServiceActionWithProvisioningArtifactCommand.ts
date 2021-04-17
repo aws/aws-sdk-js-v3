@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchAssociateServiceActionWithProvisioningArtifactCommandInput = BatchAssociateServiceActionWithProvisioningArtifactInput;
-export type BatchAssociateServiceActionWithProvisioningArtifactCommandOutput = BatchAssociateServiceActionWithProvisioningArtifactOutput &
-  __MetadataBearer;
+export interface BatchAssociateServiceActionWithProvisioningArtifactCommandInput
+  extends BatchAssociateServiceActionWithProvisioningArtifactInput {}
+export interface BatchAssociateServiceActionWithProvisioningArtifactCommandOutput
+  extends BatchAssociateServiceActionWithProvisioningArtifactOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Associates multiple self-service actions with provisioning artifacts.</p>

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTransitGatewayConnectsCommandInput = DescribeTransitGatewayConnectsRequest;
-export type DescribeTransitGatewayConnectsCommandOutput = DescribeTransitGatewayConnectsResult & __MetadataBearer;
+export interface DescribeTransitGatewayConnectsCommandInput extends DescribeTransitGatewayConnectsRequest {}
+export interface DescribeTransitGatewayConnectsCommandOutput
+  extends DescribeTransitGatewayConnectsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Describes one or more Connect attachments.</p>

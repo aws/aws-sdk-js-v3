@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListImagesCommandInput = ListImagesRequest;
-export type ListImagesCommandOutput = ListImagesResponse & __MetadataBearer;
+export interface ListImagesCommandInput extends ListImagesRequest {}
+export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the images in your account and their properties. The list can be filtered by

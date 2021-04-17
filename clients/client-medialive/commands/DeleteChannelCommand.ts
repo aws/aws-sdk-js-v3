@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteChannelCommandInput = DeleteChannelRequest;
-export type DeleteChannelCommandOutput = DeleteChannelResponse & __MetadataBearer;
+export interface DeleteChannelCommandInput extends DeleteChannelRequest {}
+export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __MetadataBearer {}
 
 /**
  * Starts deletion of channel. The associated outputs are also deleted.

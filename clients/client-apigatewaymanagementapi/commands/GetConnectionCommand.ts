@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetConnectionCommandInput = GetConnectionRequest;
-export type GetConnectionCommandOutput = GetConnectionResponse & __MetadataBearer;
+export interface GetConnectionCommandInput extends GetConnectionRequest {}
+export interface GetConnectionCommandOutput extends GetConnectionResponse, __MetadataBearer {}
 
 /**
  * <p>Get information about the connection with the provided id.</p>

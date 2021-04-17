@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDevicesCommandInput = GetDevicesRequest;
-export type GetDevicesCommandOutput = GetDevicesResponse & __MetadataBearer;
+export interface GetDevicesCommandInput extends GetDevicesRequest {}
+export interface GetDevicesCommandOutput extends GetDevicesResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about one or more of your devices in a global network.</p>

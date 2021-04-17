@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListWorldExportJobsCommandInput = ListWorldExportJobsRequest;
-export type ListWorldExportJobsCommandOutput = ListWorldExportJobsResponse & __MetadataBearer;
+export interface ListWorldExportJobsCommandInput extends ListWorldExportJobsRequest {}
+export interface ListWorldExportJobsCommandOutput extends ListWorldExportJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists world export jobs.</p>

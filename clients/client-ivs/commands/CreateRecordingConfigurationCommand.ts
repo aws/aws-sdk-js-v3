@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateRecordingConfigurationCommandInput = CreateRecordingConfigurationRequest;
-export type CreateRecordingConfigurationCommandOutput = CreateRecordingConfigurationResponse & __MetadataBearer;
+export interface CreateRecordingConfigurationCommandInput extends CreateRecordingConfigurationRequest {}
+export interface CreateRecordingConfigurationCommandOutput
+  extends CreateRecordingConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Creates a new recording configuration, used to enable recording to Amazon S3.</p>

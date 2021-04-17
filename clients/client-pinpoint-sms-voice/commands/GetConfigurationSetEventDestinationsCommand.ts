@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetConfigurationSetEventDestinationsCommandInput = GetConfigurationSetEventDestinationsRequest;
-export type GetConfigurationSetEventDestinationsCommandOutput = GetConfigurationSetEventDestinationsResponse &
-  __MetadataBearer;
+export interface GetConfigurationSetEventDestinationsCommandInput extends GetConfigurationSetEventDestinationsRequest {}
+export interface GetConfigurationSetEventDestinationsCommandOutput
+  extends GetConfigurationSetEventDestinationsResponse,
+    __MetadataBearer {}
 
 /**
  * Obtain information about an event destination, including the types of events it reports, the Amazon Resource Name (ARN) of the destination, and the name of the event destination.

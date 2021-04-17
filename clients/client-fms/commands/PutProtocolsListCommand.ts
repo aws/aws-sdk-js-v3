@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutProtocolsListCommandInput = PutProtocolsListRequest;
-export type PutProtocolsListCommandOutput = PutProtocolsListResponse & __MetadataBearer;
+export interface PutProtocolsListCommandInput extends PutProtocolsListRequest {}
+export interface PutProtocolsListCommandOutput extends PutProtocolsListResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an AWS Firewall Manager protocols list.</p>

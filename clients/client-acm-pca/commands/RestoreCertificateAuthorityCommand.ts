@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RestoreCertificateAuthorityCommandInput = RestoreCertificateAuthorityRequest;
-export type RestoreCertificateAuthorityCommandOutput = __MetadataBearer;
+export interface RestoreCertificateAuthorityCommandInput extends RestoreCertificateAuthorityRequest {}
+export interface RestoreCertificateAuthorityCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Restores a certificate authority (CA) that is in the <code>DELETED</code> state. You

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateDRTRoleCommandInput = DisassociateDRTRoleRequest;
-export type DisassociateDRTRoleCommandOutput = DisassociateDRTRoleResponse & __MetadataBearer;
+export interface DisassociateDRTRoleCommandInput extends DisassociateDRTRoleRequest {}
+export interface DisassociateDRTRoleCommandOutput extends DisassociateDRTRoleResponse, __MetadataBearer {}
 
 /**
  * <p>Removes the DDoS Response Team's (DRT) access to your AWS account.</p>

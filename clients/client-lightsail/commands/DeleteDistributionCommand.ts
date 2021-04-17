@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDistributionCommandInput = DeleteDistributionRequest;
-export type DeleteDistributionCommandOutput = DeleteDistributionResult & __MetadataBearer;
+export interface DeleteDistributionCommandInput extends DeleteDistributionRequest {}
+export interface DeleteDistributionCommandOutput extends DeleteDistributionResult, __MetadataBearer {}
 
 /**
  * <p>Deletes your Amazon Lightsail content delivery network (CDN) distribution.</p>

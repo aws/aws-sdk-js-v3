@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateAliasCommandInput = CreateAliasRequest;
-export type CreateAliasCommandOutput = CreateAliasResult & __MetadataBearer;
+export interface CreateAliasCommandInput extends CreateAliasRequest {}
+export interface CreateAliasCommandOutput extends CreateAliasResult, __MetadataBearer {}
 
 /**
  * <p>Creates an alias for a directory and assigns the alias to the directory. The alias is used

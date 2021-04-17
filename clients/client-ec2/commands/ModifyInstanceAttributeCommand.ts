@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyInstanceAttributeCommandInput = ModifyInstanceAttributeRequest;
-export type ModifyInstanceAttributeCommandOutput = __MetadataBearer;
+export interface ModifyInstanceAttributeCommandInput extends ModifyInstanceAttributeRequest {}
+export interface ModifyInstanceAttributeCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Modifies the specified attribute of the specified instance. You can specify only one

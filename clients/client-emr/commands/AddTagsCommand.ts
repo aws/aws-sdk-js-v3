@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddTagsCommandInput = AddTagsInput;
-export type AddTagsCommandOutput = AddTagsOutput & __MetadataBearer;
+export interface AddTagsCommandInput extends AddTagsInput {}
+export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
 
 /**
  * <p>Adds tags to an Amazon EMR resource. Tags make it easier to associate clusters in

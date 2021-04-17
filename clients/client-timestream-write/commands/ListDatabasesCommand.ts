@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDatabasesCommandInput = ListDatabasesRequest;
-export type ListDatabasesCommandOutput = ListDatabasesResponse & __MetadataBearer;
+export interface ListDatabasesCommandInput extends ListDatabasesRequest {}
+export interface ListDatabasesCommandOutput extends ListDatabasesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of your Timestream databases.

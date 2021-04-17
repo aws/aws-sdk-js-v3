@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SendCommandCommandInput = SendCommandRequest;
-export type SendCommandCommandOutput = SendCommandResult & __MetadataBearer;
+export interface SendCommandCommandInput extends SendCommandRequest {}
+export interface SendCommandCommandOutput extends SendCommandResult, __MetadataBearer {}
 
 /**
  * <p>Runs commands on one or more managed instances.</p>

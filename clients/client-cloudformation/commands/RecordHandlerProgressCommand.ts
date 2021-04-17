@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RecordHandlerProgressCommandInput = RecordHandlerProgressInput;
-export type RecordHandlerProgressCommandOutput = RecordHandlerProgressOutput & __MetadataBearer;
+export interface RecordHandlerProgressCommandInput extends RecordHandlerProgressInput {}
+export interface RecordHandlerProgressCommandOutput extends RecordHandlerProgressOutput, __MetadataBearer {}
 
 /**
  * <p>Reports progress of a resource handler to CloudFormation.</p>

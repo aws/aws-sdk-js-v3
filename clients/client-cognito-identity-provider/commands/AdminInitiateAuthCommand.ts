@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AdminInitiateAuthCommandInput = AdminInitiateAuthRequest;
-export type AdminInitiateAuthCommandOutput = AdminInitiateAuthResponse & __MetadataBearer;
+export interface AdminInitiateAuthCommandInput extends AdminInitiateAuthRequest {}
+export interface AdminInitiateAuthCommandOutput extends AdminInitiateAuthResponse, __MetadataBearer {}
 
 /**
  * <p>Initiates the authentication flow, as an administrator.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAnalyzerCommandInput = DeleteAnalyzerRequest;
-export type DeleteAnalyzerCommandOutput = __MetadataBearer;
+export interface DeleteAnalyzerCommandInput extends DeleteAnalyzerRequest {}
+export interface DeleteAnalyzerCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified analyzer. When you delete an analyzer, Access Analyzer is disabled for the

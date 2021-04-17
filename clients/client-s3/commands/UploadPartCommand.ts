@@ -19,10 +19,17 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UploadPartCommandInput = Omit<UploadPartRequest, "Body"> & {
+type UploadPartCommandInputType = Omit<UploadPartRequest, "Body"> & {
+  /**
+   * For *`UploadPartRequest["Body"]`*, see {@link UploadPartRequest.Body}.
+   */
   Body?: UploadPartRequest["Body"] | string | Uint8Array | Buffer;
 };
-export type UploadPartCommandOutput = UploadPartOutput & __MetadataBearer;
+/**
+ * This interface extends from `UploadPartRequest` interface. There are more parameters than `Body` defined in {@link UploadPartRequest}
+ */
+export interface UploadPartCommandInput extends UploadPartCommandInputType {}
+export interface UploadPartCommandOutput extends UploadPartOutput, __MetadataBearer {}
 
 /**
  * <p>Uploads a part in a multipart upload.</p>

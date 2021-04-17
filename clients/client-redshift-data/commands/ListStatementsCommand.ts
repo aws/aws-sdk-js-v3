@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListStatementsCommandInput = ListStatementsRequest;
-export type ListStatementsCommandOutput = ListStatementsResponse & __MetadataBearer;
+export interface ListStatementsCommandInput extends ListStatementsRequest {}
+export interface ListStatementsCommandOutput extends ListStatementsResponse, __MetadataBearer {}
 
 /**
  * <p>List of SQL statements. By default, only finished statements are shown.

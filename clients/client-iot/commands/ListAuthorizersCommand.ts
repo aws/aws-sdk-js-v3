@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAuthorizersCommandInput = ListAuthorizersRequest;
-export type ListAuthorizersCommandOutput = ListAuthorizersResponse & __MetadataBearer;
+export interface ListAuthorizersCommandInput extends ListAuthorizersRequest {}
+export interface ListAuthorizersCommandOutput extends ListAuthorizersResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the authorizers registered in your account.</p>

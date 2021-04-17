@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeGlobalTableCommandInput = DescribeGlobalTableInput;
-export type DescribeGlobalTableCommandOutput = DescribeGlobalTableOutput & __MetadataBearer;
+export interface DescribeGlobalTableCommandInput extends DescribeGlobalTableInput {}
+export interface DescribeGlobalTableCommandOutput extends DescribeGlobalTableOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about the specified global table.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDomainControllersCommandInput = DescribeDomainControllersRequest;
-export type DescribeDomainControllersCommandOutput = DescribeDomainControllersResult & __MetadataBearer;
+export interface DescribeDomainControllersCommandInput extends DescribeDomainControllersRequest {}
+export interface DescribeDomainControllersCommandOutput extends DescribeDomainControllersResult, __MetadataBearer {}
 
 /**
  * <p>Provides information about any domain controllers in your directory.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateExclusionsPreviewCommandInput = CreateExclusionsPreviewRequest;
-export type CreateExclusionsPreviewCommandOutput = CreateExclusionsPreviewResponse & __MetadataBearer;
+export interface CreateExclusionsPreviewCommandInput extends CreateExclusionsPreviewRequest {}
+export interface CreateExclusionsPreviewCommandOutput extends CreateExclusionsPreviewResponse, __MetadataBearer {}
 
 /**
  * <p>Starts the generation of an exclusions preview for the specified assessment template.

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteExpressionCommandInput = DeleteExpressionRequest;
-export type DeleteExpressionCommandOutput = DeleteExpressionResponse & __MetadataBearer;
+export interface DeleteExpressionCommandInput extends DeleteExpressionRequest {}
+export interface DeleteExpressionCommandOutput extends DeleteExpressionResponse, __MetadataBearer {}
 
 /**
  * <p>Removes an <code><a>Expression</a></code> from the search domain. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html" target="_blank">Configuring Expressions</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>

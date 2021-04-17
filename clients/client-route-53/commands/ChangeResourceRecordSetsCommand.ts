@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ChangeResourceRecordSetsCommandInput = ChangeResourceRecordSetsRequest;
-export type ChangeResourceRecordSetsCommandOutput = ChangeResourceRecordSetsResponse & __MetadataBearer;
+export interface ChangeResourceRecordSetsCommandInput extends ChangeResourceRecordSetsRequest {}
+export interface ChangeResourceRecordSetsCommandOutput extends ChangeResourceRecordSetsResponse, __MetadataBearer {}
 
 /**
  * <p>Creates, changes, or deletes a resource record set, which contains authoritative DNS information for a specified

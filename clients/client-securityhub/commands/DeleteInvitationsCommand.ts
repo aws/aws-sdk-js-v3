@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteInvitationsCommandInput = DeleteInvitationsRequest;
-export type DeleteInvitationsCommandOutput = DeleteInvitationsResponse & __MetadataBearer;
+export interface DeleteInvitationsCommandInput extends DeleteInvitationsRequest {}
+export interface DeleteInvitationsCommandOutput extends DeleteInvitationsResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes invitations received by the AWS account to become a member account.</p>

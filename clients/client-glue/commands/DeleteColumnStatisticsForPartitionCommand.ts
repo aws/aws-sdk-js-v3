@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteColumnStatisticsForPartitionCommandInput = DeleteColumnStatisticsForPartitionRequest;
-export type DeleteColumnStatisticsForPartitionCommandOutput = DeleteColumnStatisticsForPartitionResponse &
-  __MetadataBearer;
+export interface DeleteColumnStatisticsForPartitionCommandInput extends DeleteColumnStatisticsForPartitionRequest {}
+export interface DeleteColumnStatisticsForPartitionCommandOutput
+  extends DeleteColumnStatisticsForPartitionResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Delete the partition column statistics of a column.</p>

@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetPackageVersionHistoryCommandInput = GetPackageVersionHistoryRequest;
-export type GetPackageVersionHistoryCommandOutput = GetPackageVersionHistoryResponse & __MetadataBearer;
+export interface GetPackageVersionHistoryCommandInput extends GetPackageVersionHistoryRequest {}
+export interface GetPackageVersionHistoryCommandOutput extends GetPackageVersionHistoryResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of versions of the package, along with their creation time and commit message.</p>

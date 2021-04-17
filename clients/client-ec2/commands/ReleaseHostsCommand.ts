@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ReleaseHostsCommandInput = ReleaseHostsRequest;
-export type ReleaseHostsCommandOutput = ReleaseHostsResult & __MetadataBearer;
+export interface ReleaseHostsCommandInput extends ReleaseHostsRequest {}
+export interface ReleaseHostsCommandOutput extends ReleaseHostsResult, __MetadataBearer {}
 
 /**
  * <p>When you no longer want to use an On-Demand Dedicated Host it can be released.

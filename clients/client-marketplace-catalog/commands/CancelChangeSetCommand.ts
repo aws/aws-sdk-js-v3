@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelChangeSetCommandInput = CancelChangeSetRequest;
-export type CancelChangeSetCommandOutput = CancelChangeSetResponse & __MetadataBearer;
+export interface CancelChangeSetCommandInput extends CancelChangeSetRequest {}
+export interface CancelChangeSetCommandOutput extends CancelChangeSetResponse, __MetadataBearer {}
 
 /**
  * <p>Used to cancel an open change request. Must be sent before the status of the request

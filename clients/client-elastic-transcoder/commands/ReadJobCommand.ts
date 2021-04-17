@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ReadJobCommandInput = ReadJobRequest;
-export type ReadJobCommandOutput = ReadJobResponse & __MetadataBearer;
+export interface ReadJobCommandInput extends ReadJobRequest {}
+export interface ReadJobCommandOutput extends ReadJobResponse, __MetadataBearer {}
 
 /**
  * <p>The ReadJob operation returns detailed information about a job.</p>

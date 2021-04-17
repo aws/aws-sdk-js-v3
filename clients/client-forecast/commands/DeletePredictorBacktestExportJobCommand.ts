@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeletePredictorBacktestExportJobCommandInput = DeletePredictorBacktestExportJobRequest;
-export type DeletePredictorBacktestExportJobCommandOutput = __MetadataBearer;
+export interface DeletePredictorBacktestExportJobCommandInput extends DeletePredictorBacktestExportJobRequest {}
+export interface DeletePredictorBacktestExportJobCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a predictor backtest export job.</p>

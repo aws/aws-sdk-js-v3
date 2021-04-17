@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartProjectVersionCommandInput = StartProjectVersionRequest;
-export type StartProjectVersionCommandOutput = StartProjectVersionResponse & __MetadataBearer;
+export interface StartProjectVersionCommandInput extends StartProjectVersionRequest {}
+export interface StartProjectVersionCommandOutput extends StartProjectVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Starts the running of the version of a model. Starting a model takes a while

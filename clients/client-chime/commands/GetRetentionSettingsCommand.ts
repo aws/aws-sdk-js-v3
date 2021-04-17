@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetRetentionSettingsCommandInput = GetRetentionSettingsRequest;
-export type GetRetentionSettingsCommandOutput = GetRetentionSettingsResponse & __MetadataBearer;
+export interface GetRetentionSettingsCommandInput extends GetRetentionSettingsRequest {}
+export interface GetRetentionSettingsCommandOutput extends GetRetentionSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>

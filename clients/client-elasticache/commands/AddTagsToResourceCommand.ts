@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddTagsToResourceCommandInput = AddTagsToResourceMessage;
-export type AddTagsToResourceCommandOutput = TagListMessage & __MetadataBearer;
+export interface AddTagsToResourceCommandInput extends AddTagsToResourceMessage {}
+export interface AddTagsToResourceCommandOutput extends TagListMessage, __MetadataBearer {}
 
 /**
  * <p>A  tag is a key-value pair where the key and value are case-sensitive.

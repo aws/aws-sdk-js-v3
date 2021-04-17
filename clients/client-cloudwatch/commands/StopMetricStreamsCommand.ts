@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopMetricStreamsCommandInput = StopMetricStreamsInput;
-export type StopMetricStreamsCommandOutput = StopMetricStreamsOutput & __MetadataBearer;
+export interface StopMetricStreamsCommandInput extends StopMetricStreamsInput {}
+export interface StopMetricStreamsCommandOutput extends StopMetricStreamsOutput, __MetadataBearer {}
 
 /**
  * <p>Stops the streaming of metrics for one or more of your metric streams.</p>

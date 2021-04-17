@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateDRTRoleCommandInput = AssociateDRTRoleRequest;
-export type AssociateDRTRoleCommandOutput = AssociateDRTRoleResponse & __MetadataBearer;
+export interface AssociateDRTRoleCommandInput extends AssociateDRTRoleRequest {}
+export interface AssociateDRTRoleCommandOutput extends AssociateDRTRoleResponse, __MetadataBearer {}
 
 /**
  * <p>Authorizes the DDoS Response Team (DRT), using the specified role, to access your AWS account to assist with DDoS attack mitigation during potential attacks. This enables the DRT to inspect your AWS WAF configuration and create or update AWS WAF rules and web ACLs.</p>

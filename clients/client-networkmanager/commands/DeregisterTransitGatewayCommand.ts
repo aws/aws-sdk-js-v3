@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeregisterTransitGatewayCommandInput = DeregisterTransitGatewayRequest;
-export type DeregisterTransitGatewayCommandOutput = DeregisterTransitGatewayResponse & __MetadataBearer;
+export interface DeregisterTransitGatewayCommandInput extends DeregisterTransitGatewayRequest {}
+export interface DeregisterTransitGatewayCommandOutput extends DeregisterTransitGatewayResponse, __MetadataBearer {}
 
 /**
  * <p>Deregisters a transit gateway from your global network. This action does not delete

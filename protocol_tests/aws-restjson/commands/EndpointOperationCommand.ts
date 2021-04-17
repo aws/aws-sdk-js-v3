@@ -16,8 +16,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type EndpointOperationCommandInput = {};
-export type EndpointOperationCommandOutput = __MetadataBearer;
+export interface EndpointOperationCommandInput {}
+export interface EndpointOperationCommandOutput extends __MetadataBearer {}
 
 export class EndpointOperationCommand extends $Command<
   EndpointOperationCommandInput,

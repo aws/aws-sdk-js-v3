@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchGetDevEndpointsCommandInput = BatchGetDevEndpointsRequest;
-export type BatchGetDevEndpointsCommandOutput = BatchGetDevEndpointsResponse & __MetadataBearer;
+export interface BatchGetDevEndpointsCommandInput extends BatchGetDevEndpointsRequest {}
+export interface BatchGetDevEndpointsCommandOutput extends BatchGetDevEndpointsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of resource metadata for a given list of development endpoint names. After

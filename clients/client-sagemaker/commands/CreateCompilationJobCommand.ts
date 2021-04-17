@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateCompilationJobCommandInput = CreateCompilationJobRequest;
-export type CreateCompilationJobCommandOutput = CreateCompilationJobResponse & __MetadataBearer;
+export interface CreateCompilationJobCommandInput extends CreateCompilationJobRequest {}
+export interface CreateCompilationJobCommandOutput extends CreateCompilationJobResponse, __MetadataBearer {}
 
 /**
  * <p>Starts a model compilation job. After the model has been compiled, Amazon SageMaker saves the

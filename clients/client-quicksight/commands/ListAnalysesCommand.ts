@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAnalysesCommandInput = ListAnalysesRequest;
-export type ListAnalysesCommandOutput = ListAnalysesResponse & __MetadataBearer;
+export interface ListAnalysesCommandInput extends ListAnalysesRequest {}
+export interface ListAnalysesCommandOutput extends ListAnalysesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists Amazon QuickSight analyses that exist in the specified AWS account.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSessionCommandInput = GetSessionRequest;
-export type GetSessionCommandOutput = GetSessionResponse & __MetadataBearer;
+export interface GetSessionCommandInput extends GetSessionRequest {}
+export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataBearer {}
 
 /**
  * <p>Returns session information for a specified bot, alias, and

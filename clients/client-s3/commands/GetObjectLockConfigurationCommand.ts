@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetObjectLockConfigurationCommandInput = GetObjectLockConfigurationRequest;
-export type GetObjectLockConfigurationCommandOutput = GetObjectLockConfigurationOutput & __MetadataBearer;
+export interface GetObjectLockConfigurationCommandInput extends GetObjectLockConfigurationRequest {}
+export interface GetObjectLockConfigurationCommandOutput extends GetObjectLockConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Gets the Object Lock configuration for a bucket. The rule specified in the Object Lock

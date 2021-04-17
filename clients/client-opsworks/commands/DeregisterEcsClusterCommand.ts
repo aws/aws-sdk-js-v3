@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeregisterEcsClusterCommandInput = DeregisterEcsClusterRequest;
-export type DeregisterEcsClusterCommandOutput = __MetadataBearer;
+export interface DeregisterEcsClusterCommandInput extends DeregisterEcsClusterRequest {}
+export interface DeregisterEcsClusterCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deregisters a specified Amazon ECS cluster from a stack.

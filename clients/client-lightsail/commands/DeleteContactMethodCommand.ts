@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteContactMethodCommandInput = DeleteContactMethodRequest;
-export type DeleteContactMethodCommandOutput = DeleteContactMethodResult & __MetadataBearer;
+export interface DeleteContactMethodCommandInput extends DeleteContactMethodRequest {}
+export interface DeleteContactMethodCommandOutput extends DeleteContactMethodResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a contact method.</p>

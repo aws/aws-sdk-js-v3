@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateBrokerTypeCommandInput = UpdateBrokerTypeRequest;
-export type UpdateBrokerTypeCommandOutput = UpdateBrokerTypeResponse & __MetadataBearer;
+export interface UpdateBrokerTypeCommandInput extends UpdateBrokerTypeRequest {}
+export interface UpdateBrokerTypeCommandOutput extends UpdateBrokerTypeResponse, __MetadataBearer {}
 
 /**
  * <p>Updates EC2 instance type.</p>

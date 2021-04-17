@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutPartnerEventsCommandInput = PutPartnerEventsRequest;
-export type PutPartnerEventsCommandOutput = PutPartnerEventsResponse & __MetadataBearer;
+export interface PutPartnerEventsCommandInput extends PutPartnerEventsRequest {}
+export interface PutPartnerEventsCommandOutput extends PutPartnerEventsResponse, __MetadataBearer {}
 
 /**
  * <p>This is used by SaaS partners to write events to a customer's partner event bus. AWS

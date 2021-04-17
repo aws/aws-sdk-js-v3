@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ExportImageCommandInput = ExportImageRequest;
-export type ExportImageCommandOutput = ExportImageResult & __MetadataBearer;
+export interface ExportImageCommandInput extends ExportImageRequest {}
+export interface ExportImageCommandOutput extends ExportImageResult, __MetadataBearer {}
 
 /**
  * <p>Exports an Amazon Machine Image (AMI) to a VM file. For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport_image.html">Exporting a VM

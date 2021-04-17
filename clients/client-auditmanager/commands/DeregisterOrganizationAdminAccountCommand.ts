@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeregisterOrganizationAdminAccountCommandInput = DeregisterOrganizationAdminAccountRequest;
-export type DeregisterOrganizationAdminAccountCommandOutput = DeregisterOrganizationAdminAccountResponse &
-  __MetadataBearer;
+export interface DeregisterOrganizationAdminAccountCommandInput extends DeregisterOrganizationAdminAccountRequest {}
+export interface DeregisterOrganizationAdminAccountCommandOutput
+  extends DeregisterOrganizationAdminAccountResponse,
+    __MetadataBearer {}
 
 /**
  * <p>

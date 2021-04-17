@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeIntentCommandInput = DescribeIntentRequest;
-export type DescribeIntentCommandOutput = DescribeIntentResponse & __MetadataBearer;
+export interface DescribeIntentCommandInput extends DescribeIntentRequest {}
+export interface DescribeIntentCommandOutput extends DescribeIntentResponse, __MetadataBearer {}
 
 /**
  * <p>Returns metadata about an intent.</p>

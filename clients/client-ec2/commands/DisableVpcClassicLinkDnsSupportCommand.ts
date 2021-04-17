@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisableVpcClassicLinkDnsSupportCommandInput = DisableVpcClassicLinkDnsSupportRequest;
-export type DisableVpcClassicLinkDnsSupportCommandOutput = DisableVpcClassicLinkDnsSupportResult & __MetadataBearer;
+export interface DisableVpcClassicLinkDnsSupportCommandInput extends DisableVpcClassicLinkDnsSupportRequest {}
+export interface DisableVpcClassicLinkDnsSupportCommandOutput
+  extends DisableVpcClassicLinkDnsSupportResult,
+    __MetadataBearer {}
 
 /**
  * <p>Disables ClassicLink DNS support for a VPC. If disabled, DNS hostnames resolve to

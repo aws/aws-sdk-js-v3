@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateClusterCommandInput = UpdateClusterRequest;
-export type UpdateClusterCommandOutput = UpdateClusterResponse & __MetadataBearer;
+export interface UpdateClusterCommandInput extends UpdateClusterRequest {}
+export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies the settings for a DAX cluster. You can use this action to change one or

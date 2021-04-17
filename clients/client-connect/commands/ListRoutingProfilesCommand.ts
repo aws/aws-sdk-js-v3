@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListRoutingProfilesCommandInput = ListRoutingProfilesRequest;
-export type ListRoutingProfilesCommandOutput = ListRoutingProfilesResponse & __MetadataBearer;
+export interface ListRoutingProfilesCommandInput extends ListRoutingProfilesRequest {}
+export interface ListRoutingProfilesCommandOutput extends ListRoutingProfilesResponse, __MetadataBearer {}
 
 /**
  * <p>Provides summary information about the routing profiles for the specified Amazon Connect

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateMemberSessionCommandInput = UpdateMemberSessionRequest;
-export type UpdateMemberSessionCommandOutput = UpdateMemberSessionResponse & __MetadataBearer;
+export interface UpdateMemberSessionCommandInput extends UpdateMemberSessionRequest {}
+export interface UpdateMemberSessionCommandOutput extends UpdateMemberSessionResponse, __MetadataBearer {}
 
 /**
  * <p>Enables an Amazon Macie administrator to suspend or re-enable a member account.</p>

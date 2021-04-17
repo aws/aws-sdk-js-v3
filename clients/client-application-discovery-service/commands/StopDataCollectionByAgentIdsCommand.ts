@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopDataCollectionByAgentIdsCommandInput = StopDataCollectionByAgentIdsRequest;
-export type StopDataCollectionByAgentIdsCommandOutput = StopDataCollectionByAgentIdsResponse & __MetadataBearer;
+export interface StopDataCollectionByAgentIdsCommandInput extends StopDataCollectionByAgentIdsRequest {}
+export interface StopDataCollectionByAgentIdsCommandOutput
+  extends StopDataCollectionByAgentIdsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Instructs the specified agents or connectors to stop collecting data.</p>

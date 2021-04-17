@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateParallelDataCommandInput = CreateParallelDataRequest;
-export type CreateParallelDataCommandOutput = CreateParallelDataResponse & __MetadataBearer;
+export interface CreateParallelDataCommandInput extends CreateParallelDataRequest {}
+export interface CreateParallelDataCommandOutput extends CreateParallelDataResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a parallel data resource in Amazon Translate by importing an input file from

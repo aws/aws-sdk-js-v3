@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutEventsConfigurationCommandInput = PutEventsConfigurationRequest;
-export type PutEventsConfigurationCommandOutput = PutEventsConfigurationResponse & __MetadataBearer;
+export interface PutEventsConfigurationCommandInput extends PutEventsConfigurationRequest {}
+export interface PutEventsConfigurationCommandOutput extends PutEventsConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an events configuration that allows a bot to receive outgoing events sent by Amazon

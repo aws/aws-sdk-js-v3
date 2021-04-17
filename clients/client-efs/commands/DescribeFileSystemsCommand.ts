@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeFileSystemsCommandInput = DescribeFileSystemsRequest;
-export type DescribeFileSystemsCommandOutput = DescribeFileSystemsResponse & __MetadataBearer;
+export interface DescribeFileSystemsCommandInput extends DescribeFileSystemsRequest {}
+export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the description of a specific Amazon EFS file system if either the file system

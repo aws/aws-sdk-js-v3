@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTagsForCertificateCommandInput = ListTagsForCertificateRequest;
-export type ListTagsForCertificateCommandOutput = ListTagsForCertificateResponse & __MetadataBearer;
+export interface ListTagsForCertificateCommandInput extends ListTagsForCertificateRequest {}
+export interface ListTagsForCertificateCommandOutput extends ListTagsForCertificateResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the tags that have been applied to the ACM certificate. Use the certificate's

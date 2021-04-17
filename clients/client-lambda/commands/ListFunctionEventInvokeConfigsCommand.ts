@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListFunctionEventInvokeConfigsCommandInput = ListFunctionEventInvokeConfigsRequest;
-export type ListFunctionEventInvokeConfigsCommandOutput = ListFunctionEventInvokeConfigsResponse & __MetadataBearer;
+export interface ListFunctionEventInvokeConfigsCommandInput extends ListFunctionEventInvokeConfigsRequest {}
+export interface ListFunctionEventInvokeConfigsCommandOutput
+  extends ListFunctionEventInvokeConfigsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of configurations for asynchronous invocation for a function.</p>

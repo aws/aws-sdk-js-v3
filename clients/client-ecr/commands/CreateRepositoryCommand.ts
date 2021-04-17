@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateRepositoryCommandInput = CreateRepositoryRequest;
-export type CreateRepositoryCommandOutput = CreateRepositoryResponse & __MetadataBearer;
+export interface CreateRepositoryCommandInput extends CreateRepositoryRequest {}
+export interface CreateRepositoryCommandOutput extends CreateRepositoryResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a repository. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html">Amazon ECR Repositories</a> in the

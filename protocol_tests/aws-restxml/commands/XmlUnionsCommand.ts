@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type XmlUnionsCommandInput = XmlUnionsInputOutput;
-export type XmlUnionsCommandOutput = XmlUnionsInputOutput & __MetadataBearer;
+export interface XmlUnionsCommandInput extends XmlUnionsInputOutput {}
+export interface XmlUnionsCommandOutput extends XmlUnionsInputOutput, __MetadataBearer {}
 
 export class XmlUnionsCommand extends $Command<
   XmlUnionsCommandInput,

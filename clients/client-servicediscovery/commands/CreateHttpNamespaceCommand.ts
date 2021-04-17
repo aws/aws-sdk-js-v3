@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateHttpNamespaceCommandInput = CreateHttpNamespaceRequest;
-export type CreateHttpNamespaceCommandOutput = CreateHttpNamespaceResponse & __MetadataBearer;
+export interface CreateHttpNamespaceCommandInput extends CreateHttpNamespaceRequest {}
+export interface CreateHttpNamespaceCommandOutput extends CreateHttpNamespaceResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an HTTP namespace. Service instances that you register using an HTTP namespace can be discovered using a

@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateServiceRoleFromAccountCommandInput = DisassociateServiceRoleFromAccountRequest;
-export type DisassociateServiceRoleFromAccountCommandOutput = DisassociateServiceRoleFromAccountResponse &
-  __MetadataBearer;
+export interface DisassociateServiceRoleFromAccountCommandInput extends DisassociateServiceRoleFromAccountRequest {}
+export interface DisassociateServiceRoleFromAccountCommandOutput
+  extends DisassociateServiceRoleFromAccountResponse,
+    __MetadataBearer {}
 
 /**
  * Disassociates the service role from your account. Without a service role, deployments will not work.

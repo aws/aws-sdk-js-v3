@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDetectorCommandInput = DeleteDetectorRequest;
-export type DeleteDetectorCommandOutput = DeleteDetectorResult & __MetadataBearer;
+export interface DeleteDetectorCommandInput extends DeleteDetectorRequest {}
+export interface DeleteDetectorCommandOutput extends DeleteDetectorResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the detector. Before deleting a detector, you must first delete all detector versions and rule versions associated with the detector.</p>

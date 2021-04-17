@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetEndpointCommandInput = GetEndpointRequest;
-export type GetEndpointCommandOutput = GetEndpointResponse & __MetadataBearer;
+export interface GetEndpointCommandInput extends GetEndpointRequest {}
+export interface GetEndpointCommandOutput extends GetEndpointResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the settings and attributes of a specific endpoint for an application.</p>

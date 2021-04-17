@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TagResourceCommandInput = TagResourceInput;
-export type TagResourceCommandOutput = __MetadataBearer;
+export interface TagResourceCommandInput extends TagResourceInput {}
+export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Associate a set of tags with an Amazon DynamoDB resource. You can then activate these

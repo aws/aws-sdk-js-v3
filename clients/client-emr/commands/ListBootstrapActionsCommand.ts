@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListBootstrapActionsCommandInput = ListBootstrapActionsInput;
-export type ListBootstrapActionsCommandOutput = ListBootstrapActionsOutput & __MetadataBearer;
+export interface ListBootstrapActionsCommandInput extends ListBootstrapActionsInput {}
+export interface ListBootstrapActionsCommandOutput extends ListBootstrapActionsOutput, __MetadataBearer {}
 
 /**
  * <p>Provides information about the bootstrap actions associated with a cluster.</p>

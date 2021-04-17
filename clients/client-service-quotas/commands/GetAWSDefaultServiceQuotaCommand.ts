@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAWSDefaultServiceQuotaCommandInput = GetAWSDefaultServiceQuotaRequest;
-export type GetAWSDefaultServiceQuotaCommandOutput = GetAWSDefaultServiceQuotaResponse & __MetadataBearer;
+export interface GetAWSDefaultServiceQuotaCommandInput extends GetAWSDefaultServiceQuotaRequest {}
+export interface GetAWSDefaultServiceQuotaCommandOutput extends GetAWSDefaultServiceQuotaResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the default value for the specified quota. The default value does not reflect

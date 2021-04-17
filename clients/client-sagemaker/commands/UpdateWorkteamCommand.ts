@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateWorkteamCommandInput = UpdateWorkteamRequest;
-export type UpdateWorkteamCommandOutput = UpdateWorkteamResponse & __MetadataBearer;
+export interface UpdateWorkteamCommandInput extends UpdateWorkteamRequest {}
+export interface UpdateWorkteamCommandOutput extends UpdateWorkteamResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing work team with new member definitions or description.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetServiceSettingsCommandInput = GetServiceSettingsRequest;
-export type GetServiceSettingsCommandOutput = GetServiceSettingsResponse & __MetadataBearer;
+export interface GetServiceSettingsCommandInput extends GetServiceSettingsRequest {}
+export interface GetServiceSettingsCommandOutput extends GetServiceSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the License Manager settings for the current Region.</p>

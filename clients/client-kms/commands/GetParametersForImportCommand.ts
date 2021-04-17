@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetParametersForImportCommandInput = GetParametersForImportRequest;
-export type GetParametersForImportCommandOutput = GetParametersForImportResponse & __MetadataBearer;
+export interface GetParametersForImportCommandInput extends GetParametersForImportRequest {}
+export interface GetParametersForImportCommandOutput extends GetParametersForImportResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the items you need to import key material into a symmetric, customer managed

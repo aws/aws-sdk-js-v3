@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeCarrierGatewaysCommandInput = DescribeCarrierGatewaysRequest;
-export type DescribeCarrierGatewaysCommandOutput = DescribeCarrierGatewaysResult & __MetadataBearer;
+export interface DescribeCarrierGatewaysCommandInput extends DescribeCarrierGatewaysRequest {}
+export interface DescribeCarrierGatewaysCommandOutput extends DescribeCarrierGatewaysResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more of your carrier gateways.</p>

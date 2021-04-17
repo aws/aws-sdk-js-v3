@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTunnelsCommandInput = ListTunnelsRequest;
-export type ListTunnelsCommandOutput = ListTunnelsResponse & __MetadataBearer;
+export interface ListTunnelsCommandInput extends ListTunnelsRequest {}
+export interface ListTunnelsCommandOutput extends ListTunnelsResponse, __MetadataBearer {}
 
 /**
  * <p>List all tunnels for an AWS account. Tunnels are listed by creation time in

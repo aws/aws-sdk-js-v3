@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateResourceShareCommandInput = AssociateResourceShareRequest;
-export type AssociateResourceShareCommandOutput = AssociateResourceShareResponse & __MetadataBearer;
+export interface AssociateResourceShareCommandInput extends AssociateResourceShareRequest {}
+export interface AssociateResourceShareCommandOutput extends AssociateResourceShareResponse, __MetadataBearer {}
 
 /**
  * <p>Associates the specified resource share with the specified principals and resources.</p>

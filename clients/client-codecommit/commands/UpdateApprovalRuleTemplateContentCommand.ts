@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateApprovalRuleTemplateContentCommandInput = UpdateApprovalRuleTemplateContentInput;
-export type UpdateApprovalRuleTemplateContentCommandOutput = UpdateApprovalRuleTemplateContentOutput & __MetadataBearer;
+export interface UpdateApprovalRuleTemplateContentCommandInput extends UpdateApprovalRuleTemplateContentInput {}
+export interface UpdateApprovalRuleTemplateContentCommandOutput
+  extends UpdateApprovalRuleTemplateContentOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Updates the content of an approval rule template. You can change the number of

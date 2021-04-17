@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AcceptHandshakeCommandInput = AcceptHandshakeRequest;
-export type AcceptHandshakeCommandOutput = AcceptHandshakeResponse & __MetadataBearer;
+export interface AcceptHandshakeCommandInput extends AcceptHandshakeRequest {}
+export interface AcceptHandshakeCommandOutput extends AcceptHandshakeResponse, __MetadataBearer {}
 
 /**
  * <p>Sends a response to the originator of a handshake agreeing to the action proposed by

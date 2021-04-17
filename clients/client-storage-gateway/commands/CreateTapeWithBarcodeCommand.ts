@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateTapeWithBarcodeCommandInput = CreateTapeWithBarcodeInput;
-export type CreateTapeWithBarcodeCommandOutput = CreateTapeWithBarcodeOutput & __MetadataBearer;
+export interface CreateTapeWithBarcodeCommandInput extends CreateTapeWithBarcodeInput {}
+export interface CreateTapeWithBarcodeCommandOutput extends CreateTapeWithBarcodeOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a virtual tape by using your own barcode. You write data to the virtual tape and

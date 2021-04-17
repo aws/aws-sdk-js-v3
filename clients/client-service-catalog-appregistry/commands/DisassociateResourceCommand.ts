@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateResourceCommandInput = DisassociateResourceRequest;
-export type DisassociateResourceCommandOutput = DisassociateResourceResponse & __MetadataBearer;
+export interface DisassociateResourceCommandInput extends DisassociateResourceRequest {}
+export interface DisassociateResourceCommandOutput extends DisassociateResourceResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates a resource from application. Both the resource and the application can be specified either by ID or name.</p>

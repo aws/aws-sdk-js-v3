@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListCustomRoutingListenersCommandInput = ListCustomRoutingListenersRequest;
-export type ListCustomRoutingListenersCommandOutput = ListCustomRoutingListenersResponse & __MetadataBearer;
+export interface ListCustomRoutingListenersCommandInput extends ListCustomRoutingListenersRequest {}
+export interface ListCustomRoutingListenersCommandOutput extends ListCustomRoutingListenersResponse, __MetadataBearer {}
 
 /**
  * <p>List the listeners for a custom routing accelerator. </p>

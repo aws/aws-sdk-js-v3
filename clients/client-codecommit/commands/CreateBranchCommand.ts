@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateBranchCommandInput = CreateBranchInput;
-export type CreateBranchCommandOutput = __MetadataBearer;
+export interface CreateBranchCommandInput extends CreateBranchInput {}
+export interface CreateBranchCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Creates a branch in a repository and points the branch to a commit.</p>

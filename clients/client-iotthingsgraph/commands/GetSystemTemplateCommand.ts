@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSystemTemplateCommandInput = GetSystemTemplateRequest;
-export type GetSystemTemplateCommandOutput = GetSystemTemplateResponse & __MetadataBearer;
+export interface GetSystemTemplateCommandInput extends GetSystemTemplateRequest {}
+export interface GetSystemTemplateCommandOutput extends GetSystemTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a system.</p>

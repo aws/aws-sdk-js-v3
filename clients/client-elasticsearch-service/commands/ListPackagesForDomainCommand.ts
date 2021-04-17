@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPackagesForDomainCommandInput = ListPackagesForDomainRequest;
-export type ListPackagesForDomainCommandOutput = ListPackagesForDomainResponse & __MetadataBearer;
+export interface ListPackagesForDomainCommandInput extends ListPackagesForDomainRequest {}
+export interface ListPackagesForDomainCommandOutput extends ListPackagesForDomainResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all packages associated with the Amazon ES domain.</p>

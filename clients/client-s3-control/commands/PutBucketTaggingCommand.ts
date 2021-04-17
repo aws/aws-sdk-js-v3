@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutBucketTaggingCommandInput = PutBucketTaggingRequest;
-export type PutBucketTaggingCommandOutput = __MetadataBearer;
+export interface PutBucketTaggingCommandInput extends PutBucketTaggingRequest {}
+export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
 
 /**
  * <note>

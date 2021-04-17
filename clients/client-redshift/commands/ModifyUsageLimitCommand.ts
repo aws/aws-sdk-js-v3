@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyUsageLimitCommandInput = ModifyUsageLimitMessage;
-export type ModifyUsageLimitCommandOutput = UsageLimit & __MetadataBearer;
+export interface ModifyUsageLimitCommandInput extends ModifyUsageLimitMessage {}
+export interface ModifyUsageLimitCommandOutput extends UsageLimit, __MetadataBearer {}
 
 /**
  * <p>Modifies a usage limit in a cluster.

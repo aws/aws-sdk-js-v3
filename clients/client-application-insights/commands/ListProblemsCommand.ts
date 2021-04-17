@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListProblemsCommandInput = ListProblemsRequest;
-export type ListProblemsCommandOutput = ListProblemsResponse & __MetadataBearer;
+export interface ListProblemsCommandInput extends ListProblemsRequest {}
+export interface ListProblemsCommandOutput extends ListProblemsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the problems with your application.</p>

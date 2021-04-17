@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteContainerRecipeCommandInput = DeleteContainerRecipeRequest;
-export type DeleteContainerRecipeCommandOutput = DeleteContainerRecipeResponse & __MetadataBearer;
+export interface DeleteContainerRecipeCommandInput extends DeleteContainerRecipeRequest {}
+export interface DeleteContainerRecipeCommandOutput extends DeleteContainerRecipeResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a container recipe.</p>

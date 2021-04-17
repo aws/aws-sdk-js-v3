@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateNotificationRuleCommandInput = UpdateNotificationRuleRequest;
-export type UpdateNotificationRuleCommandOutput = UpdateNotificationRuleResult & __MetadataBearer;
+export interface UpdateNotificationRuleCommandInput extends UpdateNotificationRuleRequest {}
+export interface UpdateNotificationRuleCommandOutput extends UpdateNotificationRuleResult, __MetadataBearer {}
 
 /**
  * <p>Updates a notification rule for a resource. You can change the events that trigger the

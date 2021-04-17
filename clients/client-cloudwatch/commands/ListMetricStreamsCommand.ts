@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListMetricStreamsCommandInput = ListMetricStreamsInput;
-export type ListMetricStreamsCommandOutput = ListMetricStreamsOutput & __MetadataBearer;
+export interface ListMetricStreamsCommandInput extends ListMetricStreamsInput {}
+export interface ListMetricStreamsCommandOutput extends ListMetricStreamsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a list of metric streams in this account.</p>

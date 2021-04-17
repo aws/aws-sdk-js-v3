@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UndeprecateActivityTypeCommandInput = UndeprecateActivityTypeInput;
-export type UndeprecateActivityTypeCommandOutput = __MetadataBearer;
+export interface UndeprecateActivityTypeCommandInput extends UndeprecateActivityTypeInput {}
+export interface UndeprecateActivityTypeCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Undeprecates a previously deprecated <i>activity type</i>. After an activity type has

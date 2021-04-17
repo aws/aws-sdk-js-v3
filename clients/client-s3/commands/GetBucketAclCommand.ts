@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBucketAclCommandInput = GetBucketAclRequest;
-export type GetBucketAclCommandOutput = GetBucketAclOutput & __MetadataBearer;
+export interface GetBucketAclCommandInput extends GetBucketAclRequest {}
+export interface GetBucketAclCommandOutput extends GetBucketAclOutput, __MetadataBearer {}
 
 /**
  * <p>This implementation of the <code>GET</code> action uses the <code>acl</code>

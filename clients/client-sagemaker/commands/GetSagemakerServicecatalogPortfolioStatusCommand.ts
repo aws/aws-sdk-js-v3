@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSagemakerServicecatalogPortfolioStatusCommandInput = GetSagemakerServicecatalogPortfolioStatusInput;
-export type GetSagemakerServicecatalogPortfolioStatusCommandOutput = GetSagemakerServicecatalogPortfolioStatusOutput &
-  __MetadataBearer;
+export interface GetSagemakerServicecatalogPortfolioStatusCommandInput
+  extends GetSagemakerServicecatalogPortfolioStatusInput {}
+export interface GetSagemakerServicecatalogPortfolioStatusCommandOutput
+  extends GetSagemakerServicecatalogPortfolioStatusOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Gets the status of Service Catalog in SageMaker. Service Catalog is used to create

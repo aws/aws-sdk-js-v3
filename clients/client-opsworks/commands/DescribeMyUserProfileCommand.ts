@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeMyUserProfileCommandInput = {};
-export type DescribeMyUserProfileCommandOutput = DescribeMyUserProfileResult & __MetadataBearer;
+export interface DescribeMyUserProfileCommandInput {}
+export interface DescribeMyUserProfileCommandOutput extends DescribeMyUserProfileResult, __MetadataBearer {}
 
 /**
  * <p>Describes a user's SSH information.</p>

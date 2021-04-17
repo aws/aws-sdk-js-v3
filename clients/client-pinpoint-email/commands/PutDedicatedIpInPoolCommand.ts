@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutDedicatedIpInPoolCommandInput = PutDedicatedIpInPoolRequest;
-export type PutDedicatedIpInPoolCommandOutput = PutDedicatedIpInPoolResponse & __MetadataBearer;
+export interface PutDedicatedIpInPoolCommandInput extends PutDedicatedIpInPoolRequest {}
+export interface PutDedicatedIpInPoolCommandOutput extends PutDedicatedIpInPoolResponse, __MetadataBearer {}
 
 /**
  * <p>Move a dedicated IP address to an existing dedicated IP pool.</p>

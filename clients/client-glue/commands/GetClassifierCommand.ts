@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetClassifierCommandInput = GetClassifierRequest;
-export type GetClassifierCommandOutput = GetClassifierResponse & __MetadataBearer;
+export interface GetClassifierCommandInput extends GetClassifierRequest {}
+export interface GetClassifierCommandOutput extends GetClassifierResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieve a classifier by name.</p>

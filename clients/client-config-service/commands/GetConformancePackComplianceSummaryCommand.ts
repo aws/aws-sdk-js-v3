@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetConformancePackComplianceSummaryCommandInput = GetConformancePackComplianceSummaryRequest;
-export type GetConformancePackComplianceSummaryCommandOutput = GetConformancePackComplianceSummaryResponse &
-  __MetadataBearer;
+export interface GetConformancePackComplianceSummaryCommandInput extends GetConformancePackComplianceSummaryRequest {}
+export interface GetConformancePackComplianceSummaryCommandOutput
+  extends GetConformancePackComplianceSummaryResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns compliance details for the conformance pack based on the cumulative compliance results of all the rules in that conformance pack.</p>

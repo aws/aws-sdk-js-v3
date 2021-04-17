@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RenewCertificateCommandInput = RenewCertificateRequest;
-export type RenewCertificateCommandOutput = __MetadataBearer;
+export interface RenewCertificateCommandInput extends RenewCertificateRequest {}
+export interface RenewCertificateCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Renews an eligible ACM certificate. At this time, only exported private certificates can

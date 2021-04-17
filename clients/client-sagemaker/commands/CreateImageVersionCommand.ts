@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateImageVersionCommandInput = CreateImageVersionRequest;
-export type CreateImageVersionCommandOutput = CreateImageVersionResponse & __MetadataBearer;
+export interface CreateImageVersionCommandInput extends CreateImageVersionRequest {}
+export interface CreateImageVersionCommandOutput extends CreateImageVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a version of the SageMaker image specified by <code>ImageName</code>. The version

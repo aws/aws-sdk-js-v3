@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTrackersCommandInput = ListTrackersRequest;
-export type ListTrackersCommandOutput = ListTrackersResponse & __MetadataBearer;
+export interface ListTrackersCommandInput extends ListTrackersRequest {}
+export interface ListTrackersCommandOutput extends ListTrackersResponse, __MetadataBearer {}
 
 /**
  * <p>Lists tracker resources in your AWS account.</p>

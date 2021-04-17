@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterCertificateCommandInput = RegisterCertificateRequest;
-export type RegisterCertificateCommandOutput = RegisterCertificateResult & __MetadataBearer;
+export interface RegisterCertificateCommandInput extends RegisterCertificateRequest {}
+export interface RegisterCertificateCommandOutput extends RegisterCertificateResult, __MetadataBearer {}
 
 /**
  * <p>Registers a certificate for a secure LDAP or client certificate authentication.</p>

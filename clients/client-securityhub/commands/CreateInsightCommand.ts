@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateInsightCommandInput = CreateInsightRequest;
-export type CreateInsightCommandOutput = CreateInsightResponse & __MetadataBearer;
+export interface CreateInsightCommandInput extends CreateInsightRequest {}
+export interface CreateInsightCommandOutput extends CreateInsightResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a custom insight in Security Hub. An insight is a consolidation of findings that relate

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteLicenseCommandInput = DeleteLicenseRequest;
-export type DeleteLicenseCommandOutput = DeleteLicenseResponse & __MetadataBearer;
+export interface DeleteLicenseCommandInput extends DeleteLicenseRequest {}
+export interface DeleteLicenseCommandOutput extends DeleteLicenseResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified license.</p>

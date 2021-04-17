@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateMembersCommandInput = CreateMembersRequest;
-export type CreateMembersCommandOutput = CreateMembersResponse & __MetadataBearer;
+export interface CreateMembersCommandInput extends CreateMembersRequest {}
+export interface CreateMembersCommandOutput extends CreateMembersResponse, __MetadataBearer {}
 
 /**
  * <p>Sends a request to invite the specified AWS accounts to be member accounts in the

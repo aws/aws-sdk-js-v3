@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RemoveAutoScalingPolicyCommandInput = RemoveAutoScalingPolicyInput;
-export type RemoveAutoScalingPolicyCommandOutput = RemoveAutoScalingPolicyOutput & __MetadataBearer;
+export interface RemoveAutoScalingPolicyCommandInput extends RemoveAutoScalingPolicyInput {}
+export interface RemoveAutoScalingPolicyCommandOutput extends RemoveAutoScalingPolicyOutput, __MetadataBearer {}
 
 /**
  * <p>Removes an automatic scaling policy from a specified instance group within an EMR

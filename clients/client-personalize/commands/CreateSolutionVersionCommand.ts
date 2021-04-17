@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateSolutionVersionCommandInput = CreateSolutionVersionRequest;
-export type CreateSolutionVersionCommandOutput = CreateSolutionVersionResponse & __MetadataBearer;
+export interface CreateSolutionVersionCommandInput extends CreateSolutionVersionRequest {}
+export interface CreateSolutionVersionCommandOutput extends CreateSolutionVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Trains or retrains an active solution. A solution is created using the <a>CreateSolution</a> operation and must be in the ACTIVE state before calling

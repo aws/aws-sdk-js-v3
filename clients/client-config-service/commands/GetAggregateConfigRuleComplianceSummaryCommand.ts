@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAggregateConfigRuleComplianceSummaryCommandInput = GetAggregateConfigRuleComplianceSummaryRequest;
-export type GetAggregateConfigRuleComplianceSummaryCommandOutput = GetAggregateConfigRuleComplianceSummaryResponse &
-  __MetadataBearer;
+export interface GetAggregateConfigRuleComplianceSummaryCommandInput
+  extends GetAggregateConfigRuleComplianceSummaryRequest {}
+export interface GetAggregateConfigRuleComplianceSummaryCommandOutput
+  extends GetAggregateConfigRuleComplianceSummaryResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the number of compliant and noncompliant rules for one

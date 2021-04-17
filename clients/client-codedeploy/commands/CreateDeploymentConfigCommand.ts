@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDeploymentConfigCommandInput = CreateDeploymentConfigInput;
-export type CreateDeploymentConfigCommandOutput = CreateDeploymentConfigOutput & __MetadataBearer;
+export interface CreateDeploymentConfigCommandInput extends CreateDeploymentConfigInput {}
+export interface CreateDeploymentConfigCommandOutput extends CreateDeploymentConfigOutput, __MetadataBearer {}
 
 /**
  * <p> Creates a deployment configuration. </p>

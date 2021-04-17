@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GenerateDataKeyPairWithoutPlaintextCommandInput = GenerateDataKeyPairWithoutPlaintextRequest;
-export type GenerateDataKeyPairWithoutPlaintextCommandOutput = GenerateDataKeyPairWithoutPlaintextResponse &
-  __MetadataBearer;
+export interface GenerateDataKeyPairWithoutPlaintextCommandInput extends GenerateDataKeyPairWithoutPlaintextRequest {}
+export interface GenerateDataKeyPairWithoutPlaintextCommandOutput
+  extends GenerateDataKeyPairWithoutPlaintextResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Generates a unique asymmetric data key pair. The

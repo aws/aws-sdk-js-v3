@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterThingCommandInput = RegisterThingRequest;
-export type RegisterThingCommandOutput = RegisterThingResponse & __MetadataBearer;
+export interface RegisterThingCommandInput extends RegisterThingRequest {}
+export interface RegisterThingCommandOutput extends RegisterThingResponse, __MetadataBearer {}
 
 /**
  * <p>Provisions a thing in the device registry. RegisterThing calls other AWS IoT control

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateSamplingRuleCommandInput = CreateSamplingRuleRequest;
-export type CreateSamplingRuleCommandOutput = CreateSamplingRuleResult & __MetadataBearer;
+export interface CreateSamplingRuleCommandInput extends CreateSamplingRuleRequest {}
+export interface CreateSamplingRuleCommandOutput extends CreateSamplingRuleResult, __MetadataBearer {}
 
 /**
  * <p>Creates a rule to control sampling behavior for instrumented applications. Services

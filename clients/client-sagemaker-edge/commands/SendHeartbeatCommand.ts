@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SendHeartbeatCommandInput = SendHeartbeatRequest;
-export type SendHeartbeatCommandOutput = __MetadataBearer;
+export interface SendHeartbeatCommandInput extends SendHeartbeatRequest {}
+export interface SendHeartbeatCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Use to get the current status of devices registered on SageMaker Edge Manager.</p>

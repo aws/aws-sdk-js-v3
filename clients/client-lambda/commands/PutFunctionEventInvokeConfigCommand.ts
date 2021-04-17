@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutFunctionEventInvokeConfigCommandInput = PutFunctionEventInvokeConfigRequest;
-export type PutFunctionEventInvokeConfigCommandOutput = FunctionEventInvokeConfig & __MetadataBearer;
+export interface PutFunctionEventInvokeConfigCommandInput extends PutFunctionEventInvokeConfigRequest {}
+export interface PutFunctionEventInvokeConfigCommandOutput extends FunctionEventInvokeConfig, __MetadataBearer {}
 
 /**
  * <p>Configures options for <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html">asynchronous

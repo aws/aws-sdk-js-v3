@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateCliTokenCommandInput = CreateCliTokenRequest;
-export type CreateCliTokenCommandOutput = CreateCliTokenResponse & __MetadataBearer;
+export interface CreateCliTokenCommandInput extends CreateCliTokenRequest {}
+export interface CreateCliTokenCommandOutput extends CreateCliTokenResponse, __MetadataBearer {}
 
 /**
  * <p>Create a CLI token to use Airflow CLI.</p>

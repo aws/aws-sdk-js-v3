@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeFleetCommandInput = DescribeFleetRequest;
-export type DescribeFleetCommandOutput = DescribeFleetResponse & __MetadataBearer;
+export interface DescribeFleetCommandInput extends DescribeFleetRequest {}
+export interface DescribeFleetCommandOutput extends DescribeFleetResponse, __MetadataBearer {}
 
 /**
  * <p>Describes a fleet.</p>

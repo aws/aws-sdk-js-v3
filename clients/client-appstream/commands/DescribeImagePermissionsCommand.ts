@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeImagePermissionsCommandInput = DescribeImagePermissionsRequest;
-export type DescribeImagePermissionsCommandOutput = DescribeImagePermissionsResult & __MetadataBearer;
+export interface DescribeImagePermissionsCommandInput extends DescribeImagePermissionsRequest {}
+export interface DescribeImagePermissionsCommandOutput extends DescribeImagePermissionsResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list that describes the permissions for shared AWS account IDs on a private image that you own. </p>

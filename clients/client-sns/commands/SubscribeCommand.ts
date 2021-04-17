@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SubscribeCommandInput = SubscribeInput;
-export type SubscribeCommandOutput = SubscribeResponse & __MetadataBearer;
+export interface SubscribeCommandInput extends SubscribeInput {}
+export interface SubscribeCommandOutput extends SubscribeResponse, __MetadataBearer {}
 
 /**
  * <p>Subscribes an endpoint to an Amazon SNS topic. If the endpoint type is HTTP/S or email, or

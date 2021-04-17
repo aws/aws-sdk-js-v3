@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetV2LoggingLevelCommandInput = SetV2LoggingLevelRequest;
-export type SetV2LoggingLevelCommandOutput = __MetadataBearer;
+export interface SetV2LoggingLevelCommandInput extends SetV2LoggingLevelRequest {}
+export interface SetV2LoggingLevelCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Sets the logging level.</p>

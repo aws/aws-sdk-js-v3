@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutCodeBindingCommandInput = PutCodeBindingRequest;
-export type PutCodeBindingCommandOutput = PutCodeBindingResponse & __MetadataBearer;
+export interface PutCodeBindingCommandInput extends PutCodeBindingRequest {}
+export interface PutCodeBindingCommandOutput extends PutCodeBindingResponse, __MetadataBearer {}
 
 /**
  * <p>Put code binding URI</p>

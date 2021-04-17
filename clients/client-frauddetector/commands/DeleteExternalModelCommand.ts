@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteExternalModelCommandInput = DeleteExternalModelRequest;
-export type DeleteExternalModelCommandOutput = DeleteExternalModelResult & __MetadataBearer;
+export interface DeleteExternalModelCommandInput extends DeleteExternalModelRequest {}
+export interface DeleteExternalModelCommandOutput extends DeleteExternalModelResult, __MetadataBearer {}
 
 /**
  * <p>Removes a SageMaker model from Amazon Fraud Detector.</p>

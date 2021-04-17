@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RedactRoomMessageCommandInput = RedactRoomMessageRequest;
-export type RedactRoomMessageCommandOutput = RedactRoomMessageResponse & __MetadataBearer;
+export interface RedactRoomMessageCommandInput extends RedactRoomMessageRequest {}
+export interface RedactRoomMessageCommandOutput extends RedactRoomMessageResponse, __MetadataBearer {}
 
 /**
  * <p>Redacts the specified message from the specified Amazon Chime channel.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteMessageBatchCommandInput = DeleteMessageBatchRequest;
-export type DeleteMessageBatchCommandOutput = DeleteMessageBatchResult & __MetadataBearer;
+export interface DeleteMessageBatchCommandInput extends DeleteMessageBatchRequest {}
+export interface DeleteMessageBatchCommandOutput extends DeleteMessageBatchResult, __MetadataBearer {}
 
 /**
  * <p>Deletes up to ten messages from the specified queue. This is a batch version of <code>

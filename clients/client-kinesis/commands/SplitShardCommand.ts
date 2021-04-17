@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SplitShardCommandInput = SplitShardInput;
-export type SplitShardCommandOutput = __MetadataBearer;
+export interface SplitShardCommandInput extends SplitShardInput {}
+export interface SplitShardCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Splits a shard into two new shards in the Kinesis data stream, to increase the

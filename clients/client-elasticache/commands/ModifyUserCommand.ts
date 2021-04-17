@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyUserCommandInput = ModifyUserMessage;
-export type ModifyUserCommandOutput = User & __MetadataBearer;
+export interface ModifyUserCommandInput extends ModifyUserMessage {}
+export interface ModifyUserCommandOutput extends User, __MetadataBearer {}
 
 /**
  * <p>Changes user password(s) and/or access string.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetServicesInScopeCommandInput = GetServicesInScopeRequest;
-export type GetServicesInScopeCommandOutput = GetServicesInScopeResponse & __MetadataBearer;
+export interface GetServicesInScopeCommandInput extends GetServicesInScopeRequest {}
+export interface GetServicesInScopeCommandOutput extends GetServicesInScopeResponse, __MetadataBearer {}
 
 /**
  * <p>

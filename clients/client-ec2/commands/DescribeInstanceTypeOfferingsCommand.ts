@@ -18,8 +18,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeInstanceTypeOfferingsCommandInput = DescribeInstanceTypeOfferingsRequest;
-export type DescribeInstanceTypeOfferingsCommandOutput = DescribeInstanceTypeOfferingsResult & __MetadataBearer;
+export interface DescribeInstanceTypeOfferingsCommandInput extends DescribeInstanceTypeOfferingsRequest {}
+export interface DescribeInstanceTypeOfferingsCommandOutput
+  extends DescribeInstanceTypeOfferingsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Returns a list of all instance types offered. The results can be filtered by location (Region or Availability

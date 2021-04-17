@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateIdentityProviderConfigurationCommandInput = UpdateIdentityProviderConfigurationRequest;
-export type UpdateIdentityProviderConfigurationCommandOutput = UpdateIdentityProviderConfigurationResponse &
-  __MetadataBearer;
+export interface UpdateIdentityProviderConfigurationCommandInput extends UpdateIdentityProviderConfigurationRequest {}
+export interface UpdateIdentityProviderConfigurationCommandOutput
+  extends UpdateIdentityProviderConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Updates the identity provider configuration for the fleet.</p>

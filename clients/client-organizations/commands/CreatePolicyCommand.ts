@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreatePolicyCommandInput = CreatePolicyRequest;
-export type CreatePolicyCommandOutput = CreatePolicyResponse & __MetadataBearer;
+export interface CreatePolicyCommandInput extends CreatePolicyRequest {}
+export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a policy of a specified type that you can attach to a root, an organizational

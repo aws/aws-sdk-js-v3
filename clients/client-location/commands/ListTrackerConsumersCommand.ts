@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTrackerConsumersCommandInput = ListTrackerConsumersRequest;
-export type ListTrackerConsumersCommandOutput = ListTrackerConsumersResponse & __MetadataBearer;
+export interface ListTrackerConsumersCommandInput extends ListTrackerConsumersRequest {}
+export interface ListTrackerConsumersCommandOutput extends ListTrackerConsumersResponse, __MetadataBearer {}
 
 /**
  * <p>Lists geofence collections currently associated to the given tracker resource.</p>

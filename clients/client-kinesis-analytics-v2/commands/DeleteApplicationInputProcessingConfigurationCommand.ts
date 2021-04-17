@@ -24,9 +24,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteApplicationInputProcessingConfigurationCommandInput = DeleteApplicationInputProcessingConfigurationRequest;
-export type DeleteApplicationInputProcessingConfigurationCommandOutput = DeleteApplicationInputProcessingConfigurationResponse &
-  __MetadataBearer;
+export interface DeleteApplicationInputProcessingConfigurationCommandInput
+  extends DeleteApplicationInputProcessingConfigurationRequest {}
+export interface DeleteApplicationInputProcessingConfigurationCommandOutput
+  extends DeleteApplicationInputProcessingConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes an <a>InputProcessingConfiguration</a> from an input.</p>

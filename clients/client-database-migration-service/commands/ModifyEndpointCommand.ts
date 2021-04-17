@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyEndpointCommandInput = ModifyEndpointMessage;
-export type ModifyEndpointCommandOutput = ModifyEndpointResponse & __MetadataBearer;
+export interface ModifyEndpointCommandInput extends ModifyEndpointMessage {}
+export interface ModifyEndpointCommandOutput extends ModifyEndpointResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies the specified endpoint.</p>

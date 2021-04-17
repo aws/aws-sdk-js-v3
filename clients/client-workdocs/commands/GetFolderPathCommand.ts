@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetFolderPathCommandInput = GetFolderPathRequest;
-export type GetFolderPathCommandOutput = GetFolderPathResponse & __MetadataBearer;
+export interface GetFolderPathCommandInput extends GetFolderPathRequest {}
+export interface GetFolderPathCommandOutput extends GetFolderPathResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the path information (the hierarchy from the root folder) for the

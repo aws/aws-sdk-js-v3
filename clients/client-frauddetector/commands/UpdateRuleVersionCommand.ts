@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateRuleVersionCommandInput = UpdateRuleVersionRequest;
-export type UpdateRuleVersionCommandOutput = UpdateRuleVersionResult & __MetadataBearer;
+export interface UpdateRuleVersionCommandInput extends UpdateRuleVersionRequest {}
+export interface UpdateRuleVersionCommandOutput extends UpdateRuleVersionResult, __MetadataBearer {}
 
 /**
  * <p>Updates a rule version resulting in a new rule version. Updates a rule version resulting in a new rule version (version 1, 2, 3 ...). </p>

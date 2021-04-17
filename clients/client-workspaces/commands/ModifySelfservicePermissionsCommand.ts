@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifySelfservicePermissionsCommandInput = ModifySelfservicePermissionsRequest;
-export type ModifySelfservicePermissionsCommandOutput = ModifySelfservicePermissionsResult & __MetadataBearer;
+export interface ModifySelfservicePermissionsCommandInput extends ModifySelfservicePermissionsRequest {}
+export interface ModifySelfservicePermissionsCommandOutput
+  extends ModifySelfservicePermissionsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Modifies the self-service WorkSpace management capabilities for your users. For more

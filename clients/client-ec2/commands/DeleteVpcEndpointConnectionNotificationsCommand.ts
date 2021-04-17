@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteVpcEndpointConnectionNotificationsCommandInput = DeleteVpcEndpointConnectionNotificationsRequest;
-export type DeleteVpcEndpointConnectionNotificationsCommandOutput = DeleteVpcEndpointConnectionNotificationsResult &
-  __MetadataBearer;
+export interface DeleteVpcEndpointConnectionNotificationsCommandInput
+  extends DeleteVpcEndpointConnectionNotificationsRequest {}
+export interface DeleteVpcEndpointConnectionNotificationsCommandOutput
+  extends DeleteVpcEndpointConnectionNotificationsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes one or more VPC endpoint connection notifications.</p>

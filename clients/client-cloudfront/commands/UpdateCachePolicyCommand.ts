@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateCachePolicyCommandInput = UpdateCachePolicyRequest;
-export type UpdateCachePolicyCommandOutput = UpdateCachePolicyResult & __MetadataBearer;
+export interface UpdateCachePolicyCommandInput extends UpdateCachePolicyRequest {}
+export interface UpdateCachePolicyCommandOutput extends UpdateCachePolicyResult, __MetadataBearer {}
 
 /**
  * <p>Updates a cache policy configuration.</p>

@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ChangePasswordCommandInput = ChangePasswordRequest;
-export type ChangePasswordCommandOutput = ChangePasswordResponse & __MetadataBearer;
+export interface ChangePasswordCommandInput extends ChangePasswordRequest {}
+export interface ChangePasswordCommandOutput extends ChangePasswordResponse, __MetadataBearer {}
 
 /**
  * <p>Changes the password for a specified user in a user pool.</p>

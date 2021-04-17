@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeReservedNodeOfferingsCommandInput = DescribeReservedNodeOfferingsMessage;
-export type DescribeReservedNodeOfferingsCommandOutput = ReservedNodeOfferingsMessage & __MetadataBearer;
+export interface DescribeReservedNodeOfferingsCommandInput extends DescribeReservedNodeOfferingsMessage {}
+export interface DescribeReservedNodeOfferingsCommandOutput extends ReservedNodeOfferingsMessage, __MetadataBearer {}
 
 /**
  * <p>Returns a list of the available reserved node offerings by Amazon Redshift with their

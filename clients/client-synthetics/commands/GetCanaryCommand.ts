@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetCanaryCommandInput = GetCanaryRequest;
-export type GetCanaryCommandOutput = GetCanaryResponse & __MetadataBearer;
+export interface GetCanaryCommandInput extends GetCanaryRequest {}
+export interface GetCanaryCommandOutput extends GetCanaryResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves complete information about one canary. You must specify

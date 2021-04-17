@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteSipMediaApplicationCommandInput = DeleteSipMediaApplicationRequest;
-export type DeleteSipMediaApplicationCommandOutput = __MetadataBearer;
+export interface DeleteSipMediaApplicationCommandInput extends DeleteSipMediaApplicationRequest {}
+export interface DeleteSipMediaApplicationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a SIP media application.</p>

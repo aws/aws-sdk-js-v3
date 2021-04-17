@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListStackSetOperationResultsCommandInput = ListStackSetOperationResultsInput;
-export type ListStackSetOperationResultsCommandOutput = ListStackSetOperationResultsOutput & __MetadataBearer;
+export interface ListStackSetOperationResultsCommandInput extends ListStackSetOperationResultsInput {}
+export interface ListStackSetOperationResultsCommandOutput
+  extends ListStackSetOperationResultsOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Returns summary information about the results of a stack set operation. </p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateTrustCommandInput = UpdateTrustRequest;
-export type UpdateTrustCommandOutput = UpdateTrustResult & __MetadataBearer;
+export interface UpdateTrustCommandInput extends UpdateTrustRequest {}
+export interface UpdateTrustCommandOutput extends UpdateTrustResult, __MetadataBearer {}
 
 /**
  * <p>Updates the trust that has been set up between your AWS Managed Microsoft AD directory and an on-premises Active Directory.</p>

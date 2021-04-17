@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CopyDBClusterParameterGroupCommandInput = CopyDBClusterParameterGroupMessage;
-export type CopyDBClusterParameterGroupCommandOutput = CopyDBClusterParameterGroupResult & __MetadataBearer;
+export interface CopyDBClusterParameterGroupCommandInput extends CopyDBClusterParameterGroupMessage {}
+export interface CopyDBClusterParameterGroupCommandOutput extends CopyDBClusterParameterGroupResult, __MetadataBearer {}
 
 /**
  * <p>Copies the specified DB cluster parameter group.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeHsmCommandInput = DescribeHsmRequest;
-export type DescribeHsmCommandOutput = DescribeHsmResponse & __MetadataBearer;
+export interface DescribeHsmCommandInput extends DescribeHsmRequest {}
+export interface DescribeHsmCommandOutput extends DescribeHsmResponse, __MetadataBearer {}
 
 /**
  * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For

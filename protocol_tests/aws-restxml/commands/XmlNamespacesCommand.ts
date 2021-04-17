@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type XmlNamespacesCommandInput = XmlNamespacesInputOutput;
-export type XmlNamespacesCommandOutput = XmlNamespacesInputOutput & __MetadataBearer;
+export interface XmlNamespacesCommandInput extends XmlNamespacesInputOutput {}
+export interface XmlNamespacesCommandOutput extends XmlNamespacesInputOutput, __MetadataBearer {}
 
 export class XmlNamespacesCommand extends $Command<
   XmlNamespacesCommandInput,

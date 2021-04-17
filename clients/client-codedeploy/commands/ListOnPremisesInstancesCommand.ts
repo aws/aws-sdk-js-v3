@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListOnPremisesInstancesCommandInput = ListOnPremisesInstancesInput;
-export type ListOnPremisesInstancesCommandOutput = ListOnPremisesInstancesOutput & __MetadataBearer;
+export interface ListOnPremisesInstancesCommandInput extends ListOnPremisesInstancesInput {}
+export interface ListOnPremisesInstancesCommandOutput extends ListOnPremisesInstancesOutput, __MetadataBearer {}
 
 /**
  * <p>Gets a list of names for one or more on-premises instances.</p>

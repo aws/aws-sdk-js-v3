@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeThemePermissionsCommandInput = DescribeThemePermissionsRequest;
-export type DescribeThemePermissionsCommandOutput = DescribeThemePermissionsResponse & __MetadataBearer;
+export interface DescribeThemePermissionsCommandInput extends DescribeThemePermissionsRequest {}
+export interface DescribeThemePermissionsCommandOutput extends DescribeThemePermissionsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the read and write permissions for a theme.</p>

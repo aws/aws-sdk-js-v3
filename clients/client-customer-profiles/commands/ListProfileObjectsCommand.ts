@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListProfileObjectsCommandInput = ListProfileObjectsRequest;
-export type ListProfileObjectsCommandOutput = ListProfileObjectsResponse & __MetadataBearer;
+export interface ListProfileObjectsCommandInput extends ListProfileObjectsRequest {}
+export interface ListProfileObjectsCommandOutput extends ListProfileObjectsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of objects associated with a profile of a given ProfileObjectType.</p>

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetPlatformApplicationAttributesCommandInput = GetPlatformApplicationAttributesInput;
-export type GetPlatformApplicationAttributesCommandOutput = GetPlatformApplicationAttributesResponse & __MetadataBearer;
+export interface GetPlatformApplicationAttributesCommandInput extends GetPlatformApplicationAttributesInput {}
+export interface GetPlatformApplicationAttributesCommandOutput
+  extends GetPlatformApplicationAttributesResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves the attributes of the platform application object for the supported push

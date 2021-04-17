@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListMetricsCommandInput = ListMetricsInput;
-export type ListMetricsCommandOutput = ListMetricsOutput & __MetadataBearer;
+export interface ListMetricsCommandInput extends ListMetricsInput {}
+export interface ListMetricsCommandOutput extends ListMetricsOutput, __MetadataBearer {}
 
 /**
  * <p>List the specified metrics. You can use the returned metrics with

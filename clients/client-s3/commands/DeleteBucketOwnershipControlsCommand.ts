@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteBucketOwnershipControlsCommandInput = DeleteBucketOwnershipControlsRequest;
-export type DeleteBucketOwnershipControlsCommandOutput = __MetadataBearer;
+export interface DeleteBucketOwnershipControlsCommandInput extends DeleteBucketOwnershipControlsRequest {}
+export interface DeleteBucketOwnershipControlsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes <code>OwnershipControls</code> for an Amazon S3 bucket. To use this operation, you

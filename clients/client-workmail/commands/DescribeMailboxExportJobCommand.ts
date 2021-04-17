@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeMailboxExportJobCommandInput = DescribeMailboxExportJobRequest;
-export type DescribeMailboxExportJobCommandOutput = DescribeMailboxExportJobResponse & __MetadataBearer;
+export interface DescribeMailboxExportJobCommandInput extends DescribeMailboxExportJobRequest {}
+export interface DescribeMailboxExportJobCommandOutput extends DescribeMailboxExportJobResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the current status of a mailbox export job.</p>

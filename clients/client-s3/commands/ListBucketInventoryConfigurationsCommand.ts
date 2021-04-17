@@ -18,8 +18,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListBucketInventoryConfigurationsCommandInput = ListBucketInventoryConfigurationsRequest;
-export type ListBucketInventoryConfigurationsCommandOutput = ListBucketInventoryConfigurationsOutput & __MetadataBearer;
+export interface ListBucketInventoryConfigurationsCommandInput extends ListBucketInventoryConfigurationsRequest {}
+export interface ListBucketInventoryConfigurationsCommandOutput
+  extends ListBucketInventoryConfigurationsOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Returns a list of inventory configurations for the bucket. You can have up to 1,000

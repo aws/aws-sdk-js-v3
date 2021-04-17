@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutSkillAuthorizationCommandInput = PutSkillAuthorizationRequest;
-export type PutSkillAuthorizationCommandOutput = PutSkillAuthorizationResponse & __MetadataBearer;
+export interface PutSkillAuthorizationCommandInput extends PutSkillAuthorizationRequest {}
+export interface PutSkillAuthorizationCommandOutput extends PutSkillAuthorizationResponse, __MetadataBearer {}
 
 /**
  * <p>Links a user's account to a third-party skill provider. If this API operation is

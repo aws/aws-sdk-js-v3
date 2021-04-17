@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeBackupCommandInput = DescribeBackupInput;
-export type DescribeBackupCommandOutput = DescribeBackupOutput & __MetadataBearer;
+export interface DescribeBackupCommandInput extends DescribeBackupInput {}
+export interface DescribeBackupCommandOutput extends DescribeBackupOutput, __MetadataBearer {}
 
 /**
  * <p>Describes an existing backup of a table.</p>

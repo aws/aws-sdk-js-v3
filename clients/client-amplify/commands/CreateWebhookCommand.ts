@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateWebhookCommandInput = CreateWebhookRequest;
-export type CreateWebhookCommandOutput = CreateWebhookResult & __MetadataBearer;
+export interface CreateWebhookCommandInput extends CreateWebhookRequest {}
+export interface CreateWebhookCommandOutput extends CreateWebhookResult, __MetadataBearer {}
 
 /**
  * <p> Creates a new webhook on an Amplify app. </p>

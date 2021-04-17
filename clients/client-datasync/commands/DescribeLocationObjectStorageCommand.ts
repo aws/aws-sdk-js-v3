@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeLocationObjectStorageCommandInput = DescribeLocationObjectStorageRequest;
-export type DescribeLocationObjectStorageCommandOutput = DescribeLocationObjectStorageResponse & __MetadataBearer;
+export interface DescribeLocationObjectStorageCommandInput extends DescribeLocationObjectStorageRequest {}
+export interface DescribeLocationObjectStorageCommandOutput
+  extends DescribeLocationObjectStorageResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns metadata about a self-managed object storage server location. For more information

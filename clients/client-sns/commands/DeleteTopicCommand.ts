@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteTopicCommandInput = DeleteTopicInput;
-export type DeleteTopicCommandOutput = __MetadataBearer;
+export interface DeleteTopicCommandInput extends DeleteTopicInput {}
+export interface DeleteTopicCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a topic and all its subscriptions. Deleting a topic might prevent some

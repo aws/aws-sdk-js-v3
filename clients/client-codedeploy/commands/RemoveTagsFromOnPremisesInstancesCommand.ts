@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RemoveTagsFromOnPremisesInstancesCommandInput = RemoveTagsFromOnPremisesInstancesInput;
-export type RemoveTagsFromOnPremisesInstancesCommandOutput = __MetadataBearer;
+export interface RemoveTagsFromOnPremisesInstancesCommandInput extends RemoveTagsFromOnPremisesInstancesInput {}
+export interface RemoveTagsFromOnPremisesInstancesCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes one or more tags from one or more on-premises instances.</p>

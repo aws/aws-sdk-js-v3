@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBucketLocationCommandInput = GetBucketLocationRequest;
-export type GetBucketLocationCommandOutput = GetBucketLocationOutput & __MetadataBearer;
+export interface GetBucketLocationCommandInput extends GetBucketLocationRequest {}
+export interface GetBucketLocationCommandOutput extends GetBucketLocationOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the Region the bucket resides in. You set the bucket's Region using the

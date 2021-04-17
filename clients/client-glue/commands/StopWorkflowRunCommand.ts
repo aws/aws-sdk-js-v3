@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopWorkflowRunCommandInput = StopWorkflowRunRequest;
-export type StopWorkflowRunCommandOutput = StopWorkflowRunResponse & __MetadataBearer;
+export interface StopWorkflowRunCommandInput extends StopWorkflowRunRequest {}
+export interface StopWorkflowRunCommandOutput extends StopWorkflowRunResponse, __MetadataBearer {}
 
 /**
  * <p>Stops the execution of the specified workflow run.</p>

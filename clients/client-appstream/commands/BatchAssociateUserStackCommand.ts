@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchAssociateUserStackCommandInput = BatchAssociateUserStackRequest;
-export type BatchAssociateUserStackCommandOutput = BatchAssociateUserStackResult & __MetadataBearer;
+export interface BatchAssociateUserStackCommandInput extends BatchAssociateUserStackRequest {}
+export interface BatchAssociateUserStackCommandOutput extends BatchAssociateUserStackResult, __MetadataBearer {}
 
 /**
  * <p>Associates the specified users with the specified stacks. Users in a user pool cannot be assigned to stacks with fleets that are joined to an Active Directory domain.</p>

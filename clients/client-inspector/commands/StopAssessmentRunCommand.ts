@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopAssessmentRunCommandInput = StopAssessmentRunRequest;
-export type StopAssessmentRunCommandOutput = __MetadataBearer;
+export interface StopAssessmentRunCommandInput extends StopAssessmentRunRequest {}
+export interface StopAssessmentRunCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Stops the assessment run that is specified by the ARN of the assessment

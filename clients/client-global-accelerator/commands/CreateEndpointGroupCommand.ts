@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateEndpointGroupCommandInput = CreateEndpointGroupRequest;
-export type CreateEndpointGroupCommandOutput = CreateEndpointGroupResponse & __MetadataBearer;
+export interface CreateEndpointGroupCommandInput extends CreateEndpointGroupRequest {}
+export interface CreateEndpointGroupCommandOutput extends CreateEndpointGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Create an endpoint group for the specified listener. An endpoint group is a collection of endpoints in one AWS

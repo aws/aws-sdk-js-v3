@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateDevicePoolCommandInput = UpdateDevicePoolRequest;
-export type UpdateDevicePoolCommandOutput = UpdateDevicePoolResult & __MetadataBearer;
+export interface UpdateDevicePoolCommandInput extends UpdateDevicePoolRequest {}
+export interface UpdateDevicePoolCommandOutput extends UpdateDevicePoolResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the name, description, and rules in a device pool given the attributes and

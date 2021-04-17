@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyAquaConfigurationCommandInput = ModifyAquaInputMessage;
-export type ModifyAquaConfigurationCommandOutput = ModifyAquaOutputMessage & __MetadataBearer;
+export interface ModifyAquaConfigurationCommandInput extends ModifyAquaInputMessage {}
+export interface ModifyAquaConfigurationCommandOutput extends ModifyAquaOutputMessage, __MetadataBearer {}
 
 /**
  * <p>Modifies whether a cluster can use AQUA (Advanced Query Accelerator). </p>

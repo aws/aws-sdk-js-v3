@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDistributionsByKeyGroupCommandInput = ListDistributionsByKeyGroupRequest;
-export type ListDistributionsByKeyGroupCommandOutput = ListDistributionsByKeyGroupResult & __MetadataBearer;
+export interface ListDistributionsByKeyGroupCommandInput extends ListDistributionsByKeyGroupRequest {}
+export interface ListDistributionsByKeyGroupCommandOutput extends ListDistributionsByKeyGroupResult, __MetadataBearer {}
 
 /**
  * <p>Gets a list of distribution IDs for distributions that have a cache behavior that references

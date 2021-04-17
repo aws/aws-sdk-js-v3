@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddApplicationVpcConfigurationCommandInput = AddApplicationVpcConfigurationRequest;
-export type AddApplicationVpcConfigurationCommandOutput = AddApplicationVpcConfigurationResponse & __MetadataBearer;
+export interface AddApplicationVpcConfigurationCommandInput extends AddApplicationVpcConfigurationRequest {}
+export interface AddApplicationVpcConfigurationCommandOutput
+  extends AddApplicationVpcConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Adds a Virtual Private Cloud (VPC) configuration to the application. Applications can use VPCs to store

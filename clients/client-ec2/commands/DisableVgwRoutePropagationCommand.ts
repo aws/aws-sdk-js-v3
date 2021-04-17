@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisableVgwRoutePropagationCommandInput = DisableVgwRoutePropagationRequest;
-export type DisableVgwRoutePropagationCommandOutput = __MetadataBearer;
+export interface DisableVgwRoutePropagationCommandInput extends DisableVgwRoutePropagationRequest {}
+export interface DisableVgwRoutePropagationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Disables a virtual private gateway (VGW) from propagating routes to a specified route table of a VPC.</p>

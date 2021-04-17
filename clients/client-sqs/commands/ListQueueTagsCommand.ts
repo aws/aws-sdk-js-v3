@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListQueueTagsCommandInput = ListQueueTagsRequest;
-export type ListQueueTagsCommandOutput = ListQueueTagsResult & __MetadataBearer;
+export interface ListQueueTagsCommandInput extends ListQueueTagsRequest {}
+export interface ListQueueTagsCommandOutput extends ListQueueTagsResult, __MetadataBearer {}
 
 /**
  * <p>List all cost allocation tags added to the specified Amazon SQS queue. For an overview, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html">Tagging Your Amazon SQS Queues</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>

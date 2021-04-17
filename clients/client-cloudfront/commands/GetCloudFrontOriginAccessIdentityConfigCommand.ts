@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetCloudFrontOriginAccessIdentityConfigCommandInput = GetCloudFrontOriginAccessIdentityConfigRequest;
-export type GetCloudFrontOriginAccessIdentityConfigCommandOutput = GetCloudFrontOriginAccessIdentityConfigResult &
-  __MetadataBearer;
+export interface GetCloudFrontOriginAccessIdentityConfigCommandInput
+  extends GetCloudFrontOriginAccessIdentityConfigRequest {}
+export interface GetCloudFrontOriginAccessIdentityConfigCommandOutput
+  extends GetCloudFrontOriginAccessIdentityConfigResult,
+    __MetadataBearer {}
 
 /**
  * <p>Get the configuration information about an origin access identity. </p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListSatellitesCommandInput = ListSatellitesRequest;
-export type ListSatellitesCommandOutput = ListSatellitesResponse & __MetadataBearer;
+export interface ListSatellitesCommandInput extends ListSatellitesRequest {}
+export interface ListSatellitesCommandOutput extends ListSatellitesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of satellites.</p>

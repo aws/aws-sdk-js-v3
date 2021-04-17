@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeExportTasksCommandInput = DescribeExportTasksRequest;
-export type DescribeExportTasksCommandOutput = DescribeExportTasksResponse & __MetadataBearer;
+export interface DescribeExportTasksCommandInput extends DescribeExportTasksRequest {}
+export interface DescribeExportTasksCommandOutput extends DescribeExportTasksResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieve status of one or more export tasks. You can retrieve the status of up to 100

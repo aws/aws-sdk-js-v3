@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisableKeyCommandInput = DisableKeyRequest;
-export type DisableKeyCommandOutput = __MetadataBearer;
+export interface DisableKeyCommandInput extends DisableKeyRequest {}
+export interface DisableKeyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Sets the state of a customer master key (CMK) to disabled. This change temporarily

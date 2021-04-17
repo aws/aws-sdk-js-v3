@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetMapSpritesCommandInput = GetMapSpritesRequest;
-export type GetMapSpritesCommandOutput = GetMapSpritesResponse & __MetadataBearer;
+export interface GetMapSpritesCommandInput extends GetMapSpritesRequest {}
+export interface GetMapSpritesCommandOutput extends GetMapSpritesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the sprite sheet corresponding to a map resource. The sprite sheet is a PNG

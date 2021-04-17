@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateProactiveEngagementDetailsCommandInput = AssociateProactiveEngagementDetailsRequest;
-export type AssociateProactiveEngagementDetailsCommandOutput = AssociateProactiveEngagementDetailsResponse &
-  __MetadataBearer;
+export interface AssociateProactiveEngagementDetailsCommandInput extends AssociateProactiveEngagementDetailsRequest {}
+export interface AssociateProactiveEngagementDetailsCommandOutput
+  extends AssociateProactiveEngagementDetailsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Initializes proactive engagement and sets the list of contacts for the DDoS Response Team (DRT) to use. You must provide at least one phone number in the emergency contact list. </p>

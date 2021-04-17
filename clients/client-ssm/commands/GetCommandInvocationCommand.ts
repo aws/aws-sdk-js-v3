@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetCommandInvocationCommandInput = GetCommandInvocationRequest;
-export type GetCommandInvocationCommandOutput = GetCommandInvocationResult & __MetadataBearer;
+export interface GetCommandInvocationCommandInput extends GetCommandInvocationRequest {}
+export interface GetCommandInvocationCommandOutput extends GetCommandInvocationResult, __MetadataBearer {}
 
 /**
  * <p>Returns detailed information about command execution for an invocation or plugin.</p>

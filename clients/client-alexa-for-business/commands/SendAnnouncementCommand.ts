@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SendAnnouncementCommandInput = SendAnnouncementRequest;
-export type SendAnnouncementCommandOutput = SendAnnouncementResponse & __MetadataBearer;
+export interface SendAnnouncementCommandInput extends SendAnnouncementRequest {}
+export interface SendAnnouncementCommandOutput extends SendAnnouncementResponse, __MetadataBearer {}
 
 /**
  * <p>Triggers an asynchronous flow to send text, SSML, or audio announcements to rooms that

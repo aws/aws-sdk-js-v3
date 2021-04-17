@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeUsersCommandInput = DescribeUsersMessage;
-export type DescribeUsersCommandOutput = DescribeUsersResult & __MetadataBearer;
+export interface DescribeUsersCommandInput extends DescribeUsersMessage {}
+export interface DescribeUsersCommandOutput extends DescribeUsersResult, __MetadataBearer {}
 
 /**
  * <p>Returns a list of users.</p>

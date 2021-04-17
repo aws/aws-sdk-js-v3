@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListChildrenCommandInput = ListChildrenRequest;
-export type ListChildrenCommandOutput = ListChildrenResponse & __MetadataBearer;
+export interface ListChildrenCommandInput extends ListChildrenRequest {}
+export interface ListChildrenCommandOutput extends ListChildrenResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all of the organizational units (OUs) or accounts that are contained in the

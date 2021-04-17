@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CopyDBClusterSnapshotCommandInput = CopyDBClusterSnapshotMessage;
-export type CopyDBClusterSnapshotCommandOutput = CopyDBClusterSnapshotResult & __MetadataBearer;
+export interface CopyDBClusterSnapshotCommandInput extends CopyDBClusterSnapshotMessage {}
+export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapshotResult, __MetadataBearer {}
 
 /**
  * <p>Copies a snapshot of a DB cluster.</p>

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateSkillWithSkillGroupCommandInput = AssociateSkillWithSkillGroupRequest;
-export type AssociateSkillWithSkillGroupCommandOutput = AssociateSkillWithSkillGroupResponse & __MetadataBearer;
+export interface AssociateSkillWithSkillGroupCommandInput extends AssociateSkillWithSkillGroupRequest {}
+export interface AssociateSkillWithSkillGroupCommandOutput
+  extends AssociateSkillWithSkillGroupResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Associates a skill with a skill group.</p>

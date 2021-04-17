@@ -24,9 +24,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListRealtimeContactAnalysisSegmentsCommandInput = ListRealtimeContactAnalysisSegmentsRequest;
-export type ListRealtimeContactAnalysisSegmentsCommandOutput = ListRealtimeContactAnalysisSegmentsResponse &
-  __MetadataBearer;
+export interface ListRealtimeContactAnalysisSegmentsCommandInput extends ListRealtimeContactAnalysisSegmentsRequest {}
+export interface ListRealtimeContactAnalysisSegmentsCommandOutput
+  extends ListRealtimeContactAnalysisSegmentsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Provides a list of analysis segments for a real-time analysis session.</p>

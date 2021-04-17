@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeEventsCommandInput = DescribeEventsMessage;
-export type DescribeEventsCommandOutput = EventsMessage & __MetadataBearer;
+export interface DescribeEventsCommandInput extends DescribeEventsMessage {}
+export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBearer {}
 
 /**
  * <p>Returns events related to DB instances, DB security groups, DB snapshots, and DB parameter

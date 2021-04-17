@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateSigninDelegateGroupsWithAccountCommandInput = AssociateSigninDelegateGroupsWithAccountRequest;
-export type AssociateSigninDelegateGroupsWithAccountCommandOutput = AssociateSigninDelegateGroupsWithAccountResponse &
-  __MetadataBearer;
+export interface AssociateSigninDelegateGroupsWithAccountCommandInput
+  extends AssociateSigninDelegateGroupsWithAccountRequest {}
+export interface AssociateSigninDelegateGroupsWithAccountCommandOutput
+  extends AssociateSigninDelegateGroupsWithAccountResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Associates the specified sign-in delegate groups with the specified Amazon Chime account.</p>

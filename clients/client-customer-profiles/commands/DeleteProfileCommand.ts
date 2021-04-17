@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteProfileCommandInput = DeleteProfileRequest;
-export type DeleteProfileCommandOutput = DeleteProfileResponse & __MetadataBearer;
+export interface DeleteProfileCommandInput extends DeleteProfileRequest {}
+export interface DeleteProfileCommandOutput extends DeleteProfileResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the standard customer profile and all data pertaining to the profile.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTrafficPoliciesCommandInput = ListTrafficPoliciesRequest;
-export type ListTrafficPoliciesCommandOutput = ListTrafficPoliciesResponse & __MetadataBearer;
+export interface ListTrafficPoliciesCommandInput extends ListTrafficPoliciesRequest {}
+export interface ListTrafficPoliciesCommandOutput extends ListTrafficPoliciesResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about the latest version for every traffic policy that is associated with the current AWS account.

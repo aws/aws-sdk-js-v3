@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeInstanceInformationCommandInput = DescribeInstanceInformationRequest;
-export type DescribeInstanceInformationCommandOutput = DescribeInstanceInformationResult & __MetadataBearer;
+export interface DescribeInstanceInformationCommandInput extends DescribeInstanceInformationRequest {}
+export interface DescribeInstanceInformationCommandOutput extends DescribeInstanceInformationResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more of your instances, including information about the operating system

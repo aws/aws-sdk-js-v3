@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListThesauriCommandInput = ListThesauriRequest;
-export type ListThesauriCommandOutput = ListThesauriResponse & __MetadataBearer;
+export interface ListThesauriCommandInput extends ListThesauriRequest {}
+export interface ListThesauriCommandOutput extends ListThesauriResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the Amazon Kendra thesauri associated with an index.</p>

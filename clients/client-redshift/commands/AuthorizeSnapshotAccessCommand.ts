@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AuthorizeSnapshotAccessCommandInput = AuthorizeSnapshotAccessMessage;
-export type AuthorizeSnapshotAccessCommandOutput = AuthorizeSnapshotAccessResult & __MetadataBearer;
+export interface AuthorizeSnapshotAccessCommandInput extends AuthorizeSnapshotAccessMessage {}
+export interface AuthorizeSnapshotAccessCommandOutput extends AuthorizeSnapshotAccessResult, __MetadataBearer {}
 
 /**
  * <p>Authorizes the specified AWS customer account to restore the specified

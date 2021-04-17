@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SearchGameSessionsCommandInput = SearchGameSessionsInput;
-export type SearchGameSessionsCommandOutput = SearchGameSessionsOutput & __MetadataBearer;
+export interface SearchGameSessionsCommandInput extends SearchGameSessionsInput {}
+export interface SearchGameSessionsCommandOutput extends SearchGameSessionsOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves all active game sessions that match a set of search criteria and sorts them

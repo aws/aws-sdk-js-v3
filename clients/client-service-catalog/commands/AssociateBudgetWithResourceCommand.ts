@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateBudgetWithResourceCommandInput = AssociateBudgetWithResourceInput;
-export type AssociateBudgetWithResourceCommandOutput = AssociateBudgetWithResourceOutput & __MetadataBearer;
+export interface AssociateBudgetWithResourceCommandInput extends AssociateBudgetWithResourceInput {}
+export interface AssociateBudgetWithResourceCommandOutput extends AssociateBudgetWithResourceOutput, __MetadataBearer {}
 
 /**
  * <p>Associates the specified budget with the specified resource.</p>

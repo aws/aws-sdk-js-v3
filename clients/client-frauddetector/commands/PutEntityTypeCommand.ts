@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutEntityTypeCommandInput = PutEntityTypeRequest;
-export type PutEntityTypeCommandOutput = PutEntityTypeResult & __MetadataBearer;
+export interface PutEntityTypeCommandInput extends PutEntityTypeRequest {}
+export interface PutEntityTypeCommandOutput extends PutEntityTypeResult, __MetadataBearer {}
 
 /**
  * <p>Creates or updates an entity type. An entity represents who is performing the event. As part of a fraud prediction, you pass the entity ID to indicate the specific entity who performed the event. An entity type classifies the entity. Example classifications include customer, merchant, or account.</p>

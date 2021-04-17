@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteQueryDefinitionCommandInput = DeleteQueryDefinitionRequest;
-export type DeleteQueryDefinitionCommandOutput = DeleteQueryDefinitionResponse & __MetadataBearer;
+export interface DeleteQueryDefinitionCommandInput extends DeleteQueryDefinitionRequest {}
+export interface DeleteQueryDefinitionCommandOutput extends DeleteQueryDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a saved CloudWatch Logs Insights query definition.

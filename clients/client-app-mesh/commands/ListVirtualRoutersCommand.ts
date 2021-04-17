@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListVirtualRoutersCommandInput = ListVirtualRoutersInput;
-export type ListVirtualRoutersCommandOutput = ListVirtualRoutersOutput & __MetadataBearer;
+export interface ListVirtualRoutersCommandInput extends ListVirtualRoutersInput {}
+export interface ListVirtualRoutersCommandOutput extends ListVirtualRoutersOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a list of existing virtual routers in a service mesh.</p>

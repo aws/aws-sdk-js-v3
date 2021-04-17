@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDocumentAnalysisCommandInput = GetDocumentAnalysisRequest;
-export type GetDocumentAnalysisCommandOutput = GetDocumentAnalysisResponse & __MetadataBearer;
+export interface GetDocumentAnalysisCommandInput extends GetDocumentAnalysisRequest {}
+export interface GetDocumentAnalysisCommandOutput extends GetDocumentAnalysisResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the results for an Amazon Textract asynchronous operation that analyzes text in a document.</p>

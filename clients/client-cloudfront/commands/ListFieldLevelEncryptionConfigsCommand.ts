@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListFieldLevelEncryptionConfigsCommandInput = ListFieldLevelEncryptionConfigsRequest;
-export type ListFieldLevelEncryptionConfigsCommandOutput = ListFieldLevelEncryptionConfigsResult & __MetadataBearer;
+export interface ListFieldLevelEncryptionConfigsCommandInput extends ListFieldLevelEncryptionConfigsRequest {}
+export interface ListFieldLevelEncryptionConfigsCommandOutput
+  extends ListFieldLevelEncryptionConfigsResult,
+    __MetadataBearer {}
 
 /**
  * <p>List all field-level encryption configurations that have been created in CloudFront for this account.</p>

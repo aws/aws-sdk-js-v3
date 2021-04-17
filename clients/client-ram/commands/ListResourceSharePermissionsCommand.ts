@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListResourceSharePermissionsCommandInput = ListResourceSharePermissionsRequest;
-export type ListResourceSharePermissionsCommandOutput = ListResourceSharePermissionsResponse & __MetadataBearer;
+export interface ListResourceSharePermissionsCommandInput extends ListResourceSharePermissionsRequest {}
+export interface ListResourceSharePermissionsCommandOutput
+  extends ListResourceSharePermissionsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Lists the AWS RAM permissions that are associated with a resource share.</p>

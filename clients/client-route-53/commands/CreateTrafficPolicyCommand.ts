@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateTrafficPolicyCommandInput = CreateTrafficPolicyRequest;
-export type CreateTrafficPolicyCommandOutput = CreateTrafficPolicyResponse & __MetadataBearer;
+export interface CreateTrafficPolicyCommandInput extends CreateTrafficPolicyRequest {}
+export interface CreateTrafficPolicyCommandOutput extends CreateTrafficPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a traffic policy, which you use to create multiple DNS resource record sets for one domain name (such as example.com) or

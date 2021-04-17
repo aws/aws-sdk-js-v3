@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateCanaryCommandInput = UpdateCanaryRequest;
-export type UpdateCanaryCommandOutput = UpdateCanaryResponse & __MetadataBearer;
+export interface UpdateCanaryCommandInput extends UpdateCanaryRequest {}
+export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __MetadataBearer {}
 
 /**
  * <p>Use this operation to change the settings of a canary that has

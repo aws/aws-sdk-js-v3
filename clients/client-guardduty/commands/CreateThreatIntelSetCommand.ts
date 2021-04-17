@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateThreatIntelSetCommandInput = CreateThreatIntelSetRequest;
-export type CreateThreatIntelSetCommandOutput = CreateThreatIntelSetResponse & __MetadataBearer;
+export interface CreateThreatIntelSetCommandInput extends CreateThreatIntelSetRequest {}
+export interface CreateThreatIntelSetCommandOutput extends CreateThreatIntelSetResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new ThreatIntelSet. ThreatIntelSets consist of known malicious IP addresses.

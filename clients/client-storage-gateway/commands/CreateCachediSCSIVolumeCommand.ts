@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateCachediSCSIVolumeCommandInput = CreateCachediSCSIVolumeInput;
-export type CreateCachediSCSIVolumeCommandOutput = CreateCachediSCSIVolumeOutput & __MetadataBearer;
+export interface CreateCachediSCSIVolumeCommandInput extends CreateCachediSCSIVolumeInput {}
+export interface CreateCachediSCSIVolumeCommandOutput extends CreateCachediSCSIVolumeOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a cached volume on a specified cached volume gateway. This operation is only

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateOrganizationConfigurationCommandInput = UpdateOrganizationConfigurationRequest;
-export type UpdateOrganizationConfigurationCommandOutput = UpdateOrganizationConfigurationResponse & __MetadataBearer;
+export interface UpdateOrganizationConfigurationCommandInput extends UpdateOrganizationConfigurationRequest {}
+export interface UpdateOrganizationConfigurationCommandOutput
+  extends UpdateOrganizationConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Updates the Amazon Macie configuration settings for an AWS organization.</p>

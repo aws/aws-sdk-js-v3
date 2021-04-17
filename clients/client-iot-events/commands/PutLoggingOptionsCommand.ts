@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutLoggingOptionsCommandInput = PutLoggingOptionsRequest;
-export type PutLoggingOptionsCommandOutput = __MetadataBearer;
+export interface PutLoggingOptionsCommandInput extends PutLoggingOptionsRequest {}
+export interface PutLoggingOptionsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Sets or updates the AWS IoT Events logging options.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateBatchInferenceJobCommandInput = CreateBatchInferenceJobRequest;
-export type CreateBatchInferenceJobCommandOutput = CreateBatchInferenceJobResponse & __MetadataBearer;
+export interface CreateBatchInferenceJobCommandInput extends CreateBatchInferenceJobRequest {}
+export interface CreateBatchInferenceJobCommandOutput extends CreateBatchInferenceJobResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a batch inference job. The operation can handle up to 50 million records and the

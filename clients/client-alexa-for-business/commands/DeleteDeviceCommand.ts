@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDeviceCommandInput = DeleteDeviceRequest;
-export type DeleteDeviceCommandOutput = DeleteDeviceResponse & __MetadataBearer;
+export interface DeleteDeviceCommandInput extends DeleteDeviceRequest {}
+export interface DeleteDeviceCommandOutput extends DeleteDeviceResponse, __MetadataBearer {}
 
 /**
  * <p>Removes a device from Alexa For Business.</p>

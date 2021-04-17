@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type EnableSharingWithAwsOrganizationCommandInput = EnableSharingWithAwsOrganizationRequest;
-export type EnableSharingWithAwsOrganizationCommandOutput = EnableSharingWithAwsOrganizationResponse & __MetadataBearer;
+export interface EnableSharingWithAwsOrganizationCommandInput extends EnableSharingWithAwsOrganizationRequest {}
+export interface EnableSharingWithAwsOrganizationCommandOutput
+  extends EnableSharingWithAwsOrganizationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Enables resource sharing within your AWS Organization.</p>

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDeliverabilityTestReportCommandInput = CreateDeliverabilityTestReportRequest;
-export type CreateDeliverabilityTestReportCommandOutput = CreateDeliverabilityTestReportResponse & __MetadataBearer;
+export interface CreateDeliverabilityTestReportCommandInput extends CreateDeliverabilityTestReportRequest {}
+export interface CreateDeliverabilityTestReportCommandOutput
+  extends CreateDeliverabilityTestReportResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Create a new predictive inbox placement test. Predictive inbox placement tests can help you predict how your messages will be handled

@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateSubnetCommandInput = CreateSubnetRequest;
-export type CreateSubnetCommandOutput = CreateSubnetResult & __MetadataBearer;
+export interface CreateSubnetCommandInput extends CreateSubnetRequest {}
+export interface CreateSubnetCommandOutput extends CreateSubnetResult, __MetadataBearer {}
 
 /**
  * <p>Creates a subnet in a specified VPC.</p>

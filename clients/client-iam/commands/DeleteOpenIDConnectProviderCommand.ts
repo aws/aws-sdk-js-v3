@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteOpenIDConnectProviderCommandInput = DeleteOpenIDConnectProviderRequest;
-export type DeleteOpenIDConnectProviderCommandOutput = __MetadataBearer;
+export interface DeleteOpenIDConnectProviderCommandInput extends DeleteOpenIDConnectProviderRequest {}
+export interface DeleteOpenIDConnectProviderCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes an OpenID Connect identity provider (IdP) resource object in IAM.</p>

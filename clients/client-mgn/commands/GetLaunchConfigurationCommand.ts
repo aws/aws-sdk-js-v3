@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetLaunchConfigurationCommandInput = GetLaunchConfigurationRequest;
-export type GetLaunchConfigurationCommandOutput = LaunchConfiguration & __MetadataBearer;
+export interface GetLaunchConfigurationCommandInput extends GetLaunchConfigurationRequest {}
+export interface GetLaunchConfigurationCommandOutput extends LaunchConfiguration, __MetadataBearer {}
 
 /**
  * <p>Lists all LaunchConfigurations available, filtered by Source Server IDs.</p>

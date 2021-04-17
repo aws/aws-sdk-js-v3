@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetOfferingStatusCommandInput = GetOfferingStatusRequest;
-export type GetOfferingStatusCommandOutput = GetOfferingStatusResult & __MetadataBearer;
+export interface GetOfferingStatusCommandInput extends GetOfferingStatusRequest {}
+export interface GetOfferingStatusCommandOutput extends GetOfferingStatusResult, __MetadataBearer {}
 
 /**
  * <p>Gets the current status and future status of all offerings purchased by an AWS account. The response

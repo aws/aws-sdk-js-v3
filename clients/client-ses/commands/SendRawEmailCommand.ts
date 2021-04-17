@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SendRawEmailCommandInput = SendRawEmailRequest;
-export type SendRawEmailCommandOutput = SendRawEmailResponse & __MetadataBearer;
+export interface SendRawEmailCommandInput extends SendRawEmailRequest {}
+export interface SendRawEmailCommandOutput extends SendRawEmailResponse, __MetadataBearer {}
 
 /**
  * <p>Composes an email message and immediately queues it for sending.</p>

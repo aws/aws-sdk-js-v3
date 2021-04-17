@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateProgramCommandInput = CreateProgramRequest;
-export type CreateProgramCommandOutput = CreateProgramResponse & __MetadataBearer;
+export interface CreateProgramCommandInput extends CreateProgramRequest {}
+export interface CreateProgramCommandOutput extends CreateProgramResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a program.</p>

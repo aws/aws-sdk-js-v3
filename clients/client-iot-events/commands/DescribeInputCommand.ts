@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeInputCommandInput = DescribeInputRequest;
-export type DescribeInputCommandOutput = DescribeInputResponse & __MetadataBearer;
+export interface DescribeInputCommandInput extends DescribeInputRequest {}
+export interface DescribeInputCommandOutput extends DescribeInputResponse, __MetadataBearer {}
 
 /**
  * <p>Describes an input.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddFlowVpcInterfacesCommandInput = AddFlowVpcInterfacesRequest;
-export type AddFlowVpcInterfacesCommandOutput = AddFlowVpcInterfacesResponse & __MetadataBearer;
+export interface AddFlowVpcInterfacesCommandInput extends AddFlowVpcInterfacesRequest {}
+export interface AddFlowVpcInterfacesCommandOutput extends AddFlowVpcInterfacesResponse, __MetadataBearer {}
 
 /**
  * Adds VPC interfaces to flow

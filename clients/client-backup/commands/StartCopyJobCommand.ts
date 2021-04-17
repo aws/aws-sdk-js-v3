@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartCopyJobCommandInput = StartCopyJobInput;
-export type StartCopyJobCommandOutput = StartCopyJobOutput & __MetadataBearer;
+export interface StartCopyJobCommandInput extends StartCopyJobInput {}
+export interface StartCopyJobCommandOutput extends StartCopyJobOutput, __MetadataBearer {}
 
 /**
  * <p>Starts a job to create a one-time copy of the specified resource.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CountPendingDecisionTasksCommandInput = CountPendingDecisionTasksInput;
-export type CountPendingDecisionTasksCommandOutput = PendingTaskCount & __MetadataBearer;
+export interface CountPendingDecisionTasksCommandInput extends CountPendingDecisionTasksInput {}
+export interface CountPendingDecisionTasksCommandOutput extends PendingTaskCount, __MetadataBearer {}
 
 /**
  * <p>Returns the estimated number of decision tasks in the specified task list. The count

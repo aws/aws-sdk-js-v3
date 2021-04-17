@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListWebsiteAuthorizationProvidersCommandInput = ListWebsiteAuthorizationProvidersRequest;
-export type ListWebsiteAuthorizationProvidersCommandOutput = ListWebsiteAuthorizationProvidersResponse &
-  __MetadataBearer;
+export interface ListWebsiteAuthorizationProvidersCommandInput extends ListWebsiteAuthorizationProvidersRequest {}
+export interface ListWebsiteAuthorizationProvidersCommandOutput
+  extends ListWebsiteAuthorizationProvidersResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of website authorization providers associated with a specified fleet.</p>

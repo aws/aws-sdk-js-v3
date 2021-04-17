@@ -18,8 +18,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetReusableDelegationSetLimitCommandInput = GetReusableDelegationSetLimitRequest;
-export type GetReusableDelegationSetLimitCommandOutput = GetReusableDelegationSetLimitResponse & __MetadataBearer;
+export interface GetReusableDelegationSetLimitCommandInput extends GetReusableDelegationSetLimitRequest {}
+export interface GetReusableDelegationSetLimitCommandOutput
+  extends GetReusableDelegationSetLimitResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets the maximum number of hosted zones that you can associate with the specified reusable delegation set.</p>

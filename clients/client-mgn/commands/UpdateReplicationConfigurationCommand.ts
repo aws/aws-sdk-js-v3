@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateReplicationConfigurationCommandInput = UpdateReplicationConfigurationRequest;
-export type UpdateReplicationConfigurationCommandOutput = ReplicationConfiguration & __MetadataBearer;
+export interface UpdateReplicationConfigurationCommandInput extends UpdateReplicationConfigurationRequest {}
+export interface UpdateReplicationConfigurationCommandOutput extends ReplicationConfiguration, __MetadataBearer {}
 
 /**
  * <p>Allows you to update multiple ReplicationConfigurations by Source Server ID.</p>

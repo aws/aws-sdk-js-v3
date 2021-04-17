@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetPullRequestOverrideStateCommandInput = GetPullRequestOverrideStateInput;
-export type GetPullRequestOverrideStateCommandOutput = GetPullRequestOverrideStateOutput & __MetadataBearer;
+export interface GetPullRequestOverrideStateCommandInput extends GetPullRequestOverrideStateInput {}
+export interface GetPullRequestOverrideStateCommandOutput extends GetPullRequestOverrideStateOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about whether approval rules have been set aside (overridden) for a

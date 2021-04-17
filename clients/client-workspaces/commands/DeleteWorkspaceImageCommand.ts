@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteWorkspaceImageCommandInput = DeleteWorkspaceImageRequest;
-export type DeleteWorkspaceImageCommandOutput = DeleteWorkspaceImageResult & __MetadataBearer;
+export interface DeleteWorkspaceImageCommandInput extends DeleteWorkspaceImageRequest {}
+export interface DeleteWorkspaceImageCommandOutput extends DeleteWorkspaceImageResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified image from your account. To delete an image, you must first delete

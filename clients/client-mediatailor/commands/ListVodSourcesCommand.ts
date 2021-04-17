@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListVodSourcesCommandInput = ListVodSourcesRequest;
-export type ListVodSourcesCommandOutput = ListVodSourcesResponse & __MetadataBearer;
+export interface ListVodSourcesCommandInput extends ListVodSourcesRequest {}
+export interface ListVodSourcesCommandOutput extends ListVodSourcesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all the VOD sources in a source location.</p>

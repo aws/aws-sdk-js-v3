@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateUsageReportSubscriptionCommandInput = CreateUsageReportSubscriptionRequest;
-export type CreateUsageReportSubscriptionCommandOutput = CreateUsageReportSubscriptionResult & __MetadataBearer;
+export interface CreateUsageReportSubscriptionCommandInput extends CreateUsageReportSubscriptionRequest {}
+export interface CreateUsageReportSubscriptionCommandOutput
+  extends CreateUsageReportSubscriptionResult,
+    __MetadataBearer {}
 
 /**
  * <p>Creates a usage report subscription. Usage reports are generated daily.</p>

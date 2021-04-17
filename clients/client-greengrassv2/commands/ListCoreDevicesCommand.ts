@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListCoreDevicesCommandInput = ListCoreDevicesRequest;
-export type ListCoreDevicesCommandOutput = ListCoreDevicesResponse & __MetadataBearer;
+export interface ListCoreDevicesCommandInput extends ListCoreDevicesRequest {}
+export interface ListCoreDevicesCommandOutput extends ListCoreDevicesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a paginated list of AWS IoT Greengrass core devices.</p>

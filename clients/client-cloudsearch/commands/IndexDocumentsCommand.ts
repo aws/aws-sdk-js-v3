@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type IndexDocumentsCommandInput = IndexDocumentsRequest;
-export type IndexDocumentsCommandOutput = IndexDocumentsResponse & __MetadataBearer;
+export interface IndexDocumentsCommandInput extends IndexDocumentsRequest {}
+export interface IndexDocumentsCommandOutput extends IndexDocumentsResponse, __MetadataBearer {}
 
 /**
  * <p>Tells the search domain to start indexing its documents using the latest indexing options. This operation must be invoked to activate options whose <a>OptionStatus</a> is  <code>RequiresIndexDocuments</code>.</p>

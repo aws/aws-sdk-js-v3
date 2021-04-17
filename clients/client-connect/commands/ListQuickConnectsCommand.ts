@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListQuickConnectsCommandInput = ListQuickConnectsRequest;
-export type ListQuickConnectsCommandOutput = ListQuickConnectsResponse & __MetadataBearer;
+export interface ListQuickConnectsCommandInput extends ListQuickConnectsRequest {}
+export interface ListQuickConnectsCommandOutput extends ListQuickConnectsResponse, __MetadataBearer {}
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>

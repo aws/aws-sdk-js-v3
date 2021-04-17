@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListInvitationsCommandInput = ListInvitationsInput;
-export type ListInvitationsCommandOutput = ListInvitationsOutput & __MetadataBearer;
+export interface ListInvitationsCommandInput extends ListInvitationsInput {}
+export interface ListInvitationsCommandOutput extends ListInvitationsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a list of all invitations for the current AWS account.</p>

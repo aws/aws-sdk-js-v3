@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteSAMLProviderCommandInput = DeleteSAMLProviderRequest;
-export type DeleteSAMLProviderCommandOutput = __MetadataBearer;
+export interface DeleteSAMLProviderCommandInput extends DeleteSAMLProviderRequest {}
+export interface DeleteSAMLProviderCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a SAML provider resource in IAM.</p>

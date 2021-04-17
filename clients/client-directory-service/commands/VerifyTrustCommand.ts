@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type VerifyTrustCommandInput = VerifyTrustRequest;
-export type VerifyTrustCommandOutput = VerifyTrustResult & __MetadataBearer;
+export interface VerifyTrustCommandInput extends VerifyTrustRequest {}
+export interface VerifyTrustCommandOutput extends VerifyTrustResult, __MetadataBearer {}
 
 /**
  * <p>AWS Directory Service for Microsoft Active Directory allows you to configure and verify trust relationships.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchPutDocumentCommandInput = BatchPutDocumentRequest;
-export type BatchPutDocumentCommandOutput = BatchPutDocumentResponse & __MetadataBearer;
+export interface BatchPutDocumentCommandInput extends BatchPutDocumentRequest {}
+export interface BatchPutDocumentCommandOutput extends BatchPutDocumentResponse, __MetadataBearer {}
 
 /**
  * <p>Adds one or more documents to an index.</p>

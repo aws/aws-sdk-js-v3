@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutObjectTaggingCommandInput = PutObjectTaggingRequest;
-export type PutObjectTaggingCommandOutput = PutObjectTaggingOutput & __MetadataBearer;
+export interface PutObjectTaggingCommandInput extends PutObjectTaggingRequest {}
+export interface PutObjectTaggingCommandOutput extends PutObjectTaggingOutput, __MetadataBearer {}
 
 /**
  * <p>Sets the supplied tag-set to an object that already exists in a bucket.</p>

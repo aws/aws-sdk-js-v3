@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteTargetCommandInput = DeleteTargetRequest;
-export type DeleteTargetCommandOutput = DeleteTargetResult & __MetadataBearer;
+export interface DeleteTargetCommandInput extends DeleteTargetRequest {}
+export interface DeleteTargetCommandOutput extends DeleteTargetResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a specified target for notifications.</p>

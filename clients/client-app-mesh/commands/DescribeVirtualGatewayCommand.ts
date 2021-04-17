@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeVirtualGatewayCommandInput = DescribeVirtualGatewayInput;
-export type DescribeVirtualGatewayCommandOutput = DescribeVirtualGatewayOutput & __MetadataBearer;
+export interface DescribeVirtualGatewayCommandInput extends DescribeVirtualGatewayInput {}
+export interface DescribeVirtualGatewayCommandOutput extends DescribeVirtualGatewayOutput, __MetadataBearer {}
 
 /**
  * <p>Describes an existing virtual gateway.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateFileSystemCommandInput = UpdateFileSystemRequest;
-export type UpdateFileSystemCommandOutput = FileSystemDescription & __MetadataBearer;
+export interface UpdateFileSystemCommandInput extends UpdateFileSystemRequest {}
+export interface UpdateFileSystemCommandOutput extends FileSystemDescription, __MetadataBearer {}
 
 /**
  * <p>Updates the throughput mode or the amount of provisioned throughput of an existing file

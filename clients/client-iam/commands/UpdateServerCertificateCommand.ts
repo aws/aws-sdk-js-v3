@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateServerCertificateCommandInput = UpdateServerCertificateRequest;
-export type UpdateServerCertificateCommandOutput = __MetadataBearer;
+export interface UpdateServerCertificateCommandInput extends UpdateServerCertificateRequest {}
+export interface UpdateServerCertificateCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates the name and/or the path of the specified server certificate stored in

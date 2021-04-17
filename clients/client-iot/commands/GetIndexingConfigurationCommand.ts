@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetIndexingConfigurationCommandInput = GetIndexingConfigurationRequest;
-export type GetIndexingConfigurationCommandOutput = GetIndexingConfigurationResponse & __MetadataBearer;
+export interface GetIndexingConfigurationCommandInput extends GetIndexingConfigurationRequest {}
+export interface GetIndexingConfigurationCommandOutput extends GetIndexingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the indexing configuration.</p>

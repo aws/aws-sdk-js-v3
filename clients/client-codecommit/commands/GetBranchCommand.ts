@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBranchCommandInput = GetBranchInput;
-export type GetBranchCommandOutput = GetBranchOutput & __MetadataBearer;
+export interface GetBranchCommandInput extends GetBranchInput {}
+export interface GetBranchCommandOutput extends GetBranchOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about a repository branch, including its name and the last commit ID.</p>

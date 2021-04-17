@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateBuildCommandInput = CreateBuildInput;
-export type CreateBuildCommandOutput = CreateBuildOutput & __MetadataBearer;
+export interface CreateBuildCommandInput extends CreateBuildInput {}
+export interface CreateBuildCommandOutput extends CreateBuildOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a new Amazon GameLift build resource for your game server binary files. Game server

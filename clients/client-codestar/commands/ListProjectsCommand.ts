@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListProjectsCommandInput = ListProjectsRequest;
-export type ListProjectsCommandOutput = ListProjectsResult & __MetadataBearer;
+export interface ListProjectsCommandInput extends ListProjectsRequest {}
+export interface ListProjectsCommandOutput extends ListProjectsResult, __MetadataBearer {}
 
 /**
  * <p>Lists all projects in AWS CodeStar associated with your AWS account.</p>

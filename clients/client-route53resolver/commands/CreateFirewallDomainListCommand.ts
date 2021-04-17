@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateFirewallDomainListCommandInput = CreateFirewallDomainListRequest;
-export type CreateFirewallDomainListCommandOutput = CreateFirewallDomainListResponse & __MetadataBearer;
+export interface CreateFirewallDomainListCommandInput extends CreateFirewallDomainListRequest {}
+export interface CreateFirewallDomainListCommandOutput extends CreateFirewallDomainListResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an empty firewall domain list for use in DNS Firewall rules. You can populate the domains for the new list with a file, using <a>ImportFirewallDomains</a>, or with domain strings, using <a>UpdateFirewallDomains</a>. </p>

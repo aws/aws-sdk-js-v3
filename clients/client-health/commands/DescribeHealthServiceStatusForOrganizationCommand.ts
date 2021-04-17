@@ -17,9 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeHealthServiceStatusForOrganizationCommandInput = {};
-export type DescribeHealthServiceStatusForOrganizationCommandOutput = DescribeHealthServiceStatusForOrganizationResponse &
-  __MetadataBearer;
+export interface DescribeHealthServiceStatusForOrganizationCommandInput {}
+export interface DescribeHealthServiceStatusForOrganizationCommandOutput
+  extends DescribeHealthServiceStatusForOrganizationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>This operation provides status information on enabling or disabling AWS Health to work

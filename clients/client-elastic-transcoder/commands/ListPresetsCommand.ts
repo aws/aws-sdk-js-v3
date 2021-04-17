@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPresetsCommandInput = ListPresetsRequest;
-export type ListPresetsCommandOutput = ListPresetsResponse & __MetadataBearer;
+export interface ListPresetsCommandInput extends ListPresetsRequest {}
+export interface ListPresetsCommandOutput extends ListPresetsResponse, __MetadataBearer {}
 
 /**
  * <p>The ListPresets operation gets a list of the default presets included with Elastic Transcoder and the presets that

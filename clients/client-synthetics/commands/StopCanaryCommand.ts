@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopCanaryCommandInput = StopCanaryRequest;
-export type StopCanaryCommandOutput = StopCanaryResponse & __MetadataBearer;
+export interface StopCanaryCommandInput extends StopCanaryRequest {}
+export interface StopCanaryCommandOutput extends StopCanaryResponse, __MetadataBearer {}
 
 /**
  * <p>Stops the canary to prevent all future runs. If the canary is currently running,

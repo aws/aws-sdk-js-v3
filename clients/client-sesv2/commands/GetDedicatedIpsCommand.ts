@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDedicatedIpsCommandInput = GetDedicatedIpsRequest;
-export type GetDedicatedIpsCommandOutput = GetDedicatedIpsResponse & __MetadataBearer;
+export interface GetDedicatedIpsCommandInput extends GetDedicatedIpsRequest {}
+export interface GetDedicatedIpsCommandOutput extends GetDedicatedIpsResponse, __MetadataBearer {}
 
 /**
  * <p>List the dedicated IP addresses that are associated with your AWS

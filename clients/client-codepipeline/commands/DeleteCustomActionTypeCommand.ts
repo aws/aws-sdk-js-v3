@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteCustomActionTypeCommandInput = DeleteCustomActionTypeInput;
-export type DeleteCustomActionTypeCommandOutput = __MetadataBearer;
+export interface DeleteCustomActionTypeCommandInput extends DeleteCustomActionTypeInput {}
+export interface DeleteCustomActionTypeCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Marks a custom action as deleted. <code>PollForJobs</code> for the custom action

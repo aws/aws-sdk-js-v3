@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartConfigRulesEvaluationCommandInput = StartConfigRulesEvaluationRequest;
-export type StartConfigRulesEvaluationCommandOutput = StartConfigRulesEvaluationResponse & __MetadataBearer;
+export interface StartConfigRulesEvaluationCommandInput extends StartConfigRulesEvaluationRequest {}
+export interface StartConfigRulesEvaluationCommandOutput extends StartConfigRulesEvaluationResponse, __MetadataBearer {}
 
 /**
  * <p>Runs an on-demand evaluation for the specified AWS Config rules

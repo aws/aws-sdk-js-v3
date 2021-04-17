@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTypeRegistrationsCommandInput = ListTypeRegistrationsInput;
-export type ListTypeRegistrationsCommandOutput = ListTypeRegistrationsOutput & __MetadataBearer;
+export interface ListTypeRegistrationsCommandInput extends ListTypeRegistrationsInput {}
+export interface ListTypeRegistrationsCommandOutput extends ListTypeRegistrationsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a list of registration tokens for the specified extension(s).</p>

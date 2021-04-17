@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAccountAttributesCommandInput = DescribeAccountAttributesRequest;
-export type DescribeAccountAttributesCommandOutput = DescribeAccountAttributesResult & __MetadataBearer;
+export interface DescribeAccountAttributesCommandInput extends DescribeAccountAttributesRequest {}
+export interface DescribeAccountAttributesCommandOutput extends DescribeAccountAttributesResult, __MetadataBearer {}
 
 /**
  * <p>Describes attributes of your AWS account. The following are the supported account attributes:</p>

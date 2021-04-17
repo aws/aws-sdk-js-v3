@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeComputeEnvironmentsCommandInput = DescribeComputeEnvironmentsRequest;
-export type DescribeComputeEnvironmentsCommandOutput = DescribeComputeEnvironmentsResponse & __MetadataBearer;
+export interface DescribeComputeEnvironmentsCommandInput extends DescribeComputeEnvironmentsRequest {}
+export interface DescribeComputeEnvironmentsCommandOutput
+  extends DescribeComputeEnvironmentsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Describes one or more of your compute environments.</p>

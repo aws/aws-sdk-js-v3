@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeregisterVolumeCommandInput = DeregisterVolumeRequest;
-export type DeregisterVolumeCommandOutput = __MetadataBearer;
+export interface DeregisterVolumeCommandInput extends DeregisterVolumeRequest {}
+export interface DeregisterVolumeCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deregisters an Amazon EBS volume. The volume can then be registered by another stack. For more

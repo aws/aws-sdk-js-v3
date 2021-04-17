@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDeploymentCommandInput = CreateDeploymentRequest;
-export type CreateDeploymentCommandOutput = CreateDeploymentResponse & __MetadataBearer;
+export interface CreateDeploymentCommandInput extends CreateDeploymentRequest {}
+export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a continuous deployment for a target, which is a AWS IoT Greengrass core device or group of core

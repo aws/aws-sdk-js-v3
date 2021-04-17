@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartNotebookInstanceCommandInput = StartNotebookInstanceInput;
-export type StartNotebookInstanceCommandOutput = __MetadataBearer;
+export interface StartNotebookInstanceCommandInput extends StartNotebookInstanceInput {}
+export interface StartNotebookInstanceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Launches an ML compute instance with the latest version of the libraries and

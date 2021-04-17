@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CompleteLayerUploadCommandInput = CompleteLayerUploadRequest;
-export type CompleteLayerUploadCommandOutput = CompleteLayerUploadResponse & __MetadataBearer;
+export interface CompleteLayerUploadCommandInput extends CompleteLayerUploadRequest {}
+export interface CompleteLayerUploadCommandOutput extends CompleteLayerUploadResponse, __MetadataBearer {}
 
 /**
  * <p>Informs Amazon ECR that the image layer upload has completed for a specified registry,

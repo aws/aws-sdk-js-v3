@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ResetClusterParameterGroupCommandInput = ResetClusterParameterGroupMessage;
-export type ResetClusterParameterGroupCommandOutput = ClusterParameterGroupNameMessage & __MetadataBearer;
+export interface ResetClusterParameterGroupCommandInput extends ResetClusterParameterGroupMessage {}
+export interface ResetClusterParameterGroupCommandOutput extends ClusterParameterGroupNameMessage, __MetadataBearer {}
 
 /**
  * <p>Sets one or more parameters of the specified parameter group to their default

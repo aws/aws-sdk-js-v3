@@ -18,8 +18,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBucketMetricsConfigurationCommandInput = GetBucketMetricsConfigurationRequest;
-export type GetBucketMetricsConfigurationCommandOutput = GetBucketMetricsConfigurationOutput & __MetadataBearer;
+export interface GetBucketMetricsConfigurationCommandInput extends GetBucketMetricsConfigurationRequest {}
+export interface GetBucketMetricsConfigurationCommandOutput
+  extends GetBucketMetricsConfigurationOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Gets a metrics configuration (specified by the metrics configuration ID) from the

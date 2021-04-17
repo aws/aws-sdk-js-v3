@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type EnableSecurityHubCommandInput = EnableSecurityHubRequest;
-export type EnableSecurityHubCommandOutput = EnableSecurityHubResponse & __MetadataBearer;
+export interface EnableSecurityHubCommandInput extends EnableSecurityHubRequest {}
+export interface EnableSecurityHubCommandOutput extends EnableSecurityHubResponse, __MetadataBearer {}
 
 /**
  * <p>Enables Security Hub for your account in the current Region or the Region you specify in the

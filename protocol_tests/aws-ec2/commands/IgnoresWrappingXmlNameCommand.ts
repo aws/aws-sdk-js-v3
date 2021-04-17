@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type IgnoresWrappingXmlNameCommandInput = {};
-export type IgnoresWrappingXmlNameCommandOutput = IgnoresWrappingXmlNameOutput & __MetadataBearer;
+export interface IgnoresWrappingXmlNameCommandInput {}
+export interface IgnoresWrappingXmlNameCommandOutput extends IgnoresWrappingXmlNameOutput, __MetadataBearer {}
 
 /**
  * The xmlName trait on the output structure is ignored in AWS Query.

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeFastSnapshotRestoresCommandInput = DescribeFastSnapshotRestoresRequest;
-export type DescribeFastSnapshotRestoresCommandOutput = DescribeFastSnapshotRestoresResult & __MetadataBearer;
+export interface DescribeFastSnapshotRestoresCommandInput extends DescribeFastSnapshotRestoresRequest {}
+export interface DescribeFastSnapshotRestoresCommandOutput
+  extends DescribeFastSnapshotRestoresResult,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the state of fast snapshot restores for your snapshots.</p>

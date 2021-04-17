@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RemoveTagsFromVaultCommandInput = RemoveTagsFromVaultInput;
-export type RemoveTagsFromVaultCommandOutput = __MetadataBearer;
+export interface RemoveTagsFromVaultCommandInput extends RemoveTagsFromVaultInput {}
+export interface RemoveTagsFromVaultCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This operation removes one or more tags from the set of tags attached to a vault. For

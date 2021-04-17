@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type FilterLogEventsCommandInput = FilterLogEventsRequest;
-export type FilterLogEventsCommandOutput = FilterLogEventsResponse & __MetadataBearer;
+export interface FilterLogEventsCommandInput extends FilterLogEventsRequest {}
+export interface FilterLogEventsCommandOutput extends FilterLogEventsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists log events from the specified log group. You can list all the log events or filter the results

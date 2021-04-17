@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ConstantAndVariableQueryStringCommandInput = ConstantAndVariableQueryStringInput;
-export type ConstantAndVariableQueryStringCommandOutput = __MetadataBearer;
+export interface ConstantAndVariableQueryStringCommandInput extends ConstantAndVariableQueryStringInput {}
+export interface ConstantAndVariableQueryStringCommandOutput extends __MetadataBearer {}
 
 /**
  * This example uses fixed query string params and variable query string params.

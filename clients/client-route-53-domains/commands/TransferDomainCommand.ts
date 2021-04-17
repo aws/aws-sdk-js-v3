@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TransferDomainCommandInput = TransferDomainRequest;
-export type TransferDomainCommandOutput = TransferDomainResponse & __MetadataBearer;
+export interface TransferDomainCommandInput extends TransferDomainRequest {}
+export interface TransferDomainCommandOutput extends TransferDomainResponse, __MetadataBearer {}
 
 /**
  * <p>Transfers a domain from another registrar to Amazon Route 53. When the transfer is complete, the domain is registered either with

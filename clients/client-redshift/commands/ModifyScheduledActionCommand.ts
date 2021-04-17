@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyScheduledActionCommandInput = ModifyScheduledActionMessage;
-export type ModifyScheduledActionCommandOutput = ScheduledAction & __MetadataBearer;
+export interface ModifyScheduledActionCommandInput extends ModifyScheduledActionMessage {}
+export interface ModifyScheduledActionCommandOutput extends ScheduledAction, __MetadataBearer {}
 
 /**
  * <p>Modifies a scheduled action.

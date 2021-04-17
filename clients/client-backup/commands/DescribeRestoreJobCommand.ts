@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeRestoreJobCommandInput = DescribeRestoreJobInput;
-export type DescribeRestoreJobCommandOutput = DescribeRestoreJobOutput & __MetadataBearer;
+export interface DescribeRestoreJobCommandInput extends DescribeRestoreJobInput {}
+export interface DescribeRestoreJobCommandOutput extends DescribeRestoreJobOutput, __MetadataBearer {}
 
 /**
  * <p>Returns metadata associated with a restore job that is specified by a job ID.</p>

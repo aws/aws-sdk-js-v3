@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RestoreTableToPointInTimeCommandInput = RestoreTableToPointInTimeInput;
-export type RestoreTableToPointInTimeCommandOutput = RestoreTableToPointInTimeOutput & __MetadataBearer;
+export interface RestoreTableToPointInTimeCommandInput extends RestoreTableToPointInTimeInput {}
+export interface RestoreTableToPointInTimeCommandOutput extends RestoreTableToPointInTimeOutput, __MetadataBearer {}
 
 /**
  * <p>Restores the specified table to the specified point in time within

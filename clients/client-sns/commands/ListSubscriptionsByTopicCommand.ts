@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListSubscriptionsByTopicCommandInput = ListSubscriptionsByTopicInput;
-export type ListSubscriptionsByTopicCommandOutput = ListSubscriptionsByTopicResponse & __MetadataBearer;
+export interface ListSubscriptionsByTopicCommandInput extends ListSubscriptionsByTopicInput {}
+export interface ListSubscriptionsByTopicCommandOutput extends ListSubscriptionsByTopicResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of the subscriptions to a specific topic. Each call returns a limited

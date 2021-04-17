@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdatePullRequestStatusCommandInput = UpdatePullRequestStatusInput;
-export type UpdatePullRequestStatusCommandOutput = UpdatePullRequestStatusOutput & __MetadataBearer;
+export interface UpdatePullRequestStatusCommandInput extends UpdatePullRequestStatusInput {}
+export interface UpdatePullRequestStatusCommandOutput extends UpdatePullRequestStatusOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the status of a pull request. </p>

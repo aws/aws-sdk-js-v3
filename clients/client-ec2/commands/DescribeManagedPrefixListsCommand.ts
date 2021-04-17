@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeManagedPrefixListsCommandInput = DescribeManagedPrefixListsRequest;
-export type DescribeManagedPrefixListsCommandOutput = DescribeManagedPrefixListsResult & __MetadataBearer;
+export interface DescribeManagedPrefixListsCommandInput extends DescribeManagedPrefixListsRequest {}
+export interface DescribeManagedPrefixListsCommandOutput extends DescribeManagedPrefixListsResult, __MetadataBearer {}
 
 /**
  * <p>Describes your managed prefix lists and any AWS-managed prefix lists.</p>

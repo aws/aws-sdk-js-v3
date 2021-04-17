@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateArchiveRuleCommandInput = CreateArchiveRuleRequest;
-export type CreateArchiveRuleCommandOutput = __MetadataBearer;
+export interface CreateArchiveRuleCommandInput extends CreateArchiveRuleRequest {}
+export interface CreateArchiveRuleCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Creates an archive rule for the specified analyzer. Archive rules automatically archive

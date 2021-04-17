@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListNotificationRulesCommandInput = ListNotificationRulesRequest;
-export type ListNotificationRulesCommandOutput = ListNotificationRulesResult & __MetadataBearer;
+export interface ListNotificationRulesCommandInput extends ListNotificationRulesRequest {}
+export interface ListNotificationRulesCommandOutput extends ListNotificationRulesResult, __MetadataBearer {}
 
 /**
  * <p>Returns a list of the notification rules for an AWS account.</p>

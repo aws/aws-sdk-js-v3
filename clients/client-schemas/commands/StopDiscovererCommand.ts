@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopDiscovererCommandInput = StopDiscovererRequest;
-export type StopDiscovererCommandOutput = StopDiscovererResponse & __MetadataBearer;
+export interface StopDiscovererCommandInput extends StopDiscovererRequest {}
+export interface StopDiscovererCommandOutput extends StopDiscovererResponse, __MetadataBearer {}
 
 /**
  * <p>Stops the discoverer</p>

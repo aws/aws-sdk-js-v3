@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartMonitoringMemberCommandInput = StartMonitoringMemberRequest;
-export type StartMonitoringMemberCommandOutput = __MetadataBearer;
+export interface StartMonitoringMemberCommandInput extends StartMonitoringMemberRequest {}
+export interface StartMonitoringMemberCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Sends a request to enable data ingest for a member account that has a status of

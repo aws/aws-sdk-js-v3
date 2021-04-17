@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeEnvironmentManagedActionsCommandInput = DescribeEnvironmentManagedActionsRequest;
-export type DescribeEnvironmentManagedActionsCommandOutput = DescribeEnvironmentManagedActionsResult & __MetadataBearer;
+export interface DescribeEnvironmentManagedActionsCommandInput extends DescribeEnvironmentManagedActionsRequest {}
+export interface DescribeEnvironmentManagedActionsCommandOutput
+  extends DescribeEnvironmentManagedActionsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Lists an environment's upcoming and in-progress managed actions.</p>

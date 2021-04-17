@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteUserProfileCommandInput = DeleteUserProfileRequest;
-export type DeleteUserProfileCommandOutput = __MetadataBearer;
+export interface DeleteUserProfileCommandInput extends DeleteUserProfileRequest {}
+export interface DeleteUserProfileCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a user profile. When a user profile is deleted, the user loses access to their EFS

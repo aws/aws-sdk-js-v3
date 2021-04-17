@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopKeyPhrasesDetectionJobCommandInput = StopKeyPhrasesDetectionJobRequest;
-export type StopKeyPhrasesDetectionJobCommandOutput = StopKeyPhrasesDetectionJobResponse & __MetadataBearer;
+export interface StopKeyPhrasesDetectionJobCommandInput extends StopKeyPhrasesDetectionJobRequest {}
+export interface StopKeyPhrasesDetectionJobCommandOutput extends StopKeyPhrasesDetectionJobResponse, __MetadataBearer {}
 
 /**
  * <p>Stops a key phrases detection job in progress.</p>

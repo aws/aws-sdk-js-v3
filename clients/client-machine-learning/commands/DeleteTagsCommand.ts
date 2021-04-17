@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteTagsCommandInput = DeleteTagsInput;
-export type DeleteTagsCommandOutput = DeleteTagsOutput & __MetadataBearer;
+export interface DeleteTagsCommandInput extends DeleteTagsInput {}
+export interface DeleteTagsCommandOutput extends DeleteTagsOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified tags associated with an ML object. After this operation is complete, you can't recover deleted tags.</p>

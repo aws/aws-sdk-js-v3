@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListReservationsCommandInput = ListReservationsRequest;
-export type ListReservationsCommandOutput = ListReservationsResponse & __MetadataBearer;
+export interface ListReservationsCommandInput extends ListReservationsRequest {}
+export interface ListReservationsCommandOutput extends ListReservationsResponse, __MetadataBearer {}
 
 /**
  * Displays a list of all reservations that have been purchased by this account in the current AWS Region. This list includes all reservations in all states (such as active and expired).

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListThingTypesCommandInput = ListThingTypesRequest;
-export type ListThingTypesCommandOutput = ListThingTypesResponse & __MetadataBearer;
+export interface ListThingTypesCommandInput extends ListThingTypesRequest {}
+export interface ListThingTypesCommandOutput extends ListThingTypesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the existing thing types.</p>

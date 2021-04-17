@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDhcpOptionsCommandInput = CreateDhcpOptionsRequest;
-export type CreateDhcpOptionsCommandOutput = CreateDhcpOptionsResult & __MetadataBearer;
+export interface CreateDhcpOptionsCommandInput extends CreateDhcpOptionsRequest {}
+export interface CreateDhcpOptionsCommandOutput extends CreateDhcpOptionsResult, __MetadataBearer {}
 
 /**
  * <p>Creates a set of DHCP options for your VPC. After creating the set, you must

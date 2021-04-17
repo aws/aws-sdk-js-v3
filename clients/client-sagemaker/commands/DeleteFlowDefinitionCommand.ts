@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteFlowDefinitionCommandInput = DeleteFlowDefinitionRequest;
-export type DeleteFlowDefinitionCommandOutput = DeleteFlowDefinitionResponse & __MetadataBearer;
+export interface DeleteFlowDefinitionCommandInput extends DeleteFlowDefinitionRequest {}
+export interface DeleteFlowDefinitionCommandOutput extends DeleteFlowDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified flow definition.</p>

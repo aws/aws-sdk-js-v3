@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateServicePrimaryTaskSetCommandInput = UpdateServicePrimaryTaskSetRequest;
-export type UpdateServicePrimaryTaskSetCommandOutput = UpdateServicePrimaryTaskSetResponse & __MetadataBearer;
+export interface UpdateServicePrimaryTaskSetCommandInput extends UpdateServicePrimaryTaskSetRequest {}
+export interface UpdateServicePrimaryTaskSetCommandOutput
+  extends UpdateServicePrimaryTaskSetResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Modifies which task set in a service is the primary task set. Any parameters that are

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddTagsToResourceCommandInput = AddTagsToResourceMessage;
-export type AddTagsToResourceCommandOutput = __MetadataBearer;
+export interface AddTagsToResourceCommandInput extends AddTagsToResourceMessage {}
+export interface AddTagsToResourceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Adds metadata tags to an Amazon RDS resource. These tags can also be used with cost allocation reporting to track cost associated with Amazon RDS resources, or used in a Condition statement in an IAM policy for Amazon RDS.</p>

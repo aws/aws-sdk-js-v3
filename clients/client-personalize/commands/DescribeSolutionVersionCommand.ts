@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeSolutionVersionCommandInput = DescribeSolutionVersionRequest;
-export type DescribeSolutionVersionCommandOutput = DescribeSolutionVersionResponse & __MetadataBearer;
+export interface DescribeSolutionVersionCommandInput extends DescribeSolutionVersionRequest {}
+export interface DescribeSolutionVersionCommandOutput extends DescribeSolutionVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Describes a specific version of a solution. For more information on solutions, see <a>CreateSolution</a>.</p>

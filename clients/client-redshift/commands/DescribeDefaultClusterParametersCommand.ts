@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDefaultClusterParametersCommandInput = DescribeDefaultClusterParametersMessage;
-export type DescribeDefaultClusterParametersCommandOutput = DescribeDefaultClusterParametersResult & __MetadataBearer;
+export interface DescribeDefaultClusterParametersCommandInput extends DescribeDefaultClusterParametersMessage {}
+export interface DescribeDefaultClusterParametersCommandOutput
+  extends DescribeDefaultClusterParametersResult,
+    __MetadataBearer {}
 
 /**
  * <p>Returns a list of parameter settings for the specified parameter group

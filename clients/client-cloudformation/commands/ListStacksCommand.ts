@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListStacksCommandInput = ListStacksInput;
-export type ListStacksCommandOutput = ListStacksOutput & __MetadataBearer;
+export interface ListStacksCommandInput extends ListStacksInput {}
+export interface ListStacksCommandOutput extends ListStacksOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the summary information for stacks whose status matches the specified

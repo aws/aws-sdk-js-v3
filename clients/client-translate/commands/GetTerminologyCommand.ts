@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetTerminologyCommandInput = GetTerminologyRequest;
-export type GetTerminologyCommandOutput = GetTerminologyResponse & __MetadataBearer;
+export interface GetTerminologyCommandInput extends GetTerminologyRequest {}
+export interface GetTerminologyCommandOutput extends GetTerminologyResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a custom terminology.</p>

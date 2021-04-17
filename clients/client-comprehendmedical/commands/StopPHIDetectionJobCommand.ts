@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopPHIDetectionJobCommandInput = StopPHIDetectionJobRequest;
-export type StopPHIDetectionJobCommandOutput = StopPHIDetectionJobResponse & __MetadataBearer;
+export interface StopPHIDetectionJobCommandInput extends StopPHIDetectionJobRequest {}
+export interface StopPHIDetectionJobCommandOutput extends StopPHIDetectionJobResponse, __MetadataBearer {}
 
 /**
  * <p>Stops a protected health information (PHI) detection job in progress.</p>

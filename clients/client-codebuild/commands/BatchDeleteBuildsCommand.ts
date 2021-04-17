@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchDeleteBuildsCommandInput = BatchDeleteBuildsInput;
-export type BatchDeleteBuildsCommandOutput = BatchDeleteBuildsOutput & __MetadataBearer;
+export interface BatchDeleteBuildsCommandInput extends BatchDeleteBuildsInput {}
+export interface BatchDeleteBuildsCommandOutput extends BatchDeleteBuildsOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes one or more builds.</p>

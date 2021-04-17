@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutPublicAccessBlockCommandInput = PutPublicAccessBlockRequest;
-export type PutPublicAccessBlockCommandOutput = __MetadataBearer;
+export interface PutPublicAccessBlockCommandInput extends PutPublicAccessBlockRequest {}
+export interface PutPublicAccessBlockCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Creates or modifies the <code>PublicAccessBlock</code> configuration for an AWS account. For

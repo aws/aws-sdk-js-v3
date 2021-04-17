@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteEventIntegrationCommandInput = DeleteEventIntegrationRequest;
-export type DeleteEventIntegrationCommandOutput = DeleteEventIntegrationResponse & __MetadataBearer;
+export interface DeleteEventIntegrationCommandInput extends DeleteEventIntegrationRequest {}
+export interface DeleteEventIntegrationCommandOutput extends DeleteEventIntegrationResponse, __MetadataBearer {}
 
 /**
  * <p>The Amazon AppIntegrations APIs are in preview release and are subject to change.</p>

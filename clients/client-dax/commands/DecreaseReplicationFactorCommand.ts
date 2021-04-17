@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DecreaseReplicationFactorCommandInput = DecreaseReplicationFactorRequest;
-export type DecreaseReplicationFactorCommandOutput = DecreaseReplicationFactorResponse & __MetadataBearer;
+export interface DecreaseReplicationFactorCommandInput extends DecreaseReplicationFactorRequest {}
+export interface DecreaseReplicationFactorCommandOutput extends DecreaseReplicationFactorResponse, __MetadataBearer {}
 
 /**
  * <p>Removes one or more nodes from a DAX cluster.</p>

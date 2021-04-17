@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type EnterStandbyCommandInput = EnterStandbyQuery;
-export type EnterStandbyCommandOutput = EnterStandbyAnswer & __MetadataBearer;
+export interface EnterStandbyCommandInput extends EnterStandbyQuery {}
+export interface EnterStandbyCommandOutput extends EnterStandbyAnswer, __MetadataBearer {}
 
 /**
  * <p>Moves the specified instances into the standby state.</p>

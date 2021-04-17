@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDimensionKeysCommandInput = DescribeDimensionKeysRequest;
-export type DescribeDimensionKeysCommandOutput = DescribeDimensionKeysResponse & __MetadataBearer;
+export interface DescribeDimensionKeysCommandInput extends DescribeDimensionKeysRequest {}
+export interface DescribeDimensionKeysCommandOutput extends DescribeDimensionKeysResponse, __MetadataBearer {}
 
 /**
  * <p>For a specific time period, retrieve the top <code>N</code> dimension keys for a

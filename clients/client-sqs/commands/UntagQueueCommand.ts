@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UntagQueueCommandInput = UntagQueueRequest;
-export type UntagQueueCommandOutput = __MetadataBearer;
+export interface UntagQueueCommandInput extends UntagQueueRequest {}
+export interface UntagQueueCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Remove cost allocation tags from the specified Amazon SQS queue. For an overview, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html">Tagging Your Amazon SQS Queues</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>

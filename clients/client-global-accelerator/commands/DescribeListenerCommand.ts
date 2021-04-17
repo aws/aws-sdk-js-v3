@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeListenerCommandInput = DescribeListenerRequest;
-export type DescribeListenerCommandOutput = DescribeListenerResponse & __MetadataBearer;
+export interface DescribeListenerCommandInput extends DescribeListenerRequest {}
+export interface DescribeListenerCommandOutput extends DescribeListenerResponse, __MetadataBearer {}
 
 /**
  * <p>Describe a listener. </p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteMailboxPermissionsCommandInput = DeleteMailboxPermissionsRequest;
-export type DeleteMailboxPermissionsCommandOutput = DeleteMailboxPermissionsResponse & __MetadataBearer;
+export interface DeleteMailboxPermissionsCommandInput extends DeleteMailboxPermissionsRequest {}
+export interface DeleteMailboxPermissionsCommandOutput extends DeleteMailboxPermissionsResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes permissions granted to a member (user or group).</p>

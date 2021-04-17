@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteGrantCommandInput = DeleteGrantRequest;
-export type DeleteGrantCommandOutput = DeleteGrantResponse & __MetadataBearer;
+export interface DeleteGrantCommandInput extends DeleteGrantRequest {}
+export interface DeleteGrantCommandOutput extends DeleteGrantResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified grant.</p>

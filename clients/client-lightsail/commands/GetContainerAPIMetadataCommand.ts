@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetContainerAPIMetadataCommandInput = GetContainerAPIMetadataRequest;
-export type GetContainerAPIMetadataCommandOutput = GetContainerAPIMetadataResult & __MetadataBearer;
+export interface GetContainerAPIMetadataCommandInput extends GetContainerAPIMetadataRequest {}
+export interface GetContainerAPIMetadataCommandOutput extends GetContainerAPIMetadataResult, __MetadataBearer {}
 
 /**
  * <p>Returns information about Amazon Lightsail containers, such as the current version of the

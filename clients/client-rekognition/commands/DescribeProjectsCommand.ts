@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeProjectsCommandInput = DescribeProjectsRequest;
-export type DescribeProjectsCommandOutput = DescribeProjectsResponse & __MetadataBearer;
+export interface DescribeProjectsCommandInput extends DescribeProjectsRequest {}
+export interface DescribeProjectsCommandOutput extends DescribeProjectsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists and gets information about your Amazon Rekognition Custom Labels projects.</p>

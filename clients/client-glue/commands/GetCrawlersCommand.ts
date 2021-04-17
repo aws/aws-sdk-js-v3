@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetCrawlersCommandInput = GetCrawlersRequest;
-export type GetCrawlersCommandOutput = GetCrawlersResponse & __MetadataBearer;
+export interface GetCrawlersCommandInput extends GetCrawlersRequest {}
+export interface GetCrawlersCommandOutput extends GetCrawlersResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves metadata for all crawlers defined in the customer

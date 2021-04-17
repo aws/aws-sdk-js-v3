@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetRelationalDatabaseMasterUserPasswordCommandInput = GetRelationalDatabaseMasterUserPasswordRequest;
-export type GetRelationalDatabaseMasterUserPasswordCommandOutput = GetRelationalDatabaseMasterUserPasswordResult &
-  __MetadataBearer;
+export interface GetRelationalDatabaseMasterUserPasswordCommandInput
+  extends GetRelationalDatabaseMasterUserPasswordRequest {}
+export interface GetRelationalDatabaseMasterUserPasswordCommandOutput
+  extends GetRelationalDatabaseMasterUserPasswordResult,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the current, previous, or pending versions of the master user password for a

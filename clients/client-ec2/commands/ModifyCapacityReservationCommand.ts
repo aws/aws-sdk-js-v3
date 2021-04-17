@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyCapacityReservationCommandInput = ModifyCapacityReservationRequest;
-export type ModifyCapacityReservationCommandOutput = ModifyCapacityReservationResult & __MetadataBearer;
+export interface ModifyCapacityReservationCommandInput extends ModifyCapacityReservationRequest {}
+export interface ModifyCapacityReservationCommandOutput extends ModifyCapacityReservationResult, __MetadataBearer {}
 
 /**
  * <p>Modifies a Capacity Reservation's capacity and the conditions under which it is to be released. You

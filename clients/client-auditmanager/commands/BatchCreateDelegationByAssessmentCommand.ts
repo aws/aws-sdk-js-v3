@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchCreateDelegationByAssessmentCommandInput = BatchCreateDelegationByAssessmentRequest;
-export type BatchCreateDelegationByAssessmentCommandOutput = BatchCreateDelegationByAssessmentResponse &
-  __MetadataBearer;
+export interface BatchCreateDelegationByAssessmentCommandInput extends BatchCreateDelegationByAssessmentRequest {}
+export interface BatchCreateDelegationByAssessmentCommandOutput
+  extends BatchCreateDelegationByAssessmentResponse,
+    __MetadataBearer {}
 
 /**
  * <p>

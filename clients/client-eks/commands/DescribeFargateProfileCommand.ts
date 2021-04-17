@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeFargateProfileCommandInput = DescribeFargateProfileRequest;
-export type DescribeFargateProfileCommandOutput = DescribeFargateProfileResponse & __MetadataBearer;
+export interface DescribeFargateProfileCommandInput extends DescribeFargateProfileRequest {}
+export interface DescribeFargateProfileCommandOutput extends DescribeFargateProfileResponse, __MetadataBearer {}
 
 /**
  * <p>Returns descriptive information about an AWS Fargate profile.</p>

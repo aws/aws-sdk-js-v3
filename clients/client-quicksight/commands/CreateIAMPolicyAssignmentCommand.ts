@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateIAMPolicyAssignmentCommandInput = CreateIAMPolicyAssignmentRequest;
-export type CreateIAMPolicyAssignmentCommandOutput = CreateIAMPolicyAssignmentResponse & __MetadataBearer;
+export interface CreateIAMPolicyAssignmentCommandInput extends CreateIAMPolicyAssignmentRequest {}
+export interface CreateIAMPolicyAssignmentCommandOutput extends CreateIAMPolicyAssignmentResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an assignment with one specified IAM policy, identified by its Amazon Resource Name

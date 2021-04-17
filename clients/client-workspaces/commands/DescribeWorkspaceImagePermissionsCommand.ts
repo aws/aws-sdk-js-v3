@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeWorkspaceImagePermissionsCommandInput = DescribeWorkspaceImagePermissionsRequest;
-export type DescribeWorkspaceImagePermissionsCommandOutput = DescribeWorkspaceImagePermissionsResult & __MetadataBearer;
+export interface DescribeWorkspaceImagePermissionsCommandInput extends DescribeWorkspaceImagePermissionsRequest {}
+export interface DescribeWorkspaceImagePermissionsCommandOutput
+  extends DescribeWorkspaceImagePermissionsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the permissions that the owner of an image has granted to other

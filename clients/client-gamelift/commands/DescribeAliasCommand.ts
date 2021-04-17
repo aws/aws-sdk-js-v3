@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAliasCommandInput = DescribeAliasInput;
-export type DescribeAliasCommandOutput = DescribeAliasOutput & __MetadataBearer;
+export interface DescribeAliasCommandInput extends DescribeAliasInput {}
+export interface DescribeAliasCommandOutput extends DescribeAliasOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves properties for an alias. This operation returns all alias metadata and

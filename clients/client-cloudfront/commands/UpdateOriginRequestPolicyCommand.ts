@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateOriginRequestPolicyCommandInput = UpdateOriginRequestPolicyRequest;
-export type UpdateOriginRequestPolicyCommandOutput = UpdateOriginRequestPolicyResult & __MetadataBearer;
+export interface UpdateOriginRequestPolicyCommandInput extends UpdateOriginRequestPolicyRequest {}
+export interface UpdateOriginRequestPolicyCommandOutput extends UpdateOriginRequestPolicyResult, __MetadataBearer {}
 
 /**
  * <p>Updates an origin request policy configuration.</p>

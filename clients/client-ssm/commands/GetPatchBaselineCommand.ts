@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetPatchBaselineCommandInput = GetPatchBaselineRequest;
-export type GetPatchBaselineCommandOutput = GetPatchBaselineResult & __MetadataBearer;
+export interface GetPatchBaselineCommandInput extends GetPatchBaselineRequest {}
+export interface GetPatchBaselineCommandOutput extends GetPatchBaselineResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about a patch baseline.</p>

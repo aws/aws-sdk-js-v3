@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribePublishingDestinationCommandInput = DescribePublishingDestinationRequest;
-export type DescribePublishingDestinationCommandOutput = DescribePublishingDestinationResponse & __MetadataBearer;
+export interface DescribePublishingDestinationCommandInput extends DescribePublishingDestinationRequest {}
+export interface DescribePublishingDestinationCommandOutput
+  extends DescribePublishingDestinationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns information about the publishing destination specified by the provided

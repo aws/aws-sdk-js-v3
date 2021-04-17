@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteIntentVersionCommandInput = DeleteIntentVersionRequest;
-export type DeleteIntentVersionCommandOutput = __MetadataBearer;
+export interface DeleteIntentVersionCommandInput extends DeleteIntentVersionRequest {}
+export interface DeleteIntentVersionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a specific version of an intent. To delete all versions of

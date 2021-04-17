@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateEventTrackerCommandInput = CreateEventTrackerRequest;
-export type CreateEventTrackerCommandOutput = CreateEventTrackerResponse & __MetadataBearer;
+export interface CreateEventTrackerCommandInput extends CreateEventTrackerRequest {}
+export interface CreateEventTrackerCommandOutput extends CreateEventTrackerResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an event tracker that you use when adding event data to a specified dataset

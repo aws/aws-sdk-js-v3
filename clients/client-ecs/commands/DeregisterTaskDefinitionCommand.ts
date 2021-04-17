@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeregisterTaskDefinitionCommandInput = DeregisterTaskDefinitionRequest;
-export type DeregisterTaskDefinitionCommandOutput = DeregisterTaskDefinitionResponse & __MetadataBearer;
+export interface DeregisterTaskDefinitionCommandInput extends DeregisterTaskDefinitionRequest {}
+export interface DeregisterTaskDefinitionCommandOutput extends DeregisterTaskDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Deregisters the specified task definition by family and revision. Upon deregistration,

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateWebACLCommandInput = AssociateWebACLRequest;
-export type AssociateWebACLCommandOutput = AssociateWebACLResponse & __MetadataBearer;
+export interface AssociateWebACLCommandInput extends AssociateWebACLRequest {}
+export interface AssociateWebACLCommandOutput extends AssociateWebACLResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a Web ACL with a regional application resource, to protect the resource. A regional application can be an Application Load Balancer (ALB), an API Gateway REST API, or an AppSync GraphQL API.  </p>

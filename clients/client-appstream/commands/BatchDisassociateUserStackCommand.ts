@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchDisassociateUserStackCommandInput = BatchDisassociateUserStackRequest;
-export type BatchDisassociateUserStackCommandOutput = BatchDisassociateUserStackResult & __MetadataBearer;
+export interface BatchDisassociateUserStackCommandInput extends BatchDisassociateUserStackRequest {}
+export interface BatchDisassociateUserStackCommandOutput extends BatchDisassociateUserStackResult, __MetadataBearer {}
 
 /**
  * <p>Disassociates the specified users from the specified stacks.</p>

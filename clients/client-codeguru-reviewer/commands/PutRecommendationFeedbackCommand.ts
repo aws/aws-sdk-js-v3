@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutRecommendationFeedbackCommandInput = PutRecommendationFeedbackRequest;
-export type PutRecommendationFeedbackCommandOutput = PutRecommendationFeedbackResponse & __MetadataBearer;
+export interface PutRecommendationFeedbackCommandInput extends PutRecommendationFeedbackRequest {}
+export interface PutRecommendationFeedbackCommandOutput extends PutRecommendationFeedbackResponse, __MetadataBearer {}
 
 /**
  * <p>

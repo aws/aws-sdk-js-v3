@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteBackupCommandInput = DeleteBackupRequest;
-export type DeleteBackupCommandOutput = DeleteBackupResponse & __MetadataBearer;
+export interface DeleteBackupCommandInput extends DeleteBackupRequest {}
+export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __MetadataBearer {}
 
 /**
  * <p>

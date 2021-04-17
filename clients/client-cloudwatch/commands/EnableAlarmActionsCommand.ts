@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type EnableAlarmActionsCommandInput = EnableAlarmActionsInput;
-export type EnableAlarmActionsCommandOutput = __MetadataBearer;
+export interface EnableAlarmActionsCommandInput extends EnableAlarmActionsInput {}
+export interface EnableAlarmActionsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Enables the actions for the specified alarms.</p>

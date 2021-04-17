@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateBackendAuthCommandInput = CreateBackendAuthRequest;
-export type CreateBackendAuthCommandOutput = CreateBackendAuthResponse & __MetadataBearer;
+export interface CreateBackendAuthCommandInput extends CreateBackendAuthRequest {}
+export interface CreateBackendAuthCommandOutput extends CreateBackendAuthResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new backend authentication resource.</p>

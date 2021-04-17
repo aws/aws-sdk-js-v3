@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAdjustmentTypesCommandInput = {};
-export type DescribeAdjustmentTypesCommandOutput = DescribeAdjustmentTypesAnswer & __MetadataBearer;
+export interface DescribeAdjustmentTypesCommandInput {}
+export interface DescribeAdjustmentTypesCommandOutput extends DescribeAdjustmentTypesAnswer, __MetadataBearer {}
 
 /**
  * <p>Describes the available adjustment types for Amazon EC2 Auto Scaling scaling policies. These settings

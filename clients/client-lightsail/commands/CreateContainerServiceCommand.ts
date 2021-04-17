@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateContainerServiceCommandInput = CreateContainerServiceRequest;
-export type CreateContainerServiceCommandOutput = CreateContainerServiceResult & __MetadataBearer;
+export interface CreateContainerServiceCommandInput extends CreateContainerServiceRequest {}
+export interface CreateContainerServiceCommandOutput extends CreateContainerServiceResult, __MetadataBearer {}
 
 /**
  * <p>Creates an Amazon Lightsail container service.</p>

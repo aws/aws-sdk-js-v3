@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateMemberCommandInput = CreateMemberRequest;
-export type CreateMemberCommandOutput = CreateMemberResponse & __MetadataBearer;
+export interface CreateMemberCommandInput extends CreateMemberRequest {}
+export interface CreateMemberCommandOutput extends CreateMemberResponse, __MetadataBearer {}
 
 /**
  * <p>Associates an account with an Amazon Macie administrator account.</p>

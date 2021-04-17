@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteConferenceProviderCommandInput = DeleteConferenceProviderRequest;
-export type DeleteConferenceProviderCommandOutput = DeleteConferenceProviderResponse & __MetadataBearer;
+export interface DeleteConferenceProviderCommandInput extends DeleteConferenceProviderRequest {}
+export interface DeleteConferenceProviderCommandOutput extends DeleteConferenceProviderResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a conference provider.</p>

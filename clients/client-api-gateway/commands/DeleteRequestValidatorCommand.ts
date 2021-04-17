@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteRequestValidatorCommandInput = DeleteRequestValidatorRequest;
-export type DeleteRequestValidatorCommandOutput = __MetadataBearer;
+export interface DeleteRequestValidatorCommandInput extends DeleteRequestValidatorRequest {}
+export interface DeleteRequestValidatorCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a <a>RequestValidator</a> of a given <a>RestApi</a>.</p>

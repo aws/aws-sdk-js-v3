@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTeamMembersCommandInput = ListTeamMembersRequest;
-export type ListTeamMembersCommandOutput = ListTeamMembersResult & __MetadataBearer;
+export interface ListTeamMembersCommandInput extends ListTeamMembersRequest {}
+export interface ListTeamMembersCommandOutput extends ListTeamMembersResult, __MetadataBearer {}
 
 /**
  * <p>Lists all team members associated with a project.</p>

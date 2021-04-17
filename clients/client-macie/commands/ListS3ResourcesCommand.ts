@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListS3ResourcesCommandInput = ListS3ResourcesRequest;
-export type ListS3ResourcesCommandOutput = ListS3ResourcesResult & __MetadataBearer;
+export interface ListS3ResourcesCommandInput extends ListS3ResourcesRequest {}
+export interface ListS3ResourcesCommandOutput extends ListS3ResourcesResult, __MetadataBearer {}
 
 /**
  * <p>Lists all the S3 resources associated with Amazon Macie Classic. If memberAccountId

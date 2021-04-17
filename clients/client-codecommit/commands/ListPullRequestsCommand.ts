@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPullRequestsCommandInput = ListPullRequestsInput;
-export type ListPullRequestsCommandOutput = ListPullRequestsOutput & __MetadataBearer;
+export interface ListPullRequestsCommandInput extends ListPullRequestsInput {}
+export interface ListPullRequestsCommandOutput extends ListPullRequestsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a list of pull requests for a specified repository. The return list can be refined by pull request

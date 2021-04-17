@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListGameServersCommandInput = ListGameServersInput;
-export type ListGameServersCommandOutput = ListGameServersOutput & __MetadataBearer;
+export interface ListGameServersCommandInput extends ListGameServersInput {}
+export interface ListGameServersCommandOutput extends ListGameServersOutput, __MetadataBearer {}
 
 /**
  * <p>

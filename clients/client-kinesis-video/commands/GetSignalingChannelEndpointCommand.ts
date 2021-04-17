@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSignalingChannelEndpointCommandInput = GetSignalingChannelEndpointInput;
-export type GetSignalingChannelEndpointCommandOutput = GetSignalingChannelEndpointOutput & __MetadataBearer;
+export interface GetSignalingChannelEndpointCommandInput extends GetSignalingChannelEndpointInput {}
+export interface GetSignalingChannelEndpointCommandOutput extends GetSignalingChannelEndpointOutput, __MetadataBearer {}
 
 /**
  * <p>Provides an endpoint for the specified signaling channel to send and receive messages.

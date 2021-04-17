@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTagsForResourceCommandInput = ListTagsForResourceInput;
-export type ListTagsForResourceCommandOutput = ListTagsForResourceOutput & __MetadataBearer;
+export interface ListTagsForResourceCommandInput extends ListTagsForResourceInput {}
+export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOutput, __MetadataBearer {}
 
 /**
  * <p> Returns a list of tags for the resource identified by a specified Amazon Resource

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListQueryExecutionsCommandInput = ListQueryExecutionsInput;
-export type ListQueryExecutionsCommandOutput = ListQueryExecutionsOutput & __MetadataBearer;
+export interface ListQueryExecutionsCommandInput extends ListQueryExecutionsInput {}
+export interface ListQueryExecutionsCommandOutput extends ListQueryExecutionsOutput, __MetadataBearer {}
 
 /**
  * <p>Provides a list of available query execution IDs for the queries in the specified

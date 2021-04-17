@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListOperationsCommandInput = ListOperationsRequest;
-export type ListOperationsCommandOutput = ListOperationsResponse & __MetadataBearer;
+export interface ListOperationsCommandInput extends ListOperationsRequest {}
+export interface ListOperationsCommandOutput extends ListOperationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists operations that match the criteria that you specify.</p>

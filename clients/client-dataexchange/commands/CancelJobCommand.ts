@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelJobCommandInput = CancelJobRequest;
-export type CancelJobCommandOutput = __MetadataBearer;
+export interface CancelJobCommandInput extends CancelJobRequest {}
+export interface CancelJobCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This operation cancels a job. Jobs can be cancelled only when they are in the WAITING state.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDefaultParametersCommandInput = DescribeDefaultParametersRequest;
-export type DescribeDefaultParametersCommandOutput = DescribeDefaultParametersResponse & __MetadataBearer;
+export interface DescribeDefaultParametersCommandInput extends DescribeDefaultParametersRequest {}
+export interface DescribeDefaultParametersCommandOutput extends DescribeDefaultParametersResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the default system parameter information for the DAX caching

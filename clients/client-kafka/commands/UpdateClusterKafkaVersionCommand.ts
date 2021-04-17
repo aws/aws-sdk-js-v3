@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateClusterKafkaVersionCommandInput = UpdateClusterKafkaVersionRequest;
-export type UpdateClusterKafkaVersionCommandOutput = UpdateClusterKafkaVersionResponse & __MetadataBearer;
+export interface UpdateClusterKafkaVersionCommandInput extends UpdateClusterKafkaVersionRequest {}
+export interface UpdateClusterKafkaVersionCommandOutput extends UpdateClusterKafkaVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the Apache Kafka version for the cluster.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartAppReplicationCommandInput = StartAppReplicationRequest;
-export type StartAppReplicationCommandOutput = StartAppReplicationResponse & __MetadataBearer;
+export interface StartAppReplicationCommandInput extends StartAppReplicationRequest {}
+export interface StartAppReplicationCommandOutput extends StartAppReplicationResponse, __MetadataBearer {}
 
 /**
  * <p>Starts replicating the specified application by creating replication jobs for each server in the

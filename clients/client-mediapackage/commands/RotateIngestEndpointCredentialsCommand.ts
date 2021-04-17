@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RotateIngestEndpointCredentialsCommandInput = RotateIngestEndpointCredentialsRequest;
-export type RotateIngestEndpointCredentialsCommandOutput = RotateIngestEndpointCredentialsResponse & __MetadataBearer;
+export interface RotateIngestEndpointCredentialsCommandInput extends RotateIngestEndpointCredentialsRequest {}
+export interface RotateIngestEndpointCredentialsCommandOutput
+  extends RotateIngestEndpointCredentialsResponse,
+    __MetadataBearer {}
 
 /**
  * Rotate the IngestEndpoint's username and password, as specified by the IngestEndpoint's id.

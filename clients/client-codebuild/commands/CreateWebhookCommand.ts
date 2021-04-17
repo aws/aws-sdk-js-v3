@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateWebhookCommandInput = CreateWebhookInput;
-export type CreateWebhookCommandOutput = CreateWebhookOutput & __MetadataBearer;
+export interface CreateWebhookCommandInput extends CreateWebhookInput {}
+export interface CreateWebhookCommandOutput extends CreateWebhookOutput, __MetadataBearer {}
 
 /**
  * <p>For an existing AWS CodeBuild build project that has its source code stored in a GitHub or

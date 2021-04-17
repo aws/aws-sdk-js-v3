@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetLinkAssociationsCommandInput = GetLinkAssociationsRequest;
-export type GetLinkAssociationsCommandOutput = GetLinkAssociationsResponse & __MetadataBearer;
+export interface GetLinkAssociationsCommandInput extends GetLinkAssociationsRequest {}
+export interface GetLinkAssociationsCommandOutput extends GetLinkAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the link associations for a device or a link. Either the device ID or the link ID

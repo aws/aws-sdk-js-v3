@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelDomainTransferToAnotherAwsAccountCommandInput = CancelDomainTransferToAnotherAwsAccountRequest;
-export type CancelDomainTransferToAnotherAwsAccountCommandOutput = CancelDomainTransferToAnotherAwsAccountResponse &
-  __MetadataBearer;
+export interface CancelDomainTransferToAnotherAwsAccountCommandInput
+  extends CancelDomainTransferToAnotherAwsAccountRequest {}
+export interface CancelDomainTransferToAnotherAwsAccountCommandOutput
+  extends CancelDomainTransferToAnotherAwsAccountResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Cancels the transfer of a domain from the current AWS account to another AWS account. You initiate a transfer between AWS accounts using

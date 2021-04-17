@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateMonitoringScheduleCommandInput = UpdateMonitoringScheduleRequest;
-export type UpdateMonitoringScheduleCommandOutput = UpdateMonitoringScheduleResponse & __MetadataBearer;
+export interface UpdateMonitoringScheduleCommandInput extends UpdateMonitoringScheduleRequest {}
+export interface UpdateMonitoringScheduleCommandOutput extends UpdateMonitoringScheduleResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a previously created schedule.</p>

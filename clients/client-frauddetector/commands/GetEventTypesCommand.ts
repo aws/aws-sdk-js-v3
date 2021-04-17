@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetEventTypesCommandInput = GetEventTypesRequest;
-export type GetEventTypesCommandOutput = GetEventTypesResult & __MetadataBearer;
+export interface GetEventTypesCommandInput extends GetEventTypesRequest {}
+export interface GetEventTypesCommandOutput extends GetEventTypesResult, __MetadataBearer {}
 
 /**
  * <p>Gets all event types or a specific event type if name is provided. This is a paginated API. If you

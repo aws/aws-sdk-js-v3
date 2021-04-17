@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TerminateClientVpnConnectionsCommandInput = TerminateClientVpnConnectionsRequest;
-export type TerminateClientVpnConnectionsCommandOutput = TerminateClientVpnConnectionsResult & __MetadataBearer;
+export interface TerminateClientVpnConnectionsCommandInput extends TerminateClientVpnConnectionsRequest {}
+export interface TerminateClientVpnConnectionsCommandOutput
+  extends TerminateClientVpnConnectionsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Terminates active Client VPN endpoint connections. This action can be used to terminate a specific client connection, or up to five connections established by a specific user.</p>

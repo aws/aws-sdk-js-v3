@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetCoipPoolUsageCommandInput = GetCoipPoolUsageRequest;
-export type GetCoipPoolUsageCommandOutput = GetCoipPoolUsageResult & __MetadataBearer;
+export interface GetCoipPoolUsageCommandInput extends GetCoipPoolUsageRequest {}
+export interface GetCoipPoolUsageCommandOutput extends GetCoipPoolUsageResult, __MetadataBearer {}
 
 /**
  * <p>Describes the allocations from the specified customer-owned address pool.</p>

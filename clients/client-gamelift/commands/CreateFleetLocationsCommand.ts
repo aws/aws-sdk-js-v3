@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateFleetLocationsCommandInput = CreateFleetLocationsInput;
-export type CreateFleetLocationsCommandOutput = CreateFleetLocationsOutput & __MetadataBearer;
+export interface CreateFleetLocationsCommandInput extends CreateFleetLocationsInput {}
+export interface CreateFleetLocationsCommandOutput extends CreateFleetLocationsOutput, __MetadataBearer {}
 
 /**
  * <p>Adds remote locations to a fleet and begins populating the new locations with EC2

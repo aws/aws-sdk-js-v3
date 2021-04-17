@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateGlobalReplicationGroupCommandInput = DisassociateGlobalReplicationGroupMessage;
-export type DisassociateGlobalReplicationGroupCommandOutput = DisassociateGlobalReplicationGroupResult &
-  __MetadataBearer;
+export interface DisassociateGlobalReplicationGroupCommandInput extends DisassociateGlobalReplicationGroupMessage {}
+export interface DisassociateGlobalReplicationGroupCommandOutput
+  extends DisassociateGlobalReplicationGroupResult,
+    __MetadataBearer {}
 
 /**
  * <p>Remove a secondary cluster from the Global datastore using the Global datastore name. The secondary cluster will no longer receive updates from the primary cluster, but will remain as a standalone cluster in that AWS region.</p>

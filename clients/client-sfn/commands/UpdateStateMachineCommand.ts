@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateStateMachineCommandInput = UpdateStateMachineInput;
-export type UpdateStateMachineCommandOutput = UpdateStateMachineOutput & __MetadataBearer;
+export interface UpdateStateMachineCommandInput extends UpdateStateMachineInput {}
+export interface UpdateStateMachineCommandOutput extends UpdateStateMachineOutput, __MetadataBearer {}
 
 /**
  * <p>Updates an existing state machine by modifying its <code>definition</code>,

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutSigningProfileCommandInput = PutSigningProfileRequest;
-export type PutSigningProfileCommandOutput = PutSigningProfileResponse & __MetadataBearer;
+export interface PutSigningProfileCommandInput extends PutSigningProfileRequest {}
+export interface PutSigningProfileCommandOutput extends PutSigningProfileResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a signing profile. A signing profile is a code signing template that can be used to

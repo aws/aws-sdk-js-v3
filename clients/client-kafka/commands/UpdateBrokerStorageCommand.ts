@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateBrokerStorageCommandInput = UpdateBrokerStorageRequest;
-export type UpdateBrokerStorageCommandOutput = UpdateBrokerStorageResponse & __MetadataBearer;
+export interface UpdateBrokerStorageCommandInput extends UpdateBrokerStorageRequest {}
+export interface UpdateBrokerStorageCommandOutput extends UpdateBrokerStorageResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the EBS storage associated with MSK brokers.</p>

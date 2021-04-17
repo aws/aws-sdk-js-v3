@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateApplicationResourceLifecycleCommandInput = UpdateApplicationResourceLifecycleMessage;
-export type UpdateApplicationResourceLifecycleCommandOutput = ApplicationResourceLifecycleDescriptionMessage &
-  __MetadataBearer;
+export interface UpdateApplicationResourceLifecycleCommandInput extends UpdateApplicationResourceLifecycleMessage {}
+export interface UpdateApplicationResourceLifecycleCommandOutput
+  extends ApplicationResourceLifecycleDescriptionMessage,
+    __MetadataBearer {}
 
 /**
  * <p>Modifies lifecycle settings for an application.</p>

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDelegatedServicesForAccountCommandInput = ListDelegatedServicesForAccountRequest;
-export type ListDelegatedServicesForAccountCommandOutput = ListDelegatedServicesForAccountResponse & __MetadataBearer;
+export interface ListDelegatedServicesForAccountCommandInput extends ListDelegatedServicesForAccountRequest {}
+export interface ListDelegatedServicesForAccountCommandOutput
+  extends ListDelegatedServicesForAccountResponse,
+    __MetadataBearer {}
 
 /**
  * <p>List the AWS services for which the specified account is a delegated

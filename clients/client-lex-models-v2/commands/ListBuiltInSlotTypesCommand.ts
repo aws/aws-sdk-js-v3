@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListBuiltInSlotTypesCommandInput = ListBuiltInSlotTypesRequest;
-export type ListBuiltInSlotTypesCommandOutput = ListBuiltInSlotTypesResponse & __MetadataBearer;
+export interface ListBuiltInSlotTypesCommandInput extends ListBuiltInSlotTypesRequest {}
+export interface ListBuiltInSlotTypesCommandOutput extends ListBuiltInSlotTypesResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of built-in slot types that meet the specified

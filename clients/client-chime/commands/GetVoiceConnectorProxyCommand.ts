@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetVoiceConnectorProxyCommandInput = GetVoiceConnectorProxyRequest;
-export type GetVoiceConnectorProxyCommandOutput = GetVoiceConnectorProxyResponse & __MetadataBearer;
+export interface GetVoiceConnectorProxyCommandInput extends GetVoiceConnectorProxyRequest {}
+export interface GetVoiceConnectorProxyCommandOutput extends GetVoiceConnectorProxyResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the proxy configuration details for the specified Amazon Chime Voice Connector.</p>

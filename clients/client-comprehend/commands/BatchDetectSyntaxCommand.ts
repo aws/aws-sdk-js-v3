@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchDetectSyntaxCommandInput = BatchDetectSyntaxRequest;
-export type BatchDetectSyntaxCommandOutput = BatchDetectSyntaxResponse & __MetadataBearer;
+export interface BatchDetectSyntaxCommandInput extends BatchDetectSyntaxRequest {}
+export interface BatchDetectSyntaxCommandOutput extends BatchDetectSyntaxResponse, __MetadataBearer {}
 
 /**
  * <p>Inspects the text of a batch of documents for the syntax and part of speech of the words

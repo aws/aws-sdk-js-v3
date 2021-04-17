@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteProfileCommandInput = DeleteProfileRequest;
-export type DeleteProfileCommandOutput = DeleteProfileResponse & __MetadataBearer;
+export interface DeleteProfileCommandInput extends DeleteProfileRequest {}
+export interface DeleteProfileCommandOutput extends DeleteProfileResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a room profile by the profile ARN.</p>

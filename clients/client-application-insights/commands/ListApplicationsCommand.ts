@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListApplicationsCommandInput = ListApplicationsRequest;
-export type ListApplicationsCommandOutput = ListApplicationsResponse & __MetadataBearer;
+export interface ListApplicationsCommandInput extends ListApplicationsRequest {}
+export interface ListApplicationsCommandOutput extends ListApplicationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the IDs of the applications that you are monitoring. </p>

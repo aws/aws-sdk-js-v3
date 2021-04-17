@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateApplicationCommandInput = UpdateApplicationRequest;
-export type UpdateApplicationCommandOutput = UpdateApplicationResponse & __MetadataBearer;
+export interface UpdateApplicationCommandInput extends UpdateApplicationRequest {}
+export interface UpdateApplicationCommandOutput extends UpdateApplicationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates information about a Fleet Hub for a AWS IoT Device Management web application.</p>

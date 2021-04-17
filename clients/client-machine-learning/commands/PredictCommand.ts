@@ -15,8 +15,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PredictCommandInput = PredictInput;
-export type PredictCommandOutput = PredictOutput & __MetadataBearer;
+export interface PredictCommandInput extends PredictInput {}
+export interface PredictCommandOutput extends PredictOutput, __MetadataBearer {}
 
 /**
  * <p>Generates a prediction for the observation using the specified <code>ML Model</code>.</p>

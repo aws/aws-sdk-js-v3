@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListCertificatesCommandInput = ListCertificatesRequest;
-export type ListCertificatesCommandOutput = ListCertificatesResult & __MetadataBearer;
+export interface ListCertificatesCommandInput extends ListCertificatesRequest {}
+export interface ListCertificatesCommandOutput extends ListCertificatesResult, __MetadataBearer {}
 
 /**
  * <p>For the specified directory, lists all the certificates registered for a secure LDAP or client certificate authentication.</p>

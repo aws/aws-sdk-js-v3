@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SendProjectSessionActionCommandInput = SendProjectSessionActionRequest;
-export type SendProjectSessionActionCommandOutput = SendProjectSessionActionResponse & __MetadataBearer;
+export interface SendProjectSessionActionCommandInput extends SendProjectSessionActionRequest {}
+export interface SendProjectSessionActionCommandOutput extends SendProjectSessionActionResponse, __MetadataBearer {}
 
 /**
  * <p>Performs a recipe step within an interactive DataBrew session that's currently

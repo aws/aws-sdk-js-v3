@@ -24,9 +24,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeReplicationInstanceTaskLogsCommandInput = DescribeReplicationInstanceTaskLogsMessage;
-export type DescribeReplicationInstanceTaskLogsCommandOutput = DescribeReplicationInstanceTaskLogsResponse &
-  __MetadataBearer;
+export interface DescribeReplicationInstanceTaskLogsCommandInput extends DescribeReplicationInstanceTaskLogsMessage {}
+export interface DescribeReplicationInstanceTaskLogsCommandOutput
+  extends DescribeReplicationInstanceTaskLogsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns information about the task logs for the specified task.</p>

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateSipMediaApplicationCallCommandInput = CreateSipMediaApplicationCallRequest;
-export type CreateSipMediaApplicationCallCommandOutput = CreateSipMediaApplicationCallResponse & __MetadataBearer;
+export interface CreateSipMediaApplicationCallCommandInput extends CreateSipMediaApplicationCallRequest {}
+export interface CreateSipMediaApplicationCallCommandOutput
+  extends CreateSipMediaApplicationCallResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Creates an outbound call to a phone number from the phone number specified in the request, and it invokes the endpoint of the specified

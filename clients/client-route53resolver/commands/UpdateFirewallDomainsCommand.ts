@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateFirewallDomainsCommandInput = UpdateFirewallDomainsRequest;
-export type UpdateFirewallDomainsCommandOutput = UpdateFirewallDomainsResponse & __MetadataBearer;
+export interface UpdateFirewallDomainsCommandInput extends UpdateFirewallDomainsRequest {}
+export interface UpdateFirewallDomainsCommandOutput extends UpdateFirewallDomainsResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the firewall domain list from an array of domain specifications. </p>

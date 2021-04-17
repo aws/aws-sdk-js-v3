@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListEventIntegrationAssociationsCommandInput = ListEventIntegrationAssociationsRequest;
-export type ListEventIntegrationAssociationsCommandOutput = ListEventIntegrationAssociationsResponse & __MetadataBearer;
+export interface ListEventIntegrationAssociationsCommandInput extends ListEventIntegrationAssociationsRequest {}
+export interface ListEventIntegrationAssociationsCommandOutput
+  extends ListEventIntegrationAssociationsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>The Amazon AppIntegrations APIs are in preview release and are subject to change.</p>

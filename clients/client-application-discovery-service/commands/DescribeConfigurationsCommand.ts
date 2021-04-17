@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeConfigurationsCommandInput = DescribeConfigurationsRequest;
-export type DescribeConfigurationsCommandOutput = DescribeConfigurationsResponse & __MetadataBearer;
+export interface DescribeConfigurationsCommandInput extends DescribeConfigurationsRequest {}
+export interface DescribeConfigurationsCommandOutput extends DescribeConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves attributes for a list of configuration item IDs.</p>

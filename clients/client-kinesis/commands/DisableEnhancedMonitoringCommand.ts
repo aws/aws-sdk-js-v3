@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisableEnhancedMonitoringCommandInput = DisableEnhancedMonitoringInput;
-export type DisableEnhancedMonitoringCommandOutput = EnhancedMonitoringOutput & __MetadataBearer;
+export interface DisableEnhancedMonitoringCommandInput extends DisableEnhancedMonitoringInput {}
+export interface DisableEnhancedMonitoringCommandOutput extends EnhancedMonitoringOutput, __MetadataBearer {}
 
 /**
  * <p>Disables enhanced monitoring.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifySubnetAttributeCommandInput = ModifySubnetAttributeRequest;
-export type ModifySubnetAttributeCommandOutput = __MetadataBearer;
+export interface ModifySubnetAttributeCommandInput extends ModifySubnetAttributeRequest {}
+export interface ModifySubnetAttributeCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Modifies a subnet attribute. You can only modify one attribute at a time.</p>

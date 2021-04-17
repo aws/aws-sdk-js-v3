@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateUserProfileCommandInput = UpdateUserProfileRequest;
-export type UpdateUserProfileCommandOutput = UpdateUserProfileResponse & __MetadataBearer;
+export interface UpdateUserProfileCommandInput extends UpdateUserProfileRequest {}
+export interface UpdateUserProfileCommandOutput extends UpdateUserProfileResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a user profile.</p>

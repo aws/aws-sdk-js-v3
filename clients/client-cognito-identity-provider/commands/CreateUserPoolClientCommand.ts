@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateUserPoolClientCommandInput = CreateUserPoolClientRequest;
-export type CreateUserPoolClientCommandOutput = CreateUserPoolClientResponse & __MetadataBearer;
+export interface CreateUserPoolClientCommandInput extends CreateUserPoolClientRequest {}
+export interface CreateUserPoolClientCommandOutput extends CreateUserPoolClientResponse, __MetadataBearer {}
 
 /**
  * <p>Creates the user pool client.</p>

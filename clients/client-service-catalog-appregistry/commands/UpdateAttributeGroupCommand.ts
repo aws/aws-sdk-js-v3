@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateAttributeGroupCommandInput = UpdateAttributeGroupRequest;
-export type UpdateAttributeGroupCommandOutput = UpdateAttributeGroupResponse & __MetadataBearer;
+export interface UpdateAttributeGroupCommandInput extends UpdateAttributeGroupRequest {}
+export interface UpdateAttributeGroupCommandOutput extends UpdateAttributeGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing attribute group with new details. </p>

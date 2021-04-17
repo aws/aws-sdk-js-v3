@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateRuntimeConfigurationCommandInput = UpdateRuntimeConfigurationInput;
-export type UpdateRuntimeConfigurationCommandOutput = UpdateRuntimeConfigurationOutput & __MetadataBearer;
+export interface UpdateRuntimeConfigurationCommandInput extends UpdateRuntimeConfigurationInput {}
+export interface UpdateRuntimeConfigurationCommandOutput extends UpdateRuntimeConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the current runtime configuration for the specified fleet, which tells GameLift

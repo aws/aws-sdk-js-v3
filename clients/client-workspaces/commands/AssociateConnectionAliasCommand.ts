@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateConnectionAliasCommandInput = AssociateConnectionAliasRequest;
-export type AssociateConnectionAliasCommandOutput = AssociateConnectionAliasResult & __MetadataBearer;
+export interface AssociateConnectionAliasCommandInput extends AssociateConnectionAliasRequest {}
+export interface AssociateConnectionAliasCommandOutput extends AssociateConnectionAliasResult, __MetadataBearer {}
 
 /**
  * <p>Associates the specified connection alias with the specified directory to enable cross-Region redirection.

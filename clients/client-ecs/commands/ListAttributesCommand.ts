@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAttributesCommandInput = ListAttributesRequest;
-export type ListAttributesCommandOutput = ListAttributesResponse & __MetadataBearer;
+export interface ListAttributesCommandInput extends ListAttributesRequest {}
+export interface ListAttributesCommandOutput extends ListAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the attributes for Amazon ECS resources within a specified target type and cluster.

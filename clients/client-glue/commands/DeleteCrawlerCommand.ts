@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteCrawlerCommandInput = DeleteCrawlerRequest;
-export type DeleteCrawlerCommandOutput = DeleteCrawlerResponse & __MetadataBearer;
+export interface DeleteCrawlerCommandInput extends DeleteCrawlerRequest {}
+export interface DeleteCrawlerCommandOutput extends DeleteCrawlerResponse, __MetadataBearer {}
 
 /**
  * <p>Removes a specified crawler from the AWS Glue Data Catalog, unless the crawler state is

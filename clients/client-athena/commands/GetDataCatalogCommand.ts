@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDataCatalogCommandInput = GetDataCatalogInput;
-export type GetDataCatalogCommandOutput = GetDataCatalogOutput & __MetadataBearer;
+export interface GetDataCatalogCommandInput extends GetDataCatalogInput {}
+export interface GetDataCatalogCommandOutput extends GetDataCatalogOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the specified data catalog.</p>

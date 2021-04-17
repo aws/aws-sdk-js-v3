@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListInventoryEntriesCommandInput = ListInventoryEntriesRequest;
-export type ListInventoryEntriesCommandOutput = ListInventoryEntriesResult & __MetadataBearer;
+export interface ListInventoryEntriesCommandInput extends ListInventoryEntriesRequest {}
+export interface ListInventoryEntriesCommandOutput extends ListInventoryEntriesResult, __MetadataBearer {}
 
 /**
  * <p>A list of inventory items returned by the request.</p>

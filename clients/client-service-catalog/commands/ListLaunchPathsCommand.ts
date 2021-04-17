@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListLaunchPathsCommandInput = ListLaunchPathsInput;
-export type ListLaunchPathsCommandOutput = ListLaunchPathsOutput & __MetadataBearer;
+export interface ListLaunchPathsCommandInput extends ListLaunchPathsInput {}
+export interface ListLaunchPathsCommandOutput extends ListLaunchPathsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the paths to the specified product. A path is how the user

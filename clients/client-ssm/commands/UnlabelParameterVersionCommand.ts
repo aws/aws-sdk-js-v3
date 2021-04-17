@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UnlabelParameterVersionCommandInput = UnlabelParameterVersionRequest;
-export type UnlabelParameterVersionCommandOutput = UnlabelParameterVersionResult & __MetadataBearer;
+export interface UnlabelParameterVersionCommandInput extends UnlabelParameterVersionRequest {}
+export interface UnlabelParameterVersionCommandOutput extends UnlabelParameterVersionResult, __MetadataBearer {}
 
 /**
  * <p>Remove a label or labels from a parameter.</p>

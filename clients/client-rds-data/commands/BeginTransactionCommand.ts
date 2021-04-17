@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BeginTransactionCommandInput = BeginTransactionRequest;
-export type BeginTransactionCommandOutput = BeginTransactionResponse & __MetadataBearer;
+export interface BeginTransactionCommandInput extends BeginTransactionRequest {}
+export interface BeginTransactionCommandOutput extends BeginTransactionResponse, __MetadataBearer {}
 
 /**
  * <p>Starts a SQL transaction.</p>

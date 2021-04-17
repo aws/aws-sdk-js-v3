@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteVpcLinkCommandInput = DeleteVpcLinkRequest;
-export type DeleteVpcLinkCommandOutput = __MetadataBearer;
+export interface DeleteVpcLinkCommandInput extends DeleteVpcLinkRequest {}
+export interface DeleteVpcLinkCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes an existing <a>VpcLink</a> of a specified identifier.</p>

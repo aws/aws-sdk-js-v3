@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeLocationSmbCommandInput = DescribeLocationSmbRequest;
-export type DescribeLocationSmbCommandOutput = DescribeLocationSmbResponse & __MetadataBearer;
+export interface DescribeLocationSmbCommandInput extends DescribeLocationSmbRequest {}
+export interface DescribeLocationSmbCommandOutput extends DescribeLocationSmbResponse, __MetadataBearer {}
 
 /**
  * <p>Returns metadata, such as the path and user information about an SMB location.</p>

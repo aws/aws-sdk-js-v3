@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UntagInstanceProfileCommandInput = UntagInstanceProfileRequest;
-export type UntagInstanceProfileCommandOutput = __MetadataBearer;
+export interface UntagInstanceProfileCommandInput extends UntagInstanceProfileRequest {}
+export interface UntagInstanceProfileCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes the specified tags from the IAM instance profile. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the

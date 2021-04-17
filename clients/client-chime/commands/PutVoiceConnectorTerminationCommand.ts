@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutVoiceConnectorTerminationCommandInput = PutVoiceConnectorTerminationRequest;
-export type PutVoiceConnectorTerminationCommandOutput = PutVoiceConnectorTerminationResponse & __MetadataBearer;
+export interface PutVoiceConnectorTerminationCommandInput extends PutVoiceConnectorTerminationRequest {}
+export interface PutVoiceConnectorTerminationCommandOutput
+  extends PutVoiceConnectorTerminationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Adds termination settings for the specified Amazon Chime Voice Connector.</p>

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeElasticLoadBalancersCommandInput = DescribeElasticLoadBalancersRequest;
-export type DescribeElasticLoadBalancersCommandOutput = DescribeElasticLoadBalancersResult & __MetadataBearer;
+export interface DescribeElasticLoadBalancersCommandInput extends DescribeElasticLoadBalancersRequest {}
+export interface DescribeElasticLoadBalancersCommandOutput
+  extends DescribeElasticLoadBalancersResult,
+    __MetadataBearer {}
 
 /**
  * <p>Describes a stack's Elastic Load Balancing instances.</p>

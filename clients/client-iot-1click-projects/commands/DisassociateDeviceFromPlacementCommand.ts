@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateDeviceFromPlacementCommandInput = DisassociateDeviceFromPlacementRequest;
-export type DisassociateDeviceFromPlacementCommandOutput = DisassociateDeviceFromPlacementResponse & __MetadataBearer;
+export interface DisassociateDeviceFromPlacementCommandInput extends DisassociateDeviceFromPlacementRequest {}
+export interface DisassociateDeviceFromPlacementCommandOutput
+  extends DisassociateDeviceFromPlacementResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Removes a physical device from a placement.</p>

@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListMultipartUploadsCommandInput = ListMultipartUploadsRequest;
-export type ListMultipartUploadsCommandOutput = ListMultipartUploadsOutput & __MetadataBearer;
+export interface ListMultipartUploadsCommandInput extends ListMultipartUploadsRequest {}
+export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsOutput, __MetadataBearer {}
 
 /**
  * <p>This action lists in-progress multipart uploads. An in-progress multipart upload is a

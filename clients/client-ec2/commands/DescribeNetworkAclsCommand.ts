@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeNetworkAclsCommandInput = DescribeNetworkAclsRequest;
-export type DescribeNetworkAclsCommandOutput = DescribeNetworkAclsResult & __MetadataBearer;
+export interface DescribeNetworkAclsCommandInput extends DescribeNetworkAclsRequest {}
+export interface DescribeNetworkAclsCommandOutput extends DescribeNetworkAclsResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more of your network ACLs.</p>

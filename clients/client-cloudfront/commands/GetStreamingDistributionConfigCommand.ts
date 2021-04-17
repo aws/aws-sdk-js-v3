@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetStreamingDistributionConfigCommandInput = GetStreamingDistributionConfigRequest;
-export type GetStreamingDistributionConfigCommandOutput = GetStreamingDistributionConfigResult & __MetadataBearer;
+export interface GetStreamingDistributionConfigCommandInput extends GetStreamingDistributionConfigRequest {}
+export interface GetStreamingDistributionConfigCommandOutput
+  extends GetStreamingDistributionConfigResult,
+    __MetadataBearer {}
 
 /**
  * <p>Get the configuration information about a streaming distribution. </p>

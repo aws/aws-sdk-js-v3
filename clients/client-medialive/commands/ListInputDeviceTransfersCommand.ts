@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListInputDeviceTransfersCommandInput = ListInputDeviceTransfersRequest;
-export type ListInputDeviceTransfersCommandOutput = ListInputDeviceTransfersResponse & __MetadataBearer;
+export interface ListInputDeviceTransfersCommandInput extends ListInputDeviceTransfersRequest {}
+export interface ListInputDeviceTransfersCommandOutput extends ListInputDeviceTransfersResponse, __MetadataBearer {}
 
 /**
  * List input devices that are currently being transferred. List input devices that you are transferring from your AWS account or input devices that another AWS account is transferring to you.

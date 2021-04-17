@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeClusterOperationCommandInput = DescribeClusterOperationRequest;
-export type DescribeClusterOperationCommandOutput = DescribeClusterOperationResponse & __MetadataBearer;
+export interface DescribeClusterOperationCommandInput extends DescribeClusterOperationRequest {}
+export interface DescribeClusterOperationCommandOutput extends DescribeClusterOperationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a description of the cluster operation specified by the ARN.</p>

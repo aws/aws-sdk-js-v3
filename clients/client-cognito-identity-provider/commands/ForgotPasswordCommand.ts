@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ForgotPasswordCommandInput = ForgotPasswordRequest;
-export type ForgotPasswordCommandOutput = ForgotPasswordResponse & __MetadataBearer;
+export interface ForgotPasswordCommandInput extends ForgotPasswordRequest {}
+export interface ForgotPasswordCommandOutput extends ForgotPasswordResponse, __MetadataBearer {}
 
 /**
  * <p>Calling this API causes a message to be sent to the end user with a confirmation code

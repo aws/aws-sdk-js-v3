@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateApplicationCommandInput = CreateApplicationRequest;
-export type CreateApplicationCommandOutput = CreateApplicationResponse & __MetadataBearer;
+export interface CreateApplicationCommandInput extends CreateApplicationRequest {}
+export interface CreateApplicationCommandOutput extends CreateApplicationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a Kinesis Data Analytics application. For information about creating a

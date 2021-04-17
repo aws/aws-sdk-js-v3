@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListContributorInsightsCommandInput = ListContributorInsightsInput;
-export type ListContributorInsightsCommandOutput = ListContributorInsightsOutput & __MetadataBearer;
+export interface ListContributorInsightsCommandInput extends ListContributorInsightsInput {}
+export interface ListContributorInsightsCommandOutput extends ListContributorInsightsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a list of ContributorInsightsSummary for a table and all its global secondary indexes.</p>

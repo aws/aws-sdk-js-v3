@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateOrUpdateTagsCommandInput = CreateOrUpdateTagsType;
-export type CreateOrUpdateTagsCommandOutput = __MetadataBearer;
+export interface CreateOrUpdateTagsCommandInput extends CreateOrUpdateTagsType {}
+export interface CreateOrUpdateTagsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Creates or updates tags for the specified Auto Scaling group.</p>

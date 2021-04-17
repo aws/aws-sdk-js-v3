@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteProvisionedConcurrencyConfigCommandInput = DeleteProvisionedConcurrencyConfigRequest;
-export type DeleteProvisionedConcurrencyConfigCommandOutput = __MetadataBearer;
+export interface DeleteProvisionedConcurrencyConfigCommandInput extends DeleteProvisionedConcurrencyConfigRequest {}
+export interface DeleteProvisionedConcurrencyConfigCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the provisioned concurrency configuration for a function.</p>

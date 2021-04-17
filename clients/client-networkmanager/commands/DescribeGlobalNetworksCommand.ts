@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeGlobalNetworksCommandInput = DescribeGlobalNetworksRequest;
-export type DescribeGlobalNetworksCommandOutput = DescribeGlobalNetworksResponse & __MetadataBearer;
+export interface DescribeGlobalNetworksCommandInput extends DescribeGlobalNetworksRequest {}
+export interface DescribeGlobalNetworksCommandOutput extends DescribeGlobalNetworksResponse, __MetadataBearer {}
 
 /**
  * <p>Describes one or more global networks. By default, all global networks are

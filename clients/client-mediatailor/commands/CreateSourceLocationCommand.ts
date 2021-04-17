@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateSourceLocationCommandInput = CreateSourceLocationRequest;
-export type CreateSourceLocationCommandOutput = CreateSourceLocationResponse & __MetadataBearer;
+export interface CreateSourceLocationCommandInput extends CreateSourceLocationRequest {}
+export interface CreateSourceLocationCommandOutput extends CreateSourceLocationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a source location on a specific channel.</p>

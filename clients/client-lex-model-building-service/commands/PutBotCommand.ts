@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutBotCommandInput = PutBotRequest;
-export type PutBotCommandOutput = PutBotResponse & __MetadataBearer;
+export interface PutBotCommandInput extends PutBotRequest {}
+export interface PutBotCommandOutput extends PutBotResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an Amazon Lex conversational bot or replaces an existing bot.

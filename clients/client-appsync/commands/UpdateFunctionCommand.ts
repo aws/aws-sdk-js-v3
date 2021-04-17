@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateFunctionCommandInput = UpdateFunctionRequest;
-export type UpdateFunctionCommandOutput = UpdateFunctionResponse & __MetadataBearer;
+export interface UpdateFunctionCommandInput extends UpdateFunctionRequest {}
+export interface UpdateFunctionCommandOutput extends UpdateFunctionResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a <code>Function</code> object.</p>

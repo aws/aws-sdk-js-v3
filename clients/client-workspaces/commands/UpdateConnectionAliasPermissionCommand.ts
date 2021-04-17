@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateConnectionAliasPermissionCommandInput = UpdateConnectionAliasPermissionRequest;
-export type UpdateConnectionAliasPermissionCommandOutput = UpdateConnectionAliasPermissionResult & __MetadataBearer;
+export interface UpdateConnectionAliasPermissionCommandInput extends UpdateConnectionAliasPermissionRequest {}
+export interface UpdateConnectionAliasPermissionCommandOutput
+  extends UpdateConnectionAliasPermissionResult,
+    __MetadataBearer {}
 
 /**
  * <p>Shares or unshares a connection alias with one account by specifying whether that account has permission to

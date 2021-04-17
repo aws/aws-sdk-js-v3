@@ -17,8 +17,9 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteCustomVerificationEmailTemplateCommandInput = DeleteCustomVerificationEmailTemplateRequest;
-export type DeleteCustomVerificationEmailTemplateCommandOutput = __MetadataBearer;
+export interface DeleteCustomVerificationEmailTemplateCommandInput
+  extends DeleteCustomVerificationEmailTemplateRequest {}
+export interface DeleteCustomVerificationEmailTemplateCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes an existing custom verification email template. </p>

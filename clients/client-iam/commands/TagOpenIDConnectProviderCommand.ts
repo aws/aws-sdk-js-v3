@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TagOpenIDConnectProviderCommandInput = TagOpenIDConnectProviderRequest;
-export type TagOpenIDConnectProviderCommandOutput = __MetadataBearer;
+export interface TagOpenIDConnectProviderCommandInput extends TagOpenIDConnectProviderRequest {}
+export interface TagOpenIDConnectProviderCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Adds one or more tags to an OpenID Connect (OIDC)-compatible identity provider. For

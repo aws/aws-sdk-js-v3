@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDominantLanguageDetectionJobsCommandInput = ListDominantLanguageDetectionJobsRequest;
-export type ListDominantLanguageDetectionJobsCommandOutput = ListDominantLanguageDetectionJobsResponse &
-  __MetadataBearer;
+export interface ListDominantLanguageDetectionJobsCommandInput extends ListDominantLanguageDetectionJobsRequest {}
+export interface ListDominantLanguageDetectionJobsCommandOutput
+  extends ListDominantLanguageDetectionJobsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets a list of the dominant language detection jobs that you have submitted.</p>

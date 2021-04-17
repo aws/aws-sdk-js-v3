@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteResourceDefinitionCommandInput = DeleteResourceDefinitionRequest;
-export type DeleteResourceDefinitionCommandOutput = DeleteResourceDefinitionResponse & __MetadataBearer;
+export interface DeleteResourceDefinitionCommandInput extends DeleteResourceDefinitionRequest {}
+export interface DeleteResourceDefinitionCommandOutput extends DeleteResourceDefinitionResponse, __MetadataBearer {}
 
 /**
  * Deletes a resource definition.

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListInstanceProfilesForRoleCommandInput = ListInstanceProfilesForRoleRequest;
-export type ListInstanceProfilesForRoleCommandOutput = ListInstanceProfilesForRoleResponse & __MetadataBearer;
+export interface ListInstanceProfilesForRoleCommandInput extends ListInstanceProfilesForRoleRequest {}
+export interface ListInstanceProfilesForRoleCommandOutput
+  extends ListInstanceProfilesForRoleResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Lists the instance profiles that have the specified associated IAM role. If there

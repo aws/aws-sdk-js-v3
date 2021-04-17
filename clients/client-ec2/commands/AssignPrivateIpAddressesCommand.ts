@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssignPrivateIpAddressesCommandInput = AssignPrivateIpAddressesRequest;
-export type AssignPrivateIpAddressesCommandOutput = AssignPrivateIpAddressesResult & __MetadataBearer;
+export interface AssignPrivateIpAddressesCommandInput extends AssignPrivateIpAddressesRequest {}
+export interface AssignPrivateIpAddressesCommandOutput extends AssignPrivateIpAddressesResult, __MetadataBearer {}
 
 /**
  * <p>Assigns one or more secondary private IP addresses to the specified network interface.</p>

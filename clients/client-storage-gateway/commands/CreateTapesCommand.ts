@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateTapesCommandInput = CreateTapesInput;
-export type CreateTapesCommandOutput = CreateTapesOutput & __MetadataBearer;
+export interface CreateTapesCommandInput extends CreateTapesInput {}
+export interface CreateTapesCommandOutput extends CreateTapesOutput, __MetadataBearer {}
 
 /**
  * <p>Creates one or more virtual tapes. You write data to the virtual tapes and then archive

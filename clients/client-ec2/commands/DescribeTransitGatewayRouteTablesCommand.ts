@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTransitGatewayRouteTablesCommandInput = DescribeTransitGatewayRouteTablesRequest;
-export type DescribeTransitGatewayRouteTablesCommandOutput = DescribeTransitGatewayRouteTablesResult & __MetadataBearer;
+export interface DescribeTransitGatewayRouteTablesCommandInput extends DescribeTransitGatewayRouteTablesRequest {}
+export interface DescribeTransitGatewayRouteTablesCommandOutput
+  extends DescribeTransitGatewayRouteTablesResult,
+    __MetadataBearer {}
 
 /**
  * <p>Describes one or more transit gateway route tables. By default, all transit gateway route tables are described.

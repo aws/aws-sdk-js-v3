@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateCertificateAuthorityCommandInput = CreateCertificateAuthorityRequest;
-export type CreateCertificateAuthorityCommandOutput = CreateCertificateAuthorityResponse & __MetadataBearer;
+export interface CreateCertificateAuthorityCommandInput extends CreateCertificateAuthorityRequest {}
+export interface CreateCertificateAuthorityCommandOutput extends CreateCertificateAuthorityResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a root or subordinate private certificate authority (CA). You must specify the

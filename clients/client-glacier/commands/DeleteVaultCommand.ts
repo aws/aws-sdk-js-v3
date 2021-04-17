@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteVaultCommandInput = DeleteVaultInput;
-export type DeleteVaultCommandOutput = __MetadataBearer;
+export interface DeleteVaultCommandInput extends DeleteVaultInput {}
+export interface DeleteVaultCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This operation deletes a vault. Amazon S3 Glacier will delete a vault only if there are

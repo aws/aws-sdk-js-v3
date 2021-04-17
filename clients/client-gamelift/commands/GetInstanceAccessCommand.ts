@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetInstanceAccessCommandInput = GetInstanceAccessInput;
-export type GetInstanceAccessCommandOutput = GetInstanceAccessOutput & __MetadataBearer;
+export interface GetInstanceAccessCommandInput extends GetInstanceAccessInput {}
+export interface GetInstanceAccessCommandOutput extends GetInstanceAccessOutput, __MetadataBearer {}
 
 /**
  * <p>Requests remote access to a fleet instance. Remote access is useful for debugging,

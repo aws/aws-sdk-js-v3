@@ -16,8 +16,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type LeaveOrganizationCommandInput = {};
-export type LeaveOrganizationCommandOutput = __MetadataBearer;
+export interface LeaveOrganizationCommandInput {}
+export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes a member account from its parent organization. This version of the operation

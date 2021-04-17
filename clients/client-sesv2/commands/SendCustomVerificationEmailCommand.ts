@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SendCustomVerificationEmailCommandInput = SendCustomVerificationEmailRequest;
-export type SendCustomVerificationEmailCommandOutput = SendCustomVerificationEmailResponse & __MetadataBearer;
+export interface SendCustomVerificationEmailCommandInput extends SendCustomVerificationEmailRequest {}
+export interface SendCustomVerificationEmailCommandOutput
+  extends SendCustomVerificationEmailResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Adds an email address to the list of identities for your Amazon SES account in the current

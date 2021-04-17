@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateDomainNameserversCommandInput = UpdateDomainNameserversRequest;
-export type UpdateDomainNameserversCommandOutput = UpdateDomainNameserversResponse & __MetadataBearer;
+export interface UpdateDomainNameserversCommandInput extends UpdateDomainNameserversRequest {}
+export interface UpdateDomainNameserversCommandOutput extends UpdateDomainNameserversResponse, __MetadataBearer {}
 
 /**
  * <p>This operation replaces the current set of name servers for the domain with the specified set of name servers.

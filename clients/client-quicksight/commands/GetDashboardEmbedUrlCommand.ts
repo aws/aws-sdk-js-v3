@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDashboardEmbedUrlCommandInput = GetDashboardEmbedUrlRequest;
-export type GetDashboardEmbedUrlCommandOutput = GetDashboardEmbedUrlResponse & __MetadataBearer;
+export interface GetDashboardEmbedUrlCommandInput extends GetDashboardEmbedUrlRequest {}
+export interface GetDashboardEmbedUrlCommandOutput extends GetDashboardEmbedUrlResponse, __MetadataBearer {}
 
 /**
  * <p>Generates a session URL and authorization code that you can use to embed an Amazon

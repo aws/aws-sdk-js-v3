@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetEventPredictionCommandInput = GetEventPredictionRequest;
-export type GetEventPredictionCommandOutput = GetEventPredictionResult & __MetadataBearer;
+export interface GetEventPredictionCommandInput extends GetEventPredictionRequest {}
+export interface GetEventPredictionCommandOutput extends GetEventPredictionResult, __MetadataBearer {}
 
 /**
  * <p>Evaluates an event against a detector version. If a version ID is not provided, the detector’s (<code>ACTIVE</code>) version is used.</p>

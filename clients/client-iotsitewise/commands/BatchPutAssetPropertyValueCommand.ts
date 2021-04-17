@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchPutAssetPropertyValueCommandInput = BatchPutAssetPropertyValueRequest;
-export type BatchPutAssetPropertyValueCommandOutput = BatchPutAssetPropertyValueResponse & __MetadataBearer;
+export interface BatchPutAssetPropertyValueCommandInput extends BatchPutAssetPropertyValueRequest {}
+export interface BatchPutAssetPropertyValueCommandOutput extends BatchPutAssetPropertyValueResponse, __MetadataBearer {}
 
 /**
  * <p>Sends a list of asset property values to AWS IoT SiteWise. Each value is a timestamp-quality-value

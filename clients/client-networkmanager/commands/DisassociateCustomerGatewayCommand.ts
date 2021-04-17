@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateCustomerGatewayCommandInput = DisassociateCustomerGatewayRequest;
-export type DisassociateCustomerGatewayCommandOutput = DisassociateCustomerGatewayResponse & __MetadataBearer;
+export interface DisassociateCustomerGatewayCommandInput extends DisassociateCustomerGatewayRequest {}
+export interface DisassociateCustomerGatewayCommandOutput
+  extends DisassociateCustomerGatewayResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Disassociates a customer gateway from a device and a link.</p>

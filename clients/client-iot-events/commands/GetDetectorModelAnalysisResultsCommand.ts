@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDetectorModelAnalysisResultsCommandInput = GetDetectorModelAnalysisResultsRequest;
-export type GetDetectorModelAnalysisResultsCommandOutput = GetDetectorModelAnalysisResultsResponse & __MetadataBearer;
+export interface GetDetectorModelAnalysisResultsCommandInput extends GetDetectorModelAnalysisResultsRequest {}
+export interface GetDetectorModelAnalysisResultsCommandOutput
+  extends GetDetectorModelAnalysisResultsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves one or more analysis results of the detector model.</p>

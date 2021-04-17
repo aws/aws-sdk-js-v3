@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetCredentialReportCommandInput = {};
-export type GetCredentialReportCommandOutput = GetCredentialReportResponse & __MetadataBearer;
+export interface GetCredentialReportCommandInput {}
+export interface GetCredentialReportCommandOutput extends GetCredentialReportResponse, __MetadataBearer {}
 
 /**
  * <p> Retrieves a credential report for the AWS account. For more information about the

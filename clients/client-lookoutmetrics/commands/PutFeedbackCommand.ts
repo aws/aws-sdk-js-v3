@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutFeedbackCommandInput = PutFeedbackRequest;
-export type PutFeedbackCommandOutput = PutFeedbackResponse & __MetadataBearer;
+export interface PutFeedbackCommandInput extends PutFeedbackRequest {}
+export interface PutFeedbackCommandOutput extends PutFeedbackResponse, __MetadataBearer {}
 
 /**
  * <p>Add feedback for an anomalous metric.</p>

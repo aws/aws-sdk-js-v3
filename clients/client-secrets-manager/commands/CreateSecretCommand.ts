@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateSecretCommandInput = CreateSecretRequest;
-export type CreateSecretCommandOutput = CreateSecretResponse & __MetadataBearer;
+export interface CreateSecretCommandInput extends CreateSecretRequest {}
+export interface CreateSecretCommandOutput extends CreateSecretResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new secret. A secret in Secrets Manager consists of both the protected secret data and the

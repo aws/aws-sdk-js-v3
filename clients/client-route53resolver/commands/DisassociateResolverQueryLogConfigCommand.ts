@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateResolverQueryLogConfigCommandInput = DisassociateResolverQueryLogConfigRequest;
-export type DisassociateResolverQueryLogConfigCommandOutput = DisassociateResolverQueryLogConfigResponse &
-  __MetadataBearer;
+export interface DisassociateResolverQueryLogConfigCommandInput extends DisassociateResolverQueryLogConfigRequest {}
+export interface DisassociateResolverQueryLogConfigCommandOutput
+  extends DisassociateResolverQueryLogConfigResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Disassociates a VPC from a query logging configuration.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteContactListCommandInput = DeleteContactListRequest;
-export type DeleteContactListCommandOutput = DeleteContactListResponse & __MetadataBearer;
+export interface DeleteContactListCommandInput extends DeleteContactListRequest {}
+export interface DeleteContactListCommandOutput extends DeleteContactListResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a contact list and all of the contacts on that list.</p>

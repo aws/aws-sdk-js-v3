@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetResourceCommandInput = GetResourceRequest;
-export type GetResourceCommandOutput = Resource & __MetadataBearer;
+export interface GetResourceCommandInput extends GetResourceRequest {}
+export interface GetResourceCommandOutput extends Resource, __MetadataBearer {}
 
 /**
  * <p>Lists information about a resource.</p>

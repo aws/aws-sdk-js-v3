@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeClustersCommandInput = DescribeClustersRequest;
-export type DescribeClustersCommandOutput = DescribeClustersResponse & __MetadataBearer;
+export interface DescribeClustersCommandInput extends DescribeClustersRequest {}
+export interface DescribeClustersCommandOutput extends DescribeClustersResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about all provisioned DAX clusters if no cluster identifier

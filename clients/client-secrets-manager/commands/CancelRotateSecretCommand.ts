@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelRotateSecretCommandInput = CancelRotateSecretRequest;
-export type CancelRotateSecretCommandOutput = CancelRotateSecretResponse & __MetadataBearer;
+export interface CancelRotateSecretCommandInput extends CancelRotateSecretRequest {}
+export interface CancelRotateSecretCommandOutput extends CancelRotateSecretResponse, __MetadataBearer {}
 
 /**
  * <p>Disables automatic scheduled rotation and cancels the rotation of a secret if currently in

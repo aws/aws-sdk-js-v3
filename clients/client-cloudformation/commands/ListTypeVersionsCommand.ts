@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTypeVersionsCommandInput = ListTypeVersionsInput;
-export type ListTypeVersionsCommandOutput = ListTypeVersionsOutput & __MetadataBearer;
+export interface ListTypeVersionsCommandInput extends ListTypeVersionsInput {}
+export interface ListTypeVersionsCommandOutput extends ListTypeVersionsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns summary information about the versions of an extension.</p>

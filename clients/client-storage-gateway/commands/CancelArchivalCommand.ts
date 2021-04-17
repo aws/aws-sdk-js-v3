@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelArchivalCommandInput = CancelArchivalInput;
-export type CancelArchivalCommandOutput = CancelArchivalOutput & __MetadataBearer;
+export interface CancelArchivalCommandInput extends CancelArchivalInput {}
+export interface CancelArchivalCommandOutput extends CancelArchivalOutput, __MetadataBearer {}
 
 /**
  * <p>Cancels archiving of a virtual tape to the virtual tape shelf (VTS) after the archiving

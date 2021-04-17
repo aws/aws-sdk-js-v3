@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateApprovedOriginCommandInput = DisassociateApprovedOriginRequest;
-export type DisassociateApprovedOriginCommandOutput = __MetadataBearer;
+export interface DisassociateApprovedOriginCommandInput extends DisassociateApprovedOriginRequest {}
+export interface DisassociateApprovedOriginCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>

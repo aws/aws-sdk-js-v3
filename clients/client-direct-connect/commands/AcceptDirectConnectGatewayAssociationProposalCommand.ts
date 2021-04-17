@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AcceptDirectConnectGatewayAssociationProposalCommandInput = AcceptDirectConnectGatewayAssociationProposalRequest;
-export type AcceptDirectConnectGatewayAssociationProposalCommandOutput = AcceptDirectConnectGatewayAssociationProposalResult &
-  __MetadataBearer;
+export interface AcceptDirectConnectGatewayAssociationProposalCommandInput
+  extends AcceptDirectConnectGatewayAssociationProposalRequest {}
+export interface AcceptDirectConnectGatewayAssociationProposalCommandOutput
+  extends AcceptDirectConnectGatewayAssociationProposalResult,
+    __MetadataBearer {}
 
 /**
  * <p>Accepts a proposal request to attach a virtual private gateway or transit gateway to a Direct Connect gateway.</p>

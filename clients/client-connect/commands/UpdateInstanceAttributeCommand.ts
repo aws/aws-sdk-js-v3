@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateInstanceAttributeCommandInput = UpdateInstanceAttributeRequest;
-export type UpdateInstanceAttributeCommandOutput = __MetadataBearer;
+export interface UpdateInstanceAttributeCommandInput extends UpdateInstanceAttributeRequest {}
+export interface UpdateInstanceAttributeCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>

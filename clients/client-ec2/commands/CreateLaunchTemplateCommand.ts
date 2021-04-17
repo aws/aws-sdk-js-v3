@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateLaunchTemplateCommandInput = CreateLaunchTemplateRequest;
-export type CreateLaunchTemplateCommandOutput = CreateLaunchTemplateResult & __MetadataBearer;
+export interface CreateLaunchTemplateCommandInput extends CreateLaunchTemplateRequest {}
+export interface CreateLaunchTemplateCommandOutput extends CreateLaunchTemplateResult, __MetadataBearer {}
 
 /**
  * <p>Creates a launch template. A launch template contains the parameters to launch an

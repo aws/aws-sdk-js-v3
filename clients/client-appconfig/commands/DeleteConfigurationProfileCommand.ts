@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteConfigurationProfileCommandInput = DeleteConfigurationProfileRequest;
-export type DeleteConfigurationProfileCommandOutput = __MetadataBearer;
+export interface DeleteConfigurationProfileCommandInput extends DeleteConfigurationProfileRequest {}
+export interface DeleteConfigurationProfileCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Delete a configuration profile. Deleting a configuration profile does not delete a

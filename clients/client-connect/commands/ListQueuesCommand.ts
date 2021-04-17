@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListQueuesCommandInput = ListQueuesRequest;
-export type ListQueuesCommandOutput = ListQueuesResponse & __MetadataBearer;
+export interface ListQueuesCommandInput extends ListQueuesRequest {}
+export interface ListQueuesCommandOutput extends ListQueuesResponse, __MetadataBearer {}
 
 /**
  * <p>Provides information about the queues for the specified Amazon Connect instance.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListCodeRepositoriesCommandInput = ListCodeRepositoriesInput;
-export type ListCodeRepositoriesCommandOutput = ListCodeRepositoriesOutput & __MetadataBearer;
+export interface ListCodeRepositoriesCommandInput extends ListCodeRepositoriesInput {}
+export interface ListCodeRepositoriesCommandOutput extends ListCodeRepositoriesOutput, __MetadataBearer {}
 
 /**
  * <p>Gets a list of the Git repositories in your account.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAssetsCommandInput = ListAssetsRequest;
-export type ListAssetsCommandOutput = ListAssetsResponse & __MetadataBearer;
+export interface ListAssetsCommandInput extends ListAssetsRequest {}
+export interface ListAssetsCommandOutput extends ListAssetsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a paginated list of asset summaries.</p>

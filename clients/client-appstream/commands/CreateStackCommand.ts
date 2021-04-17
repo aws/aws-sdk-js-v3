@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateStackCommandInput = CreateStackRequest;
-export type CreateStackCommandOutput = CreateStackResult & __MetadataBearer;
+export interface CreateStackCommandInput extends CreateStackRequest {}
+export interface CreateStackCommandOutput extends CreateStackResult, __MetadataBearer {}
 
 /**
  * <p>Creates a stack to start streaming applications to users. A stack consists of an associated fleet, user access policies, and storage configurations. </p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeStorageCommandInput = {};
-export type DescribeStorageCommandOutput = CustomerStorageMessage & __MetadataBearer;
+export interface DescribeStorageCommandInput {}
+export interface DescribeStorageCommandOutput extends CustomerStorageMessage, __MetadataBearer {}
 
 /**
  * <p>Returns account level backups storage size and provisional storage.</p>

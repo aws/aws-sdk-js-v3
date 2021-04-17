@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeEffectivePatchesForPatchBaselineCommandInput = DescribeEffectivePatchesForPatchBaselineRequest;
-export type DescribeEffectivePatchesForPatchBaselineCommandOutput = DescribeEffectivePatchesForPatchBaselineResult &
-  __MetadataBearer;
+export interface DescribeEffectivePatchesForPatchBaselineCommandInput
+  extends DescribeEffectivePatchesForPatchBaselineRequest {}
+export interface DescribeEffectivePatchesForPatchBaselineCommandOutput
+  extends DescribeEffectivePatchesForPatchBaselineResult,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves the current effective patches (the patch and the approval state) for the specified

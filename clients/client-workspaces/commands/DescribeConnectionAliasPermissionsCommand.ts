@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeConnectionAliasPermissionsCommandInput = DescribeConnectionAliasPermissionsRequest;
-export type DescribeConnectionAliasPermissionsCommandOutput = DescribeConnectionAliasPermissionsResult &
-  __MetadataBearer;
+export interface DescribeConnectionAliasPermissionsCommandInput extends DescribeConnectionAliasPermissionsRequest {}
+export interface DescribeConnectionAliasPermissionsCommandOutput
+  extends DescribeConnectionAliasPermissionsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the permissions that the owner of a connection alias has granted to another AWS account for

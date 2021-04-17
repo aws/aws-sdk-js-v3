@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateVirtualInterfaceAttributesCommandInput = UpdateVirtualInterfaceAttributesRequest;
-export type UpdateVirtualInterfaceAttributesCommandOutput = VirtualInterface & __MetadataBearer;
+export interface UpdateVirtualInterfaceAttributesCommandInput extends UpdateVirtualInterfaceAttributesRequest {}
+export interface UpdateVirtualInterfaceAttributesCommandOutput extends VirtualInterface, __MetadataBearer {}
 
 /**
  * <p>Updates the specified attributes of the specified virtual private interface.</p>

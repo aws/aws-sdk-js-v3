@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListGitHubAccountTokenNamesCommandInput = ListGitHubAccountTokenNamesInput;
-export type ListGitHubAccountTokenNamesCommandOutput = ListGitHubAccountTokenNamesOutput & __MetadataBearer;
+export interface ListGitHubAccountTokenNamesCommandInput extends ListGitHubAccountTokenNamesInput {}
+export interface ListGitHubAccountTokenNamesCommandOutput extends ListGitHubAccountTokenNamesOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the names of stored connections to GitHub accounts.</p>

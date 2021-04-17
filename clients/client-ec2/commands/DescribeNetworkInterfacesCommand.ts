@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeNetworkInterfacesCommandInput = DescribeNetworkInterfacesRequest;
-export type DescribeNetworkInterfacesCommandOutput = DescribeNetworkInterfacesResult & __MetadataBearer;
+export interface DescribeNetworkInterfacesCommandInput extends DescribeNetworkInterfacesRequest {}
+export interface DescribeNetworkInterfacesCommandOutput extends DescribeNetworkInterfacesResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more of your network interfaces.</p>

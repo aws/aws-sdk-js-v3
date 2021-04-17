@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPrincipalThingsCommandInput = ListPrincipalThingsRequest;
-export type ListPrincipalThingsCommandOutput = ListPrincipalThingsResponse & __MetadataBearer;
+export interface ListPrincipalThingsCommandInput extends ListPrincipalThingsRequest {}
+export interface ListPrincipalThingsCommandOutput extends ListPrincipalThingsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the things associated with the specified principal. A principal can be X.509

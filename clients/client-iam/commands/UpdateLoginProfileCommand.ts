@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateLoginProfileCommandInput = UpdateLoginProfileRequest;
-export type UpdateLoginProfileCommandOutput = __MetadataBearer;
+export interface UpdateLoginProfileCommandInput extends UpdateLoginProfileRequest {}
+export interface UpdateLoginProfileCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Changes the password for the specified IAM user. You can use the AWS CLI, the

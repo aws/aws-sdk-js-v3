@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSendStatisticsCommandInput = {};
-export type GetSendStatisticsCommandOutput = GetSendStatisticsResponse & __MetadataBearer;
+export interface GetSendStatisticsCommandInput {}
+export interface GetSendStatisticsCommandOutput extends GetSendStatisticsResponse, __MetadataBearer {}
 
 /**
  * <p>Provides sending statistics for the current AWS Region. The result is a list of data

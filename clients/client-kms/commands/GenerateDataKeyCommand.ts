@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GenerateDataKeyCommandInput = GenerateDataKeyRequest;
-export type GenerateDataKeyCommandOutput = GenerateDataKeyResponse & __MetadataBearer;
+export interface GenerateDataKeyCommandInput extends GenerateDataKeyRequest {}
+export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, __MetadataBearer {}
 
 /**
  * <p>Generates a unique symmetric data key for client-side encryption. This operation returns a

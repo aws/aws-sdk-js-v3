@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetRepositoryTriggersCommandInput = GetRepositoryTriggersInput;
-export type GetRepositoryTriggersCommandOutput = GetRepositoryTriggersOutput & __MetadataBearer;
+export interface GetRepositoryTriggersCommandInput extends GetRepositoryTriggersInput {}
+export interface GetRepositoryTriggersCommandOutput extends GetRepositoryTriggersOutput, __MetadataBearer {}
 
 /**
  * <p>Gets information about triggers configured for a repository.</p>

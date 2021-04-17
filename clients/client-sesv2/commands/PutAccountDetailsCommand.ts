@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutAccountDetailsCommandInput = PutAccountDetailsRequest;
-export type PutAccountDetailsCommandOutput = PutAccountDetailsResponse & __MetadataBearer;
+export interface PutAccountDetailsCommandInput extends PutAccountDetailsRequest {}
+export interface PutAccountDetailsCommandOutput extends PutAccountDetailsResponse, __MetadataBearer {}
 
 /**
  * <p>Update your Amazon SES account details.</p>

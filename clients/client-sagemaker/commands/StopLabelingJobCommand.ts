@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopLabelingJobCommandInput = StopLabelingJobRequest;
-export type StopLabelingJobCommandOutput = __MetadataBearer;
+export interface StopLabelingJobCommandInput extends StopLabelingJobRequest {}
+export interface StopLabelingJobCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Stops a running labeling job. A job that is stopped cannot be restarted. Any results

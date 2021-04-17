@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DetachRolePolicyCommandInput = DetachRolePolicyRequest;
-export type DetachRolePolicyCommandOutput = __MetadataBearer;
+export interface DetachRolePolicyCommandInput extends DetachRolePolicyRequest {}
+export interface DetachRolePolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes the specified managed policy from the specified role.</p>

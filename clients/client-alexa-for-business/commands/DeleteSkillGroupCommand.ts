@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteSkillGroupCommandInput = DeleteSkillGroupRequest;
-export type DeleteSkillGroupCommandOutput = DeleteSkillGroupResponse & __MetadataBearer;
+export interface DeleteSkillGroupCommandInput extends DeleteSkillGroupRequest {}
+export interface DeleteSkillGroupCommandOutput extends DeleteSkillGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a skill group by skill group ARN.</p>

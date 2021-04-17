@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartExecutionCommandInput = StartExecutionInput;
-export type StartExecutionCommandOutput = StartExecutionOutput & __MetadataBearer;
+export interface StartExecutionCommandInput extends StartExecutionInput {}
+export interface StartExecutionCommandOutput extends StartExecutionOutput, __MetadataBearer {}
 
 /**
  * <p>Starts a state machine execution.</p>

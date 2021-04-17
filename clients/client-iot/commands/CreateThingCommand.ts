@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateThingCommandInput = CreateThingRequest;
-export type CreateThingCommandOutput = CreateThingResponse & __MetadataBearer;
+export interface CreateThingCommandInput extends CreateThingRequest {}
+export interface CreateThingCommandOutput extends CreateThingResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a thing record in the registry. If this call is made multiple times using

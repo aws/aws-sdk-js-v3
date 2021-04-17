@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutFileSystemPolicyCommandInput = PutFileSystemPolicyRequest;
-export type PutFileSystemPolicyCommandOutput = FileSystemPolicyDescription & __MetadataBearer;
+export interface PutFileSystemPolicyCommandInput extends PutFileSystemPolicyRequest {}
+export interface PutFileSystemPolicyCommandOutput extends FileSystemPolicyDescription, __MetadataBearer {}
 
 /**
  * <p>Applies an Amazon EFS <code>FileSystemPolicy</code> to an Amazon EFS file system.

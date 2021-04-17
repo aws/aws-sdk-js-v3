@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeUserPoolClientCommandInput = DescribeUserPoolClientRequest;
-export type DescribeUserPoolClientCommandOutput = DescribeUserPoolClientResponse & __MetadataBearer;
+export interface DescribeUserPoolClientCommandInput extends DescribeUserPoolClientRequest {}
+export interface DescribeUserPoolClientCommandOutput extends DescribeUserPoolClientResponse, __MetadataBearer {}
 
 /**
  * <p>Client method for returning the configuration information and metadata of the

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateResolverDnssecConfigCommandInput = UpdateResolverDnssecConfigRequest;
-export type UpdateResolverDnssecConfigCommandOutput = UpdateResolverDnssecConfigResponse & __MetadataBearer;
+export interface UpdateResolverDnssecConfigCommandInput extends UpdateResolverDnssecConfigRequest {}
+export interface UpdateResolverDnssecConfigCommandOutput extends UpdateResolverDnssecConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing DNSSEC validation configuration. If there is no existing DNSSEC validation configuration, one is created.</p>

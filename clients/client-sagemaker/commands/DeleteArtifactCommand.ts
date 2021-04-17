@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteArtifactCommandInput = DeleteArtifactRequest;
-export type DeleteArtifactCommandOutput = DeleteArtifactResponse & __MetadataBearer;
+export interface DeleteArtifactCommandInput extends DeleteArtifactRequest {}
+export interface DeleteArtifactCommandOutput extends DeleteArtifactResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an artifact. Either <code>ArtifactArn</code> or <code>Source</code> must be

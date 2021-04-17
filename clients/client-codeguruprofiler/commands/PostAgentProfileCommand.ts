@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PostAgentProfileCommandInput = PostAgentProfileRequest;
-export type PostAgentProfileCommandOutput = PostAgentProfileResponse & __MetadataBearer;
+export interface PostAgentProfileCommandInput extends PostAgentProfileRequest {}
+export interface PostAgentProfileCommandOutput extends PostAgentProfileResponse, __MetadataBearer {}
 
 /**
  * <p>

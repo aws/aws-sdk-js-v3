@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CloseInstancePublicPortsCommandInput = CloseInstancePublicPortsRequest;
-export type CloseInstancePublicPortsCommandOutput = CloseInstancePublicPortsResult & __MetadataBearer;
+export interface CloseInstancePublicPortsCommandInput extends CloseInstancePublicPortsRequest {}
+export interface CloseInstancePublicPortsCommandOutput extends CloseInstancePublicPortsResult, __MetadataBearer {}
 
 /**
  * <p>Closes ports for a specific Amazon Lightsail instance.</p>

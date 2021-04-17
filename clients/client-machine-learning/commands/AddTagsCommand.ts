@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddTagsCommandInput = AddTagsInput;
-export type AddTagsCommandOutput = AddTagsOutput & __MetadataBearer;
+export interface AddTagsCommandInput extends AddTagsInput {}
+export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
 
 /**
  * <p>Adds one or more tags to an object, up to a limit of 10. Each tag consists of a key

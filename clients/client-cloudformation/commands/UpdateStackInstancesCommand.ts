@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateStackInstancesCommandInput = UpdateStackInstancesInput;
-export type UpdateStackInstancesCommandOutput = UpdateStackInstancesOutput & __MetadataBearer;
+export interface UpdateStackInstancesCommandInput extends UpdateStackInstancesInput {}
+export interface UpdateStackInstancesCommandOutput extends UpdateStackInstancesOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the parameter values for stack instances for the specified accounts, within

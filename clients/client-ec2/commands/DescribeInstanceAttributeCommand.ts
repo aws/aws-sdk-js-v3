@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeInstanceAttributeCommandInput = DescribeInstanceAttributeRequest;
-export type DescribeInstanceAttributeCommandOutput = InstanceAttribute & __MetadataBearer;
+export interface DescribeInstanceAttributeCommandInput extends DescribeInstanceAttributeRequest {}
+export interface DescribeInstanceAttributeCommandOutput extends InstanceAttribute, __MetadataBearer {}
 
 /**
  * <p>Describes the specified attribute of the specified instance. You can specify only one

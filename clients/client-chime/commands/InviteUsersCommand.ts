@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type InviteUsersCommandInput = InviteUsersRequest;
-export type InviteUsersCommandOutput = InviteUsersResponse & __MetadataBearer;
+export interface InviteUsersCommandInput extends InviteUsersRequest {}
+export interface InviteUsersCommandOutput extends InviteUsersResponse, __MetadataBearer {}
 
 /**
  * <p>Sends email to a maximum of 50 users, inviting them to the specified Amazon Chime

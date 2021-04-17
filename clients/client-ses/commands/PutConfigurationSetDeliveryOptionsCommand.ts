@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutConfigurationSetDeliveryOptionsCommandInput = PutConfigurationSetDeliveryOptionsRequest;
-export type PutConfigurationSetDeliveryOptionsCommandOutput = PutConfigurationSetDeliveryOptionsResponse &
-  __MetadataBearer;
+export interface PutConfigurationSetDeliveryOptionsCommandInput extends PutConfigurationSetDeliveryOptionsRequest {}
+export interface PutConfigurationSetDeliveryOptionsCommandOutput
+  extends PutConfigurationSetDeliveryOptionsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Adds or updates the delivery options for a configuration set.</p>

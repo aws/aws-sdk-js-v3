@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateResolverQueryLogConfigCommandInput = CreateResolverQueryLogConfigRequest;
-export type CreateResolverQueryLogConfigCommandOutput = CreateResolverQueryLogConfigResponse & __MetadataBearer;
+export interface CreateResolverQueryLogConfigCommandInput extends CreateResolverQueryLogConfigRequest {}
+export interface CreateResolverQueryLogConfigCommandOutput
+  extends CreateResolverQueryLogConfigResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Creates a Resolver query logging configuration, which defines where you want Resolver to save DNS query logs that originate in your VPCs.

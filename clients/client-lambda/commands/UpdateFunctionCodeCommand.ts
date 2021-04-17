@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateFunctionCodeCommandInput = UpdateFunctionCodeRequest;
-export type UpdateFunctionCodeCommandOutput = FunctionConfiguration & __MetadataBearer;
+export interface UpdateFunctionCodeCommandInput extends UpdateFunctionCodeRequest {}
+export interface UpdateFunctionCodeCommandOutput extends FunctionConfiguration, __MetadataBearer {}
 
 /**
  * <p>Updates a Lambda function's code. If code signing is enabled for the function, the code package must be signed

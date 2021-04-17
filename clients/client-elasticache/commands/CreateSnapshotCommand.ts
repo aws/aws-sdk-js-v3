@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateSnapshotCommandInput = CreateSnapshotMessage;
-export type CreateSnapshotCommandOutput = CreateSnapshotResult & __MetadataBearer;
+export interface CreateSnapshotCommandInput extends CreateSnapshotMessage {}
+export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __MetadataBearer {}
 
 /**
  * <p>Creates a copy of an entire cluster or replication group at a

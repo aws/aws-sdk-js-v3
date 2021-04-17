@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateAccountCustomizationCommandInput = CreateAccountCustomizationRequest;
-export type CreateAccountCustomizationCommandOutput = CreateAccountCustomizationResponse & __MetadataBearer;
+export interface CreateAccountCustomizationCommandInput extends CreateAccountCustomizationRequest {}
+export interface CreateAccountCustomizationCommandOutput extends CreateAccountCustomizationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates Amazon QuickSight customizations the current AWS Region. Currently, you can

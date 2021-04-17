@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribePredictorBacktestExportJobCommandInput = DescribePredictorBacktestExportJobRequest;
-export type DescribePredictorBacktestExportJobCommandOutput = DescribePredictorBacktestExportJobResponse &
-  __MetadataBearer;
+export interface DescribePredictorBacktestExportJobCommandInput extends DescribePredictorBacktestExportJobRequest {}
+export interface DescribePredictorBacktestExportJobCommandOutput
+  extends DescribePredictorBacktestExportJobResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Describes a predictor backtest export job created using the <a>CreatePredictorBacktestExportJob</a> operation.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopDBInstanceCommandInput = StopDBInstanceMessage;
-export type StopDBInstanceCommandOutput = StopDBInstanceResult & __MetadataBearer;
+export interface StopDBInstanceCommandInput extends StopDBInstanceMessage {}
+export interface StopDBInstanceCommandOutput extends StopDBInstanceResult, __MetadataBearer {}
 
 /**
  * <p>

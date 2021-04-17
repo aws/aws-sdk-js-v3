@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteScheduleCommandInput = DeleteScheduleRequest;
-export type DeleteScheduleCommandOutput = DeleteScheduleResponse & __MetadataBearer;
+export interface DeleteScheduleCommandInput extends DeleteScheduleRequest {}
+export interface DeleteScheduleCommandOutput extends DeleteScheduleResponse, __MetadataBearer {}
 
 /**
  * Delete all schedule actions on a channel.

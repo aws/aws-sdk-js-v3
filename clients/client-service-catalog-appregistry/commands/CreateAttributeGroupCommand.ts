@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateAttributeGroupCommandInput = CreateAttributeGroupRequest;
-export type CreateAttributeGroupCommandOutput = CreateAttributeGroupResponse & __MetadataBearer;
+export interface CreateAttributeGroupCommandInput extends CreateAttributeGroupRequest {}
+export interface CreateAttributeGroupCommandOutput extends CreateAttributeGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new attribute group as a container for user-defined attributes. This feature

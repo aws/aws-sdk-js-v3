@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBackupPlanFromJSONCommandInput = GetBackupPlanFromJSONInput;
-export type GetBackupPlanFromJSONCommandOutput = GetBackupPlanFromJSONOutput & __MetadataBearer;
+export interface GetBackupPlanFromJSONCommandInput extends GetBackupPlanFromJSONInput {}
+export interface GetBackupPlanFromJSONCommandOutput extends GetBackupPlanFromJSONOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a valid JSON document specifying a backup plan or an error.</p>

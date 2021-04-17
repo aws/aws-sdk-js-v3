@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type IgnoreQueryParamsInResponseCommandInput = {};
-export type IgnoreQueryParamsInResponseCommandOutput = IgnoreQueryParamsInResponseOutput & __MetadataBearer;
+export interface IgnoreQueryParamsInResponseCommandInput {}
+export interface IgnoreQueryParamsInResponseCommandOutput extends IgnoreQueryParamsInResponseOutput, __MetadataBearer {}
 
 /**
  * This example ensures that query string bound request parameters are

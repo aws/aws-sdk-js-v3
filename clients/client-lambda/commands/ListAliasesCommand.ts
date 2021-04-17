@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAliasesCommandInput = ListAliasesRequest;
-export type ListAliasesCommandOutput = ListAliasesResponse & __MetadataBearer;
+export interface ListAliasesCommandInput extends ListAliasesRequest {}
+export interface ListAliasesCommandOutput extends ListAliasesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">aliases</a>

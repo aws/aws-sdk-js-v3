@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDeploymentCommandInput = CreateDeploymentRequest;
-export type CreateDeploymentCommandOutput = Deployment & __MetadataBearer;
+export interface CreateDeploymentCommandInput extends CreateDeploymentRequest {}
+export interface CreateDeploymentCommandOutput extends Deployment, __MetadataBearer {}
 
 /**
  * <p>Creates a <a>Deployment</a> resource, which makes a specified <a>RestApi</a> callable over the internet.</p>

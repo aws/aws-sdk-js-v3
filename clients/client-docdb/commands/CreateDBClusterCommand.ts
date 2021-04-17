@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDBClusterCommandInput = CreateDBClusterMessage;
-export type CreateDBClusterCommandOutput = CreateDBClusterResult & __MetadataBearer;
+export interface CreateDBClusterCommandInput extends CreateDBClusterMessage {}
+export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __MetadataBearer {}
 
 /**
  * <p>Creates a new Amazon DocumentDB cluster.</p>

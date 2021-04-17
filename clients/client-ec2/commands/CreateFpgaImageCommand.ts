@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateFpgaImageCommandInput = CreateFpgaImageRequest;
-export type CreateFpgaImageCommandOutput = CreateFpgaImageResult & __MetadataBearer;
+export interface CreateFpgaImageCommandInput extends CreateFpgaImageRequest {}
+export interface CreateFpgaImageCommandOutput extends CreateFpgaImageResult, __MetadataBearer {}
 
 /**
  * <p>Creates an Amazon FPGA Image (AFI) from the specified design checkpoint (DCP).</p>

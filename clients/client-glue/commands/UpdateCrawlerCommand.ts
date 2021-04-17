@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateCrawlerCommandInput = UpdateCrawlerRequest;
-export type UpdateCrawlerCommandOutput = UpdateCrawlerResponse & __MetadataBearer;
+export interface UpdateCrawlerCommandInput extends UpdateCrawlerRequest {}
+export interface UpdateCrawlerCommandOutput extends UpdateCrawlerResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a crawler. If a crawler is

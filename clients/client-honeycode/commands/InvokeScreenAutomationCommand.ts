@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type InvokeScreenAutomationCommandInput = InvokeScreenAutomationRequest;
-export type InvokeScreenAutomationCommandOutput = InvokeScreenAutomationResult & __MetadataBearer;
+export interface InvokeScreenAutomationCommandInput extends InvokeScreenAutomationRequest {}
+export interface InvokeScreenAutomationCommandOutput extends InvokeScreenAutomationResult, __MetadataBearer {}
 
 /**
  * <p>

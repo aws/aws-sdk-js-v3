@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteTransitGatewayRouteTableCommandInput = DeleteTransitGatewayRouteTableRequest;
-export type DeleteTransitGatewayRouteTableCommandOutput = DeleteTransitGatewayRouteTableResult & __MetadataBearer;
+export interface DeleteTransitGatewayRouteTableCommandInput extends DeleteTransitGatewayRouteTableRequest {}
+export interface DeleteTransitGatewayRouteTableCommandOutput
+  extends DeleteTransitGatewayRouteTableResult,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes the specified transit gateway route table. You must disassociate the route table from any

@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteCustomRoutingListenerCommandInput = DeleteCustomRoutingListenerRequest;
-export type DeleteCustomRoutingListenerCommandOutput = __MetadataBearer;
+export interface DeleteCustomRoutingListenerCommandInput extends DeleteCustomRoutingListenerRequest {}
+export interface DeleteCustomRoutingListenerCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Delete a listener for a custom routing accelerator.</p>

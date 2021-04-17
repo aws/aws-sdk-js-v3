@@ -15,8 +15,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PauseClusterCommandInput = PauseClusterMessage;
-export type PauseClusterCommandOutput = PauseClusterResult & __MetadataBearer;
+export interface PauseClusterCommandInput extends PauseClusterMessage {}
+export interface PauseClusterCommandOutput extends PauseClusterResult, __MetadataBearer {}
 
 /**
  * <p>Pauses a cluster.</p>

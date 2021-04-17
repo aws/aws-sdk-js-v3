@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAppCommandInput = DescribeAppRequest;
-export type DescribeAppCommandOutput = DescribeAppResponse & __MetadataBearer;
+export interface DescribeAppCommandInput extends DescribeAppRequest {}
+export interface DescribeAppCommandOutput extends DescribeAppResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the app.</p>

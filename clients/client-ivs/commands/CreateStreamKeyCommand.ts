@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateStreamKeyCommandInput = CreateStreamKeyRequest;
-export type CreateStreamKeyCommandOutput = CreateStreamKeyResponse & __MetadataBearer;
+export interface CreateStreamKeyCommandInput extends CreateStreamKeyRequest {}
+export interface CreateStreamKeyCommandOutput extends CreateStreamKeyResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a stream key, used to initiate a stream, for the specified channel ARN.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTagsLogGroupCommandInput = ListTagsLogGroupRequest;
-export type ListTagsLogGroupCommandOutput = ListTagsLogGroupResponse & __MetadataBearer;
+export interface ListTagsLogGroupCommandInput extends ListTagsLogGroupRequest {}
+export interface ListTagsLogGroupCommandOutput extends ListTagsLogGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the tags for the specified log group.</p>

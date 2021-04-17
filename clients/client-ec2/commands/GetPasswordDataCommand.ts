@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetPasswordDataCommandInput = GetPasswordDataRequest;
-export type GetPasswordDataCommandOutput = GetPasswordDataResult & __MetadataBearer;
+export interface GetPasswordDataCommandInput extends GetPasswordDataRequest {}
+export interface GetPasswordDataCommandOutput extends GetPasswordDataResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves the encrypted administrator password for a running Windows instance.</p>

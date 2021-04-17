@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateCertificateCommandInput = AssociateCertificateRequest;
-export type AssociateCertificateCommandOutput = AssociateCertificateResponse & __MetadataBearer;
+export interface AssociateCertificateCommandInput extends AssociateCertificateRequest {}
+export interface AssociateCertificateCommandOutput extends AssociateCertificateResponse, __MetadataBearer {}
 
 /**
  * Associates an AWS Certificate Manager (ACM) Amazon Resource Name (ARN) with AWS Elemental MediaConvert.

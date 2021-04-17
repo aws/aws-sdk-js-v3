@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutTargetsCommandInput = PutTargetsRequest;
-export type PutTargetsCommandOutput = PutTargetsResponse & __MetadataBearer;
+export interface PutTargetsCommandInput extends PutTargetsRequest {}
+export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataBearer {}
 
 /**
  * <p>Adds the specified targets to the specified rule, or updates the targets if they are

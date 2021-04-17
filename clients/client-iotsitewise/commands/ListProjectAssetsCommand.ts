@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListProjectAssetsCommandInput = ListProjectAssetsRequest;
-export type ListProjectAssetsCommandOutput = ListProjectAssetsResponse & __MetadataBearer;
+export interface ListProjectAssetsCommandInput extends ListProjectAssetsRequest {}
+export interface ListProjectAssetsCommandOutput extends ListProjectAssetsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a paginated list of assets associated with an AWS IoT SiteWise Monitor project.</p>

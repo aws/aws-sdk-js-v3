@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateAppCommandInput = UpdateAppRequest;
-export type UpdateAppCommandOutput = UpdateAppResult & __MetadataBearer;
+export interface UpdateAppCommandInput extends UpdateAppRequest {}
+export interface UpdateAppCommandOutput extends UpdateAppResult, __MetadataBearer {}
 
 /**
  * <p> Updates an existing Amplify app. </p>

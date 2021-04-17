@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartChangeSetCommandInput = StartChangeSetRequest;
-export type StartChangeSetCommandOutput = StartChangeSetResponse & __MetadataBearer;
+export interface StartChangeSetCommandInput extends StartChangeSetRequest {}
+export interface StartChangeSetCommandOutput extends StartChangeSetResponse, __MetadataBearer {}
 
 /**
  * <p>This operation allows you to request changes for your entities. Within a single

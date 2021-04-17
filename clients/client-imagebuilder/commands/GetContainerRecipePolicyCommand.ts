@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetContainerRecipePolicyCommandInput = GetContainerRecipePolicyRequest;
-export type GetContainerRecipePolicyCommandOutput = GetContainerRecipePolicyResponse & __MetadataBearer;
+export interface GetContainerRecipePolicyCommandInput extends GetContainerRecipePolicyRequest {}
+export interface GetContainerRecipePolicyCommandOutput extends GetContainerRecipePolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the policy for a container recipe.</p>

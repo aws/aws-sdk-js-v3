@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDirectConnectGatewayAssociationCommandInput = CreateDirectConnectGatewayAssociationRequest;
-export type CreateDirectConnectGatewayAssociationCommandOutput = CreateDirectConnectGatewayAssociationResult &
-  __MetadataBearer;
+export interface CreateDirectConnectGatewayAssociationCommandInput
+  extends CreateDirectConnectGatewayAssociationRequest {}
+export interface CreateDirectConnectGatewayAssociationCommandOutput
+  extends CreateDirectConnectGatewayAssociationResult,
+    __MetadataBearer {}
 
 /**
  * <p>Creates an association between a Direct Connect gateway and a virtual private gateway. The virtual

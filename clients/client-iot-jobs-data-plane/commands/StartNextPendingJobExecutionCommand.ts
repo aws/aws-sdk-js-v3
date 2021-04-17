@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartNextPendingJobExecutionCommandInput = StartNextPendingJobExecutionRequest;
-export type StartNextPendingJobExecutionCommandOutput = StartNextPendingJobExecutionResponse & __MetadataBearer;
+export interface StartNextPendingJobExecutionCommandInput extends StartNextPendingJobExecutionRequest {}
+export interface StartNextPendingJobExecutionCommandOutput
+  extends StartNextPendingJobExecutionResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets and starts the next pending (status IN_PROGRESS or QUEUED) job execution for a thing.</p>

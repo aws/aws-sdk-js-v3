@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDiskCommandInput = CreateDiskRequest;
-export type CreateDiskCommandOutput = CreateDiskResult & __MetadataBearer;
+export interface CreateDiskCommandInput extends CreateDiskRequest {}
+export interface CreateDiskCommandOutput extends CreateDiskResult, __MetadataBearer {}
 
 /**
  * <p>Creates a block storage disk that can be attached to an Amazon Lightsail instance in the

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetEmailIdentityCommandInput = GetEmailIdentityRequest;
-export type GetEmailIdentityCommandOutput = GetEmailIdentityResponse & __MetadataBearer;
+export interface GetEmailIdentityCommandInput extends GetEmailIdentityRequest {}
+export interface GetEmailIdentityCommandOutput extends GetEmailIdentityResponse, __MetadataBearer {}
 
 /**
  * <p>Provides information about a specific identity, including the identity's verification

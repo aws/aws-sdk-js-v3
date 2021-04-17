@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDataSourceCommandInput = DeleteDataSourceInput;
-export type DeleteDataSourceCommandOutput = DeleteDataSourceOutput & __MetadataBearer;
+export interface DeleteDataSourceCommandInput extends DeleteDataSourceInput {}
+export interface DeleteDataSourceCommandOutput extends DeleteDataSourceOutput, __MetadataBearer {}
 
 /**
  * <p>Assigns the DELETED status to a <code>DataSource</code>, rendering it unusable.</p>

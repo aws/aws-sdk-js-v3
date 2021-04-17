@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTablesCommandInput = ListTablesInput;
-export type ListTablesCommandOutput = ListTablesOutput & __MetadataBearer;
+export interface ListTablesCommandInput extends ListTablesInput {}
+export interface ListTablesCommandOutput extends ListTablesOutput, __MetadataBearer {}
 
 /**
  * <p>Returns an array of table names associated with the current account and endpoint. The output

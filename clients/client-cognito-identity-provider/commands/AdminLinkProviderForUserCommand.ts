@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AdminLinkProviderForUserCommandInput = AdminLinkProviderForUserRequest;
-export type AdminLinkProviderForUserCommandOutput = AdminLinkProviderForUserResponse & __MetadataBearer;
+export interface AdminLinkProviderForUserCommandInput extends AdminLinkProviderForUserRequest {}
+export interface AdminLinkProviderForUserCommandOutput extends AdminLinkProviderForUserResponse, __MetadataBearer {}
 
 /**
  * <p>Links an existing user account in a user pool (<code>DestinationUser</code>) to an

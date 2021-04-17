@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type InlineDocumentAsPayloadCommandInput = InlineDocumentAsPayloadInputOutput;
-export type InlineDocumentAsPayloadCommandOutput = InlineDocumentAsPayloadInputOutput & __MetadataBearer;
+export interface InlineDocumentAsPayloadCommandInput extends InlineDocumentAsPayloadInputOutput {}
+export interface InlineDocumentAsPayloadCommandOutput extends InlineDocumentAsPayloadInputOutput, __MetadataBearer {}
 
 /**
  * This example serializes an inline document as the entire HTTP payload.

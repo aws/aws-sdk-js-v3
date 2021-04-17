@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateBotCommandInput = UpdateBotRequest;
-export type UpdateBotCommandOutput = UpdateBotResponse & __MetadataBearer;
+export interface UpdateBotCommandInput extends UpdateBotRequest {}
+export interface UpdateBotCommandOutput extends UpdateBotResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the configuration of an existing bot. </p>

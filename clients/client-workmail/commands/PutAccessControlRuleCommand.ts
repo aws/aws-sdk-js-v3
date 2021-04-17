@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutAccessControlRuleCommandInput = PutAccessControlRuleRequest;
-export type PutAccessControlRuleCommandOutput = PutAccessControlRuleResponse & __MetadataBearer;
+export interface PutAccessControlRuleCommandInput extends PutAccessControlRuleRequest {}
+export interface PutAccessControlRuleCommandOutput extends PutAccessControlRuleResponse, __MetadataBearer {}
 
 /**
  * <p>Adds a new access control rule for the specified organization. The rule allows or

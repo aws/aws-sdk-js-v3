@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateEncryptionConfigCommandInput = AssociateEncryptionConfigRequest;
-export type AssociateEncryptionConfigCommandOutput = AssociateEncryptionConfigResponse & __MetadataBearer;
+export interface AssociateEncryptionConfigCommandInput extends AssociateEncryptionConfigRequest {}
+export interface AssociateEncryptionConfigCommandOutput extends AssociateEncryptionConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Associate encryption configuration to an existing cluster.</p>

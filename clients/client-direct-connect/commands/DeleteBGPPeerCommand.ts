@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteBGPPeerCommandInput = DeleteBGPPeerRequest;
-export type DeleteBGPPeerCommandOutput = DeleteBGPPeerResponse & __MetadataBearer;
+export interface DeleteBGPPeerCommandInput extends DeleteBGPPeerRequest {}
+export interface DeleteBGPPeerCommandOutput extends DeleteBGPPeerResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified BGP peer on the specified virtual interface with the specified customer address and ASN.</p>

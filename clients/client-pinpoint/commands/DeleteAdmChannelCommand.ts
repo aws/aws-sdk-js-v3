@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAdmChannelCommandInput = DeleteAdmChannelRequest;
-export type DeleteAdmChannelCommandOutput = DeleteAdmChannelResponse & __MetadataBearer;
+export interface DeleteAdmChannelCommandInput extends DeleteAdmChannelRequest {}
+export interface DeleteAdmChannelCommandOutput extends DeleteAdmChannelResponse, __MetadataBearer {}
 
 /**
  * <p>Disables the ADM channel for an application and deletes any existing settings for the channel.</p>

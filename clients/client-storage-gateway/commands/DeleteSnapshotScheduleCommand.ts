@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteSnapshotScheduleCommandInput = DeleteSnapshotScheduleInput;
-export type DeleteSnapshotScheduleCommandOutput = DeleteSnapshotScheduleOutput & __MetadataBearer;
+export interface DeleteSnapshotScheduleCommandInput extends DeleteSnapshotScheduleInput {}
+export interface DeleteSnapshotScheduleCommandOutput extends DeleteSnapshotScheduleOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes a snapshot of a volume.</p>

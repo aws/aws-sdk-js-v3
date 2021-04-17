@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeImageCommandInput = DescribeImageRequest;
-export type DescribeImageCommandOutput = DescribeImageResponse & __MetadataBearer;
+export interface DescribeImageCommandInput extends DescribeImageRequest {}
+export interface DescribeImageCommandOutput extends DescribeImageResponse, __MetadataBearer {}
 
 /**
  * <p>Describes a SageMaker image.</p>

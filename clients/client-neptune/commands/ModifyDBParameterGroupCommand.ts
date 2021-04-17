@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyDBParameterGroupCommandInput = ModifyDBParameterGroupMessage;
-export type ModifyDBParameterGroupCommandOutput = DBParameterGroupNameMessage & __MetadataBearer;
+export interface ModifyDBParameterGroupCommandInput extends ModifyDBParameterGroupMessage {}
+export interface ModifyDBParameterGroupCommandOutput extends DBParameterGroupNameMessage, __MetadataBearer {}
 
 /**
  * <p>Modifies the parameters of a DB parameter group. To modify more than one parameter,

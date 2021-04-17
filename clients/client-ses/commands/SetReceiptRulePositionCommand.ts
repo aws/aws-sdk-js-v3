@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetReceiptRulePositionCommandInput = SetReceiptRulePositionRequest;
-export type SetReceiptRulePositionCommandOutput = SetReceiptRulePositionResponse & __MetadataBearer;
+export interface SetReceiptRulePositionCommandInput extends SetReceiptRulePositionRequest {}
+export interface SetReceiptRulePositionCommandOutput extends SetReceiptRulePositionResponse, __MetadataBearer {}
 
 /**
  * <p>Sets the position of the specified receipt rule in the receipt rule set.</p>

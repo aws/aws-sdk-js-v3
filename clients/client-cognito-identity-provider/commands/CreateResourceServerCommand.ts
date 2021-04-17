@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateResourceServerCommandInput = CreateResourceServerRequest;
-export type CreateResourceServerCommandOutput = CreateResourceServerResponse & __MetadataBearer;
+export interface CreateResourceServerCommandInput extends CreateResourceServerRequest {}
+export interface CreateResourceServerCommandOutput extends CreateResourceServerResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new OAuth2.0 resource server and defines custom scopes in it.</p>

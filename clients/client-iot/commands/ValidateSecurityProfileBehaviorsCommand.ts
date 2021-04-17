@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ValidateSecurityProfileBehaviorsCommandInput = ValidateSecurityProfileBehaviorsRequest;
-export type ValidateSecurityProfileBehaviorsCommandOutput = ValidateSecurityProfileBehaviorsResponse & __MetadataBearer;
+export interface ValidateSecurityProfileBehaviorsCommandInput extends ValidateSecurityProfileBehaviorsRequest {}
+export interface ValidateSecurityProfileBehaviorsCommandOutput
+  extends ValidateSecurityProfileBehaviorsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Validates a Device Defender security profile behaviors specification.</p>

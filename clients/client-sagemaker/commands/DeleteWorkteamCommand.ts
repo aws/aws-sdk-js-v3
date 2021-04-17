@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteWorkteamCommandInput = DeleteWorkteamRequest;
-export type DeleteWorkteamCommandOutput = DeleteWorkteamResponse & __MetadataBearer;
+export interface DeleteWorkteamCommandInput extends DeleteWorkteamRequest {}
+export interface DeleteWorkteamCommandOutput extends DeleteWorkteamResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an existing work team. This operation can't be undone.</p>

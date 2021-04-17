@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateCustomMetadataCommandInput = CreateCustomMetadataRequest;
-export type CreateCustomMetadataCommandOutput = CreateCustomMetadataResponse & __MetadataBearer;
+export interface CreateCustomMetadataCommandInput extends CreateCustomMetadataRequest {}
+export interface CreateCustomMetadataCommandOutput extends CreateCustomMetadataResponse, __MetadataBearer {}
 
 /**
  * <p>Adds one or more custom properties to the specified resource (a folder, document,

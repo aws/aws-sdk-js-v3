@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteBusinessReportScheduleCommandInput = DeleteBusinessReportScheduleRequest;
-export type DeleteBusinessReportScheduleCommandOutput = DeleteBusinessReportScheduleResponse & __MetadataBearer;
+export interface DeleteBusinessReportScheduleCommandInput extends DeleteBusinessReportScheduleRequest {}
+export interface DeleteBusinessReportScheduleCommandOutput
+  extends DeleteBusinessReportScheduleResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes the recurring report delivery schedule with the specified schedule

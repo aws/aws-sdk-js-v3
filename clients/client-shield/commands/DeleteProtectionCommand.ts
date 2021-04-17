@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteProtectionCommandInput = DeleteProtectionRequest;
-export type DeleteProtectionCommandOutput = DeleteProtectionResponse & __MetadataBearer;
+export interface DeleteProtectionCommandInput extends DeleteProtectionRequest {}
+export interface DeleteProtectionCommandOutput extends DeleteProtectionResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an AWS Shield Advanced <a>Protection</a>.</p>

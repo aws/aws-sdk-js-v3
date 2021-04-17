@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteClientVpnEndpointCommandInput = DeleteClientVpnEndpointRequest;
-export type DeleteClientVpnEndpointCommandOutput = DeleteClientVpnEndpointResult & __MetadataBearer;
+export interface DeleteClientVpnEndpointCommandInput extends DeleteClientVpnEndpointRequest {}
+export interface DeleteClientVpnEndpointCommandOutput extends DeleteClientVpnEndpointResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified Client VPN endpoint. You must disassociate all target networks before you

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteProgramCommandInput = DeleteProgramRequest;
-export type DeleteProgramCommandOutput = DeleteProgramResponse & __MetadataBearer;
+export interface DeleteProgramCommandInput extends DeleteProgramRequest {}
+export interface DeleteProgramCommandOutput extends DeleteProgramResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a specific program on a specific channel.</p>

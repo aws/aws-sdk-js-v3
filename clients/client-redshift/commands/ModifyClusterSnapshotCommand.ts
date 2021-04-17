@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyClusterSnapshotCommandInput = ModifyClusterSnapshotMessage;
-export type ModifyClusterSnapshotCommandOutput = ModifyClusterSnapshotResult & __MetadataBearer;
+export interface ModifyClusterSnapshotCommandInput extends ModifyClusterSnapshotMessage {}
+export interface ModifyClusterSnapshotCommandOutput extends ModifyClusterSnapshotResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the settings for a snapshot.</p>

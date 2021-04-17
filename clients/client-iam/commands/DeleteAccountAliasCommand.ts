@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAccountAliasCommandInput = DeleteAccountAliasRequest;
-export type DeleteAccountAliasCommandOutput = __MetadataBearer;
+export interface DeleteAccountAliasCommandInput extends DeleteAccountAliasRequest {}
+export interface DeleteAccountAliasCommandOutput extends __MetadataBearer {}
 
 /**
  * <p> Deletes the specified AWS account alias. For information about using an AWS

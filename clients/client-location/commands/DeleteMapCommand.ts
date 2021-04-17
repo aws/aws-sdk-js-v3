@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteMapCommandInput = DeleteMapRequest;
-export type DeleteMapCommandOutput = DeleteMapResponse & __MetadataBearer;
+export interface DeleteMapCommandInput extends DeleteMapRequest {}
+export interface DeleteMapCommandOutput extends DeleteMapResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a map resource from your AWS account.</p>

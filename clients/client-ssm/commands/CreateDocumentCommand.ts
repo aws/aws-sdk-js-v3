@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDocumentCommandInput = CreateDocumentRequest;
-export type CreateDocumentCommandOutput = CreateDocumentResult & __MetadataBearer;
+export interface CreateDocumentCommandInput extends CreateDocumentRequest {}
+export interface CreateDocumentCommandOutput extends CreateDocumentResult, __MetadataBearer {}
 
 /**
  * <p>Creates a Systems Manager (SSM) document. An SSM document defines the actions that Systems Manager performs on

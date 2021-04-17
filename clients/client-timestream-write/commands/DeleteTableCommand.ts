@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteTableCommandInput = DeleteTableRequest;
-export type DeleteTableCommandOutput = __MetadataBearer;
+export interface DeleteTableCommandInput extends DeleteTableRequest {}
+export interface DeleteTableCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a given Timestream table. This is an irreversible operation.

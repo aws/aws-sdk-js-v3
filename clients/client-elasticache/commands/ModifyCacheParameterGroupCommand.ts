@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyCacheParameterGroupCommandInput = ModifyCacheParameterGroupMessage;
-export type ModifyCacheParameterGroupCommandOutput = CacheParameterGroupNameMessage & __MetadataBearer;
+export interface ModifyCacheParameterGroupCommandInput extends ModifyCacheParameterGroupMessage {}
+export interface ModifyCacheParameterGroupCommandOutput extends CacheParameterGroupNameMessage, __MetadataBearer {}
 
 /**
  * <p>Modifies the parameters of a cache

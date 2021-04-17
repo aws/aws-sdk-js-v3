@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeMonitoringScheduleCommandInput = DescribeMonitoringScheduleRequest;
-export type DescribeMonitoringScheduleCommandOutput = DescribeMonitoringScheduleResponse & __MetadataBearer;
+export interface DescribeMonitoringScheduleCommandInput extends DescribeMonitoringScheduleRequest {}
+export interface DescribeMonitoringScheduleCommandOutput extends DescribeMonitoringScheduleResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the schedule for a monitoring job.</p>

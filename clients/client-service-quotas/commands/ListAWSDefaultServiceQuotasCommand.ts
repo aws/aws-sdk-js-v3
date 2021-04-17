@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAWSDefaultServiceQuotasCommandInput = ListAWSDefaultServiceQuotasRequest;
-export type ListAWSDefaultServiceQuotasCommandOutput = ListAWSDefaultServiceQuotasResponse & __MetadataBearer;
+export interface ListAWSDefaultServiceQuotasCommandInput extends ListAWSDefaultServiceQuotasRequest {}
+export interface ListAWSDefaultServiceQuotasCommandOutput
+  extends ListAWSDefaultServiceQuotasResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Lists the default values for the quotas for the specified AWS service. A default value

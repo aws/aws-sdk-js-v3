@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DetachUserPolicyCommandInput = DetachUserPolicyRequest;
-export type DetachUserPolicyCommandOutput = __MetadataBearer;
+export interface DetachUserPolicyCommandInput extends DetachUserPolicyRequest {}
+export interface DetachUserPolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes the specified managed policy from the specified user.</p>

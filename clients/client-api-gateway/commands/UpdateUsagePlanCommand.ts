@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateUsagePlanCommandInput = UpdateUsagePlanRequest;
-export type UpdateUsagePlanCommandOutput = UsagePlan & __MetadataBearer;
+export interface UpdateUsagePlanCommandInput extends UpdateUsagePlanRequest {}
+export interface UpdateUsagePlanCommandOutput extends UsagePlan, __MetadataBearer {}
 
 /**
  * <p>Updates a usage plan of a given plan Id.</p>

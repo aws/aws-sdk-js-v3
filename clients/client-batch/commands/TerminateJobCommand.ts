@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TerminateJobCommandInput = TerminateJobRequest;
-export type TerminateJobCommandOutput = TerminateJobResponse & __MetadataBearer;
+export interface TerminateJobCommandInput extends TerminateJobRequest {}
+export interface TerminateJobCommandOutput extends TerminateJobResponse, __MetadataBearer {}
 
 /**
  * <p>Terminates a job in a job queue. Jobs that are in the <code>STARTING</code> or <code>RUNNING</code> state are

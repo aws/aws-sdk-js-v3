@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AdminListGroupsForUserCommandInput = AdminListGroupsForUserRequest;
-export type AdminListGroupsForUserCommandOutput = AdminListGroupsForUserResponse & __MetadataBearer;
+export interface AdminListGroupsForUserCommandInput extends AdminListGroupsForUserRequest {}
+export interface AdminListGroupsForUserCommandOutput extends AdminListGroupsForUserResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the groups that the user belongs to.</p>

@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type QueryListsCommandInput = QueryListsInput;
-export type QueryListsCommandOutput = __MetadataBearer;
+export interface QueryListsCommandInput extends QueryListsInput {}
+export interface QueryListsCommandOutput extends __MetadataBearer {}
 
 /**
  * This test serializes simple and complex lists.

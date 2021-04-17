@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteLagCommandInput = DeleteLagRequest;
-export type DeleteLagCommandOutput = Lag & __MetadataBearer;
+export interface DeleteLagCommandInput extends DeleteLagRequest {}
+export interface DeleteLagCommandOutput extends Lag, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified link aggregation group (LAG). You cannot delete a LAG if it has active

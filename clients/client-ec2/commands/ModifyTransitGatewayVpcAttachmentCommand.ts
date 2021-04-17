@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyTransitGatewayVpcAttachmentCommandInput = ModifyTransitGatewayVpcAttachmentRequest;
-export type ModifyTransitGatewayVpcAttachmentCommandOutput = ModifyTransitGatewayVpcAttachmentResult & __MetadataBearer;
+export interface ModifyTransitGatewayVpcAttachmentCommandInput extends ModifyTransitGatewayVpcAttachmentRequest {}
+export interface ModifyTransitGatewayVpcAttachmentCommandOutput
+  extends ModifyTransitGatewayVpcAttachmentResult,
+    __MetadataBearer {}
 
 /**
  * <p>Modifies the specified VPC attachment.</p>

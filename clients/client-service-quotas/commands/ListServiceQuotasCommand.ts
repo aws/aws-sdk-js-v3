@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListServiceQuotasCommandInput = ListServiceQuotasRequest;
-export type ListServiceQuotasCommandOutput = ListServiceQuotasResponse & __MetadataBearer;
+export interface ListServiceQuotasCommandInput extends ListServiceQuotasRequest {}
+export interface ListServiceQuotasCommandOutput extends ListServiceQuotasResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the applied quota values for the specified AWS service. For some quotas, only the

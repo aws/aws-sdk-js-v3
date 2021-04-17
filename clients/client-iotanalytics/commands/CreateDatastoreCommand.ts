@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDatastoreCommandInput = CreateDatastoreRequest;
-export type CreateDatastoreCommandOutput = CreateDatastoreResponse & __MetadataBearer;
+export interface CreateDatastoreCommandInput extends CreateDatastoreRequest {}
+export interface CreateDatastoreCommandOutput extends CreateDatastoreResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a data store, which is a repository for messages.</p>

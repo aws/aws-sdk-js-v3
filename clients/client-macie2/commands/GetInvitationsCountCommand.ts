@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetInvitationsCountCommandInput = GetInvitationsCountRequest;
-export type GetInvitationsCountCommandOutput = GetInvitationsCountResponse & __MetadataBearer;
+export interface GetInvitationsCountCommandInput extends GetInvitationsCountRequest {}
+export interface GetInvitationsCountCommandOutput extends GetInvitationsCountResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the count of Amazon Macie membership invitations that were received by an account.</p>

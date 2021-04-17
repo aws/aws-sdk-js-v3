@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CopyWorkspaceImageCommandInput = CopyWorkspaceImageRequest;
-export type CopyWorkspaceImageCommandOutput = CopyWorkspaceImageResult & __MetadataBearer;
+export interface CopyWorkspaceImageCommandInput extends CopyWorkspaceImageRequest {}
+export interface CopyWorkspaceImageCommandOutput extends CopyWorkspaceImageResult, __MetadataBearer {}
 
 /**
  * <p>Copies the specified image from the specified Region to the current Region.

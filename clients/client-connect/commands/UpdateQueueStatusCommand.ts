@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateQueueStatusCommandInput = UpdateQueueStatusRequest;
-export type UpdateQueueStatusCommandOutput = __MetadataBearer;
+export interface UpdateQueueStatusCommandInput extends UpdateQueueStatusRequest {}
+export interface UpdateQueueStatusCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>

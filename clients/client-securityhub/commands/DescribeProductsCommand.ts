@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeProductsCommandInput = DescribeProductsRequest;
-export type DescribeProductsCommandOutput = DescribeProductsResponse & __MetadataBearer;
+export interface DescribeProductsCommandInput extends DescribeProductsRequest {}
+export interface DescribeProductsCommandOutput extends DescribeProductsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about product integrations in Security Hub.</p>

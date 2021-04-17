@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AttachObjectCommandInput = AttachObjectRequest;
-export type AttachObjectCommandOutput = AttachObjectResponse & __MetadataBearer;
+export interface AttachObjectCommandInput extends AttachObjectRequest {}
+export interface AttachObjectCommandOutput extends AttachObjectResponse, __MetadataBearer {}
 
 /**
  * <p>Attaches an existing object to another object. An object can be accessed in two

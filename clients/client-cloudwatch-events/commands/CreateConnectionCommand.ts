@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateConnectionCommandInput = CreateConnectionRequest;
-export type CreateConnectionCommandOutput = CreateConnectionResponse & __MetadataBearer;
+export interface CreateConnectionCommandInput extends CreateConnectionRequest {}
+export interface CreateConnectionCommandOutput extends CreateConnectionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a connection. A connection defines the authorization type and credentials to use

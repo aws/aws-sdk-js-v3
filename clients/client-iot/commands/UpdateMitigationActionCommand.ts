@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateMitigationActionCommandInput = UpdateMitigationActionRequest;
-export type UpdateMitigationActionCommandOutput = UpdateMitigationActionResponse & __MetadataBearer;
+export interface UpdateMitigationActionCommandInput extends UpdateMitigationActionRequest {}
+export interface UpdateMitigationActionCommandOutput extends UpdateMitigationActionResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the definition for the specified mitigation action.</p>

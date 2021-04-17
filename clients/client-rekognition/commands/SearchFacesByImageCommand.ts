@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SearchFacesByImageCommandInput = SearchFacesByImageRequest;
-export type SearchFacesByImageCommandOutput = SearchFacesByImageResponse & __MetadataBearer;
+export interface SearchFacesByImageCommandInput extends SearchFacesByImageRequest {}
+export interface SearchFacesByImageCommandOutput extends SearchFacesByImageResponse, __MetadataBearer {}
 
 /**
  * <p>For a given input image, first detects the largest face in the image, and then searches

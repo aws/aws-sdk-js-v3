@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeregisterElasticIpCommandInput = DeregisterElasticIpRequest;
-export type DeregisterElasticIpCommandOutput = __MetadataBearer;
+export interface DeregisterElasticIpCommandInput extends DeregisterElasticIpRequest {}
+export interface DeregisterElasticIpCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deregisters a specified Elastic IP address. The address can then be registered by another

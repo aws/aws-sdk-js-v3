@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateIdentityProviderConfigCommandInput = AssociateIdentityProviderConfigRequest;
-export type AssociateIdentityProviderConfigCommandOutput = AssociateIdentityProviderConfigResponse & __MetadataBearer;
+export interface AssociateIdentityProviderConfigCommandInput extends AssociateIdentityProviderConfigRequest {}
+export interface AssociateIdentityProviderConfigCommandOutput
+  extends AssociateIdentityProviderConfigResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Associate an identity provider configuration to a cluster.</p>

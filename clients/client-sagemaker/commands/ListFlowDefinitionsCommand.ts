@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListFlowDefinitionsCommandInput = ListFlowDefinitionsRequest;
-export type ListFlowDefinitionsCommandOutput = ListFlowDefinitionsResponse & __MetadataBearer;
+export interface ListFlowDefinitionsCommandInput extends ListFlowDefinitionsRequest {}
+export interface ListFlowDefinitionsCommandOutput extends ListFlowDefinitionsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about the flow definitions in your account.</p>

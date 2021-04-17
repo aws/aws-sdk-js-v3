@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyImageAttributeCommandInput = ModifyImageAttributeRequest;
-export type ModifyImageAttributeCommandOutput = __MetadataBearer;
+export interface ModifyImageAttributeCommandInput extends ModifyImageAttributeRequest {}
+export interface ModifyImageAttributeCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Modifies the specified attribute of the specified AMI. You can specify only one attribute at a time.

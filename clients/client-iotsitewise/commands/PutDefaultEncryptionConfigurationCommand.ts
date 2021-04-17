@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutDefaultEncryptionConfigurationCommandInput = PutDefaultEncryptionConfigurationRequest;
-export type PutDefaultEncryptionConfigurationCommandOutput = PutDefaultEncryptionConfigurationResponse &
-  __MetadataBearer;
+export interface PutDefaultEncryptionConfigurationCommandInput extends PutDefaultEncryptionConfigurationRequest {}
+export interface PutDefaultEncryptionConfigurationCommandOutput
+  extends PutDefaultEncryptionConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Sets the default encryption configuration for the AWS

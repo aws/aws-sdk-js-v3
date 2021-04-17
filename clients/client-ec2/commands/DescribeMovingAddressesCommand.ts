@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeMovingAddressesCommandInput = DescribeMovingAddressesRequest;
-export type DescribeMovingAddressesCommandOutput = DescribeMovingAddressesResult & __MetadataBearer;
+export interface DescribeMovingAddressesCommandInput extends DescribeMovingAddressesRequest {}
+export interface DescribeMovingAddressesCommandOutput extends DescribeMovingAddressesResult, __MetadataBearer {}
 
 /**
  * <p>Describes your Elastic IP addresses that are being moved to the EC2-VPC platform, or that are being restored to the EC2-Classic platform. This request does not return information about any other Elastic IP addresses in your account.</p>

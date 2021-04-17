@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListBonusPaymentsCommandInput = ListBonusPaymentsRequest;
-export type ListBonusPaymentsCommandOutput = ListBonusPaymentsResponse & __MetadataBearer;
+export interface ListBonusPaymentsCommandInput extends ListBonusPaymentsRequest {}
+export interface ListBonusPaymentsCommandOutput extends ListBonusPaymentsResponse, __MetadataBearer {}
 
 /**
  * <p>

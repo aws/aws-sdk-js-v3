@@ -24,9 +24,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteOutboundCrossClusterSearchConnectionCommandInput = DeleteOutboundCrossClusterSearchConnectionRequest;
-export type DeleteOutboundCrossClusterSearchConnectionCommandOutput = DeleteOutboundCrossClusterSearchConnectionResponse &
-  __MetadataBearer;
+export interface DeleteOutboundCrossClusterSearchConnectionCommandInput
+  extends DeleteOutboundCrossClusterSearchConnectionRequest {}
+export interface DeleteOutboundCrossClusterSearchConnectionCommandOutput
+  extends DeleteOutboundCrossClusterSearchConnectionResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Allows the source domain owner to delete an existing outbound cross-cluster search connection.</p>

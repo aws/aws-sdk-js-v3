@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListEntitiesForPolicyCommandInput = ListEntitiesForPolicyRequest;
-export type ListEntitiesForPolicyCommandOutput = ListEntitiesForPolicyResponse & __MetadataBearer;
+export interface ListEntitiesForPolicyCommandInput extends ListEntitiesForPolicyRequest {}
+export interface ListEntitiesForPolicyCommandOutput extends ListEntitiesForPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all IAM users, groups, and roles that the specified managed policy is attached

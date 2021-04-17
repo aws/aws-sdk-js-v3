@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopTrainingEntityRecognizerCommandInput = StopTrainingEntityRecognizerRequest;
-export type StopTrainingEntityRecognizerCommandOutput = StopTrainingEntityRecognizerResponse & __MetadataBearer;
+export interface StopTrainingEntityRecognizerCommandInput extends StopTrainingEntityRecognizerRequest {}
+export interface StopTrainingEntityRecognizerCommandOutput
+  extends StopTrainingEntityRecognizerResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Stops an entity recognizer training job while in progress.</p>

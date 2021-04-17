@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListItemsCommandInput = ListItemsRequest;
-export type ListItemsCommandOutput = ListItemsResponse & __MetadataBearer;
+export interface ListItemsCommandInput extends ListItemsRequest {}
+export interface ListItemsCommandOutput extends ListItemsResponse, __MetadataBearer {}
 
 /**
  * <p>Provides a list of metadata entries about folders and objects in the specified

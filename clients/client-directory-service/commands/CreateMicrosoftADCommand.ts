@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateMicrosoftADCommandInput = CreateMicrosoftADRequest;
-export type CreateMicrosoftADCommandOutput = CreateMicrosoftADResult & __MetadataBearer;
+export interface CreateMicrosoftADCommandInput extends CreateMicrosoftADRequest {}
+export interface CreateMicrosoftADCommandOutput extends CreateMicrosoftADResult, __MetadataBearer {}
 
 /**
  * <p>Creates a Microsoft AD directory in the AWS Cloud. For more information, see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html">AWS Managed Microsoft AD</a> in the <i>AWS Directory Service Admin Guide</i>.</p>

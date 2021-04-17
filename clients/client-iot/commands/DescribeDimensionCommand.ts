@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDimensionCommandInput = DescribeDimensionRequest;
-export type DescribeDimensionCommandOutput = DescribeDimensionResponse & __MetadataBearer;
+export interface DescribeDimensionCommandInput extends DescribeDimensionRequest {}
+export interface DescribeDimensionCommandOutput extends DescribeDimensionResponse, __MetadataBearer {}
 
 /**
  * <p>Provides details about a dimension that is defined in your AWS account.</p>

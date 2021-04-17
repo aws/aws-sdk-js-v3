@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterInstanceCommandInput = RegisterInstanceRequest;
-export type RegisterInstanceCommandOutput = RegisterInstanceResult & __MetadataBearer;
+export interface RegisterInstanceCommandInput extends RegisterInstanceRequest {}
+export interface RegisterInstanceCommandOutput extends RegisterInstanceResult, __MetadataBearer {}
 
 /**
  * <p>Registers instances that were created outside of AWS OpsWorks Stacks with a specified stack.</p>

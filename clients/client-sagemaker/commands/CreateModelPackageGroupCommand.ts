@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateModelPackageGroupCommandInput = CreateModelPackageGroupInput;
-export type CreateModelPackageGroupCommandOutput = CreateModelPackageGroupOutput & __MetadataBearer;
+export interface CreateModelPackageGroupCommandInput extends CreateModelPackageGroupInput {}
+export interface CreateModelPackageGroupCommandOutput extends CreateModelPackageGroupOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a model group. A model group contains a group of model versions.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchUpdatePhoneNumberCommandInput = BatchUpdatePhoneNumberRequest;
-export type BatchUpdatePhoneNumberCommandOutput = BatchUpdatePhoneNumberResponse & __MetadataBearer;
+export interface BatchUpdatePhoneNumberCommandInput extends BatchUpdatePhoneNumberRequest {}
+export interface BatchUpdatePhoneNumberCommandOutput extends BatchUpdatePhoneNumberResponse, __MetadataBearer {}
 
 /**
  * <p>

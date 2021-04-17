@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteResolverRuleCommandInput = DeleteResolverRuleRequest;
-export type DeleteResolverRuleCommandOutput = DeleteResolverRuleResponse & __MetadataBearer;
+export interface DeleteResolverRuleCommandInput extends DeleteResolverRuleRequest {}
+export interface DeleteResolverRuleCommandOutput extends DeleteResolverRuleResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a Resolver rule. Before you can delete a Resolver rule, you must disassociate it from all the VPCs that you

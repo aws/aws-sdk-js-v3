@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteStageCommandInput = DeleteStageRequest;
-export type DeleteStageCommandOutput = __MetadataBearer;
+export interface DeleteStageCommandInput extends DeleteStageRequest {}
+export interface DeleteStageCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a Stage.</p>

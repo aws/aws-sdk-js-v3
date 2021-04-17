@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DecryptCommandInput = DecryptRequest;
-export type DecryptCommandOutput = DecryptResponse & __MetadataBearer;
+export interface DecryptCommandInput extends DecryptRequest {}
+export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer {}
 
 /**
  * <p>Decrypts ciphertext that was encrypted by a AWS KMS customer master key (CMK) using any of

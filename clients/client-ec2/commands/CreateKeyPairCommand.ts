@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateKeyPairCommandInput = CreateKeyPairRequest;
-export type CreateKeyPairCommandOutput = KeyPair & __MetadataBearer;
+export interface CreateKeyPairCommandInput extends CreateKeyPairRequest {}
+export interface CreateKeyPairCommandOutput extends KeyPair, __MetadataBearer {}
 
 /**
  * <p>Creates a 2048-bit RSA key pair with the specified name. Amazon EC2 stores the public

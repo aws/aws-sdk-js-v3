@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateIdentityPoolCommandInput = IdentityPool;
-export type UpdateIdentityPoolCommandOutput = IdentityPool & __MetadataBearer;
+export interface UpdateIdentityPoolCommandInput extends IdentityPool {}
+export interface UpdateIdentityPoolCommandOutput extends IdentityPool, __MetadataBearer {}
 
 /**
  * <p>Updates an identity pool.</p>

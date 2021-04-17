@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartServerCommandInput = StartServerRequest;
-export type StartServerCommandOutput = __MetadataBearer;
+export interface StartServerCommandInput extends StartServerRequest {}
+export interface StartServerCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Changes the state of a file transfer protocol-enabled server from <code>OFFLINE</code> to

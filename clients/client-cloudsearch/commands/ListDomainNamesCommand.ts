@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDomainNamesCommandInput = {};
-export type ListDomainNamesCommandOutput = ListDomainNamesResponse & __MetadataBearer;
+export interface ListDomainNamesCommandInput {}
+export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all search domains owned by an account.</p>

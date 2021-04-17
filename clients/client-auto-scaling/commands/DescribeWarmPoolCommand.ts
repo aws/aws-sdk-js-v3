@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeWarmPoolCommandInput = DescribeWarmPoolType;
-export type DescribeWarmPoolCommandOutput = DescribeWarmPoolAnswer & __MetadataBearer;
+export interface DescribeWarmPoolCommandInput extends DescribeWarmPoolType {}
+export interface DescribeWarmPoolCommandOutput extends DescribeWarmPoolAnswer, __MetadataBearer {}
 
 /**
  * <p>Describes a warm pool and its instances.</p>

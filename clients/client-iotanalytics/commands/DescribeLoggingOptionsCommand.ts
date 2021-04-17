@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeLoggingOptionsCommandInput = DescribeLoggingOptionsRequest;
-export type DescribeLoggingOptionsCommandOutput = DescribeLoggingOptionsResponse & __MetadataBearer;
+export interface DescribeLoggingOptionsCommandInput extends DescribeLoggingOptionsRequest {}
+export interface DescribeLoggingOptionsCommandOutput extends DescribeLoggingOptionsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the current settings of the AWS IoT Analytics logging options.</p>

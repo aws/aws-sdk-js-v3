@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetDataRetrievalPolicyCommandInput = SetDataRetrievalPolicyInput;
-export type SetDataRetrievalPolicyCommandOutput = __MetadataBearer;
+export interface SetDataRetrievalPolicyCommandInput extends SetDataRetrievalPolicyInput {}
+export interface SetDataRetrievalPolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This operation sets and then enacts a data retrieval policy in the region specified

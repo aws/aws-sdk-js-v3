@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutImageCommandInput = PutImageRequest;
-export type PutImageCommandOutput = PutImageResponse & __MetadataBearer;
+export interface PutImageCommandInput extends PutImageRequest {}
+export interface PutImageCommandOutput extends PutImageResponse, __MetadataBearer {}
 
 /**
  * <p>Creates or updates the image manifest and tags associated with an image.</p>

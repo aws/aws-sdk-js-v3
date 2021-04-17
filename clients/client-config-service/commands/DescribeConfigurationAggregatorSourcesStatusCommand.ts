@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeConfigurationAggregatorSourcesStatusCommandInput = DescribeConfigurationAggregatorSourcesStatusRequest;
-export type DescribeConfigurationAggregatorSourcesStatusCommandOutput = DescribeConfigurationAggregatorSourcesStatusResponse &
-  __MetadataBearer;
+export interface DescribeConfigurationAggregatorSourcesStatusCommandInput
+  extends DescribeConfigurationAggregatorSourcesStatusRequest {}
+export interface DescribeConfigurationAggregatorSourcesStatusCommandOutput
+  extends DescribeConfigurationAggregatorSourcesStatusResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns status information for sources within an aggregator.

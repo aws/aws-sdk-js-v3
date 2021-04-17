@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetResourceSharesCommandInput = GetResourceSharesRequest;
-export type GetResourceSharesCommandOutput = GetResourceSharesResponse & __MetadataBearer;
+export interface GetResourceSharesCommandInput extends GetResourceSharesRequest {}
+export interface GetResourceSharesCommandOutput extends GetResourceSharesResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the resource shares that you own or the resource shares that are shared with you.</p>

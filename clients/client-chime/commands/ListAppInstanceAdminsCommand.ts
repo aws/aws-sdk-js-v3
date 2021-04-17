@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAppInstanceAdminsCommandInput = ListAppInstanceAdminsRequest;
-export type ListAppInstanceAdminsCommandOutput = ListAppInstanceAdminsResponse & __MetadataBearer;
+export interface ListAppInstanceAdminsCommandInput extends ListAppInstanceAdminsRequest {}
+export interface ListAppInstanceAdminsCommandOutput extends ListAppInstanceAdminsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of the administrators in the <code>AppInstance</code>.</p>

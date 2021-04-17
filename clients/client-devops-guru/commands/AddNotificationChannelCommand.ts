@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddNotificationChannelCommandInput = AddNotificationChannelRequest;
-export type AddNotificationChannelCommandOutput = AddNotificationChannelResponse & __MetadataBearer;
+export interface AddNotificationChannelCommandInput extends AddNotificationChannelRequest {}
+export interface AddNotificationChannelCommandOutput extends AddNotificationChannelResponse, __MetadataBearer {}
 
 /**
  * <p>

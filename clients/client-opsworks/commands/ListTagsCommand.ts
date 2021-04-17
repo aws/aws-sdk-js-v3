@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTagsCommandInput = ListTagsRequest;
-export type ListTagsCommandOutput = ListTagsResult & __MetadataBearer;
+export interface ListTagsCommandInput extends ListTagsRequest {}
+export interface ListTagsCommandOutput extends ListTagsResult, __MetadataBearer {}
 
 /**
  * <p>Returns a list of tags that are applied to the specified stack or layer.</p>

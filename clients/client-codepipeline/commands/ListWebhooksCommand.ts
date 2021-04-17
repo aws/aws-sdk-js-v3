@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListWebhooksCommandInput = ListWebhooksInput;
-export type ListWebhooksCommandOutput = ListWebhooksOutput & __MetadataBearer;
+export interface ListWebhooksCommandInput extends ListWebhooksInput {}
+export interface ListWebhooksCommandOutput extends ListWebhooksOutput, __MetadataBearer {}
 
 /**
  * <p>Gets a listing of all the webhooks in this AWS Region for this account. The output

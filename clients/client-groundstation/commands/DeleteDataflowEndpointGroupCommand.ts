@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDataflowEndpointGroupCommandInput = DeleteDataflowEndpointGroupRequest;
-export type DeleteDataflowEndpointGroupCommandOutput = DataflowEndpointGroupIdResponse & __MetadataBearer;
+export interface DeleteDataflowEndpointGroupCommandInput extends DeleteDataflowEndpointGroupRequest {}
+export interface DeleteDataflowEndpointGroupCommandOutput extends DataflowEndpointGroupIdResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a dataflow endpoint group.</p>

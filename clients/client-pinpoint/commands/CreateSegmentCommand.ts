@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateSegmentCommandInput = CreateSegmentRequest;
-export type CreateSegmentCommandOutput = CreateSegmentResponse & __MetadataBearer;
+export interface CreateSegmentCommandInput extends CreateSegmentRequest {}
+export interface CreateSegmentCommandOutput extends CreateSegmentResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new segment for an application or updates the configuration, dimension, and other settings for an existing segment that's associated with an application.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteInstallationMediaCommandInput = DeleteInstallationMediaMessage;
-export type DeleteInstallationMediaCommandOutput = InstallationMedia & __MetadataBearer;
+export interface DeleteInstallationMediaCommandInput extends DeleteInstallationMediaMessage {}
+export interface DeleteInstallationMediaCommandOutput extends InstallationMedia, __MetadataBearer {}
 
 /**
  * <p>Deletes the installation medium for a DB engine that requires an on-premises customer provided license,

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeBackupsCommandInput = DescribeBackupsRequest;
-export type DescribeBackupsCommandOutput = DescribeBackupsResponse & __MetadataBearer;
+export interface DescribeBackupsCommandInput extends DescribeBackupsRequest {}
+export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about backups of AWS CloudHSM clusters.</p>

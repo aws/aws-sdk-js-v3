@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteSnapshotCopyGrantCommandInput = DeleteSnapshotCopyGrantMessage;
-export type DeleteSnapshotCopyGrantCommandOutput = __MetadataBearer;
+export interface DeleteSnapshotCopyGrantCommandInput extends DeleteSnapshotCopyGrantMessage {}
+export interface DeleteSnapshotCopyGrantCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified snapshot copy grant.</p>

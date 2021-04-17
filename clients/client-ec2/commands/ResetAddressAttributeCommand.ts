@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ResetAddressAttributeCommandInput = ResetAddressAttributeRequest;
-export type ResetAddressAttributeCommandOutput = ResetAddressAttributeResult & __MetadataBearer;
+export interface ResetAddressAttributeCommandInput extends ResetAddressAttributeRequest {}
+export interface ResetAddressAttributeCommandOutput extends ResetAddressAttributeResult, __MetadataBearer {}
 
 /**
  * <p>Resets the attribute of the specified IP address. For requirements, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS">Using reverse DNS for email applications</a>.</p>

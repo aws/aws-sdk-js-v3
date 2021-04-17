@@ -18,8 +18,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteTrafficPolicyInstanceCommandInput = DeleteTrafficPolicyInstanceRequest;
-export type DeleteTrafficPolicyInstanceCommandOutput = DeleteTrafficPolicyInstanceResponse & __MetadataBearer;
+export interface DeleteTrafficPolicyInstanceCommandInput extends DeleteTrafficPolicyInstanceRequest {}
+export interface DeleteTrafficPolicyInstanceCommandOutput
+  extends DeleteTrafficPolicyInstanceResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes a traffic policy instance and all of the resource record sets that Amazon Route 53 created when you created the instance.</p>

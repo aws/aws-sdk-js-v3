@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeRootFoldersCommandInput = DescribeRootFoldersRequest;
-export type DescribeRootFoldersCommandOutput = DescribeRootFoldersResponse & __MetadataBearer;
+export interface DescribeRootFoldersCommandInput extends DescribeRootFoldersRequest {}
+export interface DescribeRootFoldersCommandOutput extends DescribeRootFoldersResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the current user's special folders; the <code>RootFolder</code> and the

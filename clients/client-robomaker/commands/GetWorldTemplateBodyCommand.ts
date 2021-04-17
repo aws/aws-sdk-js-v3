@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetWorldTemplateBodyCommandInput = GetWorldTemplateBodyRequest;
-export type GetWorldTemplateBodyCommandOutput = GetWorldTemplateBodyResponse & __MetadataBearer;
+export interface GetWorldTemplateBodyCommandInput extends GetWorldTemplateBodyRequest {}
+export interface GetWorldTemplateBodyCommandOutput extends GetWorldTemplateBodyResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the world template body.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GenerateTemplateCommandInput = GenerateTemplateRequest;
-export type GenerateTemplateCommandOutput = GenerateTemplateResponse & __MetadataBearer;
+export interface GenerateTemplateCommandInput extends GenerateTemplateRequest {}
+export interface GenerateTemplateCommandOutput extends GenerateTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Generates an AWS CloudFormation template based on the current launch configuration and writes it to

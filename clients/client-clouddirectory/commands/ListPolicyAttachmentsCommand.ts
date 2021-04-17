@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPolicyAttachmentsCommandInput = ListPolicyAttachmentsRequest;
-export type ListPolicyAttachmentsCommandOutput = ListPolicyAttachmentsResponse & __MetadataBearer;
+export interface ListPolicyAttachmentsCommandInput extends ListPolicyAttachmentsRequest {}
+export interface ListPolicyAttachmentsCommandOutput extends ListPolicyAttachmentsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns all of the <code>ObjectIdentifiers</code> to which a given policy is attached.</p>

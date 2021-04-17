@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateFirewallRuleCommandInput = CreateFirewallRuleRequest;
-export type CreateFirewallRuleCommandOutput = CreateFirewallRuleResponse & __MetadataBearer;
+export interface CreateFirewallRuleCommandInput extends CreateFirewallRuleRequest {}
+export interface CreateFirewallRuleCommandOutput extends CreateFirewallRuleResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a single DNS Firewall rule in the specified rule group, using the specified domain list.</p>

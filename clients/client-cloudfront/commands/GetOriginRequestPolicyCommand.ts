@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetOriginRequestPolicyCommandInput = GetOriginRequestPolicyRequest;
-export type GetOriginRequestPolicyCommandOutput = GetOriginRequestPolicyResult & __MetadataBearer;
+export interface GetOriginRequestPolicyCommandInput extends GetOriginRequestPolicyRequest {}
+export interface GetOriginRequestPolicyCommandOutput extends GetOriginRequestPolicyResult, __MetadataBearer {}
 
 /**
  * <p>Gets an origin request policy, including the following metadata:</p>

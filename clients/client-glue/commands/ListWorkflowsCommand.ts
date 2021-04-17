@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListWorkflowsCommandInput = ListWorkflowsRequest;
-export type ListWorkflowsCommandOutput = ListWorkflowsResponse & __MetadataBearer;
+export interface ListWorkflowsCommandInput extends ListWorkflowsRequest {}
+export interface ListWorkflowsCommandOutput extends ListWorkflowsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists names of workflows created in the account.</p>

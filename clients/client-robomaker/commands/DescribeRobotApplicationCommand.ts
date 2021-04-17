@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeRobotApplicationCommandInput = DescribeRobotApplicationRequest;
-export type DescribeRobotApplicationCommandOutput = DescribeRobotApplicationResponse & __MetadataBearer;
+export interface DescribeRobotApplicationCommandInput extends DescribeRobotApplicationRequest {}
+export interface DescribeRobotApplicationCommandOutput extends DescribeRobotApplicationResponse, __MetadataBearer {}
 
 /**
  * <p>Describes a robot application.</p>

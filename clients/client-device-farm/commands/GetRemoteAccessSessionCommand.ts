@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetRemoteAccessSessionCommandInput = GetRemoteAccessSessionRequest;
-export type GetRemoteAccessSessionCommandOutput = GetRemoteAccessSessionResult & __MetadataBearer;
+export interface GetRemoteAccessSessionCommandInput extends GetRemoteAccessSessionRequest {}
+export interface GetRemoteAccessSessionCommandOutput extends GetRemoteAccessSessionResult, __MetadataBearer {}
 
 /**
  * <p>Returns a link to a currently running remote access session.</p>

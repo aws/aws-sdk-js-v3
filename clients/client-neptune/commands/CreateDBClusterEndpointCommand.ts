@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDBClusterEndpointCommandInput = CreateDBClusterEndpointMessage;
-export type CreateDBClusterEndpointCommandOutput = CreateDBClusterEndpointOutput & __MetadataBearer;
+export interface CreateDBClusterEndpointCommandInput extends CreateDBClusterEndpointMessage {}
+export interface CreateDBClusterEndpointCommandOutput extends CreateDBClusterEndpointOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a new custom endpoint and associates it with an Amazon Neptune DB cluster.</p>

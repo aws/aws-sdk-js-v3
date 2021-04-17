@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListSipMediaApplicationsCommandInput = ListSipMediaApplicationsRequest;
-export type ListSipMediaApplicationsCommandOutput = ListSipMediaApplicationsResponse & __MetadataBearer;
+export interface ListSipMediaApplicationsCommandInput extends ListSipMediaApplicationsRequest {}
+export interface ListSipMediaApplicationsCommandOutput extends ListSipMediaApplicationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the SIP media applications under the administrator's AWS account.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateOrganizationCommandInput = CreateOrganizationRequest;
-export type CreateOrganizationCommandOutput = CreateOrganizationResponse & __MetadataBearer;
+export interface CreateOrganizationCommandInput extends CreateOrganizationRequest {}
+export interface CreateOrganizationCommandOutput extends CreateOrganizationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an AWS organization. The account whose user is calling the

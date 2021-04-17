@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutRecordBatchCommandInput = PutRecordBatchInput;
-export type PutRecordBatchCommandOutput = PutRecordBatchOutput & __MetadataBearer;
+export interface PutRecordBatchCommandInput extends PutRecordBatchInput {}
+export interface PutRecordBatchCommandOutput extends PutRecordBatchOutput, __MetadataBearer {}
 
 /**
  * <p>Writes multiple data records into a delivery stream in a single call, which can

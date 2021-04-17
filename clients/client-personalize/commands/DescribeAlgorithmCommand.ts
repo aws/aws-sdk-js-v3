@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAlgorithmCommandInput = DescribeAlgorithmRequest;
-export type DescribeAlgorithmCommandOutput = DescribeAlgorithmResponse & __MetadataBearer;
+export interface DescribeAlgorithmCommandInput extends DescribeAlgorithmRequest {}
+export interface DescribeAlgorithmCommandOutput extends DescribeAlgorithmResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the given algorithm.</p>

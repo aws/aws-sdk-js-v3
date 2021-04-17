@@ -24,9 +24,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddApplicationCloudWatchLoggingOptionCommandInput = AddApplicationCloudWatchLoggingOptionRequest;
-export type AddApplicationCloudWatchLoggingOptionCommandOutput = AddApplicationCloudWatchLoggingOptionResponse &
-  __MetadataBearer;
+export interface AddApplicationCloudWatchLoggingOptionCommandInput
+  extends AddApplicationCloudWatchLoggingOptionRequest {}
+export interface AddApplicationCloudWatchLoggingOptionCommandOutput
+  extends AddApplicationCloudWatchLoggingOptionResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Adds an Amazon CloudWatch log stream to monitor application configuration errors.</p>

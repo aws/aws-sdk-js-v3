@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetScreenDataCommandInput = GetScreenDataRequest;
-export type GetScreenDataCommandOutput = GetScreenDataResult & __MetadataBearer;
+export interface GetScreenDataCommandInput extends GetScreenDataRequest {}
+export interface GetScreenDataCommandOutput extends GetScreenDataResult, __MetadataBearer {}
 
 /**
  * <p>

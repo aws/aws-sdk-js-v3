@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RetryDataReplicationCommandInput = RetryDataReplicationRequest;
-export type RetryDataReplicationCommandOutput = SourceServer & __MetadataBearer;
+export interface RetryDataReplicationCommandInput extends RetryDataReplicationRequest {}
+export interface RetryDataReplicationCommandOutput extends SourceServer, __MetadataBearer {}
 
 /**
  * <p>Causes the data replication initiation sequence to begin immediately upon next Handshake for specified SourceServer IDs, regardless of when the previous initiation started. This command will not work if the SourceServer is not stalled or is in a DISCONNECTED or STOPPED state.</p>

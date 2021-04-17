@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteOTAUpdateCommandInput = DeleteOTAUpdateRequest;
-export type DeleteOTAUpdateCommandOutput = DeleteOTAUpdateResponse & __MetadataBearer;
+export interface DeleteOTAUpdateCommandInput extends DeleteOTAUpdateRequest {}
+export interface DeleteOTAUpdateCommandOutput extends DeleteOTAUpdateResponse, __MetadataBearer {}
 
 /**
  * <p>Delete an OTA update.</p>

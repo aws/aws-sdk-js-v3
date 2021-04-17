@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetLinksCommandInput = GetLinksRequest;
-export type GetLinksCommandOutput = GetLinksResponse & __MetadataBearer;
+export interface GetLinksCommandInput extends GetLinksRequest {}
+export interface GetLinksCommandOutput extends GetLinksResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about one or more links in a specified global network.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelQueryCommandInput = CancelQueryRequest;
-export type CancelQueryCommandOutput = CancelQueryResponse & __MetadataBearer;
+export interface CancelQueryCommandInput extends CancelQueryRequest {}
+export interface CancelQueryCommandOutput extends CancelQueryResponse, __MetadataBearer {}
 
 /**
  * <p>

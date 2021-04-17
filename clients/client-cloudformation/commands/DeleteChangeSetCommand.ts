@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteChangeSetCommandInput = DeleteChangeSetInput;
-export type DeleteChangeSetCommandOutput = DeleteChangeSetOutput & __MetadataBearer;
+export interface DeleteChangeSetCommandInput extends DeleteChangeSetInput {}
+export interface DeleteChangeSetCommandOutput extends DeleteChangeSetOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified change set. Deleting change sets ensures that no one executes

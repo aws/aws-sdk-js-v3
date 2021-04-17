@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetConsoleScreenshotCommandInput = GetConsoleScreenshotRequest;
-export type GetConsoleScreenshotCommandOutput = GetConsoleScreenshotResult & __MetadataBearer;
+export interface GetConsoleScreenshotCommandInput extends GetConsoleScreenshotRequest {}
+export interface GetConsoleScreenshotCommandOutput extends GetConsoleScreenshotResult, __MetadataBearer {}
 
 /**
  * <p>Retrieve a JPG-format screenshot of a running instance to help with

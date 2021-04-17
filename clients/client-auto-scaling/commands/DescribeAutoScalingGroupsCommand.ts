@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAutoScalingGroupsCommandInput = AutoScalingGroupNamesType;
-export type DescribeAutoScalingGroupsCommandOutput = AutoScalingGroupsType & __MetadataBearer;
+export interface DescribeAutoScalingGroupsCommandInput extends AutoScalingGroupNamesType {}
+export interface DescribeAutoScalingGroupsCommandOutput extends AutoScalingGroupsType, __MetadataBearer {}
 
 /**
  * <p>Describes one or more Auto Scaling groups.</p>

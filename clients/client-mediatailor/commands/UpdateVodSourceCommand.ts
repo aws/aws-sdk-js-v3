@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateVodSourceCommandInput = UpdateVodSourceRequest;
-export type UpdateVodSourceCommandOutput = UpdateVodSourceResponse & __MetadataBearer;
+export interface UpdateVodSourceCommandInput extends UpdateVodSourceRequest {}
+export interface UpdateVodSourceCommandOutput extends UpdateVodSourceResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a specific VOD source in a specific source location.</p>

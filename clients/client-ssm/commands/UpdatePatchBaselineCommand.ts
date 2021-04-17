@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdatePatchBaselineCommandInput = UpdatePatchBaselineRequest;
-export type UpdatePatchBaselineCommandOutput = UpdatePatchBaselineResult & __MetadataBearer;
+export interface UpdatePatchBaselineCommandInput extends UpdatePatchBaselineRequest {}
+export interface UpdatePatchBaselineCommandOutput extends UpdatePatchBaselineResult, __MetadataBearer {}
 
 /**
  * <p>Modifies an existing patch baseline. Fields not specified in the request are left

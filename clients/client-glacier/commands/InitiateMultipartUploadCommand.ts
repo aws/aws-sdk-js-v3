@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type InitiateMultipartUploadCommandInput = InitiateMultipartUploadInput;
-export type InitiateMultipartUploadCommandOutput = InitiateMultipartUploadOutput & __MetadataBearer;
+export interface InitiateMultipartUploadCommandInput extends InitiateMultipartUploadInput {}
+export interface InitiateMultipartUploadCommandOutput extends InitiateMultipartUploadOutput, __MetadataBearer {}
 
 /**
  * <p>This operation initiates a multipart upload. Amazon S3 Glacier creates a multipart

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSubscriptionAttributesCommandInput = GetSubscriptionAttributesInput;
-export type GetSubscriptionAttributesCommandOutput = GetSubscriptionAttributesResponse & __MetadataBearer;
+export interface GetSubscriptionAttributesCommandInput extends GetSubscriptionAttributesInput {}
+export interface GetSubscriptionAttributesCommandOutput extends GetSubscriptionAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns all of the properties of a subscription.</p>

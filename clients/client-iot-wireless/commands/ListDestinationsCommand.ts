@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDestinationsCommandInput = ListDestinationsRequest;
-export type ListDestinationsCommandOutput = ListDestinationsResponse & __MetadataBearer;
+export interface ListDestinationsCommandInput extends ListDestinationsRequest {}
+export interface ListDestinationsCommandOutput extends ListDestinationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the destinations registered to your AWS account.</p>

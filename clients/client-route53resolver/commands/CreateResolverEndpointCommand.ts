@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateResolverEndpointCommandInput = CreateResolverEndpointRequest;
-export type CreateResolverEndpointCommandOutput = CreateResolverEndpointResponse & __MetadataBearer;
+export interface CreateResolverEndpointCommandInput extends CreateResolverEndpointRequest {}
+export interface CreateResolverEndpointCommandOutput extends CreateResolverEndpointResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a Resolver endpoint. There are two types of Resolver endpoints, inbound and outbound:</p>

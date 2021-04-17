@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeExportTasksCommandInput = DescribeExportTasksMessage;
-export type DescribeExportTasksCommandOutput = ExportTasksMessage & __MetadataBearer;
+export interface DescribeExportTasksCommandInput extends DescribeExportTasksMessage {}
+export interface DescribeExportTasksCommandOutput extends ExportTasksMessage, __MetadataBearer {}
 
 /**
  * <p>Returns information about a snapshot export to Amazon S3. This API operation supports

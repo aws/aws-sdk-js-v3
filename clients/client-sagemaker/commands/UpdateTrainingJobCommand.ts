@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateTrainingJobCommandInput = UpdateTrainingJobRequest;
-export type UpdateTrainingJobCommandOutput = UpdateTrainingJobResponse & __MetadataBearer;
+export interface UpdateTrainingJobCommandInput extends UpdateTrainingJobRequest {}
+export interface UpdateTrainingJobCommandOutput extends UpdateTrainingJobResponse, __MetadataBearer {}
 
 /**
  * <p>Update a model training job to request a new Debugger profiling configuration.</p>

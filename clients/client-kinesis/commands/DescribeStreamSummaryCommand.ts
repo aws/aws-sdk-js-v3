@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeStreamSummaryCommandInput = DescribeStreamSummaryInput;
-export type DescribeStreamSummaryCommandOutput = DescribeStreamSummaryOutput & __MetadataBearer;
+export interface DescribeStreamSummaryCommandInput extends DescribeStreamSummaryInput {}
+export interface DescribeStreamSummaryCommandOutput extends DescribeStreamSummaryOutput, __MetadataBearer {}
 
 /**
  * <p>Provides a summarized description of the specified Kinesis data stream without the

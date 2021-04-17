@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateProjectVersionCommandInput = CreateProjectVersionRequest;
-export type CreateProjectVersionCommandOutput = CreateProjectVersionResponse & __MetadataBearer;
+export interface CreateProjectVersionCommandInput extends CreateProjectVersionRequest {}
+export interface CreateProjectVersionCommandOutput extends CreateProjectVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new version of a model and begins training.

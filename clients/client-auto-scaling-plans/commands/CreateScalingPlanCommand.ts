@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateScalingPlanCommandInput = CreateScalingPlanRequest;
-export type CreateScalingPlanCommandOutput = CreateScalingPlanResponse & __MetadataBearer;
+export interface CreateScalingPlanCommandInput extends CreateScalingPlanRequest {}
+export interface CreateScalingPlanCommandOutput extends CreateScalingPlanResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a scaling plan. </p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribePackageVersionCommandInput = DescribePackageVersionRequest;
-export type DescribePackageVersionCommandOutput = DescribePackageVersionResult & __MetadataBearer;
+export interface DescribePackageVersionCommandInput extends DescribePackageVersionRequest {}
+export interface DescribePackageVersionCommandOutput extends DescribePackageVersionResult, __MetadataBearer {}
 
 /**
  * <p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateTrialComponentCommandInput = CreateTrialComponentRequest;
-export type CreateTrialComponentCommandOutput = CreateTrialComponentResponse & __MetadataBearer;
+export interface CreateTrialComponentCommandInput extends CreateTrialComponentRequest {}
+export interface CreateTrialComponentCommandOutput extends CreateTrialComponentResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a <i>trial component</i>, which is a stage of a machine learning

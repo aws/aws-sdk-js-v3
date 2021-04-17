@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDataSetsCommandInput = ListDataSetsRequest;
-export type ListDataSetsCommandOutput = ListDataSetsResponse & __MetadataBearer;
+export interface ListDataSetsCommandInput extends ListDataSetsRequest {}
+export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all of the datasets belonging to the current AWS account in an AWS Region.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartSchemaCreationCommandInput = StartSchemaCreationRequest;
-export type StartSchemaCreationCommandOutput = StartSchemaCreationResponse & __MetadataBearer;
+export interface StartSchemaCreationCommandInput extends StartSchemaCreationRequest {}
+export interface StartSchemaCreationCommandOutput extends StartSchemaCreationResponse, __MetadataBearer {}
 
 /**
  * <p>Adds a new schema to your GraphQL API.</p>

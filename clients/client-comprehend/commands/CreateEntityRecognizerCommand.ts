@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateEntityRecognizerCommandInput = CreateEntityRecognizerRequest;
-export type CreateEntityRecognizerCommandOutput = CreateEntityRecognizerResponse & __MetadataBearer;
+export interface CreateEntityRecognizerCommandInput extends CreateEntityRecognizerRequest {}
+export interface CreateEntityRecognizerCommandOutput extends CreateEntityRecognizerResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an entity recognizer using submitted files. After your

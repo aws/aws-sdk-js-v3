@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListHandshakesForOrganizationCommandInput = ListHandshakesForOrganizationRequest;
-export type ListHandshakesForOrganizationCommandOutput = ListHandshakesForOrganizationResponse & __MetadataBearer;
+export interface ListHandshakesForOrganizationCommandInput extends ListHandshakesForOrganizationRequest {}
+export interface ListHandshakesForOrganizationCommandOutput
+  extends ListHandshakesForOrganizationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Lists the handshakes that are associated with the organization that the requesting

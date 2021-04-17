@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSecretValueCommandInput = GetSecretValueRequest;
-export type GetSecretValueCommandOutput = GetSecretValueResponse & __MetadataBearer;
+export interface GetSecretValueCommandInput extends GetSecretValueRequest {}
+export interface GetSecretValueCommandOutput extends GetSecretValueResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the contents of the encrypted fields <code>SecretString</code> or

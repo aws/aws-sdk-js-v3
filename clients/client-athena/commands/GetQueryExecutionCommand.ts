@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetQueryExecutionCommandInput = GetQueryExecutionInput;
-export type GetQueryExecutionCommandOutput = GetQueryExecutionOutput & __MetadataBearer;
+export interface GetQueryExecutionCommandInput extends GetQueryExecutionInput {}
+export interface GetQueryExecutionCommandOutput extends GetQueryExecutionOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about a single execution of a query if you have access to the

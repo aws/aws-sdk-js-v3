@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListApiDestinationsCommandInput = ListApiDestinationsRequest;
-export type ListApiDestinationsCommandOutput = ListApiDestinationsResponse & __MetadataBearer;
+export interface ListApiDestinationsCommandInput extends ListApiDestinationsRequest {}
+export interface ListApiDestinationsCommandOutput extends ListApiDestinationsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of API destination in the account in the current Region.</p>

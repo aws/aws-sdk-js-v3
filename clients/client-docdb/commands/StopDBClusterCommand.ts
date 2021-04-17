@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopDBClusterCommandInput = StopDBClusterMessage;
-export type StopDBClusterCommandOutput = StopDBClusterResult & __MetadataBearer;
+export interface StopDBClusterCommandInput extends StopDBClusterMessage {}
+export interface StopDBClusterCommandOutput extends StopDBClusterResult, __MetadataBearer {}
 
 /**
  * <p>Stops the running cluster that is specified by <code>DBClusterIdentifier</code>. The

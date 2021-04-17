@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteNetworkInterfacePermissionCommandInput = DeleteNetworkInterfacePermissionRequest;
-export type DeleteNetworkInterfacePermissionCommandOutput = DeleteNetworkInterfacePermissionResult & __MetadataBearer;
+export interface DeleteNetworkInterfacePermissionCommandInput extends DeleteNetworkInterfacePermissionRequest {}
+export interface DeleteNetworkInterfacePermissionCommandOutput
+  extends DeleteNetworkInterfacePermissionResult,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes a permission for a network interface. By default, you cannot delete the

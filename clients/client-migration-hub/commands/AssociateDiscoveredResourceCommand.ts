@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateDiscoveredResourceCommandInput = AssociateDiscoveredResourceRequest;
-export type AssociateDiscoveredResourceCommandOutput = AssociateDiscoveredResourceResult & __MetadataBearer;
+export interface AssociateDiscoveredResourceCommandInput extends AssociateDiscoveredResourceRequest {}
+export interface AssociateDiscoveredResourceCommandOutput extends AssociateDiscoveredResourceResult, __MetadataBearer {}
 
 /**
  * <p>Associates a discovered resource ID from Application Discovery Service with a migration

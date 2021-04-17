@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateVpcPeeringAuthorizationCommandInput = CreateVpcPeeringAuthorizationInput;
-export type CreateVpcPeeringAuthorizationCommandOutput = CreateVpcPeeringAuthorizationOutput & __MetadataBearer;
+export interface CreateVpcPeeringAuthorizationCommandInput extends CreateVpcPeeringAuthorizationInput {}
+export interface CreateVpcPeeringAuthorizationCommandOutput
+  extends CreateVpcPeeringAuthorizationOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Requests authorization to create or delete a peer connection between the VPC for

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type EnablePolicyTypeCommandInput = EnablePolicyTypeRequest;
-export type EnablePolicyTypeCommandOutput = EnablePolicyTypeResponse & __MetadataBearer;
+export interface EnablePolicyTypeCommandInput extends EnablePolicyTypeRequest {}
+export interface EnablePolicyTypeCommandOutput extends EnablePolicyTypeResponse, __MetadataBearer {}
 
 /**
  * <p>Enables a policy type in a root. After you enable a policy type in a root, you can

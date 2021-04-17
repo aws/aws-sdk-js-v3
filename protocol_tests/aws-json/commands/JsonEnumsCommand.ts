@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type JsonEnumsCommandInput = JsonEnumsInputOutput;
-export type JsonEnumsCommandOutput = JsonEnumsInputOutput & __MetadataBearer;
+export interface JsonEnumsCommandInput extends JsonEnumsInputOutput {}
+export interface JsonEnumsCommandOutput extends JsonEnumsInputOutput, __MetadataBearer {}
 
 /**
  * This example serializes enums as top level properties, in lists, sets, and maps.

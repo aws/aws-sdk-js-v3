@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopAutoMLJobCommandInput = StopAutoMLJobRequest;
-export type StopAutoMLJobCommandOutput = __MetadataBearer;
+export interface StopAutoMLJobCommandInput extends StopAutoMLJobRequest {}
+export interface StopAutoMLJobCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>A method for forcing the termination of a running job.</p>

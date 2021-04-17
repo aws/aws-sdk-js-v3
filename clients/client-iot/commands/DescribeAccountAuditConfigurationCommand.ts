@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAccountAuditConfigurationCommandInput = DescribeAccountAuditConfigurationRequest;
-export type DescribeAccountAuditConfigurationCommandOutput = DescribeAccountAuditConfigurationResponse &
-  __MetadataBearer;
+export interface DescribeAccountAuditConfigurationCommandInput extends DescribeAccountAuditConfigurationRequest {}
+export interface DescribeAccountAuditConfigurationCommandOutput
+  extends DescribeAccountAuditConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets information about the Device Defender audit settings for this account.

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SearchUsersCommandInput = SearchUsersRequest;
-export type SearchUsersCommandOutput = SearchUsersResponse & __MetadataBearer;
+export interface SearchUsersCommandInput extends SearchUsersRequest {}
+export interface SearchUsersCommandOutput extends SearchUsersResponse, __MetadataBearer {}
 
 /**
  * <p>Searches users and lists the ones that meet a set of filter and sort

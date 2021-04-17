@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteUseCaseCommandInput = DeleteUseCaseRequest;
-export type DeleteUseCaseCommandOutput = __MetadataBearer;
+export interface DeleteUseCaseCommandInput extends DeleteUseCaseRequest {}
+export interface DeleteUseCaseCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>

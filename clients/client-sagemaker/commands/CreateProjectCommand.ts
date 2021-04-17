@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateProjectCommandInput = CreateProjectInput;
-export type CreateProjectCommandOutput = CreateProjectOutput & __MetadataBearer;
+export interface CreateProjectCommandInput extends CreateProjectInput {}
+export interface CreateProjectCommandOutput extends CreateProjectOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a machine learning (ML) project that can contain one or more templates that set

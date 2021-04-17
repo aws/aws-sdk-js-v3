@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutCompositeAlarmCommandInput = PutCompositeAlarmInput;
-export type PutCompositeAlarmCommandOutput = __MetadataBearer;
+export interface PutCompositeAlarmCommandInput extends PutCompositeAlarmInput {}
+export interface PutCompositeAlarmCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Creates or updates a <i>composite alarm</i>. When you create a composite

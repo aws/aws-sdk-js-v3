@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ExportSnapshotCommandInput = ExportSnapshotRequest;
-export type ExportSnapshotCommandOutput = ExportSnapshotResult & __MetadataBearer;
+export interface ExportSnapshotCommandInput extends ExportSnapshotRequest {}
+export interface ExportSnapshotCommandOutput extends ExportSnapshotResult, __MetadataBearer {}
 
 /**
  * <p>Exports an Amazon Lightsail instance or block storage disk snapshot to Amazon Elastic Compute Cloud (Amazon EC2).

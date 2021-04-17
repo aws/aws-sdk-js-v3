@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteUserPolicyCommandInput = DeleteUserPolicyRequest;
-export type DeleteUserPolicyCommandOutput = __MetadataBearer;
+export interface DeleteUserPolicyCommandInput extends DeleteUserPolicyRequest {}
+export interface DeleteUserPolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified inline policy that is embedded in the specified IAM

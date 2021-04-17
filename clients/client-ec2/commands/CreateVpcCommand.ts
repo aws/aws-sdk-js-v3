@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateVpcCommandInput = CreateVpcRequest;
-export type CreateVpcCommandOutput = CreateVpcResult & __MetadataBearer;
+export interface CreateVpcCommandInput extends CreateVpcRequest {}
+export interface CreateVpcCommandOutput extends CreateVpcResult, __MetadataBearer {}
 
 /**
  * <p>Creates a VPC with the specified IPv4 CIDR block. The smallest VPC you can create

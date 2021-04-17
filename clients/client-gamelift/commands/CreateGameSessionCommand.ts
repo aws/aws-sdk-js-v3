@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateGameSessionCommandInput = CreateGameSessionInput;
-export type CreateGameSessionCommandOutput = CreateGameSessionOutput & __MetadataBearer;
+export interface CreateGameSessionCommandInput extends CreateGameSessionInput {}
+export interface CreateGameSessionCommandOutput extends CreateGameSessionOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a multiplayer game session for players in a specific fleet location. This

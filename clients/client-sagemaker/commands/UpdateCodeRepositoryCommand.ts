@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateCodeRepositoryCommandInput = UpdateCodeRepositoryInput;
-export type UpdateCodeRepositoryCommandOutput = UpdateCodeRepositoryOutput & __MetadataBearer;
+export interface UpdateCodeRepositoryCommandInput extends UpdateCodeRepositoryInput {}
+export interface UpdateCodeRepositoryCommandOutput extends UpdateCodeRepositoryOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the specified Git repository with the specified values.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteImagePipelineCommandInput = DeleteImagePipelineRequest;
-export type DeleteImagePipelineCommandOutput = DeleteImagePipelineResponse & __MetadataBearer;
+export interface DeleteImagePipelineCommandInput extends DeleteImagePipelineRequest {}
+export interface DeleteImagePipelineCommandOutput extends DeleteImagePipelineResponse, __MetadataBearer {}
 
 /**
  * <p> Deletes an image pipeline.</p>

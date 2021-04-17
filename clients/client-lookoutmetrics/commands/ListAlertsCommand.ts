@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAlertsCommandInput = ListAlertsRequest;
-export type ListAlertsCommandOutput = ListAlertsResponse & __MetadataBearer;
+export interface ListAlertsCommandInput extends ListAlertsRequest {}
+export interface ListAlertsCommandOutput extends ListAlertsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the alerts attached to a detector.</p>

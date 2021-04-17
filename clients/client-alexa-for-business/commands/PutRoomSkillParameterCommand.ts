@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutRoomSkillParameterCommandInput = PutRoomSkillParameterRequest;
-export type PutRoomSkillParameterCommandOutput = PutRoomSkillParameterResponse & __MetadataBearer;
+export interface PutRoomSkillParameterCommandInput extends PutRoomSkillParameterRequest {}
+export interface PutRoomSkillParameterCommandOutput extends PutRoomSkillParameterResponse, __MetadataBearer {}
 
 /**
  * <p>Updates room skill parameter details by room, skill, and parameter key ID. Not all

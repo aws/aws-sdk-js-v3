@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ResumeGameServerGroupCommandInput = ResumeGameServerGroupInput;
-export type ResumeGameServerGroupCommandOutput = ResumeGameServerGroupOutput & __MetadataBearer;
+export interface ResumeGameServerGroupCommandInput extends ResumeGameServerGroupInput {}
+export interface ResumeGameServerGroupCommandOutput extends ResumeGameServerGroupOutput, __MetadataBearer {}
 
 /**
  * <p>

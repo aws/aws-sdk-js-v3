@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutResolverRulePolicyCommandInput = PutResolverRulePolicyRequest;
-export type PutResolverRulePolicyCommandOutput = PutResolverRulePolicyResponse & __MetadataBearer;
+export interface PutResolverRulePolicyCommandInput extends PutResolverRulePolicyRequest {}
+export interface PutResolverRulePolicyCommandOutput extends PutResolverRulePolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Specifies an AWS rule that you want to share with another account, the account that you want to share the rule with,

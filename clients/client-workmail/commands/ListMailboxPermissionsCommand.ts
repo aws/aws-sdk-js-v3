@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListMailboxPermissionsCommandInput = ListMailboxPermissionsRequest;
-export type ListMailboxPermissionsCommandOutput = ListMailboxPermissionsResponse & __MetadataBearer;
+export interface ListMailboxPermissionsCommandInput extends ListMailboxPermissionsRequest {}
+export interface ListMailboxPermissionsCommandOutput extends ListMailboxPermissionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the mailbox permissions associated with a user, group, or resource

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartOnDemandReplicationRunCommandInput = StartOnDemandReplicationRunRequest;
-export type StartOnDemandReplicationRunCommandOutput = StartOnDemandReplicationRunResponse & __MetadataBearer;
+export interface StartOnDemandReplicationRunCommandInput extends StartOnDemandReplicationRunRequest {}
+export interface StartOnDemandReplicationRunCommandOutput
+  extends StartOnDemandReplicationRunResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Starts an on-demand replication run for the specified replication job. This

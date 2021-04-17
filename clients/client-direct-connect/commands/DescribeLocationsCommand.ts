@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeLocationsCommandInput = {};
-export type DescribeLocationsCommandOutput = Locations & __MetadataBearer;
+export interface DescribeLocationsCommandInput {}
+export interface DescribeLocationsCommandOutput extends Locations, __MetadataBearer {}
 
 /**
  * <p>Lists the AWS Direct Connect locations in the current AWS Region. These are the locations that can be selected when calling

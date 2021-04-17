@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ReportTaskProgressCommandInput = ReportTaskProgressInput;
-export type ReportTaskProgressCommandOutput = ReportTaskProgressOutput & __MetadataBearer;
+export interface ReportTaskProgressCommandInput extends ReportTaskProgressInput {}
+export interface ReportTaskProgressCommandOutput extends ReportTaskProgressOutput, __MetadataBearer {}
 
 /**
  * <p>Task runners call <code>ReportTaskProgress</code> when assigned a task to acknowledge that it has the task. If the web service does not

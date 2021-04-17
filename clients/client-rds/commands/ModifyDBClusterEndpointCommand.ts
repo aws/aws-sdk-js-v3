@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyDBClusterEndpointCommandInput = ModifyDBClusterEndpointMessage;
-export type ModifyDBClusterEndpointCommandOutput = DBClusterEndpoint & __MetadataBearer;
+export interface ModifyDBClusterEndpointCommandInput extends ModifyDBClusterEndpointMessage {}
+export interface ModifyDBClusterEndpointCommandOutput extends DBClusterEndpoint, __MetadataBearer {}
 
 /**
  * <p>Modifies the properties of an endpoint in an Amazon Aurora DB cluster.</p>

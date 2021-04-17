@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateScriptCommandInput = CreateScriptInput;
-export type CreateScriptCommandOutput = CreateScriptOutput & __MetadataBearer;
+export interface CreateScriptCommandInput extends CreateScriptInput {}
+export interface CreateScriptCommandOutput extends CreateScriptOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a new script record for your Realtime Servers script. Realtime scripts are JavaScript that

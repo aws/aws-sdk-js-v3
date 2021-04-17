@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchRevokePermissionsCommandInput = BatchRevokePermissionsRequest;
-export type BatchRevokePermissionsCommandOutput = BatchRevokePermissionsResponse & __MetadataBearer;
+export interface BatchRevokePermissionsCommandInput extends BatchRevokePermissionsRequest {}
+export interface BatchRevokePermissionsCommandOutput extends BatchRevokePermissionsResponse, __MetadataBearer {}
 
 /**
  * <p>Batch operation to revoke permissions from the principal.</p>

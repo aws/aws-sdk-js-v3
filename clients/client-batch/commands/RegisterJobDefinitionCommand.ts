@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterJobDefinitionCommandInput = RegisterJobDefinitionRequest;
-export type RegisterJobDefinitionCommandOutput = RegisterJobDefinitionResponse & __MetadataBearer;
+export interface RegisterJobDefinitionCommandInput extends RegisterJobDefinitionRequest {}
+export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Registers an AWS Batch job definition.</p>

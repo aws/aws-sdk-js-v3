@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteChannelMessageCommandInput = DeleteChannelMessageRequest;
-export type DeleteChannelMessageCommandOutput = __MetadataBearer;
+export interface DeleteChannelMessageCommandInput extends DeleteChannelMessageRequest {}
+export interface DeleteChannelMessageCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a channel message. Only admins can perform this action. Deletion makes messages

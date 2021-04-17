@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteClientCertificateCommandInput = DeleteClientCertificateRequest;
-export type DeleteClientCertificateCommandOutput = __MetadataBearer;
+export interface DeleteClientCertificateCommandInput extends DeleteClientCertificateRequest {}
+export interface DeleteClientCertificateCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the <a>ClientCertificate</a> resource.</p>

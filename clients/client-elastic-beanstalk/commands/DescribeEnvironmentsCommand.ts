@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeEnvironmentsCommandInput = DescribeEnvironmentsMessage;
-export type DescribeEnvironmentsCommandOutput = EnvironmentDescriptionsMessage & __MetadataBearer;
+export interface DescribeEnvironmentsCommandInput extends DescribeEnvironmentsMessage {}
+export interface DescribeEnvironmentsCommandOutput extends EnvironmentDescriptionsMessage, __MetadataBearer {}
 
 /**
  * <p>Returns descriptions for existing environments.</p>

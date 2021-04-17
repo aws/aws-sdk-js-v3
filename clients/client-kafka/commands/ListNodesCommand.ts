@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListNodesCommandInput = ListNodesRequest;
-export type ListNodesCommandOutput = ListNodesResponse & __MetadataBearer;
+export interface ListNodesCommandInput extends ListNodesRequest {}
+export interface ListNodesCommandOutput extends ListNodesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of the broker nodes in the cluster.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListSamplesCommandInput = ListSamplesRequest;
-export type ListSamplesCommandOutput = ListSamplesResult & __MetadataBearer;
+export interface ListSamplesCommandInput extends ListSamplesRequest {}
+export interface ListSamplesCommandOutput extends ListSamplesResult, __MetadataBearer {}
 
 /**
  * <p>Gets information about samples, given an AWS Device Farm job ARN.</p>

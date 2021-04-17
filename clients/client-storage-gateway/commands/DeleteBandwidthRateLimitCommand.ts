@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteBandwidthRateLimitCommandInput = DeleteBandwidthRateLimitInput;
-export type DeleteBandwidthRateLimitCommandOutput = DeleteBandwidthRateLimitOutput & __MetadataBearer;
+export interface DeleteBandwidthRateLimitCommandInput extends DeleteBandwidthRateLimitInput {}
+export interface DeleteBandwidthRateLimitCommandOutput extends DeleteBandwidthRateLimitOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes the bandwidth rate limits of a gateway. You can delete either the upload and

@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetVoiceConnectorTerminationHealthCommandInput = GetVoiceConnectorTerminationHealthRequest;
-export type GetVoiceConnectorTerminationHealthCommandOutput = GetVoiceConnectorTerminationHealthResponse &
-  __MetadataBearer;
+export interface GetVoiceConnectorTerminationHealthCommandInput extends GetVoiceConnectorTerminationHealthRequest {}
+export interface GetVoiceConnectorTerminationHealthCommandOutput
+  extends GetVoiceConnectorTerminationHealthResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the last time a SIP <code>OPTIONS</code> ping was received from

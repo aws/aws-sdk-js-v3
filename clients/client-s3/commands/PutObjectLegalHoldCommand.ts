@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutObjectLegalHoldCommandInput = PutObjectLegalHoldRequest;
-export type PutObjectLegalHoldCommandOutput = PutObjectLegalHoldOutput & __MetadataBearer;
+export interface PutObjectLegalHoldCommandInput extends PutObjectLegalHoldRequest {}
+export interface PutObjectLegalHoldCommandOutput extends PutObjectLegalHoldOutput, __MetadataBearer {}
 
 /**
  * <p>Applies a Legal Hold configuration to the specified object. For more information, see

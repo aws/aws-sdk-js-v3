@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateBackendAPICommandInput = UpdateBackendAPIRequest;
-export type UpdateBackendAPICommandOutput = UpdateBackendAPIResponse & __MetadataBearer;
+export interface UpdateBackendAPICommandInput extends UpdateBackendAPIRequest {}
+export interface UpdateBackendAPICommandOutput extends UpdateBackendAPIResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing backend API resource.</p>

@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetLoadBalancerPoliciesOfListenerCommandInput = SetLoadBalancerPoliciesOfListenerInput;
-export type SetLoadBalancerPoliciesOfListenerCommandOutput = SetLoadBalancerPoliciesOfListenerOutput & __MetadataBearer;
+export interface SetLoadBalancerPoliciesOfListenerCommandInput extends SetLoadBalancerPoliciesOfListenerInput {}
+export interface SetLoadBalancerPoliciesOfListenerCommandOutput
+  extends SetLoadBalancerPoliciesOfListenerOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Replaces the current set of policies for the specified load balancer port with the specified set of policies.</p>

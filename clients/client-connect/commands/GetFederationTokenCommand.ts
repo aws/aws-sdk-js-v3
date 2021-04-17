@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetFederationTokenCommandInput = GetFederationTokenRequest;
-export type GetFederationTokenCommandOutput = GetFederationTokenResponse & __MetadataBearer;
+export interface GetFederationTokenCommandInput extends GetFederationTokenRequest {}
+export interface GetFederationTokenCommandOutput extends GetFederationTokenResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a token for federation.</p>

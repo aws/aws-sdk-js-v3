@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAttachmentCommandInput = GetAttachmentRequest;
-export type GetAttachmentCommandOutput = GetAttachmentResponse & __MetadataBearer;
+export interface GetAttachmentCommandInput extends GetAttachmentRequest {}
+export interface GetAttachmentCommandOutput extends GetAttachmentResponse, __MetadataBearer {}
 
 /**
  * <p>Provides a pre-signed URL for download of a completed attachment. This is an

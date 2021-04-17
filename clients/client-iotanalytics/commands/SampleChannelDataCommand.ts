@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SampleChannelDataCommandInput = SampleChannelDataRequest;
-export type SampleChannelDataCommandOutput = SampleChannelDataResponse & __MetadataBearer;
+export interface SampleChannelDataCommandInput extends SampleChannelDataRequest {}
+export interface SampleChannelDataCommandOutput extends SampleChannelDataResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a sample of messages from the specified channel ingested during the specified

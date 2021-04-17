@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetTransitGatewayRegistrationsCommandInput = GetTransitGatewayRegistrationsRequest;
-export type GetTransitGatewayRegistrationsCommandOutput = GetTransitGatewayRegistrationsResponse & __MetadataBearer;
+export interface GetTransitGatewayRegistrationsCommandInput extends GetTransitGatewayRegistrationsRequest {}
+export interface GetTransitGatewayRegistrationsCommandOutput
+  extends GetTransitGatewayRegistrationsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets information about the transit gateway registrations in a specified

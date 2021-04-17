@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetFeedbackCommandInput = GetFeedbackRequest;
-export type GetFeedbackCommandOutput = GetFeedbackResponse & __MetadataBearer;
+export interface GetFeedbackCommandInput extends GetFeedbackRequest {}
+export interface GetFeedbackCommandOutput extends GetFeedbackResponse, __MetadataBearer {}
 
 /**
  * <p>Get feedback for an anomaly group.</p>

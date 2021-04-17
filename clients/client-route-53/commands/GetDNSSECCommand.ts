@@ -15,8 +15,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDNSSECCommandInput = GetDNSSECRequest;
-export type GetDNSSECCommandOutput = GetDNSSECResponse & __MetadataBearer;
+export interface GetDNSSECCommandInput extends GetDNSSECRequest {}
+export interface GetDNSSECCommandOutput extends GetDNSSECResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about DNSSEC for a specific hosted zone, including the key-signing keys (KSKs) in the hosted zone.</p>

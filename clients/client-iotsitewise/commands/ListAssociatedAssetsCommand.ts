@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAssociatedAssetsCommandInput = ListAssociatedAssetsRequest;
-export type ListAssociatedAssetsCommandOutput = ListAssociatedAssetsResponse & __MetadataBearer;
+export interface ListAssociatedAssetsCommandInput extends ListAssociatedAssetsRequest {}
+export interface ListAssociatedAssetsCommandOutput extends ListAssociatedAssetsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a paginated list of associated assets.</p>

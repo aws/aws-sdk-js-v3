@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateBranchCommandInput = CreateBranchRequest;
-export type CreateBranchCommandOutput = CreateBranchResult & __MetadataBearer;
+export interface CreateBranchCommandInput extends CreateBranchRequest {}
+export interface CreateBranchCommandOutput extends CreateBranchResult, __MetadataBearer {}
 
 /**
  * <p> Creates a new branch for an Amplify app. </p>

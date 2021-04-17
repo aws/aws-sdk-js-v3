@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListBackupSelectionsCommandInput = ListBackupSelectionsInput;
-export type ListBackupSelectionsCommandOutput = ListBackupSelectionsOutput & __MetadataBearer;
+export interface ListBackupSelectionsCommandInput extends ListBackupSelectionsInput {}
+export interface ListBackupSelectionsCommandOutput extends ListBackupSelectionsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns an array containing metadata of the resources associated with the target backup

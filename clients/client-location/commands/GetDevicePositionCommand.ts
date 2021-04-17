@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDevicePositionCommandInput = GetDevicePositionRequest;
-export type GetDevicePositionCommandOutput = GetDevicePositionResponse & __MetadataBearer;
+export interface GetDevicePositionCommandInput extends GetDevicePositionRequest {}
+export interface GetDevicePositionCommandOutput extends GetDevicePositionResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a device's most recent position according to its sample time.</p>

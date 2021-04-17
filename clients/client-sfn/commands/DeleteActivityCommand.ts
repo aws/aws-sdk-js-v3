@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteActivityCommandInput = DeleteActivityInput;
-export type DeleteActivityCommandOutput = DeleteActivityOutput & __MetadataBearer;
+export interface DeleteActivityCommandInput extends DeleteActivityInput {}
+export interface DeleteActivityCommandOutput extends DeleteActivityOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes an activity.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeSecretCommandInput = DescribeSecretRequest;
-export type DescribeSecretCommandOutput = DescribeSecretResponse & __MetadataBearer;
+export interface DescribeSecretCommandInput extends DescribeSecretRequest {}
+export interface DescribeSecretCommandOutput extends DescribeSecretResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the details of a secret. It does not include the encrypted fields. Secrets

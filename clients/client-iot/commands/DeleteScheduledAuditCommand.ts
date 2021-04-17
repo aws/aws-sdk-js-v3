@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteScheduledAuditCommandInput = DeleteScheduledAuditRequest;
-export type DeleteScheduledAuditCommandOutput = DeleteScheduledAuditResponse & __MetadataBearer;
+export interface DeleteScheduledAuditCommandInput extends DeleteScheduledAuditRequest {}
+export interface DeleteScheduledAuditCommandOutput extends DeleteScheduledAuditResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a scheduled audit.</p>

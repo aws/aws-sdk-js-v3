@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateMemberAccountCommandInput = DisassociateMemberAccountRequest;
-export type DisassociateMemberAccountCommandOutput = __MetadataBearer;
+export interface DisassociateMemberAccountCommandInput extends DisassociateMemberAccountRequest {}
+export interface DisassociateMemberAccountCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes the specified member account from Amazon Macie Classic.</p>

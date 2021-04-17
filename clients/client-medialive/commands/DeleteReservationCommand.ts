@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteReservationCommandInput = DeleteReservationRequest;
-export type DeleteReservationCommandOutput = DeleteReservationResponse & __MetadataBearer;
+export interface DeleteReservationCommandInput extends DeleteReservationRequest {}
+export interface DeleteReservationCommandOutput extends DeleteReservationResponse, __MetadataBearer {}
 
 /**
  * Delete an expired reservation.

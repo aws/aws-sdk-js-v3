@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateAssociationCommandInput = UpdateAssociationRequest;
-export type UpdateAssociationCommandOutput = UpdateAssociationResult & __MetadataBearer;
+export interface UpdateAssociationCommandInput extends UpdateAssociationRequest {}
+export interface UpdateAssociationCommandOutput extends UpdateAssociationResult, __MetadataBearer {}
 
 /**
  * <p>Updates an association. You can update the association name and version, the document

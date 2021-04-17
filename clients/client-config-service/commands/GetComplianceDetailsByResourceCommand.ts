@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetComplianceDetailsByResourceCommandInput = GetComplianceDetailsByResourceRequest;
-export type GetComplianceDetailsByResourceCommandOutput = GetComplianceDetailsByResourceResponse & __MetadataBearer;
+export interface GetComplianceDetailsByResourceCommandInput extends GetComplianceDetailsByResourceRequest {}
+export interface GetComplianceDetailsByResourceCommandOutput
+  extends GetComplianceDetailsByResourceResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the evaluation results for the specified AWS resource.

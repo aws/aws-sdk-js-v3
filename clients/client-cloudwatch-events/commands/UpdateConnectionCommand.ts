@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateConnectionCommandInput = UpdateConnectionRequest;
-export type UpdateConnectionCommandOutput = UpdateConnectionResponse & __MetadataBearer;
+export interface UpdateConnectionCommandInput extends UpdateConnectionRequest {}
+export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse, __MetadataBearer {}
 
 /**
  * <p>Updates settings for a connection.</p>

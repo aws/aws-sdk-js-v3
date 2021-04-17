@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeRiskConfigurationCommandInput = DescribeRiskConfigurationRequest;
-export type DescribeRiskConfigurationCommandOutput = DescribeRiskConfigurationResponse & __MetadataBearer;
+export interface DescribeRiskConfigurationCommandInput extends DescribeRiskConfigurationRequest {}
+export interface DescribeRiskConfigurationCommandOutput extends DescribeRiskConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the risk configuration.</p>

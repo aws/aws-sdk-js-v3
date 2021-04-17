@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAnswerCommandInput = GetAnswerInput;
-export type GetAnswerCommandOutput = GetAnswerOutput & __MetadataBearer;
+export interface GetAnswerCommandInput extends GetAnswerInput {}
+export interface GetAnswerCommandOutput extends GetAnswerOutput, __MetadataBearer {}
 
 /**
  * <p>Get lens review.</p>

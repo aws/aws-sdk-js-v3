@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateMembershipCommandInput = DisassociateMembershipRequest;
-export type DisassociateMembershipCommandOutput = __MetadataBearer;
+export interface DisassociateMembershipCommandInput extends DisassociateMembershipRequest {}
+export interface DisassociateMembershipCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes the member account from the specified behavior graph. This operation can only be

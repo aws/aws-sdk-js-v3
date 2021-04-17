@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateMatchmakingConfigurationCommandInput = UpdateMatchmakingConfigurationInput;
-export type UpdateMatchmakingConfigurationCommandOutput = UpdateMatchmakingConfigurationOutput & __MetadataBearer;
+export interface UpdateMatchmakingConfigurationCommandInput extends UpdateMatchmakingConfigurationInput {}
+export interface UpdateMatchmakingConfigurationCommandOutput
+  extends UpdateMatchmakingConfigurationOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Updates settings for a FlexMatch matchmaking configuration. These changes affect all matches and game sessions

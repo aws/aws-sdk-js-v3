@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DecreaseNodeGroupsInGlobalReplicationGroupCommandInput = DecreaseNodeGroupsInGlobalReplicationGroupMessage;
-export type DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput = DecreaseNodeGroupsInGlobalReplicationGroupResult &
-  __MetadataBearer;
+export interface DecreaseNodeGroupsInGlobalReplicationGroupCommandInput
+  extends DecreaseNodeGroupsInGlobalReplicationGroupMessage {}
+export interface DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput
+  extends DecreaseNodeGroupsInGlobalReplicationGroupResult,
+    __MetadataBearer {}
 
 /**
  * <p>Decreases the number of node groups in a Global datastore</p>

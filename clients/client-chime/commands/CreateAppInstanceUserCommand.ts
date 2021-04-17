@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateAppInstanceUserCommandInput = CreateAppInstanceUserRequest;
-export type CreateAppInstanceUserCommandOutput = CreateAppInstanceUserResponse & __MetadataBearer;
+export interface CreateAppInstanceUserCommandInput extends CreateAppInstanceUserRequest {}
+export interface CreateAppInstanceUserCommandOutput extends CreateAppInstanceUserResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a user under an Amazon Chime <code>AppInstance</code>. The request consists of a unique <code>appInstanceUserId</code> and

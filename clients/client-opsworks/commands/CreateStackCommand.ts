@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateStackCommandInput = CreateStackRequest;
-export type CreateStackCommandOutput = CreateStackResult & __MetadataBearer;
+export interface CreateStackCommandInput extends CreateStackRequest {}
+export interface CreateStackCommandOutput extends CreateStackResult, __MetadataBearer {}
 
 /**
  * <p>Creates a new stack. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-edit.html">Create a New

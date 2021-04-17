@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAccountConfigurationCommandInput = {};
-export type GetAccountConfigurationCommandOutput = GetAccountConfigurationResponse & __MetadataBearer;
+export interface GetAccountConfigurationCommandInput {}
+export interface GetAccountConfigurationCommandOutput extends GetAccountConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the account

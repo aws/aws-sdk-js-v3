@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTemplatesCommandInput = ListTemplatesRequest;
-export type ListTemplatesCommandOutput = ListTemplatesResponse & __MetadataBearer;
+export interface ListTemplatesCommandInput extends ListTemplatesRequest {}
+export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the email templates present in your Amazon SES account in the current AWS

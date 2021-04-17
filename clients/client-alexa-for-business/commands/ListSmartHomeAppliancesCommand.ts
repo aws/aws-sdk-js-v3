@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListSmartHomeAppliancesCommandInput = ListSmartHomeAppliancesRequest;
-export type ListSmartHomeAppliancesCommandOutput = ListSmartHomeAppliancesResponse & __MetadataBearer;
+export interface ListSmartHomeAppliancesCommandInput extends ListSmartHomeAppliancesRequest {}
+export interface ListSmartHomeAppliancesCommandOutput extends ListSmartHomeAppliancesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all of the smart home appliances associated with a room.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteCodeRepositoryCommandInput = DeleteCodeRepositoryInput;
-export type DeleteCodeRepositoryCommandOutput = __MetadataBearer;
+export interface DeleteCodeRepositoryCommandInput extends DeleteCodeRepositoryInput {}
+export interface DeleteCodeRepositoryCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified Git repository from your account.</p>

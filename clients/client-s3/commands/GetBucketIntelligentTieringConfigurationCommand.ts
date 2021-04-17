@@ -21,9 +21,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBucketIntelligentTieringConfigurationCommandInput = GetBucketIntelligentTieringConfigurationRequest;
-export type GetBucketIntelligentTieringConfigurationCommandOutput = GetBucketIntelligentTieringConfigurationOutput &
-  __MetadataBearer;
+export interface GetBucketIntelligentTieringConfigurationCommandInput
+  extends GetBucketIntelligentTieringConfigurationRequest {}
+export interface GetBucketIntelligentTieringConfigurationCommandOutput
+  extends GetBucketIntelligentTieringConfigurationOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Gets the S3 Intelligent-Tiering configuration from the specified bucket.</p>

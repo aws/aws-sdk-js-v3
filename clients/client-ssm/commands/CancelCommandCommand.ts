@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelCommandCommandInput = CancelCommandRequest;
-export type CancelCommandCommandOutput = CancelCommandResult & __MetadataBearer;
+export interface CancelCommandCommandInput extends CancelCommandRequest {}
+export interface CancelCommandCommandOutput extends CancelCommandResult, __MetadataBearer {}
 
 /**
  * <p>Attempts to cancel the command specified by the Command ID. There is no guarantee that the

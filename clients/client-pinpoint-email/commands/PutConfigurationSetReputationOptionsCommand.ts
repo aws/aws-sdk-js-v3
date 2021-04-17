@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutConfigurationSetReputationOptionsCommandInput = PutConfigurationSetReputationOptionsRequest;
-export type PutConfigurationSetReputationOptionsCommandOutput = PutConfigurationSetReputationOptionsResponse &
-  __MetadataBearer;
+export interface PutConfigurationSetReputationOptionsCommandInput extends PutConfigurationSetReputationOptionsRequest {}
+export interface PutConfigurationSetReputationOptionsCommandOutput
+  extends PutConfigurationSetReputationOptionsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Enable or disable collection of reputation metrics for emails that you send using a

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ImportKeyPairCommandInput = ImportKeyPairRequest;
-export type ImportKeyPairCommandOutput = ImportKeyPairResult & __MetadataBearer;
+export interface ImportKeyPairCommandInput extends ImportKeyPairRequest {}
+export interface ImportKeyPairCommandOutput extends ImportKeyPairResult, __MetadataBearer {}
 
 /**
  * <p>Imports a public SSH key from a specific key pair.</p>

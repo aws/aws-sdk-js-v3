@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeVpcEndpointServicePermissionsCommandInput = DescribeVpcEndpointServicePermissionsRequest;
-export type DescribeVpcEndpointServicePermissionsCommandOutput = DescribeVpcEndpointServicePermissionsResult &
-  __MetadataBearer;
+export interface DescribeVpcEndpointServicePermissionsCommandInput
+  extends DescribeVpcEndpointServicePermissionsRequest {}
+export interface DescribeVpcEndpointServicePermissionsCommandOutput
+  extends DescribeVpcEndpointServicePermissionsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the principals (service consumers) that are permitted to discover your VPC

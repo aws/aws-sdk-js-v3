@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddTagsToResourceCommandInput = AddTagsToResourceMessage;
-export type AddTagsToResourceCommandOutput = __MetadataBearer;
+export interface AddTagsToResourceCommandInput extends AddTagsToResourceMessage {}
+export interface AddTagsToResourceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Adds metadata tags to an Amazon Neptune resource. These tags can also be used with cost

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetInsightsCommandInput = GetInsightsRequest;
-export type GetInsightsCommandOutput = GetInsightsResponse & __MetadataBearer;
+export interface GetInsightsCommandInput extends GetInsightsRequest {}
+export interface GetInsightsCommandOutput extends GetInsightsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists and describes insights for the specified insight ARNs.</p>

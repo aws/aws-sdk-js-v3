@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeregisterManagedInstanceCommandInput = DeregisterManagedInstanceRequest;
-export type DeregisterManagedInstanceCommandOutput = DeregisterManagedInstanceResult & __MetadataBearer;
+export interface DeregisterManagedInstanceCommandInput extends DeregisterManagedInstanceRequest {}
+export interface DeregisterManagedInstanceCommandOutput extends DeregisterManagedInstanceResult, __MetadataBearer {}
 
 /**
  * <p>Removes the server or virtual machine from the list of registered servers. You can

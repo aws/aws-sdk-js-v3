@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDirectConnectGatewaysCommandInput = DescribeDirectConnectGatewaysRequest;
-export type DescribeDirectConnectGatewaysCommandOutput = DescribeDirectConnectGatewaysResult & __MetadataBearer;
+export interface DescribeDirectConnectGatewaysCommandInput extends DescribeDirectConnectGatewaysRequest {}
+export interface DescribeDirectConnectGatewaysCommandOutput
+  extends DescribeDirectConnectGatewaysResult,
+    __MetadataBearer {}
 
 /**
  * <p>Lists all your Direct Connect gateways or only the specified Direct Connect gateway. Deleted Direct Connect gateways are not returned.</p>

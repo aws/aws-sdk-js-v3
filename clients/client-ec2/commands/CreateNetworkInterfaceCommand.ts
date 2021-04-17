@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateNetworkInterfaceCommandInput = CreateNetworkInterfaceRequest;
-export type CreateNetworkInterfaceCommandOutput = CreateNetworkInterfaceResult & __MetadataBearer;
+export interface CreateNetworkInterfaceCommandInput extends CreateNetworkInterfaceRequest {}
+export interface CreateNetworkInterfaceCommandOutput extends CreateNetworkInterfaceResult, __MetadataBearer {}
 
 /**
  * <p>Creates a network interface in the specified subnet.</p>

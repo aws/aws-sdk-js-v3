@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListNotebookExecutionsCommandInput = ListNotebookExecutionsInput;
-export type ListNotebookExecutionsCommandOutput = ListNotebookExecutionsOutput & __MetadataBearer;
+export interface ListNotebookExecutionsCommandInput extends ListNotebookExecutionsInput {}
+export interface ListNotebookExecutionsCommandOutput extends ListNotebookExecutionsOutput, __MetadataBearer {}
 
 /**
  * <p>Provides summaries of all notebook executions. You can filter the list based on multiple

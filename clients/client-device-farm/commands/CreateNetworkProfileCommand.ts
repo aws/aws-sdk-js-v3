@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateNetworkProfileCommandInput = CreateNetworkProfileRequest;
-export type CreateNetworkProfileCommandOutput = CreateNetworkProfileResult & __MetadataBearer;
+export interface CreateNetworkProfileCommandInput extends CreateNetworkProfileRequest {}
+export interface CreateNetworkProfileCommandOutput extends CreateNetworkProfileResult, __MetadataBearer {}
 
 /**
  * <p>Creates a network profile.</p>

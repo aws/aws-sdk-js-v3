@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetPullRequestCommandInput = GetPullRequestInput;
-export type GetPullRequestCommandOutput = GetPullRequestOutput & __MetadataBearer;
+export interface GetPullRequestCommandInput extends GetPullRequestInput {}
+export interface GetPullRequestCommandOutput extends GetPullRequestOutput, __MetadataBearer {}
 
 /**
  * <p>Gets information about a pull request in a specified repository.</p>

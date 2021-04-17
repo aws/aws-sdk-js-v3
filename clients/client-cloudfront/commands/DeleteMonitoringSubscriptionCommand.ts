@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteMonitoringSubscriptionCommandInput = DeleteMonitoringSubscriptionRequest;
-export type DeleteMonitoringSubscriptionCommandOutput = DeleteMonitoringSubscriptionResult & __MetadataBearer;
+export interface DeleteMonitoringSubscriptionCommandInput extends DeleteMonitoringSubscriptionRequest {}
+export interface DeleteMonitoringSubscriptionCommandOutput
+  extends DeleteMonitoringSubscriptionResult,
+    __MetadataBearer {}
 
 /**
  * <p>Disables additional CloudWatch metrics for the specified CloudFront distribution.</p>

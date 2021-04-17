@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSdkCommandInput = GetSdkRequest;
-export type GetSdkCommandOutput = SdkResponse & __MetadataBearer;
+export interface GetSdkCommandInput extends GetSdkRequest {}
+export interface GetSdkCommandOutput extends SdkResponse, __MetadataBearer {}
 
 /**
  * <p>Generates a client SDK for a <a>RestApi</a> and <a>Stage</a>.</p>

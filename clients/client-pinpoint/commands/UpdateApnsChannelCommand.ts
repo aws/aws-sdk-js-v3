@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateApnsChannelCommandInput = UpdateApnsChannelRequest;
-export type UpdateApnsChannelCommandOutput = UpdateApnsChannelResponse & __MetadataBearer;
+export interface UpdateApnsChannelCommandInput extends UpdateApnsChannelRequest {}
+export interface UpdateApnsChannelCommandOutput extends UpdateApnsChannelResponse, __MetadataBearer {}
 
 /**
  * <p>Enables the APNs channel for an application or updates the status and settings of the APNs channel for an application.</p>

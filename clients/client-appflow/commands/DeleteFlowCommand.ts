@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteFlowCommandInput = DeleteFlowRequest;
-export type DeleteFlowCommandOutput = DeleteFlowResponse & __MetadataBearer;
+export interface DeleteFlowCommandInput extends DeleteFlowRequest {}
+export interface DeleteFlowCommandOutput extends DeleteFlowResponse, __MetadataBearer {}
 
 /**
  * <p>

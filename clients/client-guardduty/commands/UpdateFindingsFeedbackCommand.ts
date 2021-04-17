@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateFindingsFeedbackCommandInput = UpdateFindingsFeedbackRequest;
-export type UpdateFindingsFeedbackCommandOutput = UpdateFindingsFeedbackResponse & __MetadataBearer;
+export interface UpdateFindingsFeedbackCommandInput extends UpdateFindingsFeedbackRequest {}
+export interface UpdateFindingsFeedbackCommandOutput extends UpdateFindingsFeedbackResponse, __MetadataBearer {}
 
 /**
  * <p>Marks the specified GuardDuty findings as useful or not useful.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeletePreparedStatementCommandInput = DeletePreparedStatementInput;
-export type DeletePreparedStatementCommandOutput = DeletePreparedStatementOutput & __MetadataBearer;
+export interface DeletePreparedStatementCommandInput extends DeletePreparedStatementInput {}
+export interface DeletePreparedStatementCommandOutput extends DeletePreparedStatementOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes the prepared statement with the specified name from the specified

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListVerifiedEmailAddressesCommandInput = {};
-export type ListVerifiedEmailAddressesCommandOutput = ListVerifiedEmailAddressesResponse & __MetadataBearer;
+export interface ListVerifiedEmailAddressesCommandInput {}
+export interface ListVerifiedEmailAddressesCommandOutput extends ListVerifiedEmailAddressesResponse, __MetadataBearer {}
 
 /**
  * <p>Deprecated. Use the <code>ListIdentities</code> operation to list the email addresses

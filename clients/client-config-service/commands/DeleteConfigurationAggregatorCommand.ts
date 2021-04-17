@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteConfigurationAggregatorCommandInput = DeleteConfigurationAggregatorRequest;
-export type DeleteConfigurationAggregatorCommandOutput = __MetadataBearer;
+export interface DeleteConfigurationAggregatorCommandInput extends DeleteConfigurationAggregatorRequest {}
+export interface DeleteConfigurationAggregatorCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified configuration aggregator and the

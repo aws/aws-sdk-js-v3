@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TestRenderEmailTemplateCommandInput = TestRenderEmailTemplateRequest;
-export type TestRenderEmailTemplateCommandOutput = TestRenderEmailTemplateResponse & __MetadataBearer;
+export interface TestRenderEmailTemplateCommandInput extends TestRenderEmailTemplateRequest {}
+export interface TestRenderEmailTemplateCommandOutput extends TestRenderEmailTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a preview of the MIME content of an email when provided with a template and a

@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CloseTunnelCommandInput = CloseTunnelRequest;
-export type CloseTunnelCommandOutput = CloseTunnelResponse & __MetadataBearer;
+export interface CloseTunnelCommandInput extends CloseTunnelRequest {}
+export interface CloseTunnelCommandOutput extends CloseTunnelResponse, __MetadataBearer {}
 
 /**
  * <p>Closes a tunnel identified by the unique tunnel id. When a <code>CloseTunnel</code>

@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetEntitlementsCommandInput = GetEntitlementsRequest;
-export type GetEntitlementsCommandOutput = GetEntitlementsResult & __MetadataBearer;
+export interface GetEntitlementsCommandInput extends GetEntitlementsRequest {}
+export interface GetEntitlementsCommandOutput extends GetEntitlementsResult, __MetadataBearer {}
 
 /**
  * <p>GetEntitlements retrieves entitlement values for a given product. The results can be

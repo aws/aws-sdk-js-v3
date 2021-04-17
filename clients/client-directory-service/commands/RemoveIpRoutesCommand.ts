@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RemoveIpRoutesCommandInput = RemoveIpRoutesRequest;
-export type RemoveIpRoutesCommandOutput = RemoveIpRoutesResult & __MetadataBearer;
+export interface RemoveIpRoutesCommandInput extends RemoveIpRoutesRequest {}
+export interface RemoveIpRoutesCommandOutput extends RemoveIpRoutesResult, __MetadataBearer {}
 
 /**
  * <p>Removes IP address blocks from a directory.</p>

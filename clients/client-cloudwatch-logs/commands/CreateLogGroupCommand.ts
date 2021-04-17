@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateLogGroupCommandInput = CreateLogGroupRequest;
-export type CreateLogGroupCommandOutput = __MetadataBearer;
+export interface CreateLogGroupCommandInput extends CreateLogGroupRequest {}
+export interface CreateLogGroupCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Creates a log group with the specified name. You can create up to 20,000 log groups per account.</p>

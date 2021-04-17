@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeOrganizationalUnitCommandInput = DescribeOrganizationalUnitRequest;
-export type DescribeOrganizationalUnitCommandOutput = DescribeOrganizationalUnitResponse & __MetadataBearer;
+export interface DescribeOrganizationalUnitCommandInput extends DescribeOrganizationalUnitRequest {}
+export interface DescribeOrganizationalUnitCommandOutput extends DescribeOrganizationalUnitResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about an organizational unit (OU).</p>

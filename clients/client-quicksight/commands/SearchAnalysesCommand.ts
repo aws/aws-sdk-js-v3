@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SearchAnalysesCommandInput = SearchAnalysesRequest;
-export type SearchAnalysesCommandOutput = SearchAnalysesResponse & __MetadataBearer;
+export interface SearchAnalysesCommandInput extends SearchAnalysesRequest {}
+export interface SearchAnalysesCommandOutput extends SearchAnalysesResponse, __MetadataBearer {}
 
 /**
  * <p>Searches for analyses that belong to the user specified in the filter.</p>

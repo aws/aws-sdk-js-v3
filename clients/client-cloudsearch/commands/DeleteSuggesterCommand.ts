@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteSuggesterCommandInput = DeleteSuggesterRequest;
-export type DeleteSuggesterCommandOutput = DeleteSuggesterResponse & __MetadataBearer;
+export interface DeleteSuggesterCommandInput extends DeleteSuggesterRequest {}
+export interface DeleteSuggesterCommandOutput extends DeleteSuggesterResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a suggester. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html" target="_blank">Getting Search Suggestions</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>

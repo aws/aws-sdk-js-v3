@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RestoreDomainAccessCommandInput = RestoreDomainAccessRequest;
-export type RestoreDomainAccessCommandOutput = RestoreDomainAccessResponse & __MetadataBearer;
+export interface RestoreDomainAccessCommandInput extends RestoreDomainAccessRequest {}
+export interface RestoreDomainAccessCommandOutput extends RestoreDomainAccessResponse, __MetadataBearer {}
 
 /**
  * <p>Moves a domain to ACTIVE status if it was in the INACTIVE status.</p>

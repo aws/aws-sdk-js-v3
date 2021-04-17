@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetFunctionEventInvokeConfigCommandInput = GetFunctionEventInvokeConfigRequest;
-export type GetFunctionEventInvokeConfigCommandOutput = FunctionEventInvokeConfig & __MetadataBearer;
+export interface GetFunctionEventInvokeConfigCommandInput extends GetFunctionEventInvokeConfigRequest {}
+export interface GetFunctionEventInvokeConfigCommandOutput extends FunctionEventInvokeConfig, __MetadataBearer {}
 
 /**
  * <p>Retrieves the configuration for asynchronous invocation for a function, version, or alias.</p>

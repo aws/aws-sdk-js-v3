@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateVocabularyCommandInput = CreateVocabularyRequest;
-export type CreateVocabularyCommandOutput = CreateVocabularyResponse & __MetadataBearer;
+export interface CreateVocabularyCommandInput extends CreateVocabularyRequest {}
+export interface CreateVocabularyCommandOutput extends CreateVocabularyResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new custom vocabulary that you can use to change the way Amazon Transcribe handles

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateGameSessionCommandInput = UpdateGameSessionInput;
-export type UpdateGameSessionCommandOutput = UpdateGameSessionOutput & __MetadataBearer;
+export interface UpdateGameSessionCommandInput extends UpdateGameSessionInput {}
+export interface UpdateGameSessionCommandOutput extends UpdateGameSessionOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the mutable properties of a game session. </p>

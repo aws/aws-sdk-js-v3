@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutApplicationPolicyCommandInput = PutApplicationPolicyRequest;
-export type PutApplicationPolicyCommandOutput = PutApplicationPolicyResponse & __MetadataBearer;
+export interface PutApplicationPolicyCommandInput extends PutApplicationPolicyRequest {}
+export interface PutApplicationPolicyCommandOutput extends PutApplicationPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Sets the permission policy for an application. For the list of actions supported for this operation, see

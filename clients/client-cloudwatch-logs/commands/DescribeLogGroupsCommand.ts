@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeLogGroupsCommandInput = DescribeLogGroupsRequest;
-export type DescribeLogGroupsCommandOutput = DescribeLogGroupsResponse & __MetadataBearer;
+export interface DescribeLogGroupsCommandInput extends DescribeLogGroupsRequest {}
+export interface DescribeLogGroupsCommandOutput extends DescribeLogGroupsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the specified log groups. You can list all your log groups or filter the results by prefix.

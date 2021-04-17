@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteSegmentCommandInput = DeleteSegmentRequest;
-export type DeleteSegmentCommandOutput = DeleteSegmentResponse & __MetadataBearer;
+export interface DeleteSegmentCommandInput extends DeleteSegmentRequest {}
+export interface DeleteSegmentCommandOutput extends DeleteSegmentResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a segment from an application.</p>

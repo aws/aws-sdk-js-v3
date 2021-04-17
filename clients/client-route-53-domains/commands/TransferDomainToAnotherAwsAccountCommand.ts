@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TransferDomainToAnotherAwsAccountCommandInput = TransferDomainToAnotherAwsAccountRequest;
-export type TransferDomainToAnotherAwsAccountCommandOutput = TransferDomainToAnotherAwsAccountResponse &
-  __MetadataBearer;
+export interface TransferDomainToAnotherAwsAccountCommandInput extends TransferDomainToAnotherAwsAccountRequest {}
+export interface TransferDomainToAnotherAwsAccountCommandOutput
+  extends TransferDomainToAnotherAwsAccountResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Transfers a domain from the current AWS account to another AWS account. Note the following:</p>

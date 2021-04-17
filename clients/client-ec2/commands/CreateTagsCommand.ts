@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateTagsCommandInput = CreateTagsRequest;
-export type CreateTagsCommandOutput = __MetadataBearer;
+export interface CreateTagsCommandInput extends CreateTagsRequest {}
+export interface CreateTagsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Adds or overwrites only the specified tags for the specified Amazon EC2 resource or

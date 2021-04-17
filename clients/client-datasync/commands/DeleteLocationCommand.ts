@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteLocationCommandInput = DeleteLocationRequest;
-export type DeleteLocationCommandOutput = DeleteLocationResponse & __MetadataBearer;
+export interface DeleteLocationCommandInput extends DeleteLocationRequest {}
+export interface DeleteLocationCommandOutput extends DeleteLocationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the configuration of a location used by AWS DataSync. </p>

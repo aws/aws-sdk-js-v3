@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeOperatingSystemsCommandInput = {};
-export type DescribeOperatingSystemsCommandOutput = DescribeOperatingSystemsResponse & __MetadataBearer;
+export interface DescribeOperatingSystemsCommandInput {}
+export interface DescribeOperatingSystemsCommandOutput extends DescribeOperatingSystemsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the operating systems that are supported by AWS OpsWorks Stacks.</p>

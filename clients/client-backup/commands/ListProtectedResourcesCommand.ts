@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListProtectedResourcesCommandInput = ListProtectedResourcesInput;
-export type ListProtectedResourcesCommandOutput = ListProtectedResourcesOutput & __MetadataBearer;
+export interface ListProtectedResourcesCommandInput extends ListProtectedResourcesInput {}
+export interface ListProtectedResourcesCommandOutput extends ListProtectedResourcesOutput, __MetadataBearer {}
 
 /**
  * <p>Returns an array of resources successfully backed up by AWS Backup, including the time

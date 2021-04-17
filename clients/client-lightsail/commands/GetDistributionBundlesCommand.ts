@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDistributionBundlesCommandInput = GetDistributionBundlesRequest;
-export type GetDistributionBundlesCommandOutput = GetDistributionBundlesResult & __MetadataBearer;
+export interface GetDistributionBundlesCommandInput extends GetDistributionBundlesRequest {}
+export interface GetDistributionBundlesCommandOutput extends GetDistributionBundlesResult, __MetadataBearer {}
 
 /**
  * <p>Returns the list bundles that can be applied to you Amazon Lightsail content delivery

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetTestGridSessionCommandInput = GetTestGridSessionRequest;
-export type GetTestGridSessionCommandOutput = GetTestGridSessionResult & __MetadataBearer;
+export interface GetTestGridSessionCommandInput extends GetTestGridSessionRequest {}
+export interface GetTestGridSessionCommandOutput extends GetTestGridSessionResult, __MetadataBearer {}
 
 /**
  * <p>A session is an instance of a browser created through a <code>RemoteWebDriver</code> with the URL from <a>CreateTestGridUrlResult$url</a>. You can use the following to look up sessions:</p>

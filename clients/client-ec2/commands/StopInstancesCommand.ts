@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopInstancesCommandInput = StopInstancesRequest;
-export type StopInstancesCommandOutput = StopInstancesResult & __MetadataBearer;
+export interface StopInstancesCommandInput extends StopInstancesRequest {}
+export interface StopInstancesCommandOutput extends StopInstancesResult, __MetadataBearer {}
 
 /**
  * <p>Stops an Amazon EBS-backed instance.</p>

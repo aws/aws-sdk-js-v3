@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartRestoreJobCommandInput = StartRestoreJobInput;
-export type StartRestoreJobCommandOutput = StartRestoreJobOutput & __MetadataBearer;
+export interface StartRestoreJobCommandInput extends StartRestoreJobInput {}
+export interface StartRestoreJobCommandOutput extends StartRestoreJobOutput, __MetadataBearer {}
 
 /**
  * <p>Recovers the saved resource identified by an Amazon Resource Name (ARN).</p>

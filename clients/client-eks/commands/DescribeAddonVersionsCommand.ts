@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAddonVersionsCommandInput = DescribeAddonVersionsRequest;
-export type DescribeAddonVersionsCommandOutput = DescribeAddonVersionsResponse & __MetadataBearer;
+export interface DescribeAddonVersionsCommandInput extends DescribeAddonVersionsRequest {}
+export interface DescribeAddonVersionsCommandOutput extends DescribeAddonVersionsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the Kubernetes versions that the add-on can be used with.</p>

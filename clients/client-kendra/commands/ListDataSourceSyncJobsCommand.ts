@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDataSourceSyncJobsCommandInput = ListDataSourceSyncJobsRequest;
-export type ListDataSourceSyncJobsCommandOutput = ListDataSourceSyncJobsResponse & __MetadataBearer;
+export interface ListDataSourceSyncJobsCommandInput extends ListDataSourceSyncJobsRequest {}
+export interface ListDataSourceSyncJobsCommandOutput extends ListDataSourceSyncJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets statistics about synchronizing Amazon Kendra with a data

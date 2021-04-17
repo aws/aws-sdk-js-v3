@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PublishCommandInput = PublishRequest;
-export type PublishCommandOutput = __MetadataBearer;
+export interface PublishCommandInput extends PublishRequest {}
+export interface PublishCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Publishes state information.</p>

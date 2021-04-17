@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListChangeSetsCommandInput = ListChangeSetsInput;
-export type ListChangeSetsCommandOutput = ListChangeSetsOutput & __MetadataBearer;
+export interface ListChangeSetsCommandInput extends ListChangeSetsInput {}
+export interface ListChangeSetsCommandOutput extends ListChangeSetsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the ID and status of each active change set for a stack. For example, AWS

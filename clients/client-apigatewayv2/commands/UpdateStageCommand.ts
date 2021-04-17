@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateStageCommandInput = UpdateStageRequest;
-export type UpdateStageCommandOutput = UpdateStageResponse & __MetadataBearer;
+export interface UpdateStageCommandInput extends UpdateStageRequest {}
+export interface UpdateStageCommandOutput extends UpdateStageResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a Stage.</p>

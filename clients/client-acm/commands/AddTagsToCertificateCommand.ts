@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddTagsToCertificateCommandInput = AddTagsToCertificateRequest;
-export type AddTagsToCertificateCommandOutput = __MetadataBearer;
+export interface AddTagsToCertificateCommandInput extends AddTagsToCertificateRequest {}
+export interface AddTagsToCertificateCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Adds one or more tags to an ACM certificate. Tags are labels that you can use to

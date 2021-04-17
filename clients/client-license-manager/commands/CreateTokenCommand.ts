@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateTokenCommandInput = CreateTokenRequest;
-export type CreateTokenCommandOutput = CreateTokenResponse & __MetadataBearer;
+export interface CreateTokenCommandInput extends CreateTokenRequest {}
+export interface CreateTokenCommandOutput extends CreateTokenResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a long-lived token.</p>

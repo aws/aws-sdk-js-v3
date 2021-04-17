@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateFirewallRuleGroupCommandInput = CreateFirewallRuleGroupRequest;
-export type CreateFirewallRuleGroupCommandOutput = CreateFirewallRuleGroupResponse & __MetadataBearer;
+export interface CreateFirewallRuleGroupCommandInput extends CreateFirewallRuleGroupRequest {}
+export interface CreateFirewallRuleGroupCommandOutput extends CreateFirewallRuleGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an empty DNS Firewall rule group for filtering DNS network traffic in a VPC. You can add rules to the new rule group

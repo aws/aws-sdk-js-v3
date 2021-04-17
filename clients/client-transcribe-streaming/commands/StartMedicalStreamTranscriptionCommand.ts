@@ -23,8 +23,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartMedicalStreamTranscriptionCommandInput = StartMedicalStreamTranscriptionRequest;
-export type StartMedicalStreamTranscriptionCommandOutput = StartMedicalStreamTranscriptionResponse & __MetadataBearer;
+export interface StartMedicalStreamTranscriptionCommandInput extends StartMedicalStreamTranscriptionRequest {}
+export interface StartMedicalStreamTranscriptionCommandOutput
+  extends StartMedicalStreamTranscriptionResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Starts a bidirectional HTTP/2 stream where audio is streamed to Amazon Transcribe Medical and the

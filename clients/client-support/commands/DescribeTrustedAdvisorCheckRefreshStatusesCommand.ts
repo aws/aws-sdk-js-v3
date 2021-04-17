@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTrustedAdvisorCheckRefreshStatusesCommandInput = DescribeTrustedAdvisorCheckRefreshStatusesRequest;
-export type DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput = DescribeTrustedAdvisorCheckRefreshStatusesResponse &
-  __MetadataBearer;
+export interface DescribeTrustedAdvisorCheckRefreshStatusesCommandInput
+  extends DescribeTrustedAdvisorCheckRefreshStatusesRequest {}
+export interface DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput
+  extends DescribeTrustedAdvisorCheckRefreshStatusesResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the refresh status of the AWS Trusted Advisor checks that have the specified check

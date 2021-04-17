@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDistributionsByOriginRequestPolicyIdCommandInput = ListDistributionsByOriginRequestPolicyIdRequest;
-export type ListDistributionsByOriginRequestPolicyIdCommandOutput = ListDistributionsByOriginRequestPolicyIdResult &
-  __MetadataBearer;
+export interface ListDistributionsByOriginRequestPolicyIdCommandInput
+  extends ListDistributionsByOriginRequestPolicyIdRequest {}
+export interface ListDistributionsByOriginRequestPolicyIdCommandOutput
+  extends ListDistributionsByOriginRequestPolicyIdResult,
+    __MetadataBearer {}
 
 /**
  * <p>Gets a list of distribution IDs for distributions that have a cache behavior that’s

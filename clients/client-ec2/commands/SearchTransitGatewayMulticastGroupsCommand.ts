@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SearchTransitGatewayMulticastGroupsCommandInput = SearchTransitGatewayMulticastGroupsRequest;
-export type SearchTransitGatewayMulticastGroupsCommandOutput = SearchTransitGatewayMulticastGroupsResult &
-  __MetadataBearer;
+export interface SearchTransitGatewayMulticastGroupsCommandInput extends SearchTransitGatewayMulticastGroupsRequest {}
+export interface SearchTransitGatewayMulticastGroupsCommandOutput
+  extends SearchTransitGatewayMulticastGroupsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Searches one or more  transit gateway multicast groups and returns the group membership information.</p>

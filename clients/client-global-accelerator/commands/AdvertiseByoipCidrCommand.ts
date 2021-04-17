@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AdvertiseByoipCidrCommandInput = AdvertiseByoipCidrRequest;
-export type AdvertiseByoipCidrCommandOutput = AdvertiseByoipCidrResponse & __MetadataBearer;
+export interface AdvertiseByoipCidrCommandInput extends AdvertiseByoipCidrRequest {}
+export interface AdvertiseByoipCidrCommandOutput extends AdvertiseByoipCidrResponse, __MetadataBearer {}
 
 /**
  * <p>Advertises an IPv4 address range that is provisioned for use with your AWS resources

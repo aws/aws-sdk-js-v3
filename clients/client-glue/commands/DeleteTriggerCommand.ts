@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteTriggerCommandInput = DeleteTriggerRequest;
-export type DeleteTriggerCommandOutput = DeleteTriggerResponse & __MetadataBearer;
+export interface DeleteTriggerCommandInput extends DeleteTriggerRequest {}
+export interface DeleteTriggerCommandOutput extends DeleteTriggerResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a specified trigger. If the trigger is not found, no

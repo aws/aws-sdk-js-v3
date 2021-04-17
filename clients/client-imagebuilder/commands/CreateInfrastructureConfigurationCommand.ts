@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateInfrastructureConfigurationCommandInput = CreateInfrastructureConfigurationRequest;
-export type CreateInfrastructureConfigurationCommandOutput = CreateInfrastructureConfigurationResponse &
-  __MetadataBearer;
+export interface CreateInfrastructureConfigurationCommandInput extends CreateInfrastructureConfigurationRequest {}
+export interface CreateInfrastructureConfigurationCommandOutput
+  extends CreateInfrastructureConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p> Creates a new infrastructure configuration. An infrastructure configuration defines the

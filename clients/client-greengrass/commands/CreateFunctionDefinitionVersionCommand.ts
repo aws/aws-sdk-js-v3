@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateFunctionDefinitionVersionCommandInput = CreateFunctionDefinitionVersionRequest;
-export type CreateFunctionDefinitionVersionCommandOutput = CreateFunctionDefinitionVersionResponse & __MetadataBearer;
+export interface CreateFunctionDefinitionVersionCommandInput extends CreateFunctionDefinitionVersionRequest {}
+export interface CreateFunctionDefinitionVersionCommandOutput
+  extends CreateFunctionDefinitionVersionResponse,
+    __MetadataBearer {}
 
 /**
  * Creates a version of a Lambda function definition that has already been defined.

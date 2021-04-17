@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListBackupPlanTemplatesCommandInput = ListBackupPlanTemplatesInput;
-export type ListBackupPlanTemplatesCommandOutput = ListBackupPlanTemplatesOutput & __MetadataBearer;
+export interface ListBackupPlanTemplatesCommandInput extends ListBackupPlanTemplatesInput {}
+export interface ListBackupPlanTemplatesCommandOutput extends ListBackupPlanTemplatesOutput, __MetadataBearer {}
 
 /**
  * <p>Returns metadata of your saved backup plan templates, including the template ID, name,

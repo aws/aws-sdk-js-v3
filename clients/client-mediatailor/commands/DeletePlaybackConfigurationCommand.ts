@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeletePlaybackConfigurationCommandInput = DeletePlaybackConfigurationRequest;
-export type DeletePlaybackConfigurationCommandOutput = DeletePlaybackConfigurationResponse & __MetadataBearer;
+export interface DeletePlaybackConfigurationCommandInput extends DeletePlaybackConfigurationRequest {}
+export interface DeletePlaybackConfigurationCommandOutput
+  extends DeletePlaybackConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes the playback configuration for the specified name.</p>

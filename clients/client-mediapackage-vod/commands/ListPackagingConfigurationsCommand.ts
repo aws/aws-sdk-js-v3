@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPackagingConfigurationsCommandInput = ListPackagingConfigurationsRequest;
-export type ListPackagingConfigurationsCommandOutput = ListPackagingConfigurationsResponse & __MetadataBearer;
+export interface ListPackagingConfigurationsCommandInput extends ListPackagingConfigurationsRequest {}
+export interface ListPackagingConfigurationsCommandOutput
+  extends ListPackagingConfigurationsResponse,
+    __MetadataBearer {}
 
 /**
  * Returns a collection of MediaPackage VOD PackagingConfiguration resources.

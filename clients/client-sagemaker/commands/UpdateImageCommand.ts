@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateImageCommandInput = UpdateImageRequest;
-export type UpdateImageCommandOutput = UpdateImageResponse & __MetadataBearer;
+export interface UpdateImageCommandInput extends UpdateImageRequest {}
+export interface UpdateImageCommandOutput extends UpdateImageResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the properties of a SageMaker image. To change the image's tags, use the

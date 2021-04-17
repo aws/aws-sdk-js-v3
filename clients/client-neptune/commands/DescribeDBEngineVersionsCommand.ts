@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDBEngineVersionsCommandInput = DescribeDBEngineVersionsMessage;
-export type DescribeDBEngineVersionsCommandOutput = DBEngineVersionMessage & __MetadataBearer;
+export interface DescribeDBEngineVersionsCommandInput extends DescribeDBEngineVersionsMessage {}
+export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMessage, __MetadataBearer {}
 
 /**
  * <p>Returns a list of the available DB engines.</p>

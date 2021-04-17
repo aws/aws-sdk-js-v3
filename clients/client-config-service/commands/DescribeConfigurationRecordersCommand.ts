@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeConfigurationRecordersCommandInput = DescribeConfigurationRecordersRequest;
-export type DescribeConfigurationRecordersCommandOutput = DescribeConfigurationRecordersResponse & __MetadataBearer;
+export interface DescribeConfigurationRecordersCommandInput extends DescribeConfigurationRecordersRequest {}
+export interface DescribeConfigurationRecordersCommandOutput
+  extends DescribeConfigurationRecordersResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the details for the specified configuration recorders.

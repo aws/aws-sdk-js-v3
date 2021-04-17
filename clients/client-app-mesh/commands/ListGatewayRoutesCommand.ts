@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListGatewayRoutesCommandInput = ListGatewayRoutesInput;
-export type ListGatewayRoutesCommandOutput = ListGatewayRoutesOutput & __MetadataBearer;
+export interface ListGatewayRoutesCommandInput extends ListGatewayRoutesInput {}
+export interface ListGatewayRoutesCommandOutput extends ListGatewayRoutesOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a list of existing gateway routes that are associated to a virtual

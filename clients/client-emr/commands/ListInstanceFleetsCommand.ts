@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListInstanceFleetsCommandInput = ListInstanceFleetsInput;
-export type ListInstanceFleetsCommandOutput = ListInstanceFleetsOutput & __MetadataBearer;
+export interface ListInstanceFleetsCommandInput extends ListInstanceFleetsInput {}
+export interface ListInstanceFleetsCommandOutput extends ListInstanceFleetsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists all available details about the instance fleets in a cluster.</p>

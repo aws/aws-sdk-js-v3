@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DetachInstancesFromLoadBalancerCommandInput = DetachInstancesFromLoadBalancerRequest;
-export type DetachInstancesFromLoadBalancerCommandOutput = DetachInstancesFromLoadBalancerResult & __MetadataBearer;
+export interface DetachInstancesFromLoadBalancerCommandInput extends DetachInstancesFromLoadBalancerRequest {}
+export interface DetachInstancesFromLoadBalancerCommandOutput
+  extends DetachInstancesFromLoadBalancerResult,
+    __MetadataBearer {}
 
 /**
  * <p>Detaches the specified instances from a Lightsail load balancer.</p>

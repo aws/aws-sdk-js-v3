@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PollForActivityTaskCommandInput = PollForActivityTaskInput;
-export type PollForActivityTaskCommandOutput = ActivityTask & __MetadataBearer;
+export interface PollForActivityTaskCommandInput extends PollForActivityTaskInput {}
+export interface PollForActivityTaskCommandOutput extends ActivityTask, __MetadataBearer {}
 
 /**
  * <p>Used by workers to get an <a>ActivityTask</a> from the specified activity

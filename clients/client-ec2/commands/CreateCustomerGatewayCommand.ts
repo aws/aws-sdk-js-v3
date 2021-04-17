@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateCustomerGatewayCommandInput = CreateCustomerGatewayRequest;
-export type CreateCustomerGatewayCommandOutput = CreateCustomerGatewayResult & __MetadataBearer;
+export interface CreateCustomerGatewayCommandInput extends CreateCustomerGatewayRequest {}
+export interface CreateCustomerGatewayCommandOutput extends CreateCustomerGatewayResult, __MetadataBearer {}
 
 /**
  * <p>Provides information to AWS about your VPN customer gateway device. The customer

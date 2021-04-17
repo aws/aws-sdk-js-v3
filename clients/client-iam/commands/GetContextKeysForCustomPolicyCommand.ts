@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetContextKeysForCustomPolicyCommandInput = GetContextKeysForCustomPolicyRequest;
-export type GetContextKeysForCustomPolicyCommandOutput = GetContextKeysForPolicyResponse & __MetadataBearer;
+export interface GetContextKeysForCustomPolicyCommandInput extends GetContextKeysForCustomPolicyRequest {}
+export interface GetContextKeysForCustomPolicyCommandOutput extends GetContextKeysForPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of all of the context keys referenced in the input policies. The policies

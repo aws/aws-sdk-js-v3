@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateAliasCommandInput = CreateAliasInput;
-export type CreateAliasCommandOutput = CreateAliasOutput & __MetadataBearer;
+export interface CreateAliasCommandInput extends CreateAliasInput {}
+export interface CreateAliasCommandOutput extends CreateAliasOutput, __MetadataBearer {}
 
 /**
  * <p>Creates an alias for a fleet. In most situations, you can use an alias ID in place of

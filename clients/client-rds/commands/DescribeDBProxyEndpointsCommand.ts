@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDBProxyEndpointsCommandInput = DescribeDBProxyEndpointsRequest;
-export type DescribeDBProxyEndpointsCommandOutput = DescribeDBProxyEndpointsResponse & __MetadataBearer;
+export interface DescribeDBProxyEndpointsCommandInput extends DescribeDBProxyEndpointsRequest {}
+export interface DescribeDBProxyEndpointsCommandOutput extends DescribeDBProxyEndpointsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about DB proxy endpoints.</p>

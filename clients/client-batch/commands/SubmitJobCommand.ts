@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SubmitJobCommandInput = SubmitJobRequest;
-export type SubmitJobCommandOutput = SubmitJobResponse & __MetadataBearer;
+export interface SubmitJobCommandInput extends SubmitJobRequest {}
+export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBearer {}
 
 /**
  * <p>Submits an AWS Batch job from a job definition. Parameters that are specified during <a>SubmitJob</a>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateRepositoryCommandInput = DisassociateRepositoryRequest;
-export type DisassociateRepositoryCommandOutput = DisassociateRepositoryResponse & __MetadataBearer;
+export interface DisassociateRepositoryCommandInput extends DisassociateRepositoryRequest {}
+export interface DisassociateRepositoryCommandOutput extends DisassociateRepositoryResponse, __MetadataBearer {}
 
 /**
  * <p>Removes the association between Amazon CodeGuru Reviewer and a repository.</p>

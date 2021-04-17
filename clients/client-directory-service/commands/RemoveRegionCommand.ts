@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RemoveRegionCommandInput = RemoveRegionRequest;
-export type RemoveRegionCommandOutput = RemoveRegionResult & __MetadataBearer;
+export interface RemoveRegionCommandInput extends RemoveRegionRequest {}
+export interface RemoveRegionCommandOutput extends RemoveRegionResult, __MetadataBearer {}
 
 /**
  * <p>Stops all replication and removes the domain controllers from the specified Region. You

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ImportPlaybackKeyPairCommandInput = ImportPlaybackKeyPairRequest;
-export type ImportPlaybackKeyPairCommandOutput = ImportPlaybackKeyPairResponse & __MetadataBearer;
+export interface ImportPlaybackKeyPairCommandInput extends ImportPlaybackKeyPairRequest {}
+export interface ImportPlaybackKeyPairCommandOutput extends ImportPlaybackKeyPairResponse, __MetadataBearer {}
 
 /**
  * <p>Imports the public portion of a new key pair and returns its <code>arn</code> and

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UploadLayerPartCommandInput = UploadLayerPartRequest;
-export type UploadLayerPartCommandOutput = UploadLayerPartResponse & __MetadataBearer;
+export interface UploadLayerPartCommandInput extends UploadLayerPartRequest {}
+export interface UploadLayerPartCommandOutput extends UploadLayerPartResponse, __MetadataBearer {}
 
 /**
  * <p>Uploads an image layer part to Amazon ECR.</p>

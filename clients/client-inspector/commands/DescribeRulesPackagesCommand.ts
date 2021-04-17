@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeRulesPackagesCommandInput = DescribeRulesPackagesRequest;
-export type DescribeRulesPackagesCommandOutput = DescribeRulesPackagesResponse & __MetadataBearer;
+export interface DescribeRulesPackagesCommandInput extends DescribeRulesPackagesRequest {}
+export interface DescribeRulesPackagesCommandOutput extends DescribeRulesPackagesResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the rules packages that are specified by the ARNs of the rules

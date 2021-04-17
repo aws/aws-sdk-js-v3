@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeploySystemInstanceCommandInput = DeploySystemInstanceRequest;
-export type DeploySystemInstanceCommandOutput = DeploySystemInstanceResponse & __MetadataBearer;
+export interface DeploySystemInstanceCommandInput extends DeploySystemInstanceRequest {}
+export interface DeploySystemInstanceCommandOutput extends DeploySystemInstanceResponse, __MetadataBearer {}
 
 /**
  * <p>

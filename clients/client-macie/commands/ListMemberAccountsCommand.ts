@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListMemberAccountsCommandInput = ListMemberAccountsRequest;
-export type ListMemberAccountsCommandOutput = ListMemberAccountsResult & __MetadataBearer;
+export interface ListMemberAccountsCommandInput extends ListMemberAccountsRequest {}
+export interface ListMemberAccountsCommandOutput extends ListMemberAccountsResult, __MetadataBearer {}
 
 /**
  * <p>Lists all Amazon Macie Classic member accounts for the current Macie Classic administrator account.</p>

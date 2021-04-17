@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListRunsCommandInput = ListRunsRequest;
-export type ListRunsCommandOutput = ListRunsResult & __MetadataBearer;
+export interface ListRunsCommandInput extends ListRunsRequest {}
+export interface ListRunsCommandOutput extends ListRunsResult, __MetadataBearer {}
 
 /**
  * <p>Gets information about runs, given an AWS Device Farm project ARN.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RemoveAccountFromOrganizationCommandInput = RemoveAccountFromOrganizationRequest;
-export type RemoveAccountFromOrganizationCommandOutput = __MetadataBearer;
+export interface RemoveAccountFromOrganizationCommandInput extends RemoveAccountFromOrganizationRequest {}
+export interface RemoveAccountFromOrganizationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes the specified account from the organization.</p>

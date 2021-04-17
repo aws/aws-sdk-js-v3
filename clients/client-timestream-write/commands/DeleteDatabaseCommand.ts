@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDatabaseCommandInput = DeleteDatabaseRequest;
-export type DeleteDatabaseCommandOutput = __MetadataBearer;
+export interface DeleteDatabaseCommandInput extends DeleteDatabaseRequest {}
+export interface DeleteDatabaseCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a given Timestream database. <i>This is an irreversible operation.

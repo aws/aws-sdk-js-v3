@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyTrafficMirrorFilterNetworkServicesCommandInput = ModifyTrafficMirrorFilterNetworkServicesRequest;
-export type ModifyTrafficMirrorFilterNetworkServicesCommandOutput = ModifyTrafficMirrorFilterNetworkServicesResult &
-  __MetadataBearer;
+export interface ModifyTrafficMirrorFilterNetworkServicesCommandInput
+  extends ModifyTrafficMirrorFilterNetworkServicesRequest {}
+export interface ModifyTrafficMirrorFilterNetworkServicesCommandOutput
+  extends ModifyTrafficMirrorFilterNetworkServicesResult,
+    __MetadataBearer {}
 
 /**
  * <p>Allows or restricts mirroring network services.</p>

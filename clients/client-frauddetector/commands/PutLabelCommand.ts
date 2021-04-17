@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutLabelCommandInput = PutLabelRequest;
-export type PutLabelCommandOutput = PutLabelResult & __MetadataBearer;
+export interface PutLabelCommandInput extends PutLabelRequest {}
+export interface PutLabelCommandOutput extends PutLabelResult, __MetadataBearer {}
 
 /**
  * <p>Creates or updates label. A label classifies an event as fraudulent or legitimate. Labels are associated with event types and used to train supervised machine learning models in Amazon Fraud Detector. </p>

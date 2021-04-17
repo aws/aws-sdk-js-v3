@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GenerateServiceLastAccessedDetailsCommandInput = GenerateServiceLastAccessedDetailsRequest;
-export type GenerateServiceLastAccessedDetailsCommandOutput = GenerateServiceLastAccessedDetailsResponse &
-  __MetadataBearer;
+export interface GenerateServiceLastAccessedDetailsCommandInput extends GenerateServiceLastAccessedDetailsRequest {}
+export interface GenerateServiceLastAccessedDetailsCommandOutput
+  extends GenerateServiceLastAccessedDetailsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Generates a report that includes details about when an IAM resource (user, group,

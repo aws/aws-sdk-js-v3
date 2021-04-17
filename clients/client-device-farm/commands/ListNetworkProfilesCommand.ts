@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListNetworkProfilesCommandInput = ListNetworkProfilesRequest;
-export type ListNetworkProfilesCommandOutput = ListNetworkProfilesResult & __MetadataBearer;
+export interface ListNetworkProfilesCommandInput extends ListNetworkProfilesRequest {}
+export interface ListNetworkProfilesCommandOutput extends ListNetworkProfilesResult, __MetadataBearer {}
 
 /**
  * <p>Returns the list of available network profiles.</p>

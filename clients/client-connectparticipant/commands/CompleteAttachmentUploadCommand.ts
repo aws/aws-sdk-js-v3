@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CompleteAttachmentUploadCommandInput = CompleteAttachmentUploadRequest;
-export type CompleteAttachmentUploadCommandOutput = CompleteAttachmentUploadResponse & __MetadataBearer;
+export interface CompleteAttachmentUploadCommandInput extends CompleteAttachmentUploadRequest {}
+export interface CompleteAttachmentUploadCommandOutput extends CompleteAttachmentUploadResponse, __MetadataBearer {}
 
 /**
  * <p>Allows you to confirm that the attachment has been uploaded using the pre-signed URL

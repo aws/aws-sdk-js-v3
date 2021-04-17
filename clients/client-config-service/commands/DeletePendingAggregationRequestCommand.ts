@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeletePendingAggregationRequestCommandInput = DeletePendingAggregationRequestRequest;
-export type DeletePendingAggregationRequestCommandOutput = __MetadataBearer;
+export interface DeletePendingAggregationRequestCommandInput extends DeletePendingAggregationRequestRequest {}
+export interface DeletePendingAggregationRequestCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes pending authorization requests for a specified

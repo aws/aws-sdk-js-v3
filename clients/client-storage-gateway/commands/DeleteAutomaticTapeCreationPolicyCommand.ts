@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAutomaticTapeCreationPolicyCommandInput = DeleteAutomaticTapeCreationPolicyInput;
-export type DeleteAutomaticTapeCreationPolicyCommandOutput = DeleteAutomaticTapeCreationPolicyOutput & __MetadataBearer;
+export interface DeleteAutomaticTapeCreationPolicyCommandInput extends DeleteAutomaticTapeCreationPolicyInput {}
+export interface DeleteAutomaticTapeCreationPolicyCommandOutput
+  extends DeleteAutomaticTapeCreationPolicyOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes the automatic tape creation policy of a gateway. If you delete this policy, new

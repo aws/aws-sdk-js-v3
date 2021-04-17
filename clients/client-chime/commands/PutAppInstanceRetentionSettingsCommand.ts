@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutAppInstanceRetentionSettingsCommandInput = PutAppInstanceRetentionSettingsRequest;
-export type PutAppInstanceRetentionSettingsCommandOutput = PutAppInstanceRetentionSettingsResponse & __MetadataBearer;
+export interface PutAppInstanceRetentionSettingsCommandInput extends PutAppInstanceRetentionSettingsRequest {}
+export interface PutAppInstanceRetentionSettingsCommandOutput
+  extends PutAppInstanceRetentionSettingsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Sets the amount of time in days that a given <code>AppInstance</code> retains data.</p>

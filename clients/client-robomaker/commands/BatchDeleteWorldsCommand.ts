@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchDeleteWorldsCommandInput = BatchDeleteWorldsRequest;
-export type BatchDeleteWorldsCommandOutput = BatchDeleteWorldsResponse & __MetadataBearer;
+export interface BatchDeleteWorldsCommandInput extends BatchDeleteWorldsRequest {}
+export interface BatchDeleteWorldsCommandOutput extends BatchDeleteWorldsResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes one or more worlds in a batch operation.</p>

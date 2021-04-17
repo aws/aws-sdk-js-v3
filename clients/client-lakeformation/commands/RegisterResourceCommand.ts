@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterResourceCommandInput = RegisterResourceRequest;
-export type RegisterResourceCommandOutput = RegisterResourceResponse & __MetadataBearer;
+export interface RegisterResourceCommandInput extends RegisterResourceRequest {}
+export interface RegisterResourceCommandOutput extends RegisterResourceResponse, __MetadataBearer {}
 
 /**
  * <p>Registers the resource as managed by the Data Catalog.</p>

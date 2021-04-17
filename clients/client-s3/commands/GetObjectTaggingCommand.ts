@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetObjectTaggingCommandInput = GetObjectTaggingRequest;
-export type GetObjectTaggingCommandOutput = GetObjectTaggingOutput & __MetadataBearer;
+export interface GetObjectTaggingCommandInput extends GetObjectTaggingRequest {}
+export interface GetObjectTaggingCommandOutput extends GetObjectTaggingOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the tag-set of an object. You send the GET request against the tagging

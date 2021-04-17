@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetAlarmStateCommandInput = SetAlarmStateInput;
-export type SetAlarmStateCommandOutput = __MetadataBearer;
+export interface SetAlarmStateCommandInput extends SetAlarmStateInput {}
+export interface SetAlarmStateCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Temporarily sets the state of an alarm for testing purposes. When the updated

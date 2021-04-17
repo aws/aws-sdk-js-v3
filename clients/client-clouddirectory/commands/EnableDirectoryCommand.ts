@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type EnableDirectoryCommandInput = EnableDirectoryRequest;
-export type EnableDirectoryCommandOutput = EnableDirectoryResponse & __MetadataBearer;
+export interface EnableDirectoryCommandInput extends EnableDirectoryRequest {}
+export interface EnableDirectoryCommandOutput extends EnableDirectoryResponse, __MetadataBearer {}
 
 /**
  * <p>Enables the specified directory. Only disabled directories can be enabled. Once

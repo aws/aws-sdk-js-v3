@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type MergeBranchesBySquashCommandInput = MergeBranchesBySquashInput;
-export type MergeBranchesBySquashCommandOutput = MergeBranchesBySquashOutput & __MetadataBearer;
+export interface MergeBranchesBySquashCommandInput extends MergeBranchesBySquashInput {}
+export interface MergeBranchesBySquashCommandOutput extends MergeBranchesBySquashOutput, __MetadataBearer {}
 
 /**
  * <p>Merges two branches using the squash merge strategy.</p>

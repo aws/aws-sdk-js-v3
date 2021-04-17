@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateMountTargetCommandInput = CreateMountTargetRequest;
-export type CreateMountTargetCommandOutput = MountTargetDescription & __MetadataBearer;
+export interface CreateMountTargetCommandInput extends CreateMountTargetRequest {}
+export interface CreateMountTargetCommandOutput extends MountTargetDescription, __MetadataBearer {}
 
 /**
  * <p>Creates a mount target for a file system. You can then mount the file system on EC2

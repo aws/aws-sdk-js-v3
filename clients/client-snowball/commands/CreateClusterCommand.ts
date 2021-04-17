@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateClusterCommandInput = CreateClusterRequest;
-export type CreateClusterCommandOutput = CreateClusterResult & __MetadataBearer;
+export interface CreateClusterCommandInput extends CreateClusterRequest {}
+export interface CreateClusterCommandOutput extends CreateClusterResult, __MetadataBearer {}
 
 /**
  * <p>Creates an empty cluster. Each cluster supports five nodes. You use the <a>CreateJob</a> action separately to create the jobs for each of these nodes. The

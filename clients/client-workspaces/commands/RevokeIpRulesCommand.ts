@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RevokeIpRulesCommandInput = RevokeIpRulesRequest;
-export type RevokeIpRulesCommandOutput = RevokeIpRulesResult & __MetadataBearer;
+export interface RevokeIpRulesCommandInput extends RevokeIpRulesRequest {}
+export interface RevokeIpRulesCommandOutput extends RevokeIpRulesResult, __MetadataBearer {}
 
 /**
  * <p>Removes one or more rules from the specified IP access control group.</p>

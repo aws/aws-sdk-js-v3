@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListFunctionsByCodeSigningConfigCommandInput = ListFunctionsByCodeSigningConfigRequest;
-export type ListFunctionsByCodeSigningConfigCommandOutput = ListFunctionsByCodeSigningConfigResponse & __MetadataBearer;
+export interface ListFunctionsByCodeSigningConfigCommandInput extends ListFunctionsByCodeSigningConfigRequest {}
+export interface ListFunctionsByCodeSigningConfigCommandOutput
+  extends ListFunctionsByCodeSigningConfigResponse,
+    __MetadataBearer {}
 
 /**
  * <p>List the functions that use the specified code signing configuration. You can use this method prior to deleting a

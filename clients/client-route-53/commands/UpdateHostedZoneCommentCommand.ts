@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateHostedZoneCommentCommandInput = UpdateHostedZoneCommentRequest;
-export type UpdateHostedZoneCommentCommandOutput = UpdateHostedZoneCommentResponse & __MetadataBearer;
+export interface UpdateHostedZoneCommentCommandInput extends UpdateHostedZoneCommentRequest {}
+export interface UpdateHostedZoneCommentCommandOutput extends UpdateHostedZoneCommentResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the comment for a specified hosted zone.</p>

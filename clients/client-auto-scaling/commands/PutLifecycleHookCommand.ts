@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutLifecycleHookCommandInput = PutLifecycleHookType;
-export type PutLifecycleHookCommandOutput = PutLifecycleHookAnswer & __MetadataBearer;
+export interface PutLifecycleHookCommandInput extends PutLifecycleHookType {}
+export interface PutLifecycleHookCommandOutput extends PutLifecycleHookAnswer, __MetadataBearer {}
 
 /**
  * <p>Creates or updates a lifecycle hook for the specified Auto Scaling group.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartMaintenanceCommandInput = StartMaintenanceRequest;
-export type StartMaintenanceCommandOutput = StartMaintenanceResponse & __MetadataBearer;
+export interface StartMaintenanceCommandInput extends StartMaintenanceRequest {}
+export interface StartMaintenanceCommandOutput extends StartMaintenanceResponse, __MetadataBearer {}
 
 /**
  * <p>

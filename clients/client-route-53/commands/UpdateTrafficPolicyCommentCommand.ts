@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateTrafficPolicyCommentCommandInput = UpdateTrafficPolicyCommentRequest;
-export type UpdateTrafficPolicyCommentCommandOutput = UpdateTrafficPolicyCommentResponse & __MetadataBearer;
+export interface UpdateTrafficPolicyCommentCommandInput extends UpdateTrafficPolicyCommentRequest {}
+export interface UpdateTrafficPolicyCommentCommandOutput extends UpdateTrafficPolicyCommentResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the comment for a specified traffic policy version.</p>

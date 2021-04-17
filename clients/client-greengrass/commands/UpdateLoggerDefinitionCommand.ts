@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateLoggerDefinitionCommandInput = UpdateLoggerDefinitionRequest;
-export type UpdateLoggerDefinitionCommandOutput = UpdateLoggerDefinitionResponse & __MetadataBearer;
+export interface UpdateLoggerDefinitionCommandInput extends UpdateLoggerDefinitionRequest {}
+export interface UpdateLoggerDefinitionCommandOutput extends UpdateLoggerDefinitionResponse, __MetadataBearer {}
 
 /**
  * Updates a logger definition.

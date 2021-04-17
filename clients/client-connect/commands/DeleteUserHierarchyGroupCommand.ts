@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteUserHierarchyGroupCommandInput = DeleteUserHierarchyGroupRequest;
-export type DeleteUserHierarchyGroupCommandOutput = __MetadataBearer;
+export interface DeleteUserHierarchyGroupCommandInput extends DeleteUserHierarchyGroupRequest {}
+export interface DeleteUserHierarchyGroupCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes an existing user hierarchy group. It must not be associated with any agents or have

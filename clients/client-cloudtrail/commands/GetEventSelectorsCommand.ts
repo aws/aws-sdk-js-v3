@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetEventSelectorsCommandInput = GetEventSelectorsRequest;
-export type GetEventSelectorsCommandOutput = GetEventSelectorsResponse & __MetadataBearer;
+export interface GetEventSelectorsCommandInput extends GetEventSelectorsRequest {}
+export interface GetEventSelectorsCommandOutput extends GetEventSelectorsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the settings for the event selectors that you configured for your trail.

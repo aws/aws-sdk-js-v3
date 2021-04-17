@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListIdentityProvidersCommandInput = ListIdentityProvidersRequest;
-export type ListIdentityProvidersCommandOutput = ListIdentityProvidersResponse & __MetadataBearer;
+export interface ListIdentityProvidersCommandInput extends ListIdentityProvidersRequest {}
+export interface ListIdentityProvidersCommandOutput extends ListIdentityProvidersResponse, __MetadataBearer {}
 
 /**
  * <p>Lists information about all identity providers for a user pool.</p>

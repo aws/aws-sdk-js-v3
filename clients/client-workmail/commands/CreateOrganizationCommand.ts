@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateOrganizationCommandInput = CreateOrganizationRequest;
-export type CreateOrganizationCommandOutput = CreateOrganizationResponse & __MetadataBearer;
+export interface CreateOrganizationCommandInput extends CreateOrganizationRequest {}
+export interface CreateOrganizationCommandOutput extends CreateOrganizationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new Amazon WorkMail organization. Optionally, you can choose to associate an existing AWS Directory Service directory with your organization. If an AWS Directory Service directory ID is specified, the organization alias must match the directory alias. If you choose not to associate an existing directory with your organization, then we create a new Amazon WorkMail directory for you. For more information, see <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/add_new_organization.html">Adding an organization</a> in the <i>Amazon WorkMail Administrator Guide</i>.</p>

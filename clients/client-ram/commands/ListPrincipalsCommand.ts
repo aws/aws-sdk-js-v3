@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPrincipalsCommandInput = ListPrincipalsRequest;
-export type ListPrincipalsCommandOutput = ListPrincipalsResponse & __MetadataBearer;
+export interface ListPrincipalsCommandInput extends ListPrincipalsRequest {}
+export interface ListPrincipalsCommandOutput extends ListPrincipalsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the principals that you have shared resources with or that have shared resources

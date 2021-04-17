@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteThreatIntelSetCommandInput = DeleteThreatIntelSetRequest;
-export type DeleteThreatIntelSetCommandOutput = DeleteThreatIntelSetResponse & __MetadataBearer;
+export interface DeleteThreatIntelSetCommandInput extends DeleteThreatIntelSetRequest {}
+export interface DeleteThreatIntelSetCommandOutput extends DeleteThreatIntelSetResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the ThreatIntelSet specified by the ThreatIntelSet ID.</p>

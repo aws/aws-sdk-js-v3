@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartDBClusterCommandInput = StartDBClusterMessage;
-export type StartDBClusterCommandOutput = StartDBClusterResult & __MetadataBearer;
+export interface StartDBClusterCommandInput extends StartDBClusterMessage {}
+export interface StartDBClusterCommandOutput extends StartDBClusterResult, __MetadataBearer {}
 
 /**
  * <p>Starts an Amazon Neptune  DB cluster that was stopped using the AWS

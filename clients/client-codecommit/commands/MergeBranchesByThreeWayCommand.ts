@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type MergeBranchesByThreeWayCommandInput = MergeBranchesByThreeWayInput;
-export type MergeBranchesByThreeWayCommandOutput = MergeBranchesByThreeWayOutput & __MetadataBearer;
+export interface MergeBranchesByThreeWayCommandInput extends MergeBranchesByThreeWayInput {}
+export interface MergeBranchesByThreeWayCommandOutput extends MergeBranchesByThreeWayOutput, __MetadataBearer {}
 
 /**
  * <p>Merges two specified branches using the three-way merge strategy.</p>

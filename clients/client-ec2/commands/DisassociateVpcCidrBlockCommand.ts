@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateVpcCidrBlockCommandInput = DisassociateVpcCidrBlockRequest;
-export type DisassociateVpcCidrBlockCommandOutput = DisassociateVpcCidrBlockResult & __MetadataBearer;
+export interface DisassociateVpcCidrBlockCommandInput extends DisassociateVpcCidrBlockRequest {}
+export interface DisassociateVpcCidrBlockCommandOutput extends DisassociateVpcCidrBlockResult, __MetadataBearer {}
 
 /**
  * <p>Disassociates a CIDR block from a VPC. To disassociate the CIDR block, you must

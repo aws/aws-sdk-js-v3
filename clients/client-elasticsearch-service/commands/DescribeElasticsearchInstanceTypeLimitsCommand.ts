@@ -24,9 +24,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeElasticsearchInstanceTypeLimitsCommandInput = DescribeElasticsearchInstanceTypeLimitsRequest;
-export type DescribeElasticsearchInstanceTypeLimitsCommandOutput = DescribeElasticsearchInstanceTypeLimitsResponse &
-  __MetadataBearer;
+export interface DescribeElasticsearchInstanceTypeLimitsCommandInput
+  extends DescribeElasticsearchInstanceTypeLimitsRequest {}
+export interface DescribeElasticsearchInstanceTypeLimitsCommandOutput
+  extends DescribeElasticsearchInstanceTypeLimitsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ResetServiceSettingCommandInput = ResetServiceSettingRequest;
-export type ResetServiceSettingCommandOutput = ResetServiceSettingResult & __MetadataBearer;
+export interface ResetServiceSettingCommandInput extends ResetServiceSettingRequest {}
+export interface ResetServiceSettingCommandOutput extends ResetServiceSettingResult, __MetadataBearer {}
 
 /**
  * <p>

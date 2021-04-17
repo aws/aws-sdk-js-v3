@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartModelCommandInput = StartModelRequest;
-export type StartModelCommandOutput = StartModelResponse & __MetadataBearer;
+export interface StartModelCommandInput extends StartModelRequest {}
+export interface StartModelCommandOutput extends StartModelResponse, __MetadataBearer {}
 
 /**
  * <p>Starts the running of the version of an Amazon Lookout for Vision model. Starting a model takes a while

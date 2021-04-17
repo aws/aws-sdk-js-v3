@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateDetectorVersionStatusCommandInput = UpdateDetectorVersionStatusRequest;
-export type UpdateDetectorVersionStatusCommandOutput = UpdateDetectorVersionStatusResult & __MetadataBearer;
+export interface UpdateDetectorVersionStatusCommandInput extends UpdateDetectorVersionStatusRequest {}
+export interface UpdateDetectorVersionStatusCommandOutput extends UpdateDetectorVersionStatusResult, __MetadataBearer {}
 
 /**
  * <p>Updates the detector version’s status. You can perform the following promotions or

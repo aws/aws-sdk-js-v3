@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateInferenceSchedulerCommandInput = CreateInferenceSchedulerRequest;
-export type CreateInferenceSchedulerCommandOutput = CreateInferenceSchedulerResponse & __MetadataBearer;
+export interface CreateInferenceSchedulerCommandInput extends CreateInferenceSchedulerRequest {}
+export interface CreateInferenceSchedulerCommandOutput extends CreateInferenceSchedulerResponse, __MetadataBearer {}
 
 /**
  * <p> Creates a scheduled inference. Scheduling an inference is setting up a continuous

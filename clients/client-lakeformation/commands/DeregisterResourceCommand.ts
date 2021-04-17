@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeregisterResourceCommandInput = DeregisterResourceRequest;
-export type DeregisterResourceCommandOutput = DeregisterResourceResponse & __MetadataBearer;
+export interface DeregisterResourceCommandInput extends DeregisterResourceRequest {}
+export interface DeregisterResourceCommandOutput extends DeregisterResourceResponse, __MetadataBearer {}
 
 /**
  * <p>Deregisters the resource as managed by the Data Catalog.</p>

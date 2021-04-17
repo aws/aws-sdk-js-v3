@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateConnectorDefinitionCommandInput = UpdateConnectorDefinitionRequest;
-export type UpdateConnectorDefinitionCommandOutput = UpdateConnectorDefinitionResponse & __MetadataBearer;
+export interface UpdateConnectorDefinitionCommandInput extends UpdateConnectorDefinitionRequest {}
+export interface UpdateConnectorDefinitionCommandOutput extends UpdateConnectorDefinitionResponse, __MetadataBearer {}
 
 /**
  * Updates a connector definition.

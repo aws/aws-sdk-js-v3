@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateBaiduChannelCommandInput = UpdateBaiduChannelRequest;
-export type UpdateBaiduChannelCommandOutput = UpdateBaiduChannelResponse & __MetadataBearer;
+export interface UpdateBaiduChannelCommandInput extends UpdateBaiduChannelRequest {}
+export interface UpdateBaiduChannelCommandOutput extends UpdateBaiduChannelResponse, __MetadataBearer {}
 
 /**
  * <p>Enables the Baidu channel for an application or updates the status and settings of the Baidu channel for an application.</p>

@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutFindingsPublicationConfigurationCommandInput = PutFindingsPublicationConfigurationRequest;
-export type PutFindingsPublicationConfigurationCommandOutput = PutFindingsPublicationConfigurationResponse &
-  __MetadataBearer;
+export interface PutFindingsPublicationConfigurationCommandInput extends PutFindingsPublicationConfigurationRequest {}
+export interface PutFindingsPublicationConfigurationCommandOutput
+  extends PutFindingsPublicationConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Updates the configuration settings for publishing findings to AWS Security Hub.</p>

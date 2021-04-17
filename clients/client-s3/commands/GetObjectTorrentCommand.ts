@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetObjectTorrentCommandInput = GetObjectTorrentRequest;
-export type GetObjectTorrentCommandOutput = GetObjectTorrentOutput & __MetadataBearer;
+export interface GetObjectTorrentCommandInput extends GetObjectTorrentRequest {}
+export interface GetObjectTorrentCommandOutput extends GetObjectTorrentOutput, __MetadataBearer {}
 
 /**
  * <p>Returns torrent files from a bucket. BitTorrent can save you bandwidth when you're

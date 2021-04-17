@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RebootBrokerCommandInput = RebootBrokerRequest;
-export type RebootBrokerCommandOutput = RebootBrokerResponse & __MetadataBearer;
+export interface RebootBrokerCommandInput extends RebootBrokerRequest {}
+export interface RebootBrokerCommandOutput extends RebootBrokerResponse, __MetadataBearer {}
 
 /**
  * Reboots brokers.

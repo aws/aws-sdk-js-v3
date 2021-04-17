@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutPolicyCommandInput = PutPolicyRequest;
-export type PutPolicyCommandOutput = PutPolicyResponse & __MetadataBearer;
+export interface PutPolicyCommandInput extends PutPolicyRequest {}
+export interface PutPolicyCommandOutput extends PutPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an AWS Firewall Manager policy.</p>

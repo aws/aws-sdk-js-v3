@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateServiceQuotaTemplateCommandInput = AssociateServiceQuotaTemplateRequest;
-export type AssociateServiceQuotaTemplateCommandOutput = AssociateServiceQuotaTemplateResponse & __MetadataBearer;
+export interface AssociateServiceQuotaTemplateCommandInput extends AssociateServiceQuotaTemplateRequest {}
+export interface AssociateServiceQuotaTemplateCommandOutput
+  extends AssociateServiceQuotaTemplateResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Associates your quota request template with your organization. When a new account is

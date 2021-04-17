@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DetectStackResourceDriftCommandInput = DetectStackResourceDriftInput;
-export type DetectStackResourceDriftCommandOutput = DetectStackResourceDriftOutput & __MetadataBearer;
+export interface DetectStackResourceDriftCommandInput extends DetectStackResourceDriftInput {}
+export interface DetectStackResourceDriftCommandOutput extends DetectStackResourceDriftOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about whether a resource's actual configuration differs, or has

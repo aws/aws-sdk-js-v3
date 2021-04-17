@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateCustomMetricCommandInput = CreateCustomMetricRequest;
-export type CreateCustomMetricCommandOutput = CreateCustomMetricResponse & __MetadataBearer;
+export interface CreateCustomMetricCommandInput extends CreateCustomMetricRequest {}
+export interface CreateCustomMetricCommandOutput extends CreateCustomMetricResponse, __MetadataBearer {}
 
 /**
  * <p> Use this API to define a

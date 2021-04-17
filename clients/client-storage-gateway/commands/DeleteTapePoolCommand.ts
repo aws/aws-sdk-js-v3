@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteTapePoolCommandInput = DeleteTapePoolInput;
-export type DeleteTapePoolCommandOutput = DeleteTapePoolOutput & __MetadataBearer;
+export interface DeleteTapePoolCommandInput extends DeleteTapePoolInput {}
+export interface DeleteTapePoolCommandOutput extends DeleteTapePoolOutput, __MetadataBearer {}
 
 /**
  * <p>Delete a custom tape pool. A custom tape pool can only be deleted if there are no tapes

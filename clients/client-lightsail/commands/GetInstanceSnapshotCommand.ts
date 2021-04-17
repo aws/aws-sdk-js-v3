@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetInstanceSnapshotCommandInput = GetInstanceSnapshotRequest;
-export type GetInstanceSnapshotCommandOutput = GetInstanceSnapshotResult & __MetadataBearer;
+export interface GetInstanceSnapshotCommandInput extends GetInstanceSnapshotRequest {}
+export interface GetInstanceSnapshotCommandOutput extends GetInstanceSnapshotResult, __MetadataBearer {}
 
 /**
  * <p>Returns information about a specific instance snapshot.</p>

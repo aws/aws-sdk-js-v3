@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeVTLDevicesCommandInput = DescribeVTLDevicesInput;
-export type DescribeVTLDevicesCommandOutput = DescribeVTLDevicesOutput & __MetadataBearer;
+export interface DescribeVTLDevicesCommandInput extends DescribeVTLDevicesInput {}
+export interface DescribeVTLDevicesCommandOutput extends DescribeVTLDevicesOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a description of virtual tape library (VTL) devices for the specified tape

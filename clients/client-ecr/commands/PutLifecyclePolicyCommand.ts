@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutLifecyclePolicyCommandInput = PutLifecyclePolicyRequest;
-export type PutLifecyclePolicyCommandOutput = PutLifecyclePolicyResponse & __MetadataBearer;
+export interface PutLifecyclePolicyCommandInput extends PutLifecyclePolicyRequest {}
+export interface PutLifecyclePolicyCommandOutput extends PutLifecyclePolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Creates or updates the lifecycle policy for the specified repository. For more

@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDirectConnectGatewayAttachmentsCommandInput = DescribeDirectConnectGatewayAttachmentsRequest;
-export type DescribeDirectConnectGatewayAttachmentsCommandOutput = DescribeDirectConnectGatewayAttachmentsResult &
-  __MetadataBearer;
+export interface DescribeDirectConnectGatewayAttachmentsCommandInput
+  extends DescribeDirectConnectGatewayAttachmentsRequest {}
+export interface DescribeDirectConnectGatewayAttachmentsCommandOutput
+  extends DescribeDirectConnectGatewayAttachmentsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Lists the attachments between your Direct Connect gateways and virtual interfaces. You must specify

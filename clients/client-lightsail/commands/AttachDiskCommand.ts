@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AttachDiskCommandInput = AttachDiskRequest;
-export type AttachDiskCommandOutput = AttachDiskResult & __MetadataBearer;
+export interface AttachDiskCommandInput extends AttachDiskRequest {}
+export interface AttachDiskCommandOutput extends AttachDiskResult, __MetadataBearer {}
 
 /**
  * <p>Attaches a block storage disk to a running or stopped Lightsail instance and exposes it

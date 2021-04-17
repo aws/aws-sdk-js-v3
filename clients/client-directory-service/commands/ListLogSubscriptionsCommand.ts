@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListLogSubscriptionsCommandInput = ListLogSubscriptionsRequest;
-export type ListLogSubscriptionsCommandOutput = ListLogSubscriptionsResult & __MetadataBearer;
+export interface ListLogSubscriptionsCommandInput extends ListLogSubscriptionsRequest {}
+export interface ListLogSubscriptionsCommandOutput extends ListLogSubscriptionsResult, __MetadataBearer {}
 
 /**
  * <p>Lists the active log subscriptions for the AWS account.</p>

@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDetectMitigationActionsTaskCommandInput = DescribeDetectMitigationActionsTaskRequest;
-export type DescribeDetectMitigationActionsTaskCommandOutput = DescribeDetectMitigationActionsTaskResponse &
-  __MetadataBearer;
+export interface DescribeDetectMitigationActionsTaskCommandInput extends DescribeDetectMitigationActionsTaskRequest {}
+export interface DescribeDetectMitigationActionsTaskCommandOutput
+  extends DescribeDetectMitigationActionsTaskResponse,
+    __MetadataBearer {}
 
 /**
  * <p>

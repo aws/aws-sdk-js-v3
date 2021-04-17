@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateSlotTypeCommandInput = CreateSlotTypeRequest;
-export type CreateSlotTypeCommandOutput = CreateSlotTypeResponse & __MetadataBearer;
+export interface CreateSlotTypeCommandInput extends CreateSlotTypeRequest {}
+export interface CreateSlotTypeCommandOutput extends CreateSlotTypeResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a custom slot type</p>

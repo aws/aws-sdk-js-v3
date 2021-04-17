@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ClearDefaultAuthorizerCommandInput = ClearDefaultAuthorizerRequest;
-export type ClearDefaultAuthorizerCommandOutput = ClearDefaultAuthorizerResponse & __MetadataBearer;
+export interface ClearDefaultAuthorizerCommandInput extends ClearDefaultAuthorizerRequest {}
+export interface ClearDefaultAuthorizerCommandOutput extends ClearDefaultAuthorizerResponse, __MetadataBearer {}
 
 /**
  * <p>Clears the default authorizer.</p>

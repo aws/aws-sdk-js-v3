@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type OptInPhoneNumberCommandInput = OptInPhoneNumberInput;
-export type OptInPhoneNumberCommandOutput = OptInPhoneNumberResponse & __MetadataBearer;
+export interface OptInPhoneNumberCommandInput extends OptInPhoneNumberInput {}
+export interface OptInPhoneNumberCommandOutput extends OptInPhoneNumberResponse, __MetadataBearer {}
 
 /**
  * <p>Use this request to opt in a phone number that is opted out, which enables you to

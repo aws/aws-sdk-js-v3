@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ForgetDeviceCommandInput = ForgetDeviceRequest;
-export type ForgetDeviceCommandOutput = __MetadataBearer;
+export interface ForgetDeviceCommandInput extends ForgetDeviceRequest {}
+export interface ForgetDeviceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Forgets the specified device.</p>

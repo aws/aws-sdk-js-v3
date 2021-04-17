@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetExportSnapshotRecordsCommandInput = GetExportSnapshotRecordsRequest;
-export type GetExportSnapshotRecordsCommandOutput = GetExportSnapshotRecordsResult & __MetadataBearer;
+export interface GetExportSnapshotRecordsCommandInput extends GetExportSnapshotRecordsRequest {}
+export interface GetExportSnapshotRecordsCommandOutput extends GetExportSnapshotRecordsResult, __MetadataBearer {}
 
 /**
  * <p>Returns the export snapshot record created as a result of the <code>export snapshot</code>

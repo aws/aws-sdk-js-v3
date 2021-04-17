@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddFlowOutputsCommandInput = AddFlowOutputsRequest;
-export type AddFlowOutputsCommandOutput = AddFlowOutputsResponse & __MetadataBearer;
+export interface AddFlowOutputsCommandInput extends AddFlowOutputsRequest {}
+export interface AddFlowOutputsCommandOutput extends AddFlowOutputsResponse, __MetadataBearer {}
 
 /**
  * Adds outputs to an existing flow. You can create up to 50 outputs per flow.

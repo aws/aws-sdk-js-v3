@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AttachInternetGatewayCommandInput = AttachInternetGatewayRequest;
-export type AttachInternetGatewayCommandOutput = __MetadataBearer;
+export interface AttachInternetGatewayCommandInput extends AttachInternetGatewayRequest {}
+export interface AttachInternetGatewayCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Attaches an internet gateway or a virtual private gateway to a VPC, enabling connectivity between the internet and

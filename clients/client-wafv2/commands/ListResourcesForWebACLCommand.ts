@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListResourcesForWebACLCommandInput = ListResourcesForWebACLRequest;
-export type ListResourcesForWebACLCommandOutput = ListResourcesForWebACLResponse & __MetadataBearer;
+export interface ListResourcesForWebACLCommandInput extends ListResourcesForWebACLRequest {}
+export interface ListResourcesForWebACLCommandOutput extends ListResourcesForWebACLResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves an array of the Amazon Resource Names (ARNs) for the regional resources that are associated with the specified web ACL. If you want the list of AWS CloudFront resources, use the AWS CloudFront call <code>ListDistributionsByWebACLId</code>. </p>

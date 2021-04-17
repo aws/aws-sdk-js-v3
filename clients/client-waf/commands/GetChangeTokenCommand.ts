@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetChangeTokenCommandInput = GetChangeTokenRequest;
-export type GetChangeTokenCommandOutput = GetChangeTokenResponse & __MetadataBearer;
+export interface GetChangeTokenCommandInput extends GetChangeTokenRequest {}
+export interface GetChangeTokenCommandOutput extends GetChangeTokenResponse, __MetadataBearer {}
 
 /**
  * <note>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateComputeEnvironmentCommandInput = UpdateComputeEnvironmentRequest;
-export type UpdateComputeEnvironmentCommandOutput = UpdateComputeEnvironmentResponse & __MetadataBearer;
+export interface UpdateComputeEnvironmentCommandInput extends UpdateComputeEnvironmentRequest {}
+export interface UpdateComputeEnvironmentCommandOutput extends UpdateComputeEnvironmentResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an AWS Batch compute environment.</p>

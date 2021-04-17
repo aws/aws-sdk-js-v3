@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type XmlAttributesCommandInput = XmlAttributesInputOutput;
-export type XmlAttributesCommandOutput = XmlAttributesInputOutput & __MetadataBearer;
+export interface XmlAttributesCommandInput extends XmlAttributesInputOutput {}
+export interface XmlAttributesCommandOutput extends XmlAttributesInputOutput, __MetadataBearer {}
 
 /**
  * This example serializes an XML attributes on synthesized document.

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListProjectsCommandInput = ListProjectsInput;
-export type ListProjectsCommandOutput = ListProjectsOutput & __MetadataBearer;
+export interface ListProjectsCommandInput extends ListProjectsInput {}
+export interface ListProjectsCommandOutput extends ListProjectsOutput, __MetadataBearer {}
 
 /**
  * <p>Gets a list of the projects in an AWS account.</p>

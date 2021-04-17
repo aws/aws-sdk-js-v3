@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreatePlacementCommandInput = CreatePlacementRequest;
-export type CreatePlacementCommandOutput = CreatePlacementResponse & __MetadataBearer;
+export interface CreatePlacementCommandInput extends CreatePlacementRequest {}
+export interface CreatePlacementCommandOutput extends CreatePlacementResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an empty placement.</p>

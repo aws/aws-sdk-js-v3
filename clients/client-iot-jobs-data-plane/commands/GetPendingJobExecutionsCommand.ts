@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetPendingJobExecutionsCommandInput = GetPendingJobExecutionsRequest;
-export type GetPendingJobExecutionsCommandOutput = GetPendingJobExecutionsResponse & __MetadataBearer;
+export interface GetPendingJobExecutionsCommandInput extends GetPendingJobExecutionsRequest {}
+export interface GetPendingJobExecutionsCommandOutput extends GetPendingJobExecutionsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the list of all jobs for a thing that are not in a terminal status.</p>

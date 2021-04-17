@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AdminDeleteUserAttributesCommandInput = AdminDeleteUserAttributesRequest;
-export type AdminDeleteUserAttributesCommandOutput = AdminDeleteUserAttributesResponse & __MetadataBearer;
+export interface AdminDeleteUserAttributesCommandInput extends AdminDeleteUserAttributesRequest {}
+export interface AdminDeleteUserAttributesCommandOutput extends AdminDeleteUserAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the user attributes in a user pool as an administrator. Works on any

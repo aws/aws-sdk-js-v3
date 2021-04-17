@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateDeploymentCommandInput = UpdateDeploymentRequest;
-export type UpdateDeploymentCommandOutput = Deployment & __MetadataBearer;
+export interface UpdateDeploymentCommandInput extends UpdateDeploymentRequest {}
+export interface UpdateDeploymentCommandOutput extends Deployment, __MetadataBearer {}
 
 /**
  * <p>Changes information about a <a>Deployment</a> resource.</p>

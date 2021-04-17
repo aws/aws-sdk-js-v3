@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDirectoryCommandInput = DeleteDirectoryRequest;
-export type DeleteDirectoryCommandOutput = DeleteDirectoryResponse & __MetadataBearer;
+export interface DeleteDirectoryCommandInput extends DeleteDirectoryRequest {}
+export interface DeleteDirectoryCommandOutput extends DeleteDirectoryResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a directory. Only disabled directories can be deleted. A deleted directory cannot be undone. Exercise extreme

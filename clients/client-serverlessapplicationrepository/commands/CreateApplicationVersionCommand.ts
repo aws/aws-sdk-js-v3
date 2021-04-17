@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateApplicationVersionCommandInput = CreateApplicationVersionRequest;
-export type CreateApplicationVersionCommandOutput = CreateApplicationVersionResponse & __MetadataBearer;
+export interface CreateApplicationVersionCommandInput extends CreateApplicationVersionRequest {}
+export interface CreateApplicationVersionCommandOutput extends CreateApplicationVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an application version.</p>

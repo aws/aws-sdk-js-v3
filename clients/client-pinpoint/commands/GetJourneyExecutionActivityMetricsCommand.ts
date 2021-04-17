@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetJourneyExecutionActivityMetricsCommandInput = GetJourneyExecutionActivityMetricsRequest;
-export type GetJourneyExecutionActivityMetricsCommandOutput = GetJourneyExecutionActivityMetricsResponse &
-  __MetadataBearer;
+export interface GetJourneyExecutionActivityMetricsCommandInput extends GetJourneyExecutionActivityMetricsRequest {}
+export interface GetJourneyExecutionActivityMetricsCommandOutput
+  extends GetJourneyExecutionActivityMetricsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves (queries) pre-aggregated data for a standard execution metric that applies to a journey activity.</p>

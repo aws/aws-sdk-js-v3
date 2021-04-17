@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetMembersCommandInput = GetMembersRequest;
-export type GetMembersCommandOutput = GetMembersResponse & __MetadataBearer;
+export interface GetMembersCommandInput extends GetMembersRequest {}
+export interface GetMembersCommandOutput extends GetMembersResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves GuardDuty member accounts (of the current GuardDuty administrator account) specified by

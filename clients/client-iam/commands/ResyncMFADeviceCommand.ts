@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ResyncMFADeviceCommandInput = ResyncMFADeviceRequest;
-export type ResyncMFADeviceCommandOutput = __MetadataBearer;
+export interface ResyncMFADeviceCommandInput extends ResyncMFADeviceRequest {}
+export interface ResyncMFADeviceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Synchronizes the specified MFA device with its IAM resource object on the AWS

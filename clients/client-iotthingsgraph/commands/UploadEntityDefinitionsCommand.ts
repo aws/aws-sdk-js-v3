@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UploadEntityDefinitionsCommandInput = UploadEntityDefinitionsRequest;
-export type UploadEntityDefinitionsCommandOutput = UploadEntityDefinitionsResponse & __MetadataBearer;
+export interface UploadEntityDefinitionsCommandInput extends UploadEntityDefinitionsRequest {}
+export interface UploadEntityDefinitionsCommandOutput extends UploadEntityDefinitionsResponse, __MetadataBearer {}
 
 /**
  * <p>Asynchronously uploads one or more entity definitions to the user's namespace. The <code>document</code> parameter is required if

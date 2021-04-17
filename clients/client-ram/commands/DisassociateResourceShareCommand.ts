@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateResourceShareCommandInput = DisassociateResourceShareRequest;
-export type DisassociateResourceShareCommandOutput = DisassociateResourceShareResponse & __MetadataBearer;
+export interface DisassociateResourceShareCommandInput extends DisassociateResourceShareRequest {}
+export interface DisassociateResourceShareCommandOutput extends DisassociateResourceShareResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates the specified principals or resources from the specified resource share.</p>

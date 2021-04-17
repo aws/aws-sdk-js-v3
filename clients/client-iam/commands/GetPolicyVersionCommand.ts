@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetPolicyVersionCommandInput = GetPolicyVersionRequest;
-export type GetPolicyVersionCommandOutput = GetPolicyVersionResponse & __MetadataBearer;
+export interface GetPolicyVersionCommandInput extends GetPolicyVersionRequest {}
+export interface GetPolicyVersionCommandOutput extends GetPolicyVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the specified version of the specified managed policy,

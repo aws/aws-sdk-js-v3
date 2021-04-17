@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDirectoryLimitsCommandInput = GetDirectoryLimitsRequest;
-export type GetDirectoryLimitsCommandOutput = GetDirectoryLimitsResult & __MetadataBearer;
+export interface GetDirectoryLimitsCommandInput extends GetDirectoryLimitsRequest {}
+export interface GetDirectoryLimitsCommandOutput extends GetDirectoryLimitsResult, __MetadataBearer {}
 
 /**
  * <p>Obtains directory limit information for the current Region.</p>

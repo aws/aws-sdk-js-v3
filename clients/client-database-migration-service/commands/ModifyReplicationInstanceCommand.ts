@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyReplicationInstanceCommandInput = ModifyReplicationInstanceMessage;
-export type ModifyReplicationInstanceCommandOutput = ModifyReplicationInstanceResponse & __MetadataBearer;
+export interface ModifyReplicationInstanceCommandInput extends ModifyReplicationInstanceMessage {}
+export interface ModifyReplicationInstanceCommandOutput extends ModifyReplicationInstanceResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies the replication instance to apply new settings. You can change one or more

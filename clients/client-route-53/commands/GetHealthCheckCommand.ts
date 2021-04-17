@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetHealthCheckCommandInput = GetHealthCheckRequest;
-export type GetHealthCheckCommandOutput = GetHealthCheckResponse & __MetadataBearer;
+export interface GetHealthCheckCommandInput extends GetHealthCheckRequest {}
+export interface GetHealthCheckCommandOutput extends GetHealthCheckResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about a specified health check.</p>

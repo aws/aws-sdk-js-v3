@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeInstancesCommandInput = DescribeInstancesInput;
-export type DescribeInstancesCommandOutput = DescribeInstancesOutput & __MetadataBearer;
+export interface DescribeInstancesCommandInput extends DescribeInstancesInput {}
+export interface DescribeInstancesCommandOutput extends DescribeInstancesOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about a fleet's instances, including instance IDs, connection

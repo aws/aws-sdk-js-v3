@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListKeyGroupsCommandInput = ListKeyGroupsRequest;
-export type ListKeyGroupsCommandOutput = ListKeyGroupsResult & __MetadataBearer;
+export interface ListKeyGroupsCommandInput extends ListKeyGroupsRequest {}
+export interface ListKeyGroupsCommandOutput extends ListKeyGroupsResult, __MetadataBearer {}
 
 /**
  * <p>Gets a list of key groups.</p>

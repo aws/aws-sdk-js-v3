@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeLoggingStatusCommandInput = DescribeLoggingStatusMessage;
-export type DescribeLoggingStatusCommandOutput = LoggingStatus & __MetadataBearer;
+export interface DescribeLoggingStatusCommandInput extends DescribeLoggingStatusMessage {}
+export interface DescribeLoggingStatusCommandOutput extends LoggingStatus, __MetadataBearer {}
 
 /**
  * <p>Describes whether information, such as queries and connection attempts, is being

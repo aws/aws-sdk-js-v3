@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetReservedNodeExchangeOfferingsCommandInput = GetReservedNodeExchangeOfferingsInputMessage;
-export type GetReservedNodeExchangeOfferingsCommandOutput = GetReservedNodeExchangeOfferingsOutputMessage &
-  __MetadataBearer;
+export interface GetReservedNodeExchangeOfferingsCommandInput extends GetReservedNodeExchangeOfferingsInputMessage {}
+export interface GetReservedNodeExchangeOfferingsCommandOutput
+  extends GetReservedNodeExchangeOfferingsOutputMessage,
+    __MetadataBearer {}
 
 /**
  * <p>Returns an array of DC2 ReservedNodeOfferings that matches the payment type, term,

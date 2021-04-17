@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssignIpv6AddressesCommandInput = AssignIpv6AddressesRequest;
-export type AssignIpv6AddressesCommandOutput = AssignIpv6AddressesResult & __MetadataBearer;
+export interface AssignIpv6AddressesCommandInput extends AssignIpv6AddressesRequest {}
+export interface AssignIpv6AddressesCommandOutput extends AssignIpv6AddressesResult, __MetadataBearer {}
 
 /**
  * <p>Assigns one or more IPv6 addresses to the specified network interface. You can

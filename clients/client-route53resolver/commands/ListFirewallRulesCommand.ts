@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListFirewallRulesCommandInput = ListFirewallRulesRequest;
-export type ListFirewallRulesCommandOutput = ListFirewallRulesResponse & __MetadataBearer;
+export interface ListFirewallRulesCommandInput extends ListFirewallRulesRequest {}
+export interface ListFirewallRulesCommandOutput extends ListFirewallRulesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the firewall rules that you have defined for the specified firewall rule group. DNS Firewall uses the rules in a rule group to filter DNS network traffic for a VPC. </p>

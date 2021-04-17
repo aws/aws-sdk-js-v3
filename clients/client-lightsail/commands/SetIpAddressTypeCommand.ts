@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetIpAddressTypeCommandInput = SetIpAddressTypeRequest;
-export type SetIpAddressTypeCommandOutput = SetIpAddressTypeResult & __MetadataBearer;
+export interface SetIpAddressTypeCommandInput extends SetIpAddressTypeRequest {}
+export interface SetIpAddressTypeCommandOutput extends SetIpAddressTypeResult, __MetadataBearer {}
 
 /**
  * <p>Sets the IP address type for an Amazon Lightsail resource.</p>

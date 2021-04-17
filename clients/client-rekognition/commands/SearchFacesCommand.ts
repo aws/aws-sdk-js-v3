@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SearchFacesCommandInput = SearchFacesRequest;
-export type SearchFacesCommandOutput = SearchFacesResponse & __MetadataBearer;
+export interface SearchFacesCommandInput extends SearchFacesRequest {}
+export interface SearchFacesCommandOutput extends SearchFacesResponse, __MetadataBearer {}
 
 /**
  * <p>For a given input face ID, searches for matching faces in the collection the face

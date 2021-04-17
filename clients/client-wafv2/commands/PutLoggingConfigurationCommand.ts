@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutLoggingConfigurationCommandInput = PutLoggingConfigurationRequest;
-export type PutLoggingConfigurationCommandOutput = PutLoggingConfigurationResponse & __MetadataBearer;
+export interface PutLoggingConfigurationCommandInput extends PutLoggingConfigurationRequest {}
+export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Enables the specified <a>LoggingConfiguration</a>, to start logging from a web ACL, according to the configuration provided.</p>

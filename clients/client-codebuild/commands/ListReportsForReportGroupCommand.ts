@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListReportsForReportGroupCommandInput = ListReportsForReportGroupInput;
-export type ListReportsForReportGroupCommandOutput = ListReportsForReportGroupOutput & __MetadataBearer;
+export interface ListReportsForReportGroupCommandInput extends ListReportsForReportGroupInput {}
+export interface ListReportsForReportGroupCommandOutput extends ListReportsForReportGroupOutput, __MetadataBearer {}
 
 /**
  * <p>

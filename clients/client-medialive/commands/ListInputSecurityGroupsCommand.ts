@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListInputSecurityGroupsCommandInput = ListInputSecurityGroupsRequest;
-export type ListInputSecurityGroupsCommandOutput = ListInputSecurityGroupsResponse & __MetadataBearer;
+export interface ListInputSecurityGroupsCommandInput extends ListInputSecurityGroupsRequest {}
+export interface ListInputSecurityGroupsCommandOutput extends ListInputSecurityGroupsResponse, __MetadataBearer {}
 
 /**
  * Produces a list of Input Security Groups for an account

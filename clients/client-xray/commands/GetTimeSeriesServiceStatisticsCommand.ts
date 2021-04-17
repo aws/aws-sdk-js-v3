@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetTimeSeriesServiceStatisticsCommandInput = GetTimeSeriesServiceStatisticsRequest;
-export type GetTimeSeriesServiceStatisticsCommandOutput = GetTimeSeriesServiceStatisticsResult & __MetadataBearer;
+export interface GetTimeSeriesServiceStatisticsCommandInput extends GetTimeSeriesServiceStatisticsRequest {}
+export interface GetTimeSeriesServiceStatisticsCommandOutput
+  extends GetTimeSeriesServiceStatisticsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Get an aggregation of service statistics defined by a specific time

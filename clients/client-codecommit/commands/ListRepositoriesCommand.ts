@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListRepositoriesCommandInput = ListRepositoriesInput;
-export type ListRepositoriesCommandOutput = ListRepositoriesOutput & __MetadataBearer;
+export interface ListRepositoriesCommandInput extends ListRepositoriesInput {}
+export interface ListRepositoriesCommandOutput extends ListRepositoriesOutput, __MetadataBearer {}
 
 /**
  * <p>Gets information about one or more repositories.</p>

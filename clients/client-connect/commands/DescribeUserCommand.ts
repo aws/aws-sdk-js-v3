@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeUserCommandInput = DescribeUserRequest;
-export type DescribeUserCommandOutput = DescribeUserResponse & __MetadataBearer;
+export interface DescribeUserCommandInput extends DescribeUserRequest {}
+export interface DescribeUserCommandOutput extends DescribeUserResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the specified user account. You can find the instance ID in the console (it’s the

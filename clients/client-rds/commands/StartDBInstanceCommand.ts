@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartDBInstanceCommandInput = StartDBInstanceMessage;
-export type StartDBInstanceCommandOutput = StartDBInstanceResult & __MetadataBearer;
+export interface StartDBInstanceCommandInput extends StartDBInstanceMessage {}
+export interface StartDBInstanceCommandOutput extends StartDBInstanceResult, __MetadataBearer {}
 
 /**
  * <p>

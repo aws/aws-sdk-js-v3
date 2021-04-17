@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeletePlatformApplicationCommandInput = DeletePlatformApplicationInput;
-export type DeletePlatformApplicationCommandOutput = __MetadataBearer;
+export interface DeletePlatformApplicationCommandInput extends DeletePlatformApplicationInput {}
+export interface DeletePlatformApplicationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a platform application object for one of the supported push notification

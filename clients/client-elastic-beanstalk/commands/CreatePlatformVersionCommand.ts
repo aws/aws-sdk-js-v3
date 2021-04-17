@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreatePlatformVersionCommandInput = CreatePlatformVersionRequest;
-export type CreatePlatformVersionCommandOutput = CreatePlatformVersionResult & __MetadataBearer;
+export interface CreatePlatformVersionCommandInput extends CreatePlatformVersionRequest {}
+export interface CreatePlatformVersionCommandOutput extends CreatePlatformVersionResult, __MetadataBearer {}
 
 /**
  * <p>Create a new version of your custom platform.</p>

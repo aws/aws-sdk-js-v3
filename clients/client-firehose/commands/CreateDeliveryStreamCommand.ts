@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDeliveryStreamCommandInput = CreateDeliveryStreamInput;
-export type CreateDeliveryStreamCommandOutput = CreateDeliveryStreamOutput & __MetadataBearer;
+export interface CreateDeliveryStreamCommandInput extends CreateDeliveryStreamInput {}
+export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a Kinesis Data Firehose delivery stream.</p>

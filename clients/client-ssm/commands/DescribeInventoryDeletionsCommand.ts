@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeInventoryDeletionsCommandInput = DescribeInventoryDeletionsRequest;
-export type DescribeInventoryDeletionsCommandOutput = DescribeInventoryDeletionsResult & __MetadataBearer;
+export interface DescribeInventoryDeletionsCommandInput extends DescribeInventoryDeletionsRequest {}
+export interface DescribeInventoryDeletionsCommandOutput extends DescribeInventoryDeletionsResult, __MetadataBearer {}
 
 /**
  * <p>Describes a specific delete inventory operation.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartSimulationJobBatchCommandInput = StartSimulationJobBatchRequest;
-export type StartSimulationJobBatchCommandOutput = StartSimulationJobBatchResponse & __MetadataBearer;
+export interface StartSimulationJobBatchCommandInput extends StartSimulationJobBatchRequest {}
+export interface StartSimulationJobBatchCommandOutput extends StartSimulationJobBatchResponse, __MetadataBearer {}
 
 /**
  * <p>Starts a new simulation job batch. The batch is defined using one or more

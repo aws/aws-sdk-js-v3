@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAnomalySubscriptionCommandInput = DeleteAnomalySubscriptionRequest;
-export type DeleteAnomalySubscriptionCommandOutput = DeleteAnomalySubscriptionResponse & __MetadataBearer;
+export interface DeleteAnomalySubscriptionCommandInput extends DeleteAnomalySubscriptionRequest {}
+export interface DeleteAnomalySubscriptionCommandOutput extends DeleteAnomalySubscriptionResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a cost anomaly subscription. </p>

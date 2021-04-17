@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetInsightResultsCommandInput = GetInsightResultsRequest;
-export type GetInsightResultsCommandOutput = GetInsightResultsResponse & __MetadataBearer;
+export interface GetInsightResultsCommandInput extends GetInsightResultsRequest {}
+export interface GetInsightResultsCommandOutput extends GetInsightResultsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the results of the Security Hub insight specified by the insight ARN.</p>

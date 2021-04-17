@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeLedgerCommandInput = DescribeLedgerRequest;
-export type DescribeLedgerCommandOutput = DescribeLedgerResponse & __MetadataBearer;
+export interface DescribeLedgerCommandInput extends DescribeLedgerRequest {}
+export interface DescribeLedgerCommandOutput extends DescribeLedgerResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about a ledger, including its state and when it was created.</p>

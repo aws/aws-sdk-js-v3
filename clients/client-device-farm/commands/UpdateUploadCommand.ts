@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateUploadCommandInput = UpdateUploadRequest;
-export type UpdateUploadCommandOutput = UpdateUploadResult & __MetadataBearer;
+export interface UpdateUploadCommandInput extends UpdateUploadRequest {}
+export interface UpdateUploadCommandOutput extends UpdateUploadResult, __MetadataBearer {}
 
 /**
  * <p>Updates an uploaded test spec.</p>

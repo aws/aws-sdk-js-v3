@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateNotificationRuleCommandInput = CreateNotificationRuleRequest;
-export type CreateNotificationRuleCommandOutput = CreateNotificationRuleResult & __MetadataBearer;
+export interface CreateNotificationRuleCommandInput extends CreateNotificationRuleRequest {}
+export interface CreateNotificationRuleCommandOutput extends CreateNotificationRuleResult, __MetadataBearer {}
 
 /**
  * <p>Creates a notification rule for a resource. The rule specifies the events you want

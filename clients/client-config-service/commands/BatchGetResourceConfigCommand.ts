@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchGetResourceConfigCommandInput = BatchGetResourceConfigRequest;
-export type BatchGetResourceConfigCommandOutput = BatchGetResourceConfigResponse & __MetadataBearer;
+export interface BatchGetResourceConfigCommandInput extends BatchGetResourceConfigRequest {}
+export interface BatchGetResourceConfigCommandOutput extends BatchGetResourceConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the current configuration for one or more requested

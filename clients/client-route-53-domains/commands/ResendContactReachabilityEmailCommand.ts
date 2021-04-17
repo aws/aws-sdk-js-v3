@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ResendContactReachabilityEmailCommandInput = ResendContactReachabilityEmailRequest;
-export type ResendContactReachabilityEmailCommandOutput = ResendContactReachabilityEmailResponse & __MetadataBearer;
+export interface ResendContactReachabilityEmailCommandInput extends ResendContactReachabilityEmailRequest {}
+export interface ResendContactReachabilityEmailCommandOutput
+  extends ResendContactReachabilityEmailResponse,
+    __MetadataBearer {}
 
 /**
  * <p>For operations that require confirmation that the email address for the registrant contact is valid,

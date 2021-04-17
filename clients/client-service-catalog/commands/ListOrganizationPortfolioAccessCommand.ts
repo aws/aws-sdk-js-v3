@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListOrganizationPortfolioAccessCommandInput = ListOrganizationPortfolioAccessInput;
-export type ListOrganizationPortfolioAccessCommandOutput = ListOrganizationPortfolioAccessOutput & __MetadataBearer;
+export interface ListOrganizationPortfolioAccessCommandInput extends ListOrganizationPortfolioAccessInput {}
+export interface ListOrganizationPortfolioAccessCommandOutput
+  extends ListOrganizationPortfolioAccessOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Lists the organization nodes that have access to the specified portfolio. This API can

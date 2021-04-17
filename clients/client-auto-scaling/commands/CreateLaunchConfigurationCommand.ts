@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateLaunchConfigurationCommandInput = CreateLaunchConfigurationType;
-export type CreateLaunchConfigurationCommandOutput = __MetadataBearer;
+export interface CreateLaunchConfigurationCommandInput extends CreateLaunchConfigurationType {}
+export interface CreateLaunchConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Creates a launch configuration.</p>

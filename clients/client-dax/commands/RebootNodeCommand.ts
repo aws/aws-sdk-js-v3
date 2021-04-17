@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RebootNodeCommandInput = RebootNodeRequest;
-export type RebootNodeCommandOutput = RebootNodeResponse & __MetadataBearer;
+export interface RebootNodeCommandInput extends RebootNodeRequest {}
+export interface RebootNodeCommandOutput extends RebootNodeResponse, __MetadataBearer {}
 
 /**
  * <p>Reboots a single node of a DAX cluster. The reboot action takes place

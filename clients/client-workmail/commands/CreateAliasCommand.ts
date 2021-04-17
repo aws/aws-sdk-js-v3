@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateAliasCommandInput = CreateAliasRequest;
-export type CreateAliasCommandOutput = CreateAliasResponse & __MetadataBearer;
+export interface CreateAliasCommandInput extends CreateAliasRequest {}
+export interface CreateAliasCommandOutput extends CreateAliasResponse, __MetadataBearer {}
 
 /**
  * <p>Adds an alias to the set of a given member (user or group) of Amazon WorkMail.</p>

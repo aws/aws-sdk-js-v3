@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdatePermissionSetCommandInput = UpdatePermissionSetRequest;
-export type UpdatePermissionSetCommandOutput = UpdatePermissionSetResponse & __MetadataBearer;
+export interface UpdatePermissionSetCommandInput extends UpdatePermissionSetRequest {}
+export interface UpdatePermissionSetCommandOutput extends UpdatePermissionSetResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing permission set.</p>

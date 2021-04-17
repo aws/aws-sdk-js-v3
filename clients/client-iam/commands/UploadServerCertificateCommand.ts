@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UploadServerCertificateCommandInput = UploadServerCertificateRequest;
-export type UploadServerCertificateCommandOutput = UploadServerCertificateResponse & __MetadataBearer;
+export interface UploadServerCertificateCommandInput extends UploadServerCertificateRequest {}
+export interface UploadServerCertificateCommandOutput extends UploadServerCertificateResponse, __MetadataBearer {}
 
 /**
  * <p>Uploads a server certificate entity for the AWS account. The server certificate

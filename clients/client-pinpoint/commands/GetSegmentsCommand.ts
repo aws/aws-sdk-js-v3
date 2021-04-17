@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSegmentsCommandInput = GetSegmentsRequest;
-export type GetSegmentsCommandOutput = GetSegmentsResponse & __MetadataBearer;
+export interface GetSegmentsCommandInput extends GetSegmentsRequest {}
+export interface GetSegmentsCommandOutput extends GetSegmentsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the configuration, dimension, and other settings for all the segments that are associated with an application.</p>

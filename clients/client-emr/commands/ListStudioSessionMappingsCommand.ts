@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListStudioSessionMappingsCommandInput = ListStudioSessionMappingsInput;
-export type ListStudioSessionMappingsCommandOutput = ListStudioSessionMappingsOutput & __MetadataBearer;
+export interface ListStudioSessionMappingsCommandInput extends ListStudioSessionMappingsInput {}
+export interface ListStudioSessionMappingsCommandOutput extends ListStudioSessionMappingsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a list of all user or group session mappings for the Amazon EMR Studio specified by

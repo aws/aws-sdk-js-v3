@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeClusterVersionsCommandInput = DescribeClusterVersionsMessage;
-export type DescribeClusterVersionsCommandOutput = ClusterVersionsMessage & __MetadataBearer;
+export interface DescribeClusterVersionsCommandInput extends DescribeClusterVersionsMessage {}
+export interface DescribeClusterVersionsCommandOutput extends ClusterVersionsMessage, __MetadataBearer {}
 
 /**
  * <p>Returns descriptions of the available Amazon Redshift cluster versions. You can call this

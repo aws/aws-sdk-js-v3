@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteKnownHostKeysCommandInput = DeleteKnownHostKeysRequest;
-export type DeleteKnownHostKeysCommandOutput = DeleteKnownHostKeysResult & __MetadataBearer;
+export interface DeleteKnownHostKeysCommandInput extends DeleteKnownHostKeysRequest {}
+export interface DeleteKnownHostKeysCommandOutput extends DeleteKnownHostKeysResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the known host key or certificate used by the Amazon Lightsail browser-based SSH or

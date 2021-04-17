@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetTraceSummariesCommandInput = GetTraceSummariesRequest;
-export type GetTraceSummariesCommandOutput = GetTraceSummariesResult & __MetadataBearer;
+export interface GetTraceSummariesCommandInput extends GetTraceSummariesRequest {}
+export interface GetTraceSummariesCommandOutput extends GetTraceSummariesResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves IDs and annotations for traces available for a specified time frame using an

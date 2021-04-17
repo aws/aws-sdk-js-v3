@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteMLModelCommandInput = DeleteMLModelInput;
-export type DeleteMLModelCommandOutput = DeleteMLModelOutput & __MetadataBearer;
+export interface DeleteMLModelCommandInput extends DeleteMLModelInput {}
+export interface DeleteMLModelCommandOutput extends DeleteMLModelOutput, __MetadataBearer {}
 
 /**
  * <p>Assigns the <code>DELETED</code> status to an <code>MLModel</code>, rendering it unusable.</p>

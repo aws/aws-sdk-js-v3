@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetJobRunsCommandInput = GetJobRunsRequest;
-export type GetJobRunsCommandOutput = GetJobRunsResponse & __MetadataBearer;
+export interface GetJobRunsCommandInput extends GetJobRunsRequest {}
+export interface GetJobRunsCommandOutput extends GetJobRunsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves metadata for all runs of a given job definition.</p>

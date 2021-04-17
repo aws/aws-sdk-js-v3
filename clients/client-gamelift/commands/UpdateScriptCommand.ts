@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateScriptCommandInput = UpdateScriptInput;
-export type UpdateScriptCommandOutput = UpdateScriptOutput & __MetadataBearer;
+export interface UpdateScriptCommandInput extends UpdateScriptInput {}
+export interface UpdateScriptCommandOutput extends UpdateScriptOutput, __MetadataBearer {}
 
 /**
  * <p>Updates Realtime script metadata and content.</p>

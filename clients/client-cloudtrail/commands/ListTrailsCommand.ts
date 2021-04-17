@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTrailsCommandInput = ListTrailsRequest;
-export type ListTrailsCommandOutput = ListTrailsResponse & __MetadataBearer;
+export interface ListTrailsCommandInput extends ListTrailsRequest {}
+export interface ListTrailsCommandOutput extends ListTrailsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists trails that are in the current account.</p>

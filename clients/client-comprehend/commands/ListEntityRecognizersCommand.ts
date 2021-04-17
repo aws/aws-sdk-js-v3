@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListEntityRecognizersCommandInput = ListEntityRecognizersRequest;
-export type ListEntityRecognizersCommandOutput = ListEntityRecognizersResponse & __MetadataBearer;
+export interface ListEntityRecognizersCommandInput extends ListEntityRecognizersRequest {}
+export interface ListEntityRecognizersCommandOutput extends ListEntityRecognizersResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of the properties of all entity recognizers that you created, including

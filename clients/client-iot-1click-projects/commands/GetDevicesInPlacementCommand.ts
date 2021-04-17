@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDevicesInPlacementCommandInput = GetDevicesInPlacementRequest;
-export type GetDevicesInPlacementCommandOutput = GetDevicesInPlacementResponse & __MetadataBearer;
+export interface GetDevicesInPlacementCommandInput extends GetDevicesInPlacementRequest {}
+export interface GetDevicesInPlacementCommandOutput extends GetDevicesInPlacementResponse, __MetadataBearer {}
 
 /**
  * <p>Returns an object enumerating the devices in a placement.</p>

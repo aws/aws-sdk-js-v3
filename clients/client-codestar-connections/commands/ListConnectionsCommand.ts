@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListConnectionsCommandInput = ListConnectionsInput;
-export type ListConnectionsCommandOutput = ListConnectionsOutput & __MetadataBearer;
+export interface ListConnectionsCommandInput extends ListConnectionsInput {}
+export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the connections associated with your account.</p>

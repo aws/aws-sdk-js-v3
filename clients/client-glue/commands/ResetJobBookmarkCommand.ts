@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ResetJobBookmarkCommandInput = ResetJobBookmarkRequest;
-export type ResetJobBookmarkCommandOutput = ResetJobBookmarkResponse & __MetadataBearer;
+export interface ResetJobBookmarkCommandInput extends ResetJobBookmarkRequest {}
+export interface ResetJobBookmarkCommandOutput extends ResetJobBookmarkResponse, __MetadataBearer {}
 
 /**
  * <p>Resets a bookmark entry.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteRevisionCommandInput = DeleteRevisionRequest;
-export type DeleteRevisionCommandOutput = __MetadataBearer;
+export interface DeleteRevisionCommandInput extends DeleteRevisionRequest {}
+export interface DeleteRevisionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This operation deletes a revision.</p>

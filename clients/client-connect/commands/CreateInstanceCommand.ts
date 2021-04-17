@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateInstanceCommandInput = CreateInstanceRequest;
-export type CreateInstanceCommandOutput = CreateInstanceResponse & __MetadataBearer;
+export interface CreateInstanceCommandInput extends CreateInstanceRequest {}
+export interface CreateInstanceCommandOutput extends CreateInstanceResponse, __MetadataBearer {}
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>

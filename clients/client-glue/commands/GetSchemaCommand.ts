@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSchemaCommandInput = GetSchemaInput;
-export type GetSchemaCommandOutput = GetSchemaResponse & __MetadataBearer;
+export interface GetSchemaCommandInput extends GetSchemaInput {}
+export interface GetSchemaCommandOutput extends GetSchemaResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the specified schema in detail.</p>

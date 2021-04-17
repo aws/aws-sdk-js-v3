@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAccountAssignmentCommandInput = DeleteAccountAssignmentRequest;
-export type DeleteAccountAssignmentCommandOutput = DeleteAccountAssignmentResponse & __MetadataBearer;
+export interface DeleteAccountAssignmentCommandInput extends DeleteAccountAssignmentRequest {}
+export interface DeleteAccountAssignmentCommandOutput extends DeleteAccountAssignmentResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a principal's access from a specified AWS account using a specified permission

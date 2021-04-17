@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateSSHPublicKeyCommandInput = UpdateSSHPublicKeyRequest;
-export type UpdateSSHPublicKeyCommandOutput = __MetadataBearer;
+export interface UpdateSSHPublicKeyCommandInput extends UpdateSSHPublicKeyRequest {}
+export interface UpdateSSHPublicKeyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Sets the status of an IAM user's SSH public key to active or inactive. SSH public

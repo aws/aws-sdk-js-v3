@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetLoggingOptionsCommandInput = GetLoggingOptionsRequest;
-export type GetLoggingOptionsCommandOutput = GetLoggingOptionsResponse & __MetadataBearer;
+export interface GetLoggingOptionsCommandInput extends GetLoggingOptionsRequest {}
+export interface GetLoggingOptionsCommandOutput extends GetLoggingOptionsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the logging options.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateDiscovererCommandInput = UpdateDiscovererRequest;
-export type UpdateDiscovererCommandOutput = UpdateDiscovererResponse & __MetadataBearer;
+export interface UpdateDiscovererCommandInput extends UpdateDiscovererRequest {}
+export interface UpdateDiscovererCommandOutput extends UpdateDiscovererResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the discoverer</p>

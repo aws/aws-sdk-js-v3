@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ImportFirewallDomainsCommandInput = ImportFirewallDomainsRequest;
-export type ImportFirewallDomainsCommandOutput = ImportFirewallDomainsResponse & __MetadataBearer;
+export interface ImportFirewallDomainsCommandInput extends ImportFirewallDomainsRequest {}
+export interface ImportFirewallDomainsCommandOutput extends ImportFirewallDomainsResponse, __MetadataBearer {}
 
 /**
  * <p>Imports domain names from a file into a domain list, for use in a DNS firewall rule group. </p>

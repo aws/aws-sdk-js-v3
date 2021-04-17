@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAccessControlRulesCommandInput = ListAccessControlRulesRequest;
-export type ListAccessControlRulesCommandOutput = ListAccessControlRulesResponse & __MetadataBearer;
+export interface ListAccessControlRulesCommandInput extends ListAccessControlRulesRequest {}
+export interface ListAccessControlRulesCommandOutput extends ListAccessControlRulesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the access control rules for the specified organization.</p>

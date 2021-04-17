@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchGetStreamKeyCommandInput = BatchGetStreamKeyRequest;
-export type BatchGetStreamKeyCommandOutput = BatchGetStreamKeyResponse & __MetadataBearer;
+export interface BatchGetStreamKeyCommandInput extends BatchGetStreamKeyRequest {}
+export interface BatchGetStreamKeyCommandOutput extends BatchGetStreamKeyResponse, __MetadataBearer {}
 
 /**
  * <p>Performs <a>GetStreamKey</a> on multiple ARNs simultaneously.</p>

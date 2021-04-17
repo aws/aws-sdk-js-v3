@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetPhoneNumberOrderCommandInput = GetPhoneNumberOrderRequest;
-export type GetPhoneNumberOrderCommandOutput = GetPhoneNumberOrderResponse & __MetadataBearer;
+export interface GetPhoneNumberOrderCommandInput extends GetPhoneNumberOrderRequest {}
+export interface GetPhoneNumberOrderCommandOutput extends GetPhoneNumberOrderResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves details for the specified phone number order, such as the order creation timestamp, phone

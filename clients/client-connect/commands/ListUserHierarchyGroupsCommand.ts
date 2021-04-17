@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListUserHierarchyGroupsCommandInput = ListUserHierarchyGroupsRequest;
-export type ListUserHierarchyGroupsCommandOutput = ListUserHierarchyGroupsResponse & __MetadataBearer;
+export interface ListUserHierarchyGroupsCommandInput extends ListUserHierarchyGroupsRequest {}
+export interface ListUserHierarchyGroupsCommandOutput extends ListUserHierarchyGroupsResponse, __MetadataBearer {}
 
 /**
  * <p>Provides summary information about the hierarchy groups for the specified Amazon Connect

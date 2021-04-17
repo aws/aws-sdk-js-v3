@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteServerCommandInput = DeleteServerRequest;
-export type DeleteServerCommandOutput = __MetadataBearer;
+export interface DeleteServerCommandInput extends DeleteServerRequest {}
+export interface DeleteServerCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the file transfer protocol-enabled server that you specify.</p>

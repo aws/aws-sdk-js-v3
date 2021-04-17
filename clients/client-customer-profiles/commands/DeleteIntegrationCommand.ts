@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteIntegrationCommandInput = DeleteIntegrationRequest;
-export type DeleteIntegrationCommandOutput = DeleteIntegrationResponse & __MetadataBearer;
+export interface DeleteIntegrationCommandInput extends DeleteIntegrationRequest {}
+export interface DeleteIntegrationCommandOutput extends DeleteIntegrationResponse, __MetadataBearer {}
 
 /**
  * <p>Removes an integration from a specific domain.</p>

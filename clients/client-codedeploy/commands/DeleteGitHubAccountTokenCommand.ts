@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteGitHubAccountTokenCommandInput = DeleteGitHubAccountTokenInput;
-export type DeleteGitHubAccountTokenCommandOutput = DeleteGitHubAccountTokenOutput & __MetadataBearer;
+export interface DeleteGitHubAccountTokenCommandInput extends DeleteGitHubAccountTokenInput {}
+export interface DeleteGitHubAccountTokenCommandOutput extends DeleteGitHubAccountTokenOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes a GitHub account connection.</p>

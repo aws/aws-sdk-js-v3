@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateFleetCommandInput = UpdateFleetRequest;
-export type UpdateFleetCommandOutput = UpdateFleetResult & __MetadataBearer;
+export interface UpdateFleetCommandInput extends UpdateFleetRequest {}
+export interface UpdateFleetCommandOutput extends UpdateFleetResult, __MetadataBearer {}
 
 /**
  * <p>Updates the specified fleet.</p>

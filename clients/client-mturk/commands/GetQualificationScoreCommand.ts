@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetQualificationScoreCommandInput = GetQualificationScoreRequest;
-export type GetQualificationScoreCommandOutput = GetQualificationScoreResponse & __MetadataBearer;
+export interface GetQualificationScoreCommandInput extends GetQualificationScoreRequest {}
+export interface GetQualificationScoreCommandOutput extends GetQualificationScoreResponse, __MetadataBearer {}
 
 /**
  * <p>

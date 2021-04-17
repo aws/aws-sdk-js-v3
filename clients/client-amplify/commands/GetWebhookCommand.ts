@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetWebhookCommandInput = GetWebhookRequest;
-export type GetWebhookCommandOutput = GetWebhookResult & __MetadataBearer;
+export interface GetWebhookCommandInput extends GetWebhookRequest {}
+export interface GetWebhookCommandOutput extends GetWebhookResult, __MetadataBearer {}
 
 /**
  * <p> Returns the webhook information that corresponds to a specified webhook ID. </p>

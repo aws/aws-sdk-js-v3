@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteGroupCommandInput = DeleteGroupRequest;
-export type DeleteGroupCommandOutput = __MetadataBearer;
+export interface DeleteGroupCommandInput extends DeleteGroupRequest {}
+export interface DeleteGroupCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified IAM group. The group must not contain any users or have any

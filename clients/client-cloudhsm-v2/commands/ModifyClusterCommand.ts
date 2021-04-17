@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyClusterCommandInput = ModifyClusterRequest;
-export type ModifyClusterCommandOutput = ModifyClusterResponse & __MetadataBearer;
+export interface ModifyClusterCommandInput extends ModifyClusterRequest {}
+export interface ModifyClusterCommandOutput extends ModifyClusterResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies AWS CloudHSM cluster.</p>

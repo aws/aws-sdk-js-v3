@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSoftwareUpdatesCommandInput = GetSoftwareUpdatesRequest;
-export type GetSoftwareUpdatesCommandOutput = GetSoftwareUpdatesResult & __MetadataBearer;
+export interface GetSoftwareUpdatesCommandInput extends GetSoftwareUpdatesRequest {}
+export interface GetSoftwareUpdatesCommandOutput extends GetSoftwareUpdatesResult, __MetadataBearer {}
 
 /**
  * <p>Returns an Amazon S3 presigned URL for an update file associated with a specified

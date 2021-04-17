@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteEnvironmentMembershipCommandInput = DeleteEnvironmentMembershipRequest;
-export type DeleteEnvironmentMembershipCommandOutput = DeleteEnvironmentMembershipResult & __MetadataBearer;
+export interface DeleteEnvironmentMembershipCommandInput extends DeleteEnvironmentMembershipRequest {}
+export interface DeleteEnvironmentMembershipCommandOutput extends DeleteEnvironmentMembershipResult, __MetadataBearer {}
 
 /**
  * <p>Deletes an environment member from an AWS Cloud9 development environment.</p>

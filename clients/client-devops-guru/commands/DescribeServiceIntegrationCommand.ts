@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeServiceIntegrationCommandInput = DescribeServiceIntegrationRequest;
-export type DescribeServiceIntegrationCommandOutput = DescribeServiceIntegrationResponse & __MetadataBearer;
+export interface DescribeServiceIntegrationCommandInput extends DescribeServiceIntegrationRequest {}
+export interface DescribeServiceIntegrationCommandOutput extends DescribeServiceIntegrationResponse, __MetadataBearer {}
 
 /**
  * <p>

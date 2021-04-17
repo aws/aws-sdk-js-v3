@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListSigningCertificatesCommandInput = ListSigningCertificatesRequest;
-export type ListSigningCertificatesCommandOutput = ListSigningCertificatesResponse & __MetadataBearer;
+export interface ListSigningCertificatesCommandInput extends ListSigningCertificatesRequest {}
+export interface ListSigningCertificatesCommandOutput extends ListSigningCertificatesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about the signing certificates associated with the specified IAM

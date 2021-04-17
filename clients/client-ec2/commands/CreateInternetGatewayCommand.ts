@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateInternetGatewayCommandInput = CreateInternetGatewayRequest;
-export type CreateInternetGatewayCommandOutput = CreateInternetGatewayResult & __MetadataBearer;
+export interface CreateInternetGatewayCommandInput extends CreateInternetGatewayRequest {}
+export interface CreateInternetGatewayCommandOutput extends CreateInternetGatewayResult, __MetadataBearer {}
 
 /**
  * <p>Creates an internet gateway for use with a VPC. After creating the internet gateway,

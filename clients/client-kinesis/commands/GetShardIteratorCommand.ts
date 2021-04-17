@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetShardIteratorCommandInput = GetShardIteratorInput;
-export type GetShardIteratorCommandOutput = GetShardIteratorOutput & __MetadataBearer;
+export interface GetShardIteratorCommandInput extends GetShardIteratorInput {}
+export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, __MetadataBearer {}
 
 /**
  * <p>Gets an Amazon Kinesis shard iterator. A shard iterator expires 5 minutes after it

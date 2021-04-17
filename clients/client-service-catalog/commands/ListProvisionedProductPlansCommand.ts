@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListProvisionedProductPlansCommandInput = ListProvisionedProductPlansInput;
-export type ListProvisionedProductPlansCommandOutput = ListProvisionedProductPlansOutput & __MetadataBearer;
+export interface ListProvisionedProductPlansCommandInput extends ListProvisionedProductPlansInput {}
+export interface ListProvisionedProductPlansCommandOutput extends ListProvisionedProductPlansOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the plans for the specified provisioned product or all plans to which the user has access.</p>

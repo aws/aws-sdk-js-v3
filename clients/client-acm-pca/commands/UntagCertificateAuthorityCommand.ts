@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UntagCertificateAuthorityCommandInput = UntagCertificateAuthorityRequest;
-export type UntagCertificateAuthorityCommandOutput = __MetadataBearer;
+export interface UntagCertificateAuthorityCommandInput extends UntagCertificateAuthorityRequest {}
+export interface UntagCertificateAuthorityCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Remove one or more tags from your private CA. A tag consists of a key-value pair. If

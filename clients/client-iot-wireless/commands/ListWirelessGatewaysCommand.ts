@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListWirelessGatewaysCommandInput = ListWirelessGatewaysRequest;
-export type ListWirelessGatewaysCommandOutput = ListWirelessGatewaysResponse & __MetadataBearer;
+export interface ListWirelessGatewaysCommandInput extends ListWirelessGatewaysRequest {}
+export interface ListWirelessGatewaysCommandOutput extends ListWirelessGatewaysResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the wireless gateways registered to your AWS account.</p>

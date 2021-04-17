@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RedactChannelMessageCommandInput = RedactChannelMessageRequest;
-export type RedactChannelMessageCommandOutput = RedactChannelMessageResponse & __MetadataBearer;
+export interface RedactChannelMessageCommandInput extends RedactChannelMessageRequest {}
+export interface RedactChannelMessageCommandOutput extends RedactChannelMessageResponse, __MetadataBearer {}
 
 /**
  * <p>Redacts message content, but not metadata. The message exists in the back end, but the action returns null content, and the state shows as redacted.</p>

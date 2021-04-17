@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopContactCommandInput = StopContactRequest;
-export type StopContactCommandOutput = StopContactResponse & __MetadataBearer;
+export interface StopContactCommandInput extends StopContactRequest {}
+export interface StopContactCommandOutput extends StopContactResponse, __MetadataBearer {}
 
 /**
  * <p>Ends the specified contact.</p>

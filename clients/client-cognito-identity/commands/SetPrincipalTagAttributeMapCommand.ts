@@ -18,8 +18,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetPrincipalTagAttributeMapCommandInput = SetPrincipalTagAttributeMapInput;
-export type SetPrincipalTagAttributeMapCommandOutput = SetPrincipalTagAttributeMapResponse & __MetadataBearer;
+export interface SetPrincipalTagAttributeMapCommandInput extends SetPrincipalTagAttributeMapInput {}
+export interface SetPrincipalTagAttributeMapCommandOutput
+  extends SetPrincipalTagAttributeMapResponse,
+    __MetadataBearer {}
 
 /**
  * <p>You can use this operation to use default (username and clientID) attribute or custom attribute mappings.</p>

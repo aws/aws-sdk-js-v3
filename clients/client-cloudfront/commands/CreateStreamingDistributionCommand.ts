@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateStreamingDistributionCommandInput = CreateStreamingDistributionRequest;
-export type CreateStreamingDistributionCommandOutput = CreateStreamingDistributionResult & __MetadataBearer;
+export interface CreateStreamingDistributionCommandInput extends CreateStreamingDistributionRequest {}
+export interface CreateStreamingDistributionCommandOutput extends CreateStreamingDistributionResult, __MetadataBearer {}
 
 /**
  * <p>This API is deprecated.

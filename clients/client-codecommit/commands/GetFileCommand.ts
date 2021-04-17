@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetFileCommandInput = GetFileInput;
-export type GetFileCommandOutput = GetFileOutput & __MetadataBearer;
+export interface GetFileCommandInput extends GetFileInput {}
+export interface GetFileCommandOutput extends GetFileOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the base-64 encoded contents of a specified file and its metadata.</p>

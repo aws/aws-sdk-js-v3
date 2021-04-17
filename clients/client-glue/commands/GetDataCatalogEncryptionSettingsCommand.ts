@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDataCatalogEncryptionSettingsCommandInput = GetDataCatalogEncryptionSettingsRequest;
-export type GetDataCatalogEncryptionSettingsCommandOutput = GetDataCatalogEncryptionSettingsResponse & __MetadataBearer;
+export interface GetDataCatalogEncryptionSettingsCommandInput extends GetDataCatalogEncryptionSettingsRequest {}
+export interface GetDataCatalogEncryptionSettingsCommandOutput
+  extends GetDataCatalogEncryptionSettingsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves the security configuration for a specified catalog.</p>

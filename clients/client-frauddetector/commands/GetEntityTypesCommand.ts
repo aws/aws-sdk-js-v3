@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetEntityTypesCommandInput = GetEntityTypesRequest;
-export type GetEntityTypesCommandOutput = GetEntityTypesResult & __MetadataBearer;
+export interface GetEntityTypesCommandInput extends GetEntityTypesRequest {}
+export interface GetEntityTypesCommandOutput extends GetEntityTypesResult, __MetadataBearer {}
 
 /**
  * <p>Gets all entity types or a specific entity type if a name is specified. This is a paginated API. If you

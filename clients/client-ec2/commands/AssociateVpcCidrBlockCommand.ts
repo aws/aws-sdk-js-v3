@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateVpcCidrBlockCommandInput = AssociateVpcCidrBlockRequest;
-export type AssociateVpcCidrBlockCommandOutput = AssociateVpcCidrBlockResult & __MetadataBearer;
+export interface AssociateVpcCidrBlockCommandInput extends AssociateVpcCidrBlockRequest {}
+export interface AssociateVpcCidrBlockCommandOutput extends AssociateVpcCidrBlockResult, __MetadataBearer {}
 
 /**
  * <p>Associates a CIDR block with your VPC. You can associate a secondary IPv4 CIDR block,

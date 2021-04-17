@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteEventBusCommandInput = DeleteEventBusRequest;
-export type DeleteEventBusCommandOutput = __MetadataBearer;
+export interface DeleteEventBusCommandInput extends DeleteEventBusRequest {}
+export interface DeleteEventBusCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified custom event bus or partner event bus. All rules associated with

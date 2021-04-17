@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateLaunchConfigurationCommandInput = UpdateLaunchConfigurationRequest;
-export type UpdateLaunchConfigurationCommandOutput = LaunchConfiguration & __MetadataBearer;
+export interface UpdateLaunchConfigurationCommandInput extends UpdateLaunchConfigurationRequest {}
+export interface UpdateLaunchConfigurationCommandOutput extends LaunchConfiguration, __MetadataBearer {}
 
 /**
  * <p>Updates multiple LaunchConfigurations by Source Server ID.</p>

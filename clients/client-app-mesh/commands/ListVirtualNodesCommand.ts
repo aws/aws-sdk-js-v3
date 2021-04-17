@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListVirtualNodesCommandInput = ListVirtualNodesInput;
-export type ListVirtualNodesCommandOutput = ListVirtualNodesOutput & __MetadataBearer;
+export interface ListVirtualNodesCommandInput extends ListVirtualNodesInput {}
+export interface ListVirtualNodesCommandOutput extends ListVirtualNodesOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a list of existing virtual nodes.</p>

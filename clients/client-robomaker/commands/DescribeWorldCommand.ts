@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeWorldCommandInput = DescribeWorldRequest;
-export type DescribeWorldCommandOutput = DescribeWorldResponse & __MetadataBearer;
+export interface DescribeWorldCommandInput extends DescribeWorldRequest {}
+export interface DescribeWorldCommandOutput extends DescribeWorldResponse, __MetadataBearer {}
 
 /**
  * <p>Describes a world.</p>

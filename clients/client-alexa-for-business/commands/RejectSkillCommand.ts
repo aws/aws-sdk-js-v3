@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RejectSkillCommandInput = RejectSkillRequest;
-export type RejectSkillCommandOutput = RejectSkillResponse & __MetadataBearer;
+export interface RejectSkillCommandInput extends RejectSkillRequest {}
+export interface RejectSkillCommandOutput extends RejectSkillResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates a skill from the organization under a user's AWS account. If the skill

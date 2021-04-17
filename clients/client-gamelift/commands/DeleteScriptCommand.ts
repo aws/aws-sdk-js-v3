@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteScriptCommandInput = DeleteScriptInput;
-export type DeleteScriptCommandOutput = __MetadataBearer;
+export interface DeleteScriptCommandInput extends DeleteScriptInput {}
+export interface DeleteScriptCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a Realtime script. This operation permanently deletes the script record. If

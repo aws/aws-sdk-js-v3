@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListVaultsCommandInput = ListVaultsInput;
-export type ListVaultsCommandOutput = ListVaultsOutput & __MetadataBearer;
+export interface ListVaultsCommandInput extends ListVaultsInput {}
+export interface ListVaultsCommandOutput extends ListVaultsOutput, __MetadataBearer {}
 
 /**
  * <p>This operation lists all vaults owned by the calling user's account. The list

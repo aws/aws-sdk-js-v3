@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateMetricSetCommandInput = CreateMetricSetRequest;
-export type CreateMetricSetCommandOutput = CreateMetricSetResponse & __MetadataBearer;
+export interface CreateMetricSetCommandInput extends CreateMetricSetRequest {}
+export interface CreateMetricSetCommandOutput extends CreateMetricSetResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a dataset.</p>

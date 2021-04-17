@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateBackendConfigCommandInput = UpdateBackendConfigRequest;
-export type UpdateBackendConfigCommandOutput = UpdateBackendConfigResponse & __MetadataBearer;
+export interface UpdateBackendConfigCommandInput extends UpdateBackendConfigRequest {}
+export interface UpdateBackendConfigCommandOutput extends UpdateBackendConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the AWS resources that are required to access the Amplify Admin UI.</p>

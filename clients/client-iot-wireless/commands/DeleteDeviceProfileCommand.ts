@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDeviceProfileCommandInput = DeleteDeviceProfileRequest;
-export type DeleteDeviceProfileCommandOutput = DeleteDeviceProfileResponse & __MetadataBearer;
+export interface DeleteDeviceProfileCommandInput extends DeleteDeviceProfileRequest {}
+export interface DeleteDeviceProfileCommandOutput extends DeleteDeviceProfileResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a device profile.</p>

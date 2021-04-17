@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type InvokeEndpointCommandInput = InvokeEndpointInput;
-export type InvokeEndpointCommandOutput = InvokeEndpointOutput & __MetadataBearer;
+export interface InvokeEndpointCommandInput extends InvokeEndpointInput {}
+export interface InvokeEndpointCommandOutput extends InvokeEndpointOutput, __MetadataBearer {}
 
 /**
  * <p>After you deploy a model into production using Amazon SageMaker hosting services, your

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteMultiplexCommandInput = DeleteMultiplexRequest;
-export type DeleteMultiplexCommandOutput = DeleteMultiplexResponse & __MetadataBearer;
+export interface DeleteMultiplexCommandInput extends DeleteMultiplexRequest {}
+export interface DeleteMultiplexCommandOutput extends DeleteMultiplexResponse, __MetadataBearer {}
 
 /**
  * Delete a multiplex. The multiplex must be idle.

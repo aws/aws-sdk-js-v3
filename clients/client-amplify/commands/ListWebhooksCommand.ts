@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListWebhooksCommandInput = ListWebhooksRequest;
-export type ListWebhooksCommandOutput = ListWebhooksResult & __MetadataBearer;
+export interface ListWebhooksCommandInput extends ListWebhooksRequest {}
+export interface ListWebhooksCommandOutput extends ListWebhooksResult, __MetadataBearer {}
 
 /**
  * <p> Returns a list of webhooks for an Amplify app. </p>

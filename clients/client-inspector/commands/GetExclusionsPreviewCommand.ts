@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetExclusionsPreviewCommandInput = GetExclusionsPreviewRequest;
-export type GetExclusionsPreviewCommandOutput = GetExclusionsPreviewResponse & __MetadataBearer;
+export interface GetExclusionsPreviewCommandInput extends GetExclusionsPreviewRequest {}
+export interface GetExclusionsPreviewCommandOutput extends GetExclusionsPreviewResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the exclusions preview (a list of ExclusionPreview objects) specified by

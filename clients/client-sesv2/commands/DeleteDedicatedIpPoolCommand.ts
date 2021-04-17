@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDedicatedIpPoolCommandInput = DeleteDedicatedIpPoolRequest;
-export type DeleteDedicatedIpPoolCommandOutput = DeleteDedicatedIpPoolResponse & __MetadataBearer;
+export interface DeleteDedicatedIpPoolCommandInput extends DeleteDedicatedIpPoolRequest {}
+export interface DeleteDedicatedIpPoolCommandOutput extends DeleteDedicatedIpPoolResponse, __MetadataBearer {}
 
 /**
  * <p>Delete a dedicated IP pool.</p>

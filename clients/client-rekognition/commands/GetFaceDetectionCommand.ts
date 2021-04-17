@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetFaceDetectionCommandInput = GetFaceDetectionRequest;
-export type GetFaceDetectionCommandOutput = GetFaceDetectionResponse & __MetadataBearer;
+export interface GetFaceDetectionCommandInput extends GetFaceDetectionRequest {}
+export interface GetFaceDetectionCommandOutput extends GetFaceDetectionResponse, __MetadataBearer {}
 
 /**
  * <p>Gets face detection results for a Amazon Rekognition Video analysis started by <a>StartFaceDetection</a>.</p>

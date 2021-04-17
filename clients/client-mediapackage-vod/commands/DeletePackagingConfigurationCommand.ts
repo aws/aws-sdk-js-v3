@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeletePackagingConfigurationCommandInput = DeletePackagingConfigurationRequest;
-export type DeletePackagingConfigurationCommandOutput = DeletePackagingConfigurationResponse & __MetadataBearer;
+export interface DeletePackagingConfigurationCommandInput extends DeletePackagingConfigurationRequest {}
+export interface DeletePackagingConfigurationCommandOutput
+  extends DeletePackagingConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * Deletes a MediaPackage VOD PackagingConfiguration resource.

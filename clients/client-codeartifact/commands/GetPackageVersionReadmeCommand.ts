@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetPackageVersionReadmeCommandInput = GetPackageVersionReadmeRequest;
-export type GetPackageVersionReadmeCommandOutput = GetPackageVersionReadmeResult & __MetadataBearer;
+export interface GetPackageVersionReadmeCommandInput extends GetPackageVersionReadmeRequest {}
+export interface GetPackageVersionReadmeCommandOutput extends GetPackageVersionReadmeResult, __MetadataBearer {}
 
 /**
  * <p>

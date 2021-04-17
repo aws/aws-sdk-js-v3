@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteJourneyCommandInput = DeleteJourneyRequest;
-export type DeleteJourneyCommandOutput = DeleteJourneyResponse & __MetadataBearer;
+export interface DeleteJourneyCommandInput extends DeleteJourneyRequest {}
+export interface DeleteJourneyCommandOutput extends DeleteJourneyResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a journey from an application.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AcceptInputDeviceTransferCommandInput = AcceptInputDeviceTransferRequest;
-export type AcceptInputDeviceTransferCommandOutput = AcceptInputDeviceTransferResponse & __MetadataBearer;
+export interface AcceptInputDeviceTransferCommandInput extends AcceptInputDeviceTransferRequest {}
+export interface AcceptInputDeviceTransferCommandOutput extends AcceptInputDeviceTransferResponse, __MetadataBearer {}
 
 /**
  * Accept an incoming input device transfer. The ownership of the device will transfer to your AWS account.

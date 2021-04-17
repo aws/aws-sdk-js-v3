@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSendQuotaCommandInput = {};
-export type GetSendQuotaCommandOutput = GetSendQuotaResponse & __MetadataBearer;
+export interface GetSendQuotaCommandInput {}
+export interface GetSendQuotaCommandOutput extends GetSendQuotaResponse, __MetadataBearer {}
 
 /**
  * <p>Provides the sending limits for the Amazon SES account. </p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAggregationAuthorizationCommandInput = DeleteAggregationAuthorizationRequest;
-export type DeleteAggregationAuthorizationCommandOutput = __MetadataBearer;
+export interface DeleteAggregationAuthorizationCommandInput extends DeleteAggregationAuthorizationRequest {}
+export interface DeleteAggregationAuthorizationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the authorization granted to the specified

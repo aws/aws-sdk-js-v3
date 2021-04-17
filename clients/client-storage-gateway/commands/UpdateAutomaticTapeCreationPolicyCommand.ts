@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateAutomaticTapeCreationPolicyCommandInput = UpdateAutomaticTapeCreationPolicyInput;
-export type UpdateAutomaticTapeCreationPolicyCommandOutput = UpdateAutomaticTapeCreationPolicyOutput & __MetadataBearer;
+export interface UpdateAutomaticTapeCreationPolicyCommandInput extends UpdateAutomaticTapeCreationPolicyInput {}
+export interface UpdateAutomaticTapeCreationPolicyCommandOutput
+  extends UpdateAutomaticTapeCreationPolicyOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Updates the automatic tape creation policy of a gateway. Use this to update the policy

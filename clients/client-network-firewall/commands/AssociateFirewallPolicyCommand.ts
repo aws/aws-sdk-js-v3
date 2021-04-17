@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateFirewallPolicyCommandInput = AssociateFirewallPolicyRequest;
-export type AssociateFirewallPolicyCommandOutput = AssociateFirewallPolicyResponse & __MetadataBearer;
+export interface AssociateFirewallPolicyCommandInput extends AssociateFirewallPolicyRequest {}
+export interface AssociateFirewallPolicyCommandOutput extends AssociateFirewallPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a <a>FirewallPolicy</a> to a <a>Firewall</a>. </p>

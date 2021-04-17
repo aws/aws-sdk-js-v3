@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteProvisioningTemplateVersionCommandInput = DeleteProvisioningTemplateVersionRequest;
-export type DeleteProvisioningTemplateVersionCommandOutput = DeleteProvisioningTemplateVersionResponse &
-  __MetadataBearer;
+export interface DeleteProvisioningTemplateVersionCommandInput extends DeleteProvisioningTemplateVersionRequest {}
+export interface DeleteProvisioningTemplateVersionCommandOutput
+  extends DeleteProvisioningTemplateVersionResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes a fleet provisioning template version.</p>

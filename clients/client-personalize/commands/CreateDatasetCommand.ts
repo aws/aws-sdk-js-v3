@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDatasetCommandInput = CreateDatasetRequest;
-export type CreateDatasetCommandOutput = CreateDatasetResponse & __MetadataBearer;
+export interface CreateDatasetCommandInput extends CreateDatasetRequest {}
+export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an empty dataset and adds it to the specified dataset group. Use <a>CreateDatasetImportJob</a> to import your training data to a dataset.</p>

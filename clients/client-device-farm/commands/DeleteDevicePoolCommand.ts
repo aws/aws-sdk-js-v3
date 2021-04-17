@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDevicePoolCommandInput = DeleteDevicePoolRequest;
-export type DeleteDevicePoolCommandOutput = DeleteDevicePoolResult & __MetadataBearer;
+export interface DeleteDevicePoolCommandInput extends DeleteDevicePoolRequest {}
+export interface DeleteDevicePoolCommandOutput extends DeleteDevicePoolResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a device pool given the pool ARN. Does not allow deletion of curated pools

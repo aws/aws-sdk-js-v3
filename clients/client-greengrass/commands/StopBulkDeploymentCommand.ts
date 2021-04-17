@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopBulkDeploymentCommandInput = StopBulkDeploymentRequest;
-export type StopBulkDeploymentCommandOutput = StopBulkDeploymentResponse & __MetadataBearer;
+export interface StopBulkDeploymentCommandInput extends StopBulkDeploymentRequest {}
+export interface StopBulkDeploymentCommandOutput extends StopBulkDeploymentResponse, __MetadataBearer {}
 
 /**
  * Stops the execution of a bulk deployment. This action returns a status of ''Stopping'' until the deployment is stopped. You cannot start a new bulk deployment while a previous deployment is in the ''Stopping'' state. This action doesn't rollback completed deployments or cancel pending deployments.

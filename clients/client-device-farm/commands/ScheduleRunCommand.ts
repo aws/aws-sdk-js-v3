@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ScheduleRunCommandInput = ScheduleRunRequest;
-export type ScheduleRunCommandOutput = ScheduleRunResult & __MetadataBearer;
+export interface ScheduleRunCommandInput extends ScheduleRunRequest {}
+export interface ScheduleRunCommandOutput extends ScheduleRunResult, __MetadataBearer {}
 
 /**
  * <p>Schedules a run.</p>

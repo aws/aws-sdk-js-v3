@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDashboardCommandInput = DeleteDashboardRequest;
-export type DeleteDashboardCommandOutput = DeleteDashboardResponse & __MetadataBearer;
+export interface DeleteDashboardCommandInput extends DeleteDashboardRequest {}
+export interface DeleteDashboardCommandOutput extends DeleteDashboardResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a dashboard.</p>

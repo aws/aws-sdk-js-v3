@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDetectorModelVersionsCommandInput = ListDetectorModelVersionsRequest;
-export type ListDetectorModelVersionsCommandOutput = ListDetectorModelVersionsResponse & __MetadataBearer;
+export interface ListDetectorModelVersionsCommandInput extends ListDetectorModelVersionsRequest {}
+export interface ListDetectorModelVersionsCommandOutput extends ListDetectorModelVersionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all the versions of a detector model. Only the metadata associated with each

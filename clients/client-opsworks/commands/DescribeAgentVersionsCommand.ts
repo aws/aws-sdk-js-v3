@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAgentVersionsCommandInput = DescribeAgentVersionsRequest;
-export type DescribeAgentVersionsCommandOutput = DescribeAgentVersionsResult & __MetadataBearer;
+export interface DescribeAgentVersionsCommandInput extends DescribeAgentVersionsRequest {}
+export interface DescribeAgentVersionsCommandOutput extends DescribeAgentVersionsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the available AWS OpsWorks Stacks agent versions. You must specify a stack ID or a

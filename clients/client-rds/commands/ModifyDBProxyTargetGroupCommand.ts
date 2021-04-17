@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyDBProxyTargetGroupCommandInput = ModifyDBProxyTargetGroupRequest;
-export type ModifyDBProxyTargetGroupCommandOutput = ModifyDBProxyTargetGroupResponse & __MetadataBearer;
+export interface ModifyDBProxyTargetGroupCommandInput extends ModifyDBProxyTargetGroupRequest {}
+export interface ModifyDBProxyTargetGroupCommandOutput extends ModifyDBProxyTargetGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies the properties of a <code>DBProxyTargetGroup</code>.</p>

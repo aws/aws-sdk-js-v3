@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetResourceDefinitionVersionCommandInput = GetResourceDefinitionVersionRequest;
-export type GetResourceDefinitionVersionCommandOutput = GetResourceDefinitionVersionResponse & __MetadataBearer;
+export interface GetResourceDefinitionVersionCommandInput extends GetResourceDefinitionVersionRequest {}
+export interface GetResourceDefinitionVersionCommandOutput
+  extends GetResourceDefinitionVersionResponse,
+    __MetadataBearer {}
 
 /**
  * Retrieves information about a resource definition version, including which resources are included in the version.

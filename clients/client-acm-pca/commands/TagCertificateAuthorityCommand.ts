@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TagCertificateAuthorityCommandInput = TagCertificateAuthorityRequest;
-export type TagCertificateAuthorityCommandOutput = __MetadataBearer;
+export interface TagCertificateAuthorityCommandInput extends TagCertificateAuthorityRequest {}
+export interface TagCertificateAuthorityCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Adds one or more tags to your private CA. Tags are labels that you can use to identify

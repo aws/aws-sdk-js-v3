@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTestGridSessionsCommandInput = ListTestGridSessionsRequest;
-export type ListTestGridSessionsCommandOutput = ListTestGridSessionsResult & __MetadataBearer;
+export interface ListTestGridSessionsCommandInput extends ListTestGridSessionsRequest {}
+export interface ListTestGridSessionsCommandOutput extends ListTestGridSessionsResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of sessions for a <a>TestGridProject</a>.</p>

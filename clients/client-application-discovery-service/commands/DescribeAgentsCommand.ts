@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAgentsCommandInput = DescribeAgentsRequest;
-export type DescribeAgentsCommandOutput = DescribeAgentsResponse & __MetadataBearer;
+export interface DescribeAgentsCommandInput extends DescribeAgentsRequest {}
+export interface DescribeAgentsCommandOutput extends DescribeAgentsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists agents or connectors as specified by ID or other filters. All agents/connectors

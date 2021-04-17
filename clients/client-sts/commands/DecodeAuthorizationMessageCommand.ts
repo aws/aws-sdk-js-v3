@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DecodeAuthorizationMessageCommandInput = DecodeAuthorizationMessageRequest;
-export type DecodeAuthorizationMessageCommandOutput = DecodeAuthorizationMessageResponse & __MetadataBearer;
+export interface DecodeAuthorizationMessageCommandInput extends DecodeAuthorizationMessageRequest {}
+export interface DecodeAuthorizationMessageCommandOutput extends DecodeAuthorizationMessageResponse, __MetadataBearer {}
 
 /**
  * <p>Decodes additional information about the authorization status of a request from an

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListGrantsCommandInput = ListGrantsRequest;
-export type ListGrantsCommandOutput = ListGrantsResponse & __MetadataBearer;
+export interface ListGrantsCommandInput extends ListGrantsRequest {}
+export interface ListGrantsCommandOutput extends ListGrantsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of all grants for the specified customer master key (CMK). </p>

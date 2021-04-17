@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeletePlacementCommandInput = DeletePlacementRequest;
-export type DeletePlacementCommandOutput = DeletePlacementResponse & __MetadataBearer;
+export interface DeletePlacementCommandInput extends DeletePlacementRequest {}
+export interface DeletePlacementCommandOutput extends DeletePlacementResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a placement. To delete a placement, it must not have any devices associated with

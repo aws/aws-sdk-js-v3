@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeConformancePackStatusCommandInput = DescribeConformancePackStatusRequest;
-export type DescribeConformancePackStatusCommandOutput = DescribeConformancePackStatusResponse & __MetadataBearer;
+export interface DescribeConformancePackStatusCommandInput extends DescribeConformancePackStatusRequest {}
+export interface DescribeConformancePackStatusCommandOutput
+  extends DescribeConformancePackStatusResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Provides one or more conformance packs deployment status.</p>

@@ -21,9 +21,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAccessPointPolicyStatusForObjectLambdaCommandInput = GetAccessPointPolicyStatusForObjectLambdaRequest;
-export type GetAccessPointPolicyStatusForObjectLambdaCommandOutput = GetAccessPointPolicyStatusForObjectLambdaResult &
-  __MetadataBearer;
+export interface GetAccessPointPolicyStatusForObjectLambdaCommandInput
+  extends GetAccessPointPolicyStatusForObjectLambdaRequest {}
+export interface GetAccessPointPolicyStatusForObjectLambdaCommandOutput
+  extends GetAccessPointPolicyStatusForObjectLambdaResult,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the status of the resource policy associated with an Object Lambda Access Point.</p>

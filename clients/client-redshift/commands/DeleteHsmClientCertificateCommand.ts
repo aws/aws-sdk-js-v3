@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteHsmClientCertificateCommandInput = DeleteHsmClientCertificateMessage;
-export type DeleteHsmClientCertificateCommandOutput = __MetadataBearer;
+export interface DeleteHsmClientCertificateCommandInput extends DeleteHsmClientCertificateMessage {}
+export interface DeleteHsmClientCertificateCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified HSM client certificate.</p>

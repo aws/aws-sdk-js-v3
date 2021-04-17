@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateKeySigningKeyCommandInput = CreateKeySigningKeyRequest;
-export type CreateKeySigningKeyCommandOutput = CreateKeySigningKeyResponse & __MetadataBearer;
+export interface CreateKeySigningKeyCommandInput extends CreateKeySigningKeyRequest {}
+export interface CreateKeySigningKeyCommandOutput extends CreateKeySigningKeyResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new key-signing key (KSK) associated with a hosted zone. You can only have two KSKs per hosted zone.</p>

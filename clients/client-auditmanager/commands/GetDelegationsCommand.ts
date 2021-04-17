@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDelegationsCommandInput = GetDelegationsRequest;
-export type GetDelegationsCommandOutput = GetDelegationsResponse & __MetadataBearer;
+export interface GetDelegationsCommandInput extends GetDelegationsRequest {}
+export interface GetDelegationsCommandOutput extends GetDelegationsResponse, __MetadataBearer {}
 
 /**
  * <p>

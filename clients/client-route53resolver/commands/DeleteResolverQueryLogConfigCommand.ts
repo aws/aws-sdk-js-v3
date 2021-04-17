@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteResolverQueryLogConfigCommandInput = DeleteResolverQueryLogConfigRequest;
-export type DeleteResolverQueryLogConfigCommandOutput = DeleteResolverQueryLogConfigResponse & __MetadataBearer;
+export interface DeleteResolverQueryLogConfigCommandInput extends DeleteResolverQueryLogConfigRequest {}
+export interface DeleteResolverQueryLogConfigCommandOutput
+  extends DeleteResolverQueryLogConfigResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes a query logging configuration. When you delete a configuration, Resolver stops logging DNS queries for all of the Amazon VPCs that are

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteSkillAuthorizationCommandInput = DeleteSkillAuthorizationRequest;
-export type DeleteSkillAuthorizationCommandOutput = DeleteSkillAuthorizationResponse & __MetadataBearer;
+export interface DeleteSkillAuthorizationCommandInput extends DeleteSkillAuthorizationRequest {}
+export interface DeleteSkillAuthorizationCommandOutput extends DeleteSkillAuthorizationResponse, __MetadataBearer {}
 
 /**
  * <p>Unlinks a third-party account from a skill.</p>

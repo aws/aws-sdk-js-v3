@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeServiceErrorsCommandInput = DescribeServiceErrorsRequest;
-export type DescribeServiceErrorsCommandOutput = DescribeServiceErrorsResult & __MetadataBearer;
+export interface DescribeServiceErrorsCommandInput extends DescribeServiceErrorsRequest {}
+export interface DescribeServiceErrorsCommandOutput extends DescribeServiceErrorsResult, __MetadataBearer {}
 
 /**
  * <p>Describes AWS OpsWorks Stacks service errors.</p>

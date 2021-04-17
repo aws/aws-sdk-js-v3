@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AcknowledgeJobCommandInput = AcknowledgeJobInput;
-export type AcknowledgeJobCommandOutput = AcknowledgeJobOutput & __MetadataBearer;
+export interface AcknowledgeJobCommandInput extends AcknowledgeJobInput {}
+export interface AcknowledgeJobCommandOutput extends AcknowledgeJobOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about a specified job and whether that job has been received by

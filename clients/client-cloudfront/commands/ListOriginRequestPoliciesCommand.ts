@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListOriginRequestPoliciesCommandInput = ListOriginRequestPoliciesRequest;
-export type ListOriginRequestPoliciesCommandOutput = ListOriginRequestPoliciesResult & __MetadataBearer;
+export interface ListOriginRequestPoliciesCommandInput extends ListOriginRequestPoliciesRequest {}
+export interface ListOriginRequestPoliciesCommandOutput extends ListOriginRequestPoliciesResult, __MetadataBearer {}
 
 /**
  * <p>Gets a list of origin request policies.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteMemberCommandInput = DeleteMemberRequest;
-export type DeleteMemberCommandOutput = DeleteMemberResponse & __MetadataBearer;
+export interface DeleteMemberCommandInput extends DeleteMemberRequest {}
+export interface DeleteMemberCommandOutput extends DeleteMemberResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the association between an Amazon Macie administrator account and an account.</p>

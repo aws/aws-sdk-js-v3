@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListRecordHistoryCommandInput = ListRecordHistoryInput;
-export type ListRecordHistoryCommandOutput = ListRecordHistoryOutput & __MetadataBearer;
+export interface ListRecordHistoryCommandInput extends ListRecordHistoryInput {}
+export interface ListRecordHistoryCommandOutput extends ListRecordHistoryOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the specified requests or all performed requests.</p>

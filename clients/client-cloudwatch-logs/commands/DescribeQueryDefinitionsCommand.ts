@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeQueryDefinitionsCommandInput = DescribeQueryDefinitionsRequest;
-export type DescribeQueryDefinitionsCommandOutput = DescribeQueryDefinitionsResponse & __MetadataBearer;
+export interface DescribeQueryDefinitionsCommandInput extends DescribeQueryDefinitionsRequest {}
+export interface DescribeQueryDefinitionsCommandOutput extends DescribeQueryDefinitionsResponse, __MetadataBearer {}
 
 /**
  * <p>This operation returns a paginated list of your saved CloudWatch Logs Insights query definitions.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeSnapshotsCommandInput = DescribeSnapshotsMessage;
-export type DescribeSnapshotsCommandOutput = DescribeSnapshotsListMessage & __MetadataBearer;
+export interface DescribeSnapshotsCommandInput extends DescribeSnapshotsMessage {}
+export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsListMessage, __MetadataBearer {}
 
 /**
  * <p>Returns information about cluster or replication group snapshots.

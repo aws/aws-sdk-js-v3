@@ -17,9 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchPutScheduledUpdateGroupActionCommandInput = BatchPutScheduledUpdateGroupActionType;
-export type BatchPutScheduledUpdateGroupActionCommandOutput = BatchPutScheduledUpdateGroupActionAnswer &
-  __MetadataBearer;
+export interface BatchPutScheduledUpdateGroupActionCommandInput extends BatchPutScheduledUpdateGroupActionType {}
+export interface BatchPutScheduledUpdateGroupActionCommandOutput
+  extends BatchPutScheduledUpdateGroupActionAnswer,
+    __MetadataBearer {}
 
 /**
  * <p>Creates or updates one or more scheduled scaling actions for an Auto Scaling group.</p>

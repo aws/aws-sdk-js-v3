@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteCoreDeviceCommandInput = DeleteCoreDeviceRequest;
-export type DeleteCoreDeviceCommandOutput = __MetadataBearer;
+export interface DeleteCoreDeviceCommandInput extends DeleteCoreDeviceRequest {}
+export interface DeleteCoreDeviceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a AWS IoT Greengrass core device, which is an AWS IoT thing. This operation removes the core

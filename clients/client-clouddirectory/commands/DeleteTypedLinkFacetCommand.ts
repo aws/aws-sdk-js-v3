@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteTypedLinkFacetCommandInput = DeleteTypedLinkFacetRequest;
-export type DeleteTypedLinkFacetCommandOutput = DeleteTypedLinkFacetResponse & __MetadataBearer;
+export interface DeleteTypedLinkFacetCommandInput extends DeleteTypedLinkFacetRequest {}
+export interface DeleteTypedLinkFacetCommandOutput extends DeleteTypedLinkFacetResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a <a>TypedLinkFacet</a>. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>

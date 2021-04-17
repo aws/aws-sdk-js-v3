@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListLoggerDefinitionsCommandInput = ListLoggerDefinitionsRequest;
-export type ListLoggerDefinitionsCommandOutput = ListLoggerDefinitionsResponse & __MetadataBearer;
+export interface ListLoggerDefinitionsCommandInput extends ListLoggerDefinitionsRequest {}
+export interface ListLoggerDefinitionsCommandOutput extends ListLoggerDefinitionsResponse, __MetadataBearer {}
 
 /**
  * Retrieves a list of logger definitions.

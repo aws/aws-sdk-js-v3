@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteLocalGatewayRouteTableVpcAssociationCommandInput = DeleteLocalGatewayRouteTableVpcAssociationRequest;
-export type DeleteLocalGatewayRouteTableVpcAssociationCommandOutput = DeleteLocalGatewayRouteTableVpcAssociationResult &
-  __MetadataBearer;
+export interface DeleteLocalGatewayRouteTableVpcAssociationCommandInput
+  extends DeleteLocalGatewayRouteTableVpcAssociationRequest {}
+export interface DeleteLocalGatewayRouteTableVpcAssociationCommandOutput
+  extends DeleteLocalGatewayRouteTableVpcAssociationResult,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes the specified association between a VPC and local gateway route table.</p>

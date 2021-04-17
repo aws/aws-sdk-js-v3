@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeRemediationExceptionsCommandInput = DescribeRemediationExceptionsRequest;
-export type DescribeRemediationExceptionsCommandOutput = DescribeRemediationExceptionsResponse & __MetadataBearer;
+export interface DescribeRemediationExceptionsCommandInput extends DescribeRemediationExceptionsRequest {}
+export interface DescribeRemediationExceptionsCommandOutput
+  extends DescribeRemediationExceptionsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the details of one or more remediation exceptions. A detailed view of a remediation exception for a set of resources that includes an explanation of an exception and the time when the exception will be deleted.

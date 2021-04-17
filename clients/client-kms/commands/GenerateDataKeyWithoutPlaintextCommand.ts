@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GenerateDataKeyWithoutPlaintextCommandInput = GenerateDataKeyWithoutPlaintextRequest;
-export type GenerateDataKeyWithoutPlaintextCommandOutput = GenerateDataKeyWithoutPlaintextResponse & __MetadataBearer;
+export interface GenerateDataKeyWithoutPlaintextCommandInput extends GenerateDataKeyWithoutPlaintextRequest {}
+export interface GenerateDataKeyWithoutPlaintextCommandOutput
+  extends GenerateDataKeyWithoutPlaintextResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Generates a unique symmetric data key. This operation returns a data key that is encrypted

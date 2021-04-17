@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyWorkspaceCreationPropertiesCommandInput = ModifyWorkspaceCreationPropertiesRequest;
-export type ModifyWorkspaceCreationPropertiesCommandOutput = ModifyWorkspaceCreationPropertiesResult & __MetadataBearer;
+export interface ModifyWorkspaceCreationPropertiesCommandInput extends ModifyWorkspaceCreationPropertiesRequest {}
+export interface ModifyWorkspaceCreationPropertiesCommandOutput
+  extends ModifyWorkspaceCreationPropertiesResult,
+    __MetadataBearer {}
 
 /**
  * <p>Modify the default properties used to create WorkSpaces.</p>

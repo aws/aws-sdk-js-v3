@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateInfrastructureConfigurationCommandInput = UpdateInfrastructureConfigurationRequest;
-export type UpdateInfrastructureConfigurationCommandOutput = UpdateInfrastructureConfigurationResponse &
-  __MetadataBearer;
+export interface UpdateInfrastructureConfigurationCommandInput extends UpdateInfrastructureConfigurationRequest {}
+export interface UpdateInfrastructureConfigurationCommandOutput
+  extends UpdateInfrastructureConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p> Updates a new infrastructure configuration. An infrastructure configuration defines the

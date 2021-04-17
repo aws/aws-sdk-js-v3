@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type IssueCertificateCommandInput = IssueCertificateRequest;
-export type IssueCertificateCommandOutput = IssueCertificateResponse & __MetadataBearer;
+export interface IssueCertificateCommandInput extends IssueCertificateRequest {}
+export interface IssueCertificateCommandOutput extends IssueCertificateResponse, __MetadataBearer {}
 
 /**
  * <p>Uses your private certificate authority (CA), or one that has been shared with you, to

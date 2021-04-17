@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListEventSubscriptionsCommandInput = ListEventSubscriptionsRequest;
-export type ListEventSubscriptionsCommandOutput = ListEventSubscriptionsResponse & __MetadataBearer;
+export interface ListEventSubscriptionsCommandInput extends ListEventSubscriptionsRequest {}
+export interface ListEventSubscriptionsCommandOutput extends ListEventSubscriptionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all the event subscriptions for the assessment template that is specified by

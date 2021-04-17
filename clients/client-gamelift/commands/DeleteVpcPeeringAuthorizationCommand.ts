@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteVpcPeeringAuthorizationCommandInput = DeleteVpcPeeringAuthorizationInput;
-export type DeleteVpcPeeringAuthorizationCommandOutput = DeleteVpcPeeringAuthorizationOutput & __MetadataBearer;
+export interface DeleteVpcPeeringAuthorizationCommandInput extends DeleteVpcPeeringAuthorizationInput {}
+export interface DeleteVpcPeeringAuthorizationCommandOutput
+  extends DeleteVpcPeeringAuthorizationOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Cancels a pending VPC peering authorization for the specified VPC. If you need to

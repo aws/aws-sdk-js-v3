@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeregisterCertificateCommandInput = DeregisterCertificateRequest;
-export type DeregisterCertificateCommandOutput = DeregisterCertificateResult & __MetadataBearer;
+export interface DeregisterCertificateCommandInput extends DeregisterCertificateRequest {}
+export interface DeregisterCertificateCommandOutput extends DeregisterCertificateResult, __MetadataBearer {}
 
 /**
  * <p>Deletes from the system the certificate that was registered for secure LDAP or client certificate authentication.</p>

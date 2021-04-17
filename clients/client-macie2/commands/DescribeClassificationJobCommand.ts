@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeClassificationJobCommandInput = DescribeClassificationJobRequest;
-export type DescribeClassificationJobCommandOutput = DescribeClassificationJobResponse & __MetadataBearer;
+export interface DescribeClassificationJobCommandInput extends DescribeClassificationJobRequest {}
+export interface DescribeClassificationJobCommandOutput extends DescribeClassificationJobResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the status and settings for a classification job.</p>

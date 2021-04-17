@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDistributionsCommandInput = ListDistributionsRequest;
-export type ListDistributionsCommandOutput = ListDistributionsResult & __MetadataBearer;
+export interface ListDistributionsCommandInput extends ListDistributionsRequest {}
+export interface ListDistributionsCommandOutput extends ListDistributionsResult, __MetadataBearer {}
 
 /**
  * <p>List CloudFront distributions.</p>

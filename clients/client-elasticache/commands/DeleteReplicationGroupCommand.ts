@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteReplicationGroupCommandInput = DeleteReplicationGroupMessage;
-export type DeleteReplicationGroupCommandOutput = DeleteReplicationGroupResult & __MetadataBearer;
+export interface DeleteReplicationGroupCommandInput extends DeleteReplicationGroupMessage {}
+export interface DeleteReplicationGroupCommandOutput extends DeleteReplicationGroupResult, __MetadataBearer {}
 
 /**
  * <p>Deletes an existing replication group.

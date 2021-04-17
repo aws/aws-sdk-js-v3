@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeFileSystemAssociationsCommandInput = DescribeFileSystemAssociationsInput;
-export type DescribeFileSystemAssociationsCommandOutput = DescribeFileSystemAssociationsOutput & __MetadataBearer;
+export interface DescribeFileSystemAssociationsCommandInput extends DescribeFileSystemAssociationsInput {}
+export interface DescribeFileSystemAssociationsCommandOutput
+  extends DescribeFileSystemAssociationsOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Gets the file system association information. This operation is only supported for

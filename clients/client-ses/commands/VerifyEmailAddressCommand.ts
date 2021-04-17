@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type VerifyEmailAddressCommandInput = VerifyEmailAddressRequest;
-export type VerifyEmailAddressCommandOutput = __MetadataBearer;
+export interface VerifyEmailAddressCommandInput extends VerifyEmailAddressRequest {}
+export interface VerifyEmailAddressCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deprecated. Use the <code>VerifyEmailIdentity</code> operation to verify a new email

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyCertificatesCommandInput = ModifyCertificatesMessage;
-export type ModifyCertificatesCommandOutput = ModifyCertificatesResult & __MetadataBearer;
+export interface ModifyCertificatesCommandInput extends ModifyCertificatesMessage {}
+export interface ModifyCertificatesCommandOutput extends ModifyCertificatesResult, __MetadataBearer {}
 
 /**
  * <p>Override the system-default Secure Sockets Layer/Transport Layer Security (SSL/TLS)

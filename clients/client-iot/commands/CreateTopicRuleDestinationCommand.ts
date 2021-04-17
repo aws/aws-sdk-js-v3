@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateTopicRuleDestinationCommandInput = CreateTopicRuleDestinationRequest;
-export type CreateTopicRuleDestinationCommandOutput = CreateTopicRuleDestinationResponse & __MetadataBearer;
+export interface CreateTopicRuleDestinationCommandInput extends CreateTopicRuleDestinationRequest {}
+export interface CreateTopicRuleDestinationCommandOutput extends CreateTopicRuleDestinationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a topic rule destination. The destination must be confirmed prior to use.</p>

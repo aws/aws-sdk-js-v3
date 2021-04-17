@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SearchQuantumTasksCommandInput = SearchQuantumTasksRequest;
-export type SearchQuantumTasksCommandOutput = SearchQuantumTasksResponse & __MetadataBearer;
+export interface SearchQuantumTasksCommandInput extends SearchQuantumTasksRequest {}
+export interface SearchQuantumTasksCommandOutput extends SearchQuantumTasksResponse, __MetadataBearer {}
 
 /**
  * <p>Searches for tasks that match the specified filter values.</p>

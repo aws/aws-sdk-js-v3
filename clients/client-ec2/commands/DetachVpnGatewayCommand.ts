@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DetachVpnGatewayCommandInput = DetachVpnGatewayRequest;
-export type DetachVpnGatewayCommandOutput = __MetadataBearer;
+export interface DetachVpnGatewayCommandInput extends DetachVpnGatewayRequest {}
+export interface DetachVpnGatewayCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Detaches a virtual private gateway from a VPC. You do this if you're planning to turn off the VPC and not use it anymore. You can confirm a virtual private gateway has been completely detached from a VPC by describing the virtual private gateway (any attachments to the virtual private gateway are also described).</p>

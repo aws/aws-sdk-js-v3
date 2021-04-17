@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopTaskCommandInput = StopTaskRequest;
-export type StopTaskCommandOutput = StopTaskResponse & __MetadataBearer;
+export interface StopTaskCommandInput extends StopTaskRequest {}
+export interface StopTaskCommandOutput extends StopTaskResponse, __MetadataBearer {}
 
 /**
  * <p>Stops a running task. Any tags associated with the task will be deleted.</p>

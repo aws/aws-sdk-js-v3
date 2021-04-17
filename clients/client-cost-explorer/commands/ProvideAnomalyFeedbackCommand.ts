@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ProvideAnomalyFeedbackCommandInput = ProvideAnomalyFeedbackRequest;
-export type ProvideAnomalyFeedbackCommandOutput = ProvideAnomalyFeedbackResponse & __MetadataBearer;
+export interface ProvideAnomalyFeedbackCommandInput extends ProvideAnomalyFeedbackRequest {}
+export interface ProvideAnomalyFeedbackCommandOutput extends ProvideAnomalyFeedbackResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies the feedback property of a given cost anomaly. </p>

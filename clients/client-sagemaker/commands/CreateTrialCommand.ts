@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateTrialCommandInput = CreateTrialRequest;
-export type CreateTrialCommandOutput = CreateTrialResponse & __MetadataBearer;
+export interface CreateTrialCommandInput extends CreateTrialRequest {}
+export interface CreateTrialCommandOutput extends CreateTrialResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an Amazon SageMaker <i>trial</i>. A trial is a set of steps called

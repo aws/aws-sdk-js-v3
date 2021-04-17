@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListWorkloadsCommandInput = ListWorkloadsInput;
-export type ListWorkloadsCommandOutput = ListWorkloadsOutput & __MetadataBearer;
+export interface ListWorkloadsCommandInput extends ListWorkloadsInput {}
+export interface ListWorkloadsCommandOutput extends ListWorkloadsOutput, __MetadataBearer {}
 
 /**
  * <p>List workloads. Paginated.</p>

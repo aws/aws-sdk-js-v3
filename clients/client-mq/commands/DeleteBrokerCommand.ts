@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteBrokerCommandInput = DeleteBrokerRequest;
-export type DeleteBrokerCommandOutput = DeleteBrokerResponse & __MetadataBearer;
+export interface DeleteBrokerCommandInput extends DeleteBrokerRequest {}
+export interface DeleteBrokerCommandOutput extends DeleteBrokerResponse, __MetadataBearer {}
 
 /**
  * Deletes a broker. Note: This API is asynchronous.

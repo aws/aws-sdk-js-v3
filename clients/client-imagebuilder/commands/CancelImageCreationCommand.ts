@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelImageCreationCommandInput = CancelImageCreationRequest;
-export type CancelImageCreationCommandOutput = CancelImageCreationResponse & __MetadataBearer;
+export interface CancelImageCreationCommandInput extends CancelImageCreationRequest {}
+export interface CancelImageCreationCommandOutput extends CancelImageCreationResponse, __MetadataBearer {}
 
 /**
  * <p>CancelImageCreation cancels the creation of Image. This operation can only be used on

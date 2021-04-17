@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeBatchInferenceJobCommandInput = DescribeBatchInferenceJobRequest;
-export type DescribeBatchInferenceJobCommandOutput = DescribeBatchInferenceJobResponse & __MetadataBearer;
+export interface DescribeBatchInferenceJobCommandInput extends DescribeBatchInferenceJobRequest {}
+export interface DescribeBatchInferenceJobCommandOutput extends DescribeBatchInferenceJobResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the properties of a batch inference job including name, Amazon Resource Name (ARN),

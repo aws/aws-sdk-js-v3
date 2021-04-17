@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelResizeCommandInput = CancelResizeMessage;
-export type CancelResizeCommandOutput = ResizeProgressMessage & __MetadataBearer;
+export interface CancelResizeCommandInput extends CancelResizeMessage {}
+export interface CancelResizeCommandOutput extends ResizeProgressMessage, __MetadataBearer {}
 
 /**
  * <p>Cancels a resize operation for a cluster.</p>

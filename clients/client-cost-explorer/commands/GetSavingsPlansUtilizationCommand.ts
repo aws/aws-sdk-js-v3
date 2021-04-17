@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSavingsPlansUtilizationCommandInput = GetSavingsPlansUtilizationRequest;
-export type GetSavingsPlansUtilizationCommandOutput = GetSavingsPlansUtilizationResponse & __MetadataBearer;
+export interface GetSavingsPlansUtilizationCommandInput extends GetSavingsPlansUtilizationRequest {}
+export interface GetSavingsPlansUtilizationCommandOutput extends GetSavingsPlansUtilizationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the Savings Plans utilization for your account across date ranges with daily or monthly granularity. Management account in an organization have access to member accounts. You can use <code>GetDimensionValues</code> in <code>SAVINGS_PLANS</code> to determine the possible dimension values.</p>

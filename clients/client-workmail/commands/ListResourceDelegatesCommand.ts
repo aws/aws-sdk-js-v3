@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListResourceDelegatesCommandInput = ListResourceDelegatesRequest;
-export type ListResourceDelegatesCommandOutput = ListResourceDelegatesResponse & __MetadataBearer;
+export interface ListResourceDelegatesCommandInput extends ListResourceDelegatesRequest {}
+export interface ListResourceDelegatesCommandOutput extends ListResourceDelegatesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the delegates associated with a resource. Users and groups can be resource

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetApnsVoipChannelCommandInput = GetApnsVoipChannelRequest;
-export type GetApnsVoipChannelCommandOutput = GetApnsVoipChannelResponse & __MetadataBearer;
+export interface GetApnsVoipChannelCommandInput extends GetApnsVoipChannelRequest {}
+export interface GetApnsVoipChannelCommandOutput extends GetApnsVoipChannelResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the status and settings of the APNs VoIP channel for an application.</p>

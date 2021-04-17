@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateConnectionFromLagCommandInput = DisassociateConnectionFromLagRequest;
-export type DisassociateConnectionFromLagCommandOutput = Connection & __MetadataBearer;
+export interface DisassociateConnectionFromLagCommandInput extends DisassociateConnectionFromLagRequest {}
+export interface DisassociateConnectionFromLagCommandOutput extends Connection, __MetadataBearer {}
 
 /**
  * <p>Disassociates a connection from a link aggregation group (LAG). The connection is

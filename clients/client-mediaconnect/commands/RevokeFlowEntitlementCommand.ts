@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RevokeFlowEntitlementCommandInput = RevokeFlowEntitlementRequest;
-export type RevokeFlowEntitlementCommandOutput = RevokeFlowEntitlementResponse & __MetadataBearer;
+export interface RevokeFlowEntitlementCommandInput extends RevokeFlowEntitlementRequest {}
+export interface RevokeFlowEntitlementCommandOutput extends RevokeFlowEntitlementResponse, __MetadataBearer {}
 
 /**
  * Revokes an entitlement from a flow. Once an entitlement is revoked, the content becomes unavailable to the subscriber and the associated output is removed.

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RejectInvitationCommandInput = RejectInvitationRequest;
-export type RejectInvitationCommandOutput = __MetadataBearer;
+export interface RejectInvitationCommandInput extends RejectInvitationRequest {}
+export interface RejectInvitationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Rejects an invitation to contribute the account data to a behavior graph. This operation

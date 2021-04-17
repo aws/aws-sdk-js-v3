@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListFailuresForLicenseConfigurationOperationsCommandInput = ListFailuresForLicenseConfigurationOperationsRequest;
-export type ListFailuresForLicenseConfigurationOperationsCommandOutput = ListFailuresForLicenseConfigurationOperationsResponse &
-  __MetadataBearer;
+export interface ListFailuresForLicenseConfigurationOperationsCommandInput
+  extends ListFailuresForLicenseConfigurationOperationsRequest {}
+export interface ListFailuresForLicenseConfigurationOperationsCommandOutput
+  extends ListFailuresForLicenseConfigurationOperationsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Lists the license configuration operations that failed.</p>

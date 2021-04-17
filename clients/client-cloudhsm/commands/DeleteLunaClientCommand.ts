@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteLunaClientCommandInput = DeleteLunaClientRequest;
-export type DeleteLunaClientCommandOutput = DeleteLunaClientResponse & __MetadataBearer;
+export interface DeleteLunaClientCommandInput extends DeleteLunaClientRequest {}
+export interface DeleteLunaClientCommandOutput extends DeleteLunaClientResponse, __MetadataBearer {}
 
 /**
  * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For

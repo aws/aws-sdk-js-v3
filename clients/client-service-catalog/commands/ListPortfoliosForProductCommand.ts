@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPortfoliosForProductCommandInput = ListPortfoliosForProductInput;
-export type ListPortfoliosForProductCommandOutput = ListPortfoliosForProductOutput & __MetadataBearer;
+export interface ListPortfoliosForProductCommandInput extends ListPortfoliosForProductInput {}
+export interface ListPortfoliosForProductCommandOutput extends ListPortfoliosForProductOutput, __MetadataBearer {}
 
 /**
  * <p>Lists all portfolios that the specified product is associated with.</p>

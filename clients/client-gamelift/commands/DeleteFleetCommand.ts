@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteFleetCommandInput = DeleteFleetInput;
-export type DeleteFleetCommandOutput = __MetadataBearer;
+export interface DeleteFleetCommandInput extends DeleteFleetInput {}
+export interface DeleteFleetCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes all resources and information related a fleet. Any current fleet instances,

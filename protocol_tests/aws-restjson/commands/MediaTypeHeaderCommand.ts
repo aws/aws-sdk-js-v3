@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type MediaTypeHeaderCommandInput = MediaTypeHeaderInput;
-export type MediaTypeHeaderCommandOutput = MediaTypeHeaderOutput & __MetadataBearer;
+export interface MediaTypeHeaderCommandInput extends MediaTypeHeaderInput {}
+export interface MediaTypeHeaderCommandOutput extends MediaTypeHeaderOutput, __MetadataBearer {}
 
 /**
  * This example ensures that mediaType strings are base64 encoded in headers.

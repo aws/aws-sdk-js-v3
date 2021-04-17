@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateListenerCommandInput = CreateListenerInput;
-export type CreateListenerCommandOutput = CreateListenerOutput & __MetadataBearer;
+export interface CreateListenerCommandInput extends CreateListenerInput {}
+export interface CreateListenerCommandOutput extends CreateListenerOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a listener for the specified Application Load Balancer, Network Load Balancer, or

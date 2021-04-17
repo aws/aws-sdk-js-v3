@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListKeyPoliciesCommandInput = ListKeyPoliciesRequest;
-export type ListKeyPoliciesCommandOutput = ListKeyPoliciesResponse & __MetadataBearer;
+export interface ListKeyPoliciesCommandInput extends ListKeyPoliciesRequest {}
+export interface ListKeyPoliciesCommandOutput extends ListKeyPoliciesResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the names of the key policies that are attached to a customer master key (CMK). This

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListCustomDataIdentifiersCommandInput = ListCustomDataIdentifiersRequest;
-export type ListCustomDataIdentifiersCommandOutput = ListCustomDataIdentifiersResponse & __MetadataBearer;
+export interface ListCustomDataIdentifiersCommandInput extends ListCustomDataIdentifiersRequest {}
+export interface ListCustomDataIdentifiersCommandOutput extends ListCustomDataIdentifiersResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a subset of information about all the custom data identifiers for an account.</p>

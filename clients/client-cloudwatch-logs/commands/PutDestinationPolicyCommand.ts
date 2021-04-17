@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutDestinationPolicyCommandInput = PutDestinationPolicyRequest;
-export type PutDestinationPolicyCommandOutput = __MetadataBearer;
+export interface PutDestinationPolicyCommandInput extends PutDestinationPolicyRequest {}
+export interface PutDestinationPolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Creates or updates an access policy associated with an existing

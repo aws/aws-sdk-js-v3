@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutAndGetInlineDocumentsCommandInput = PutAndGetInlineDocumentsInputOutput;
-export type PutAndGetInlineDocumentsCommandOutput = PutAndGetInlineDocumentsInputOutput & __MetadataBearer;
+export interface PutAndGetInlineDocumentsCommandInput extends PutAndGetInlineDocumentsInputOutput {}
+export interface PutAndGetInlineDocumentsCommandOutput extends PutAndGetInlineDocumentsInputOutput, __MetadataBearer {}
 
 /**
  * This example serializes an inline document as part of the payload.

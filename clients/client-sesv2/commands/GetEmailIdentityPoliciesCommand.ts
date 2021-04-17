@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetEmailIdentityPoliciesCommandInput = GetEmailIdentityPoliciesRequest;
-export type GetEmailIdentityPoliciesCommandOutput = GetEmailIdentityPoliciesResponse & __MetadataBearer;
+export interface GetEmailIdentityPoliciesCommandInput extends GetEmailIdentityPoliciesRequest {}
+export interface GetEmailIdentityPoliciesCommandOutput extends GetEmailIdentityPoliciesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the requested sending authorization policies for the given identity (an email

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteHsmConfigurationCommandInput = DeleteHsmConfigurationMessage;
-export type DeleteHsmConfigurationCommandOutput = __MetadataBearer;
+export interface DeleteHsmConfigurationCommandInput extends DeleteHsmConfigurationMessage {}
+export interface DeleteHsmConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified Amazon Redshift HSM configuration.</p>

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RestoreDBInstanceFromDBSnapshotCommandInput = RestoreDBInstanceFromDBSnapshotMessage;
-export type RestoreDBInstanceFromDBSnapshotCommandOutput = RestoreDBInstanceFromDBSnapshotResult & __MetadataBearer;
+export interface RestoreDBInstanceFromDBSnapshotCommandInput extends RestoreDBInstanceFromDBSnapshotMessage {}
+export interface RestoreDBInstanceFromDBSnapshotCommandOutput
+  extends RestoreDBInstanceFromDBSnapshotResult,
+    __MetadataBearer {}
 
 /**
  * <p>Creates a new DB instance from a DB snapshot. The target database is created from the source database restore point with most

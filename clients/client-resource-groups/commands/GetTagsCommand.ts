@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetTagsCommandInput = GetTagsInput;
-export type GetTagsCommandOutput = GetTagsOutput & __MetadataBearer;
+export interface GetTagsCommandInput extends GetTagsInput {}
+export interface GetTagsCommandOutput extends GetTagsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a list of tags that are associated with a resource group, specified by an

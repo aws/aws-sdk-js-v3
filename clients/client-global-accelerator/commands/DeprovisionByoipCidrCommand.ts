@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeprovisionByoipCidrCommandInput = DeprovisionByoipCidrRequest;
-export type DeprovisionByoipCidrCommandOutput = DeprovisionByoipCidrResponse & __MetadataBearer;
+export interface DeprovisionByoipCidrCommandInput extends DeprovisionByoipCidrRequest {}
+export interface DeprovisionByoipCidrCommandOutput extends DeprovisionByoipCidrResponse, __MetadataBearer {}
 
 /**
  * <p>Releases the specified address range that you provisioned to use with your AWS resources

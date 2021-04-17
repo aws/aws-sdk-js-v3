@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RejectQualificationRequestCommandInput = RejectQualificationRequestRequest;
-export type RejectQualificationRequestCommandOutput = RejectQualificationRequestResponse & __MetadataBearer;
+export interface RejectQualificationRequestCommandInput extends RejectQualificationRequestRequest {}
+export interface RejectQualificationRequestCommandOutput extends RejectQualificationRequestResponse, __MetadataBearer {}
 
 /**
  * <p>

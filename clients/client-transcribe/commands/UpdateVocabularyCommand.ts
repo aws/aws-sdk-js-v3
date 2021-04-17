@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateVocabularyCommandInput = UpdateVocabularyRequest;
-export type UpdateVocabularyCommandOutput = UpdateVocabularyResponse & __MetadataBearer;
+export interface UpdateVocabularyCommandInput extends UpdateVocabularyRequest {}
+export interface UpdateVocabularyCommandOutput extends UpdateVocabularyResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing vocabulary with new values. The <code>UpdateVocabulary</code>

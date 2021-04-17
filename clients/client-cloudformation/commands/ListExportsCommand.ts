@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListExportsCommandInput = ListExportsInput;
-export type ListExportsCommandOutput = ListExportsOutput & __MetadataBearer;
+export interface ListExportsCommandInput extends ListExportsInput {}
+export interface ListExportsCommandOutput extends ListExportsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists all exported output values in the account and Region in which you call this

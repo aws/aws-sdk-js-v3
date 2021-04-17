@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetServiceCommandInput = GetServiceRequest;
-export type GetServiceCommandOutput = GetServiceResponse & __MetadataBearer;
+export interface GetServiceCommandInput extends GetServiceRequest {}
+export interface GetServiceCommandOutput extends GetServiceResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the settings for a specified service.</p>

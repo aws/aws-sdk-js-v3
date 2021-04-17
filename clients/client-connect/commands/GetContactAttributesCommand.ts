@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetContactAttributesCommandInput = GetContactAttributesRequest;
-export type GetContactAttributesCommandOutput = GetContactAttributesResponse & __MetadataBearer;
+export interface GetContactAttributesCommandInput extends GetContactAttributesRequest {}
+export interface GetContactAttributesCommandOutput extends GetContactAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the contact attributes for the specified contact.</p>

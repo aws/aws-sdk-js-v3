@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDeliverabilityDashboardOptionsCommandInput = GetDeliverabilityDashboardOptionsRequest;
-export type GetDeliverabilityDashboardOptionsCommandOutput = GetDeliverabilityDashboardOptionsResponse &
-  __MetadataBearer;
+export interface GetDeliverabilityDashboardOptionsCommandInput extends GetDeliverabilityDashboardOptionsRequest {}
+export interface GetDeliverabilityDashboardOptionsCommandOutput
+  extends GetDeliverabilityDashboardOptionsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieve information about the status of the Deliverability dashboard for your Amazon Pinpoint account.

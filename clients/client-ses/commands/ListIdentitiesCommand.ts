@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListIdentitiesCommandInput = ListIdentitiesRequest;
-export type ListIdentitiesCommandOutput = ListIdentitiesResponse & __MetadataBearer;
+export interface ListIdentitiesCommandInput extends ListIdentitiesRequest {}
+export interface ListIdentitiesCommandOutput extends ListIdentitiesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list containing all of the identities (email addresses and domains) for your

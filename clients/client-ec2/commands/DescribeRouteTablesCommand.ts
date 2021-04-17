@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeRouteTablesCommandInput = DescribeRouteTablesRequest;
-export type DescribeRouteTablesCommandOutput = DescribeRouteTablesResult & __MetadataBearer;
+export interface DescribeRouteTablesCommandInput extends DescribeRouteTablesRequest {}
+export interface DescribeRouteTablesCommandOutput extends DescribeRouteTablesResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more of your route tables.</p>

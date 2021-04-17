@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateFirewallDeleteProtectionCommandInput = UpdateFirewallDeleteProtectionRequest;
-export type UpdateFirewallDeleteProtectionCommandOutput = UpdateFirewallDeleteProtectionResponse & __MetadataBearer;
+export interface UpdateFirewallDeleteProtectionCommandInput extends UpdateFirewallDeleteProtectionRequest {}
+export interface UpdateFirewallDeleteProtectionCommandOutput
+  extends UpdateFirewallDeleteProtectionResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Modifies the flag, <code>DeleteProtection</code>, which indicates whether it is possible

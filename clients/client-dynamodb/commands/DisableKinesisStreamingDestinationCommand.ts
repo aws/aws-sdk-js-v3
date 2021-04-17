@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisableKinesisStreamingDestinationCommandInput = KinesisStreamingDestinationInput;
-export type DisableKinesisStreamingDestinationCommandOutput = KinesisStreamingDestinationOutput & __MetadataBearer;
+export interface DisableKinesisStreamingDestinationCommandInput extends KinesisStreamingDestinationInput {}
+export interface DisableKinesisStreamingDestinationCommandOutput
+  extends KinesisStreamingDestinationOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Stops replication from the DynamoDB table to the Kinesis data stream. This is done

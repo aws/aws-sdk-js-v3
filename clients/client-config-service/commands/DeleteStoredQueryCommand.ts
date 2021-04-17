@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteStoredQueryCommandInput = DeleteStoredQueryRequest;
-export type DeleteStoredQueryCommandOutput = DeleteStoredQueryResponse & __MetadataBearer;
+export interface DeleteStoredQueryCommandInput extends DeleteStoredQueryRequest {}
+export interface DeleteStoredQueryCommandOutput extends DeleteStoredQueryResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the stored query for a single AWS account and a single AWS Region.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeUserGroupsCommandInput = DescribeUserGroupsMessage;
-export type DescribeUserGroupsCommandOutput = DescribeUserGroupsResult & __MetadataBearer;
+export interface DescribeUserGroupsCommandInput extends DescribeUserGroupsMessage {}
+export interface DescribeUserGroupsCommandOutput extends DescribeUserGroupsResult, __MetadataBearer {}
 
 /**
  * <p>Returns a list of user groups.</p>

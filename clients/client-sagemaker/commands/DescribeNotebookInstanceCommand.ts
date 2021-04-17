@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeNotebookInstanceCommandInput = DescribeNotebookInstanceInput;
-export type DescribeNotebookInstanceCommandOutput = DescribeNotebookInstanceOutput & __MetadataBearer;
+export interface DescribeNotebookInstanceCommandInput extends DescribeNotebookInstanceInput {}
+export interface DescribeNotebookInstanceCommandOutput extends DescribeNotebookInstanceOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about a notebook instance.</p>

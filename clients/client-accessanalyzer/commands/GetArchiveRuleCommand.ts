@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetArchiveRuleCommandInput = GetArchiveRuleRequest;
-export type GetArchiveRuleCommandOutput = GetArchiveRuleResponse & __MetadataBearer;
+export interface GetArchiveRuleCommandInput extends GetArchiveRuleRequest {}
+export interface GetArchiveRuleCommandOutput extends GetArchiveRuleResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about an archive rule.</p>

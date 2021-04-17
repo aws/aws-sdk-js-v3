@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDirectConnectGatewayCommandInput = DeleteDirectConnectGatewayRequest;
-export type DeleteDirectConnectGatewayCommandOutput = DeleteDirectConnectGatewayResult & __MetadataBearer;
+export interface DeleteDirectConnectGatewayCommandInput extends DeleteDirectConnectGatewayRequest {}
+export interface DeleteDirectConnectGatewayCommandOutput extends DeleteDirectConnectGatewayResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified Direct Connect gateway. You must first delete all virtual interfaces that are

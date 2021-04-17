@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListCertificatesByCACommandInput = ListCertificatesByCARequest;
-export type ListCertificatesByCACommandOutput = ListCertificatesByCAResponse & __MetadataBearer;
+export interface ListCertificatesByCACommandInput extends ListCertificatesByCARequest {}
+export interface ListCertificatesByCACommandOutput extends ListCertificatesByCAResponse, __MetadataBearer {}
 
 /**
  * <p>List the device certificates signed by the specified CA certificate.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateFirewallRuleGroupCommandInput = AssociateFirewallRuleGroupRequest;
-export type AssociateFirewallRuleGroupCommandOutput = AssociateFirewallRuleGroupResponse & __MetadataBearer;
+export interface AssociateFirewallRuleGroupCommandInput extends AssociateFirewallRuleGroupRequest {}
+export interface AssociateFirewallRuleGroupCommandOutput extends AssociateFirewallRuleGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a <a>FirewallRuleGroup</a> with a VPC, to provide DNS filtering for the VPC. </p>

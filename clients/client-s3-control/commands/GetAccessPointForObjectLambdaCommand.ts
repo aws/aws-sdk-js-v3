@@ -18,8 +18,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAccessPointForObjectLambdaCommandInput = GetAccessPointForObjectLambdaRequest;
-export type GetAccessPointForObjectLambdaCommandOutput = GetAccessPointForObjectLambdaResult & __MetadataBearer;
+export interface GetAccessPointForObjectLambdaCommandInput extends GetAccessPointForObjectLambdaRequest {}
+export interface GetAccessPointForObjectLambdaCommandOutput
+  extends GetAccessPointForObjectLambdaResult,
+    __MetadataBearer {}
 
 /**
  * <p>Returns configuration information about the specified Object Lambda Access Point</p>

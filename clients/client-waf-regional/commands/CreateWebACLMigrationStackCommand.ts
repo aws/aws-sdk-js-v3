@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateWebACLMigrationStackCommandInput = CreateWebACLMigrationStackRequest;
-export type CreateWebACLMigrationStackCommandOutput = CreateWebACLMigrationStackResponse & __MetadataBearer;
+export interface CreateWebACLMigrationStackCommandInput extends CreateWebACLMigrationStackRequest {}
+export interface CreateWebACLMigrationStackCommandOutput extends CreateWebACLMigrationStackResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an AWS CloudFormation WAFV2 template for the specified web ACL in the specified Amazon S3 bucket.

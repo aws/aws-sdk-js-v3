@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListFlowsCommandInput = ListFlowsRequest;
-export type ListFlowsCommandOutput = ListFlowsResponse & __MetadataBearer;
+export interface ListFlowsCommandInput extends ListFlowsRequest {}
+export interface ListFlowsCommandOutput extends ListFlowsResponse, __MetadataBearer {}
 
 /**
  * Displays a list of flows that are associated with this account. This request returns a paginated result.

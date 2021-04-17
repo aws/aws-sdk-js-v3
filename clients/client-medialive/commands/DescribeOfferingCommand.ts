@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeOfferingCommandInput = DescribeOfferingRequest;
-export type DescribeOfferingCommandOutput = DescribeOfferingResponse & __MetadataBearer;
+export interface DescribeOfferingCommandInput extends DescribeOfferingRequest {}
+export interface DescribeOfferingCommandOutput extends DescribeOfferingResponse, __MetadataBearer {}
 
 /**
  * Get details for an offering.

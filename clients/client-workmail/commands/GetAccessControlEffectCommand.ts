@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAccessControlEffectCommandInput = GetAccessControlEffectRequest;
-export type GetAccessControlEffectCommandOutput = GetAccessControlEffectResponse & __MetadataBearer;
+export interface GetAccessControlEffectCommandInput extends GetAccessControlEffectRequest {}
+export interface GetAccessControlEffectCommandOutput extends GetAccessControlEffectResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the effects of an organization's access control rules as they apply to a

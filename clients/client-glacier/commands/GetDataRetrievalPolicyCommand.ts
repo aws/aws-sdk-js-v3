@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDataRetrievalPolicyCommandInput = GetDataRetrievalPolicyInput;
-export type GetDataRetrievalPolicyCommandOutput = GetDataRetrievalPolicyOutput & __MetadataBearer;
+export interface GetDataRetrievalPolicyCommandInput extends GetDataRetrievalPolicyInput {}
+export interface GetDataRetrievalPolicyCommandOutput extends GetDataRetrievalPolicyOutput, __MetadataBearer {}
 
 /**
  * <p>This operation returns the current data retrieval policy for the account and region

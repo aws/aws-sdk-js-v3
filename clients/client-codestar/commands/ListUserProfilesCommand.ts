@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListUserProfilesCommandInput = ListUserProfilesRequest;
-export type ListUserProfilesCommandOutput = ListUserProfilesResult & __MetadataBearer;
+export interface ListUserProfilesCommandInput extends ListUserProfilesRequest {}
+export interface ListUserProfilesCommandOutput extends ListUserProfilesResult, __MetadataBearer {}
 
 /**
  * <p>Lists all the user profiles configured for your AWS account in AWS CodeStar.</p>

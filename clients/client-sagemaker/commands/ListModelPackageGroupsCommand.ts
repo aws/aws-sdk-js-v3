@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListModelPackageGroupsCommandInput = ListModelPackageGroupsInput;
-export type ListModelPackageGroupsCommandOutput = ListModelPackageGroupsOutput & __MetadataBearer;
+export interface ListModelPackageGroupsCommandInput extends ListModelPackageGroupsInput {}
+export interface ListModelPackageGroupsCommandOutput extends ListModelPackageGroupsOutput, __MetadataBearer {}
 
 /**
  * <p>Gets a list of the model groups in your AWS account.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelSimulationJobBatchCommandInput = CancelSimulationJobBatchRequest;
-export type CancelSimulationJobBatchCommandOutput = CancelSimulationJobBatchResponse & __MetadataBearer;
+export interface CancelSimulationJobBatchCommandInput extends CancelSimulationJobBatchRequest {}
+export interface CancelSimulationJobBatchCommandOutput extends CancelSimulationJobBatchResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels a simulation job batch. When you cancel a simulation job batch, you are also

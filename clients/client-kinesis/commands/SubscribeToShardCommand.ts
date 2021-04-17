@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SubscribeToShardCommandInput = SubscribeToShardInput;
-export type SubscribeToShardCommandOutput = SubscribeToShardOutput & __MetadataBearer;
+export interface SubscribeToShardCommandInput extends SubscribeToShardInput {}
+export interface SubscribeToShardCommandOutput extends SubscribeToShardOutput, __MetadataBearer {}
 
 /**
  * <p>This operation establishes an HTTP/2 connection between the consumer you specify in

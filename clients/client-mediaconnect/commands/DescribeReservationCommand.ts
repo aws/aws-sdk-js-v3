@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeReservationCommandInput = DescribeReservationRequest;
-export type DescribeReservationCommandOutput = DescribeReservationResponse & __MetadataBearer;
+export interface DescribeReservationCommandInput extends DescribeReservationRequest {}
+export interface DescribeReservationCommandOutput extends DescribeReservationResponse, __MetadataBearer {}
 
 /**
  * Displays the details of a reservation. The response includes the reservation name, state, start date and time, and the details of the offering that make up the rest of the reservation (such as price, duration, and outbound bandwidth).

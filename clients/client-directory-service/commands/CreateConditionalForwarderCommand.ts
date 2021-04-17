@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateConditionalForwarderCommandInput = CreateConditionalForwarderRequest;
-export type CreateConditionalForwarderCommandOutput = CreateConditionalForwarderResult & __MetadataBearer;
+export interface CreateConditionalForwarderCommandInput extends CreateConditionalForwarderRequest {}
+export interface CreateConditionalForwarderCommandOutput extends CreateConditionalForwarderResult, __MetadataBearer {}
 
 /**
  * <p>Creates a conditional forwarder associated with your AWS directory. Conditional forwarders are required in order to set up a trust relationship with another domain. The conditional forwarder points to the trusted domain.</p>

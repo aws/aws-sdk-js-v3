@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteProvisionedProductPlanCommandInput = DeleteProvisionedProductPlanInput;
-export type DeleteProvisionedProductPlanCommandOutput = DeleteProvisionedProductPlanOutput & __MetadataBearer;
+export interface DeleteProvisionedProductPlanCommandInput extends DeleteProvisionedProductPlanInput {}
+export interface DeleteProvisionedProductPlanCommandOutput
+  extends DeleteProvisionedProductPlanOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes the specified plan.</p>

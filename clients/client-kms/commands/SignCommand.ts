@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SignCommandInput = SignRequest;
-export type SignCommandOutput = SignResponse & __MetadataBearer;
+export interface SignCommandInput extends SignRequest {}
+export interface SignCommandOutput extends SignResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a <a href="https://en.wikipedia.org/wiki/Digital_signature">digital

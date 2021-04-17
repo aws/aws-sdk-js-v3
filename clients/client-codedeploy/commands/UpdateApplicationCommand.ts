@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateApplicationCommandInput = UpdateApplicationInput;
-export type UpdateApplicationCommandOutput = __MetadataBearer;
+export interface UpdateApplicationCommandInput extends UpdateApplicationInput {}
+export interface UpdateApplicationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Changes the name of an application.</p>

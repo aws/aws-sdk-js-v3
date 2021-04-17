@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListEntitlementsCommandInput = ListEntitlementsRequest;
-export type ListEntitlementsCommandOutput = ListEntitlementsResponse & __MetadataBearer;
+export interface ListEntitlementsCommandInput extends ListEntitlementsRequest {}
+export interface ListEntitlementsCommandOutput extends ListEntitlementsResponse, __MetadataBearer {}
 
 /**
  * Displays a list of all entitlements that have been granted to this account. This request returns 20 results per page.

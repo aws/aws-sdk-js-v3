@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopExperimentCommandInput = StopExperimentRequest;
-export type StopExperimentCommandOutput = StopExperimentResponse & __MetadataBearer;
+export interface StopExperimentCommandInput extends StopExperimentRequest {}
+export interface StopExperimentCommandOutput extends StopExperimentResponse, __MetadataBearer {}
 
 /**
  * <p>Stops the specified experiment.</p>

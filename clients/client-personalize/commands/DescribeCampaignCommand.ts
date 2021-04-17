@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeCampaignCommandInput = DescribeCampaignRequest;
-export type DescribeCampaignCommandOutput = DescribeCampaignResponse & __MetadataBearer;
+export interface DescribeCampaignCommandInput extends DescribeCampaignRequest {}
+export interface DescribeCampaignCommandOutput extends DescribeCampaignResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the given campaign, including its status.</p>

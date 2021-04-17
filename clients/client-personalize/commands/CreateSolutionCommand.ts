@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateSolutionCommandInput = CreateSolutionRequest;
-export type CreateSolutionCommandOutput = CreateSolutionResponse & __MetadataBearer;
+export interface CreateSolutionCommandInput extends CreateSolutionRequest {}
+export interface CreateSolutionCommandOutput extends CreateSolutionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates the configuration for training a model. A trained model is known as

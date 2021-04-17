@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateUserCommandInput = UpdateUserRequest;
-export type UpdateUserCommandOutput = UpdateUserResponse & __MetadataBearer;
+export interface UpdateUserCommandInput extends UpdateUserRequest {}
+export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataBearer {}
 
 /**
  * <p>Assigns new properties to a user. Parameters you pass modify any or all of the following:

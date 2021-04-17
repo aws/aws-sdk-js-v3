@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateComponentCommandInput = CreateComponentRequest;
-export type CreateComponentCommandOutput = CreateComponentResponse & __MetadataBearer;
+export interface CreateComponentCommandInput extends CreateComponentRequest {}
+export interface CreateComponentCommandOutput extends CreateComponentResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new component that can be used to build, validate, test, and assess your

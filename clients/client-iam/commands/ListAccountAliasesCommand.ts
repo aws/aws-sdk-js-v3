@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAccountAliasesCommandInput = ListAccountAliasesRequest;
-export type ListAccountAliasesCommandOutput = ListAccountAliasesResponse & __MetadataBearer;
+export interface ListAccountAliasesCommandInput extends ListAccountAliasesRequest {}
+export interface ListAccountAliasesCommandOutput extends ListAccountAliasesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the account alias associated with the AWS account (Note: you can have only

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateFHIRDatastoreCommandInput = CreateFHIRDatastoreRequest;
-export type CreateFHIRDatastoreCommandOutput = CreateFHIRDatastoreResponse & __MetadataBearer;
+export interface CreateFHIRDatastoreCommandInput extends CreateFHIRDatastoreRequest {}
+export interface CreateFHIRDatastoreCommandOutput extends CreateFHIRDatastoreResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a Data Store that can ingest and export FHIR formatted data.</p>

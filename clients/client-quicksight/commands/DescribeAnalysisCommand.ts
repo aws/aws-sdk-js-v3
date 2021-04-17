@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAnalysisCommandInput = DescribeAnalysisRequest;
-export type DescribeAnalysisCommandOutput = DescribeAnalysisResponse & __MetadataBearer;
+export interface DescribeAnalysisCommandInput extends DescribeAnalysisRequest {}
+export interface DescribeAnalysisCommandOutput extends DescribeAnalysisResponse, __MetadataBearer {}
 
 /**
  * <p>Provides a summary of the metadata for an analysis.</p>

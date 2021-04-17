@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListConfigurationProfilesCommandInput = ListConfigurationProfilesRequest;
-export type ListConfigurationProfilesCommandOutput = ConfigurationProfiles & __MetadataBearer;
+export interface ListConfigurationProfilesCommandInput extends ListConfigurationProfilesRequest {}
+export interface ListConfigurationProfilesCommandOutput extends ConfigurationProfiles, __MetadataBearer {}
 
 /**
  * <p>Lists the configuration profiles for an application.</p>

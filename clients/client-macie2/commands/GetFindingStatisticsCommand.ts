@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetFindingStatisticsCommandInput = GetFindingStatisticsRequest;
-export type GetFindingStatisticsCommandOutput = GetFindingStatisticsResponse & __MetadataBearer;
+export interface GetFindingStatisticsCommandInput extends GetFindingStatisticsRequest {}
+export interface GetFindingStatisticsCommandOutput extends GetFindingStatisticsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves (queries) aggregated statistical data about findings.</p>

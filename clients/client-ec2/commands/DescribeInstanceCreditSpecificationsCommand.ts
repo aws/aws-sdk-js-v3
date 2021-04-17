@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeInstanceCreditSpecificationsCommandInput = DescribeInstanceCreditSpecificationsRequest;
-export type DescribeInstanceCreditSpecificationsCommandOutput = DescribeInstanceCreditSpecificationsResult &
-  __MetadataBearer;
+export interface DescribeInstanceCreditSpecificationsCommandInput extends DescribeInstanceCreditSpecificationsRequest {}
+export interface DescribeInstanceCreditSpecificationsCommandOutput
+  extends DescribeInstanceCreditSpecificationsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the credit option for CPU usage of the specified burstable performance

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutPlaybackConfigurationCommandInput = PutPlaybackConfigurationRequest;
-export type PutPlaybackConfigurationCommandOutput = PutPlaybackConfigurationResponse & __MetadataBearer;
+export interface PutPlaybackConfigurationCommandInput extends PutPlaybackConfigurationRequest {}
+export interface PutPlaybackConfigurationCommandOutput extends PutPlaybackConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Adds a new playback configuration to AWS Elemental MediaTailor.</p>

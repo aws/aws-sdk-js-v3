@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateProfileCommandInput = UpdateProfileRequest;
-export type UpdateProfileCommandOutput = UpdateProfileResponse & __MetadataBearer;
+export interface UpdateProfileCommandInput extends UpdateProfileRequest {}
+export interface UpdateProfileCommandOutput extends UpdateProfileResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing room profile by room profile ARN.</p>

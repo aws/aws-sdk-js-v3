@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAttachedUserPoliciesCommandInput = ListAttachedUserPoliciesRequest;
-export type ListAttachedUserPoliciesCommandOutput = ListAttachedUserPoliciesResponse & __MetadataBearer;
+export interface ListAttachedUserPoliciesCommandInput extends ListAttachedUserPoliciesRequest {}
+export interface ListAttachedUserPoliciesCommandOutput extends ListAttachedUserPoliciesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all managed policies that are attached to the specified IAM user.</p>

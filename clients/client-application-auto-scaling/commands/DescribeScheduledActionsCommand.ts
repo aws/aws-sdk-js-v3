@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeScheduledActionsCommandInput = DescribeScheduledActionsRequest;
-export type DescribeScheduledActionsCommandOutput = DescribeScheduledActionsResponse & __MetadataBearer;
+export interface DescribeScheduledActionsCommandInput extends DescribeScheduledActionsRequest {}
+export interface DescribeScheduledActionsCommandOutput extends DescribeScheduledActionsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the Application Auto Scaling scheduled actions for the specified service namespace.</p>

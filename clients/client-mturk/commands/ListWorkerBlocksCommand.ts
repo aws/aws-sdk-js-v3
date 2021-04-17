@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListWorkerBlocksCommandInput = ListWorkerBlocksRequest;
-export type ListWorkerBlocksCommandOutput = ListWorkerBlocksResponse & __MetadataBearer;
+export interface ListWorkerBlocksCommandInput extends ListWorkerBlocksRequest {}
+export interface ListWorkerBlocksCommandOutput extends ListWorkerBlocksResponse, __MetadataBearer {}
 
 /**
  * <p>The <code>ListWorkersBlocks</code> operation retrieves a list of Workers who are blocked from working on your HITs.</p>

@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteHsmCommandInput = DeleteHsmRequest;
-export type DeleteHsmCommandOutput = DeleteHsmResponse & __MetadataBearer;
+export interface DeleteHsmCommandInput extends DeleteHsmRequest {}
+export interface DeleteHsmCommandOutput extends DeleteHsmResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified HSM. To specify an HSM, you can use its identifier (ID), the IP

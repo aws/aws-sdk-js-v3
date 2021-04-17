@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AbortMultipartUploadCommandInput = AbortMultipartUploadInput;
-export type AbortMultipartUploadCommandOutput = __MetadataBearer;
+export interface AbortMultipartUploadCommandInput extends AbortMultipartUploadInput {}
+export interface AbortMultipartUploadCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This operation aborts a multipart upload identified by the upload ID.</p>

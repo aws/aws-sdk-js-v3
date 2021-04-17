@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDashboardVersionsCommandInput = ListDashboardVersionsRequest;
-export type ListDashboardVersionsCommandOutput = ListDashboardVersionsResponse & __MetadataBearer;
+export interface ListDashboardVersionsCommandInput extends ListDashboardVersionsRequest {}
+export interface ListDashboardVersionsCommandOutput extends ListDashboardVersionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all the versions of the dashboards in the QuickSight subscription.</p>

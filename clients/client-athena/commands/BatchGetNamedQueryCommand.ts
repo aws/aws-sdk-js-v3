@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchGetNamedQueryCommandInput = BatchGetNamedQueryInput;
-export type BatchGetNamedQueryCommandOutput = BatchGetNamedQueryOutput & __MetadataBearer;
+export interface BatchGetNamedQueryCommandInput extends BatchGetNamedQueryInput {}
+export interface BatchGetNamedQueryCommandOutput extends BatchGetNamedQueryOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the details of a single named query or a list of up to 50 queries, which you

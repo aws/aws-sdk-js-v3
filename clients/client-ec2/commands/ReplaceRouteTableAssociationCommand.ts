@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ReplaceRouteTableAssociationCommandInput = ReplaceRouteTableAssociationRequest;
-export type ReplaceRouteTableAssociationCommandOutput = ReplaceRouteTableAssociationResult & __MetadataBearer;
+export interface ReplaceRouteTableAssociationCommandInput extends ReplaceRouteTableAssociationRequest {}
+export interface ReplaceRouteTableAssociationCommandOutput
+  extends ReplaceRouteTableAssociationResult,
+    __MetadataBearer {}
 
 /**
  * <p>Changes the route table associated with a given subnet, internet gateway, or virtual private gateway in a VPC. After the operation

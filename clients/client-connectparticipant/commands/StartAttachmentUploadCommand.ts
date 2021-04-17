@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartAttachmentUploadCommandInput = StartAttachmentUploadRequest;
-export type StartAttachmentUploadCommandOutput = StartAttachmentUploadResponse & __MetadataBearer;
+export interface StartAttachmentUploadCommandInput extends StartAttachmentUploadRequest {}
+export interface StartAttachmentUploadCommandOutput extends StartAttachmentUploadResponse, __MetadataBearer {}
 
 /**
  * <p>Provides a pre-signed Amazon S3 URL in response for uploading the file directly to

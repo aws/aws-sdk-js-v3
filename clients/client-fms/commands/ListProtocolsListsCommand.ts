@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListProtocolsListsCommandInput = ListProtocolsListsRequest;
-export type ListProtocolsListsCommandOutput = ListProtocolsListsResponse & __MetadataBearer;
+export interface ListProtocolsListsCommandInput extends ListProtocolsListsRequest {}
+export interface ListProtocolsListsCommandOutput extends ListProtocolsListsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns an array of <code>ProtocolsListDataSummary</code> objects.</p>

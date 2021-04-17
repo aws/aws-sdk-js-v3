@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDomainEntryCommandInput = CreateDomainEntryRequest;
-export type CreateDomainEntryCommandOutput = CreateDomainEntryResult & __MetadataBearer;
+export interface CreateDomainEntryCommandInput extends CreateDomainEntryRequest {}
+export interface CreateDomainEntryCommandOutput extends CreateDomainEntryResult, __MetadataBearer {}
 
 /**
  * <p>Creates one of the following domain name system (DNS) records in a domain DNS zone:

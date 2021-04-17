@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListProtectionsCommandInput = ListProtectionsRequest;
-export type ListProtectionsCommandOutput = ListProtectionsResponse & __MetadataBearer;
+export interface ListProtectionsCommandInput extends ListProtectionsRequest {}
+export interface ListProtectionsCommandOutput extends ListProtectionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all <a>Protection</a> objects for the account.</p>

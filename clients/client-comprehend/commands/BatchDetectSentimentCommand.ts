@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchDetectSentimentCommandInput = BatchDetectSentimentRequest;
-export type BatchDetectSentimentCommandOutput = BatchDetectSentimentResponse & __MetadataBearer;
+export interface BatchDetectSentimentCommandInput extends BatchDetectSentimentRequest {}
+export interface BatchDetectSentimentCommandOutput extends BatchDetectSentimentResponse, __MetadataBearer {}
 
 /**
  * <p>Inspects a batch of documents and returns an inference of the prevailing sentiment,

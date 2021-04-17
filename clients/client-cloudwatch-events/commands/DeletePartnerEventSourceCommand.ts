@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeletePartnerEventSourceCommandInput = DeletePartnerEventSourceRequest;
-export type DeletePartnerEventSourceCommandOutput = __MetadataBearer;
+export interface DeletePartnerEventSourceCommandInput extends DeletePartnerEventSourceRequest {}
+export interface DeletePartnerEventSourceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This operation is used by SaaS partners to delete a partner event source. This operation

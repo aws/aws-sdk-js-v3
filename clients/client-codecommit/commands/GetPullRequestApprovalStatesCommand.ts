@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetPullRequestApprovalStatesCommandInput = GetPullRequestApprovalStatesInput;
-export type GetPullRequestApprovalStatesCommandOutput = GetPullRequestApprovalStatesOutput & __MetadataBearer;
+export interface GetPullRequestApprovalStatesCommandInput extends GetPullRequestApprovalStatesInput {}
+export interface GetPullRequestApprovalStatesCommandOutput
+  extends GetPullRequestApprovalStatesOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Gets information about the approval states for a specified pull request. Approval states only apply to pull requests that have one or more

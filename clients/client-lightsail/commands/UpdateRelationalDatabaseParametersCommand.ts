@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateRelationalDatabaseParametersCommandInput = UpdateRelationalDatabaseParametersRequest;
-export type UpdateRelationalDatabaseParametersCommandOutput = UpdateRelationalDatabaseParametersResult &
-  __MetadataBearer;
+export interface UpdateRelationalDatabaseParametersCommandInput extends UpdateRelationalDatabaseParametersRequest {}
+export interface UpdateRelationalDatabaseParametersCommandOutput
+  extends UpdateRelationalDatabaseParametersResult,
+    __MetadataBearer {}
 
 /**
  * <p>Allows the update of one or more parameters of a database in Amazon Lightsail.</p>

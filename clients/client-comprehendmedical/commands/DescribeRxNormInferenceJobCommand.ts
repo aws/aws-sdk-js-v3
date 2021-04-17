@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeRxNormInferenceJobCommandInput = DescribeRxNormInferenceJobRequest;
-export type DescribeRxNormInferenceJobCommandOutput = DescribeRxNormInferenceJobResponse & __MetadataBearer;
+export interface DescribeRxNormInferenceJobCommandInput extends DescribeRxNormInferenceJobRequest {}
+export interface DescribeRxNormInferenceJobCommandOutput extends DescribeRxNormInferenceJobResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the properties associated with an InferRxNorm job. Use this operation to get the

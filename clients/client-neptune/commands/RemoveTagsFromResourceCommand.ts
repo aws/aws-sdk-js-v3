@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RemoveTagsFromResourceCommandInput = RemoveTagsFromResourceMessage;
-export type RemoveTagsFromResourceCommandOutput = __MetadataBearer;
+export interface RemoveTagsFromResourceCommandInput extends RemoveTagsFromResourceMessage {}
+export interface RemoveTagsFromResourceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes metadata tags from an Amazon Neptune resource.</p>

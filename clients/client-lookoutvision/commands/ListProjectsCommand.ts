@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListProjectsCommandInput = ListProjectsRequest;
-export type ListProjectsCommandOutput = ListProjectsResponse & __MetadataBearer;
+export interface ListProjectsCommandInput extends ListProjectsRequest {}
+export interface ListProjectsCommandOutput extends ListProjectsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the Amazon Lookout for Vision projects in your AWS account.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchGetItemCommandInput = BatchGetItemInput;
-export type BatchGetItemCommandOutput = BatchGetItemOutput & __MetadataBearer;
+export interface BatchGetItemCommandInput extends BatchGetItemInput {}
+export interface BatchGetItemCommandOutput extends BatchGetItemOutput, __MetadataBearer {}
 
 /**
  * <p>The <code>BatchGetItem</code> operation returns the attributes of one or more items from one or

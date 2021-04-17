@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeResizeCommandInput = DescribeResizeMessage;
-export type DescribeResizeCommandOutput = ResizeProgressMessage & __MetadataBearer;
+export interface DescribeResizeCommandInput extends DescribeResizeMessage {}
+export interface DescribeResizeCommandOutput extends ResizeProgressMessage, __MetadataBearer {}
 
 /**
  * <p>Returns information about the last resize operation for the specified cluster. If

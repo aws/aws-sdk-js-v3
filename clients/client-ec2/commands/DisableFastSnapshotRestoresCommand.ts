@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisableFastSnapshotRestoresCommandInput = DisableFastSnapshotRestoresRequest;
-export type DisableFastSnapshotRestoresCommandOutput = DisableFastSnapshotRestoresResult & __MetadataBearer;
+export interface DisableFastSnapshotRestoresCommandInput extends DisableFastSnapshotRestoresRequest {}
+export interface DisableFastSnapshotRestoresCommandOutput extends DisableFastSnapshotRestoresResult, __MetadataBearer {}
 
 /**
  * <p>Disables fast snapshot restores for the specified snapshots in the specified Availability Zones.</p>

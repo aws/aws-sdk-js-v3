@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelConversionTaskCommandInput = CancelConversionRequest;
-export type CancelConversionTaskCommandOutput = __MetadataBearer;
+export interface CancelConversionTaskCommandInput extends CancelConversionRequest {}
+export interface CancelConversionTaskCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Cancels an active conversion task. The task can be the import of an instance or volume. The action removes all

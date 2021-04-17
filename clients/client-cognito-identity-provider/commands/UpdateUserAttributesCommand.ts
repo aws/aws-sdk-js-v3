@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateUserAttributesCommandInput = UpdateUserAttributesRequest;
-export type UpdateUserAttributesCommandOutput = UpdateUserAttributesResponse & __MetadataBearer;
+export interface UpdateUserAttributesCommandInput extends UpdateUserAttributesRequest {}
+export interface UpdateUserAttributesCommandOutput extends UpdateUserAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Allows a user to update a specific attribute (one at a time).</p>

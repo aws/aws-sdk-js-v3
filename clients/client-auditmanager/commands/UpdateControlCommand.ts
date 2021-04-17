@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateControlCommandInput = UpdateControlRequest;
-export type UpdateControlCommandOutput = UpdateControlResponse & __MetadataBearer;
+export interface UpdateControlCommandInput extends UpdateControlRequest {}
+export interface UpdateControlCommandOutput extends UpdateControlResponse, __MetadataBearer {}
 
 /**
  * <p>

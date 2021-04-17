@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetVpcLinksCommandInput = GetVpcLinksRequest;
-export type GetVpcLinksCommandOutput = GetVpcLinksResponse & __MetadataBearer;
+export interface GetVpcLinksCommandInput extends GetVpcLinksRequest {}
+export interface GetVpcLinksCommandOutput extends GetVpcLinksResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a collection of VPC links.</p>

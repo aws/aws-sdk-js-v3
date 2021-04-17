@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RestoreSecretCommandInput = RestoreSecretRequest;
-export type RestoreSecretCommandOutput = RestoreSecretResponse & __MetadataBearer;
+export interface RestoreSecretCommandInput extends RestoreSecretRequest {}
+export interface RestoreSecretCommandOutput extends RestoreSecretResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels the scheduled deletion of a secret by removing the <code>DeletedDate</code> time

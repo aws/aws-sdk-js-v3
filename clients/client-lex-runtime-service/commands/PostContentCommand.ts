@@ -21,10 +21,17 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PostContentCommandInput = Omit<PostContentRequest, "inputStream"> & {
+type PostContentCommandInputType = Omit<PostContentRequest, "inputStream"> & {
+  /**
+   * For *`PostContentRequest["inputStream"]`*, see {@link PostContentRequest.inputStream}.
+   */
   inputStream: PostContentRequest["inputStream"] | string | Uint8Array | Buffer;
 };
-export type PostContentCommandOutput = PostContentResponse & __MetadataBearer;
+/**
+ * This interface extends from `PostContentRequest` interface. There are more parameters than `inputStream` defined in {@link PostContentRequest}
+ */
+export interface PostContentCommandInput extends PostContentCommandInputType {}
+export interface PostContentCommandOutput extends PostContentResponse, __MetadataBearer {}
 
 /**
  * <p> Sends user input (text or speech) to Amazon Lex. Clients use this API to

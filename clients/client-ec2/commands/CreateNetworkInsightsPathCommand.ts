@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateNetworkInsightsPathCommandInput = CreateNetworkInsightsPathRequest;
-export type CreateNetworkInsightsPathCommandOutput = CreateNetworkInsightsPathResult & __MetadataBearer;
+export interface CreateNetworkInsightsPathCommandInput extends CreateNetworkInsightsPathRequest {}
+export interface CreateNetworkInsightsPathCommandOutput extends CreateNetworkInsightsPathResult, __MetadataBearer {}
 
 /**
  * <p>Creates a path to analyze for reachability.</p>

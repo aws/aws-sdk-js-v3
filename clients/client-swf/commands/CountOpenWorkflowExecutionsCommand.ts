@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CountOpenWorkflowExecutionsCommandInput = CountOpenWorkflowExecutionsInput;
-export type CountOpenWorkflowExecutionsCommandOutput = WorkflowExecutionCount & __MetadataBearer;
+export interface CountOpenWorkflowExecutionsCommandInput extends CountOpenWorkflowExecutionsInput {}
+export interface CountOpenWorkflowExecutionsCommandOutput extends WorkflowExecutionCount, __MetadataBearer {}
 
 /**
  * <p>Returns the number of open workflow executions within the given domain that meet the

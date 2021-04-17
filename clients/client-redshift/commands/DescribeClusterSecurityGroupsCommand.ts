@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeClusterSecurityGroupsCommandInput = DescribeClusterSecurityGroupsMessage;
-export type DescribeClusterSecurityGroupsCommandOutput = ClusterSecurityGroupMessage & __MetadataBearer;
+export interface DescribeClusterSecurityGroupsCommandInput extends DescribeClusterSecurityGroupsMessage {}
+export interface DescribeClusterSecurityGroupsCommandOutput extends ClusterSecurityGroupMessage, __MetadataBearer {}
 
 /**
  * <p>Returns information about Amazon Redshift security groups. If the name of a security

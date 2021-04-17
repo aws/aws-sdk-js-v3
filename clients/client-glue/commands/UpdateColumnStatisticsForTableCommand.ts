@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateColumnStatisticsForTableCommandInput = UpdateColumnStatisticsForTableRequest;
-export type UpdateColumnStatisticsForTableCommandOutput = UpdateColumnStatisticsForTableResponse & __MetadataBearer;
+export interface UpdateColumnStatisticsForTableCommandInput extends UpdateColumnStatisticsForTableRequest {}
+export interface UpdateColumnStatisticsForTableCommandOutput
+  extends UpdateColumnStatisticsForTableResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Creates or updates table statistics of columns.</p>

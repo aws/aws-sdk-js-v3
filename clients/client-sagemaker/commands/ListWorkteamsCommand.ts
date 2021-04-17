@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListWorkteamsCommandInput = ListWorkteamsRequest;
-export type ListWorkteamsCommandOutput = ListWorkteamsResponse & __MetadataBearer;
+export interface ListWorkteamsCommandInput extends ListWorkteamsRequest {}
+export interface ListWorkteamsCommandOutput extends ListWorkteamsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of private work teams that you have defined in a region. The list may be empty if

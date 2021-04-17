@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteFieldLevelEncryptionConfigCommandInput = DeleteFieldLevelEncryptionConfigRequest;
-export type DeleteFieldLevelEncryptionConfigCommandOutput = __MetadataBearer;
+export interface DeleteFieldLevelEncryptionConfigCommandInput extends DeleteFieldLevelEncryptionConfigRequest {}
+export interface DeleteFieldLevelEncryptionConfigCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Remove a field-level encryption configuration.</p>

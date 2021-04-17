@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateUploadCommandInput = CreateUploadRequest;
-export type CreateUploadCommandOutput = CreateUploadResult & __MetadataBearer;
+export interface CreateUploadCommandInput extends CreateUploadRequest {}
+export interface CreateUploadCommandOutput extends CreateUploadResult, __MetadataBearer {}
 
 /**
  * <p>Uploads an app or test scripts.</p>

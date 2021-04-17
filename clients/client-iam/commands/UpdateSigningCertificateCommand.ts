@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateSigningCertificateCommandInput = UpdateSigningCertificateRequest;
-export type UpdateSigningCertificateCommandOutput = __MetadataBearer;
+export interface UpdateSigningCertificateCommandInput extends UpdateSigningCertificateRequest {}
+export interface UpdateSigningCertificateCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Changes the status of the specified user signing certificate from active to disabled,

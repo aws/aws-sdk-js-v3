@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteScheduledActionCommandInput = DeleteScheduledActionMessage;
-export type DeleteScheduledActionCommandOutput = __MetadataBearer;
+export interface DeleteScheduledActionCommandInput extends DeleteScheduledActionMessage {}
+export interface DeleteScheduledActionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a scheduled action.

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeMountTargetsCommandInput = DescribeMountTargetsRequest;
-export type DescribeMountTargetsCommandOutput = DescribeMountTargetsResponse & __MetadataBearer;
+export interface DescribeMountTargetsCommandInput extends DescribeMountTargetsRequest {}
+export interface DescribeMountTargetsCommandOutput extends DescribeMountTargetsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the descriptions of all the current mount targets, or a specific mount target,

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetMasterAccountCommandInput = GetMasterAccountRequest;
-export type GetMasterAccountCommandOutput = GetMasterAccountResponse & __MetadataBearer;
+export interface GetMasterAccountCommandInput extends GetMasterAccountRequest {}
+export interface GetMasterAccountCommandOutput extends GetMasterAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Provides the details for the Security Hub master account for the current member account.</p>

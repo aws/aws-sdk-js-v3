@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetPlaybackConfigurationCommandInput = GetPlaybackConfigurationRequest;
-export type GetPlaybackConfigurationCommandOutput = GetPlaybackConfigurationResponse & __MetadataBearer;
+export interface GetPlaybackConfigurationCommandInput extends GetPlaybackConfigurationRequest {}
+export interface GetPlaybackConfigurationCommandOutput extends GetPlaybackConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the playback configuration for the specified name.</p>

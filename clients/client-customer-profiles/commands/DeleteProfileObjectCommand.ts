@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteProfileObjectCommandInput = DeleteProfileObjectRequest;
-export type DeleteProfileObjectCommandOutput = DeleteProfileObjectResponse & __MetadataBearer;
+export interface DeleteProfileObjectCommandInput extends DeleteProfileObjectRequest {}
+export interface DeleteProfileObjectCommandOutput extends DeleteProfileObjectResponse, __MetadataBearer {}
 
 /**
  * <p>Removes an object associated with a profile of a given ProfileObjectType.</p>

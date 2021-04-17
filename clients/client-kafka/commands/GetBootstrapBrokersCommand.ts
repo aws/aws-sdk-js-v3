@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBootstrapBrokersCommandInput = GetBootstrapBrokersRequest;
-export type GetBootstrapBrokersCommandOutput = GetBootstrapBrokersResponse & __MetadataBearer;
+export interface GetBootstrapBrokersCommandInput extends GetBootstrapBrokersRequest {}
+export interface GetBootstrapBrokersCommandOutput extends GetBootstrapBrokersResponse, __MetadataBearer {}
 
 /**
  * <p>A list of brokers that a client application can use to bootstrap.</p>

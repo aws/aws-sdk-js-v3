@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ConfirmForgotPasswordCommandInput = ConfirmForgotPasswordRequest;
-export type ConfirmForgotPasswordCommandOutput = ConfirmForgotPasswordResponse & __MetadataBearer;
+export interface ConfirmForgotPasswordCommandInput extends ConfirmForgotPasswordRequest {}
+export interface ConfirmForgotPasswordCommandOutput extends ConfirmForgotPasswordResponse, __MetadataBearer {}
 
 /**
  * <p>Allows a user to enter a confirmation code to reset a forgotten password.</p>

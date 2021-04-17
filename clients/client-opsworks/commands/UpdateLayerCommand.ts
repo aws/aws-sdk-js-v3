@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateLayerCommandInput = UpdateLayerRequest;
-export type UpdateLayerCommandOutput = __MetadataBearer;
+export interface UpdateLayerCommandInput extends UpdateLayerRequest {}
+export interface UpdateLayerCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates a specified layer.</p>

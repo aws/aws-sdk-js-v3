@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RemoveRoleFromInstanceProfileCommandInput = RemoveRoleFromInstanceProfileRequest;
-export type RemoveRoleFromInstanceProfileCommandOutput = __MetadataBearer;
+export interface RemoveRoleFromInstanceProfileCommandInput extends RemoveRoleFromInstanceProfileRequest {}
+export interface RemoveRoleFromInstanceProfileCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes the specified IAM role from the specified EC2 instance profile.</p>

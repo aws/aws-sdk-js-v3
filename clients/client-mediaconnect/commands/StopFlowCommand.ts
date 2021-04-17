@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopFlowCommandInput = StopFlowRequest;
-export type StopFlowCommandOutput = StopFlowResponse & __MetadataBearer;
+export interface StopFlowCommandInput extends StopFlowRequest {}
+export interface StopFlowCommandOutput extends StopFlowResponse, __MetadataBearer {}
 
 /**
  * Stops a flow.

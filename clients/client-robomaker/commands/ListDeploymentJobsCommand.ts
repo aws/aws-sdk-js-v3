@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDeploymentJobsCommandInput = ListDeploymentJobsRequest;
-export type ListDeploymentJobsCommandOutput = ListDeploymentJobsResponse & __MetadataBearer;
+export interface ListDeploymentJobsCommandInput extends ListDeploymentJobsRequest {}
+export interface ListDeploymentJobsCommandOutput extends ListDeploymentJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of deployment jobs for a fleet. You can optionally provide filters to

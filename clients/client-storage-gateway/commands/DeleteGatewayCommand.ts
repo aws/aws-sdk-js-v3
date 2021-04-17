@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteGatewayCommandInput = DeleteGatewayInput;
-export type DeleteGatewayCommandOutput = DeleteGatewayOutput & __MetadataBearer;
+export interface DeleteGatewayCommandInput extends DeleteGatewayInput {}
+export interface DeleteGatewayCommandOutput extends DeleteGatewayOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes a gateway. To specify which gateway to delete, use the Amazon Resource Name

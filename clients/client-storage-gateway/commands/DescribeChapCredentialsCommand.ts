@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeChapCredentialsCommandInput = DescribeChapCredentialsInput;
-export type DescribeChapCredentialsCommandOutput = DescribeChapCredentialsOutput & __MetadataBearer;
+export interface DescribeChapCredentialsCommandInput extends DescribeChapCredentialsInput {}
+export interface DescribeChapCredentialsCommandOutput extends DescribeChapCredentialsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns an array of Challenge-Handshake Authentication Protocol (CHAP) credentials

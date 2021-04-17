@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteCacheParameterGroupCommandInput = DeleteCacheParameterGroupMessage;
-export type DeleteCacheParameterGroupCommandOutput = __MetadataBearer;
+export interface DeleteCacheParameterGroupCommandInput extends DeleteCacheParameterGroupMessage {}
+export interface DeleteCacheParameterGroupCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified cache parameter

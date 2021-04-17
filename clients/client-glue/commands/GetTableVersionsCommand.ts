@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetTableVersionsCommandInput = GetTableVersionsRequest;
-export type GetTableVersionsCommandOutput = GetTableVersionsResponse & __MetadataBearer;
+export interface GetTableVersionsCommandInput extends GetTableVersionsRequest {}
+export interface GetTableVersionsCommandOutput extends GetTableVersionsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of strings that identify available versions of

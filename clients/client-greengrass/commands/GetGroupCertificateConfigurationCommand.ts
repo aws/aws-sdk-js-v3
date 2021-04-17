@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetGroupCertificateConfigurationCommandInput = GetGroupCertificateConfigurationRequest;
-export type GetGroupCertificateConfigurationCommandOutput = GetGroupCertificateConfigurationResponse & __MetadataBearer;
+export interface GetGroupCertificateConfigurationCommandInput extends GetGroupCertificateConfigurationRequest {}
+export interface GetGroupCertificateConfigurationCommandOutput
+  extends GetGroupCertificateConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * Retrieves the current configuration for the CA used by the group.

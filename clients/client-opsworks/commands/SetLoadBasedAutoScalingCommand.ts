@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetLoadBasedAutoScalingCommandInput = SetLoadBasedAutoScalingRequest;
-export type SetLoadBasedAutoScalingCommandOutput = __MetadataBearer;
+export interface SetLoadBasedAutoScalingCommandInput extends SetLoadBasedAutoScalingRequest {}
+export interface SetLoadBasedAutoScalingCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Specify the load-based auto scaling configuration for a specified layer. For more

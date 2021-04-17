@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutImageScanningConfigurationCommandInput = PutImageScanningConfigurationRequest;
-export type PutImageScanningConfigurationCommandOutput = PutImageScanningConfigurationResponse & __MetadataBearer;
+export interface PutImageScanningConfigurationCommandInput extends PutImageScanningConfigurationRequest {}
+export interface PutImageScanningConfigurationCommandOutput
+  extends PutImageScanningConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Updates the image scanning configuration for the specified repository.</p>

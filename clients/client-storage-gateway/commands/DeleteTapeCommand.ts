@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteTapeCommandInput = DeleteTapeInput;
-export type DeleteTapeCommandOutput = DeleteTapeOutput & __MetadataBearer;
+export interface DeleteTapeCommandInput extends DeleteTapeInput {}
+export interface DeleteTapeCommandOutput extends DeleteTapeOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified virtual tape. This operation is only supported in the tape gateway

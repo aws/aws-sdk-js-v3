@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeregisterAccountCommandInput = DeregisterAccountRequest;
-export type DeregisterAccountCommandOutput = DeregisterAccountResponse & __MetadataBearer;
+export interface DeregisterAccountCommandInput extends DeregisterAccountRequest {}
+export interface DeregisterAccountCommandOutput extends DeregisterAccountResponse, __MetadataBearer {}
 
 /**
  * <p>

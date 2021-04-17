@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateProvisioningClaimCommandInput = CreateProvisioningClaimRequest;
-export type CreateProvisioningClaimCommandOutput = CreateProvisioningClaimResponse & __MetadataBearer;
+export interface CreateProvisioningClaimCommandInput extends CreateProvisioningClaimRequest {}
+export interface CreateProvisioningClaimCommandOutput extends CreateProvisioningClaimResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a provisioning claim.</p>

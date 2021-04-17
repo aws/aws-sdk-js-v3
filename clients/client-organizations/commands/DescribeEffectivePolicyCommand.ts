@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeEffectivePolicyCommandInput = DescribeEffectivePolicyRequest;
-export type DescribeEffectivePolicyCommandOutput = DescribeEffectivePolicyResponse & __MetadataBearer;
+export interface DescribeEffectivePolicyCommandInput extends DescribeEffectivePolicyRequest {}
+export interface DescribeEffectivePolicyCommandOutput extends DescribeEffectivePolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the contents of the effective policy for specified policy type and account.

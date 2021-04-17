@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteWebACLCommandInput = DeleteWebACLRequest;
-export type DeleteWebACLCommandOutput = DeleteWebACLResponse & __MetadataBearer;
+export interface DeleteWebACLCommandInput extends DeleteWebACLRequest {}
+export interface DeleteWebACLCommandOutput extends DeleteWebACLResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified <a>WebACL</a>.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetWorkflowExecutionHistoryCommandInput = GetWorkflowExecutionHistoryInput;
-export type GetWorkflowExecutionHistoryCommandOutput = History & __MetadataBearer;
+export interface GetWorkflowExecutionHistoryCommandInput extends GetWorkflowExecutionHistoryInput {}
+export interface GetWorkflowExecutionHistoryCommandOutput extends History, __MetadataBearer {}
 
 /**
  * <p>Returns the history of the specified workflow execution. The results may be split into

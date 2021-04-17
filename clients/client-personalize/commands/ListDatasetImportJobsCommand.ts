@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDatasetImportJobsCommandInput = ListDatasetImportJobsRequest;
-export type ListDatasetImportJobsCommandOutput = ListDatasetImportJobsResponse & __MetadataBearer;
+export interface ListDatasetImportJobsCommandInput extends ListDatasetImportJobsRequest {}
+export interface ListDatasetImportJobsCommandOutput extends ListDatasetImportJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of dataset import jobs that use the given dataset. When a dataset is not

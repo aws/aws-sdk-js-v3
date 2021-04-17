@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListProvisioningArtifactsCommandInput = ListProvisioningArtifactsInput;
-export type ListProvisioningArtifactsCommandOutput = ListProvisioningArtifactsOutput & __MetadataBearer;
+export interface ListProvisioningArtifactsCommandInput extends ListProvisioningArtifactsInput {}
+export interface ListProvisioningArtifactsCommandOutput extends ListProvisioningArtifactsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists all provisioning artifacts (also known as versions) for the specified product.</p>

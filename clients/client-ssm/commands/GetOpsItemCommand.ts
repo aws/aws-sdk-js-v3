@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetOpsItemCommandInput = GetOpsItemRequest;
-export type GetOpsItemCommandOutput = GetOpsItemResponse & __MetadataBearer;
+export interface GetOpsItemCommandInput extends GetOpsItemRequest {}
+export interface GetOpsItemCommandOutput extends GetOpsItemResponse, __MetadataBearer {}
 
 /**
  * <p>Get information about an OpsItem by using the ID. You must have permission in AWS Identity

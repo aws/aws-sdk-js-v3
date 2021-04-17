@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateConfigurationProfileCommandInput = CreateConfigurationProfileRequest;
-export type CreateConfigurationProfileCommandOutput = ConfigurationProfile & __MetadataBearer;
+export interface CreateConfigurationProfileCommandInput extends CreateConfigurationProfileRequest {}
+export interface CreateConfigurationProfileCommandOutput extends ConfigurationProfile, __MetadataBearer {}
 
 /**
  * <p>Information that enables AppConfig to access the configuration source. Valid

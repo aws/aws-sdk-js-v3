@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartFleetCommandInput = StartFleetRequest;
-export type StartFleetCommandOutput = StartFleetResult & __MetadataBearer;
+export interface StartFleetCommandInput extends StartFleetRequest {}
+export interface StartFleetCommandOutput extends StartFleetResult, __MetadataBearer {}
 
 /**
  * <p>Starts the specified fleet.</p>

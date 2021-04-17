@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateRelationalDatabaseFromSnapshotCommandInput = CreateRelationalDatabaseFromSnapshotRequest;
-export type CreateRelationalDatabaseFromSnapshotCommandOutput = CreateRelationalDatabaseFromSnapshotResult &
-  __MetadataBearer;
+export interface CreateRelationalDatabaseFromSnapshotCommandInput extends CreateRelationalDatabaseFromSnapshotRequest {}
+export interface CreateRelationalDatabaseFromSnapshotCommandOutput
+  extends CreateRelationalDatabaseFromSnapshotResult,
+    __MetadataBearer {}
 
 /**
  * <p>Creates a new database from an existing database snapshot in Amazon Lightsail.</p>

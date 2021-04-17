@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AbortDocumentVersionUploadCommandInput = AbortDocumentVersionUploadRequest;
-export type AbortDocumentVersionUploadCommandOutput = __MetadataBearer;
+export interface AbortDocumentVersionUploadCommandInput extends AbortDocumentVersionUploadRequest {}
+export interface AbortDocumentVersionUploadCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Aborts the upload of the specified document version that was previously initiated

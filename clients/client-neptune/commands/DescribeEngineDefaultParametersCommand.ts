@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeEngineDefaultParametersCommandInput = DescribeEngineDefaultParametersMessage;
-export type DescribeEngineDefaultParametersCommandOutput = DescribeEngineDefaultParametersResult & __MetadataBearer;
+export interface DescribeEngineDefaultParametersCommandInput extends DescribeEngineDefaultParametersMessage {}
+export interface DescribeEngineDefaultParametersCommandOutput
+  extends DescribeEngineDefaultParametersResult,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the default engine and system parameter information for the specified database

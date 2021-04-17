@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteMethodCommandInput = DeleteMethodRequest;
-export type DeleteMethodCommandOutput = __MetadataBearer;
+export interface DeleteMethodCommandInput extends DeleteMethodRequest {}
+export interface DeleteMethodCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes an existing <a>Method</a> resource.</p>

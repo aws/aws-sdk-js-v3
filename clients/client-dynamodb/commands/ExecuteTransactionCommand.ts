@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ExecuteTransactionCommandInput = ExecuteTransactionInput;
-export type ExecuteTransactionCommandOutput = ExecuteTransactionOutput & __MetadataBearer;
+export interface ExecuteTransactionCommandInput extends ExecuteTransactionInput {}
+export interface ExecuteTransactionCommandOutput extends ExecuteTransactionOutput, __MetadataBearer {}
 
 /**
  * <p>

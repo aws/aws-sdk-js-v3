@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPoliciesCommandInput = ListPoliciesRequest;
-export type ListPoliciesCommandOutput = ListPoliciesResponse & __MetadataBearer;
+export interface ListPoliciesCommandInput extends ListPoliciesRequest {}
+export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the list of all policies in an organization of a specified type.</p>

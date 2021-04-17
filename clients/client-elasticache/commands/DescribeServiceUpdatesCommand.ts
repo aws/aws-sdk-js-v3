@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeServiceUpdatesCommandInput = DescribeServiceUpdatesMessage;
-export type DescribeServiceUpdatesCommandOutput = ServiceUpdatesMessage & __MetadataBearer;
+export interface DescribeServiceUpdatesCommandInput extends DescribeServiceUpdatesMessage {}
+export interface DescribeServiceUpdatesCommandOutput extends ServiceUpdatesMessage, __MetadataBearer {}
 
 /**
  * <p>Returns details of the service updates</p>

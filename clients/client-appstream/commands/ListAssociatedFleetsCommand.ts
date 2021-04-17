@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAssociatedFleetsCommandInput = ListAssociatedFleetsRequest;
-export type ListAssociatedFleetsCommandOutput = ListAssociatedFleetsResult & __MetadataBearer;
+export interface ListAssociatedFleetsCommandInput extends ListAssociatedFleetsRequest {}
+export interface ListAssociatedFleetsCommandOutput extends ListAssociatedFleetsResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves the name of the fleet that is associated with the specified stack.</p>

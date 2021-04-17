@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UnsubscribeFromEventCommandInput = UnsubscribeFromEventRequest;
-export type UnsubscribeFromEventCommandOutput = __MetadataBearer;
+export interface UnsubscribeFromEventCommandInput extends UnsubscribeFromEventRequest {}
+export interface UnsubscribeFromEventCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Disables the process of sending Amazon Simple Notification Service (SNS)

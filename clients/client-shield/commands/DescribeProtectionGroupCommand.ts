@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeProtectionGroupCommandInput = DescribeProtectionGroupRequest;
-export type DescribeProtectionGroupCommandOutput = DescribeProtectionGroupResponse & __MetadataBearer;
+export interface DescribeProtectionGroupCommandInput extends DescribeProtectionGroupRequest {}
+export interface DescribeProtectionGroupCommandOutput extends DescribeProtectionGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the specification for the specified protection group.</p>

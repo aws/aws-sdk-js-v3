@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBlockCommandInput = GetBlockRequest;
-export type GetBlockCommandOutput = GetBlockResponse & __MetadataBearer;
+export interface GetBlockCommandInput extends GetBlockRequest {}
+export interface GetBlockCommandOutput extends GetBlockResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a block object at a specified address in a journal. Also returns a proof of the

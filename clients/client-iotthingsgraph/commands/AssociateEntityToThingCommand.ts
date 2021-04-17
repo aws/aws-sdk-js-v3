@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateEntityToThingCommandInput = AssociateEntityToThingRequest;
-export type AssociateEntityToThingCommandOutput = AssociateEntityToThingResponse & __MetadataBearer;
+export interface AssociateEntityToThingCommandInput extends AssociateEntityToThingRequest {}
+export interface AssociateEntityToThingCommandOutput extends AssociateEntityToThingResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a device with a concrete thing that is in the user's registry.</p>

@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterTypeCommandInput = RegisterTypeInput;
-export type RegisterTypeCommandOutput = RegisterTypeOutput & __MetadataBearer;
+export interface RegisterTypeCommandInput extends RegisterTypeInput {}
+export interface RegisterTypeCommandOutput extends RegisterTypeOutput, __MetadataBearer {}
 
 /**
  * <p>Registers an extension with the CloudFormation service. Registering an extension makes it available for use in CloudFormation templates in your AWS account, and includes:</p>

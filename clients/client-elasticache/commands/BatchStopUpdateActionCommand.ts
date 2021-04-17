@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchStopUpdateActionCommandInput = BatchStopUpdateActionMessage;
-export type BatchStopUpdateActionCommandOutput = UpdateActionResultsMessage & __MetadataBearer;
+export interface BatchStopUpdateActionCommandInput extends BatchStopUpdateActionMessage {}
+export interface BatchStopUpdateActionCommandOutput extends UpdateActionResultsMessage, __MetadataBearer {}
 
 /**
  * <p>Stop the service update. For more information on service updates and stopping them, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/stopping-self-service-updates.html">Stopping Service Updates</a>.</p>

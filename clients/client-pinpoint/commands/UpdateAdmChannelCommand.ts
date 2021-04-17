@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateAdmChannelCommandInput = UpdateAdmChannelRequest;
-export type UpdateAdmChannelCommandOutput = UpdateAdmChannelResponse & __MetadataBearer;
+export interface UpdateAdmChannelCommandInput extends UpdateAdmChannelRequest {}
+export interface UpdateAdmChannelCommandOutput extends UpdateAdmChannelResponse, __MetadataBearer {}
 
 /**
  * <p>Enables the ADM channel for an application or updates the status and settings of the ADM channel for an application.</p>

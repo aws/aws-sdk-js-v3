@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ActivateGatewayCommandInput = ActivateGatewayInput;
-export type ActivateGatewayCommandOutput = ActivateGatewayOutput & __MetadataBearer;
+export interface ActivateGatewayCommandInput extends ActivateGatewayInput {}
+export interface ActivateGatewayCommandOutput extends ActivateGatewayOutput, __MetadataBearer {}
 
 /**
  * <p>Activates the gateway you previously deployed on your host. In the activation process,

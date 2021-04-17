@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListModelsCommandInput = ListModelsRequest;
-export type ListModelsCommandOutput = ListModelsResponse & __MetadataBearer;
+export interface ListModelsCommandInput extends ListModelsRequest {}
+export interface ListModelsCommandOutput extends ListModelsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the versions of a model in an Amazon Lookout for Vision project.</p>

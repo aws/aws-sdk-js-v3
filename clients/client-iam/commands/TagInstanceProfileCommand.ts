@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TagInstanceProfileCommandInput = TagInstanceProfileRequest;
-export type TagInstanceProfileCommandOutput = __MetadataBearer;
+export interface TagInstanceProfileCommandInput extends TagInstanceProfileRequest {}
+export interface TagInstanceProfileCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Adds one or more tags to an IAM instance profile. If a tag with the same key name

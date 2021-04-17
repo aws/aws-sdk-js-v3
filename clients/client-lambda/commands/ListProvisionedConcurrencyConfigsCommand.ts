@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListProvisionedConcurrencyConfigsCommandInput = ListProvisionedConcurrencyConfigsRequest;
-export type ListProvisionedConcurrencyConfigsCommandOutput = ListProvisionedConcurrencyConfigsResponse &
-  __MetadataBearer;
+export interface ListProvisionedConcurrencyConfigsCommandInput extends ListProvisionedConcurrencyConfigsRequest {}
+export interface ListProvisionedConcurrencyConfigsCommandOutput
+  extends ListProvisionedConcurrencyConfigsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of provisioned concurrency configurations for a function.</p>

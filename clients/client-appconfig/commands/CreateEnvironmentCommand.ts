@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateEnvironmentCommandInput = CreateEnvironmentRequest;
-export type CreateEnvironmentCommandOutput = Environment & __MetadataBearer;
+export interface CreateEnvironmentCommandInput extends CreateEnvironmentRequest {}
+export interface CreateEnvironmentCommandOutput extends Environment, __MetadataBearer {}
 
 /**
  * <p>For each application, you define one or more environments. An environment is a logical

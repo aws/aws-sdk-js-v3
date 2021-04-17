@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyDBSnapshotCommandInput = ModifyDBSnapshotMessage;
-export type ModifyDBSnapshotCommandOutput = ModifyDBSnapshotResult & __MetadataBearer;
+export interface ModifyDBSnapshotCommandInput extends ModifyDBSnapshotMessage {}
+export interface ModifyDBSnapshotCommandOutput extends ModifyDBSnapshotResult, __MetadataBearer {}
 
 /**
  * <p>Updates a manual DB snapshot with a new engine version. The snapshot can be encrypted

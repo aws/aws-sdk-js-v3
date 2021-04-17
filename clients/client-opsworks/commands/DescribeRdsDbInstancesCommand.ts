@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeRdsDbInstancesCommandInput = DescribeRdsDbInstancesRequest;
-export type DescribeRdsDbInstancesCommandOutput = DescribeRdsDbInstancesResult & __MetadataBearer;
+export interface DescribeRdsDbInstancesCommandInput extends DescribeRdsDbInstancesRequest {}
+export interface DescribeRdsDbInstancesCommandOutput extends DescribeRdsDbInstancesResult, __MetadataBearer {}
 
 /**
  * <p>Describes Amazon RDS instances.</p>

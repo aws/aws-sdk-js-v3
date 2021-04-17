@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAccountCommandInput = DescribeAccountRequest;
-export type DescribeAccountCommandOutput = DescribeAccountResponse & __MetadataBearer;
+export interface DescribeAccountCommandInput extends DescribeAccountRequest {}
+export interface DescribeAccountCommandOutput extends DescribeAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves AWS Organizations-related information about the specified account.</p>

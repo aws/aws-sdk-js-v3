@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteFlowTemplateCommandInput = DeleteFlowTemplateRequest;
-export type DeleteFlowTemplateCommandOutput = DeleteFlowTemplateResponse & __MetadataBearer;
+export interface DeleteFlowTemplateCommandInput extends DeleteFlowTemplateRequest {}
+export interface DeleteFlowTemplateCommandOutput extends DeleteFlowTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a workflow. Any new system or deployment that contains this workflow will fail to update or deploy.

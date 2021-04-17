@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListSigningProfilesCommandInput = ListSigningProfilesRequest;
-export type ListSigningProfilesCommandOutput = ListSigningProfilesResponse & __MetadataBearer;
+export interface ListSigningProfilesCommandInput extends ListSigningProfilesRequest {}
+export interface ListSigningProfilesCommandOutput extends ListSigningProfilesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all available signing profiles in your AWS account. Returns only profiles with

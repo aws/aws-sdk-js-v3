@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AcknowledgeThirdPartyJobCommandInput = AcknowledgeThirdPartyJobInput;
-export type AcknowledgeThirdPartyJobCommandOutput = AcknowledgeThirdPartyJobOutput & __MetadataBearer;
+export interface AcknowledgeThirdPartyJobCommandInput extends AcknowledgeThirdPartyJobInput {}
+export interface AcknowledgeThirdPartyJobCommandOutput extends AcknowledgeThirdPartyJobOutput, __MetadataBearer {}
 
 /**
  * <p>Confirms a job worker has received the specified job. Used for partner actions

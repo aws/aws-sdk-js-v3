@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartProjectSessionCommandInput = StartProjectSessionRequest;
-export type StartProjectSessionCommandOutput = StartProjectSessionResponse & __MetadataBearer;
+export interface StartProjectSessionCommandInput extends StartProjectSessionRequest {}
+export interface StartProjectSessionCommandOutput extends StartProjectSessionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an interactive session, enabling you to manipulate data in a DataBrew

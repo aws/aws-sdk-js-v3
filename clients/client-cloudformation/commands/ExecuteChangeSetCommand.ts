@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ExecuteChangeSetCommandInput = ExecuteChangeSetInput;
-export type ExecuteChangeSetCommandOutput = ExecuteChangeSetOutput & __MetadataBearer;
+export interface ExecuteChangeSetCommandInput extends ExecuteChangeSetInput {}
+export interface ExecuteChangeSetCommandOutput extends ExecuteChangeSetOutput, __MetadataBearer {}
 
 /**
  * <p>Updates a stack using the input information that was provided when the specified

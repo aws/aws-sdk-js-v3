@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyReplicationGroupShardConfigurationCommandInput = ModifyReplicationGroupShardConfigurationMessage;
-export type ModifyReplicationGroupShardConfigurationCommandOutput = ModifyReplicationGroupShardConfigurationResult &
-  __MetadataBearer;
+export interface ModifyReplicationGroupShardConfigurationCommandInput
+  extends ModifyReplicationGroupShardConfigurationMessage {}
+export interface ModifyReplicationGroupShardConfigurationCommandOutput
+  extends ModifyReplicationGroupShardConfigurationResult,
+    __MetadataBearer {}
 
 /**
  * <p>Modifies a replication group's shards (node groups) by allowing you to

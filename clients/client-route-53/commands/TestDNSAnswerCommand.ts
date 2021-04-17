@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TestDNSAnswerCommandInput = TestDNSAnswerRequest;
-export type TestDNSAnswerCommandOutput = TestDNSAnswerResponse & __MetadataBearer;
+export interface TestDNSAnswerCommandInput extends TestDNSAnswerRequest {}
+export interface TestDNSAnswerCommandOutput extends TestDNSAnswerResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the value that Amazon Route 53 returns in response to a DNS request for a specified record name and type. You can optionally specify

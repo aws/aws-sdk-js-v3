@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeEvaluationsCommandInput = DescribeEvaluationsInput;
-export type DescribeEvaluationsCommandOutput = DescribeEvaluationsOutput & __MetadataBearer;
+export interface DescribeEvaluationsCommandInput extends DescribeEvaluationsInput {}
+export interface DescribeEvaluationsCommandOutput extends DescribeEvaluationsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a list of <code>DescribeEvaluations</code> that match the search criteria in the request.</p>

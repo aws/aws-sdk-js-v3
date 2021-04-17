@@ -21,9 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateVPCAssociationAuthorizationCommandInput = CreateVPCAssociationAuthorizationRequest;
-export type CreateVPCAssociationAuthorizationCommandOutput = CreateVPCAssociationAuthorizationResponse &
-  __MetadataBearer;
+export interface CreateVPCAssociationAuthorizationCommandInput extends CreateVPCAssociationAuthorizationRequest {}
+export interface CreateVPCAssociationAuthorizationCommandOutput
+  extends CreateVPCAssociationAuthorizationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Authorizes the AWS account that created a specified VPC to submit an <code>AssociateVPCWithHostedZone</code>

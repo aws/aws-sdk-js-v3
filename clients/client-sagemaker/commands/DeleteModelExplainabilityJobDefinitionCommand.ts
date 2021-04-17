@@ -17,8 +17,9 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteModelExplainabilityJobDefinitionCommandInput = DeleteModelExplainabilityJobDefinitionRequest;
-export type DeleteModelExplainabilityJobDefinitionCommandOutput = __MetadataBearer;
+export interface DeleteModelExplainabilityJobDefinitionCommandInput
+  extends DeleteModelExplainabilityJobDefinitionRequest {}
+export interface DeleteModelExplainabilityJobDefinitionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes an Amazon SageMaker model explainability job definition.</p>

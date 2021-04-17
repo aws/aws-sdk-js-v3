@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SimpleScalarPropertiesCommandInput = SimpleScalarPropertiesInputOutput;
-export type SimpleScalarPropertiesCommandOutput = SimpleScalarPropertiesInputOutput & __MetadataBearer;
+export interface SimpleScalarPropertiesCommandInput extends SimpleScalarPropertiesInputOutput {}
+export interface SimpleScalarPropertiesCommandOutput extends SimpleScalarPropertiesInputOutput, __MetadataBearer {}
 
 export class SimpleScalarPropertiesCommand extends $Command<
   SimpleScalarPropertiesCommandInput,

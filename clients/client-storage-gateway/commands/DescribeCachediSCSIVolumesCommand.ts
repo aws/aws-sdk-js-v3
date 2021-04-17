@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeCachediSCSIVolumesCommandInput = DescribeCachediSCSIVolumesInput;
-export type DescribeCachediSCSIVolumesCommandOutput = DescribeCachediSCSIVolumesOutput & __MetadataBearer;
+export interface DescribeCachediSCSIVolumesCommandInput extends DescribeCachediSCSIVolumesInput {}
+export interface DescribeCachediSCSIVolumesCommandOutput extends DescribeCachediSCSIVolumesOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a description of the gateway volumes specified in the request. This operation is

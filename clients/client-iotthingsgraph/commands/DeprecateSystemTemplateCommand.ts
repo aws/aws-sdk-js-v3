@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeprecateSystemTemplateCommandInput = DeprecateSystemTemplateRequest;
-export type DeprecateSystemTemplateCommandOutput = DeprecateSystemTemplateResponse & __MetadataBearer;
+export interface DeprecateSystemTemplateCommandInput extends DeprecateSystemTemplateRequest {}
+export interface DeprecateSystemTemplateCommandOutput extends DeprecateSystemTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Deprecates the specified system.</p>

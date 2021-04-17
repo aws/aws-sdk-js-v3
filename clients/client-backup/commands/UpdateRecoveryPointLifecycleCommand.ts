@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateRecoveryPointLifecycleCommandInput = UpdateRecoveryPointLifecycleInput;
-export type UpdateRecoveryPointLifecycleCommandOutput = UpdateRecoveryPointLifecycleOutput & __MetadataBearer;
+export interface UpdateRecoveryPointLifecycleCommandInput extends UpdateRecoveryPointLifecycleInput {}
+export interface UpdateRecoveryPointLifecycleCommandOutput
+  extends UpdateRecoveryPointLifecycleOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Sets the transition lifecycle of a recovery point.</p>

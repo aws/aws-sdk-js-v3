@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteEndpointCommandInput = DeleteEndpointInput;
-export type DeleteEndpointCommandOutput = __MetadataBearer;
+export interface DeleteEndpointCommandInput extends DeleteEndpointInput {}
+export interface DeleteEndpointCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes an endpoint. Amazon SageMaker frees up all of the resources that were deployed when the

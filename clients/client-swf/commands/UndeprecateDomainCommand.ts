@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UndeprecateDomainCommandInput = UndeprecateDomainInput;
-export type UndeprecateDomainCommandOutput = __MetadataBearer;
+export interface UndeprecateDomainCommandInput extends UndeprecateDomainInput {}
+export interface UndeprecateDomainCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Undeprecates a previously deprecated domain. After a domain has been undeprecated it can be used

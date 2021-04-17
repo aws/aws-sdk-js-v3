@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateConstraintCommandInput = CreateConstraintInput;
-export type CreateConstraintCommandOutput = CreateConstraintOutput & __MetadataBearer;
+export interface CreateConstraintCommandInput extends CreateConstraintInput {}
+export interface CreateConstraintCommandOutput extends CreateConstraintOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a constraint.</p>

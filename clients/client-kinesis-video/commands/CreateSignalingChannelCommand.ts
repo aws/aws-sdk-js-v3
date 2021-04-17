@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateSignalingChannelCommandInput = CreateSignalingChannelInput;
-export type CreateSignalingChannelCommandOutput = CreateSignalingChannelOutput & __MetadataBearer;
+export interface CreateSignalingChannelCommandInput extends CreateSignalingChannelInput {}
+export interface CreateSignalingChannelCommandOutput extends CreateSignalingChannelOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a signaling channel. </p>

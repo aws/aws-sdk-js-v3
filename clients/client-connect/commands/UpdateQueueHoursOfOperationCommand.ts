@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateQueueHoursOfOperationCommandInput = UpdateQueueHoursOfOperationRequest;
-export type UpdateQueueHoursOfOperationCommandOutput = __MetadataBearer;
+export interface UpdateQueueHoursOfOperationCommandInput extends UpdateQueueHoursOfOperationRequest {}
+export interface UpdateQueueHoursOfOperationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>

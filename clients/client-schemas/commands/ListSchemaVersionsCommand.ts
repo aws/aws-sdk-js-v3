@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListSchemaVersionsCommandInput = ListSchemaVersionsRequest;
-export type ListSchemaVersionsCommandOutput = ListSchemaVersionsResponse & __MetadataBearer;
+export interface ListSchemaVersionsCommandInput extends ListSchemaVersionsRequest {}
+export interface ListSchemaVersionsCommandOutput extends ListSchemaVersionsResponse, __MetadataBearer {}
 
 /**
  * <p>Provides a list of the schema versions and related information.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribePublicIpv4PoolsCommandInput = DescribePublicIpv4PoolsRequest;
-export type DescribePublicIpv4PoolsCommandOutput = DescribePublicIpv4PoolsResult & __MetadataBearer;
+export interface DescribePublicIpv4PoolsCommandInput extends DescribePublicIpv4PoolsRequest {}
+export interface DescribePublicIpv4PoolsCommandOutput extends DescribePublicIpv4PoolsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the specified IPv4 address pools.</p>

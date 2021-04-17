@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyTransitGatewayPrefixListReferenceCommandInput = ModifyTransitGatewayPrefixListReferenceRequest;
-export type ModifyTransitGatewayPrefixListReferenceCommandOutput = ModifyTransitGatewayPrefixListReferenceResult &
-  __MetadataBearer;
+export interface ModifyTransitGatewayPrefixListReferenceCommandInput
+  extends ModifyTransitGatewayPrefixListReferenceRequest {}
+export interface ModifyTransitGatewayPrefixListReferenceCommandOutput
+  extends ModifyTransitGatewayPrefixListReferenceResult,
+    __MetadataBearer {}
 
 /**
  * <p>Modifies a reference (route) to a prefix list in a specified transit gateway route table.</p>

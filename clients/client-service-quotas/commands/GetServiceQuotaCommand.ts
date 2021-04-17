@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetServiceQuotaCommandInput = GetServiceQuotaRequest;
-export type GetServiceQuotaCommandOutput = GetServiceQuotaResponse & __MetadataBearer;
+export interface GetServiceQuotaCommandInput extends GetServiceQuotaRequest {}
+export interface GetServiceQuotaCommandOutput extends GetServiceQuotaResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the applied quota value for the specified quota. For some quotas, only the

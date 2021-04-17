@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteUserCommandInput = DeleteUserRequest;
-export type DeleteUserCommandOutput = DeleteUserResponse & __MetadataBearer;
+export interface DeleteUserCommandInput extends DeleteUserRequest {}
+export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the Amazon QuickSight user that is associated with the identity of the AWS

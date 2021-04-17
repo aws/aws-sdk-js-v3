@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeRuntimeVersionsCommandInput = DescribeRuntimeVersionsRequest;
-export type DescribeRuntimeVersionsCommandOutput = DescribeRuntimeVersionsResponse & __MetadataBearer;
+export interface DescribeRuntimeVersionsCommandInput extends DescribeRuntimeVersionsRequest {}
+export interface DescribeRuntimeVersionsCommandOutput extends DescribeRuntimeVersionsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of Synthetics canary runtime versions. For more information,

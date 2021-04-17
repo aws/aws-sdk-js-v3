@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartDeploymentCommandInput = StartDeploymentRequest;
-export type StartDeploymentCommandOutput = StartDeploymentResult & __MetadataBearer;
+export interface StartDeploymentCommandInput extends StartDeploymentRequest {}
+export interface StartDeploymentCommandOutput extends StartDeploymentResult, __MetadataBearer {}
 
 /**
  * <p> Starts a deployment for a manually deployed app. Manually deployed apps are not

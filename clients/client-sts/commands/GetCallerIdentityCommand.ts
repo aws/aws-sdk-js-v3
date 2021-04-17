@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetCallerIdentityCommandInput = GetCallerIdentityRequest;
-export type GetCallerIdentityCommandOutput = GetCallerIdentityResponse & __MetadataBearer;
+export interface GetCallerIdentityCommandInput extends GetCallerIdentityRequest {}
+export interface GetCallerIdentityCommandOutput extends GetCallerIdentityResponse, __MetadataBearer {}
 
 /**
  * <p>Returns details about the IAM user or role whose credentials are used to call the

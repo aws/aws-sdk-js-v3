@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSitesCommandInput = GetSitesRequest;
-export type GetSitesCommandOutput = GetSitesResponse & __MetadataBearer;
+export interface GetSitesCommandInput extends GetSitesRequest {}
+export interface GetSitesCommandOutput extends GetSitesResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about one or more of your sites in a global network.</p>

@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAccountAttributesCommandInput = DescribeAccountAttributesMessage;
-export type DescribeAccountAttributesCommandOutput = DescribeAccountAttributesResponse & __MetadataBearer;
+export interface DescribeAccountAttributesCommandInput extends DescribeAccountAttributesMessage {}
+export interface DescribeAccountAttributesCommandOutput extends DescribeAccountAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all of the AWS DMS attributes for a customer account. These attributes include AWS

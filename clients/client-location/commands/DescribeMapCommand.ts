@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeMapCommandInput = DescribeMapRequest;
-export type DescribeMapCommandOutput = DescribeMapResponse & __MetadataBearer;
+export interface DescribeMapCommandInput extends DescribeMapRequest {}
+export interface DescribeMapCommandOutput extends DescribeMapResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the map resource details.</p>

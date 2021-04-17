@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListBuiltInIntentsCommandInput = ListBuiltInIntentsRequest;
-export type ListBuiltInIntentsCommandOutput = ListBuiltInIntentsResponse & __MetadataBearer;
+export interface ListBuiltInIntentsCommandInput extends ListBuiltInIntentsRequest {}
+export interface ListBuiltInIntentsCommandOutput extends ListBuiltInIntentsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of built-in intents provided by Amazon Lex that you can use

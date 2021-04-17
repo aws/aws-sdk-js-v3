@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeFHIRDatastoreCommandInput = DescribeFHIRDatastoreRequest;
-export type DescribeFHIRDatastoreCommandOutput = DescribeFHIRDatastoreResponse & __MetadataBearer;
+export interface DescribeFHIRDatastoreCommandInput extends DescribeFHIRDatastoreRequest {}
+export interface DescribeFHIRDatastoreCommandOutput extends DescribeFHIRDatastoreResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the properties associated with the FHIR Data Store, including the Data Store ID,

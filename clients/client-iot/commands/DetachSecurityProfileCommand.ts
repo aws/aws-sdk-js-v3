@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DetachSecurityProfileCommandInput = DetachSecurityProfileRequest;
-export type DetachSecurityProfileCommandOutput = DetachSecurityProfileResponse & __MetadataBearer;
+export interface DetachSecurityProfileCommandInput extends DetachSecurityProfileRequest {}
+export interface DetachSecurityProfileCommandOutput extends DetachSecurityProfileResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates a Device Defender security profile from a thing group or from this account.</p>

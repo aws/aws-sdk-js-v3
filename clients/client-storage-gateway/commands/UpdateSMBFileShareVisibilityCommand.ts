@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateSMBFileShareVisibilityCommandInput = UpdateSMBFileShareVisibilityInput;
-export type UpdateSMBFileShareVisibilityCommandOutput = UpdateSMBFileShareVisibilityOutput & __MetadataBearer;
+export interface UpdateSMBFileShareVisibilityCommandInput extends UpdateSMBFileShareVisibilityInput {}
+export interface UpdateSMBFileShareVisibilityCommandOutput
+  extends UpdateSMBFileShareVisibilityOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Controls whether the shares on a gateway are visible in a net view or browse

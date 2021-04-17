@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateRuleMetadataCommandInput = UpdateRuleMetadataRequest;
-export type UpdateRuleMetadataCommandOutput = UpdateRuleMetadataResult & __MetadataBearer;
+export interface UpdateRuleMetadataCommandInput extends UpdateRuleMetadataRequest {}
+export interface UpdateRuleMetadataCommandOutput extends UpdateRuleMetadataResult, __MetadataBearer {}
 
 /**
  * <p>Updates a rule's metadata. The description attribute can be updated.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyWorkspaceStateCommandInput = ModifyWorkspaceStateRequest;
-export type ModifyWorkspaceStateCommandOutput = ModifyWorkspaceStateResult & __MetadataBearer;
+export interface ModifyWorkspaceStateCommandInput extends ModifyWorkspaceStateRequest {}
+export interface ModifyWorkspaceStateCommandOutput extends ModifyWorkspaceStateResult, __MetadataBearer {}
 
 /**
  * <p>Sets the state of the specified WorkSpace.</p>

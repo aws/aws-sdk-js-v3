@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateWorkforceCommandInput = CreateWorkforceRequest;
-export type CreateWorkforceCommandOutput = CreateWorkforceResponse & __MetadataBearer;
+export interface CreateWorkforceCommandInput extends CreateWorkforceRequest {}
+export interface CreateWorkforceCommandOutput extends CreateWorkforceResponse, __MetadataBearer {}
 
 /**
  * <p>Use this operation to create a workforce. This operation will return an error

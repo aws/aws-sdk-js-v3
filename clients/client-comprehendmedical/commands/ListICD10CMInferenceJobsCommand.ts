@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListICD10CMInferenceJobsCommandInput = ListICD10CMInferenceJobsRequest;
-export type ListICD10CMInferenceJobsCommandOutput = ListICD10CMInferenceJobsResponse & __MetadataBearer;
+export interface ListICD10CMInferenceJobsCommandInput extends ListICD10CMInferenceJobsRequest {}
+export interface ListICD10CMInferenceJobsCommandOutput extends ListICD10CMInferenceJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of InferICD10CM jobs that you have submitted.</p>

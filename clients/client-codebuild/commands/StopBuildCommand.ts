@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopBuildCommandInput = StopBuildInput;
-export type StopBuildCommandOutput = StopBuildOutput & __MetadataBearer;
+export interface StopBuildCommandInput extends StopBuildInput {}
+export interface StopBuildCommandOutput extends StopBuildOutput, __MetadataBearer {}
 
 /**
  * <p>Attempts to stop running a build.</p>

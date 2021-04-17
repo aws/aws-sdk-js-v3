@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeApplicationVersionsCommandInput = DescribeApplicationVersionsMessage;
-export type DescribeApplicationVersionsCommandOutput = ApplicationVersionDescriptionsMessage & __MetadataBearer;
+export interface DescribeApplicationVersionsCommandInput extends DescribeApplicationVersionsMessage {}
+export interface DescribeApplicationVersionsCommandOutput
+  extends ApplicationVersionDescriptionsMessage,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieve a list of application versions.</p>

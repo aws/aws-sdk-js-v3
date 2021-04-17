@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ReserveContactCommandInput = ReserveContactRequest;
-export type ReserveContactCommandOutput = ContactIdResponse & __MetadataBearer;
+export interface ReserveContactCommandInput extends ReserveContactRequest {}
+export interface ReserveContactCommandOutput extends ContactIdResponse, __MetadataBearer {}
 
 /**
  * <p>Reserves a contact using specified parameters.</p>

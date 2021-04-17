@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetTemplateCommandInput = GetTemplateInput;
-export type GetTemplateCommandOutput = GetTemplateOutput & __MetadataBearer;
+export interface GetTemplateCommandInput extends GetTemplateInput {}
+export interface GetTemplateCommandOutput extends GetTemplateOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the template body for a specified stack. You can get the template for running

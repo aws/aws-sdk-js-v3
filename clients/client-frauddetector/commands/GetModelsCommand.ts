@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetModelsCommandInput = GetModelsRequest;
-export type GetModelsCommandOutput = GetModelsResult & __MetadataBearer;
+export interface GetModelsCommandInput extends GetModelsRequest {}
+export interface GetModelsCommandOutput extends GetModelsResult, __MetadataBearer {}
 
 /**
  * <p>Gets one or more models. Gets all models for the AWS account if no model type and no model id provided. Gets all models for the AWS account and model type, if the model type is specified but model id is not provided. Gets a specific model if (model type, model id) tuple is specified. </p>

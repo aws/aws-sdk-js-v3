@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartExportTaskCommandInput = StartExportTaskMessage;
-export type StartExportTaskCommandOutput = ExportTask & __MetadataBearer;
+export interface StartExportTaskCommandInput extends StartExportTaskMessage {}
+export interface StartExportTaskCommandOutput extends ExportTask, __MetadataBearer {}
 
 /**
  * <p>Starts an export of a snapshot to Amazon S3.

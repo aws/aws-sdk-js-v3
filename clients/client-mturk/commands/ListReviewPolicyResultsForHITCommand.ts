@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListReviewPolicyResultsForHITCommandInput = ListReviewPolicyResultsForHITRequest;
-export type ListReviewPolicyResultsForHITCommandOutput = ListReviewPolicyResultsForHITResponse & __MetadataBearer;
+export interface ListReviewPolicyResultsForHITCommandInput extends ListReviewPolicyResultsForHITRequest {}
+export interface ListReviewPolicyResultsForHITCommandOutput
+  extends ListReviewPolicyResultsForHITResponse,
+    __MetadataBearer {}
 
 /**
  * <p>

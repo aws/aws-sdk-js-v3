@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDBSnapshotCommandInput = CreateDBSnapshotMessage;
-export type CreateDBSnapshotCommandOutput = CreateDBSnapshotResult & __MetadataBearer;
+export interface CreateDBSnapshotCommandInput extends CreateDBSnapshotMessage {}
+export interface CreateDBSnapshotCommandOutput extends CreateDBSnapshotResult, __MetadataBearer {}
 
 /**
  * <p>Creates a snapshot of a DB instance. The source DB instance must be in the <code>available</code> or

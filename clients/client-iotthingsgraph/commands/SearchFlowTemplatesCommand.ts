@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SearchFlowTemplatesCommandInput = SearchFlowTemplatesRequest;
-export type SearchFlowTemplatesCommandOutput = SearchFlowTemplatesResponse & __MetadataBearer;
+export interface SearchFlowTemplatesCommandInput extends SearchFlowTemplatesRequest {}
+export interface SearchFlowTemplatesCommandOutput extends SearchFlowTemplatesResponse, __MetadataBearer {}
 
 /**
  * <p>Searches for summary information about workflows.</p>

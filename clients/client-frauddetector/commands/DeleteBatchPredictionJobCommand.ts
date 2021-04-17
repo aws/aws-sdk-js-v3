@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteBatchPredictionJobCommandInput = DeleteBatchPredictionJobRequest;
-export type DeleteBatchPredictionJobCommandOutput = DeleteBatchPredictionJobResult & __MetadataBearer;
+export interface DeleteBatchPredictionJobCommandInput extends DeleteBatchPredictionJobRequest {}
+export interface DeleteBatchPredictionJobCommandOutput extends DeleteBatchPredictionJobResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a batch prediction job.</p>

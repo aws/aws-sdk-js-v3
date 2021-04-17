@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SubmitFeedbackCommandInput = SubmitFeedbackRequest;
-export type SubmitFeedbackCommandOutput = __MetadataBearer;
+export interface SubmitFeedbackCommandInput extends SubmitFeedbackRequest {}
+export interface SubmitFeedbackCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Enables you to provide feedback to Amazon Kendra to improve the

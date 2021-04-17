@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribePlatformVersionCommandInput = DescribePlatformVersionRequest;
-export type DescribePlatformVersionCommandOutput = DescribePlatformVersionResult & __MetadataBearer;
+export interface DescribePlatformVersionCommandInput extends DescribePlatformVersionRequest {}
+export interface DescribePlatformVersionCommandOutput extends DescribePlatformVersionResult, __MetadataBearer {}
 
 /**
  * <p>Describes a platform version. Provides full details. Compare to <a>ListPlatformVersions</a>, which provides summary information about a list of

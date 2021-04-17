@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteConnectorDefinitionCommandInput = DeleteConnectorDefinitionRequest;
-export type DeleteConnectorDefinitionCommandOutput = DeleteConnectorDefinitionResponse & __MetadataBearer;
+export interface DeleteConnectorDefinitionCommandInput extends DeleteConnectorDefinitionRequest {}
+export interface DeleteConnectorDefinitionCommandOutput extends DeleteConnectorDefinitionResponse, __MetadataBearer {}
 
 /**
  * Deletes a connector definition.

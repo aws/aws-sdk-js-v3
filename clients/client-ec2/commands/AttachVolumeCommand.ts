@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AttachVolumeCommandInput = AttachVolumeRequest;
-export type AttachVolumeCommandOutput = VolumeAttachment & __MetadataBearer;
+export interface AttachVolumeCommandInput extends AttachVolumeRequest {}
+export interface AttachVolumeCommandOutput extends VolumeAttachment, __MetadataBearer {}
 
 /**
  * <p>Attaches an EBS volume to a running or stopped instance and exposes it to the instance

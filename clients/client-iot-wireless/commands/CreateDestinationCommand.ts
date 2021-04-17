@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDestinationCommandInput = CreateDestinationRequest;
-export type CreateDestinationCommandOutput = CreateDestinationResponse & __MetadataBearer;
+export interface CreateDestinationCommandInput extends CreateDestinationRequest {}
+export interface CreateDestinationCommandOutput extends CreateDestinationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new destination that maps a device message to an AWS IoT rule.</p>

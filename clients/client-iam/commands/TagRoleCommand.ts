@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TagRoleCommandInput = TagRoleRequest;
-export type TagRoleCommandOutput = __MetadataBearer;
+export interface TagRoleCommandInput extends TagRoleRequest {}
+export interface TagRoleCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Adds one or more tags to an IAM role. The role can be a regular role or a

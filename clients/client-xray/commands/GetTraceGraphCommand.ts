@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetTraceGraphCommandInput = GetTraceGraphRequest;
-export type GetTraceGraphCommandOutput = GetTraceGraphResult & __MetadataBearer;
+export interface GetTraceGraphCommandInput extends GetTraceGraphRequest {}
+export interface GetTraceGraphCommandOutput extends GetTraceGraphResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves a service graph for one or more specific trace IDs.</p>

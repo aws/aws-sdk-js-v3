@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutAutoScalingPolicyCommandInput = PutAutoScalingPolicyInput;
-export type PutAutoScalingPolicyCommandOutput = PutAutoScalingPolicyOutput & __MetadataBearer;
+export interface PutAutoScalingPolicyCommandInput extends PutAutoScalingPolicyInput {}
+export interface PutAutoScalingPolicyCommandOutput extends PutAutoScalingPolicyOutput, __MetadataBearer {}
 
 /**
  * <p>Creates or updates an automatic scaling policy for a core instance group or task

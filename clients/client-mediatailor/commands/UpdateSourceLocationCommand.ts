@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateSourceLocationCommandInput = UpdateSourceLocationRequest;
-export type UpdateSourceLocationCommandOutput = UpdateSourceLocationResponse & __MetadataBearer;
+export interface UpdateSourceLocationCommandInput extends UpdateSourceLocationRequest {}
+export interface UpdateSourceLocationCommandOutput extends UpdateSourceLocationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a source location on a specific channel.</p>

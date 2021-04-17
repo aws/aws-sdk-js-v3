@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetInvitationConfigurationCommandInput = GetInvitationConfigurationRequest;
-export type GetInvitationConfigurationCommandOutput = GetInvitationConfigurationResponse & __MetadataBearer;
+export interface GetInvitationConfigurationCommandInput extends GetInvitationConfigurationRequest {}
+export interface GetInvitationConfigurationCommandOutput extends GetInvitationConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the configured values for the user enrollment invitation email

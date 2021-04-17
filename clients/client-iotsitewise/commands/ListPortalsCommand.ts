@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPortalsCommandInput = ListPortalsRequest;
-export type ListPortalsCommandOutput = ListPortalsResponse & __MetadataBearer;
+export interface ListPortalsCommandInput extends ListPortalsRequest {}
+export interface ListPortalsCommandOutput extends ListPortalsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a paginated list of AWS IoT SiteWise Monitor portals.</p>

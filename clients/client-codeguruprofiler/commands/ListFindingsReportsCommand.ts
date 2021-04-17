@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListFindingsReportsCommandInput = ListFindingsReportsRequest;
-export type ListFindingsReportsCommandOutput = ListFindingsReportsResponse & __MetadataBearer;
+export interface ListFindingsReportsCommandInput extends ListFindingsReportsRequest {}
+export interface ListFindingsReportsCommandOutput extends ListFindingsReportsResponse, __MetadataBearer {}
 
 /**
  * <p>List the available reports for a given profiling group and time range.</p>

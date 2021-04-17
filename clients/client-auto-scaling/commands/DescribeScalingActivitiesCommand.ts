@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeScalingActivitiesCommandInput = DescribeScalingActivitiesType;
-export type DescribeScalingActivitiesCommandOutput = ActivitiesType & __MetadataBearer;
+export interface DescribeScalingActivitiesCommandInput extends DescribeScalingActivitiesType {}
+export interface DescribeScalingActivitiesCommandOutput extends ActivitiesType, __MetadataBearer {}
 
 /**
  * <p>Describes one or more scaling activities for the specified Auto Scaling group.</p>

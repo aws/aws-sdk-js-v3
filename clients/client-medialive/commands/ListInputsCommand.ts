@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListInputsCommandInput = ListInputsRequest;
-export type ListInputsCommandOutput = ListInputsResponse & __MetadataBearer;
+export interface ListInputsCommandInput extends ListInputsRequest {}
+export interface ListInputsCommandOutput extends ListInputsResponse, __MetadataBearer {}
 
 /**
  * Produces list of inputs that have been created

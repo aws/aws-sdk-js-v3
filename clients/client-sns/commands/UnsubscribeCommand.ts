@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UnsubscribeCommandInput = UnsubscribeInput;
-export type UnsubscribeCommandOutput = __MetadataBearer;
+export interface UnsubscribeCommandInput extends UnsubscribeInput {}
+export interface UnsubscribeCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a subscription. If the subscription requires authentication for deletion, only

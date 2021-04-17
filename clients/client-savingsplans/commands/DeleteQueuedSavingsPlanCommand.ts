@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteQueuedSavingsPlanCommandInput = DeleteQueuedSavingsPlanRequest;
-export type DeleteQueuedSavingsPlanCommandOutput = DeleteQueuedSavingsPlanResponse & __MetadataBearer;
+export interface DeleteQueuedSavingsPlanCommandInput extends DeleteQueuedSavingsPlanRequest {}
+export interface DeleteQueuedSavingsPlanCommandOutput extends DeleteQueuedSavingsPlanResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the queued purchase for the specified Savings Plan.</p>

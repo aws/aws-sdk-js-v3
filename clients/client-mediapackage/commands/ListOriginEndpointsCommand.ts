@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListOriginEndpointsCommandInput = ListOriginEndpointsRequest;
-export type ListOriginEndpointsCommandOutput = ListOriginEndpointsResponse & __MetadataBearer;
+export interface ListOriginEndpointsCommandInput extends ListOriginEndpointsRequest {}
+export interface ListOriginEndpointsCommandOutput extends ListOriginEndpointsResponse, __MetadataBearer {}
 
 /**
  * Returns a collection of OriginEndpoint records.

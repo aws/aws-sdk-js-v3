@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyDBProxyEndpointCommandInput = ModifyDBProxyEndpointRequest;
-export type ModifyDBProxyEndpointCommandOutput = ModifyDBProxyEndpointResponse & __MetadataBearer;
+export interface ModifyDBProxyEndpointCommandInput extends ModifyDBProxyEndpointRequest {}
+export interface ModifyDBProxyEndpointCommandOutput extends ModifyDBProxyEndpointResponse, __MetadataBearer {}
 
 /**
  * <p>Changes the settings for an existing DB proxy endpoint.</p>

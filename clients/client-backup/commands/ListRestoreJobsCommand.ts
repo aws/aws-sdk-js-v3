@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListRestoreJobsCommandInput = ListRestoreJobsInput;
-export type ListRestoreJobsCommandOutput = ListRestoreJobsOutput & __MetadataBearer;
+export interface ListRestoreJobsCommandInput extends ListRestoreJobsInput {}
+export interface ListRestoreJobsCommandOutput extends ListRestoreJobsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a list of jobs that AWS Backup initiated to restore a saved resource, including

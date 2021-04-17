@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopGameSessionPlacementCommandInput = StopGameSessionPlacementInput;
-export type StopGameSessionPlacementCommandOutput = StopGameSessionPlacementOutput & __MetadataBearer;
+export interface StopGameSessionPlacementCommandInput extends StopGameSessionPlacementInput {}
+export interface StopGameSessionPlacementCommandOutput extends StopGameSessionPlacementOutput, __MetadataBearer {}
 
 /**
  * <p>Cancels a game session placement that is in <code>PENDING</code> status. To stop a

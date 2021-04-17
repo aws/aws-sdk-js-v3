@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeChangeSetCommandInput = DescribeChangeSetRequest;
-export type DescribeChangeSetCommandOutput = DescribeChangeSetResponse & __MetadataBearer;
+export interface DescribeChangeSetCommandInput extends DescribeChangeSetRequest {}
+export interface DescribeChangeSetCommandOutput extends DescribeChangeSetResponse, __MetadataBearer {}
 
 /**
  * <p>Provides information about a given change set.</p>

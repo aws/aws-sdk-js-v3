@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutDeliveryChannelCommandInput = PutDeliveryChannelRequest;
-export type PutDeliveryChannelCommandOutput = __MetadataBearer;
+export interface PutDeliveryChannelCommandInput extends PutDeliveryChannelRequest {}
+export interface PutDeliveryChannelCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Creates a delivery channel object to deliver configuration

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateNetworkInterfacePermissionCommandInput = CreateNetworkInterfacePermissionRequest;
-export type CreateNetworkInterfacePermissionCommandOutput = CreateNetworkInterfacePermissionResult & __MetadataBearer;
+export interface CreateNetworkInterfacePermissionCommandInput extends CreateNetworkInterfacePermissionRequest {}
+export interface CreateNetworkInterfacePermissionCommandOutput
+  extends CreateNetworkInterfacePermissionResult,
+    __MetadataBearer {}
 
 /**
  * <p>Grants an AWS-authorized account permission to attach the specified network interface to

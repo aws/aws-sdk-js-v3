@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GenerateChangeSetCommandInput = GenerateChangeSetRequest;
-export type GenerateChangeSetCommandOutput = GenerateChangeSetResponse & __MetadataBearer;
+export interface GenerateChangeSetCommandInput extends GenerateChangeSetRequest {}
+export interface GenerateChangeSetCommandOutput extends GenerateChangeSetResponse, __MetadataBearer {}
 
 /**
  * <p>Generates a target change set for a currently launched stack and writes it to an Amazon S3

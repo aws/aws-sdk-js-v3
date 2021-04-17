@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetCanaryRunsCommandInput = GetCanaryRunsRequest;
-export type GetCanaryRunsCommandOutput = GetCanaryRunsResponse & __MetadataBearer;
+export interface GetCanaryRunsCommandInput extends GetCanaryRunsRequest {}
+export interface GetCanaryRunsCommandOutput extends GetCanaryRunsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of runs for a specified canary.</p>

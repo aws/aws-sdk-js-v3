@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateGroupQueryCommandInput = UpdateGroupQueryInput;
-export type UpdateGroupQueryCommandOutput = UpdateGroupQueryOutput & __MetadataBearer;
+export interface UpdateGroupQueryCommandInput extends UpdateGroupQueryInput {}
+export interface UpdateGroupQueryCommandOutput extends UpdateGroupQueryOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the resource query of a group. For more information about resource queries,

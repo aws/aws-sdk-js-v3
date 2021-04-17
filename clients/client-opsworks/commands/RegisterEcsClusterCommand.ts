@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterEcsClusterCommandInput = RegisterEcsClusterRequest;
-export type RegisterEcsClusterCommandOutput = RegisterEcsClusterResult & __MetadataBearer;
+export interface RegisterEcsClusterCommandInput extends RegisterEcsClusterRequest {}
+export interface RegisterEcsClusterCommandOutput extends RegisterEcsClusterResult, __MetadataBearer {}
 
 /**
  * <p>Registers a specified Amazon ECS cluster with a stack. You can register only one

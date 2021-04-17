@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDeploymentConfigCommandInput = DeleteDeploymentConfigInput;
-export type DeleteDeploymentConfigCommandOutput = __MetadataBearer;
+export interface DeleteDeploymentConfigCommandInput extends DeleteDeploymentConfigInput {}
+export interface DeleteDeploymentConfigCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a deployment configuration.</p>

@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateAttributeGroupCommandInput = AssociateAttributeGroupRequest;
-export type AssociateAttributeGroupCommandOutput = AssociateAttributeGroupResponse & __MetadataBearer;
+export interface AssociateAttributeGroupCommandInput extends AssociateAttributeGroupRequest {}
+export interface AssociateAttributeGroupCommandOutput extends AssociateAttributeGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Associates an attribute group with an application to augment the application's metadata

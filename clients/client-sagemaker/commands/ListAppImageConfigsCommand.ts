@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAppImageConfigsCommandInput = ListAppImageConfigsRequest;
-export type ListAppImageConfigsCommandOutput = ListAppImageConfigsResponse & __MetadataBearer;
+export interface ListAppImageConfigsCommandInput extends ListAppImageConfigsRequest {}
+export interface ListAppImageConfigsCommandOutput extends ListAppImageConfigsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the AppImageConfigs in your account and their properties. The list can be

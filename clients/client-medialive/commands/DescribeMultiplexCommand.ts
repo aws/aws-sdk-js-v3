@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeMultiplexCommandInput = DescribeMultiplexRequest;
-export type DescribeMultiplexCommandOutput = DescribeMultiplexResponse & __MetadataBearer;
+export interface DescribeMultiplexCommandInput extends DescribeMultiplexRequest {}
+export interface DescribeMultiplexCommandOutput extends DescribeMultiplexResponse, __MetadataBearer {}
 
 /**
  * Gets details about a multiplex.

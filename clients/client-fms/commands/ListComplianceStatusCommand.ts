@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListComplianceStatusCommandInput = ListComplianceStatusRequest;
-export type ListComplianceStatusCommandOutput = ListComplianceStatusResponse & __MetadataBearer;
+export interface ListComplianceStatusCommandInput extends ListComplianceStatusRequest {}
+export interface ListComplianceStatusCommandOutput extends ListComplianceStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Returns an array of <code>PolicyComplianceStatus</code> objects. Use

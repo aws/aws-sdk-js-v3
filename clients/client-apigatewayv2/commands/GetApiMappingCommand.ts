@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetApiMappingCommandInput = GetApiMappingRequest;
-export type GetApiMappingCommandOutput = GetApiMappingResponse & __MetadataBearer;
+export interface GetApiMappingCommandInput extends GetApiMappingRequest {}
+export interface GetApiMappingCommandOutput extends GetApiMappingResponse, __MetadataBearer {}
 
 /**
  * <p>Gets an API mapping.</p>

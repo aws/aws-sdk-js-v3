@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddSourceIdentifierToSubscriptionCommandInput = AddSourceIdentifierToSubscriptionMessage;
-export type AddSourceIdentifierToSubscriptionCommandOutput = AddSourceIdentifierToSubscriptionResult & __MetadataBearer;
+export interface AddSourceIdentifierToSubscriptionCommandInput extends AddSourceIdentifierToSubscriptionMessage {}
+export interface AddSourceIdentifierToSubscriptionCommandOutput
+  extends AddSourceIdentifierToSubscriptionResult,
+    __MetadataBearer {}
 
 /**
  * <p>Adds a source identifier to an existing RDS event notification subscription.</p>

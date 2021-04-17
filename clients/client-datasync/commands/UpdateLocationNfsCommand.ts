@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateLocationNfsCommandInput = UpdateLocationNfsRequest;
-export type UpdateLocationNfsCommandOutput = UpdateLocationNfsResponse & __MetadataBearer;
+export interface UpdateLocationNfsCommandInput extends UpdateLocationNfsRequest {}
+export interface UpdateLocationNfsCommandOutput extends UpdateLocationNfsResponse, __MetadataBearer {}
 
 /**
  * <p>Updates some of the parameters of a previously created location for Network File System (NFS) access.

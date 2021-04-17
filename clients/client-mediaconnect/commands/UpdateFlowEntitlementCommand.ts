@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateFlowEntitlementCommandInput = UpdateFlowEntitlementRequest;
-export type UpdateFlowEntitlementCommandOutput = UpdateFlowEntitlementResponse & __MetadataBearer;
+export interface UpdateFlowEntitlementCommandInput extends UpdateFlowEntitlementRequest {}
+export interface UpdateFlowEntitlementCommandOutput extends UpdateFlowEntitlementResponse, __MetadataBearer {}
 
 /**
  * You can change an entitlement's description, subscribers, and encryption. If you change the subscribers, the service will remove the outputs that are are used by the subscribers that are removed.

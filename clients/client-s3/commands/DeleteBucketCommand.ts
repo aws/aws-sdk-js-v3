@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteBucketCommandInput = DeleteBucketRequest;
-export type DeleteBucketCommandOutput = __MetadataBearer;
+export interface DeleteBucketCommandInput extends DeleteBucketRequest {}
+export interface DeleteBucketCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the S3 bucket. All objects (including all object versions and delete markers) in

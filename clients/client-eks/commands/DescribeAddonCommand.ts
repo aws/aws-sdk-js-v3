@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAddonCommandInput = DescribeAddonRequest;
-export type DescribeAddonCommandOutput = DescribeAddonResponse & __MetadataBearer;
+export interface DescribeAddonCommandInput extends DescribeAddonRequest {}
+export interface DescribeAddonCommandOutput extends DescribeAddonResponse, __MetadataBearer {}
 
 /**
  * <p>Describes an Amazon EKS add-on.</p>

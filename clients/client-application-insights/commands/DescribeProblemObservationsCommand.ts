@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeProblemObservationsCommandInput = DescribeProblemObservationsRequest;
-export type DescribeProblemObservationsCommandOutput = DescribeProblemObservationsResponse & __MetadataBearer;
+export interface DescribeProblemObservationsCommandInput extends DescribeProblemObservationsRequest {}
+export interface DescribeProblemObservationsCommandOutput
+  extends DescribeProblemObservationsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the anomalies or errors associated with the problem.</p>

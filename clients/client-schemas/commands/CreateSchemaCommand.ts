@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateSchemaCommandInput = CreateSchemaRequest;
-export type CreateSchemaCommandOutput = CreateSchemaResponse & __MetadataBearer;
+export interface CreateSchemaCommandInput extends CreateSchemaRequest {}
+export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a schema definition.</p> <note><p>Inactive schemas will be deleted after two years.</p></note>

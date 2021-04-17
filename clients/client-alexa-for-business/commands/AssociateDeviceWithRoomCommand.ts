@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateDeviceWithRoomCommandInput = AssociateDeviceWithRoomRequest;
-export type AssociateDeviceWithRoomCommandOutput = AssociateDeviceWithRoomResponse & __MetadataBearer;
+export interface AssociateDeviceWithRoomCommandInput extends AssociateDeviceWithRoomRequest {}
+export interface AssociateDeviceWithRoomCommandOutput extends AssociateDeviceWithRoomResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a device with a given room. This applies all the settings from the room

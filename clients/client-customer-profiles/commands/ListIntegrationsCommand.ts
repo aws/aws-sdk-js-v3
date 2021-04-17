@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListIntegrationsCommandInput = ListIntegrationsRequest;
-export type ListIntegrationsCommandOutput = ListIntegrationsResponse & __MetadataBearer;
+export interface ListIntegrationsCommandInput extends ListIntegrationsRequest {}
+export interface ListIntegrationsCommandOutput extends ListIntegrationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all of the integrations in your domain.</p>

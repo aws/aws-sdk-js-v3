@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetMapGlyphsCommandInput = GetMapGlyphsRequest;
-export type GetMapGlyphsCommandOutput = GetMapGlyphsResponse & __MetadataBearer;
+export interface GetMapGlyphsCommandInput extends GetMapGlyphsRequest {}
+export interface GetMapGlyphsCommandOutput extends GetMapGlyphsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves glyphs used to display labels on a map.</p>

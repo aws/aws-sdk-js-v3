@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateSlotTypeCommandInput = UpdateSlotTypeRequest;
-export type UpdateSlotTypeCommandOutput = UpdateSlotTypeResponse & __MetadataBearer;
+export interface UpdateSlotTypeCommandInput extends UpdateSlotTypeRequest {}
+export interface UpdateSlotTypeCommandOutput extends UpdateSlotTypeResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the configuration of an existing slot type.</p>

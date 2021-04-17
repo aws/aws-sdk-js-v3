@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListActionTypesCommandInput = ListActionTypesInput;
-export type ListActionTypesCommandOutput = ListActionTypesOutput & __MetadataBearer;
+export interface ListActionTypesCommandInput extends ListActionTypesInput {}
+export interface ListActionTypesCommandOutput extends ListActionTypesOutput, __MetadataBearer {}
 
 /**
  * <p>Gets a summary of all AWS CodePipeline action types associated with your

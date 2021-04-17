@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeWorkspaceBundlesCommandInput = DescribeWorkspaceBundlesRequest;
-export type DescribeWorkspaceBundlesCommandOutput = DescribeWorkspaceBundlesResult & __MetadataBearer;
+export interface DescribeWorkspaceBundlesCommandInput extends DescribeWorkspaceBundlesRequest {}
+export interface DescribeWorkspaceBundlesCommandOutput extends DescribeWorkspaceBundlesResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list that describes the available WorkSpace bundles.</p>

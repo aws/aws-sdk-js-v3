@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAcceleratorsCommandInput = ListAcceleratorsRequest;
-export type ListAcceleratorsCommandOutput = ListAcceleratorsResponse & __MetadataBearer;
+export interface ListAcceleratorsCommandInput extends ListAcceleratorsRequest {}
+export interface ListAcceleratorsCommandOutput extends ListAcceleratorsResponse, __MetadataBearer {}
 
 /**
  * <p>List the accelerators for an AWS account. </p>

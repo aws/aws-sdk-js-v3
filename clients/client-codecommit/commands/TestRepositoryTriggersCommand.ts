@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TestRepositoryTriggersCommandInput = TestRepositoryTriggersInput;
-export type TestRepositoryTriggersCommandOutput = TestRepositoryTriggersOutput & __MetadataBearer;
+export interface TestRepositoryTriggersCommandInput extends TestRepositoryTriggersInput {}
+export interface TestRepositoryTriggersCommandOutput extends TestRepositoryTriggersOutput, __MetadataBearer {}
 
 /**
  * <p>Tests the functionality of repository triggers by sending information to the trigger

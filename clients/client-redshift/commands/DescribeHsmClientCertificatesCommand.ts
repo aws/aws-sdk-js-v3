@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeHsmClientCertificatesCommandInput = DescribeHsmClientCertificatesMessage;
-export type DescribeHsmClientCertificatesCommandOutput = HsmClientCertificateMessage & __MetadataBearer;
+export interface DescribeHsmClientCertificatesCommandInput extends DescribeHsmClientCertificatesMessage {}
+export interface DescribeHsmClientCertificatesCommandOutput extends HsmClientCertificateMessage, __MetadataBearer {}
 
 /**
  * <p>Returns information about the specified HSM client certificate. If no certificate

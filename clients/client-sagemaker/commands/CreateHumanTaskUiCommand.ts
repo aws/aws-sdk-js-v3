@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateHumanTaskUiCommandInput = CreateHumanTaskUiRequest;
-export type CreateHumanTaskUiCommandOutput = CreateHumanTaskUiResponse & __MetadataBearer;
+export interface CreateHumanTaskUiCommandInput extends CreateHumanTaskUiRequest {}
+export interface CreateHumanTaskUiCommandOutput extends CreateHumanTaskUiResponse, __MetadataBearer {}
 
 /**
  * <p>Defines the settings you will use for the human review workflow user interface. Reviewers will see a three-panel interface with an instruction area, the item to review, and an input area.</p>

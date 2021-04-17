@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DiscoverInputSchemaCommandInput = DiscoverInputSchemaRequest;
-export type DiscoverInputSchemaCommandOutput = DiscoverInputSchemaResponse & __MetadataBearer;
+export interface DiscoverInputSchemaCommandInput extends DiscoverInputSchemaRequest {}
+export interface DiscoverInputSchemaCommandOutput extends DiscoverInputSchemaResponse, __MetadataBearer {}
 
 /**
  * <p>Infers a schema for a SQL-based Kinesis Data Analytics application by evaluating

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteWirelessGatewayCommandInput = DeleteWirelessGatewayRequest;
-export type DeleteWirelessGatewayCommandOutput = DeleteWirelessGatewayResponse & __MetadataBearer;
+export interface DeleteWirelessGatewayCommandInput extends DeleteWirelessGatewayRequest {}
+export interface DeleteWirelessGatewayCommandOutput extends DeleteWirelessGatewayResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a wireless gateway.</p>

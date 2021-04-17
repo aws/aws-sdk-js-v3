@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteLaunchTemplateCommandInput = DeleteLaunchTemplateRequest;
-export type DeleteLaunchTemplateCommandOutput = DeleteLaunchTemplateResult & __MetadataBearer;
+export interface DeleteLaunchTemplateCommandInput extends DeleteLaunchTemplateRequest {}
+export interface DeleteLaunchTemplateCommandOutput extends DeleteLaunchTemplateResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a launch template. Deleting a launch template deletes all of its versions.</p>

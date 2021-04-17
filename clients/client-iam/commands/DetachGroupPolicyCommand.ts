@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DetachGroupPolicyCommandInput = DetachGroupPolicyRequest;
-export type DetachGroupPolicyCommandOutput = __MetadataBearer;
+export interface DetachGroupPolicyCommandInput extends DetachGroupPolicyRequest {}
+export interface DetachGroupPolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes the specified managed policy from the specified IAM group.</p>

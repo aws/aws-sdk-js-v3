@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeClientPropertiesCommandInput = DescribeClientPropertiesRequest;
-export type DescribeClientPropertiesCommandOutput = DescribeClientPropertiesResult & __MetadataBearer;
+export interface DescribeClientPropertiesCommandInput extends DescribeClientPropertiesRequest {}
+export interface DescribeClientPropertiesCommandOutput extends DescribeClientPropertiesResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list that describes one or more specified Amazon WorkSpaces clients.</p>

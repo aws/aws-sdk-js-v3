@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetCardinalityCommandInput = GetCardinalityRequest;
-export type GetCardinalityCommandOutput = GetCardinalityResponse & __MetadataBearer;
+export interface GetCardinalityCommandInput extends GetCardinalityRequest {}
+export interface GetCardinalityCommandOutput extends GetCardinalityResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the approximate count of unique values that match the query.</p>

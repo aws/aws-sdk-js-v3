@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteTrafficMirrorSessionCommandInput = DeleteTrafficMirrorSessionRequest;
-export type DeleteTrafficMirrorSessionCommandOutput = DeleteTrafficMirrorSessionResult & __MetadataBearer;
+export interface DeleteTrafficMirrorSessionCommandInput extends DeleteTrafficMirrorSessionRequest {}
+export interface DeleteTrafficMirrorSessionCommandOutput extends DeleteTrafficMirrorSessionResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified Traffic Mirror session.</p>

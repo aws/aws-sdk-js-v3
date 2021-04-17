@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDeploymentStrategyCommandInput = DeleteDeploymentStrategyRequest;
-export type DeleteDeploymentStrategyCommandOutput = __MetadataBearer;
+export interface DeleteDeploymentStrategyCommandInput extends DeleteDeploymentStrategyRequest {}
+export interface DeleteDeploymentStrategyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Delete a deployment strategy. Deleting a deployment strategy does not delete a

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateSecretCommandInput = UpdateSecretRequest;
-export type UpdateSecretCommandOutput = UpdateSecretResponse & __MetadataBearer;
+export interface UpdateSecretCommandInput extends UpdateSecretRequest {}
+export interface UpdateSecretCommandOutput extends UpdateSecretResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies many of the details of the specified secret. If you include a

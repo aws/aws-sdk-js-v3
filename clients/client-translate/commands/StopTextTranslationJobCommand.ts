@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopTextTranslationJobCommandInput = StopTextTranslationJobRequest;
-export type StopTextTranslationJobCommandOutput = StopTextTranslationJobResponse & __MetadataBearer;
+export interface StopTextTranslationJobCommandInput extends StopTextTranslationJobRequest {}
+export interface StopTextTranslationJobCommandOutput extends StopTextTranslationJobResponse, __MetadataBearer {}
 
 /**
  * <p>Stops an asynchronous batch translation job that is in progress.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetChannelPolicyCommandInput = GetChannelPolicyRequest;
-export type GetChannelPolicyCommandOutput = GetChannelPolicyResponse & __MetadataBearer;
+export interface GetChannelPolicyCommandInput extends GetChannelPolicyRequest {}
+export interface GetChannelPolicyCommandOutput extends GetChannelPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about a channel's IAM policy.</p>

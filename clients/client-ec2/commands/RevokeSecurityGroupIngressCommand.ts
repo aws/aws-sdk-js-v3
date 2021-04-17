@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RevokeSecurityGroupIngressCommandInput = RevokeSecurityGroupIngressRequest;
-export type RevokeSecurityGroupIngressCommandOutput = RevokeSecurityGroupIngressResult & __MetadataBearer;
+export interface RevokeSecurityGroupIngressCommandInput extends RevokeSecurityGroupIngressRequest {}
+export interface RevokeSecurityGroupIngressCommandOutput extends RevokeSecurityGroupIngressResult, __MetadataBearer {}
 
 /**
  * <p>Removes the specified ingress rules from a security group. To remove a rule, the values

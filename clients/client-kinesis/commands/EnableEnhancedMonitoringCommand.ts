@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type EnableEnhancedMonitoringCommandInput = EnableEnhancedMonitoringInput;
-export type EnableEnhancedMonitoringCommandOutput = EnhancedMonitoringOutput & __MetadataBearer;
+export interface EnableEnhancedMonitoringCommandInput extends EnableEnhancedMonitoringInput {}
+export interface EnableEnhancedMonitoringCommandOutput extends EnhancedMonitoringOutput, __MetadataBearer {}
 
 /**
  * <p>Enables enhanced Kinesis data stream monitoring for shard-level metrics.</p>

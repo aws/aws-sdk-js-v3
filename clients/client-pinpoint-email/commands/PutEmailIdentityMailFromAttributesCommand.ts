@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutEmailIdentityMailFromAttributesCommandInput = PutEmailIdentityMailFromAttributesRequest;
-export type PutEmailIdentityMailFromAttributesCommandOutput = PutEmailIdentityMailFromAttributesResponse &
-  __MetadataBearer;
+export interface PutEmailIdentityMailFromAttributesCommandInput extends PutEmailIdentityMailFromAttributesRequest {}
+export interface PutEmailIdentityMailFromAttributesCommandOutput
+  extends PutEmailIdentityMailFromAttributesResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Used to enable or disable the custom Mail-From domain configuration for an email

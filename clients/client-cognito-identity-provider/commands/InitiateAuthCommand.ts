@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type InitiateAuthCommandInput = InitiateAuthRequest;
-export type InitiateAuthCommandOutput = InitiateAuthResponse & __MetadataBearer;
+export interface InitiateAuthCommandInput extends InitiateAuthRequest {}
+export interface InitiateAuthCommandOutput extends InitiateAuthResponse, __MetadataBearer {}
 
 /**
  * <p>Initiates the authentication flow.</p>

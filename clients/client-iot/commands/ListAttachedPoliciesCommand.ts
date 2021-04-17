@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAttachedPoliciesCommandInput = ListAttachedPoliciesRequest;
-export type ListAttachedPoliciesCommandOutput = ListAttachedPoliciesResponse & __MetadataBearer;
+export interface ListAttachedPoliciesCommandInput extends ListAttachedPoliciesRequest {}
+export interface ListAttachedPoliciesCommandOutput extends ListAttachedPoliciesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the policies attached to the specified thing group.</p>

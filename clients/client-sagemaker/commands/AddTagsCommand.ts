@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddTagsCommandInput = AddTagsInput;
-export type AddTagsCommandOutput = AddTagsOutput & __MetadataBearer;
+export interface AddTagsCommandInput extends AddTagsInput {}
+export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
 
 /**
  * <p>Adds or overwrites one or more tags for the specified Amazon SageMaker resource. You can add

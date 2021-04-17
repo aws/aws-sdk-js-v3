@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateSecurityHubConfigurationCommandInput = UpdateSecurityHubConfigurationRequest;
-export type UpdateSecurityHubConfigurationCommandOutput = UpdateSecurityHubConfigurationResponse & __MetadataBearer;
+export interface UpdateSecurityHubConfigurationCommandInput extends UpdateSecurityHubConfigurationRequest {}
+export interface UpdateSecurityHubConfigurationCommandOutput
+  extends UpdateSecurityHubConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Updates configuration options for Security Hub.</p>

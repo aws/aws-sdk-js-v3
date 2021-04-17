@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateInterconnectCommandInput = CreateInterconnectRequest;
-export type CreateInterconnectCommandOutput = Interconnect & __MetadataBearer;
+export interface CreateInterconnectCommandInput extends CreateInterconnectRequest {}
+export interface CreateInterconnectCommandOutput extends Interconnect, __MetadataBearer {}
 
 /**
  * <p>Creates an interconnect between an AWS Direct Connect Partner's network and a specific AWS Direct Connect location.</p>

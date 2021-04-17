@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAssociationForServiceQuotaTemplateCommandInput = GetAssociationForServiceQuotaTemplateRequest;
-export type GetAssociationForServiceQuotaTemplateCommandOutput = GetAssociationForServiceQuotaTemplateResponse &
-  __MetadataBearer;
+export interface GetAssociationForServiceQuotaTemplateCommandInput
+  extends GetAssociationForServiceQuotaTemplateRequest {}
+export interface GetAssociationForServiceQuotaTemplateCommandOutput
+  extends GetAssociationForServiceQuotaTemplateResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves the status of the association for the quota request template.</p>

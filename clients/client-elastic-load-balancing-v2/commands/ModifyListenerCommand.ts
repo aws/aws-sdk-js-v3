@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyListenerCommandInput = ModifyListenerInput;
-export type ModifyListenerCommandOutput = ModifyListenerOutput & __MetadataBearer;
+export interface ModifyListenerCommandInput extends ModifyListenerInput {}
+export interface ModifyListenerCommandOutput extends ModifyListenerOutput, __MetadataBearer {}
 
 /**
  * <p>Replaces the specified properties of the specified listener. Any properties that you do

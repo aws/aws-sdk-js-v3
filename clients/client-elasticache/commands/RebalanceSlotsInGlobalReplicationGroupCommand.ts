@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RebalanceSlotsInGlobalReplicationGroupCommandInput = RebalanceSlotsInGlobalReplicationGroupMessage;
-export type RebalanceSlotsInGlobalReplicationGroupCommandOutput = RebalanceSlotsInGlobalReplicationGroupResult &
-  __MetadataBearer;
+export interface RebalanceSlotsInGlobalReplicationGroupCommandInput
+  extends RebalanceSlotsInGlobalReplicationGroupMessage {}
+export interface RebalanceSlotsInGlobalReplicationGroupCommandOutput
+  extends RebalanceSlotsInGlobalReplicationGroupResult,
+    __MetadataBearer {}
 
 /**
  * <p>Redistribute slots to ensure uniform distribution across existing shards in the cluster.</p>

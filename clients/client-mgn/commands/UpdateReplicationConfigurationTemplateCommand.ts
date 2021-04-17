@@ -17,8 +17,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateReplicationConfigurationTemplateCommandInput = UpdateReplicationConfigurationTemplateRequest;
-export type UpdateReplicationConfigurationTemplateCommandOutput = ReplicationConfigurationTemplate & __MetadataBearer;
+export interface UpdateReplicationConfigurationTemplateCommandInput
+  extends UpdateReplicationConfigurationTemplateRequest {}
+export interface UpdateReplicationConfigurationTemplateCommandOutput
+  extends ReplicationConfigurationTemplate,
+    __MetadataBearer {}
 
 /**
  * <p>Updates multiple ReplicationConfigurationTemplates by ID.</p>

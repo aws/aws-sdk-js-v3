@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SendAutomationSignalCommandInput = SendAutomationSignalRequest;
-export type SendAutomationSignalCommandOutput = SendAutomationSignalResult & __MetadataBearer;
+export interface SendAutomationSignalCommandInput extends SendAutomationSignalRequest {}
+export interface SendAutomationSignalCommandOutput extends SendAutomationSignalResult, __MetadataBearer {}
 
 /**
  * <p>Sends a signal to an Automation execution to change the current behavior or status of the

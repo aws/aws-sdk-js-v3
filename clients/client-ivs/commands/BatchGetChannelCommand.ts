@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchGetChannelCommandInput = BatchGetChannelRequest;
-export type BatchGetChannelCommandOutput = BatchGetChannelResponse & __MetadataBearer;
+export interface BatchGetChannelCommandInput extends BatchGetChannelRequest {}
+export interface BatchGetChannelCommandOutput extends BatchGetChannelResponse, __MetadataBearer {}
 
 /**
  * <p>Performs <a>GetChannel</a> on multiple ARNs simultaneously.</p>

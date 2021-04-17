@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetThingRuntimeConfigurationCommandInput = GetThingRuntimeConfigurationRequest;
-export type GetThingRuntimeConfigurationCommandOutput = GetThingRuntimeConfigurationResponse & __MetadataBearer;
+export interface GetThingRuntimeConfigurationCommandInput extends GetThingRuntimeConfigurationRequest {}
+export interface GetThingRuntimeConfigurationCommandOutput
+  extends GetThingRuntimeConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * Get the runtime configuration of a thing.

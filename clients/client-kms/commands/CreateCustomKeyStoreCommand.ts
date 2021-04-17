@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateCustomKeyStoreCommandInput = CreateCustomKeyStoreRequest;
-export type CreateCustomKeyStoreCommandOutput = CreateCustomKeyStoreResponse & __MetadataBearer;
+export interface CreateCustomKeyStoreCommandInput extends CreateCustomKeyStoreRequest {}
+export interface CreateCustomKeyStoreCommandOutput extends CreateCustomKeyStoreResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> that is associated with an <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/clusters.html">AWS CloudHSM cluster</a> that you own and

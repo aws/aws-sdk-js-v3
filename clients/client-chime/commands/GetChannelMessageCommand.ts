@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetChannelMessageCommandInput = GetChannelMessageRequest;
-export type GetChannelMessageCommandOutput = GetChannelMessageResponse & __MetadataBearer;
+export interface GetChannelMessageCommandInput extends GetChannelMessageRequest {}
+export interface GetChannelMessageCommandOutput extends GetChannelMessageResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the full details of a channel message.</p>

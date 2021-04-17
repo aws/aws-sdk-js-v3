@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ConfirmSubscriptionCommandInput = ConfirmSubscriptionInput;
-export type ConfirmSubscriptionCommandOutput = ConfirmSubscriptionResponse & __MetadataBearer;
+export interface ConfirmSubscriptionCommandInput extends ConfirmSubscriptionInput {}
+export interface ConfirmSubscriptionCommandOutput extends ConfirmSubscriptionResponse, __MetadataBearer {}
 
 /**
  * <p>Verifies an endpoint owner's intent to receive messages by validating the token sent

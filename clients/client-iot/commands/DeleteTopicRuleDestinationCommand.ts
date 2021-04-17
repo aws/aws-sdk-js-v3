@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteTopicRuleDestinationCommandInput = DeleteTopicRuleDestinationRequest;
-export type DeleteTopicRuleDestinationCommandOutput = DeleteTopicRuleDestinationResponse & __MetadataBearer;
+export interface DeleteTopicRuleDestinationCommandInput extends DeleteTopicRuleDestinationRequest {}
+export interface DeleteTopicRuleDestinationCommandOutput extends DeleteTopicRuleDestinationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a topic rule destination.</p>

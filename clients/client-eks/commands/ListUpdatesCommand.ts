@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListUpdatesCommandInput = ListUpdatesRequest;
-export type ListUpdatesCommandOutput = ListUpdatesResponse & __MetadataBearer;
+export interface ListUpdatesCommandInput extends ListUpdatesRequest {}
+export interface ListUpdatesCommandOutput extends ListUpdatesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the updates associated with an Amazon EKS cluster or managed node group in your AWS

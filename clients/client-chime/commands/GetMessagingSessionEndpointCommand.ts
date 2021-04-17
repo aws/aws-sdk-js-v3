@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetMessagingSessionEndpointCommandInput = GetMessagingSessionEndpointRequest;
-export type GetMessagingSessionEndpointCommandOutput = GetMessagingSessionEndpointResponse & __MetadataBearer;
+export interface GetMessagingSessionEndpointCommandInput extends GetMessagingSessionEndpointRequest {}
+export interface GetMessagingSessionEndpointCommandOutput
+  extends GetMessagingSessionEndpointResponse,
+    __MetadataBearer {}
 
 /**
  * <p>The details of the endpoint for the messaging session.</p>

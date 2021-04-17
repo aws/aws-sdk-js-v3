@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyDBClusterEndpointCommandInput = ModifyDBClusterEndpointMessage;
-export type ModifyDBClusterEndpointCommandOutput = ModifyDBClusterEndpointOutput & __MetadataBearer;
+export interface ModifyDBClusterEndpointCommandInput extends ModifyDBClusterEndpointMessage {}
+export interface ModifyDBClusterEndpointCommandOutput extends ModifyDBClusterEndpointOutput, __MetadataBearer {}
 
 /**
  * <p>Modifies the properties of an endpoint in an Amazon Neptune DB cluster.</p>

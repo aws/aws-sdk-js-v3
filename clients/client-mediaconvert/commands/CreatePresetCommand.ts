@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreatePresetCommandInput = CreatePresetRequest;
-export type CreatePresetCommandOutput = CreatePresetResponse & __MetadataBearer;
+export interface CreatePresetCommandInput extends CreatePresetRequest {}
+export interface CreatePresetCommandOutput extends CreatePresetResponse, __MetadataBearer {}
 
 /**
  * Create a new preset. For information about job templates see the User Guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type EnableSnapshotCopyCommandInput = EnableSnapshotCopyMessage;
-export type EnableSnapshotCopyCommandOutput = EnableSnapshotCopyResult & __MetadataBearer;
+export interface EnableSnapshotCopyCommandInput extends EnableSnapshotCopyMessage {}
+export interface EnableSnapshotCopyCommandOutput extends EnableSnapshotCopyResult, __MetadataBearer {}
 
 /**
  * <p>Enables the automatic copy of snapshots from one region to another region for a

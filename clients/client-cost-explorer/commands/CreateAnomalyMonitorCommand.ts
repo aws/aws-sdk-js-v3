@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateAnomalyMonitorCommandInput = CreateAnomalyMonitorRequest;
-export type CreateAnomalyMonitorCommandOutput = CreateAnomalyMonitorResponse & __MetadataBearer;
+export interface CreateAnomalyMonitorCommandInput extends CreateAnomalyMonitorRequest {}
+export interface CreateAnomalyMonitorCommandOutput extends CreateAnomalyMonitorResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new cost anomaly detection monitor with the requested type and monitor

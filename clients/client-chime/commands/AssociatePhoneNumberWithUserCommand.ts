@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociatePhoneNumberWithUserCommandInput = AssociatePhoneNumberWithUserRequest;
-export type AssociatePhoneNumberWithUserCommandOutput = AssociatePhoneNumberWithUserResponse & __MetadataBearer;
+export interface AssociatePhoneNumberWithUserCommandInput extends AssociatePhoneNumberWithUserRequest {}
+export interface AssociatePhoneNumberWithUserCommandOutput
+  extends AssociatePhoneNumberWithUserResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Associates a phone number with the specified Amazon Chime user.</p>

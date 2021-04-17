@@ -22,8 +22,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AdminRespondToAuthChallengeCommandInput = AdminRespondToAuthChallengeRequest;
-export type AdminRespondToAuthChallengeCommandOutput = AdminRespondToAuthChallengeResponse & __MetadataBearer;
+export interface AdminRespondToAuthChallengeCommandInput extends AdminRespondToAuthChallengeRequest {}
+export interface AdminRespondToAuthChallengeCommandOutput
+  extends AdminRespondToAuthChallengeResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Responds to an authentication challenge, as an administrator.</p>

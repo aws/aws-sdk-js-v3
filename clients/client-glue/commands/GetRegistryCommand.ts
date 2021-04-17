@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetRegistryCommandInput = GetRegistryInput;
-export type GetRegistryCommandOutput = GetRegistryResponse & __MetadataBearer;
+export interface GetRegistryCommandInput extends GetRegistryInput {}
+export interface GetRegistryCommandOutput extends GetRegistryResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the specified registry in detail.</p>

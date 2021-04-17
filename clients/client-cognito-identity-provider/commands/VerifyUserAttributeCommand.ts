@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type VerifyUserAttributeCommandInput = VerifyUserAttributeRequest;
-export type VerifyUserAttributeCommandOutput = VerifyUserAttributeResponse & __MetadataBearer;
+export interface VerifyUserAttributeCommandInput extends VerifyUserAttributeRequest {}
+export interface VerifyUserAttributeCommandOutput extends VerifyUserAttributeResponse, __MetadataBearer {}
 
 /**
  * <p>Verifies the specified user attributes in the user pool.</p>

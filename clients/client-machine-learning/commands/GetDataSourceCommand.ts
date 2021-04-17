@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDataSourceCommandInput = GetDataSourceInput;
-export type GetDataSourceCommandOutput = GetDataSourceOutput & __MetadataBearer;
+export interface GetDataSourceCommandInput extends GetDataSourceInput {}
+export interface GetDataSourceCommandOutput extends GetDataSourceOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a <code>DataSource</code> that includes metadata and data file information, as well as the current status of the <code>DataSource</code>.</p>

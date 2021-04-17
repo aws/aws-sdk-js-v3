@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeCacheSecurityGroupsCommandInput = DescribeCacheSecurityGroupsMessage;
-export type DescribeCacheSecurityGroupsCommandOutput = CacheSecurityGroupMessage & __MetadataBearer;
+export interface DescribeCacheSecurityGroupsCommandInput extends DescribeCacheSecurityGroupsMessage {}
+export interface DescribeCacheSecurityGroupsCommandOutput extends CacheSecurityGroupMessage, __MetadataBearer {}
 
 /**
  * <p>Returns a list of cache security group

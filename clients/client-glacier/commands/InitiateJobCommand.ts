@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type InitiateJobCommandInput = InitiateJobInput;
-export type InitiateJobCommandOutput = InitiateJobOutput & __MetadataBearer;
+export interface InitiateJobCommandInput extends InitiateJobInput {}
+export interface InitiateJobCommandOutput extends InitiateJobOutput, __MetadataBearer {}
 
 /**
  * <p>This operation initiates a job of the specified type, which can be a select, an archival retrieval,

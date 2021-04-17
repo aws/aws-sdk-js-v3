@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateTableCommandInput = UpdateTableRequest;
-export type UpdateTableCommandOutput = UpdateTableResponse & __MetadataBearer;
+export interface UpdateTableCommandInput extends UpdateTableRequest {}
+export interface UpdateTableCommandOutput extends UpdateTableResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies the retention duration of the memory store and magnetic store for your Timestream table.

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateAssessmentCommandInput = CreateAssessmentRequest;
-export type CreateAssessmentCommandOutput = CreateAssessmentResponse & __MetadataBearer;
+export interface CreateAssessmentCommandInput extends CreateAssessmentRequest {}
+export interface CreateAssessmentCommandOutput extends CreateAssessmentResponse, __MetadataBearer {}
 
 /**
  * <p>

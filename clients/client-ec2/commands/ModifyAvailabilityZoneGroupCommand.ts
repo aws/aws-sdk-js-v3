@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyAvailabilityZoneGroupCommandInput = ModifyAvailabilityZoneGroupRequest;
-export type ModifyAvailabilityZoneGroupCommandOutput = ModifyAvailabilityZoneGroupResult & __MetadataBearer;
+export interface ModifyAvailabilityZoneGroupCommandInput extends ModifyAvailabilityZoneGroupRequest {}
+export interface ModifyAvailabilityZoneGroupCommandOutput extends ModifyAvailabilityZoneGroupResult, __MetadataBearer {}
 
 /**
  * <p>Changes the opt-in status of the Local Zone and Wavelength Zone group for your

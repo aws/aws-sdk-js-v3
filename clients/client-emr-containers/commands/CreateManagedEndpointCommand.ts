@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateManagedEndpointCommandInput = CreateManagedEndpointRequest;
-export type CreateManagedEndpointCommandOutput = CreateManagedEndpointResponse & __MetadataBearer;
+export interface CreateManagedEndpointCommandInput extends CreateManagedEndpointRequest {}
+export interface CreateManagedEndpointCommandOutput extends CreateManagedEndpointResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a managed endpoint. A managed endpoint is a gateway that connects EMR Studio to Amazon EMR on EKS so that EMR Studio can communicate with your virtual cluster.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeSchemaCommandInput = DescribeSchemaRequest;
-export type DescribeSchemaCommandOutput = DescribeSchemaResponse & __MetadataBearer;
+export interface DescribeSchemaCommandInput extends DescribeSchemaRequest {}
+export interface DescribeSchemaCommandOutput extends DescribeSchemaResponse, __MetadataBearer {}
 
 /**
  * <p>Describes a schema. For more information on schemas, see

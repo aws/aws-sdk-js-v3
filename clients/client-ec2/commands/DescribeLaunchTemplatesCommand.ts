@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeLaunchTemplatesCommandInput = DescribeLaunchTemplatesRequest;
-export type DescribeLaunchTemplatesCommandOutput = DescribeLaunchTemplatesResult & __MetadataBearer;
+export interface DescribeLaunchTemplatesCommandInput extends DescribeLaunchTemplatesRequest {}
+export interface DescribeLaunchTemplatesCommandOutput extends DescribeLaunchTemplatesResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more launch templates.</p>

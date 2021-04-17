@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTagsForDeliveryStreamCommandInput = ListTagsForDeliveryStreamInput;
-export type ListTagsForDeliveryStreamCommandOutput = ListTagsForDeliveryStreamOutput & __MetadataBearer;
+export interface ListTagsForDeliveryStreamCommandInput extends ListTagsForDeliveryStreamInput {}
+export interface ListTagsForDeliveryStreamCommandOutput extends ListTagsForDeliveryStreamOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the tags for the specified delivery stream. This operation has a limit of five

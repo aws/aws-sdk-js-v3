@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteTrafficPolicyCommandInput = DeleteTrafficPolicyRequest;
-export type DeleteTrafficPolicyCommandOutput = DeleteTrafficPolicyResponse & __MetadataBearer;
+export interface DeleteTrafficPolicyCommandInput extends DeleteTrafficPolicyRequest {}
+export interface DeleteTrafficPolicyCommandOutput extends DeleteTrafficPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a traffic policy.</p>

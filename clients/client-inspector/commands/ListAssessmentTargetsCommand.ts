@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAssessmentTargetsCommandInput = ListAssessmentTargetsRequest;
-export type ListAssessmentTargetsCommandOutput = ListAssessmentTargetsResponse & __MetadataBearer;
+export interface ListAssessmentTargetsCommandInput extends ListAssessmentTargetsRequest {}
+export interface ListAssessmentTargetsCommandOutput extends ListAssessmentTargetsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the ARNs of the assessment targets within this AWS account. For more

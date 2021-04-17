@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeauthorizeConnectionCommandInput = DeauthorizeConnectionRequest;
-export type DeauthorizeConnectionCommandOutput = DeauthorizeConnectionResponse & __MetadataBearer;
+export interface DeauthorizeConnectionCommandInput extends DeauthorizeConnectionRequest {}
+export interface DeauthorizeConnectionCommandOutput extends DeauthorizeConnectionResponse, __MetadataBearer {}
 
 /**
  * <p>Removes all authorization parameters from the connection. This lets you remove the secret

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteGcmChannelCommandInput = DeleteGcmChannelRequest;
-export type DeleteGcmChannelCommandOutput = DeleteGcmChannelResponse & __MetadataBearer;
+export interface DeleteGcmChannelCommandInput extends DeleteGcmChannelRequest {}
+export interface DeleteGcmChannelCommandOutput extends DeleteGcmChannelResponse, __MetadataBearer {}
 
 /**
  * <p>Disables the GCM channel for an application and deletes any existing settings for the channel.</p>

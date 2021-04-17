@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartImportLabelsTaskRunCommandInput = StartImportLabelsTaskRunRequest;
-export type StartImportLabelsTaskRunCommandOutput = StartImportLabelsTaskRunResponse & __MetadataBearer;
+export interface StartImportLabelsTaskRunCommandInput extends StartImportLabelsTaskRunRequest {}
+export interface StartImportLabelsTaskRunCommandOutput extends StartImportLabelsTaskRunResponse, __MetadataBearer {}
 
 /**
  * <p>Enables you to provide additional labels (examples of truth) to be used to teach the

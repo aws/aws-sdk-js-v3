@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ContinueDeploymentCommandInput = ContinueDeploymentInput;
-export type ContinueDeploymentCommandOutput = __MetadataBearer;
+export interface ContinueDeploymentCommandInput extends ContinueDeploymentInput {}
+export interface ContinueDeploymentCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>For a blue/green deployment, starts the process of rerouting traffic from instances in

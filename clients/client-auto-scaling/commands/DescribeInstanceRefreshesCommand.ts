@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeInstanceRefreshesCommandInput = DescribeInstanceRefreshesType;
-export type DescribeInstanceRefreshesCommandOutput = DescribeInstanceRefreshesAnswer & __MetadataBearer;
+export interface DescribeInstanceRefreshesCommandInput extends DescribeInstanceRefreshesType {}
+export interface DescribeInstanceRefreshesCommandOutput extends DescribeInstanceRefreshesAnswer, __MetadataBearer {}
 
 /**
  * <p>Describes one or more instance refreshes.</p>

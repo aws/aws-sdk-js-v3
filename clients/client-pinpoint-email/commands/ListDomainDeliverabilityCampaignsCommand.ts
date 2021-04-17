@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDomainDeliverabilityCampaignsCommandInput = ListDomainDeliverabilityCampaignsRequest;
-export type ListDomainDeliverabilityCampaignsCommandOutput = ListDomainDeliverabilityCampaignsResponse &
-  __MetadataBearer;
+export interface ListDomainDeliverabilityCampaignsCommandInput extends ListDomainDeliverabilityCampaignsRequest {}
+export interface ListDomainDeliverabilityCampaignsCommandOutput
+  extends ListDomainDeliverabilityCampaignsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieve deliverability data for all the campaigns that used a specific domain to send

@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddCustomAttributesCommandInput = AddCustomAttributesRequest;
-export type AddCustomAttributesCommandOutput = AddCustomAttributesResponse & __MetadataBearer;
+export interface AddCustomAttributesCommandInput extends AddCustomAttributesRequest {}
+export interface AddCustomAttributesCommandOutput extends AddCustomAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Adds additional user attributes to the user pool schema.</p>

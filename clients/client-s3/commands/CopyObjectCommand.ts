@@ -20,8 +20,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CopyObjectCommandInput = CopyObjectRequest;
-export type CopyObjectCommandOutput = CopyObjectOutput & __MetadataBearer;
+export interface CopyObjectCommandInput extends CopyObjectRequest {}
+export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a copy of an object that is already stored in Amazon S3.</p>

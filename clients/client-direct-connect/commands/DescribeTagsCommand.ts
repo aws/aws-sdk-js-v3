@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTagsCommandInput = DescribeTagsRequest;
-export type DescribeTagsCommandOutput = DescribeTagsResponse & __MetadataBearer;
+export interface DescribeTagsCommandInput extends DescribeTagsRequest {}
+export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the tags associated with the specified AWS Direct Connect resources.</p>

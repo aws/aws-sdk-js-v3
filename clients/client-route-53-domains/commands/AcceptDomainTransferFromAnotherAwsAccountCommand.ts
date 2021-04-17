@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AcceptDomainTransferFromAnotherAwsAccountCommandInput = AcceptDomainTransferFromAnotherAwsAccountRequest;
-export type AcceptDomainTransferFromAnotherAwsAccountCommandOutput = AcceptDomainTransferFromAnotherAwsAccountResponse &
-  __MetadataBearer;
+export interface AcceptDomainTransferFromAnotherAwsAccountCommandInput
+  extends AcceptDomainTransferFromAnotherAwsAccountRequest {}
+export interface AcceptDomainTransferFromAnotherAwsAccountCommandOutput
+  extends AcceptDomainTransferFromAnotherAwsAccountResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Accepts the transfer of a domain from another AWS account to the current AWS account. You initiate a transfer between AWS accounts using

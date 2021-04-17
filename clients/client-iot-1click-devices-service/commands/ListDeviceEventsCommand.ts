@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDeviceEventsCommandInput = ListDeviceEventsRequest;
-export type ListDeviceEventsCommandOutput = ListDeviceEventsResponse & __MetadataBearer;
+export interface ListDeviceEventsCommandInput extends ListDeviceEventsRequest {}
+export interface ListDeviceEventsCommandOutput extends ListDeviceEventsResponse, __MetadataBearer {}
 
 /**
  * <p>Using a device ID, returns a DeviceEventsResponse object containing an

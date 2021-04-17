@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateDistributionBundleCommandInput = UpdateDistributionBundleRequest;
-export type UpdateDistributionBundleCommandOutput = UpdateDistributionBundleResult & __MetadataBearer;
+export interface UpdateDistributionBundleCommandInput extends UpdateDistributionBundleRequest {}
+export interface UpdateDistributionBundleCommandOutput extends UpdateDistributionBundleResult, __MetadataBearer {}
 
 /**
  * <p>Updates the bundle of your Amazon Lightsail content delivery network (CDN)

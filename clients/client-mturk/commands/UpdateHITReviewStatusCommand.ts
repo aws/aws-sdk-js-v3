@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateHITReviewStatusCommandInput = UpdateHITReviewStatusRequest;
-export type UpdateHITReviewStatusCommandOutput = UpdateHITReviewStatusResponse & __MetadataBearer;
+export interface UpdateHITReviewStatusCommandInput extends UpdateHITReviewStatusRequest {}
+export interface UpdateHITReviewStatusCommandOutput extends UpdateHITReviewStatusResponse, __MetadataBearer {}
 
 /**
  * <p>

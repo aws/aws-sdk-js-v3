@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ResetDBParameterGroupCommandInput = ResetDBParameterGroupMessage;
-export type ResetDBParameterGroupCommandOutput = DBParameterGroupNameMessage & __MetadataBearer;
+export interface ResetDBParameterGroupCommandInput extends ResetDBParameterGroupMessage {}
+export interface ResetDBParameterGroupCommandOutput extends DBParameterGroupNameMessage, __MetadataBearer {}
 
 /**
  * <p>Modifies the parameters of a DB parameter group to the engine/system default value.

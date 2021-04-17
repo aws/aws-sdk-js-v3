@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateBackupSelectionCommandInput = CreateBackupSelectionInput;
-export type CreateBackupSelectionCommandOutput = CreateBackupSelectionOutput & __MetadataBearer;
+export interface CreateBackupSelectionCommandInput extends CreateBackupSelectionInput {}
+export interface CreateBackupSelectionCommandOutput extends CreateBackupSelectionOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a JSON document that specifies a set of resources to assign to a backup plan.

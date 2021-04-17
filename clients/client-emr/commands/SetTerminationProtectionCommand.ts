@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetTerminationProtectionCommandInput = SetTerminationProtectionInput;
-export type SetTerminationProtectionCommandOutput = __MetadataBearer;
+export interface SetTerminationProtectionCommandInput extends SetTerminationProtectionInput {}
+export interface SetTerminationProtectionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>SetTerminationProtection locks a cluster (job flow) so the EC2 instances in the cluster

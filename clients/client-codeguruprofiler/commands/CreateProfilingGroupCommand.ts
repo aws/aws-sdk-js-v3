@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateProfilingGroupCommandInput = CreateProfilingGroupRequest;
-export type CreateProfilingGroupCommandOutput = CreateProfilingGroupResponse & __MetadataBearer;
+export interface CreateProfilingGroupCommandInput extends CreateProfilingGroupRequest {}
+export interface CreateProfilingGroupCommandOutput extends CreateProfilingGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a profiling group.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateAnomalyMonitorCommandInput = UpdateAnomalyMonitorRequest;
-export type UpdateAnomalyMonitorCommandOutput = UpdateAnomalyMonitorResponse & __MetadataBearer;
+export interface UpdateAnomalyMonitorCommandInput extends UpdateAnomalyMonitorRequest {}
+export interface UpdateAnomalyMonitorCommandOutput extends UpdateAnomalyMonitorResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing cost anomaly monitor. The changes made are applied going forward, and

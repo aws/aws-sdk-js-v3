@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeReservationCommandInput = DescribeReservationRequest;
-export type DescribeReservationCommandOutput = DescribeReservationResponse & __MetadataBearer;
+export interface DescribeReservationCommandInput extends DescribeReservationRequest {}
+export interface DescribeReservationCommandOutput extends DescribeReservationResponse, __MetadataBearer {}
 
 /**
  * Get details for a reservation.

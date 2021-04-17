@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateSnapshotCommandInput = CreateSnapshotRequest;
-export type CreateSnapshotCommandOutput = CreateSnapshotResult & __MetadataBearer;
+export interface CreateSnapshotCommandInput extends CreateSnapshotRequest {}
+export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __MetadataBearer {}
 
 /**
  * <p>Creates a snapshot of a Simple AD or Microsoft AD directory in the AWS cloud.</p>

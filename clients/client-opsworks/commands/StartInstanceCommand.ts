@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartInstanceCommandInput = StartInstanceRequest;
-export type StartInstanceCommandOutput = __MetadataBearer;
+export interface StartInstanceCommandInput extends StartInstanceRequest {}
+export interface StartInstanceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Starts a specified instance. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-starting.html">Starting,

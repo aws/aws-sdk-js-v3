@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateHostCommandInput = UpdateHostInput;
-export type UpdateHostCommandOutput = UpdateHostOutput & __MetadataBearer;
+export interface UpdateHostCommandInput extends UpdateHostInput {}
+export interface UpdateHostCommandOutput extends UpdateHostOutput, __MetadataBearer {}
 
 /**
  * <p>Updates a specified host with the provided configurations.</p>

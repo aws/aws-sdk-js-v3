@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteResolverCommandInput = DeleteResolverRequest;
-export type DeleteResolverCommandOutput = DeleteResolverResponse & __MetadataBearer;
+export interface DeleteResolverCommandInput extends DeleteResolverRequest {}
+export interface DeleteResolverCommandOutput extends DeleteResolverResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a <code>Resolver</code> object.</p>

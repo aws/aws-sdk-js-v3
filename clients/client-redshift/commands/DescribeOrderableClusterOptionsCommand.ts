@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeOrderableClusterOptionsCommandInput = DescribeOrderableClusterOptionsMessage;
-export type DescribeOrderableClusterOptionsCommandOutput = OrderableClusterOptionsMessage & __MetadataBearer;
+export interface DescribeOrderableClusterOptionsCommandInput extends DescribeOrderableClusterOptionsMessage {}
+export interface DescribeOrderableClusterOptionsCommandOutput
+  extends OrderableClusterOptionsMessage,
+    __MetadataBearer {}
 
 /**
  * <p>Returns a list of orderable cluster options. Before you create a new cluster you

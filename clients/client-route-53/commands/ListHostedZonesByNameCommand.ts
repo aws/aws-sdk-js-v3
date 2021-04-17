@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListHostedZonesByNameCommandInput = ListHostedZonesByNameRequest;
-export type ListHostedZonesByNameCommandOutput = ListHostedZonesByNameResponse & __MetadataBearer;
+export interface ListHostedZonesByNameCommandInput extends ListHostedZonesByNameRequest {}
+export interface ListHostedZonesByNameCommandOutput extends ListHostedZonesByNameResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of your hosted zones in lexicographic order. The response includes a <code>HostedZones</code> child element

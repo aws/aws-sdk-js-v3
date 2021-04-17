@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDeploymentCommandInput = GetDeploymentRequest;
-export type GetDeploymentCommandOutput = GetDeploymentResponse & __MetadataBearer;
+export interface GetDeploymentCommandInput extends GetDeploymentRequest {}
+export interface GetDeploymentCommandOutput extends GetDeploymentResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a deployment. Deployments define the components that run on AWS IoT Greengrass core devices.</p>

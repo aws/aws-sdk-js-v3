@@ -24,9 +24,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteApplicationReferenceDataSourceCommandInput = DeleteApplicationReferenceDataSourceRequest;
-export type DeleteApplicationReferenceDataSourceCommandOutput = DeleteApplicationReferenceDataSourceResponse &
-  __MetadataBearer;
+export interface DeleteApplicationReferenceDataSourceCommandInput extends DeleteApplicationReferenceDataSourceRequest {}
+export interface DeleteApplicationReferenceDataSourceCommandOutput
+  extends DeleteApplicationReferenceDataSourceResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes a reference data source configuration from the specified SQL-based Kinesis Data Analytics application's configuration.</p>

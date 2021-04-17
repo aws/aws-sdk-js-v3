@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TagResourceCommandInput = TagResourceInput;
-export type TagResourceCommandOutput = TagResourceOutput & __MetadataBearer;
+export interface TagResourceCommandInput extends TagResourceInput {}
+export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataBearer {}
 
 /**
  * <p> Associates the list of tags in the input <code>Tags</code> parameter with the

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ValidateResourcePolicyCommandInput = ValidateResourcePolicyRequest;
-export type ValidateResourcePolicyCommandOutput = ValidateResourcePolicyResponse & __MetadataBearer;
+export interface ValidateResourcePolicyCommandInput extends ValidateResourcePolicyRequest {}
+export interface ValidateResourcePolicyCommandOutput extends ValidateResourcePolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Validates that the resource policy does not grant a wide range of IAM principals access to

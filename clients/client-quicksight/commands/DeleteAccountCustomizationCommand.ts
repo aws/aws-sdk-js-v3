@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAccountCustomizationCommandInput = DeleteAccountCustomizationRequest;
-export type DeleteAccountCustomizationCommandOutput = DeleteAccountCustomizationResponse & __MetadataBearer;
+export interface DeleteAccountCustomizationCommandInput extends DeleteAccountCustomizationRequest {}
+export interface DeleteAccountCustomizationCommandOutput extends DeleteAccountCustomizationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes all Amazon QuickSight customizations in this AWS Region for the specified AWS

@@ -18,8 +18,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateVPCFromHostedZoneCommandInput = DisassociateVPCFromHostedZoneRequest;
-export type DisassociateVPCFromHostedZoneCommandOutput = DisassociateVPCFromHostedZoneResponse & __MetadataBearer;
+export interface DisassociateVPCFromHostedZoneCommandInput extends DisassociateVPCFromHostedZoneRequest {}
+export interface DisassociateVPCFromHostedZoneCommandOutput
+  extends DisassociateVPCFromHostedZoneResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Disassociates an Amazon Virtual Private Cloud (Amazon VPC) from an Amazon Route 53 private hosted zone. Note the following:</p>

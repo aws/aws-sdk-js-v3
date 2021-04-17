@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutBucketNotificationConfigurationCommandInput = PutBucketNotificationConfigurationRequest;
-export type PutBucketNotificationConfigurationCommandOutput = __MetadataBearer;
+export interface PutBucketNotificationConfigurationCommandInput extends PutBucketNotificationConfigurationRequest {}
+export interface PutBucketNotificationConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Enables notifications of specified events for a bucket. For more information about event

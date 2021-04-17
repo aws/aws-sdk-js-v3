@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListOfferingTransactionsCommandInput = ListOfferingTransactionsRequest;
-export type ListOfferingTransactionsCommandOutput = ListOfferingTransactionsResult & __MetadataBearer;
+export interface ListOfferingTransactionsCommandInput extends ListOfferingTransactionsRequest {}
+export interface ListOfferingTransactionsCommandOutput extends ListOfferingTransactionsResult, __MetadataBearer {}
 
 /**
  * <p>Returns a list of all historical purchases, renewals, and system renewal transactions for an AWS

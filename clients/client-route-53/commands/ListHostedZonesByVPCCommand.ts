@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListHostedZonesByVPCCommandInput = ListHostedZonesByVPCRequest;
-export type ListHostedZonesByVPCCommandOutput = ListHostedZonesByVPCResponse & __MetadataBearer;
+export interface ListHostedZonesByVPCCommandInput extends ListHostedZonesByVPCRequest {}
+export interface ListHostedZonesByVPCCommandOutput extends ListHostedZonesByVPCResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all the private hosted zones that a specified VPC is associated with, regardless of which AWS account or AWS service owns the

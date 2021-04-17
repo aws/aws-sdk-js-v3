@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeImageAttributeCommandInput = DescribeImageAttributeRequest;
-export type DescribeImageAttributeCommandOutput = ImageAttribute & __MetadataBearer;
+export interface DescribeImageAttributeCommandInput extends DescribeImageAttributeRequest {}
+export interface DescribeImageAttributeCommandOutput extends ImageAttribute, __MetadataBearer {}
 
 /**
  * <p>Describes the specified attribute of the specified AMI. You can specify only one attribute at a time.</p>

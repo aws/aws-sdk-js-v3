@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateIdentityProviderCommandInput = UpdateIdentityProviderRequest;
-export type UpdateIdentityProviderCommandOutput = UpdateIdentityProviderResponse & __MetadataBearer;
+export interface UpdateIdentityProviderCommandInput extends UpdateIdentityProviderRequest {}
+export interface UpdateIdentityProviderCommandOutput extends UpdateIdentityProviderResponse, __MetadataBearer {}
 
 /**
  * <p>Updates identity provider information for a user pool.</p>

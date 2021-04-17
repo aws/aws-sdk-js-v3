@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeStackResourceCommandInput = DescribeStackResourceInput;
-export type DescribeStackResourceCommandOutput = DescribeStackResourceOutput & __MetadataBearer;
+export interface DescribeStackResourceCommandInput extends DescribeStackResourceInput {}
+export interface DescribeStackResourceCommandOutput extends DescribeStackResourceOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a description of the specified resource in the specified stack.</p>

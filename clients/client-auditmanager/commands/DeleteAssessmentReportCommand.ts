@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAssessmentReportCommandInput = DeleteAssessmentReportRequest;
-export type DeleteAssessmentReportCommandOutput = DeleteAssessmentReportResponse & __MetadataBearer;
+export interface DeleteAssessmentReportCommandInput extends DeleteAssessmentReportRequest {}
+export interface DeleteAssessmentReportCommandOutput extends DeleteAssessmentReportResponse, __MetadataBearer {}
 
 /**
  * <p>

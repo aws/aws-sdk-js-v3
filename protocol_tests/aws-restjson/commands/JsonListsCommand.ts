@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type JsonListsCommandInput = JsonListsInputOutput;
-export type JsonListsCommandOutput = JsonListsInputOutput & __MetadataBearer;
+export interface JsonListsCommandInput extends JsonListsInputOutput {}
+export interface JsonListsCommandOutput extends JsonListsInputOutput, __MetadataBearer {}
 
 /**
  * This test case serializes JSON lists for the following cases for both

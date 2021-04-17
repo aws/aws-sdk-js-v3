@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateMaintenanceWindowTaskCommandInput = UpdateMaintenanceWindowTaskRequest;
-export type UpdateMaintenanceWindowTaskCommandOutput = UpdateMaintenanceWindowTaskResult & __MetadataBearer;
+export interface UpdateMaintenanceWindowTaskCommandInput extends UpdateMaintenanceWindowTaskRequest {}
+export interface UpdateMaintenanceWindowTaskCommandOutput extends UpdateMaintenanceWindowTaskResult, __MetadataBearer {}
 
 /**
  * <p>Modifies a task assigned to a maintenance window. You can't change the task type, but you

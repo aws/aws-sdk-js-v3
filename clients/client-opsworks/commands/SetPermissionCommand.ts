@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetPermissionCommandInput = SetPermissionRequest;
-export type SetPermissionCommandOutput = __MetadataBearer;
+export interface SetPermissionCommandInput extends SetPermissionRequest {}
+export interface SetPermissionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Specifies a user's permissions. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingsecurity.html">Security and

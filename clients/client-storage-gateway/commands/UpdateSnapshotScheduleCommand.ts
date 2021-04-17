@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateSnapshotScheduleCommandInput = UpdateSnapshotScheduleInput;
-export type UpdateSnapshotScheduleCommandOutput = UpdateSnapshotScheduleOutput & __MetadataBearer;
+export interface UpdateSnapshotScheduleCommandInput extends UpdateSnapshotScheduleInput {}
+export interface UpdateSnapshotScheduleCommandOutput extends UpdateSnapshotScheduleOutput, __MetadataBearer {}
 
 /**
  * <p>Updates a snapshot schedule configured for a gateway volume. This operation is only

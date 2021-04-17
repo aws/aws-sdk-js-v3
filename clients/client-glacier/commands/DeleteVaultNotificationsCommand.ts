@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteVaultNotificationsCommandInput = DeleteVaultNotificationsInput;
-export type DeleteVaultNotificationsCommandOutput = __MetadataBearer;
+export interface DeleteVaultNotificationsCommandInput extends DeleteVaultNotificationsInput {}
+export interface DeleteVaultNotificationsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This operation deletes the notification configuration set for a vault. The operation

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeVpcPeeringConnectionsCommandInput = DescribeVpcPeeringConnectionsRequest;
-export type DescribeVpcPeeringConnectionsCommandOutput = DescribeVpcPeeringConnectionsResult & __MetadataBearer;
+export interface DescribeVpcPeeringConnectionsCommandInput extends DescribeVpcPeeringConnectionsRequest {}
+export interface DescribeVpcPeeringConnectionsCommandOutput
+  extends DescribeVpcPeeringConnectionsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Describes one or more of your VPC peering connections.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetTypeDefaultVersionCommandInput = SetTypeDefaultVersionInput;
-export type SetTypeDefaultVersionCommandOutput = SetTypeDefaultVersionOutput & __MetadataBearer;
+export interface SetTypeDefaultVersionCommandInput extends SetTypeDefaultVersionInput {}
+export interface SetTypeDefaultVersionCommandOutput extends SetTypeDefaultVersionOutput, __MetadataBearer {}
 
 /**
  * <p>Specify the default version of an extension. The default version of an extension will be used in CloudFormation operations.</p>

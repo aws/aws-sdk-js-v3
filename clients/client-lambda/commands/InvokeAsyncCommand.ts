@@ -17,10 +17,17 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type InvokeAsyncCommandInput = Omit<InvokeAsyncRequest, "InvokeArgs"> & {
+type InvokeAsyncCommandInputType = Omit<InvokeAsyncRequest, "InvokeArgs"> & {
+  /**
+   * For *`InvokeAsyncRequest["InvokeArgs"]`*, see {@link InvokeAsyncRequest.InvokeArgs}.
+   */
   InvokeArgs: InvokeAsyncRequest["InvokeArgs"] | string | Uint8Array | Buffer;
 };
-export type InvokeAsyncCommandOutput = InvokeAsyncResponse & __MetadataBearer;
+/**
+ * This interface extends from `InvokeAsyncRequest` interface. There are more parameters than `InvokeArgs` defined in {@link InvokeAsyncRequest}
+ */
+export interface InvokeAsyncCommandInput extends InvokeAsyncCommandInputType {}
+export interface InvokeAsyncCommandOutput extends InvokeAsyncResponse, __MetadataBearer {}
 
 /**
  * @deprecated

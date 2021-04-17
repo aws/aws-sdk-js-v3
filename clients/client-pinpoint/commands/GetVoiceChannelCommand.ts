@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetVoiceChannelCommandInput = GetVoiceChannelRequest;
-export type GetVoiceChannelCommandOutput = GetVoiceChannelResponse & __MetadataBearer;
+export interface GetVoiceChannelCommandInput extends GetVoiceChannelRequest {}
+export interface GetVoiceChannelCommandOutput extends GetVoiceChannelResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the status and settings of the voice channel for an application.</p>

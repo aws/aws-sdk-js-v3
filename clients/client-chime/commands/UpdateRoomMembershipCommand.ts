@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateRoomMembershipCommandInput = UpdateRoomMembershipRequest;
-export type UpdateRoomMembershipCommandOutput = UpdateRoomMembershipResponse & __MetadataBearer;
+export interface UpdateRoomMembershipCommandInput extends UpdateRoomMembershipRequest {}
+export interface UpdateRoomMembershipCommandOutput extends UpdateRoomMembershipResponse, __MetadataBearer {}
 
 /**
  * <p>Updates room membership details, such as the member role, for a room in an Amazon Chime

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RecordActivityTaskHeartbeatCommandInput = RecordActivityTaskHeartbeatInput;
-export type RecordActivityTaskHeartbeatCommandOutput = ActivityTaskStatus & __MetadataBearer;
+export interface RecordActivityTaskHeartbeatCommandInput extends RecordActivityTaskHeartbeatInput {}
+export interface RecordActivityTaskHeartbeatCommandOutput extends ActivityTaskStatus, __MetadataBearer {}
 
 /**
  * <p>Used by activity workers to report to the service that the <a>ActivityTask</a> represented by the specified <code>taskToken</code> is still making progress. The worker

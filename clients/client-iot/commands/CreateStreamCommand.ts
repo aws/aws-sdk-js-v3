@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateStreamCommandInput = CreateStreamRequest;
-export type CreateStreamCommandOutput = CreateStreamResponse & __MetadataBearer;
+export interface CreateStreamCommandInput extends CreateStreamRequest {}
+export interface CreateStreamCommandOutput extends CreateStreamResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a stream for delivering one or more large files in chunks over MQTT. A stream transports data

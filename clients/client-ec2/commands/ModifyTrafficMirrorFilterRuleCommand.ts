@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyTrafficMirrorFilterRuleCommandInput = ModifyTrafficMirrorFilterRuleRequest;
-export type ModifyTrafficMirrorFilterRuleCommandOutput = ModifyTrafficMirrorFilterRuleResult & __MetadataBearer;
+export interface ModifyTrafficMirrorFilterRuleCommandInput extends ModifyTrafficMirrorFilterRuleRequest {}
+export interface ModifyTrafficMirrorFilterRuleCommandOutput
+  extends ModifyTrafficMirrorFilterRuleResult,
+    __MetadataBearer {}
 
 /**
  * <p>Modifies the specified Traffic Mirror rule.</p>

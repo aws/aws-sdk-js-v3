@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetMediaCommandInput = GetMediaInput;
-export type GetMediaCommandOutput = GetMediaOutput & __MetadataBearer;
+export interface GetMediaCommandInput extends GetMediaInput {}
+export interface GetMediaCommandOutput extends GetMediaOutput, __MetadataBearer {}
 
 /**
  * <p> Use this API to retrieve media content from a Kinesis video stream. In the request,

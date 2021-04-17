@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateScheduledAuditCommandInput = CreateScheduledAuditRequest;
-export type CreateScheduledAuditCommandOutput = CreateScheduledAuditResponse & __MetadataBearer;
+export interface CreateScheduledAuditCommandInput extends CreateScheduledAuditRequest {}
+export interface CreateScheduledAuditCommandOutput extends CreateScheduledAuditResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a scheduled audit that is run at a specified

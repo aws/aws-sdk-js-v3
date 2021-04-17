@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartBuildCommandInput = StartBuildInput;
-export type StartBuildCommandOutput = StartBuildOutput & __MetadataBearer;
+export interface StartBuildCommandInput extends StartBuildInput {}
+export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBearer {}
 
 /**
  * <p>Starts running a build.</p>

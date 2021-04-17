@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListKeysCommandInput = ListKeysRequest;
-export type ListKeysCommandOutput = ListKeysResponse & __MetadataBearer;
+export interface ListKeysCommandInput extends ListKeysRequest {}
+export interface ListKeysCommandOutput extends ListKeysResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of all customer master keys (CMKs) in the caller's AWS account and

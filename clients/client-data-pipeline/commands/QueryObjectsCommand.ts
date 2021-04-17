@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type QueryObjectsCommandInput = QueryObjectsInput;
-export type QueryObjectsCommandOutput = QueryObjectsOutput & __MetadataBearer;
+export interface QueryObjectsCommandInput extends QueryObjectsInput {}
+export interface QueryObjectsCommandOutput extends QueryObjectsOutput, __MetadataBearer {}
 
 /**
  * <p>Queries the specified pipeline for the names of objects that match the specified set of conditions.</p>

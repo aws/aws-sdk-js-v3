@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAuditMitigationActionsTasksCommandInput = ListAuditMitigationActionsTasksRequest;
-export type ListAuditMitigationActionsTasksCommandOutput = ListAuditMitigationActionsTasksResponse & __MetadataBearer;
+export interface ListAuditMitigationActionsTasksCommandInput extends ListAuditMitigationActionsTasksRequest {}
+export interface ListAuditMitigationActionsTasksCommandOutput
+  extends ListAuditMitigationActionsTasksResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets a list of audit mitigation action tasks that match the specified filters.</p>

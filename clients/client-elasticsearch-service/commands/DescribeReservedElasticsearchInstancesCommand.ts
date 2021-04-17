@@ -24,9 +24,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeReservedElasticsearchInstancesCommandInput = DescribeReservedElasticsearchInstancesRequest;
-export type DescribeReservedElasticsearchInstancesCommandOutput = DescribeReservedElasticsearchInstancesResponse &
-  __MetadataBearer;
+export interface DescribeReservedElasticsearchInstancesCommandInput
+  extends DescribeReservedElasticsearchInstancesRequest {}
+export interface DescribeReservedElasticsearchInstancesCommandOutput
+  extends DescribeReservedElasticsearchInstancesResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns information about reserved Elasticsearch instances for this account.</p>

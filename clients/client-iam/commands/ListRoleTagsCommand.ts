@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListRoleTagsCommandInput = ListRoleTagsRequest;
-export type ListRoleTagsCommandOutput = ListRoleTagsResponse & __MetadataBearer;
+export interface ListRoleTagsCommandInput extends ListRoleTagsRequest {}
+export interface ListRoleTagsCommandOutput extends ListRoleTagsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the tags that are attached to the specified role. The returned list of tags is

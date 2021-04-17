@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateVPCEConfigurationCommandInput = CreateVPCEConfigurationRequest;
-export type CreateVPCEConfigurationCommandOutput = CreateVPCEConfigurationResult & __MetadataBearer;
+export interface CreateVPCEConfigurationCommandInput extends CreateVPCEConfigurationRequest {}
+export interface CreateVPCEConfigurationCommandOutput extends CreateVPCEConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Creates a configuration record in Device Farm for your Amazon Virtual Private Cloud

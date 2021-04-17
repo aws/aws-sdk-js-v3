@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetFirewallDomainListCommandInput = GetFirewallDomainListRequest;
-export type GetFirewallDomainListCommandOutput = GetFirewallDomainListResponse & __MetadataBearer;
+export interface GetFirewallDomainListCommandInput extends GetFirewallDomainListRequest {}
+export interface GetFirewallDomainListCommandOutput extends GetFirewallDomainListResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the specified firewall domain list.</p>

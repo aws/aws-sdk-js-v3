@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeClusterSubnetGroupsCommandInput = DescribeClusterSubnetGroupsMessage;
-export type DescribeClusterSubnetGroupsCommandOutput = ClusterSubnetGroupMessage & __MetadataBearer;
+export interface DescribeClusterSubnetGroupsCommandInput extends DescribeClusterSubnetGroupsMessage {}
+export interface DescribeClusterSubnetGroupsCommandOutput extends ClusterSubnetGroupMessage, __MetadataBearer {}
 
 /**
  * <p>Returns one or more cluster subnet group objects, which contain metadata about your

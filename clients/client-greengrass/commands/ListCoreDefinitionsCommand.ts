@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListCoreDefinitionsCommandInput = ListCoreDefinitionsRequest;
-export type ListCoreDefinitionsCommandOutput = ListCoreDefinitionsResponse & __MetadataBearer;
+export interface ListCoreDefinitionsCommandInput extends ListCoreDefinitionsRequest {}
+export interface ListCoreDefinitionsCommandOutput extends ListCoreDefinitionsResponse, __MetadataBearer {}
 
 /**
  * Retrieves a list of core definitions.

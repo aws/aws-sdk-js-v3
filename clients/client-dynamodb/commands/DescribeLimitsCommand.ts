@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeLimitsCommandInput = DescribeLimitsInput;
-export type DescribeLimitsCommandOutput = DescribeLimitsOutput & __MetadataBearer;
+export interface DescribeLimitsCommandInput extends DescribeLimitsInput {}
+export interface DescribeLimitsCommandOutput extends DescribeLimitsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the current provisioned-capacity quotas for your AWS account in a Region, both

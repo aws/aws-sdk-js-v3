@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateAutoMLJobCommandInput = CreateAutoMLJobRequest;
-export type CreateAutoMLJobCommandOutput = CreateAutoMLJobResponse & __MetadataBearer;
+export interface CreateAutoMLJobCommandInput extends CreateAutoMLJobRequest {}
+export interface CreateAutoMLJobCommandOutput extends CreateAutoMLJobResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an Autopilot job.</p>

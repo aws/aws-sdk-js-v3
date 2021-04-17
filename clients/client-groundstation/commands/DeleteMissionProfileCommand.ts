@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteMissionProfileCommandInput = DeleteMissionProfileRequest;
-export type DeleteMissionProfileCommandOutput = MissionProfileIdResponse & __MetadataBearer;
+export interface DeleteMissionProfileCommandInput extends DeleteMissionProfileRequest {}
+export interface DeleteMissionProfileCommandOutput extends MissionProfileIdResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a mission profile.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopProjectVersionCommandInput = StopProjectVersionRequest;
-export type StopProjectVersionCommandOutput = StopProjectVersionResponse & __MetadataBearer;
+export interface StopProjectVersionCommandInput extends StopProjectVersionRequest {}
+export interface StopProjectVersionCommandOutput extends StopProjectVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Stops a running model. The operation might take a while to complete. To

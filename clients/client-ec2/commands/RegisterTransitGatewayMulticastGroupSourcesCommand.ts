@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterTransitGatewayMulticastGroupSourcesCommandInput = RegisterTransitGatewayMulticastGroupSourcesRequest;
-export type RegisterTransitGatewayMulticastGroupSourcesCommandOutput = RegisterTransitGatewayMulticastGroupSourcesResult &
-  __MetadataBearer;
+export interface RegisterTransitGatewayMulticastGroupSourcesCommandInput
+  extends RegisterTransitGatewayMulticastGroupSourcesRequest {}
+export interface RegisterTransitGatewayMulticastGroupSourcesCommandOutput
+  extends RegisterTransitGatewayMulticastGroupSourcesResult,
+    __MetadataBearer {}
 
 /**
  * <p>Registers sources (network interfaces) with the specified  transit gateway multicast group.</p>

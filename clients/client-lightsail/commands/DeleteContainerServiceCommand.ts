@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteContainerServiceCommandInput = DeleteContainerServiceRequest;
-export type DeleteContainerServiceCommandOutput = DeleteContainerServiceResult & __MetadataBearer;
+export interface DeleteContainerServiceCommandInput extends DeleteContainerServiceRequest {}
+export interface DeleteContainerServiceCommandOutput extends DeleteContainerServiceResult, __MetadataBearer {}
 
 /**
  * <p>Deletes your Amazon Lightsail container service.</p>

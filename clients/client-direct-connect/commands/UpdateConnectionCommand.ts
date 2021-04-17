@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateConnectionCommandInput = UpdateConnectionRequest;
-export type UpdateConnectionCommandOutput = Connection & __MetadataBearer;
+export interface UpdateConnectionCommandInput extends UpdateConnectionRequest {}
+export interface UpdateConnectionCommandOutput extends Connection, __MetadataBearer {}
 
 /**
  * <p>Updates the AWS Direct Connect dedicated connection configuration.</p>

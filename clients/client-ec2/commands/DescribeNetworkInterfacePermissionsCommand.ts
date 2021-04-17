@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeNetworkInterfacePermissionsCommandInput = DescribeNetworkInterfacePermissionsRequest;
-export type DescribeNetworkInterfacePermissionsCommandOutput = DescribeNetworkInterfacePermissionsResult &
-  __MetadataBearer;
+export interface DescribeNetworkInterfacePermissionsCommandInput extends DescribeNetworkInterfacePermissionsRequest {}
+export interface DescribeNetworkInterfacePermissionsCommandOutput
+  extends DescribeNetworkInterfacePermissionsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the permissions for your network interfaces. </p>

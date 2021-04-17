@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PublishMetricsCommandInput = PublishMetricsInput;
-export type PublishMetricsCommandOutput = PublishMetricsOutput & __MetadataBearer;
+export interface PublishMetricsCommandInput extends PublishMetricsInput {}
+export interface PublishMetricsCommandOutput extends PublishMetricsOutput, __MetadataBearer {}
 
 /**
  * An operation for publishing metrics from the customers to the Ops plane.

@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BundleInstanceCommandInput = BundleInstanceRequest;
-export type BundleInstanceCommandOutput = BundleInstanceResult & __MetadataBearer;
+export interface BundleInstanceCommandInput extends BundleInstanceRequest {}
+export interface BundleInstanceCommandOutput extends BundleInstanceResult, __MetadataBearer {}
 
 /**
  * <p>Bundles an Amazon instance store-backed Windows instance.</p>

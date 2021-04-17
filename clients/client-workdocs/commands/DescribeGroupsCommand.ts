@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeGroupsCommandInput = DescribeGroupsRequest;
-export type DescribeGroupsCommandOutput = DescribeGroupsResponse & __MetadataBearer;
+export interface DescribeGroupsCommandInput extends DescribeGroupsRequest {}
+export interface DescribeGroupsCommandOutput extends DescribeGroupsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the groups specified by the query. Groups are defined by the underlying

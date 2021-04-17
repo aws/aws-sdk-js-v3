@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListOutpostsCommandInput = ListOutpostsInput;
-export type ListOutpostsCommandOutput = ListOutpostsOutput & __MetadataBearer;
+export interface ListOutpostsCommandInput extends ListOutpostsInput {}
+export interface ListOutpostsCommandOutput extends ListOutpostsOutput, __MetadataBearer {}
 
 /**
  * <p>List the Outposts for your AWS account.</p>

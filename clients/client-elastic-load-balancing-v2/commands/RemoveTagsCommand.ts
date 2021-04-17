@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RemoveTagsCommandInput = RemoveTagsInput;
-export type RemoveTagsCommandOutput = RemoveTagsOutput & __MetadataBearer;
+export interface RemoveTagsCommandInput extends RemoveTagsInput {}
+export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBearer {}
 
 /**
  * <p>Removes the specified tags from the specified Elastic Load Balancing resources. You can

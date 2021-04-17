@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateRevisionCommandInput = CreateRevisionRequest;
-export type CreateRevisionCommandOutput = CreateRevisionResponse & __MetadataBearer;
+export interface CreateRevisionCommandInput extends CreateRevisionRequest {}
+export interface CreateRevisionCommandOutput extends CreateRevisionResponse, __MetadataBearer {}
 
 /**
  * <p>This operation creates a revision for a data set.</p>

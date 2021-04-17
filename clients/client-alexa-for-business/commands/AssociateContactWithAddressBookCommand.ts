@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateContactWithAddressBookCommandInput = AssociateContactWithAddressBookRequest;
-export type AssociateContactWithAddressBookCommandOutput = AssociateContactWithAddressBookResponse & __MetadataBearer;
+export interface AssociateContactWithAddressBookCommandInput extends AssociateContactWithAddressBookRequest {}
+export interface AssociateContactWithAddressBookCommandOutput
+  extends AssociateContactWithAddressBookResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Associates a contact with a given address book.</p>

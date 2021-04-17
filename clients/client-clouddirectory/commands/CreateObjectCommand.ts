@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateObjectCommandInput = CreateObjectRequest;
-export type CreateObjectCommandOutput = CreateObjectResponse & __MetadataBearer;
+export interface CreateObjectCommandInput extends CreateObjectRequest {}
+export interface CreateObjectCommandOutput extends CreateObjectResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an object in a <a>Directory</a>. Additionally attaches the object to

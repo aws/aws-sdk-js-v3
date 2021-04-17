@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateJobCommandInput = CreateJobRequest;
-export type CreateJobCommandOutput = CreateJobResponse & __MetadataBearer;
+export interface CreateJobCommandInput extends CreateJobRequest {}
+export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBearer {}
 
 /**
  * <p>When you create a job, Elastic Transcoder returns JSON data that includes the values that you specified

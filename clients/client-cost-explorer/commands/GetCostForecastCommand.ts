@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetCostForecastCommandInput = GetCostForecastRequest;
-export type GetCostForecastCommandOutput = GetCostForecastResponse & __MetadataBearer;
+export interface GetCostForecastCommandInput extends GetCostForecastRequest {}
+export interface GetCostForecastCommandOutput extends GetCostForecastResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a forecast for how much Amazon Web Services predicts that you will spend over the forecast time period that you select, based on your past costs. </p>

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDBProxyTargetGroupsCommandInput = DescribeDBProxyTargetGroupsRequest;
-export type DescribeDBProxyTargetGroupsCommandOutput = DescribeDBProxyTargetGroupsResponse & __MetadataBearer;
+export interface DescribeDBProxyTargetGroupsCommandInput extends DescribeDBProxyTargetGroupsRequest {}
+export interface DescribeDBProxyTargetGroupsCommandOutput
+  extends DescribeDBProxyTargetGroupsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns information about DB proxy target groups, represented by <code>DBProxyTargetGroup</code> data structures.</p>

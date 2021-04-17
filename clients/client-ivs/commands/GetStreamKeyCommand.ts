@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetStreamKeyCommandInput = GetStreamKeyRequest;
-export type GetStreamKeyCommandOutput = GetStreamKeyResponse & __MetadataBearer;
+export interface GetStreamKeyCommandInput extends GetStreamKeyRequest {}
+export interface GetStreamKeyCommandOutput extends GetStreamKeyResponse, __MetadataBearer {}
 
 /**
  * <p>Gets stream-key information for a specified ARN.</p>

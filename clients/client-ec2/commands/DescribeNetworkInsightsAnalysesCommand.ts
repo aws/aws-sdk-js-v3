@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeNetworkInsightsAnalysesCommandInput = DescribeNetworkInsightsAnalysesRequest;
-export type DescribeNetworkInsightsAnalysesCommandOutput = DescribeNetworkInsightsAnalysesResult & __MetadataBearer;
+export interface DescribeNetworkInsightsAnalysesCommandInput extends DescribeNetworkInsightsAnalysesRequest {}
+export interface DescribeNetworkInsightsAnalysesCommandOutput
+  extends DescribeNetworkInsightsAnalysesResult,
+    __MetadataBearer {}
 
 /**
  * <p>Describes one or more of your network insights analyses.</p>

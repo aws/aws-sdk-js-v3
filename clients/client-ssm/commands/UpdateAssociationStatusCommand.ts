@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateAssociationStatusCommandInput = UpdateAssociationStatusRequest;
-export type UpdateAssociationStatusCommandOutput = UpdateAssociationStatusResult & __MetadataBearer;
+export interface UpdateAssociationStatusCommandInput extends UpdateAssociationStatusRequest {}
+export interface UpdateAssociationStatusCommandOutput extends UpdateAssociationStatusResult, __MetadataBearer {}
 
 /**
  * <p>Updates the status of the Systems Manager document associated with the specified instance.</p>

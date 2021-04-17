@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ValidateMatchmakingRuleSetCommandInput = ValidateMatchmakingRuleSetInput;
-export type ValidateMatchmakingRuleSetCommandOutput = ValidateMatchmakingRuleSetOutput & __MetadataBearer;
+export interface ValidateMatchmakingRuleSetCommandInput extends ValidateMatchmakingRuleSetInput {}
+export interface ValidateMatchmakingRuleSetCommandOutput extends ValidateMatchmakingRuleSetOutput, __MetadataBearer {}
 
 /**
  * <p>Validates the syntax of a matchmaking rule or rule set. This operation checks that

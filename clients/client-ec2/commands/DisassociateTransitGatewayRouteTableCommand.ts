@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateTransitGatewayRouteTableCommandInput = DisassociateTransitGatewayRouteTableRequest;
-export type DisassociateTransitGatewayRouteTableCommandOutput = DisassociateTransitGatewayRouteTableResult &
-  __MetadataBearer;
+export interface DisassociateTransitGatewayRouteTableCommandInput extends DisassociateTransitGatewayRouteTableRequest {}
+export interface DisassociateTransitGatewayRouteTableCommandOutput
+  extends DisassociateTransitGatewayRouteTableResult,
+    __MetadataBearer {}
 
 /**
  * <p>Disassociates a resource attachment from a transit gateway route table.</p>

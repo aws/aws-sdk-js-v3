@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDocumentationPartCommandInput = DeleteDocumentationPartRequest;
-export type DeleteDocumentationPartCommandOutput = __MetadataBearer;
+export interface DeleteDocumentationPartCommandInput extends DeleteDocumentationPartRequest {}
+export interface DeleteDocumentationPartCommandOutput extends __MetadataBearer {}
 
 export class DeleteDocumentationPartCommand extends $Command<
   DeleteDocumentationPartCommandInput,

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListFileSystemAssociationsCommandInput = ListFileSystemAssociationsInput;
-export type ListFileSystemAssociationsCommandOutput = ListFileSystemAssociationsOutput & __MetadataBearer;
+export interface ListFileSystemAssociationsCommandInput extends ListFileSystemAssociationsInput {}
+export interface ListFileSystemAssociationsCommandOutput extends ListFileSystemAssociationsOutput, __MetadataBearer {}
 
 /**
  * <p>Gets a list of <code>FileSystemAssociationSummary</code> objects. Each object contains a

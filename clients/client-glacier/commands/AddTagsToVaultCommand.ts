@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddTagsToVaultCommandInput = AddTagsToVaultInput;
-export type AddTagsToVaultCommandOutput = __MetadataBearer;
+export interface AddTagsToVaultCommandInput extends AddTagsToVaultInput {}
+export interface AddTagsToVaultCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This operation adds the specified tags to a vault. Each tag is composed of a key and

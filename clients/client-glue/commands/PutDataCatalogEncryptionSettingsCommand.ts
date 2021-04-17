@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutDataCatalogEncryptionSettingsCommandInput = PutDataCatalogEncryptionSettingsRequest;
-export type PutDataCatalogEncryptionSettingsCommandOutput = PutDataCatalogEncryptionSettingsResponse & __MetadataBearer;
+export interface PutDataCatalogEncryptionSettingsCommandInput extends PutDataCatalogEncryptionSettingsRequest {}
+export interface PutDataCatalogEncryptionSettingsCommandOutput
+  extends PutDataCatalogEncryptionSettingsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Sets the security configuration for a specified catalog. After the configuration has been

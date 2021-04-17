@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetHostnameSuggestionCommandInput = GetHostnameSuggestionRequest;
-export type GetHostnameSuggestionCommandOutput = GetHostnameSuggestionResult & __MetadataBearer;
+export interface GetHostnameSuggestionCommandInput extends GetHostnameSuggestionRequest {}
+export interface GetHostnameSuggestionCommandOutput extends GetHostnameSuggestionResult, __MetadataBearer {}
 
 /**
  * <p>Gets a generated host name for the specified layer, based on the current host name theme.</p>

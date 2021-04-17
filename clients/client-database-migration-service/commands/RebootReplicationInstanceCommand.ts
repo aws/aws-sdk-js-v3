@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RebootReplicationInstanceCommandInput = RebootReplicationInstanceMessage;
-export type RebootReplicationInstanceCommandOutput = RebootReplicationInstanceResponse & __MetadataBearer;
+export interface RebootReplicationInstanceCommandInput extends RebootReplicationInstanceMessage {}
+export interface RebootReplicationInstanceCommandOutput extends RebootReplicationInstanceResponse, __MetadataBearer {}
 
 /**
  * <p>Reboots a replication instance. Rebooting results in a momentary outage, until the

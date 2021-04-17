@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetWirelessGatewayFirmwareInformationCommandInput = GetWirelessGatewayFirmwareInformationRequest;
-export type GetWirelessGatewayFirmwareInformationCommandOutput = GetWirelessGatewayFirmwareInformationResponse &
-  __MetadataBearer;
+export interface GetWirelessGatewayFirmwareInformationCommandInput
+  extends GetWirelessGatewayFirmwareInformationRequest {}
+export interface GetWirelessGatewayFirmwareInformationCommandOutput
+  extends GetWirelessGatewayFirmwareInformationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets the firmware version and other information about a wireless gateway.</p>

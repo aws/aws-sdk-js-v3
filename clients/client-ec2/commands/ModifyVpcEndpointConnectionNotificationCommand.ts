@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyVpcEndpointConnectionNotificationCommandInput = ModifyVpcEndpointConnectionNotificationRequest;
-export type ModifyVpcEndpointConnectionNotificationCommandOutput = ModifyVpcEndpointConnectionNotificationResult &
-  __MetadataBearer;
+export interface ModifyVpcEndpointConnectionNotificationCommandInput
+  extends ModifyVpcEndpointConnectionNotificationRequest {}
+export interface ModifyVpcEndpointConnectionNotificationCommandOutput
+  extends ModifyVpcEndpointConnectionNotificationResult,
+    __MetadataBearer {}
 
 /**
  * <p>Modifies a connection notification for VPC endpoint or VPC endpoint service. You

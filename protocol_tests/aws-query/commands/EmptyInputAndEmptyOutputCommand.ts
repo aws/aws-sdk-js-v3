@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type EmptyInputAndEmptyOutputCommandInput = EmptyInputAndEmptyOutputInput;
-export type EmptyInputAndEmptyOutputCommandOutput = EmptyInputAndEmptyOutputOutput & __MetadataBearer;
+export interface EmptyInputAndEmptyOutputCommandInput extends EmptyInputAndEmptyOutputInput {}
+export interface EmptyInputAndEmptyOutputCommandOutput extends EmptyInputAndEmptyOutputOutput, __MetadataBearer {}
 
 /**
  * The example tests how requests and responses are serialized when there's

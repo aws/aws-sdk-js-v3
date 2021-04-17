@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssumeRoleWithSAMLCommandInput = AssumeRoleWithSAMLRequest;
-export type AssumeRoleWithSAMLCommandOutput = AssumeRoleWithSAMLResponse & __MetadataBearer;
+export interface AssumeRoleWithSAMLCommandInput extends AssumeRoleWithSAMLRequest {}
+export interface AssumeRoleWithSAMLCommandOutput extends AssumeRoleWithSAMLResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a set of temporary security credentials for users who have been authenticated

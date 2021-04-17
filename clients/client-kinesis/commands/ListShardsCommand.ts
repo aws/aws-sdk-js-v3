@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListShardsCommandInput = ListShardsInput;
-export type ListShardsCommandOutput = ListShardsOutput & __MetadataBearer;
+export interface ListShardsCommandInput extends ListShardsInput {}
+export interface ListShardsCommandOutput extends ListShardsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the shards in a stream and provides information about each shard. This

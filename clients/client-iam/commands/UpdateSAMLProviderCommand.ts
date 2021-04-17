@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateSAMLProviderCommandInput = UpdateSAMLProviderRequest;
-export type UpdateSAMLProviderCommandOutput = UpdateSAMLProviderResponse & __MetadataBearer;
+export interface UpdateSAMLProviderCommandInput extends UpdateSAMLProviderRequest {}
+export interface UpdateSAMLProviderCommandOutput extends UpdateSAMLProviderResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the metadata document for an existing SAML provider resource object.</p>

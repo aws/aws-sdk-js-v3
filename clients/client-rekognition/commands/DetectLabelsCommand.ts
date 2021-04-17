@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DetectLabelsCommandInput = DetectLabelsRequest;
-export type DetectLabelsCommandOutput = DetectLabelsResponse & __MetadataBearer;
+export interface DetectLabelsCommandInput extends DetectLabelsRequest {}
+export interface DetectLabelsCommandOutput extends DetectLabelsResponse, __MetadataBearer {}
 
 /**
  * <p>Detects instances of real-world entities within an image (JPEG or PNG)

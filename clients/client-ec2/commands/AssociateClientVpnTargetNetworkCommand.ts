@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateClientVpnTargetNetworkCommandInput = AssociateClientVpnTargetNetworkRequest;
-export type AssociateClientVpnTargetNetworkCommandOutput = AssociateClientVpnTargetNetworkResult & __MetadataBearer;
+export interface AssociateClientVpnTargetNetworkCommandInput extends AssociateClientVpnTargetNetworkRequest {}
+export interface AssociateClientVpnTargetNetworkCommandOutput
+  extends AssociateClientVpnTargetNetworkResult,
+    __MetadataBearer {}
 
 /**
  * <p>Associates a target network with a Client VPN endpoint. A target network is a subnet in a VPC. You can associate multiple subnets from the same VPC with a Client VPN endpoint. You can associate only one subnet in each Availability Zone. We recommend that you associate at least two subnets to provide Availability Zone redundancy.</p>

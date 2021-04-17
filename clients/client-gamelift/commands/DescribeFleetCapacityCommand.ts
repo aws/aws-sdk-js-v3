@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeFleetCapacityCommandInput = DescribeFleetCapacityInput;
-export type DescribeFleetCapacityCommandOutput = DescribeFleetCapacityOutput & __MetadataBearer;
+export interface DescribeFleetCapacityCommandInput extends DescribeFleetCapacityInput {}
+export interface DescribeFleetCapacityCommandOutput extends DescribeFleetCapacityOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves the resource capacity settings for one or more fleets. The data returned

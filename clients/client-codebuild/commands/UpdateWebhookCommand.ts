@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateWebhookCommandInput = UpdateWebhookInput;
-export type UpdateWebhookCommandOutput = UpdateWebhookOutput & __MetadataBearer;
+export interface UpdateWebhookCommandInput extends UpdateWebhookInput {}
+export interface UpdateWebhookCommandOutput extends UpdateWebhookOutput, __MetadataBearer {}
 
 /**
  * <p> Updates the webhook associated with an AWS CodeBuild build project. </p>

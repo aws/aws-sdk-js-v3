@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeContainerCommandInput = DescribeContainerInput;
-export type DescribeContainerCommandOutput = DescribeContainerOutput & __MetadataBearer;
+export interface DescribeContainerCommandInput extends DescribeContainerInput {}
+export interface DescribeContainerCommandOutput extends DescribeContainerOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves the properties of the requested container. This request is commonly used to

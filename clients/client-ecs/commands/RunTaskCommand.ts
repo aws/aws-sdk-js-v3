@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RunTaskCommandInput = RunTaskRequest;
-export type RunTaskCommandOutput = RunTaskResponse & __MetadataBearer;
+export interface RunTaskCommandInput extends RunTaskRequest {}
+export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer {}
 
 /**
  * <p>Starts a new task using the specified task definition.</p>

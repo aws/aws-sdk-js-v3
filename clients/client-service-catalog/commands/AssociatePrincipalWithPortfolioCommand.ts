@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociatePrincipalWithPortfolioCommandInput = AssociatePrincipalWithPortfolioInput;
-export type AssociatePrincipalWithPortfolioCommandOutput = AssociatePrincipalWithPortfolioOutput & __MetadataBearer;
+export interface AssociatePrincipalWithPortfolioCommandInput extends AssociatePrincipalWithPortfolioInput {}
+export interface AssociatePrincipalWithPortfolioCommandOutput
+  extends AssociatePrincipalWithPortfolioOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Associates the specified principal ARN with the specified portfolio.</p>

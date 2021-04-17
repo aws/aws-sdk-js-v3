@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateFunctionCommandInput = CreateFunctionRequest;
-export type CreateFunctionCommandOutput = CreateFunctionResponse & __MetadataBearer;
+export interface CreateFunctionCommandInput extends CreateFunctionRequest {}
+export interface CreateFunctionCommandOutput extends CreateFunctionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a <code>Function</code> object.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetTimeBasedAutoScalingCommandInput = SetTimeBasedAutoScalingRequest;
-export type SetTimeBasedAutoScalingCommandOutput = __MetadataBearer;
+export interface SetTimeBasedAutoScalingCommandInput extends SetTimeBasedAutoScalingRequest {}
+export interface SetTimeBasedAutoScalingCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Specify the time-based auto scaling configuration for a specified instance. For more

@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetIntentVersionsCommandInput = GetIntentVersionsRequest;
-export type GetIntentVersionsCommandOutput = GetIntentVersionsResponse & __MetadataBearer;
+export interface GetIntentVersionsCommandInput extends GetIntentVersionsRequest {}
+export interface GetIntentVersionsCommandOutput extends GetIntentVersionsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about all of the versions of an intent.</p>

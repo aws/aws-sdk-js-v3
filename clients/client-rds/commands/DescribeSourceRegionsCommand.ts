@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeSourceRegionsCommandInput = DescribeSourceRegionsMessage;
-export type DescribeSourceRegionsCommandOutput = SourceRegionMessage & __MetadataBearer;
+export interface DescribeSourceRegionsCommandInput extends DescribeSourceRegionsMessage {}
+export interface DescribeSourceRegionsCommandOutput extends SourceRegionMessage, __MetadataBearer {}
 
 /**
  * <p>Returns a list of the source AWS Regions where the current AWS Region can create a read replica,

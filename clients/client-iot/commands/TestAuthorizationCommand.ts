@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TestAuthorizationCommandInput = TestAuthorizationRequest;
-export type TestAuthorizationCommandOutput = TestAuthorizationResponse & __MetadataBearer;
+export interface TestAuthorizationCommandInput extends TestAuthorizationRequest {}
+export interface TestAuthorizationCommandOutput extends TestAuthorizationResponse, __MetadataBearer {}
 
 /**
  * <p>Tests if a specified principal is authorized to perform an AWS IoT action on a

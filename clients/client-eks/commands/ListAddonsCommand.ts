@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAddonsCommandInput = ListAddonsRequest;
-export type ListAddonsCommandOutput = ListAddonsResponse & __MetadataBearer;
+export interface ListAddonsCommandInput extends ListAddonsRequest {}
+export interface ListAddonsCommandOutput extends ListAddonsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the available add-ons.</p>

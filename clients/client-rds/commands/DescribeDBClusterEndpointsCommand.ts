@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDBClusterEndpointsCommandInput = DescribeDBClusterEndpointsMessage;
-export type DescribeDBClusterEndpointsCommandOutput = DBClusterEndpointMessage & __MetadataBearer;
+export interface DescribeDBClusterEndpointsCommandInput extends DescribeDBClusterEndpointsMessage {}
+export interface DescribeDBClusterEndpointsCommandOutput extends DBClusterEndpointMessage, __MetadataBearer {}
 
 /**
  * <p>Returns information about endpoints for an Amazon Aurora DB cluster.</p>

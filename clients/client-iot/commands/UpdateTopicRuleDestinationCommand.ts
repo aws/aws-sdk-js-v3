@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateTopicRuleDestinationCommandInput = UpdateTopicRuleDestinationRequest;
-export type UpdateTopicRuleDestinationCommandOutput = UpdateTopicRuleDestinationResponse & __MetadataBearer;
+export interface UpdateTopicRuleDestinationCommandInput extends UpdateTopicRuleDestinationRequest {}
+export interface UpdateTopicRuleDestinationCommandOutput extends UpdateTopicRuleDestinationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a topic rule destination. You use this to change the status, endpoint URL, or

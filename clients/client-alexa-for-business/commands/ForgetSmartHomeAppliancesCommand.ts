@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ForgetSmartHomeAppliancesCommandInput = ForgetSmartHomeAppliancesRequest;
-export type ForgetSmartHomeAppliancesCommandOutput = ForgetSmartHomeAppliancesResponse & __MetadataBearer;
+export interface ForgetSmartHomeAppliancesCommandInput extends ForgetSmartHomeAppliancesRequest {}
+export interface ForgetSmartHomeAppliancesCommandOutput extends ForgetSmartHomeAppliancesResponse, __MetadataBearer {}
 
 /**
  * <p>Forgets smart home appliances associated to a room.</p>

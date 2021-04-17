@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateMemberAccountCommandInput = AssociateMemberAccountRequest;
-export type AssociateMemberAccountCommandOutput = __MetadataBearer;
+export interface AssociateMemberAccountCommandInput extends AssociateMemberAccountRequest {}
+export interface AssociateMemberAccountCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Associates a specified AWS account with Amazon Macie Classic as a member

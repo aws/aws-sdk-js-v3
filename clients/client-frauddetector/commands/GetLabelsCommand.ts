@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetLabelsCommandInput = GetLabelsRequest;
-export type GetLabelsCommandOutput = GetLabelsResult & __MetadataBearer;
+export interface GetLabelsCommandInput extends GetLabelsRequest {}
+export interface GetLabelsCommandOutput extends GetLabelsResult, __MetadataBearer {}
 
 /**
  * <p>Gets all labels or a specific label if name is provided. This is a paginated API. If you

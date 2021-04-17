@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetRegistrationCodeCommandInput = GetRegistrationCodeRequest;
-export type GetRegistrationCodeCommandOutput = GetRegistrationCodeResponse & __MetadataBearer;
+export interface GetRegistrationCodeCommandInput extends GetRegistrationCodeRequest {}
+export interface GetRegistrationCodeCommandOutput extends GetRegistrationCodeResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a registration code used to register a CA certificate with AWS IoT.</p>

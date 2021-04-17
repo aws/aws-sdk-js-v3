@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisableAlarmActionsCommandInput = DisableAlarmActionsInput;
-export type DisableAlarmActionsCommandOutput = __MetadataBearer;
+export interface DisableAlarmActionsCommandInput extends DisableAlarmActionsInput {}
+export interface DisableAlarmActionsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Disables the actions for the specified alarms. When an alarm's actions are disabled, the

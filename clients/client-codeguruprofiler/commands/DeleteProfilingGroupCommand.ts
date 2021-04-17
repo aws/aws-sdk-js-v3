@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteProfilingGroupCommandInput = DeleteProfilingGroupRequest;
-export type DeleteProfilingGroupCommandOutput = DeleteProfilingGroupResponse & __MetadataBearer;
+export interface DeleteProfilingGroupCommandInput extends DeleteProfilingGroupRequest {}
+export interface DeleteProfilingGroupCommandOutput extends DeleteProfilingGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a profiling group.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDomainConfigurationCommandInput = DeleteDomainConfigurationRequest;
-export type DeleteDomainConfigurationCommandOutput = DeleteDomainConfigurationResponse & __MetadataBearer;
+export interface DeleteDomainConfigurationCommandInput extends DeleteDomainConfigurationRequest {}
+export interface DeleteDomainConfigurationCommandOutput extends DeleteDomainConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified domain configuration.</p>

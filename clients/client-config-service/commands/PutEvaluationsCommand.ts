@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutEvaluationsCommandInput = PutEvaluationsRequest;
-export type PutEvaluationsCommandOutput = PutEvaluationsResponse & __MetadataBearer;
+export interface PutEvaluationsCommandInput extends PutEvaluationsRequest {}
+export interface PutEvaluationsCommandOutput extends PutEvaluationsResponse, __MetadataBearer {}
 
 /**
  * <p>Used by an AWS Lambda function to deliver evaluation results to

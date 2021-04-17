@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateFirewallRuleGroupCommandInput = DisassociateFirewallRuleGroupRequest;
-export type DisassociateFirewallRuleGroupCommandOutput = DisassociateFirewallRuleGroupResponse & __MetadataBearer;
+export interface DisassociateFirewallRuleGroupCommandInput extends DisassociateFirewallRuleGroupRequest {}
+export interface DisassociateFirewallRuleGroupCommandOutput
+  extends DisassociateFirewallRuleGroupResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Disassociates a <a>FirewallRuleGroup</a> from a VPC, to remove DNS filtering from the VPC. </p>

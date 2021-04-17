@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TagResourceCommandInput = TagResourceInput;
-export type TagResourceCommandOutput = TagResourceOutput & __MetadataBearer;
+export interface TagResourceCommandInput extends TagResourceInput {}
+export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataBearer {}
 
 /**
  * <p>Adds to or modifies the tags of the given resource. Tags are metadata that can be used

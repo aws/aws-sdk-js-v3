@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeCommunicationsCommandInput = DescribeCommunicationsRequest;
-export type DescribeCommunicationsCommandOutput = DescribeCommunicationsResponse & __MetadataBearer;
+export interface DescribeCommunicationsCommandInput extends DescribeCommunicationsRequest {}
+export interface DescribeCommunicationsCommandOutput extends DescribeCommunicationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns communications and attachments for one or more support cases. Use the

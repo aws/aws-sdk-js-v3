@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ChangeMessageVisibilityCommandInput = ChangeMessageVisibilityRequest;
-export type ChangeMessageVisibilityCommandOutput = __MetadataBearer;
+export interface ChangeMessageVisibilityCommandInput extends ChangeMessageVisibilityRequest {}
+export interface ChangeMessageVisibilityCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Changes the visibility timeout of a specified message in a queue to a new value. The

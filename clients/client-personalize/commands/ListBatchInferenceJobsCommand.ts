@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListBatchInferenceJobsCommandInput = ListBatchInferenceJobsRequest;
-export type ListBatchInferenceJobsCommandOutput = ListBatchInferenceJobsResponse & __MetadataBearer;
+export interface ListBatchInferenceJobsCommandInput extends ListBatchInferenceJobsRequest {}
+export interface ListBatchInferenceJobsCommandOutput extends ListBatchInferenceJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of the batch inference jobs that have been performed off of a solution

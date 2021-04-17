@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetThingShadowCommandInput = GetThingShadowRequest;
-export type GetThingShadowCommandOutput = GetThingShadowResponse & __MetadataBearer;
+export interface GetThingShadowCommandInput extends GetThingShadowRequest {}
+export interface GetThingShadowCommandOutput extends GetThingShadowResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the shadow for the specified thing.</p>

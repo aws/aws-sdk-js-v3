@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetEC2InstanceRecommendationsCommandInput = GetEC2InstanceRecommendationsRequest;
-export type GetEC2InstanceRecommendationsCommandOutput = GetEC2InstanceRecommendationsResponse & __MetadataBearer;
+export interface GetEC2InstanceRecommendationsCommandInput extends GetEC2InstanceRecommendationsRequest {}
+export interface GetEC2InstanceRecommendationsCommandOutput
+  extends GetEC2InstanceRecommendationsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns Amazon EC2 instance recommendations.</p>

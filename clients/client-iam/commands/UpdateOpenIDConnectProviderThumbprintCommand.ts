@@ -17,8 +17,9 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateOpenIDConnectProviderThumbprintCommandInput = UpdateOpenIDConnectProviderThumbprintRequest;
-export type UpdateOpenIDConnectProviderThumbprintCommandOutput = __MetadataBearer;
+export interface UpdateOpenIDConnectProviderThumbprintCommandInput
+  extends UpdateOpenIDConnectProviderThumbprintRequest {}
+export interface UpdateOpenIDConnectProviderThumbprintCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Replaces the existing list of server certificate thumbprints associated with an OpenID

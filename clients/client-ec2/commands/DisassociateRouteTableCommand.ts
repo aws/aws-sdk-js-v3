@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateRouteTableCommandInput = DisassociateRouteTableRequest;
-export type DisassociateRouteTableCommandOutput = __MetadataBearer;
+export interface DisassociateRouteTableCommandInput extends DisassociateRouteTableRequest {}
+export interface DisassociateRouteTableCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Disassociates a subnet or gateway from a route table.</p>

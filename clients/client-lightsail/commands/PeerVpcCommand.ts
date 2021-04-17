@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PeerVpcCommandInput = PeerVpcRequest;
-export type PeerVpcCommandOutput = PeerVpcResult & __MetadataBearer;
+export interface PeerVpcCommandInput extends PeerVpcRequest {}
+export interface PeerVpcCommandOutput extends PeerVpcResult, __MetadataBearer {}
 
 /**
  * <p>Tries to peer the Lightsail VPC with the user's default VPC.</p>

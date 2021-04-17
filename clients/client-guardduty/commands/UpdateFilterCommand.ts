@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateFilterCommandInput = UpdateFilterRequest;
-export type UpdateFilterCommandOutput = UpdateFilterResponse & __MetadataBearer;
+export interface UpdateFilterCommandInput extends UpdateFilterRequest {}
+export interface UpdateFilterCommandOutput extends UpdateFilterResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the filter specified by the filter name.</p>

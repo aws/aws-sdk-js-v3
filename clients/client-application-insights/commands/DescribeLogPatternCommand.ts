@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeLogPatternCommandInput = DescribeLogPatternRequest;
-export type DescribeLogPatternCommandOutput = DescribeLogPatternResponse & __MetadataBearer;
+export interface DescribeLogPatternCommandInput extends DescribeLogPatternRequest {}
+export interface DescribeLogPatternCommandOutput extends DescribeLogPatternResponse, __MetadataBearer {}
 
 /**
  * <p>Describe a specific log pattern from a <code>LogPatternSet</code>.</p>

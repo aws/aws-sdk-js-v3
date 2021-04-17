@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateInvalidationCommandInput = CreateInvalidationRequest;
-export type CreateInvalidationCommandOutput = CreateInvalidationResult & __MetadataBearer;
+export interface CreateInvalidationCommandInput extends CreateInvalidationRequest {}
+export interface CreateInvalidationCommandOutput extends CreateInvalidationResult, __MetadataBearer {}
 
 /**
  * <p>Create a new invalidation. </p>

@@ -18,8 +18,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListStorageLensConfigurationsCommandInput = ListStorageLensConfigurationsRequest;
-export type ListStorageLensConfigurationsCommandOutput = ListStorageLensConfigurationsResult & __MetadataBearer;
+export interface ListStorageLensConfigurationsCommandInput extends ListStorageLensConfigurationsRequest {}
+export interface ListStorageLensConfigurationsCommandOutput
+  extends ListStorageLensConfigurationsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Gets a list of Amazon S3 Storage Lens configurations. For more information about S3 Storage Lens, see

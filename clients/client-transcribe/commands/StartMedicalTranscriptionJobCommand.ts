@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartMedicalTranscriptionJobCommandInput = StartMedicalTranscriptionJobRequest;
-export type StartMedicalTranscriptionJobCommandOutput = StartMedicalTranscriptionJobResponse & __MetadataBearer;
+export interface StartMedicalTranscriptionJobCommandInput extends StartMedicalTranscriptionJobRequest {}
+export interface StartMedicalTranscriptionJobCommandOutput
+  extends StartMedicalTranscriptionJobResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Starts a batch job to transcribe medical speech to text.</p>

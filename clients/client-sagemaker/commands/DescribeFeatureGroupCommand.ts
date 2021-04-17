@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeFeatureGroupCommandInput = DescribeFeatureGroupRequest;
-export type DescribeFeatureGroupCommandOutput = DescribeFeatureGroupResponse & __MetadataBearer;
+export interface DescribeFeatureGroupCommandInput extends DescribeFeatureGroupRequest {}
+export interface DescribeFeatureGroupCommandOutput extends DescribeFeatureGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Use this operation to describe a <code>FeatureGroup</code>. The response includes

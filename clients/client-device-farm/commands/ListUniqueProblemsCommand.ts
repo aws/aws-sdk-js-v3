@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListUniqueProblemsCommandInput = ListUniqueProblemsRequest;
-export type ListUniqueProblemsCommandOutput = ListUniqueProblemsResult & __MetadataBearer;
+export interface ListUniqueProblemsCommandInput extends ListUniqueProblemsRequest {}
+export interface ListUniqueProblemsCommandOutput extends ListUniqueProblemsResult, __MetadataBearer {}
 
 /**
  * <p>Gets information about unique problems, such as exceptions or crashes.</p>

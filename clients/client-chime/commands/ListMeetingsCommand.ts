@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListMeetingsCommandInput = ListMeetingsRequest;
-export type ListMeetingsCommandOutput = ListMeetingsResponse & __MetadataBearer;
+export interface ListMeetingsCommandInput extends ListMeetingsRequest {}
+export interface ListMeetingsCommandOutput extends ListMeetingsResponse, __MetadataBearer {}
 
 /**
  * <p>

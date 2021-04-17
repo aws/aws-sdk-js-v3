@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateCommentCommandInput = UpdateCommentInput;
-export type UpdateCommentCommandOutput = UpdateCommentOutput & __MetadataBearer;
+export interface UpdateCommentCommandInput extends UpdateCommentInput {}
+export interface UpdateCommentCommandOutput extends UpdateCommentOutput, __MetadataBearer {}
 
 /**
  * <p>Replaces the contents of a comment.</p>

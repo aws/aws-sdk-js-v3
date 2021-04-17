@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateClusterSecurityGroupCommandInput = CreateClusterSecurityGroupMessage;
-export type CreateClusterSecurityGroupCommandOutput = CreateClusterSecurityGroupResult & __MetadataBearer;
+export interface CreateClusterSecurityGroupCommandInput extends CreateClusterSecurityGroupMessage {}
+export interface CreateClusterSecurityGroupCommandOutput extends CreateClusterSecurityGroupResult, __MetadataBearer {}
 
 /**
  * <p>Creates a new Amazon Redshift security group. You use security groups to control access

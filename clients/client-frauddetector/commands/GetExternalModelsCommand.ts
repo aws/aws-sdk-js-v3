@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetExternalModelsCommandInput = GetExternalModelsRequest;
-export type GetExternalModelsCommandOutput = GetExternalModelsResult & __MetadataBearer;
+export interface GetExternalModelsCommandInput extends GetExternalModelsRequest {}
+export interface GetExternalModelsCommandOutput extends GetExternalModelsResult, __MetadataBearer {}
 
 /**
  * <p>Gets the details for one or more Amazon SageMaker models that have been imported into the

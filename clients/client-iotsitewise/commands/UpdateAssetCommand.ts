@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateAssetCommandInput = UpdateAssetRequest;
-export type UpdateAssetCommandOutput = UpdateAssetResponse & __MetadataBearer;
+export interface UpdateAssetCommandInput extends UpdateAssetRequest {}
+export interface UpdateAssetCommandOutput extends UpdateAssetResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an asset's name. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html">Updating assets and models</a> in the

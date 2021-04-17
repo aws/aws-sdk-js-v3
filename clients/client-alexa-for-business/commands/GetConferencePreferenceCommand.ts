@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetConferencePreferenceCommandInput = GetConferencePreferenceRequest;
-export type GetConferencePreferenceCommandOutput = GetConferencePreferenceResponse & __MetadataBearer;
+export interface GetConferencePreferenceCommandInput extends GetConferencePreferenceRequest {}
+export interface GetConferencePreferenceCommandOutput extends GetConferencePreferenceResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the existing conference preferences.</p>

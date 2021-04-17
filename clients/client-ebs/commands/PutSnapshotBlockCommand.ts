@@ -17,10 +17,17 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutSnapshotBlockCommandInput = Omit<PutSnapshotBlockRequest, "BlockData"> & {
+type PutSnapshotBlockCommandInputType = Omit<PutSnapshotBlockRequest, "BlockData"> & {
+  /**
+   * For *`PutSnapshotBlockRequest["BlockData"]`*, see {@link PutSnapshotBlockRequest.BlockData}.
+   */
   BlockData: PutSnapshotBlockRequest["BlockData"] | string | Uint8Array | Buffer;
 };
-export type PutSnapshotBlockCommandOutput = PutSnapshotBlockResponse & __MetadataBearer;
+/**
+ * This interface extends from `PutSnapshotBlockRequest` interface. There are more parameters than `BlockData` defined in {@link PutSnapshotBlockRequest}
+ */
+export interface PutSnapshotBlockCommandInput extends PutSnapshotBlockCommandInputType {}
+export interface PutSnapshotBlockCommandOutput extends PutSnapshotBlockResponse, __MetadataBearer {}
 
 /**
  * <p>Writes a block of data to a snapshot. If the specified block contains

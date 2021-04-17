@@ -24,9 +24,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateConfigurationItemsToApplicationCommandInput = AssociateConfigurationItemsToApplicationRequest;
-export type AssociateConfigurationItemsToApplicationCommandOutput = AssociateConfigurationItemsToApplicationResponse &
-  __MetadataBearer;
+export interface AssociateConfigurationItemsToApplicationCommandInput
+  extends AssociateConfigurationItemsToApplicationRequest {}
+export interface AssociateConfigurationItemsToApplicationCommandOutput
+  extends AssociateConfigurationItemsToApplicationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Associates one or more configuration items with an application.</p>

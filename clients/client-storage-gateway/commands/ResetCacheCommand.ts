@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ResetCacheCommandInput = ResetCacheInput;
-export type ResetCacheCommandOutput = ResetCacheOutput & __MetadataBearer;
+export interface ResetCacheCommandInput extends ResetCacheInput {}
+export interface ResetCacheCommandOutput extends ResetCacheOutput, __MetadataBearer {}
 
 /**
  * <p>Resets all cache disks that have encountered an error and makes the disks available for

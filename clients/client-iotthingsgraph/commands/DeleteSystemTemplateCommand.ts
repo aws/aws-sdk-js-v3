@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteSystemTemplateCommandInput = DeleteSystemTemplateRequest;
-export type DeleteSystemTemplateCommandOutput = DeleteSystemTemplateResponse & __MetadataBearer;
+export interface DeleteSystemTemplateCommandInput extends DeleteSystemTemplateRequest {}
+export interface DeleteSystemTemplateCommandOutput extends DeleteSystemTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a system. New deployments can't contain the system after its deletion.

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TagSAMLProviderCommandInput = TagSAMLProviderRequest;
-export type TagSAMLProviderCommandOutput = __MetadataBearer;
+export interface TagSAMLProviderCommandInput extends TagSAMLProviderRequest {}
+export interface TagSAMLProviderCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Adds one or more tags to a Security Assertion Markup Language (SAML) identity provider.

@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListApplicationDependenciesCommandInput = ListApplicationDependenciesRequest;
-export type ListApplicationDependenciesCommandOutput = ListApplicationDependenciesResponse & __MetadataBearer;
+export interface ListApplicationDependenciesCommandInput extends ListApplicationDependenciesRequest {}
+export interface ListApplicationDependenciesCommandOutput
+  extends ListApplicationDependenciesResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves the list of applications nested in the containing application.</p>

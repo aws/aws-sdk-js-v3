@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutReportDefinitionCommandInput = PutReportDefinitionRequest;
-export type PutReportDefinitionCommandOutput = PutReportDefinitionResponse & __MetadataBearer;
+export interface PutReportDefinitionCommandInput extends PutReportDefinitionRequest {}
+export interface PutReportDefinitionCommandOutput extends PutReportDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new report using the description that you provide.</p>

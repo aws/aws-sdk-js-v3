@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GenerateAccessLogsCommandInput = GenerateAccessLogsRequest;
-export type GenerateAccessLogsCommandOutput = GenerateAccessLogsResult & __MetadataBearer;
+export interface GenerateAccessLogsCommandInput extends GenerateAccessLogsRequest {}
+export interface GenerateAccessLogsCommandOutput extends GenerateAccessLogsResult, __MetadataBearer {}
 
 /**
  * <p> Returns the website access logs for a specific time range using a presigned URL.

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListGroundStationsCommandInput = ListGroundStationsRequest;
-export type ListGroundStationsCommandOutput = ListGroundStationsResponse & __MetadataBearer;
+export interface ListGroundStationsCommandInput extends ListGroundStationsRequest {}
+export interface ListGroundStationsCommandOutput extends ListGroundStationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of ground stations. </p>

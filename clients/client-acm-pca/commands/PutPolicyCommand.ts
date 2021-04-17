@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutPolicyCommandInput = PutPolicyRequest;
-export type PutPolicyCommandOutput = __MetadataBearer;
+export interface PutPolicyCommandInput extends PutPolicyRequest {}
+export interface PutPolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Attaches a resource-based policy to a private CA. </p>

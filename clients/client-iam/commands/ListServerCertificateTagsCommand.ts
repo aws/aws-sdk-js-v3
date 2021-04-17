@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListServerCertificateTagsCommandInput = ListServerCertificateTagsRequest;
-export type ListServerCertificateTagsCommandOutput = ListServerCertificateTagsResponse & __MetadataBearer;
+export interface ListServerCertificateTagsCommandInput extends ListServerCertificateTagsRequest {}
+export interface ListServerCertificateTagsCommandOutput extends ListServerCertificateTagsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the tags that are attached to the specified IAM server certificate. The

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetChannelScheduleCommandInput = GetChannelScheduleRequest;
-export type GetChannelScheduleCommandOutput = GetChannelScheduleResponse & __MetadataBearer;
+export interface GetChannelScheduleCommandInput extends GetChannelScheduleRequest {}
+export interface GetChannelScheduleCommandOutput extends GetChannelScheduleResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about your channel's schedule.</p>

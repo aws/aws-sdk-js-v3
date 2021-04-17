@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateCloudFrontOriginAccessIdentityCommandInput = CreateCloudFrontOriginAccessIdentityRequest;
-export type CreateCloudFrontOriginAccessIdentityCommandOutput = CreateCloudFrontOriginAccessIdentityResult &
-  __MetadataBearer;
+export interface CreateCloudFrontOriginAccessIdentityCommandInput extends CreateCloudFrontOriginAccessIdentityRequest {}
+export interface CreateCloudFrontOriginAccessIdentityCommandOutput
+  extends CreateCloudFrontOriginAccessIdentityResult,
+    __MetadataBearer {}
 
 /**
  * <p>Creates a new origin access identity. If you're using Amazon S3 for your origin, you can

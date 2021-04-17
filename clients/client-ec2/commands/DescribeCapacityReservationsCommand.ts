@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeCapacityReservationsCommandInput = DescribeCapacityReservationsRequest;
-export type DescribeCapacityReservationsCommandOutput = DescribeCapacityReservationsResult & __MetadataBearer;
+export interface DescribeCapacityReservationsCommandInput extends DescribeCapacityReservationsRequest {}
+export interface DescribeCapacityReservationsCommandOutput
+  extends DescribeCapacityReservationsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Describes one or more of your Capacity Reservations. The results describe only the Capacity Reservations in the AWS

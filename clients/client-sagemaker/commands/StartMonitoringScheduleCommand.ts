@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartMonitoringScheduleCommandInput = StartMonitoringScheduleRequest;
-export type StartMonitoringScheduleCommandOutput = __MetadataBearer;
+export interface StartMonitoringScheduleCommandInput extends StartMonitoringScheduleRequest {}
+export interface StartMonitoringScheduleCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Starts a previously stopped monitoring schedule.</p>

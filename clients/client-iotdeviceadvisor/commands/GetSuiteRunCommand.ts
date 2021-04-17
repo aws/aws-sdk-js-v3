@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSuiteRunCommandInput = GetSuiteRunRequest;
-export type GetSuiteRunCommandOutput = GetSuiteRunResponse & __MetadataBearer;
+export interface GetSuiteRunCommandInput extends GetSuiteRunRequest {}
+export interface GetSuiteRunCommandOutput extends GetSuiteRunResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about a Device Advisor test suite run.</p>

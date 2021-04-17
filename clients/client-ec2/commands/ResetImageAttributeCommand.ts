@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ResetImageAttributeCommandInput = ResetImageAttributeRequest;
-export type ResetImageAttributeCommandOutput = __MetadataBearer;
+export interface ResetImageAttributeCommandInput extends ResetImageAttributeRequest {}
+export interface ResetImageAttributeCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Resets an attribute of an AMI to its default value.</p>

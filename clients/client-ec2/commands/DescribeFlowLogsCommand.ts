@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeFlowLogsCommandInput = DescribeFlowLogsRequest;
-export type DescribeFlowLogsCommandOutput = DescribeFlowLogsResult & __MetadataBearer;
+export interface DescribeFlowLogsCommandInput extends DescribeFlowLogsRequest {}
+export interface DescribeFlowLogsCommandOutput extends DescribeFlowLogsResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more flow logs. To view the information in your flow logs (the log

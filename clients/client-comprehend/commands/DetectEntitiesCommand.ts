@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DetectEntitiesCommandInput = DetectEntitiesRequest;
-export type DetectEntitiesCommandOutput = DetectEntitiesResponse & __MetadataBearer;
+export interface DetectEntitiesCommandInput extends DetectEntitiesRequest {}
+export interface DetectEntitiesCommandOutput extends DetectEntitiesResponse, __MetadataBearer {}
 
 /**
  * <p>Inspects text for named entities, and returns information about them. For more

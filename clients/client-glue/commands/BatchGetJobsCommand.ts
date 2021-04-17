@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchGetJobsCommandInput = BatchGetJobsRequest;
-export type BatchGetJobsCommandOutput = BatchGetJobsResponse & __MetadataBearer;
+export interface BatchGetJobsCommandInput extends BatchGetJobsRequest {}
+export interface BatchGetJobsCommandOutput extends BatchGetJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of resource metadata for a given list of job names. After calling the <code>ListJobs</code> operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.

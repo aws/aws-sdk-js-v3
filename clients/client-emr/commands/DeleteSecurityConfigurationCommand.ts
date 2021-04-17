@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteSecurityConfigurationCommandInput = DeleteSecurityConfigurationInput;
-export type DeleteSecurityConfigurationCommandOutput = DeleteSecurityConfigurationOutput & __MetadataBearer;
+export interface DeleteSecurityConfigurationCommandInput extends DeleteSecurityConfigurationInput {}
+export interface DeleteSecurityConfigurationCommandOutput extends DeleteSecurityConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes a security configuration.</p>

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeProvisionedProductPlanCommandInput = DescribeProvisionedProductPlanInput;
-export type DescribeProvisionedProductPlanCommandOutput = DescribeProvisionedProductPlanOutput & __MetadataBearer;
+export interface DescribeProvisionedProductPlanCommandInput extends DescribeProvisionedProductPlanInput {}
+export interface DescribeProvisionedProductPlanCommandOutput
+  extends DescribeProvisionedProductPlanOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Gets information about the resource changes for the specified plan.</p>

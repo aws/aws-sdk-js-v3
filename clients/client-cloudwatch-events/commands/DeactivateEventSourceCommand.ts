@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeactivateEventSourceCommandInput = DeactivateEventSourceRequest;
-export type DeactivateEventSourceCommandOutput = __MetadataBearer;
+export interface DeactivateEventSourceCommandInput extends DeactivateEventSourceRequest {}
+export interface DeactivateEventSourceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>You can use this operation to temporarily stop receiving events from the specified partner

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetHealthCheckCountCommandInput = GetHealthCheckCountRequest;
-export type GetHealthCheckCountCommandOutput = GetHealthCheckCountResponse & __MetadataBearer;
+export interface GetHealthCheckCountCommandInput extends GetHealthCheckCountRequest {}
+export interface GetHealthCheckCountCommandOutput extends GetHealthCheckCountResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the number of health checks that are associated with the current AWS account.</p>

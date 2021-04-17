@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteInstanceCommandInput = DeleteInstanceRequest;
-export type DeleteInstanceCommandOutput = DeleteInstanceResult & __MetadataBearer;
+export interface DeleteInstanceCommandInput extends DeleteInstanceRequest {}
+export interface DeleteInstanceCommandOutput extends DeleteInstanceResult, __MetadataBearer {}
 
 /**
  * <p>Deletes an Amazon Lightsail instance.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateBatchPredictionCommandInput = CreateBatchPredictionInput;
-export type CreateBatchPredictionCommandOutput = CreateBatchPredictionOutput & __MetadataBearer;
+export interface CreateBatchPredictionCommandInput extends CreateBatchPredictionInput {}
+export interface CreateBatchPredictionCommandOutput extends CreateBatchPredictionOutput, __MetadataBearer {}
 
 /**
  * <p>Generates predictions for a group of observations. The observations to process exist in one or more data files referenced

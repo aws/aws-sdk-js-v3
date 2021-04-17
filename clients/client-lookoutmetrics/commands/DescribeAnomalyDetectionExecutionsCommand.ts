@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAnomalyDetectionExecutionsCommandInput = DescribeAnomalyDetectionExecutionsRequest;
-export type DescribeAnomalyDetectionExecutionsCommandOutput = DescribeAnomalyDetectionExecutionsResponse &
-  __MetadataBearer;
+export interface DescribeAnomalyDetectionExecutionsCommandInput extends DescribeAnomalyDetectionExecutionsRequest {}
+export interface DescribeAnomalyDetectionExecutionsCommandOutput
+  extends DescribeAnomalyDetectionExecutionsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns information about the status of the specified anomaly detection jobs.</p>

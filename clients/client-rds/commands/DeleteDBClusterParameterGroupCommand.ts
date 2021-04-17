@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDBClusterParameterGroupCommandInput = DeleteDBClusterParameterGroupMessage;
-export type DeleteDBClusterParameterGroupCommandOutput = __MetadataBearer;
+export interface DeleteDBClusterParameterGroupCommandInput extends DeleteDBClusterParameterGroupMessage {}
+export interface DeleteDBClusterParameterGroupCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a specified DB cluster parameter group. The DB cluster parameter group to be deleted can't be associated with any DB clusters.</p>

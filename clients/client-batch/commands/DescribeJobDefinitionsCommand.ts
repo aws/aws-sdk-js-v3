@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeJobDefinitionsCommandInput = DescribeJobDefinitionsRequest;
-export type DescribeJobDefinitionsCommandOutput = DescribeJobDefinitionsResponse & __MetadataBearer;
+export interface DescribeJobDefinitionsCommandInput extends DescribeJobDefinitionsRequest {}
+export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefinitionsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes a list of job definitions. You can specify a <code>status</code> (such as <code>ACTIVE</code>) to only

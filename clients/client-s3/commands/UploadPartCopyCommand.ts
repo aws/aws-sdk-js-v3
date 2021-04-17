@@ -20,8 +20,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UploadPartCopyCommandInput = UploadPartCopyRequest;
-export type UploadPartCopyCommandOutput = UploadPartCopyOutput & __MetadataBearer;
+export interface UploadPartCopyCommandInput extends UploadPartCopyRequest {}
+export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __MetadataBearer {}
 
 /**
  * <p>Uploads a part by copying data from an existing object as data source. You specify the

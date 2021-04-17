@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateCertificateAuthorityAuditReportCommandInput = CreateCertificateAuthorityAuditReportRequest;
-export type CreateCertificateAuthorityAuditReportCommandOutput = CreateCertificateAuthorityAuditReportResponse &
-  __MetadataBearer;
+export interface CreateCertificateAuthorityAuditReportCommandInput
+  extends CreateCertificateAuthorityAuditReportRequest {}
+export interface CreateCertificateAuthorityAuditReportCommandOutput
+  extends CreateCertificateAuthorityAuditReportResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Creates an audit report that lists every time that your CA private key is used. The

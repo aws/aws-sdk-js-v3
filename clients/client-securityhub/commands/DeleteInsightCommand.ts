@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteInsightCommandInput = DeleteInsightRequest;
-export type DeleteInsightCommandOutput = DeleteInsightResponse & __MetadataBearer;
+export interface DeleteInsightCommandInput extends DeleteInsightRequest {}
+export interface DeleteInsightCommandOutput extends DeleteInsightResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the insight specified by the <code>InsightArn</code>.</p>

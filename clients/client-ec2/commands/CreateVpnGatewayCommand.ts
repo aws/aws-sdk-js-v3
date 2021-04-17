@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateVpnGatewayCommandInput = CreateVpnGatewayRequest;
-export type CreateVpnGatewayCommandOutput = CreateVpnGatewayResult & __MetadataBearer;
+export interface CreateVpnGatewayCommandInput extends CreateVpnGatewayRequest {}
+export interface CreateVpnGatewayCommandOutput extends CreateVpnGatewayResult, __MetadataBearer {}
 
 /**
  * <p>Creates a virtual private gateway. A virtual private gateway is the endpoint on the VPC side of your VPN connection. You can create a virtual private gateway before creating the VPC itself.</p>

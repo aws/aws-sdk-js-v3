@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateQualificationWithWorkerCommandInput = AssociateQualificationWithWorkerRequest;
-export type AssociateQualificationWithWorkerCommandOutput = AssociateQualificationWithWorkerResponse & __MetadataBearer;
+export interface AssociateQualificationWithWorkerCommandInput extends AssociateQualificationWithWorkerRequest {}
+export interface AssociateQualificationWithWorkerCommandOutput
+  extends AssociateQualificationWithWorkerResponse,
+    __MetadataBearer {}
 
 /**
  * <p>

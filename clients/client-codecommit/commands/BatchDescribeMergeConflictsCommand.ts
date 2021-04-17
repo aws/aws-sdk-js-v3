@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchDescribeMergeConflictsCommandInput = BatchDescribeMergeConflictsInput;
-export type BatchDescribeMergeConflictsCommandOutput = BatchDescribeMergeConflictsOutput & __MetadataBearer;
+export interface BatchDescribeMergeConflictsCommandInput extends BatchDescribeMergeConflictsInput {}
+export interface BatchDescribeMergeConflictsCommandOutput extends BatchDescribeMergeConflictsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about one or more merge conflicts in the attempted merge of two commit specifiers using the squash or three-way merge strategy.</p>

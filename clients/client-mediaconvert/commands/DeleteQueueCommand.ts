@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteQueueCommandInput = DeleteQueueRequest;
-export type DeleteQueueCommandOutput = DeleteQueueResponse & __MetadataBearer;
+export interface DeleteQueueCommandInput extends DeleteQueueRequest {}
+export interface DeleteQueueCommandOutput extends DeleteQueueResponse, __MetadataBearer {}
 
 /**
  * Permanently delete a queue you have created.

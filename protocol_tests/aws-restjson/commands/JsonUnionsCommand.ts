@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type JsonUnionsCommandInput = UnionInputOutput;
-export type JsonUnionsCommandOutput = UnionInputOutput & __MetadataBearer;
+export interface JsonUnionsCommandInput extends UnionInputOutput {}
+export interface JsonUnionsCommandOutput extends UnionInputOutput, __MetadataBearer {}
 
 /**
  * This operation uses unions for inputs and outputs.

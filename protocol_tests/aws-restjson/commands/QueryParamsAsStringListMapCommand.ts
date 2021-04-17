@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type QueryParamsAsStringListMapCommandInput = QueryParamsAsStringListMapInput;
-export type QueryParamsAsStringListMapCommandOutput = __MetadataBearer;
+export interface QueryParamsAsStringListMapCommandInput extends QueryParamsAsStringListMapInput {}
+export interface QueryParamsAsStringListMapCommandOutput extends __MetadataBearer {}
 
 export class QueryParamsAsStringListMapCommand extends $Command<
   QueryParamsAsStringListMapCommandInput,

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetRateBasedStatementManagedKeysCommandInput = GetRateBasedStatementManagedKeysRequest;
-export type GetRateBasedStatementManagedKeysCommandOutput = GetRateBasedStatementManagedKeysResponse & __MetadataBearer;
+export interface GetRateBasedStatementManagedKeysCommandInput extends GetRateBasedStatementManagedKeysRequest {}
+export interface GetRateBasedStatementManagedKeysCommandOutput
+  extends GetRateBasedStatementManagedKeysResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves the keys that are currently blocked by a rate-based rule. The maximum number of managed keys that can be blocked for a single rate-based rule is 10,000. If more than 10,000 addresses exceed the rate limit, those with the highest rates are blocked.</p>

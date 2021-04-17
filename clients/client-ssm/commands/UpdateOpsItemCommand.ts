@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateOpsItemCommandInput = UpdateOpsItemRequest;
-export type UpdateOpsItemCommandOutput = UpdateOpsItemResponse & __MetadataBearer;
+export interface UpdateOpsItemCommandInput extends UpdateOpsItemRequest {}
+export interface UpdateOpsItemCommandOutput extends UpdateOpsItemResponse, __MetadataBearer {}
 
 /**
  * <p>Edit or change an OpsItem. You must have permission in AWS Identity and Access Management

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateSubnetGroupCommandInput = CreateSubnetGroupRequest;
-export type CreateSubnetGroupCommandOutput = CreateSubnetGroupResponse & __MetadataBearer;
+export interface CreateSubnetGroupCommandInput extends CreateSubnetGroupRequest {}
+export interface CreateSubnetGroupCommandOutput extends CreateSubnetGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new subnet group.</p>

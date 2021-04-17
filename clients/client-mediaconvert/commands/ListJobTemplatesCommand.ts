@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListJobTemplatesCommandInput = ListJobTemplatesRequest;
-export type ListJobTemplatesCommandOutput = ListJobTemplatesResponse & __MetadataBearer;
+export interface ListJobTemplatesCommandInput extends ListJobTemplatesRequest {}
+export interface ListJobTemplatesCommandOutput extends ListJobTemplatesResponse, __MetadataBearer {}
 
 /**
  * Retrieve a JSON array of up to twenty of your job templates. This will return the templates themselves, not just a list of them. To retrieve the next twenty templates, use the nextToken string returned with the array

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetMedicalTranscriptionJobCommandInput = GetMedicalTranscriptionJobRequest;
-export type GetMedicalTranscriptionJobCommandOutput = GetMedicalTranscriptionJobResponse & __MetadataBearer;
+export interface GetMedicalTranscriptionJobCommandInput extends GetMedicalTranscriptionJobRequest {}
+export interface GetMedicalTranscriptionJobCommandOutput extends GetMedicalTranscriptionJobResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about a transcription job from Amazon Transcribe Medical. To see the status of the

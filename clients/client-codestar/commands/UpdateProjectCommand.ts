@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateProjectCommandInput = UpdateProjectRequest;
-export type UpdateProjectCommandOutput = UpdateProjectResult & __MetadataBearer;
+export interface UpdateProjectCommandInput extends UpdateProjectRequest {}
+export interface UpdateProjectCommandOutput extends UpdateProjectResult, __MetadataBearer {}
 
 /**
  * <p>Updates a project in AWS CodeStar.</p>

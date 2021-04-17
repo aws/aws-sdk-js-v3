@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutThirdPartyJobFailureResultCommandInput = PutThirdPartyJobFailureResultInput;
-export type PutThirdPartyJobFailureResultCommandOutput = __MetadataBearer;
+export interface PutThirdPartyJobFailureResultCommandInput extends PutThirdPartyJobFailureResultInput {}
+export interface PutThirdPartyJobFailureResultCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Represents the failure of a third party job as returned to the pipeline by a job

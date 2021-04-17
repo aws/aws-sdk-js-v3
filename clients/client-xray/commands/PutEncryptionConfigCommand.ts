@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutEncryptionConfigCommandInput = PutEncryptionConfigRequest;
-export type PutEncryptionConfigCommandOutput = PutEncryptionConfigResult & __MetadataBearer;
+export interface PutEncryptionConfigCommandInput extends PutEncryptionConfigRequest {}
+export interface PutEncryptionConfigCommandOutput extends PutEncryptionConfigResult, __MetadataBearer {}
 
 /**
  * <p>Updates the encryption configuration for X-Ray data.</p>

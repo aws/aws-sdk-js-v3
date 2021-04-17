@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateAccessPointCommandInput = CreateAccessPointRequest;
-export type CreateAccessPointCommandOutput = AccessPointDescription & __MetadataBearer;
+export interface CreateAccessPointCommandInput extends CreateAccessPointRequest {}
+export interface CreateAccessPointCommandOutput extends AccessPointDescription, __MetadataBearer {}
 
 /**
  * <p>Creates an EFS access point. An access point is an application-specific view into an EFS

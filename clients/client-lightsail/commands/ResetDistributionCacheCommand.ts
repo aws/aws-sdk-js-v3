@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ResetDistributionCacheCommandInput = ResetDistributionCacheRequest;
-export type ResetDistributionCacheCommandOutput = ResetDistributionCacheResult & __MetadataBearer;
+export interface ResetDistributionCacheCommandInput extends ResetDistributionCacheRequest {}
+export interface ResetDistributionCacheCommandOutput extends ResetDistributionCacheResult, __MetadataBearer {}
 
 /**
  * <p>Deletes currently cached content from your Amazon Lightsail content delivery network (CDN)

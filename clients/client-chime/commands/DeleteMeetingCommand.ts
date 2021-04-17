@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteMeetingCommandInput = DeleteMeetingRequest;
-export type DeleteMeetingCommandOutput = __MetadataBearer;
+export interface DeleteMeetingCommandInput extends DeleteMeetingRequest {}
+export interface DeleteMeetingCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified Amazon Chime SDK meeting. When a meeting is deleted, its attendees are

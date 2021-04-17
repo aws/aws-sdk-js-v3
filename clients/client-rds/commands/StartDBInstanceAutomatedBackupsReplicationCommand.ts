@@ -21,9 +21,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartDBInstanceAutomatedBackupsReplicationCommandInput = StartDBInstanceAutomatedBackupsReplicationMessage;
-export type StartDBInstanceAutomatedBackupsReplicationCommandOutput = StartDBInstanceAutomatedBackupsReplicationResult &
-  __MetadataBearer;
+export interface StartDBInstanceAutomatedBackupsReplicationCommandInput
+  extends StartDBInstanceAutomatedBackupsReplicationMessage {}
+export interface StartDBInstanceAutomatedBackupsReplicationCommandOutput
+  extends StartDBInstanceAutomatedBackupsReplicationResult,
+    __MetadataBearer {}
 
 /**
  * <p>Enables replication of automated backups to a different AWS Region.</p>

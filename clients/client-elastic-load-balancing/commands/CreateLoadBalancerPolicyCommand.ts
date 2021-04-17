@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateLoadBalancerPolicyCommandInput = CreateLoadBalancerPolicyInput;
-export type CreateLoadBalancerPolicyCommandOutput = CreateLoadBalancerPolicyOutput & __MetadataBearer;
+export interface CreateLoadBalancerPolicyCommandInput extends CreateLoadBalancerPolicyInput {}
+export interface CreateLoadBalancerPolicyCommandOutput extends CreateLoadBalancerPolicyOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a policy with the specified attributes for the specified load balancer.</p>

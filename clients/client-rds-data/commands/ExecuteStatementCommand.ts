@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ExecuteStatementCommandInput = ExecuteStatementRequest;
-export type ExecuteStatementCommandOutput = ExecuteStatementResponse & __MetadataBearer;
+export interface ExecuteStatementCommandInput extends ExecuteStatementRequest {}
+export interface ExecuteStatementCommandOutput extends ExecuteStatementResponse, __MetadataBearer {}
 
 /**
  * <p>Runs a SQL statement against a database.</p>

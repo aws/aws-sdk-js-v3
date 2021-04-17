@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateClusterSubnetGroupCommandInput = CreateClusterSubnetGroupMessage;
-export type CreateClusterSubnetGroupCommandOutput = CreateClusterSubnetGroupResult & __MetadataBearer;
+export interface CreateClusterSubnetGroupCommandInput extends CreateClusterSubnetGroupMessage {}
+export interface CreateClusterSubnetGroupCommandOutput extends CreateClusterSubnetGroupResult, __MetadataBearer {}
 
 /**
  * <p>Creates a new Amazon Redshift subnet group. You must provide a list of one or more

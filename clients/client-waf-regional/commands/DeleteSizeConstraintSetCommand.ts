@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteSizeConstraintSetCommandInput = DeleteSizeConstraintSetRequest;
-export type DeleteSizeConstraintSetCommandOutput = DeleteSizeConstraintSetResponse & __MetadataBearer;
+export interface DeleteSizeConstraintSetCommandInput extends DeleteSizeConstraintSetRequest {}
+export interface DeleteSizeConstraintSetCommandOutput extends DeleteSizeConstraintSetResponse, __MetadataBearer {}
 
 /**
  * <note>

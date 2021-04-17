@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type EnableVpcClassicLinkCommandInput = EnableVpcClassicLinkRequest;
-export type EnableVpcClassicLinkCommandOutput = EnableVpcClassicLinkResult & __MetadataBearer;
+export interface EnableVpcClassicLinkCommandInput extends EnableVpcClassicLinkRequest {}
+export interface EnableVpcClassicLinkCommandOutput extends EnableVpcClassicLinkResult, __MetadataBearer {}
 
 /**
  * <p>Enables a VPC for ClassicLink. You can then link EC2-Classic instances to your

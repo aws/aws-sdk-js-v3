@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ActivateUserCommandInput = ActivateUserRequest;
-export type ActivateUserCommandOutput = ActivateUserResponse & __MetadataBearer;
+export interface ActivateUserCommandInput extends ActivateUserRequest {}
+export interface ActivateUserCommandOutput extends ActivateUserResponse, __MetadataBearer {}
 
 /**
  * <p>Activates the specified user. Only active users can access Amazon

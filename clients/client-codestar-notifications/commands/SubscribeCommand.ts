@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SubscribeCommandInput = SubscribeRequest;
-export type SubscribeCommandOutput = SubscribeResult & __MetadataBearer;
+export interface SubscribeCommandInput extends SubscribeRequest {}
+export interface SubscribeCommandOutput extends SubscribeResult, __MetadataBearer {}
 
 /**
  * <p>Creates an association between a notification rule and an SNS topic so that the

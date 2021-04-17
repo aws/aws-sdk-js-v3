@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RestoreDBClusterFromSnapshotCommandInput = RestoreDBClusterFromSnapshotMessage;
-export type RestoreDBClusterFromSnapshotCommandOutput = RestoreDBClusterFromSnapshotResult & __MetadataBearer;
+export interface RestoreDBClusterFromSnapshotCommandInput extends RestoreDBClusterFromSnapshotMessage {}
+export interface RestoreDBClusterFromSnapshotCommandOutput
+  extends RestoreDBClusterFromSnapshotResult,
+    __MetadataBearer {}
 
 /**
  * <p>Creates a new DB cluster from a DB snapshot or DB cluster snapshot. This action

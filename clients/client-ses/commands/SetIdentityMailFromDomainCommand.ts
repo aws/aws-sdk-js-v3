@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetIdentityMailFromDomainCommandInput = SetIdentityMailFromDomainRequest;
-export type SetIdentityMailFromDomainCommandOutput = SetIdentityMailFromDomainResponse & __MetadataBearer;
+export interface SetIdentityMailFromDomainCommandInput extends SetIdentityMailFromDomainRequest {}
+export interface SetIdentityMailFromDomainCommandOutput extends SetIdentityMailFromDomainResponse, __MetadataBearer {}
 
 /**
  * <p>Enables or disables the custom MAIL FROM domain setup for a verified identity (an

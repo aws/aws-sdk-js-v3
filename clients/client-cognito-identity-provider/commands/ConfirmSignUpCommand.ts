@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ConfirmSignUpCommandInput = ConfirmSignUpRequest;
-export type ConfirmSignUpCommandOutput = ConfirmSignUpResponse & __MetadataBearer;
+export interface ConfirmSignUpCommandInput extends ConfirmSignUpRequest {}
+export interface ConfirmSignUpCommandOutput extends ConfirmSignUpResponse, __MetadataBearer {}
 
 /**
  * <p>Confirms registration of a user and handles the existing alias from a previous

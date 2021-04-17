@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTagsForStreamCommandInput = ListTagsForStreamInput;
-export type ListTagsForStreamCommandOutput = ListTagsForStreamOutput & __MetadataBearer;
+export interface ListTagsForStreamCommandInput extends ListTagsForStreamInput {}
+export interface ListTagsForStreamCommandOutput extends ListTagsForStreamOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the tags for the specified Kinesis data stream. This operation has a limit of

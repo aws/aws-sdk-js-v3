@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListInstanceProfilesCommandInput = ListInstanceProfilesRequest;
-export type ListInstanceProfilesCommandOutput = ListInstanceProfilesResult & __MetadataBearer;
+export interface ListInstanceProfilesCommandInput extends ListInstanceProfilesRequest {}
+export interface ListInstanceProfilesCommandOutput extends ListInstanceProfilesResult, __MetadataBearer {}
 
 /**
  * <p>Returns information about all the instance profiles in an AWS account.</p>

@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateModelExplainabilityJobDefinitionCommandInput = CreateModelExplainabilityJobDefinitionRequest;
-export type CreateModelExplainabilityJobDefinitionCommandOutput = CreateModelExplainabilityJobDefinitionResponse &
-  __MetadataBearer;
+export interface CreateModelExplainabilityJobDefinitionCommandInput
+  extends CreateModelExplainabilityJobDefinitionRequest {}
+export interface CreateModelExplainabilityJobDefinitionCommandOutput
+  extends CreateModelExplainabilityJobDefinitionResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Creates the definition for a model explainability job.</p>

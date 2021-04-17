@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateSipRuleCommandInput = UpdateSipRuleRequest;
-export type UpdateSipRuleCommandOutput = UpdateSipRuleResponse & __MetadataBearer;
+export interface UpdateSipRuleCommandInput extends UpdateSipRuleRequest {}
+export interface UpdateSipRuleCommandOutput extends UpdateSipRuleResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the details of the specified SIP rule.</p>

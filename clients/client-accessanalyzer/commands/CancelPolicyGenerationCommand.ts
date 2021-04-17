@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelPolicyGenerationCommandInput = CancelPolicyGenerationRequest;
-export type CancelPolicyGenerationCommandOutput = CancelPolicyGenerationResponse & __MetadataBearer;
+export interface CancelPolicyGenerationCommandInput extends CancelPolicyGenerationRequest {}
+export interface CancelPolicyGenerationCommandOutput extends CancelPolicyGenerationResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels the requested policy generation.</p>

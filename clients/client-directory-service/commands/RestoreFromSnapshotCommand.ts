@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RestoreFromSnapshotCommandInput = RestoreFromSnapshotRequest;
-export type RestoreFromSnapshotCommandOutput = RestoreFromSnapshotResult & __MetadataBearer;
+export interface RestoreFromSnapshotCommandInput extends RestoreFromSnapshotRequest {}
+export interface RestoreFromSnapshotCommandOutput extends RestoreFromSnapshotResult, __MetadataBearer {}
 
 /**
  * <p>Restores a directory using an existing directory snapshot.</p>

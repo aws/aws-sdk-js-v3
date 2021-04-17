@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDBClusterSnapshotCommandInput = DeleteDBClusterSnapshotMessage;
-export type DeleteDBClusterSnapshotCommandOutput = DeleteDBClusterSnapshotResult & __MetadataBearer;
+export interface DeleteDBClusterSnapshotCommandInput extends DeleteDBClusterSnapshotMessage {}
+export interface DeleteDBClusterSnapshotCommandOutput extends DeleteDBClusterSnapshotResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a cluster snapshot. If the snapshot is being copied, the copy operation is

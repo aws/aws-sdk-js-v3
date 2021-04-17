@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetRulePrioritiesCommandInput = SetRulePrioritiesInput;
-export type SetRulePrioritiesCommandOutput = SetRulePrioritiesOutput & __MetadataBearer;
+export interface SetRulePrioritiesCommandInput extends SetRulePrioritiesInput {}
+export interface SetRulePrioritiesCommandOutput extends SetRulePrioritiesOutput, __MetadataBearer {}
 
 /**
  * <p>Sets the priorities of the specified rules.</p>

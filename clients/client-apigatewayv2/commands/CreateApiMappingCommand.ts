@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateApiMappingCommandInput = CreateApiMappingRequest;
-export type CreateApiMappingCommandOutput = CreateApiMappingResponse & __MetadataBearer;
+export interface CreateApiMappingCommandInput extends CreateApiMappingRequest {}
+export interface CreateApiMappingCommandOutput extends CreateApiMappingResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an API mapping.</p>

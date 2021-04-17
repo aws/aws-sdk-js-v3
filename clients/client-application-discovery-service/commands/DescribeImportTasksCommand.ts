@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeImportTasksCommandInput = DescribeImportTasksRequest;
-export type DescribeImportTasksCommandOutput = DescribeImportTasksResponse & __MetadataBearer;
+export interface DescribeImportTasksCommandInput extends DescribeImportTasksRequest {}
+export interface DescribeImportTasksCommandOutput extends DescribeImportTasksResponse, __MetadataBearer {}
 
 /**
  * <p>Returns an array of import tasks for your account, including status information, times,

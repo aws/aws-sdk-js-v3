@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetRepositoryCatalogDataCommandInput = GetRepositoryCatalogDataRequest;
-export type GetRepositoryCatalogDataCommandOutput = GetRepositoryCatalogDataResponse & __MetadataBearer;
+export interface GetRepositoryCatalogDataCommandInput extends GetRepositoryCatalogDataRequest {}
+export interface GetRepositoryCatalogDataCommandOutput extends GetRepositoryCatalogDataResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieve catalog metadata for a repository in a public registry. This metadata is

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateVirtualRouterCommandInput = CreateVirtualRouterInput;
-export type CreateVirtualRouterCommandOutput = CreateVirtualRouterOutput & __MetadataBearer;
+export interface CreateVirtualRouterCommandInput extends CreateVirtualRouterInput {}
+export interface CreateVirtualRouterCommandOutput extends CreateVirtualRouterOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a virtual router within a service mesh.</p>

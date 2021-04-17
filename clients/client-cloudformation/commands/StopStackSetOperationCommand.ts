@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopStackSetOperationCommandInput = StopStackSetOperationInput;
-export type StopStackSetOperationCommandOutput = StopStackSetOperationOutput & __MetadataBearer;
+export interface StopStackSetOperationCommandInput extends StopStackSetOperationInput {}
+export interface StopStackSetOperationCommandOutput extends StopStackSetOperationOutput, __MetadataBearer {}
 
 /**
  * <p>Stops an in-progress operation on a stack set and its associated stack instances. </p>

@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPipelinesCommandInput = ListPipelinesRequest;
-export type ListPipelinesCommandOutput = ListPipelinesResponse & __MetadataBearer;
+export interface ListPipelinesCommandInput extends ListPipelinesRequest {}
+export interface ListPipelinesCommandOutput extends ListPipelinesResponse, __MetadataBearer {}
 
 /**
  * <p>The ListPipelines operation gets a list of the pipelines associated with the current AWS account.</p>

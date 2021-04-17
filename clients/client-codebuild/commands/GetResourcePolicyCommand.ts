@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetResourcePolicyCommandInput = GetResourcePolicyInput;
-export type GetResourcePolicyCommandOutput = GetResourcePolicyOutput & __MetadataBearer;
+export interface GetResourcePolicyCommandInput extends GetResourcePolicyInput {}
+export interface GetResourcePolicyCommandOutput extends GetResourcePolicyOutput, __MetadataBearer {}
 
 /**
  * <p> Gets a resource policy that is identified by its resource ARN. </p>

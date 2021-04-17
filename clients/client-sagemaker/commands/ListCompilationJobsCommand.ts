@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListCompilationJobsCommandInput = ListCompilationJobsRequest;
-export type ListCompilationJobsCommandOutput = ListCompilationJobsResponse & __MetadataBearer;
+export interface ListCompilationJobsCommandInput extends ListCompilationJobsRequest {}
+export interface ListCompilationJobsCommandOutput extends ListCompilationJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists model compilation jobs that satisfy various filters.</p>

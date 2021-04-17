@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListProvisioningTemplateVersionsCommandInput = ListProvisioningTemplateVersionsRequest;
-export type ListProvisioningTemplateVersionsCommandOutput = ListProvisioningTemplateVersionsResponse & __MetadataBearer;
+export interface ListProvisioningTemplateVersionsCommandInput extends ListProvisioningTemplateVersionsRequest {}
+export interface ListProvisioningTemplateVersionsCommandOutput
+  extends ListProvisioningTemplateVersionsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>A list of fleet provisioning template versions.</p>

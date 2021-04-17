@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetCustomVerificationEmailTemplateCommandInput = GetCustomVerificationEmailTemplateRequest;
-export type GetCustomVerificationEmailTemplateCommandOutput = GetCustomVerificationEmailTemplateResponse &
-  __MetadataBearer;
+export interface GetCustomVerificationEmailTemplateCommandInput extends GetCustomVerificationEmailTemplateRequest {}
+export interface GetCustomVerificationEmailTemplateCommandOutput
+  extends GetCustomVerificationEmailTemplateResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the custom email verification template for the template name you

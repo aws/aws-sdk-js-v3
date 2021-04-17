@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeFleetLocationAttributesCommandInput = DescribeFleetLocationAttributesInput;
-export type DescribeFleetLocationAttributesCommandOutput = DescribeFleetLocationAttributesOutput & __MetadataBearer;
+export interface DescribeFleetLocationAttributesCommandInput extends DescribeFleetLocationAttributesInput {}
+export interface DescribeFleetLocationAttributesCommandOutput
+  extends DescribeFleetLocationAttributesOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves information on a fleet's remote locations, including life-cycle status and

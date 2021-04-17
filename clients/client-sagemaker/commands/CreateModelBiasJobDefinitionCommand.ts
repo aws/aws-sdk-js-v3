@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateModelBiasJobDefinitionCommandInput = CreateModelBiasJobDefinitionRequest;
-export type CreateModelBiasJobDefinitionCommandOutput = CreateModelBiasJobDefinitionResponse & __MetadataBearer;
+export interface CreateModelBiasJobDefinitionCommandInput extends CreateModelBiasJobDefinitionRequest {}
+export interface CreateModelBiasJobDefinitionCommandOutput
+  extends CreateModelBiasJobDefinitionResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Creates the definition for a model bias job.</p>

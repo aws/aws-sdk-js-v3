@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPlaybackKeyPairsCommandInput = ListPlaybackKeyPairsRequest;
-export type ListPlaybackKeyPairsCommandOutput = ListPlaybackKeyPairsResponse & __MetadataBearer;
+export interface ListPlaybackKeyPairsCommandInput extends ListPlaybackKeyPairsRequest {}
+export interface ListPlaybackKeyPairsCommandOutput extends ListPlaybackKeyPairsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets summary information about playback key pairs. For more information, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html">Setting Up Private

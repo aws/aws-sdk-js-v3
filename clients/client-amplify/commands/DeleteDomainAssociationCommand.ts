@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDomainAssociationCommandInput = DeleteDomainAssociationRequest;
-export type DeleteDomainAssociationCommandOutput = DeleteDomainAssociationResult & __MetadataBearer;
+export interface DeleteDomainAssociationCommandInput extends DeleteDomainAssociationRequest {}
+export interface DeleteDomainAssociationCommandOutput extends DeleteDomainAssociationResult, __MetadataBearer {}
 
 /**
  * <p> Deletes a domain association for an Amplify app. </p>

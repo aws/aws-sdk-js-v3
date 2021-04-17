@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteGatewayResponseCommandInput = DeleteGatewayResponseRequest;
-export type DeleteGatewayResponseCommandOutput = __MetadataBearer;
+export interface DeleteGatewayResponseCommandInput extends DeleteGatewayResponseRequest {}
+export interface DeleteGatewayResponseCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Clears any customization of a <a>GatewayResponse</a> of a specified response type on the given <a>RestApi</a> and resets it with the default settings.</p>

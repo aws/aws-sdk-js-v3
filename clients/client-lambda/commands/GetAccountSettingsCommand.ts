@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAccountSettingsCommandInput = GetAccountSettingsRequest;
-export type GetAccountSettingsCommandOutput = GetAccountSettingsResponse & __MetadataBearer;
+export interface GetAccountSettingsCommandInput extends GetAccountSettingsRequest {}
+export interface GetAccountSettingsCommandOutput extends GetAccountSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves details about your account's <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">limits</a> and usage in an AWS Region.</p>

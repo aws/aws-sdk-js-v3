@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchExecuteStatementCommandInput = BatchExecuteStatementRequest;
-export type BatchExecuteStatementCommandOutput = BatchExecuteStatementResponse & __MetadataBearer;
+export interface BatchExecuteStatementCommandInput extends BatchExecuteStatementRequest {}
+export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatementResponse, __MetadataBearer {}
 
 /**
  * <p>Runs a batch SQL statement over an array of data.</p>

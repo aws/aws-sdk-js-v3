@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateResourceCollectionCommandInput = UpdateResourceCollectionRequest;
-export type UpdateResourceCollectionCommandOutput = UpdateResourceCollectionResponse & __MetadataBearer;
+export interface UpdateResourceCollectionCommandInput extends UpdateResourceCollectionRequest {}
+export interface UpdateResourceCollectionCommandOutput extends UpdateResourceCollectionResponse, __MetadataBearer {}
 
 /**
  * <p> Updates the collection of resources that DevOps Guru analyzes.

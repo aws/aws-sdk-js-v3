@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetNamespaceDeletionStatusCommandInput = GetNamespaceDeletionStatusRequest;
-export type GetNamespaceDeletionStatusCommandOutput = GetNamespaceDeletionStatusResponse & __MetadataBearer;
+export interface GetNamespaceDeletionStatusCommandInput extends GetNamespaceDeletionStatusRequest {}
+export interface GetNamespaceDeletionStatusCommandOutput extends GetNamespaceDeletionStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the status of a namespace deletion task.</p>

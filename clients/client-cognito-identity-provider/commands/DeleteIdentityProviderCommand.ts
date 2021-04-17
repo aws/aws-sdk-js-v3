@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteIdentityProviderCommandInput = DeleteIdentityProviderRequest;
-export type DeleteIdentityProviderCommandOutput = __MetadataBearer;
+export interface DeleteIdentityProviderCommandInput extends DeleteIdentityProviderRequest {}
+export interface DeleteIdentityProviderCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes an identity provider for a user pool.</p>

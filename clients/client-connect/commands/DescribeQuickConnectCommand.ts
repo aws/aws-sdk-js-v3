@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeQuickConnectCommandInput = DescribeQuickConnectRequest;
-export type DescribeQuickConnectCommandOutput = DescribeQuickConnectResponse & __MetadataBearer;
+export interface DescribeQuickConnectCommandInput extends DescribeQuickConnectRequest {}
+export interface DescribeQuickConnectCommandOutput extends DescribeQuickConnectResponse, __MetadataBearer {}
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>

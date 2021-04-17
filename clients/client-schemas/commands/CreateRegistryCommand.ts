@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateRegistryCommandInput = CreateRegistryRequest;
-export type CreateRegistryCommandOutput = CreateRegistryResponse & __MetadataBearer;
+export interface CreateRegistryCommandInput extends CreateRegistryRequest {}
+export interface CreateRegistryCommandOutput extends CreateRegistryResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a registry.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetMetricDataCommandInput = GetMetricDataRequest;
-export type GetMetricDataCommandOutput = GetMetricDataResponse & __MetadataBearer;
+export interface GetMetricDataCommandInput extends GetMetricDataRequest {}
+export interface GetMetricDataCommandOutput extends GetMetricDataResponse, __MetadataBearer {}
 
 /**
  * <p>Gets historical metric data from the specified Amazon Connect instance.</p>

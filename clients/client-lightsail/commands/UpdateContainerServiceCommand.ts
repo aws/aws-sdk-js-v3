@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateContainerServiceCommandInput = UpdateContainerServiceRequest;
-export type UpdateContainerServiceCommandOutput = UpdateContainerServiceResult & __MetadataBearer;
+export interface UpdateContainerServiceCommandInput extends UpdateContainerServiceRequest {}
+export interface UpdateContainerServiceCommandOutput extends UpdateContainerServiceResult, __MetadataBearer {}
 
 /**
  * <p>Updates the configuration of your Amazon Lightsail container service, such as its power,

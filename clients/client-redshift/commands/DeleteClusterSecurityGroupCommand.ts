@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteClusterSecurityGroupCommandInput = DeleteClusterSecurityGroupMessage;
-export type DeleteClusterSecurityGroupCommandOutput = __MetadataBearer;
+export interface DeleteClusterSecurityGroupCommandInput extends DeleteClusterSecurityGroupMessage {}
+export interface DeleteClusterSecurityGroupCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes an Amazon Redshift security group.</p>

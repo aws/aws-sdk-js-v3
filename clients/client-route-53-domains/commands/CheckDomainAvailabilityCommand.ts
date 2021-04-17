@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CheckDomainAvailabilityCommandInput = CheckDomainAvailabilityRequest;
-export type CheckDomainAvailabilityCommandOutput = CheckDomainAvailabilityResponse & __MetadataBearer;
+export interface CheckDomainAvailabilityCommandInput extends CheckDomainAvailabilityRequest {}
+export interface CheckDomainAvailabilityCommandOutput extends CheckDomainAvailabilityResponse, __MetadataBearer {}
 
 /**
  * <p>This operation checks the availability of one domain name. Note that if the availability status of a domain is pending, you must

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListGroupMembershipsCommandInput = ListGroupMembershipsRequest;
-export type ListGroupMembershipsCommandOutput = ListGroupMembershipsResponse & __MetadataBearer;
+export interface ListGroupMembershipsCommandInput extends ListGroupMembershipsRequest {}
+export interface ListGroupMembershipsCommandOutput extends ListGroupMembershipsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists member users in a group.</p>

@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteBotVersionCommandInput = DeleteBotVersionRequest;
-export type DeleteBotVersionCommandOutput = __MetadataBearer;
+export interface DeleteBotVersionCommandInput extends DeleteBotVersionRequest {}
+export interface DeleteBotVersionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a specific version of a bot. To delete all versions of a

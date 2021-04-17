@@ -15,8 +15,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RunInstancesCommandInput = RunInstancesRequest;
-export type RunInstancesCommandOutput = Reservation & __MetadataBearer;
+export interface RunInstancesCommandInput extends RunInstancesRequest {}
+export interface RunInstancesCommandOutput extends Reservation, __MetadataBearer {}
 
 /**
  * <p>Launches the specified number of instances using an AMI for which you have

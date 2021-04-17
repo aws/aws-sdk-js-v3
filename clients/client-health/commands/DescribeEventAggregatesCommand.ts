@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeEventAggregatesCommandInput = DescribeEventAggregatesRequest;
-export type DescribeEventAggregatesCommandOutput = DescribeEventAggregatesResponse & __MetadataBearer;
+export interface DescribeEventAggregatesCommandInput extends DescribeEventAggregatesRequest {}
+export interface DescribeEventAggregatesCommandOutput extends DescribeEventAggregatesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the number of events of each event type (issue, scheduled change, and account

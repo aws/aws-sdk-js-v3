@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisableStageTransitionCommandInput = DisableStageTransitionInput;
-export type DisableStageTransitionCommandOutput = __MetadataBearer;
+export interface DisableStageTransitionCommandInput extends DisableStageTransitionInput {}
+export interface DisableStageTransitionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Prevents artifacts in a pipeline from transitioning to the next stage in the

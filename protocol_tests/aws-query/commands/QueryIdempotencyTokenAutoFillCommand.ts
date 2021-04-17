@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type QueryIdempotencyTokenAutoFillCommandInput = QueryIdempotencyTokenAutoFillInput;
-export type QueryIdempotencyTokenAutoFillCommandOutput = __MetadataBearer;
+export interface QueryIdempotencyTokenAutoFillCommandInput extends QueryIdempotencyTokenAutoFillInput {}
+export interface QueryIdempotencyTokenAutoFillCommandOutput extends __MetadataBearer {}
 
 /**
  * Automatically adds idempotency tokens.

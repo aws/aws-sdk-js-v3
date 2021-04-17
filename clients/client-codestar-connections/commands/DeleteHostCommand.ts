@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteHostCommandInput = DeleteHostInput;
-export type DeleteHostCommandOutput = DeleteHostOutput & __MetadataBearer;
+export interface DeleteHostCommandInput extends DeleteHostInput {}
+export interface DeleteHostCommandOutput extends DeleteHostOutput, __MetadataBearer {}
 
 /**
  * <p>The host to be deleted. Before you delete a host, all connections associated to the host must be deleted.</p>

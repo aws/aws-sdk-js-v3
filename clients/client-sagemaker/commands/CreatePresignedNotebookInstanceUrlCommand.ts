@@ -17,9 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreatePresignedNotebookInstanceUrlCommandInput = CreatePresignedNotebookInstanceUrlInput;
-export type CreatePresignedNotebookInstanceUrlCommandOutput = CreatePresignedNotebookInstanceUrlOutput &
-  __MetadataBearer;
+export interface CreatePresignedNotebookInstanceUrlCommandInput extends CreatePresignedNotebookInstanceUrlInput {}
+export interface CreatePresignedNotebookInstanceUrlCommandOutput
+  extends CreatePresignedNotebookInstanceUrlOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Returns a URL that you can use to connect to the Jupyter server from a notebook

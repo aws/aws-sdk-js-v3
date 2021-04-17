@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type XmlListsCommandInput = XmlListsInputOutput;
-export type XmlListsCommandOutput = XmlListsInputOutput & __MetadataBearer;
+export interface XmlListsCommandInput extends XmlListsInputOutput {}
+export interface XmlListsCommandOutput extends XmlListsInputOutput, __MetadataBearer {}
 
 /**
  * This test case serializes XML lists for the following cases for both

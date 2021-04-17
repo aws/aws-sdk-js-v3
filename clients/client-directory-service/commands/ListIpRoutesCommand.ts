@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListIpRoutesCommandInput = ListIpRoutesRequest;
-export type ListIpRoutesCommandOutput = ListIpRoutesResult & __MetadataBearer;
+export interface ListIpRoutesCommandInput extends ListIpRoutesRequest {}
+export interface ListIpRoutesCommandOutput extends ListIpRoutesResult, __MetadataBearer {}
 
 /**
  * <p>Lists the address blocks that you have added to a directory.</p>

@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeScalingPoliciesCommandInput = DescribeScalingPoliciesRequest;
-export type DescribeScalingPoliciesCommandOutput = DescribeScalingPoliciesResponse & __MetadataBearer;
+export interface DescribeScalingPoliciesCommandInput extends DescribeScalingPoliciesRequest {}
+export interface DescribeScalingPoliciesCommandOutput extends DescribeScalingPoliciesResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the Application Auto Scaling scaling policies for the specified service namespace.</p>

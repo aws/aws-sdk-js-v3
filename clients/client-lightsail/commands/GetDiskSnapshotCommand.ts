@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDiskSnapshotCommandInput = GetDiskSnapshotRequest;
-export type GetDiskSnapshotCommandOutput = GetDiskSnapshotResult & __MetadataBearer;
+export interface GetDiskSnapshotCommandInput extends GetDiskSnapshotRequest {}
+export interface GetDiskSnapshotCommandOutput extends GetDiskSnapshotResult, __MetadataBearer {}
 
 /**
  * <p>Returns information about a specific block storage disk snapshot.</p>

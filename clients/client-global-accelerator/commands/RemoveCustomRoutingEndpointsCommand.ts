@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RemoveCustomRoutingEndpointsCommandInput = RemoveCustomRoutingEndpointsRequest;
-export type RemoveCustomRoutingEndpointsCommandOutput = __MetadataBearer;
+export interface RemoveCustomRoutingEndpointsCommandInput extends RemoveCustomRoutingEndpointsRequest {}
+export interface RemoveCustomRoutingEndpointsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Remove endpoints from a custom routing accelerator.</p>

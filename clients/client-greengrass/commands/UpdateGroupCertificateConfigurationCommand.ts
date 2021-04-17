@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateGroupCertificateConfigurationCommandInput = UpdateGroupCertificateConfigurationRequest;
-export type UpdateGroupCertificateConfigurationCommandOutput = UpdateGroupCertificateConfigurationResponse &
-  __MetadataBearer;
+export interface UpdateGroupCertificateConfigurationCommandInput extends UpdateGroupCertificateConfigurationRequest {}
+export interface UpdateGroupCertificateConfigurationCommandOutput
+  extends UpdateGroupCertificateConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * Updates the Certificate expiry time for a group.

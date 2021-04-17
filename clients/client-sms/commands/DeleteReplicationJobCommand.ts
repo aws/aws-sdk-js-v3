@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteReplicationJobCommandInput = DeleteReplicationJobRequest;
-export type DeleteReplicationJobCommandOutput = DeleteReplicationJobResponse & __MetadataBearer;
+export interface DeleteReplicationJobCommandInput extends DeleteReplicationJobRequest {}
+export interface DeleteReplicationJobCommandOutput extends DeleteReplicationJobResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified replication job.</p>

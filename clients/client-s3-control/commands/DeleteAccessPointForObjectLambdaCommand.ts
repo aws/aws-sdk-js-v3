@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAccessPointForObjectLambdaCommandInput = DeleteAccessPointForObjectLambdaRequest;
-export type DeleteAccessPointForObjectLambdaCommandOutput = __MetadataBearer;
+export interface DeleteAccessPointForObjectLambdaCommandInput extends DeleteAccessPointForObjectLambdaRequest {}
+export interface DeleteAccessPointForObjectLambdaCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified Object Lambda Access Point.</p>

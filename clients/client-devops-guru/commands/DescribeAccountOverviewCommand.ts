@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAccountOverviewCommandInput = DescribeAccountOverviewRequest;
-export type DescribeAccountOverviewCommandOutput = DescribeAccountOverviewResponse & __MetadataBearer;
+export interface DescribeAccountOverviewCommandInput extends DescribeAccountOverviewRequest {}
+export interface DescribeAccountOverviewCommandOutput extends DescribeAccountOverviewResponse, __MetadataBearer {}
 
 /**
  * <p>

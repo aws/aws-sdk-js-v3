@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateActionTargetCommandInput = CreateActionTargetRequest;
-export type CreateActionTargetCommandOutput = CreateActionTargetResponse & __MetadataBearer;
+export interface CreateActionTargetCommandInput extends CreateActionTargetRequest {}
+export interface CreateActionTargetCommandOutput extends CreateActionTargetResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a custom action target in Security Hub.</p>

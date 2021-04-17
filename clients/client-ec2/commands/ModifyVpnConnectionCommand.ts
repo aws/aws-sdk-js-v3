@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyVpnConnectionCommandInput = ModifyVpnConnectionRequest;
-export type ModifyVpnConnectionCommandOutput = ModifyVpnConnectionResult & __MetadataBearer;
+export interface ModifyVpnConnectionCommandInput extends ModifyVpnConnectionRequest {}
+export interface ModifyVpnConnectionCommandOutput extends ModifyVpnConnectionResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the customer gateway or the target gateway of an AWS Site-to-Site VPN connection. To modify the target gateway, the following migration

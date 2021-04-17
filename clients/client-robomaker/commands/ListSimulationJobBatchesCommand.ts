@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListSimulationJobBatchesCommandInput = ListSimulationJobBatchesRequest;
-export type ListSimulationJobBatchesCommandOutput = ListSimulationJobBatchesResponse & __MetadataBearer;
+export interface ListSimulationJobBatchesCommandInput extends ListSimulationJobBatchesRequest {}
+export interface ListSimulationJobBatchesCommandOutput extends ListSimulationJobBatchesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list simulation job batches. You can optionally provide filters to retrieve

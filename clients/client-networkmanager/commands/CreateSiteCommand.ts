@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateSiteCommandInput = CreateSiteRequest;
-export type CreateSiteCommandOutput = CreateSiteResponse & __MetadataBearer;
+export interface CreateSiteCommandInput extends CreateSiteRequest {}
+export interface CreateSiteCommandOutput extends CreateSiteResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new site in a global network.</p>

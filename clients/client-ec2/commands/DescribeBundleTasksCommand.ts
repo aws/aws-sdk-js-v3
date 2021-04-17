@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeBundleTasksCommandInput = DescribeBundleTasksRequest;
-export type DescribeBundleTasksCommandOutput = DescribeBundleTasksResult & __MetadataBearer;
+export interface DescribeBundleTasksCommandInput extends DescribeBundleTasksRequest {}
+export interface DescribeBundleTasksCommandOutput extends DescribeBundleTasksResult, __MetadataBearer {}
 
 /**
  * <p>Describes the specified bundle tasks or all of your bundle tasks.</p>

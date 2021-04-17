@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateDeviceDefinitionCommandInput = UpdateDeviceDefinitionRequest;
-export type UpdateDeviceDefinitionCommandOutput = UpdateDeviceDefinitionResponse & __MetadataBearer;
+export interface UpdateDeviceDefinitionCommandInput extends UpdateDeviceDefinitionRequest {}
+export interface UpdateDeviceDefinitionCommandOutput extends UpdateDeviceDefinitionResponse, __MetadataBearer {}
 
 /**
  * Updates a device definition.

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateNamedQueryCommandInput = CreateNamedQueryInput;
-export type CreateNamedQueryCommandOutput = CreateNamedQueryOutput & __MetadataBearer;
+export interface CreateNamedQueryCommandInput extends CreateNamedQueryInput {}
+export interface CreateNamedQueryCommandOutput extends CreateNamedQueryOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a named query in the specified workgroup. Requires that you have access to the

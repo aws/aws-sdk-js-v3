@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ApplySecurityGroupsToLoadBalancerCommandInput = ApplySecurityGroupsToLoadBalancerInput;
-export type ApplySecurityGroupsToLoadBalancerCommandOutput = ApplySecurityGroupsToLoadBalancerOutput & __MetadataBearer;
+export interface ApplySecurityGroupsToLoadBalancerCommandInput extends ApplySecurityGroupsToLoadBalancerInput {}
+export interface ApplySecurityGroupsToLoadBalancerCommandOutput
+  extends ApplySecurityGroupsToLoadBalancerOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Associates one or more security groups with your load balancer in a virtual private cloud (VPC). The specified security groups override the previously associated security groups.</p>

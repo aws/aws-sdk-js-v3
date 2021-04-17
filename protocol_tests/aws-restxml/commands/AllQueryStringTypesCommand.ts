@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AllQueryStringTypesCommandInput = AllQueryStringTypesInput;
-export type AllQueryStringTypesCommandOutput = __MetadataBearer;
+export interface AllQueryStringTypesCommandInput extends AllQueryStringTypesInput {}
+export interface AllQueryStringTypesCommandOutput extends __MetadataBearer {}
 
 /**
  * This example uses all query string types.

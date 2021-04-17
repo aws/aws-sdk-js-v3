@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDomainSuggestionsCommandInput = GetDomainSuggestionsRequest;
-export type GetDomainSuggestionsCommandOutput = GetDomainSuggestionsResponse & __MetadataBearer;
+export interface GetDomainSuggestionsCommandInput extends GetDomainSuggestionsRequest {}
+export interface GetDomainSuggestionsCommandOutput extends GetDomainSuggestionsResponse, __MetadataBearer {}
 
 /**
  * <p>The GetDomainSuggestions operation returns a list of suggested domain names.</p>

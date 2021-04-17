@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GlobalSignOutCommandInput = GlobalSignOutRequest;
-export type GlobalSignOutCommandOutput = GlobalSignOutResponse & __MetadataBearer;
+export interface GlobalSignOutCommandInput extends GlobalSignOutRequest {}
+export interface GlobalSignOutCommandOutput extends GlobalSignOutResponse, __MetadataBearer {}
 
 /**
  * <p>Signs out users from all devices. It also invalidates all refresh tokens issued to a

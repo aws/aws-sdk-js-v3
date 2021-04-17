@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ConfirmTopicRuleDestinationCommandInput = ConfirmTopicRuleDestinationRequest;
-export type ConfirmTopicRuleDestinationCommandOutput = ConfirmTopicRuleDestinationResponse & __MetadataBearer;
+export interface ConfirmTopicRuleDestinationCommandInput extends ConfirmTopicRuleDestinationRequest {}
+export interface ConfirmTopicRuleDestinationCommandOutput
+  extends ConfirmTopicRuleDestinationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Confirms a topic rule destination. When you create a rule requiring a destination, AWS

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopAutomationExecutionCommandInput = StopAutomationExecutionRequest;
-export type StopAutomationExecutionCommandOutput = StopAutomationExecutionResult & __MetadataBearer;
+export interface StopAutomationExecutionCommandInput extends StopAutomationExecutionRequest {}
+export interface StopAutomationExecutionCommandOutput extends StopAutomationExecutionResult, __MetadataBearer {}
 
 /**
  * <p>Stop an Automation that is currently running.</p>

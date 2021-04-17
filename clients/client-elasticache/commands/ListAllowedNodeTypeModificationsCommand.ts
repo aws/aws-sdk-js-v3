@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAllowedNodeTypeModificationsCommandInput = ListAllowedNodeTypeModificationsMessage;
-export type ListAllowedNodeTypeModificationsCommandOutput = AllowedNodeTypeModificationsMessage & __MetadataBearer;
+export interface ListAllowedNodeTypeModificationsCommandInput extends ListAllowedNodeTypeModificationsMessage {}
+export interface ListAllowedNodeTypeModificationsCommandOutput
+  extends AllowedNodeTypeModificationsMessage,
+    __MetadataBearer {}
 
 /**
  * <p>Lists all available node types that you

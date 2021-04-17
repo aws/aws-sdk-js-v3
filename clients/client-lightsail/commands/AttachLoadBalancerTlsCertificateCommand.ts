@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AttachLoadBalancerTlsCertificateCommandInput = AttachLoadBalancerTlsCertificateRequest;
-export type AttachLoadBalancerTlsCertificateCommandOutput = AttachLoadBalancerTlsCertificateResult & __MetadataBearer;
+export interface AttachLoadBalancerTlsCertificateCommandInput extends AttachLoadBalancerTlsCertificateRequest {}
+export interface AttachLoadBalancerTlsCertificateCommandOutput
+  extends AttachLoadBalancerTlsCertificateResult,
+    __MetadataBearer {}
 
 /**
  * <p>Attaches a Transport Layer Security (TLS) certificate to your load balancer. TLS is just

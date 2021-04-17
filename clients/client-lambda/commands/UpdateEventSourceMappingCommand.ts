@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateEventSourceMappingCommandInput = UpdateEventSourceMappingRequest;
-export type UpdateEventSourceMappingCommandOutput = EventSourceMappingConfiguration & __MetadataBearer;
+export interface UpdateEventSourceMappingCommandInput extends UpdateEventSourceMappingRequest {}
+export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappingConfiguration, __MetadataBearer {}
 
 /**
  * <p>Updates an event source mapping. You can change the function that AWS Lambda invokes, or pause invocation and resume later from the same location.</p>

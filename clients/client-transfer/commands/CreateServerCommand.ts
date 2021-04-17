@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateServerCommandInput = CreateServerRequest;
-export type CreateServerCommandOutput = CreateServerResponse & __MetadataBearer;
+export interface CreateServerCommandInput extends CreateServerRequest {}
+export interface CreateServerCommandOutput extends CreateServerResponse, __MetadataBearer {}
 
 /**
  * <p>Instantiates an autoscaling virtual server based on the selected file transfer protocol in

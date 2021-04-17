@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListNotebookInstancesCommandInput = ListNotebookInstancesInput;
-export type ListNotebookInstancesCommandOutput = ListNotebookInstancesOutput & __MetadataBearer;
+export interface ListNotebookInstancesCommandInput extends ListNotebookInstancesInput {}
+export interface ListNotebookInstancesCommandOutput extends ListNotebookInstancesOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a list of the Amazon SageMaker notebook instances in the requester's account in an AWS

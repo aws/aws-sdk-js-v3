@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetTopicAttributesCommandInput = GetTopicAttributesInput;
-export type GetTopicAttributesCommandOutput = GetTopicAttributesResponse & __MetadataBearer;
+export interface GetTopicAttributesCommandInput extends GetTopicAttributesInput {}
+export interface GetTopicAttributesCommandOutput extends GetTopicAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns all of the properties of a topic. Topic properties returned might differ based

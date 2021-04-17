@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchStartCommandInput = BatchStartRequest;
-export type BatchStartCommandOutput = BatchStartResponse & __MetadataBearer;
+export interface BatchStartCommandInput extends BatchStartRequest {}
+export interface BatchStartCommandOutput extends BatchStartResponse, __MetadataBearer {}
 
 /**
  * Starts existing resources

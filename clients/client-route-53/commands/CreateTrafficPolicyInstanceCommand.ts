@@ -18,8 +18,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateTrafficPolicyInstanceCommandInput = CreateTrafficPolicyInstanceRequest;
-export type CreateTrafficPolicyInstanceCommandOutput = CreateTrafficPolicyInstanceResponse & __MetadataBearer;
+export interface CreateTrafficPolicyInstanceCommandInput extends CreateTrafficPolicyInstanceRequest {}
+export interface CreateTrafficPolicyInstanceCommandOutput
+  extends CreateTrafficPolicyInstanceResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Creates resource record sets in a specified hosted zone based on the settings in a specified traffic policy version.

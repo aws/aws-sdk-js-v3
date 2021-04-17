@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CheckInLicenseCommandInput = CheckInLicenseRequest;
-export type CheckInLicenseCommandOutput = CheckInLicenseResponse & __MetadataBearer;
+export interface CheckInLicenseCommandInput extends CheckInLicenseRequest {}
+export interface CheckInLicenseCommandOutput extends CheckInLicenseResponse, __MetadataBearer {}
 
 /**
  * <p>Checks in the specified license. Check in a license when it is no longer in use.</p>

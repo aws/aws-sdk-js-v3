@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeHostReservationOfferingsCommandInput = DescribeHostReservationOfferingsRequest;
-export type DescribeHostReservationOfferingsCommandOutput = DescribeHostReservationOfferingsResult & __MetadataBearer;
+export interface DescribeHostReservationOfferingsCommandInput extends DescribeHostReservationOfferingsRequest {}
+export interface DescribeHostReservationOfferingsCommandOutput
+  extends DescribeHostReservationOfferingsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the Dedicated Host reservations that are available to purchase.</p>

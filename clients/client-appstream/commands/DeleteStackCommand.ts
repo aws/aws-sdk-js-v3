@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteStackCommandInput = DeleteStackRequest;
-export type DeleteStackCommandOutput = DeleteStackResult & __MetadataBearer;
+export interface DeleteStackCommandInput extends DeleteStackRequest {}
+export interface DeleteStackCommandOutput extends DeleteStackResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified stack. After the stack is deleted, the application streaming environment provided by the stack is no longer available to users. Also, any reservations made for application streaming sessions for the stack are released.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ConfigureLogsCommandInput = ConfigureLogsRequest;
-export type ConfigureLogsCommandOutput = ConfigureLogsResponse & __MetadataBearer;
+export interface ConfigureLogsCommandInput extends ConfigureLogsRequest {}
+export interface ConfigureLogsCommandOutput extends ConfigureLogsResponse, __MetadataBearer {}
 
 /**
  * Changes the packaging group's properities to configure log subscription

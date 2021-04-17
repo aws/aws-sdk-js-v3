@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDeploymentCommandInput = CreateDeploymentRequest;
-export type CreateDeploymentCommandOutput = CreateDeploymentResponse & __MetadataBearer;
+export interface CreateDeploymentCommandInput extends CreateDeploymentRequest {}
+export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse, __MetadataBearer {}
 
 /**
  * Creates a deployment. ''CreateDeployment'' requests are idempotent with respect to the ''X-Amzn-Client-Token'' token and the request parameters.

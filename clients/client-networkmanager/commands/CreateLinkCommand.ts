@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateLinkCommandInput = CreateLinkRequest;
-export type CreateLinkCommandOutput = CreateLinkResponse & __MetadataBearer;
+export interface CreateLinkCommandInput extends CreateLinkRequest {}
+export interface CreateLinkCommandOutput extends CreateLinkResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new link for a specified site.</p>

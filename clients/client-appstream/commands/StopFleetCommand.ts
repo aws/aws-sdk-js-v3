@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopFleetCommandInput = StopFleetRequest;
-export type StopFleetCommandOutput = StopFleetResult & __MetadataBearer;
+export interface StopFleetCommandInput extends StopFleetRequest {}
+export interface StopFleetCommandOutput extends StopFleetResult, __MetadataBearer {}
 
 /**
  * <p>Stops the specified fleet.</p>

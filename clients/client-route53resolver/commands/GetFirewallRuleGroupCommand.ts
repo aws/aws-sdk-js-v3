@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetFirewallRuleGroupCommandInput = GetFirewallRuleGroupRequest;
-export type GetFirewallRuleGroupCommandOutput = GetFirewallRuleGroupResponse & __MetadataBearer;
+export interface GetFirewallRuleGroupCommandInput extends GetFirewallRuleGroupRequest {}
+export interface GetFirewallRuleGroupCommandOutput extends GetFirewallRuleGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the specified firewall rule group. </p>

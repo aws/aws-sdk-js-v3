@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteGraphqlApiCommandInput = DeleteGraphqlApiRequest;
-export type DeleteGraphqlApiCommandOutput = DeleteGraphqlApiResponse & __MetadataBearer;
+export interface DeleteGraphqlApiCommandInput extends DeleteGraphqlApiRequest {}
+export interface DeleteGraphqlApiCommandOutput extends DeleteGraphqlApiResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a <code>GraphqlApi</code> object.</p>

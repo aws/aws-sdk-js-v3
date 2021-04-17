@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateCloudFormationStackCommandInput = CreateCloudFormationStackRequest;
-export type CreateCloudFormationStackCommandOutput = CreateCloudFormationStackResult & __MetadataBearer;
+export interface CreateCloudFormationStackCommandInput extends CreateCloudFormationStackRequest {}
+export interface CreateCloudFormationStackCommandOutput extends CreateCloudFormationStackResult, __MetadataBearer {}
 
 /**
  * <p>Creates an AWS CloudFormation stack, which creates a new Amazon EC2 instance from an exported

@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeRefreshSchemasStatusCommandInput = DescribeRefreshSchemasStatusMessage;
-export type DescribeRefreshSchemasStatusCommandOutput = DescribeRefreshSchemasStatusResponse & __MetadataBearer;
+export interface DescribeRefreshSchemasStatusCommandInput extends DescribeRefreshSchemasStatusMessage {}
+export interface DescribeRefreshSchemasStatusCommandOutput
+  extends DescribeRefreshSchemasStatusResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the status of the RefreshSchemas operation.</p>

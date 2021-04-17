@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddFlowSourcesCommandInput = AddFlowSourcesRequest;
-export type AddFlowSourcesCommandOutput = AddFlowSourcesResponse & __MetadataBearer;
+export interface AddFlowSourcesCommandInput extends AddFlowSourcesRequest {}
+export interface AddFlowSourcesCommandOutput extends AddFlowSourcesResponse, __MetadataBearer {}
 
 /**
  * Adds Sources to flow

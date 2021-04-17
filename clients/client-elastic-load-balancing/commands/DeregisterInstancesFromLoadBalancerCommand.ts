@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeregisterInstancesFromLoadBalancerCommandInput = DeregisterEndPointsInput;
-export type DeregisterInstancesFromLoadBalancerCommandOutput = DeregisterEndPointsOutput & __MetadataBearer;
+export interface DeregisterInstancesFromLoadBalancerCommandInput extends DeregisterEndPointsInput {}
+export interface DeregisterInstancesFromLoadBalancerCommandOutput extends DeregisterEndPointsOutput, __MetadataBearer {}
 
 /**
  * <p>Deregisters the specified instances from the specified load balancer. After the instance is deregistered, it no longer receives traffic from the load balancer.</p>

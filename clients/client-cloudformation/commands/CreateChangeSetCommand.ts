@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateChangeSetCommandInput = CreateChangeSetInput;
-export type CreateChangeSetCommandOutput = CreateChangeSetOutput & __MetadataBearer;
+export interface CreateChangeSetCommandInput extends CreateChangeSetInput {}
+export interface CreateChangeSetCommandOutput extends CreateChangeSetOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a list of changes that will be applied to a stack so that you can review the

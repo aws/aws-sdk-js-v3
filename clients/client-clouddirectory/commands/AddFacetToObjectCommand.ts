@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddFacetToObjectCommandInput = AddFacetToObjectRequest;
-export type AddFacetToObjectCommandOutput = AddFacetToObjectResponse & __MetadataBearer;
+export interface AddFacetToObjectCommandInput extends AddFacetToObjectRequest {}
+export interface AddFacetToObjectCommandOutput extends AddFacetToObjectResponse, __MetadataBearer {}
 
 /**
  * <p>Adds a new <a>Facet</a> to an object. An object can have more than one facet applied on it.</p>

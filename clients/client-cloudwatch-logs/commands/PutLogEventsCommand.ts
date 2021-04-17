@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutLogEventsCommandInput = PutLogEventsRequest;
-export type PutLogEventsCommandOutput = PutLogEventsResponse & __MetadataBearer;
+export interface PutLogEventsCommandInput extends PutLogEventsRequest {}
+export interface PutLogEventsCommandOutput extends PutLogEventsResponse, __MetadataBearer {}
 
 /**
  * <p>Uploads a batch of log events to the specified log stream.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutContainerPolicyCommandInput = PutContainerPolicyInput;
-export type PutContainerPolicyCommandOutput = PutContainerPolicyOutput & __MetadataBearer;
+export interface PutContainerPolicyCommandInput extends PutContainerPolicyInput {}
+export interface PutContainerPolicyCommandOutput extends PutContainerPolicyOutput, __MetadataBearer {}
 
 /**
  * <p>Creates an access policy for the specified container to restrict the users and

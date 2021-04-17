@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateQuickConnectNameCommandInput = UpdateQuickConnectNameRequest;
-export type UpdateQuickConnectNameCommandOutput = __MetadataBearer;
+export interface UpdateQuickConnectNameCommandInput extends UpdateQuickConnectNameRequest {}
+export interface UpdateQuickConnectNameCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>

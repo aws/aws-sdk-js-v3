@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAuthorizersCommandInput = GetAuthorizersRequest;
-export type GetAuthorizersCommandOutput = GetAuthorizersResponse & __MetadataBearer;
+export interface GetAuthorizersCommandInput extends GetAuthorizersRequest {}
+export interface GetAuthorizersCommandOutput extends GetAuthorizersResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the Authorizers for an API.</p>

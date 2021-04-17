@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type EnableHostedZoneDNSSECCommandInput = EnableHostedZoneDNSSECRequest;
-export type EnableHostedZoneDNSSECCommandOutput = EnableHostedZoneDNSSECResponse & __MetadataBearer;
+export interface EnableHostedZoneDNSSECCommandInput extends EnableHostedZoneDNSSECRequest {}
+export interface EnableHostedZoneDNSSECCommandOutput extends EnableHostedZoneDNSSECResponse, __MetadataBearer {}
 
 /**
  * <p>Enables DNSSEC signing in a specific hosted zone.</p>

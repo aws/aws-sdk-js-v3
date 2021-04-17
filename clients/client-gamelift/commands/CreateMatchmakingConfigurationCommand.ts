@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateMatchmakingConfigurationCommandInput = CreateMatchmakingConfigurationInput;
-export type CreateMatchmakingConfigurationCommandOutput = CreateMatchmakingConfigurationOutput & __MetadataBearer;
+export interface CreateMatchmakingConfigurationCommandInput extends CreateMatchmakingConfigurationInput {}
+export interface CreateMatchmakingConfigurationCommandOutput
+  extends CreateMatchmakingConfigurationOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Defines a new matchmaking configuration for use with FlexMatch. Whether your are using

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SendTestEventNotificationCommandInput = SendTestEventNotificationRequest;
-export type SendTestEventNotificationCommandOutput = SendTestEventNotificationResponse & __MetadataBearer;
+export interface SendTestEventNotificationCommandInput extends SendTestEventNotificationRequest {}
+export interface SendTestEventNotificationCommandOutput extends SendTestEventNotificationResponse, __MetadataBearer {}
 
 /**
  * <p>

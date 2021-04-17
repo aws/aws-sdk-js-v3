@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDevelopmentSchemaArnsCommandInput = ListDevelopmentSchemaArnsRequest;
-export type ListDevelopmentSchemaArnsCommandOutput = ListDevelopmentSchemaArnsResponse & __MetadataBearer;
+export interface ListDevelopmentSchemaArnsCommandInput extends ListDevelopmentSchemaArnsRequest {}
+export interface ListDevelopmentSchemaArnsCommandOutput extends ListDevelopmentSchemaArnsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves each Amazon Resource Name (ARN) of schemas in the development

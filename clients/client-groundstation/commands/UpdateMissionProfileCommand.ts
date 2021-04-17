@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateMissionProfileCommandInput = UpdateMissionProfileRequest;
-export type UpdateMissionProfileCommandOutput = MissionProfileIdResponse & __MetadataBearer;
+export interface UpdateMissionProfileCommandInput extends UpdateMissionProfileRequest {}
+export interface UpdateMissionProfileCommandOutput extends MissionProfileIdResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a mission profile.</p>

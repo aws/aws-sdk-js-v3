@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetParameterHistoryCommandInput = GetParameterHistoryRequest;
-export type GetParameterHistoryCommandOutput = GetParameterHistoryResult & __MetadataBearer;
+export interface GetParameterHistoryCommandInput extends GetParameterHistoryRequest {}
+export interface GetParameterHistoryCommandOutput extends GetParameterHistoryResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves the history of all changes to a parameter.</p>

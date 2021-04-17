@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListLambdaFunctionsCommandInput = ListLambdaFunctionsRequest;
-export type ListLambdaFunctionsCommandOutput = ListLambdaFunctionsResponse & __MetadataBearer;
+export interface ListLambdaFunctionsCommandInput extends ListLambdaFunctionsRequest {}
+export interface ListLambdaFunctionsCommandOutput extends ListLambdaFunctionsResponse, __MetadataBearer {}
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RemoveFacetFromObjectCommandInput = RemoveFacetFromObjectRequest;
-export type RemoveFacetFromObjectCommandOutput = RemoveFacetFromObjectResponse & __MetadataBearer;
+export interface RemoveFacetFromObjectCommandInput extends RemoveFacetFromObjectRequest {}
+export interface RemoveFacetFromObjectCommandOutput extends RemoveFacetFromObjectResponse, __MetadataBearer {}
 
 /**
  * <p>Removes the specified facet from the specified object.</p>

@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopStackCommandInput = StopStackRequest;
-export type StopStackCommandOutput = __MetadataBearer;
+export interface StopStackCommandInput extends StopStackRequest {}
+export interface StopStackCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Stops a specified stack.</p>

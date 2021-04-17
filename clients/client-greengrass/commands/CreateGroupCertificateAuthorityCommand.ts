@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateGroupCertificateAuthorityCommandInput = CreateGroupCertificateAuthorityRequest;
-export type CreateGroupCertificateAuthorityCommandOutput = CreateGroupCertificateAuthorityResponse & __MetadataBearer;
+export interface CreateGroupCertificateAuthorityCommandInput extends CreateGroupCertificateAuthorityRequest {}
+export interface CreateGroupCertificateAuthorityCommandOutput
+  extends CreateGroupCertificateAuthorityResponse,
+    __MetadataBearer {}
 
 /**
  * Creates a CA for the group. If a CA already exists, it will rotate the existing CA.

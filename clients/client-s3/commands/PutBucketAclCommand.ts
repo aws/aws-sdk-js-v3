@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutBucketAclCommandInput = PutBucketAclRequest;
-export type PutBucketAclCommandOutput = __MetadataBearer;
+export interface PutBucketAclCommandInput extends PutBucketAclRequest {}
+export interface PutBucketAclCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Sets the permissions on an existing bucket using access control lists (ACL). For more

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DetectProtectiveEquipmentCommandInput = DetectProtectiveEquipmentRequest;
-export type DetectProtectiveEquipmentCommandOutput = DetectProtectiveEquipmentResponse & __MetadataBearer;
+export interface DetectProtectiveEquipmentCommandInput extends DetectProtectiveEquipmentRequest {}
+export interface DetectProtectiveEquipmentCommandOutput extends DetectProtectiveEquipmentResponse, __MetadataBearer {}
 
 /**
  * <p>Detects Personal Protective Equipment (PPE) worn by people detected in an image. Amazon Rekognition can detect the

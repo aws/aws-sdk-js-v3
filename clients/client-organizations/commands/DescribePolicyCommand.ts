@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribePolicyCommandInput = DescribePolicyRequest;
-export type DescribePolicyCommandOutput = DescribePolicyResponse & __MetadataBearer;
+export interface DescribePolicyCommandInput extends DescribePolicyRequest {}
+export interface DescribePolicyCommandOutput extends DescribePolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about a policy.</p>

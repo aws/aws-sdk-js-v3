@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateGeoMatchSetCommandInput = CreateGeoMatchSetRequest;
-export type CreateGeoMatchSetCommandOutput = CreateGeoMatchSetResponse & __MetadataBearer;
+export interface CreateGeoMatchSetCommandInput extends CreateGeoMatchSetRequest {}
+export interface CreateGeoMatchSetCommandOutput extends CreateGeoMatchSetResponse, __MetadataBearer {}
 
 /**
  * <note>

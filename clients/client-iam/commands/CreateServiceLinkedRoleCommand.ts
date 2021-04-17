@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateServiceLinkedRoleCommandInput = CreateServiceLinkedRoleRequest;
-export type CreateServiceLinkedRoleCommandOutput = CreateServiceLinkedRoleResponse & __MetadataBearer;
+export interface CreateServiceLinkedRoleCommandInput extends CreateServiceLinkedRoleRequest {}
+export interface CreateServiceLinkedRoleCommandOutput extends CreateServiceLinkedRoleResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an IAM role that is linked to a specific AWS service. The service controls

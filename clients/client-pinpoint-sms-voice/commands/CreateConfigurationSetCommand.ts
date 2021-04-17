@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateConfigurationSetCommandInput = CreateConfigurationSetRequest;
-export type CreateConfigurationSetCommandOutput = CreateConfigurationSetResponse & __MetadataBearer;
+export interface CreateConfigurationSetCommandInput extends CreateConfigurationSetRequest {}
+export interface CreateConfigurationSetCommandOutput extends CreateConfigurationSetResponse, __MetadataBearer {}
 
 /**
  * Create a new configuration set. After you create the configuration set, you can add one or more event destinations to it.

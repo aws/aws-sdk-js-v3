@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteComputeEnvironmentCommandInput = DeleteComputeEnvironmentRequest;
-export type DeleteComputeEnvironmentCommandOutput = DeleteComputeEnvironmentResponse & __MetadataBearer;
+export interface DeleteComputeEnvironmentCommandInput extends DeleteComputeEnvironmentRequest {}
+export interface DeleteComputeEnvironmentCommandOutput extends DeleteComputeEnvironmentResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an AWS Batch compute environment.</p>

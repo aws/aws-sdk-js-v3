@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateFirewallRuleGroupAssociationCommandInput = UpdateFirewallRuleGroupAssociationRequest;
-export type UpdateFirewallRuleGroupAssociationCommandOutput = UpdateFirewallRuleGroupAssociationResponse &
-  __MetadataBearer;
+export interface UpdateFirewallRuleGroupAssociationCommandInput extends UpdateFirewallRuleGroupAssociationRequest {}
+export interface UpdateFirewallRuleGroupAssociationCommandOutput
+  extends UpdateFirewallRuleGroupAssociationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Changes the association of a <a>FirewallRuleGroup</a> with a VPC. The association enables DNS filtering for the VPC. </p>

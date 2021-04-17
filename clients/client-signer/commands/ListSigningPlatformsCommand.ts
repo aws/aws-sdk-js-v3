@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListSigningPlatformsCommandInput = ListSigningPlatformsRequest;
-export type ListSigningPlatformsCommandOutput = ListSigningPlatformsResponse & __MetadataBearer;
+export interface ListSigningPlatformsCommandInput extends ListSigningPlatformsRequest {}
+export interface ListSigningPlatformsCommandOutput extends ListSigningPlatformsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all signing platforms available in code signing that match the request parameters. If

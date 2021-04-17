@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ReceiveMessageCommandInput = ReceiveMessageRequest;
-export type ReceiveMessageCommandOutput = ReceiveMessageResult & __MetadataBearer;
+export interface ReceiveMessageCommandInput extends ReceiveMessageRequest {}
+export interface ReceiveMessageCommandOutput extends ReceiveMessageResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves one or more messages (up to 10), from the specified queue. Using the <code>WaitTimeSeconds</code> parameter enables long-poll support.

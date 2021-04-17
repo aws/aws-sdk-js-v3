@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateConfigCommandInput = UpdateConfigRequest;
-export type UpdateConfigCommandOutput = ConfigIdResponse & __MetadataBearer;
+export interface UpdateConfigCommandInput extends UpdateConfigRequest {}
+export interface UpdateConfigCommandOutput extends ConfigIdResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the <code>Config</code> used when scheduling contacts.</p>

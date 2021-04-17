@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpgradePublishedSchemaCommandInput = UpgradePublishedSchemaRequest;
-export type UpgradePublishedSchemaCommandOutput = UpgradePublishedSchemaResponse & __MetadataBearer;
+export interface UpgradePublishedSchemaCommandInput extends UpgradePublishedSchemaRequest {}
+export interface UpgradePublishedSchemaCommandOutput extends UpgradePublishedSchemaResponse, __MetadataBearer {}
 
 /**
  * <p>Upgrades a published schema under a new minor version revision using the current contents of <code>DevelopmentSchemaArn</code>.</p>

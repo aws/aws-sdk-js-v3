@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateProjectCommandInput = UpdateProjectRequest;
-export type UpdateProjectCommandOutput = UpdateProjectResponse & __MetadataBearer;
+export interface UpdateProjectCommandInput extends UpdateProjectRequest {}
+export interface UpdateProjectCommandOutput extends UpdateProjectResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies the definition of an existing DataBrew project.</p>

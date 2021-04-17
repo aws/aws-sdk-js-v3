@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisconnectParticipantCommandInput = DisconnectParticipantRequest;
-export type DisconnectParticipantCommandOutput = DisconnectParticipantResponse & __MetadataBearer;
+export interface DisconnectParticipantCommandInput extends DisconnectParticipantRequest {}
+export interface DisconnectParticipantCommandOutput extends DisconnectParticipantResponse, __MetadataBearer {}
 
 /**
  * <p>Disconnects a participant. Note that ConnectionToken is used for invoking this API

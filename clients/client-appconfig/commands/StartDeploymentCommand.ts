@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartDeploymentCommandInput = StartDeploymentRequest;
-export type StartDeploymentCommandOutput = Deployment & __MetadataBearer;
+export interface StartDeploymentCommandInput extends StartDeploymentRequest {}
+export interface StartDeploymentCommandOutput extends Deployment, __MetadataBearer {}
 
 /**
  * <p>Starts a deployment.</p>

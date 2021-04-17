@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteResourcePolicyCommandInput = DeleteResourcePolicyRequest;
-export type DeleteResourcePolicyCommandOutput = DeleteResourcePolicyResponse & __MetadataBearer;
+export interface DeleteResourcePolicyCommandInput extends DeleteResourcePolicyRequest {}
+export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a resource policy that you created in a <a>PutResourcePolicy</a> request. </p>

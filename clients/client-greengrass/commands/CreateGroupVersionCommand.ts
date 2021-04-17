@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateGroupVersionCommandInput = CreateGroupVersionRequest;
-export type CreateGroupVersionCommandOutput = CreateGroupVersionResponse & __MetadataBearer;
+export interface CreateGroupVersionCommandInput extends CreateGroupVersionRequest {}
+export interface CreateGroupVersionCommandOutput extends CreateGroupVersionResponse, __MetadataBearer {}
 
 /**
  * Creates a version of a group which has already been defined.

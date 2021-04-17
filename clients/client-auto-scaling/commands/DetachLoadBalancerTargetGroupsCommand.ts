@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DetachLoadBalancerTargetGroupsCommandInput = DetachLoadBalancerTargetGroupsType;
-export type DetachLoadBalancerTargetGroupsCommandOutput = DetachLoadBalancerTargetGroupsResultType & __MetadataBearer;
+export interface DetachLoadBalancerTargetGroupsCommandInput extends DetachLoadBalancerTargetGroupsType {}
+export interface DetachLoadBalancerTargetGroupsCommandOutput
+  extends DetachLoadBalancerTargetGroupsResultType,
+    __MetadataBearer {}
 
 /**
  * <p>Detaches one or more target groups from the specified Auto Scaling group.</p>

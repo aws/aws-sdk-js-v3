@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDomainAssociationCommandInput = GetDomainAssociationRequest;
-export type GetDomainAssociationCommandOutput = GetDomainAssociationResult & __MetadataBearer;
+export interface GetDomainAssociationCommandInput extends GetDomainAssociationRequest {}
+export interface GetDomainAssociationCommandOutput extends GetDomainAssociationResult, __MetadataBearer {}
 
 /**
  * <p> Returns the domain information for an Amplify app. </p>

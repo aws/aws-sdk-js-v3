@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetCurrentUserCommandInput = GetCurrentUserRequest;
-export type GetCurrentUserCommandOutput = GetCurrentUserResponse & __MetadataBearer;
+export interface GetCurrentUserCommandInput extends GetCurrentUserRequest {}
+export interface GetCurrentUserCommandOutput extends GetCurrentUserResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves details of the current user for whom the authentication token was

@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateQueryLoggingConfigCommandInput = CreateQueryLoggingConfigRequest;
-export type CreateQueryLoggingConfigCommandOutput = CreateQueryLoggingConfigResponse & __MetadataBearer;
+export interface CreateQueryLoggingConfigCommandInput extends CreateQueryLoggingConfigRequest {}
+export interface CreateQueryLoggingConfigCommandOutput extends CreateQueryLoggingConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a configuration for DNS query logging. After you create a query logging configuration, Amazon Route 53 begins to publish

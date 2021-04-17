@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateLunaClientCommandInput = CreateLunaClientRequest;
-export type CreateLunaClientCommandOutput = CreateLunaClientResponse & __MetadataBearer;
+export interface CreateLunaClientCommandInput extends CreateLunaClientRequest {}
+export interface CreateLunaClientCommandOutput extends CreateLunaClientResponse, __MetadataBearer {}
 
 /**
  * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For

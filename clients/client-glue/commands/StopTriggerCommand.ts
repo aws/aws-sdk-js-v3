@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopTriggerCommandInput = StopTriggerRequest;
-export type StopTriggerCommandOutput = StopTriggerResponse & __MetadataBearer;
+export interface StopTriggerCommandInput extends StopTriggerRequest {}
+export interface StopTriggerCommandOutput extends StopTriggerResponse, __MetadataBearer {}
 
 /**
  * <p>Stops a specified trigger.</p>

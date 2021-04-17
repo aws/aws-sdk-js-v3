@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ImportCertificateCommandInput = ImportCertificateRequest;
-export type ImportCertificateCommandOutput = ImportCertificateResponse & __MetadataBearer;
+export interface ImportCertificateCommandInput extends ImportCertificateRequest {}
+export interface ImportCertificateCommandOutput extends ImportCertificateResponse, __MetadataBearer {}
 
 /**
  * <p>Imports a certificate into AWS Certificate Manager (ACM) to use with services that are integrated with

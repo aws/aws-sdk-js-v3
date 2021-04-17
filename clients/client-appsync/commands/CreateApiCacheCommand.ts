@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateApiCacheCommandInput = CreateApiCacheRequest;
-export type CreateApiCacheCommandOutput = CreateApiCacheResponse & __MetadataBearer;
+export interface CreateApiCacheCommandInput extends CreateApiCacheRequest {}
+export interface CreateApiCacheCommandOutput extends CreateApiCacheResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a cache for the GraphQL API.</p>

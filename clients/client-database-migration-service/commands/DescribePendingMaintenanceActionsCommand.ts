@@ -24,9 +24,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribePendingMaintenanceActionsCommandInput = DescribePendingMaintenanceActionsMessage;
-export type DescribePendingMaintenanceActionsCommandOutput = DescribePendingMaintenanceActionsResponse &
-  __MetadataBearer;
+export interface DescribePendingMaintenanceActionsCommandInput extends DescribePendingMaintenanceActionsMessage {}
+export interface DescribePendingMaintenanceActionsCommandOutput
+  extends DescribePendingMaintenanceActionsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>For internal use only</p>

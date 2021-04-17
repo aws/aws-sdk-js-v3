@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeFleetsCommandInput = DescribeFleetsRequest;
-export type DescribeFleetsCommandOutput = DescribeFleetsResult & __MetadataBearer;
+export interface DescribeFleetsCommandInput extends DescribeFleetsRequest {}
+export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the specified EC2 Fleets or all of your EC2 Fleets.</p>

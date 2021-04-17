@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDisksCommandInput = GetDisksRequest;
-export type GetDisksCommandOutput = GetDisksResult & __MetadataBearer;
+export interface GetDisksCommandInput extends GetDisksRequest {}
+export interface GetDisksCommandOutput extends GetDisksResult, __MetadataBearer {}
 
 /**
  * <p>Returns information about all block storage disks in your AWS account and region.</p>

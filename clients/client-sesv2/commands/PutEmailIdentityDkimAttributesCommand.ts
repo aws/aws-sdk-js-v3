@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutEmailIdentityDkimAttributesCommandInput = PutEmailIdentityDkimAttributesRequest;
-export type PutEmailIdentityDkimAttributesCommandOutput = PutEmailIdentityDkimAttributesResponse & __MetadataBearer;
+export interface PutEmailIdentityDkimAttributesCommandInput extends PutEmailIdentityDkimAttributesRequest {}
+export interface PutEmailIdentityDkimAttributesCommandOutput
+  extends PutEmailIdentityDkimAttributesResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Used to enable or disable DKIM authentication for an email identity.</p>

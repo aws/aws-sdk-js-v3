@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteRegistryPolicyCommandInput = DeleteRegistryPolicyRequest;
-export type DeleteRegistryPolicyCommandOutput = DeleteRegistryPolicyResponse & __MetadataBearer;
+export interface DeleteRegistryPolicyCommandInput extends DeleteRegistryPolicyRequest {}
+export interface DeleteRegistryPolicyCommandOutput extends DeleteRegistryPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the registry permissions policy.</p>

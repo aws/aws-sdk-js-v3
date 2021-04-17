@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetPatchBaselineForPatchGroupCommandInput = GetPatchBaselineForPatchGroupRequest;
-export type GetPatchBaselineForPatchGroupCommandOutput = GetPatchBaselineForPatchGroupResult & __MetadataBearer;
+export interface GetPatchBaselineForPatchGroupCommandInput extends GetPatchBaselineForPatchGroupRequest {}
+export interface GetPatchBaselineForPatchGroupCommandOutput
+  extends GetPatchBaselineForPatchGroupResult,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves the patch baseline that should be used for the specified patch group.</p>

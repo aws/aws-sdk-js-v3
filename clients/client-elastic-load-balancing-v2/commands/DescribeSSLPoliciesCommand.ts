@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeSSLPoliciesCommandInput = DescribeSSLPoliciesInput;
-export type DescribeSSLPoliciesCommandOutput = DescribeSSLPoliciesOutput & __MetadataBearer;
+export interface DescribeSSLPoliciesCommandInput extends DescribeSSLPoliciesInput {}
+export interface DescribeSSLPoliciesCommandOutput extends DescribeSSLPoliciesOutput, __MetadataBearer {}
 
 /**
  * <p>Describes the specified policies or all policies used for SSL negotiation.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssignTapePoolCommandInput = AssignTapePoolInput;
-export type AssignTapePoolCommandOutput = AssignTapePoolOutput & __MetadataBearer;
+export interface AssignTapePoolCommandInput extends AssignTapePoolInput {}
+export interface AssignTapePoolCommandOutput extends AssignTapePoolOutput, __MetadataBearer {}
 
 /**
  * <p>Assigns a tape to a tape pool for archiving. The tape assigned to a pool is archived in

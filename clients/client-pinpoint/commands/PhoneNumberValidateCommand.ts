@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PhoneNumberValidateCommandInput = PhoneNumberValidateRequest;
-export type PhoneNumberValidateCommandOutput = PhoneNumberValidateResponse & __MetadataBearer;
+export interface PhoneNumberValidateCommandInput extends PhoneNumberValidateRequest {}
+export interface PhoneNumberValidateCommandOutput extends PhoneNumberValidateResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about a phone number.</p>

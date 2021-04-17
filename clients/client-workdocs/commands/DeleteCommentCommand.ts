@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteCommentCommandInput = DeleteCommentRequest;
-export type DeleteCommentCommandOutput = __MetadataBearer;
+export interface DeleteCommentCommandInput extends DeleteCommentRequest {}
+export interface DeleteCommentCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified comment from the document version.</p>

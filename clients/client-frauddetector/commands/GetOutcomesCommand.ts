@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetOutcomesCommandInput = GetOutcomesRequest;
-export type GetOutcomesCommandOutput = GetOutcomesResult & __MetadataBearer;
+export interface GetOutcomesCommandInput extends GetOutcomesRequest {}
+export interface GetOutcomesCommandOutput extends GetOutcomesResult, __MetadataBearer {}
 
 /**
  * <p>Gets one or more outcomes. This is a paginated

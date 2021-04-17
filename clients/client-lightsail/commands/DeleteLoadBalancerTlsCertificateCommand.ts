@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteLoadBalancerTlsCertificateCommandInput = DeleteLoadBalancerTlsCertificateRequest;
-export type DeleteLoadBalancerTlsCertificateCommandOutput = DeleteLoadBalancerTlsCertificateResult & __MetadataBearer;
+export interface DeleteLoadBalancerTlsCertificateCommandInput extends DeleteLoadBalancerTlsCertificateRequest {}
+export interface DeleteLoadBalancerTlsCertificateCommandOutput
+  extends DeleteLoadBalancerTlsCertificateResult,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes an SSL/TLS certificate associated with a Lightsail load balancer.</p>

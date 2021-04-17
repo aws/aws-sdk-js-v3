@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteTagsCommandInput = DeleteTagsRequest;
-export type DeleteTagsCommandOutput = DeleteTagsResponse & __MetadataBearer;
+export interface DeleteTagsCommandInput extends DeleteTagsRequest {}
+export interface DeleteTagsCommandOutput extends DeleteTagsResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the association between configuration items and one or more tags. This API

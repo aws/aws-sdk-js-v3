@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListFlowExecutionMessagesCommandInput = ListFlowExecutionMessagesRequest;
-export type ListFlowExecutionMessagesCommandOutput = ListFlowExecutionMessagesResponse & __MetadataBearer;
+export interface ListFlowExecutionMessagesCommandInput extends ListFlowExecutionMessagesRequest {}
+export interface ListFlowExecutionMessagesCommandOutput extends ListFlowExecutionMessagesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of objects that contain information about events in a flow execution.</p>

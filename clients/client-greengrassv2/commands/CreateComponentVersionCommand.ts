@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateComponentVersionCommandInput = CreateComponentVersionRequest;
-export type CreateComponentVersionCommandOutput = CreateComponentVersionResponse & __MetadataBearer;
+export interface CreateComponentVersionCommandInput extends CreateComponentVersionRequest {}
+export interface CreateComponentVersionCommandOutput extends CreateComponentVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a component. Components are software that run on AWS IoT Greengrass core devices. After you

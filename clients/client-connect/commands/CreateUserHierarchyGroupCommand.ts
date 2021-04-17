@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateUserHierarchyGroupCommandInput = CreateUserHierarchyGroupRequest;
-export type CreateUserHierarchyGroupCommandOutput = CreateUserHierarchyGroupResponse & __MetadataBearer;
+export interface CreateUserHierarchyGroupCommandInput extends CreateUserHierarchyGroupRequest {}
+export interface CreateUserHierarchyGroupCommandOutput extends CreateUserHierarchyGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new user hierarchy group.</p>

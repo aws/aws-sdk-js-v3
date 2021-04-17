@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CountPendingActivityTasksCommandInput = CountPendingActivityTasksInput;
-export type CountPendingActivityTasksCommandOutput = PendingTaskCount & __MetadataBearer;
+export interface CountPendingActivityTasksCommandInput extends CountPendingActivityTasksInput {}
+export interface CountPendingActivityTasksCommandOutput extends PendingTaskCount, __MetadataBearer {}
 
 /**
  * <p>Returns the estimated number of activity tasks in the specified task list. The count

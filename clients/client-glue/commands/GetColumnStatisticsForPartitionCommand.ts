@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetColumnStatisticsForPartitionCommandInput = GetColumnStatisticsForPartitionRequest;
-export type GetColumnStatisticsForPartitionCommandOutput = GetColumnStatisticsForPartitionResponse & __MetadataBearer;
+export interface GetColumnStatisticsForPartitionCommandInput extends GetColumnStatisticsForPartitionRequest {}
+export interface GetColumnStatisticsForPartitionCommandOutput
+  extends GetColumnStatisticsForPartitionResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves partition statistics of columns.</p>

@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type XmlMapsCommandInput = {};
-export type XmlMapsCommandOutput = XmlMapsOutput & __MetadataBearer;
+export interface XmlMapsCommandInput {}
+export interface XmlMapsCommandOutput extends XmlMapsOutput, __MetadataBearer {}
 
 /**
  * The example tests basic map serialization.

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchDeleteConnectionCommandInput = BatchDeleteConnectionRequest;
-export type BatchDeleteConnectionCommandOutput = BatchDeleteConnectionResponse & __MetadataBearer;
+export interface BatchDeleteConnectionCommandInput extends BatchDeleteConnectionRequest {}
+export interface BatchDeleteConnectionCommandOutput extends BatchDeleteConnectionResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a list of connection definitions from the Data Catalog.</p>

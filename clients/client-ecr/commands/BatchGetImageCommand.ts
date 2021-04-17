@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchGetImageCommandInput = BatchGetImageRequest;
-export type BatchGetImageCommandOutput = BatchGetImageResponse & __MetadataBearer;
+export interface BatchGetImageCommandInput extends BatchGetImageRequest {}
+export interface BatchGetImageCommandOutput extends BatchGetImageResponse, __MetadataBearer {}
 
 /**
  * <p>Gets detailed information for an image. Images are specified with either an

@@ -22,8 +22,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetIdentityProviderByIdentifierCommandInput = GetIdentityProviderByIdentifierRequest;
-export type GetIdentityProviderByIdentifierCommandOutput = GetIdentityProviderByIdentifierResponse & __MetadataBearer;
+export interface GetIdentityProviderByIdentifierCommandInput extends GetIdentityProviderByIdentifierRequest {}
+export interface GetIdentityProviderByIdentifierCommandOutput
+  extends GetIdentityProviderByIdentifierResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets the specified identity provider.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateGlobalSettingsCommandInput = UpdateGlobalSettingsInput;
-export type UpdateGlobalSettingsCommandOutput = __MetadataBearer;
+export interface UpdateGlobalSettingsCommandInput extends UpdateGlobalSettingsInput {}
+export interface UpdateGlobalSettingsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates the current global settings for the AWS account. Use the

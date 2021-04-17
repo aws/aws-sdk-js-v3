@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisableUserCommandInput = DisableUserRequest;
-export type DisableUserCommandOutput = DisableUserResult & __MetadataBearer;
+export interface DisableUserCommandInput extends DisableUserRequest {}
+export interface DisableUserCommandOutput extends DisableUserResult, __MetadataBearer {}
 
 /**
  * <p>Disables the specified user in the user pool. Users can't sign in to AppStream 2.0 until they are re-enabled. This action does not delete the user. </p>

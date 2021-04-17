@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeregisterTypeCommandInput = DeregisterTypeInput;
-export type DeregisterTypeCommandOutput = DeregisterTypeOutput & __MetadataBearer;
+export interface DeregisterTypeCommandInput extends DeregisterTypeInput {}
+export interface DeregisterTypeCommandOutput extends DeregisterTypeOutput, __MetadataBearer {}
 
 /**
  * <p>Marks an extension or extension version as <code>DEPRECATED</code> in the CloudFormation registry, removing it from active use. Deprecated extensions or extension versions cannot be used in CloudFormation operations.</p>

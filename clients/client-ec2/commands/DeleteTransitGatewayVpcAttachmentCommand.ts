@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteTransitGatewayVpcAttachmentCommandInput = DeleteTransitGatewayVpcAttachmentRequest;
-export type DeleteTransitGatewayVpcAttachmentCommandOutput = DeleteTransitGatewayVpcAttachmentResult & __MetadataBearer;
+export interface DeleteTransitGatewayVpcAttachmentCommandInput extends DeleteTransitGatewayVpcAttachmentRequest {}
+export interface DeleteTransitGatewayVpcAttachmentCommandOutput
+  extends DeleteTransitGatewayVpcAttachmentResult,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes the specified VPC attachment.</p>

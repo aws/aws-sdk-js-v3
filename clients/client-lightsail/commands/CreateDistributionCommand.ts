@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDistributionCommandInput = CreateDistributionRequest;
-export type CreateDistributionCommandOutput = CreateDistributionResult & __MetadataBearer;
+export interface CreateDistributionCommandInput extends CreateDistributionRequest {}
+export interface CreateDistributionCommandOutput extends CreateDistributionResult, __MetadataBearer {}
 
 /**
  * <p>Creates an Amazon Lightsail content delivery network (CDN) distribution.</p>

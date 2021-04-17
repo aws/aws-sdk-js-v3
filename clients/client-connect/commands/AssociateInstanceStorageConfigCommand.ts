@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateInstanceStorageConfigCommandInput = AssociateInstanceStorageConfigRequest;
-export type AssociateInstanceStorageConfigCommandOutput = AssociateInstanceStorageConfigResponse & __MetadataBearer;
+export interface AssociateInstanceStorageConfigCommandInput extends AssociateInstanceStorageConfigRequest {}
+export interface AssociateInstanceStorageConfigCommandOutput
+  extends AssociateInstanceStorageConfigResponse,
+    __MetadataBearer {}
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>

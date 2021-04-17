@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RemoveTargetsCommandInput = RemoveTargetsRequest;
-export type RemoveTargetsCommandOutput = RemoveTargetsResponse & __MetadataBearer;
+export interface RemoveTargetsCommandInput extends RemoveTargetsRequest {}
+export interface RemoveTargetsCommandOutput extends RemoveTargetsResponse, __MetadataBearer {}
 
 /**
  * <p>Removes the specified targets from the specified rule. When the rule is triggered, those

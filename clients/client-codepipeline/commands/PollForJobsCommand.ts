@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PollForJobsCommandInput = PollForJobsInput;
-export type PollForJobsCommandOutput = PollForJobsOutput & __MetadataBearer;
+export interface PollForJobsCommandInput extends PollForJobsInput {}
+export interface PollForJobsCommandOutput extends PollForJobsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about any jobs for AWS CodePipeline to act on.

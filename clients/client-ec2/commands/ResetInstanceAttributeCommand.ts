@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ResetInstanceAttributeCommandInput = ResetInstanceAttributeRequest;
-export type ResetInstanceAttributeCommandOutput = __MetadataBearer;
+export interface ResetInstanceAttributeCommandInput extends ResetInstanceAttributeRequest {}
+export interface ResetInstanceAttributeCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Resets an attribute of an instance to its default value. To reset the

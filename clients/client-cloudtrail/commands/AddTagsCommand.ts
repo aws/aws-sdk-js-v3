@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddTagsCommandInput = AddTagsRequest;
-export type AddTagsCommandOutput = AddTagsResponse & __MetadataBearer;
+export interface AddTagsCommandInput extends AddTagsRequest {}
+export interface AddTagsCommandOutput extends AddTagsResponse, __MetadataBearer {}
 
 /**
  * <p>Adds one or more tags to a trail, up to a limit of 50. Overwrites an existing tag's value when a new value is specified for an existing tag key.

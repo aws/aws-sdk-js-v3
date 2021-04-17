@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteClassifierCommandInput = DeleteClassifierRequest;
-export type DeleteClassifierCommandOutput = DeleteClassifierResponse & __MetadataBearer;
+export interface DeleteClassifierCommandInput extends DeleteClassifierRequest {}
+export interface DeleteClassifierCommandOutput extends DeleteClassifierResponse, __MetadataBearer {}
 
 /**
  * <p>Removes a classifier from the Data Catalog.</p>

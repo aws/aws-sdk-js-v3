@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AcceptTransitGatewayMulticastDomainAssociationsCommandInput = AcceptTransitGatewayMulticastDomainAssociationsRequest;
-export type AcceptTransitGatewayMulticastDomainAssociationsCommandOutput = AcceptTransitGatewayMulticastDomainAssociationsResult &
-  __MetadataBearer;
+export interface AcceptTransitGatewayMulticastDomainAssociationsCommandInput
+  extends AcceptTransitGatewayMulticastDomainAssociationsRequest {}
+export interface AcceptTransitGatewayMulticastDomainAssociationsCommandOutput
+  extends AcceptTransitGatewayMulticastDomainAssociationsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Accepts a request to associate subnets with a transit gateway multicast domain.</p>

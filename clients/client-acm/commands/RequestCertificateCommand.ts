@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RequestCertificateCommandInput = RequestCertificateRequest;
-export type RequestCertificateCommandOutput = RequestCertificateResponse & __MetadataBearer;
+export interface RequestCertificateCommandInput extends RequestCertificateRequest {}
+export interface RequestCertificateCommandOutput extends RequestCertificateResponse, __MetadataBearer {}
 
 /**
  * <p>Requests an ACM certificate for use with other AWS services. To request an ACM

@@ -18,8 +18,9 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutAccessPointConfigurationForObjectLambdaCommandInput = PutAccessPointConfigurationForObjectLambdaRequest;
-export type PutAccessPointConfigurationForObjectLambdaCommandOutput = __MetadataBearer;
+export interface PutAccessPointConfigurationForObjectLambdaCommandInput
+  extends PutAccessPointConfigurationForObjectLambdaRequest {}
+export interface PutAccessPointConfigurationForObjectLambdaCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Replaces configuration for an Object Lambda Access Point.</p>

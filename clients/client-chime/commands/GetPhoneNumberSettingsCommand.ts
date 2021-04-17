@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetPhoneNumberSettingsCommandInput = {};
-export type GetPhoneNumberSettingsCommandOutput = GetPhoneNumberSettingsResponse & __MetadataBearer;
+export interface GetPhoneNumberSettingsCommandInput {}
+export interface GetPhoneNumberSettingsCommandOutput extends GetPhoneNumberSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the phone number settings for the administrator's AWS account, such as the default outbound calling name.</p>

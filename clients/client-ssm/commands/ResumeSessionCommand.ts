@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ResumeSessionCommandInput = ResumeSessionRequest;
-export type ResumeSessionCommandOutput = ResumeSessionResponse & __MetadataBearer;
+export interface ResumeSessionCommandInput extends ResumeSessionRequest {}
+export interface ResumeSessionCommandOutput extends ResumeSessionResponse, __MetadataBearer {}
 
 /**
  * <p>Reconnects a session to an instance after it has been disconnected. Connections can be

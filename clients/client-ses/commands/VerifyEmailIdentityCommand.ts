@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type VerifyEmailIdentityCommandInput = VerifyEmailIdentityRequest;
-export type VerifyEmailIdentityCommandOutput = VerifyEmailIdentityResponse & __MetadataBearer;
+export interface VerifyEmailIdentityCommandInput extends VerifyEmailIdentityRequest {}
+export interface VerifyEmailIdentityCommandOutput extends VerifyEmailIdentityResponse, __MetadataBearer {}
 
 /**
  * <p>Adds an email address to the list of identities for your Amazon SES account in the current

@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAggregateDiscoveredResourceCountsCommandInput = GetAggregateDiscoveredResourceCountsRequest;
-export type GetAggregateDiscoveredResourceCountsCommandOutput = GetAggregateDiscoveredResourceCountsResponse &
-  __MetadataBearer;
+export interface GetAggregateDiscoveredResourceCountsCommandInput extends GetAggregateDiscoveredResourceCountsRequest {}
+export interface GetAggregateDiscoveredResourceCountsCommandOutput
+  extends GetAggregateDiscoveredResourceCountsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the resource counts across accounts and regions that are present in your AWS Config aggregator. You can request the resource counts by providing filters and GroupByKey.</p>

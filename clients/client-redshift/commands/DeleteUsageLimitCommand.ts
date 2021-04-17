@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteUsageLimitCommandInput = DeleteUsageLimitMessage;
-export type DeleteUsageLimitCommandOutput = __MetadataBearer;
+export interface DeleteUsageLimitCommandInput extends DeleteUsageLimitMessage {}
+export interface DeleteUsageLimitCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a usage limit from a cluster.</p>

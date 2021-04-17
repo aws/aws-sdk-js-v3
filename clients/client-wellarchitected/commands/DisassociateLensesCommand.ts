@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateLensesCommandInput = DisassociateLensesInput;
-export type DisassociateLensesCommandOutput = __MetadataBearer;
+export interface DisassociateLensesCommandInput extends DisassociateLensesInput {}
+export interface DisassociateLensesCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Disassociate a lens from a workload.</p>

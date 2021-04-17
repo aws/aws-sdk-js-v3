@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeLoaCommandInput = DescribeLoaRequest;
-export type DescribeLoaCommandOutput = Loa & __MetadataBearer;
+export interface DescribeLoaCommandInput extends DescribeLoaRequest {}
+export interface DescribeLoaCommandOutput extends Loa, __MetadataBearer {}
 
 /**
  * <p>Gets the LOA-CFA for a connection, interconnect, or link aggregation group (LAG).</p>

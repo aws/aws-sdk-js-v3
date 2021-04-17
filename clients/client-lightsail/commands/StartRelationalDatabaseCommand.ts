@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartRelationalDatabaseCommandInput = StartRelationalDatabaseRequest;
-export type StartRelationalDatabaseCommandOutput = StartRelationalDatabaseResult & __MetadataBearer;
+export interface StartRelationalDatabaseCommandInput extends StartRelationalDatabaseRequest {}
+export interface StartRelationalDatabaseCommandOutput extends StartRelationalDatabaseResult, __MetadataBearer {}
 
 /**
  * <p>Starts a specific database from a stopped state in Amazon Lightsail. To restart a database,

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateSmsTemplateCommandInput = UpdateSmsTemplateRequest;
-export type UpdateSmsTemplateCommandOutput = UpdateSmsTemplateResponse & __MetadataBearer;
+export interface UpdateSmsTemplateCommandInput extends UpdateSmsTemplateRequest {}
+export interface UpdateSmsTemplateCommandOutput extends UpdateSmsTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing message template for messages that are sent through the SMS channel.</p>

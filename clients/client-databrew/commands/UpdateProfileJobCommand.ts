@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateProfileJobCommandInput = UpdateProfileJobRequest;
-export type UpdateProfileJobCommandOutput = UpdateProfileJobResponse & __MetadataBearer;
+export interface UpdateProfileJobCommandInput extends UpdateProfileJobRequest {}
+export interface UpdateProfileJobCommandOutput extends UpdateProfileJobResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies the definition of an existing profile job.</p>

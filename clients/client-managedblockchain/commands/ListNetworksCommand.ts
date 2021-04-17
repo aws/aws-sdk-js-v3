@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListNetworksCommandInput = ListNetworksInput;
-export type ListNetworksCommandOutput = ListNetworksOutput & __MetadataBearer;
+export interface ListNetworksCommandInput extends ListNetworksInput {}
+export interface ListNetworksCommandOutput extends ListNetworksOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about the networks in which the current AWS account participates.</p>

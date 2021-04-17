@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TestAlarmCommandInput = TestAlarmRequest;
-export type TestAlarmCommandOutput = TestAlarmResult & __MetadataBearer;
+export interface TestAlarmCommandInput extends TestAlarmRequest {}
+export interface TestAlarmCommandOutput extends TestAlarmResult, __MetadataBearer {}
 
 /**
  * <p>Tests an alarm by displaying a banner on the Amazon Lightsail console. If a notification

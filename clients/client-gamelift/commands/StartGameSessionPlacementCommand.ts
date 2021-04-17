@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartGameSessionPlacementCommandInput = StartGameSessionPlacementInput;
-export type StartGameSessionPlacementCommandOutput = StartGameSessionPlacementOutput & __MetadataBearer;
+export interface StartGameSessionPlacementCommandInput extends StartGameSessionPlacementInput {}
+export interface StartGameSessionPlacementCommandOutput extends StartGameSessionPlacementOutput, __MetadataBearer {}
 
 /**
  * <p>Places a request for a new game session in a queue (see <a>CreateGameSessionQueue</a>). When processing a placement request, Amazon GameLift

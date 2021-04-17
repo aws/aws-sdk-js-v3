@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetFunctionCodeSigningConfigCommandInput = GetFunctionCodeSigningConfigRequest;
-export type GetFunctionCodeSigningConfigCommandOutput = GetFunctionCodeSigningConfigResponse & __MetadataBearer;
+export interface GetFunctionCodeSigningConfigCommandInput extends GetFunctionCodeSigningConfigRequest {}
+export interface GetFunctionCodeSigningConfigCommandOutput
+  extends GetFunctionCodeSigningConfigResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the code signing configuration for the specified function.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateTokenCommandInput = CreateTokenRequest;
-export type CreateTokenCommandOutput = CreateTokenResponse & __MetadataBearer;
+export interface CreateTokenCommandInput extends CreateTokenRequest {}
+export interface CreateTokenCommandOutput extends CreateTokenResponse, __MetadataBearer {}
 
 /**
  * <p>Generates a one-time challenge code to authenticate a user into your Amplify Admin UI.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetPartitionIndexesCommandInput = GetPartitionIndexesRequest;
-export type GetPartitionIndexesCommandOutput = GetPartitionIndexesResponse & __MetadataBearer;
+export interface GetPartitionIndexesCommandInput extends GetPartitionIndexesRequest {}
+export interface GetPartitionIndexesCommandOutput extends GetPartitionIndexesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the partition indexes associated with a table.</p>

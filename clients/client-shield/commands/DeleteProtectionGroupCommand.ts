@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteProtectionGroupCommandInput = DeleteProtectionGroupRequest;
-export type DeleteProtectionGroupCommandOutput = DeleteProtectionGroupResponse & __MetadataBearer;
+export interface DeleteProtectionGroupCommandInput extends DeleteProtectionGroupRequest {}
+export interface DeleteProtectionGroupCommandOutput extends DeleteProtectionGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Removes the specified protection group.</p>

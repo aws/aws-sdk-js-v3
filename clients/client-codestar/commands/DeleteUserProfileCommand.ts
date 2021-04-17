@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteUserProfileCommandInput = DeleteUserProfileRequest;
-export type DeleteUserProfileCommandOutput = DeleteUserProfileResult & __MetadataBearer;
+export interface DeleteUserProfileCommandInput extends DeleteUserProfileRequest {}
+export interface DeleteUserProfileCommandOutput extends DeleteUserProfileResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a user profile in AWS CodeStar, including all personal preference data associated with

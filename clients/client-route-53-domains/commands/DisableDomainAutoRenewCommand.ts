@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisableDomainAutoRenewCommandInput = DisableDomainAutoRenewRequest;
-export type DisableDomainAutoRenewCommandOutput = DisableDomainAutoRenewResponse & __MetadataBearer;
+export interface DisableDomainAutoRenewCommandInput extends DisableDomainAutoRenewRequest {}
+export interface DisableDomainAutoRenewCommandOutput extends DisableDomainAutoRenewResponse, __MetadataBearer {}
 
 /**
  * <p>This operation disables automatic renewal of domain registration for the specified domain.</p>

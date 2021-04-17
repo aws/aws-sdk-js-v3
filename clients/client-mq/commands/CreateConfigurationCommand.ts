@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateConfigurationCommandInput = CreateConfigurationRequest;
-export type CreateConfigurationCommandOutput = CreateConfigurationResponse & __MetadataBearer;
+export interface CreateConfigurationCommandInput extends CreateConfigurationRequest {}
+export interface CreateConfigurationCommandOutput extends CreateConfigurationResponse, __MetadataBearer {}
 
 /**
  * Creates a new configuration for the specified configuration name. Amazon MQ uses the default configuration (the engine type and version).

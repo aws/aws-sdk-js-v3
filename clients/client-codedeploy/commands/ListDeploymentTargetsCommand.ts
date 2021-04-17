@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDeploymentTargetsCommandInput = ListDeploymentTargetsInput;
-export type ListDeploymentTargetsCommandOutput = ListDeploymentTargetsOutput & __MetadataBearer;
+export interface ListDeploymentTargetsCommandInput extends ListDeploymentTargetsInput {}
+export interface ListDeploymentTargetsCommandOutput extends ListDeploymentTargetsOutput, __MetadataBearer {}
 
 /**
  * <p> Returns an array of target IDs that are associated a deployment. </p>

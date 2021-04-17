@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchDeleteTableVersionCommandInput = BatchDeleteTableVersionRequest;
-export type BatchDeleteTableVersionCommandOutput = BatchDeleteTableVersionResponse & __MetadataBearer;
+export interface BatchDeleteTableVersionCommandInput extends BatchDeleteTableVersionRequest {}
+export interface BatchDeleteTableVersionCommandOutput extends BatchDeleteTableVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a specified batch of versions of a table.</p>

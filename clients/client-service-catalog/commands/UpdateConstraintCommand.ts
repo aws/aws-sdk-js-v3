@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateConstraintCommandInput = UpdateConstraintInput;
-export type UpdateConstraintCommandOutput = UpdateConstraintOutput & __MetadataBearer;
+export interface UpdateConstraintCommandInput extends UpdateConstraintInput {}
+export interface UpdateConstraintCommandOutput extends UpdateConstraintOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the specified constraint.</p>

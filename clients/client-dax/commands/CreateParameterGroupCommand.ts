@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateParameterGroupCommandInput = CreateParameterGroupRequest;
-export type CreateParameterGroupCommandOutput = CreateParameterGroupResponse & __MetadataBearer;
+export interface CreateParameterGroupCommandInput extends CreateParameterGroupRequest {}
+export interface CreateParameterGroupCommandOutput extends CreateParameterGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new parameter group. A parameter group is a collection of parameters that

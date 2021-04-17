@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeObjectsCommandInput = DescribeObjectsInput;
-export type DescribeObjectsCommandOutput = DescribeObjectsOutput & __MetadataBearer;
+export interface DescribeObjectsCommandInput extends DescribeObjectsInput {}
+export interface DescribeObjectsCommandOutput extends DescribeObjectsOutput, __MetadataBearer {}
 
 /**
  * <p>Gets the object definitions for a set of objects associated with the pipeline. Object definitions are composed of

@@ -19,8 +19,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RestoreObjectCommandInput = RestoreObjectRequest;
-export type RestoreObjectCommandOutput = RestoreObjectOutput & __MetadataBearer;
+export interface RestoreObjectCommandInput extends RestoreObjectRequest {}
+export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __MetadataBearer {}
 
 /**
  * <p>Restores an archived copy of an object back into Amazon S3</p>

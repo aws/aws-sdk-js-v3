@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListGraphqlApisCommandInput = ListGraphqlApisRequest;
-export type ListGraphqlApisCommandOutput = ListGraphqlApisResponse & __MetadataBearer;
+export interface ListGraphqlApisCommandInput extends ListGraphqlApisRequest {}
+export interface ListGraphqlApisCommandOutput extends ListGraphqlApisResponse, __MetadataBearer {}
 
 /**
  * <p>Lists your GraphQL APIs.</p>

@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartSupportDataExportCommandInput = StartSupportDataExportRequest;
-export type StartSupportDataExportCommandOutput = StartSupportDataExportResult & __MetadataBearer;
+export interface StartSupportDataExportCommandInput extends StartSupportDataExportRequest {}
+export interface StartSupportDataExportCommandOutput extends StartSupportDataExportResult, __MetadataBearer {}
 
 /**
  * Given a data set type and a from date, asynchronously publishes the requested customer support data

@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeHumanLoopCommandInput = DescribeHumanLoopRequest;
-export type DescribeHumanLoopCommandOutput = DescribeHumanLoopResponse & __MetadataBearer;
+export interface DescribeHumanLoopCommandInput extends DescribeHumanLoopRequest {}
+export interface DescribeHumanLoopCommandOutput extends DescribeHumanLoopResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about the specified human loop.</p>

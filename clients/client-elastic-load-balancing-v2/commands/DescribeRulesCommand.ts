@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeRulesCommandInput = DescribeRulesInput;
-export type DescribeRulesCommandOutput = DescribeRulesOutput & __MetadataBearer;
+export interface DescribeRulesCommandInput extends DescribeRulesInput {}
+export interface DescribeRulesCommandOutput extends DescribeRulesOutput, __MetadataBearer {}
 
 /**
  * <p>Describes the specified rules or the rules for the specified listener. You must specify

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTrafficMirrorTargetsCommandInput = DescribeTrafficMirrorTargetsRequest;
-export type DescribeTrafficMirrorTargetsCommandOutput = DescribeTrafficMirrorTargetsResult & __MetadataBearer;
+export interface DescribeTrafficMirrorTargetsCommandInput extends DescribeTrafficMirrorTargetsRequest {}
+export interface DescribeTrafficMirrorTargetsCommandOutput
+  extends DescribeTrafficMirrorTargetsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Information about one or more Traffic Mirror targets.</p>

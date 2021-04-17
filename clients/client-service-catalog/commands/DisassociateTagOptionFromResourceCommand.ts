@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateTagOptionFromResourceCommandInput = DisassociateTagOptionFromResourceInput;
-export type DisassociateTagOptionFromResourceCommandOutput = DisassociateTagOptionFromResourceOutput & __MetadataBearer;
+export interface DisassociateTagOptionFromResourceCommandInput extends DisassociateTagOptionFromResourceInput {}
+export interface DisassociateTagOptionFromResourceCommandOutput
+  extends DisassociateTagOptionFromResourceOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Disassociates the specified TagOption from the specified resource.</p>

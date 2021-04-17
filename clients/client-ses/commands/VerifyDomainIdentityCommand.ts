@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type VerifyDomainIdentityCommandInput = VerifyDomainIdentityRequest;
-export type VerifyDomainIdentityCommandOutput = VerifyDomainIdentityResponse & __MetadataBearer;
+export interface VerifyDomainIdentityCommandInput extends VerifyDomainIdentityRequest {}
+export interface VerifyDomainIdentityCommandOutput extends VerifyDomainIdentityResponse, __MetadataBearer {}
 
 /**
  * <p>Adds a domain to the list of identities for your Amazon SES account in the current AWS

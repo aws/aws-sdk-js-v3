@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateRegionSettingsCommandInput = UpdateRegionSettingsInput;
-export type UpdateRegionSettingsCommandOutput = __MetadataBearer;
+export interface UpdateRegionSettingsCommandInput extends UpdateRegionSettingsInput {}
+export interface UpdateRegionSettingsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates the current service opt-in settings for the Region. If service-opt-in is enabled

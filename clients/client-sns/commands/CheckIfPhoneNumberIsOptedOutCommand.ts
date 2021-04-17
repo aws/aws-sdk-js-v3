@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CheckIfPhoneNumberIsOptedOutCommandInput = CheckIfPhoneNumberIsOptedOutInput;
-export type CheckIfPhoneNumberIsOptedOutCommandOutput = CheckIfPhoneNumberIsOptedOutResponse & __MetadataBearer;
+export interface CheckIfPhoneNumberIsOptedOutCommandInput extends CheckIfPhoneNumberIsOptedOutInput {}
+export interface CheckIfPhoneNumberIsOptedOutCommandOutput
+  extends CheckIfPhoneNumberIsOptedOutResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Accepts a phone number and indicates whether the phone holder has opted out of

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDetectorModelCommandInput = CreateDetectorModelRequest;
-export type CreateDetectorModelCommandOutput = CreateDetectorModelResponse & __MetadataBearer;
+export interface CreateDetectorModelCommandInput extends CreateDetectorModelRequest {}
+export interface CreateDetectorModelCommandOutput extends CreateDetectorModelResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a detector model.</p>

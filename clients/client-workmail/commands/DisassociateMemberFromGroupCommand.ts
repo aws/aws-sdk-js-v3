@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateMemberFromGroupCommandInput = DisassociateMemberFromGroupRequest;
-export type DisassociateMemberFromGroupCommandOutput = DisassociateMemberFromGroupResponse & __MetadataBearer;
+export interface DisassociateMemberFromGroupCommandInput extends DisassociateMemberFromGroupRequest {}
+export interface DisassociateMemberFromGroupCommandOutput
+  extends DisassociateMemberFromGroupResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Removes a member from a group.</p>

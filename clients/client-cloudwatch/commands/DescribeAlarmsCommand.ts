@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAlarmsCommandInput = DescribeAlarmsInput;
-export type DescribeAlarmsCommandOutput = DescribeAlarmsOutput & __MetadataBearer;
+export interface DescribeAlarmsCommandInput extends DescribeAlarmsInput {}
+export interface DescribeAlarmsCommandOutput extends DescribeAlarmsOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves the specified alarms. You can filter the results by specifying a prefix for the alarm

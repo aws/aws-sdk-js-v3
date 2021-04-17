@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AuthorizeClusterSecurityGroupIngressCommandInput = AuthorizeClusterSecurityGroupIngressMessage;
-export type AuthorizeClusterSecurityGroupIngressCommandOutput = AuthorizeClusterSecurityGroupIngressResult &
-  __MetadataBearer;
+export interface AuthorizeClusterSecurityGroupIngressCommandInput extends AuthorizeClusterSecurityGroupIngressMessage {}
+export interface AuthorizeClusterSecurityGroupIngressCommandOutput
+  extends AuthorizeClusterSecurityGroupIngressResult,
+    __MetadataBearer {}
 
 /**
  * <p>Adds an inbound (ingress) rule to an Amazon Redshift security group. Depending on whether

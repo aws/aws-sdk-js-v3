@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListRegistriesCommandInput = ListRegistriesRequest;
-export type ListRegistriesCommandOutput = ListRegistriesResponse & __MetadataBearer;
+export interface ListRegistriesCommandInput extends ListRegistriesRequest {}
+export interface ListRegistriesCommandOutput extends ListRegistriesResponse, __MetadataBearer {}
 
 /**
  * <p>List the registries.</p>

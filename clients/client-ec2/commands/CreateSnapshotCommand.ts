@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateSnapshotCommandInput = CreateSnapshotRequest;
-export type CreateSnapshotCommandOutput = Snapshot & __MetadataBearer;
+export interface CreateSnapshotCommandInput extends CreateSnapshotRequest {}
+export interface CreateSnapshotCommandOutput extends Snapshot, __MetadataBearer {}
 
 /**
  * <p>Creates a snapshot of an EBS volume and stores it in Amazon S3. You can use snapshots for

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateAssessmentControlSetStatusCommandInput = UpdateAssessmentControlSetStatusRequest;
-export type UpdateAssessmentControlSetStatusCommandOutput = UpdateAssessmentControlSetStatusResponse & __MetadataBearer;
+export interface UpdateAssessmentControlSetStatusCommandInput extends UpdateAssessmentControlSetStatusRequest {}
+export interface UpdateAssessmentControlSetStatusCommandOutput
+  extends UpdateAssessmentControlSetStatusResponse,
+    __MetadataBearer {}
 
 /**
  * <p>

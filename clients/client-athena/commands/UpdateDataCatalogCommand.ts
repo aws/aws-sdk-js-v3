@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateDataCatalogCommandInput = UpdateDataCatalogInput;
-export type UpdateDataCatalogCommandOutput = UpdateDataCatalogOutput & __MetadataBearer;
+export interface UpdateDataCatalogCommandInput extends UpdateDataCatalogInput {}
+export interface UpdateDataCatalogCommandOutput extends UpdateDataCatalogOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the data catalog that has the specified name.</p>

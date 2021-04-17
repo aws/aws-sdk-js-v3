@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateFileSystemCommandInput = CreateFileSystemRequest;
-export type CreateFileSystemCommandOutput = FileSystemDescription & __MetadataBearer;
+export interface CreateFileSystemCommandInput extends CreateFileSystemRequest {}
+export interface CreateFileSystemCommandOutput extends FileSystemDescription, __MetadataBearer {}
 
 /**
  * <p>Creates a new, empty file system. The operation requires a creation token in the

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type FlattenedXmlMapWithXmlNameCommandInput = FlattenedXmlMapWithXmlNameInputOutput;
-export type FlattenedXmlMapWithXmlNameCommandOutput = FlattenedXmlMapWithXmlNameInputOutput & __MetadataBearer;
+export interface FlattenedXmlMapWithXmlNameCommandInput extends FlattenedXmlMapWithXmlNameInputOutput {}
+export interface FlattenedXmlMapWithXmlNameCommandOutput
+  extends FlattenedXmlMapWithXmlNameInputOutput,
+    __MetadataBearer {}
 
 /**
  * Flattened maps with @xmlName

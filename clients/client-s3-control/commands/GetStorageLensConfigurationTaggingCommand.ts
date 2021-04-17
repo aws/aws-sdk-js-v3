@@ -21,9 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetStorageLensConfigurationTaggingCommandInput = GetStorageLensConfigurationTaggingRequest;
-export type GetStorageLensConfigurationTaggingCommandOutput = GetStorageLensConfigurationTaggingResult &
-  __MetadataBearer;
+export interface GetStorageLensConfigurationTaggingCommandInput extends GetStorageLensConfigurationTaggingRequest {}
+export interface GetStorageLensConfigurationTaggingCommandOutput
+  extends GetStorageLensConfigurationTaggingResult,
+    __MetadataBearer {}
 
 /**
  * <p>Gets the tags of Amazon S3 Storage Lens configuration. For more information about S3 Storage Lens, see

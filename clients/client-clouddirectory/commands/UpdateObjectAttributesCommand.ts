@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateObjectAttributesCommandInput = UpdateObjectAttributesRequest;
-export type UpdateObjectAttributesCommandOutput = UpdateObjectAttributesResponse & __MetadataBearer;
+export interface UpdateObjectAttributesCommandInput extends UpdateObjectAttributesRequest {}
+export interface UpdateObjectAttributesCommandOutput extends UpdateObjectAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a given object's attributes.</p>

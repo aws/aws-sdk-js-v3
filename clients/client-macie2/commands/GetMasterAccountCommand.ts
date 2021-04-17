@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetMasterAccountCommandInput = GetMasterAccountRequest;
-export type GetMasterAccountCommandOutput = GetMasterAccountResponse & __MetadataBearer;
+export interface GetMasterAccountCommandInput extends GetMasterAccountRequest {}
+export interface GetMasterAccountCommandOutput extends GetMasterAccountResponse, __MetadataBearer {}
 
 /**
  * <p>(Deprecated) Retrieves information about the Amazon Macie administrator account for an account. This operation has been replaced by the <link  linkend="GetAdministratorAccount">GetAdministratorAccount</link> operation.</p>

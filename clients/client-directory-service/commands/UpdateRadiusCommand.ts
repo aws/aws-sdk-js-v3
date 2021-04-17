@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateRadiusCommandInput = UpdateRadiusRequest;
-export type UpdateRadiusCommandOutput = UpdateRadiusResult & __MetadataBearer;
+export interface UpdateRadiusCommandInput extends UpdateRadiusRequest {}
+export interface UpdateRadiusCommandOutput extends UpdateRadiusResult, __MetadataBearer {}
 
 /**
  * <p>Updates the Remote Authentication Dial In User Service (RADIUS) server information for an AD Connector or Microsoft AD directory.</p>

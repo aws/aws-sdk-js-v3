@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteFileCommandInput = DeleteFileInput;
-export type DeleteFileCommandOutput = DeleteFileOutput & __MetadataBearer;
+export interface DeleteFileCommandInput extends DeleteFileInput {}
+export interface DeleteFileCommandOutput extends DeleteFileOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes a specified file from a specified branch. A commit is created on the branch

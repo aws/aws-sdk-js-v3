@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateHealthCheckCommandInput = AssociateHealthCheckRequest;
-export type AssociateHealthCheckCommandOutput = AssociateHealthCheckResponse & __MetadataBearer;
+export interface AssociateHealthCheckCommandInput extends AssociateHealthCheckRequest {}
+export interface AssociateHealthCheckCommandOutput extends AssociateHealthCheckResponse, __MetadataBearer {}
 
 /**
  * <p>Adds health-based detection to the Shield Advanced protection for a resource. Shield Advanced health-based detection uses the health of your AWS resource to improve responsiveness and accuracy in attack detection and mitigation.  </p>

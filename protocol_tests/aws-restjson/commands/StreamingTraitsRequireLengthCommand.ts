@@ -17,10 +17,19 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StreamingTraitsRequireLengthCommandInput = Omit<StreamingTraitsRequireLengthInputOutput, "blob"> & {
+type StreamingTraitsRequireLengthCommandInputType = Omit<StreamingTraitsRequireLengthInputOutput, "blob"> & {
+  /**
+   * For *`StreamingTraitsRequireLengthInputOutput["blob"]`*, see {@link StreamingTraitsRequireLengthInputOutput.blob}.
+   */
   blob?: StreamingTraitsRequireLengthInputOutput["blob"] | string | Uint8Array | Buffer;
 };
-export type StreamingTraitsRequireLengthCommandOutput = StreamingTraitsRequireLengthInputOutput & __MetadataBearer;
+/**
+ * This interface extends from `StreamingTraitsRequireLengthInputOutput` interface. There are more parameters than `blob` defined in {@link StreamingTraitsRequireLengthInputOutput}
+ */
+export interface StreamingTraitsRequireLengthCommandInput extends StreamingTraitsRequireLengthCommandInputType {}
+export interface StreamingTraitsRequireLengthCommandOutput
+  extends StreamingTraitsRequireLengthInputOutput,
+    __MetadataBearer {}
 
 /**
  * This examples serializes a streaming blob shape with a required content

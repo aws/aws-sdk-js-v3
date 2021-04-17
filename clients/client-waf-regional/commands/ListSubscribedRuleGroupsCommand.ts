@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListSubscribedRuleGroupsCommandInput = ListSubscribedRuleGroupsRequest;
-export type ListSubscribedRuleGroupsCommandOutput = ListSubscribedRuleGroupsResponse & __MetadataBearer;
+export interface ListSubscribedRuleGroupsCommandInput extends ListSubscribedRuleGroupsRequest {}
+export interface ListSubscribedRuleGroupsCommandOutput extends ListSubscribedRuleGroupsResponse, __MetadataBearer {}
 
 /**
  * <note>

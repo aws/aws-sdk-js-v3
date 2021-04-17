@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateLinkAttributesCommandInput = UpdateLinkAttributesRequest;
-export type UpdateLinkAttributesCommandOutput = UpdateLinkAttributesResponse & __MetadataBearer;
+export interface UpdateLinkAttributesCommandInput extends UpdateLinkAttributesRequest {}
+export interface UpdateLinkAttributesCommandOutput extends UpdateLinkAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a given typed link’s attributes. Attributes to be updated must not contribute to the typed link’s identity, as defined by its <code>IdentityAttributeOrder</code>.</p>

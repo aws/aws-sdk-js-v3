@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetCognitoEventsCommandInput = GetCognitoEventsRequest;
-export type GetCognitoEventsCommandOutput = GetCognitoEventsResponse & __MetadataBearer;
+export interface GetCognitoEventsCommandInput extends GetCognitoEventsRequest {}
+export interface GetCognitoEventsCommandOutput extends GetCognitoEventsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the events and the corresponding Lambda functions associated with an identity pool.</p><p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>

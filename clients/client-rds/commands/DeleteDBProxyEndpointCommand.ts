@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDBProxyEndpointCommandInput = DeleteDBProxyEndpointRequest;
-export type DeleteDBProxyEndpointCommandOutput = DeleteDBProxyEndpointResponse & __MetadataBearer;
+export interface DeleteDBProxyEndpointCommandInput extends DeleteDBProxyEndpointRequest {}
+export interface DeleteDBProxyEndpointCommandOutput extends DeleteDBProxyEndpointResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a <code>DBProxyEndpoint</code>. Doing so removes the ability to access the DB proxy using the

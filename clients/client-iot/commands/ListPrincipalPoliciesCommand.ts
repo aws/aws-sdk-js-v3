@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPrincipalPoliciesCommandInput = ListPrincipalPoliciesRequest;
-export type ListPrincipalPoliciesCommandOutput = ListPrincipalPoliciesResponse & __MetadataBearer;
+export interface ListPrincipalPoliciesCommandInput extends ListPrincipalPoliciesRequest {}
+export interface ListPrincipalPoliciesCommandOutput extends ListPrincipalPoliciesResponse, __MetadataBearer {}
 
 /**
  * @deprecated

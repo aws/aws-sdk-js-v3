@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateSampleFindingsCommandInput = CreateSampleFindingsRequest;
-export type CreateSampleFindingsCommandOutput = CreateSampleFindingsResponse & __MetadataBearer;
+export interface CreateSampleFindingsCommandInput extends CreateSampleFindingsRequest {}
+export interface CreateSampleFindingsCommandOutput extends CreateSampleFindingsResponse, __MetadataBearer {}
 
 /**
  * <p>Creates sample findings.</p>

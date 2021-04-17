@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeOrganizationConfigRulesCommandInput = DescribeOrganizationConfigRulesRequest;
-export type DescribeOrganizationConfigRulesCommandOutput = DescribeOrganizationConfigRulesResponse & __MetadataBearer;
+export interface DescribeOrganizationConfigRulesCommandInput extends DescribeOrganizationConfigRulesRequest {}
+export interface DescribeOrganizationConfigRulesCommandOutput
+  extends DescribeOrganizationConfigRulesResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns a list of organization config rules. </p>

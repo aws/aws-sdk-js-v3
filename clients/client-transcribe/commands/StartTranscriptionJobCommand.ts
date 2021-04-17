@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartTranscriptionJobCommandInput = StartTranscriptionJobRequest;
-export type StartTranscriptionJobCommandOutput = StartTranscriptionJobResponse & __MetadataBearer;
+export interface StartTranscriptionJobCommandInput extends StartTranscriptionJobRequest {}
+export interface StartTranscriptionJobCommandOutput extends StartTranscriptionJobResponse, __MetadataBearer {}
 
 /**
  * <p>Starts an asynchronous job to transcribe speech to text. </p>

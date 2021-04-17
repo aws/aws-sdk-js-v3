@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateUserCommandInput = CreateUserRequest;
-export type CreateUserCommandOutput = CreateUserResult & __MetadataBearer;
+export interface CreateUserCommandInput extends CreateUserRequest {}
+export interface CreateUserCommandOutput extends CreateUserResult, __MetadataBearer {}
 
 /**
  * <p>Creates a new user in the user pool.</p>

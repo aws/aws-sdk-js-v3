@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateParallelDataCommandInput = UpdateParallelDataRequest;
-export type UpdateParallelDataCommandOutput = UpdateParallelDataResponse & __MetadataBearer;
+export interface UpdateParallelDataCommandInput extends UpdateParallelDataRequest {}
+export interface UpdateParallelDataCommandOutput extends UpdateParallelDataResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a previously created parallel data resource by importing a new input file from

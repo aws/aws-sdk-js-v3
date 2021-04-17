@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateSnapshotsCommandInput = CreateSnapshotsRequest;
-export type CreateSnapshotsCommandOutput = CreateSnapshotsResult & __MetadataBearer;
+export interface CreateSnapshotsCommandInput extends CreateSnapshotsRequest {}
+export interface CreateSnapshotsCommandOutput extends CreateSnapshotsResult, __MetadataBearer {}
 
 /**
  * <p>Creates crash-consistent snapshots of multiple EBS volumes and stores the data in S3.

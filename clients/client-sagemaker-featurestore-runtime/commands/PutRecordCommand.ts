@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutRecordCommandInput = PutRecordRequest;
-export type PutRecordCommandOutput = __MetadataBearer;
+export interface PutRecordCommandInput extends PutRecordRequest {}
+export interface PutRecordCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Used for data ingestion into the <code>FeatureStore</code>. The <code>PutRecord</code>

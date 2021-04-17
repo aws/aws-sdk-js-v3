@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateGrantCommandInput = CreateGrantRequest;
-export type CreateGrantCommandOutput = CreateGrantResponse & __MetadataBearer;
+export interface CreateGrantCommandInput extends CreateGrantRequest {}
+export interface CreateGrantCommandOutput extends CreateGrantResponse, __MetadataBearer {}
 
 /**
  * <p>Adds a grant to a customer master key (CMK). The grant allows the grantee principal to use

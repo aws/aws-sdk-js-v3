@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetTrafficPolicyInstanceCountCommandInput = GetTrafficPolicyInstanceCountRequest;
-export type GetTrafficPolicyInstanceCountCommandOutput = GetTrafficPolicyInstanceCountResponse & __MetadataBearer;
+export interface GetTrafficPolicyInstanceCountCommandInput extends GetTrafficPolicyInstanceCountRequest {}
+export interface GetTrafficPolicyInstanceCountCommandOutput
+  extends GetTrafficPolicyInstanceCountResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets the number of traffic policy instances that are associated with the current AWS account.</p>

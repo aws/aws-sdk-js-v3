@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutComplianceItemsCommandInput = PutComplianceItemsRequest;
-export type PutComplianceItemsCommandOutput = PutComplianceItemsResult & __MetadataBearer;
+export interface PutComplianceItemsCommandInput extends PutComplianceItemsRequest {}
+export interface PutComplianceItemsCommandOutput extends PutComplianceItemsResult, __MetadataBearer {}
 
 /**
  * <p>Registers a compliance type and other compliance details on a designated resource. This

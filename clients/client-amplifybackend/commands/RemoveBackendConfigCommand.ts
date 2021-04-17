@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RemoveBackendConfigCommandInput = RemoveBackendConfigRequest;
-export type RemoveBackendConfigCommandOutput = RemoveBackendConfigResponse & __MetadataBearer;
+export interface RemoveBackendConfigCommandInput extends RemoveBackendConfigRequest {}
+export interface RemoveBackendConfigCommandOutput extends RemoveBackendConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Removes the AWS resources that are required to access the Amplify Admin UI.</p>

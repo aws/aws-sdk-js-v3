@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteLifecyclePolicyCommandInput = DeleteLifecyclePolicyRequest;
-export type DeleteLifecyclePolicyCommandOutput = DeleteLifecyclePolicyResponse & __MetadataBearer;
+export interface DeleteLifecyclePolicyCommandInput extends DeleteLifecyclePolicyRequest {}
+export interface DeleteLifecyclePolicyCommandOutput extends DeleteLifecyclePolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the lifecycle policy associated with the specified repository.</p>

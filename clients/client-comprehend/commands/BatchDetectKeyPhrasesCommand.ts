@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchDetectKeyPhrasesCommandInput = BatchDetectKeyPhrasesRequest;
-export type BatchDetectKeyPhrasesCommandOutput = BatchDetectKeyPhrasesResponse & __MetadataBearer;
+export interface BatchDetectKeyPhrasesCommandInput extends BatchDetectKeyPhrasesRequest {}
+export interface BatchDetectKeyPhrasesCommandOutput extends BatchDetectKeyPhrasesResponse, __MetadataBearer {}
 
 /**
  * <p>Detects the key noun phrases found in a batch of documents.</p>

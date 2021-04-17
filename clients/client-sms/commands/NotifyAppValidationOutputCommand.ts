@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type NotifyAppValidationOutputCommandInput = NotifyAppValidationOutputRequest;
-export type NotifyAppValidationOutputCommandOutput = NotifyAppValidationOutputResponse & __MetadataBearer;
+export interface NotifyAppValidationOutputCommandInput extends NotifyAppValidationOutputRequest {}
+export interface NotifyAppValidationOutputCommandOutput extends NotifyAppValidationOutputResponse, __MetadataBearer {}
 
 /**
  * <p>Provides information to AWS SMS about whether application validation is successful.</p>

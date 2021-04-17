@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetMinuteUsageCommandInput = GetMinuteUsageRequest;
-export type GetMinuteUsageCommandOutput = GetMinuteUsageResponse & __MetadataBearer;
+export interface GetMinuteUsageCommandInput extends GetMinuteUsageRequest {}
+export interface GetMinuteUsageCommandOutput extends GetMinuteUsageResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the number of minutes used by account.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListActionsCommandInput = ListActionsRequest;
-export type ListActionsCommandOutput = ListActionsResponse & __MetadataBearer;
+export interface ListActionsCommandInput extends ListActionsRequest {}
+export interface ListActionsCommandOutput extends ListActionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the actions in your account and their properties.</p>

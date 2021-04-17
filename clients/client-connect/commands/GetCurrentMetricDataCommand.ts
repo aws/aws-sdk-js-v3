@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetCurrentMetricDataCommandInput = GetCurrentMetricDataRequest;
-export type GetCurrentMetricDataCommandOutput = GetCurrentMetricDataResponse & __MetadataBearer;
+export interface GetCurrentMetricDataCommandInput extends GetCurrentMetricDataRequest {}
+export interface GetCurrentMetricDataCommandOutput extends GetCurrentMetricDataResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the real-time metric data from the specified Amazon Connect instance.</p>

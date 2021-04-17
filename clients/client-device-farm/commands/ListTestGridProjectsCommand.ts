@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTestGridProjectsCommandInput = ListTestGridProjectsRequest;
-export type ListTestGridProjectsCommandOutput = ListTestGridProjectsResult & __MetadataBearer;
+export interface ListTestGridProjectsCommandInput extends ListTestGridProjectsRequest {}
+export interface ListTestGridProjectsCommandOutput extends ListTestGridProjectsResult, __MetadataBearer {}
 
 /**
  * <p>Gets a list of all Selenium testing projects in your account.</p>

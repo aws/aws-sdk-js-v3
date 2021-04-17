@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateAwsAccountWithPartnerAccountCommandInput = AssociateAwsAccountWithPartnerAccountRequest;
-export type AssociateAwsAccountWithPartnerAccountCommandOutput = AssociateAwsAccountWithPartnerAccountResponse &
-  __MetadataBearer;
+export interface AssociateAwsAccountWithPartnerAccountCommandInput
+  extends AssociateAwsAccountWithPartnerAccountRequest {}
+export interface AssociateAwsAccountWithPartnerAccountCommandOutput
+  extends AssociateAwsAccountWithPartnerAccountResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Associates a partner account with your AWS account.</p>

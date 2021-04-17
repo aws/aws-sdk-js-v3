@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopWorkspacesCommandInput = StopWorkspacesRequest;
-export type StopWorkspacesCommandOutput = StopWorkspacesResult & __MetadataBearer;
+export interface StopWorkspacesCommandInput extends StopWorkspacesRequest {}
+export interface StopWorkspacesCommandOutput extends StopWorkspacesResult, __MetadataBearer {}
 
 /**
  * <p> Stops the specified WorkSpaces.</p>

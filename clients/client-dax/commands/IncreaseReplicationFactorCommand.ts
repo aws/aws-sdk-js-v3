@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type IncreaseReplicationFactorCommandInput = IncreaseReplicationFactorRequest;
-export type IncreaseReplicationFactorCommandOutput = IncreaseReplicationFactorResponse & __MetadataBearer;
+export interface IncreaseReplicationFactorCommandInput extends IncreaseReplicationFactorRequest {}
+export interface IncreaseReplicationFactorCommandOutput extends IncreaseReplicationFactorResponse, __MetadataBearer {}
 
 /**
  * <p>Adds one or more nodes to a DAX cluster.</p>

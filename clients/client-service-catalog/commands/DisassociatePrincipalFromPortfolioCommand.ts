@@ -17,9 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociatePrincipalFromPortfolioCommandInput = DisassociatePrincipalFromPortfolioInput;
-export type DisassociatePrincipalFromPortfolioCommandOutput = DisassociatePrincipalFromPortfolioOutput &
-  __MetadataBearer;
+export interface DisassociatePrincipalFromPortfolioCommandInput extends DisassociatePrincipalFromPortfolioInput {}
+export interface DisassociatePrincipalFromPortfolioCommandOutput
+  extends DisassociatePrincipalFromPortfolioOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Disassociates a previously associated principal ARN from a specified

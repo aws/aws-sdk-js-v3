@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateRdsDbInstanceCommandInput = UpdateRdsDbInstanceRequest;
-export type UpdateRdsDbInstanceCommandOutput = __MetadataBearer;
+export interface UpdateRdsDbInstanceCommandInput extends UpdateRdsDbInstanceRequest {}
+export interface UpdateRdsDbInstanceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates an Amazon RDS instance.</p>

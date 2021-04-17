@@ -24,9 +24,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteApplicationCloudWatchLoggingOptionCommandInput = DeleteApplicationCloudWatchLoggingOptionRequest;
-export type DeleteApplicationCloudWatchLoggingOptionCommandOutput = DeleteApplicationCloudWatchLoggingOptionResponse &
-  __MetadataBearer;
+export interface DeleteApplicationCloudWatchLoggingOptionCommandInput
+  extends DeleteApplicationCloudWatchLoggingOptionRequest {}
+export interface DeleteApplicationCloudWatchLoggingOptionCommandOutput
+  extends DeleteApplicationCloudWatchLoggingOptionResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes an Amazon CloudWatch log stream from an Kinesis Data Analytics application. </p>

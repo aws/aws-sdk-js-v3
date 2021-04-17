@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartMLEvaluationTaskRunCommandInput = StartMLEvaluationTaskRunRequest;
-export type StartMLEvaluationTaskRunCommandOutput = StartMLEvaluationTaskRunResponse & __MetadataBearer;
+export interface StartMLEvaluationTaskRunCommandInput extends StartMLEvaluationTaskRunRequest {}
+export interface StartMLEvaluationTaskRunCommandOutput extends StartMLEvaluationTaskRunResponse, __MetadataBearer {}
 
 /**
  * <p>Starts a task to estimate the quality of the transform. </p>

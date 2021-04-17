@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateVirtualNodeCommandInput = CreateVirtualNodeInput;
-export type CreateVirtualNodeCommandOutput = CreateVirtualNodeOutput & __MetadataBearer;
+export interface CreateVirtualNodeCommandInput extends CreateVirtualNodeInput {}
+export interface CreateVirtualNodeCommandOutput extends CreateVirtualNodeOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a virtual node within a service mesh.</p>

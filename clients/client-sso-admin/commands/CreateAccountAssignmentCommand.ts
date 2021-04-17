@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateAccountAssignmentCommandInput = CreateAccountAssignmentRequest;
-export type CreateAccountAssignmentCommandOutput = CreateAccountAssignmentResponse & __MetadataBearer;
+export interface CreateAccountAssignmentCommandInput extends CreateAccountAssignmentRequest {}
+export interface CreateAccountAssignmentCommandOutput extends CreateAccountAssignmentResponse, __MetadataBearer {}
 
 /**
  * <p>Assigns access to a principal for a specified AWS account using a specified permission

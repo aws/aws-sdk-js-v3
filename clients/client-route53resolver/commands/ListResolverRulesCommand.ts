@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListResolverRulesCommandInput = ListResolverRulesRequest;
-export type ListResolverRulesCommandOutput = ListResolverRulesResponse & __MetadataBearer;
+export interface ListResolverRulesCommandInput extends ListResolverRulesRequest {}
+export interface ListResolverRulesCommandOutput extends ListResolverRulesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the Resolver rules that were created using the current AWS account.</p>

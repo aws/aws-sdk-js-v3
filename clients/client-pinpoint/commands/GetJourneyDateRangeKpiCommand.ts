@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetJourneyDateRangeKpiCommandInput = GetJourneyDateRangeKpiRequest;
-export type GetJourneyDateRangeKpiCommandOutput = GetJourneyDateRangeKpiResponse & __MetadataBearer;
+export interface GetJourneyDateRangeKpiCommandInput extends GetJourneyDateRangeKpiRequest {}
+export interface GetJourneyDateRangeKpiCommandOutput extends GetJourneyDateRangeKpiResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves (queries) pre-aggregated data for a standard engagement metric that applies to a journey.</p>

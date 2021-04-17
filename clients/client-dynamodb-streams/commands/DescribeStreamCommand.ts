@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeStreamCommandInput = DescribeStreamInput;
-export type DescribeStreamCommandOutput = DescribeStreamOutput & __MetadataBearer;
+export interface DescribeStreamCommandInput extends DescribeStreamInput {}
+export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about a stream, including the current status of the stream, its Amazon Resource Name (ARN), the composition of its shards, and its corresponding DynamoDB table.</p>

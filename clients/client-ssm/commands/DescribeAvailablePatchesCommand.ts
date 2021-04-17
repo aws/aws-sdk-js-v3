@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAvailablePatchesCommandInput = DescribeAvailablePatchesRequest;
-export type DescribeAvailablePatchesCommandOutput = DescribeAvailablePatchesResult & __MetadataBearer;
+export interface DescribeAvailablePatchesCommandInput extends DescribeAvailablePatchesRequest {}
+export interface DescribeAvailablePatchesCommandOutput extends DescribeAvailablePatchesResult, __MetadataBearer {}
 
 /**
  * <p>Lists all patches eligible to be included in a patch baseline.</p>

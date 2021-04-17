@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteIndexFieldCommandInput = DeleteIndexFieldRequest;
-export type DeleteIndexFieldCommandOutput = DeleteIndexFieldResponse & __MetadataBearer;
+export interface DeleteIndexFieldCommandInput extends DeleteIndexFieldRequest {}
+export interface DeleteIndexFieldCommandOutput extends DeleteIndexFieldResponse, __MetadataBearer {}
 
 /**
  * <p>Removes an <code><a>IndexField</a></code> from the search domain. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html" target="_blank">Configuring Index Fields</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>

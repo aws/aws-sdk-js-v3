@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteStackSetCommandInput = DeleteStackSetInput;
-export type DeleteStackSetCommandOutput = DeleteStackSetOutput & __MetadataBearer;
+export interface DeleteStackSetCommandInput extends DeleteStackSetInput {}
+export interface DeleteStackSetCommandOutput extends DeleteStackSetOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes a stack set. Before you can delete a stack set, all of its member stack

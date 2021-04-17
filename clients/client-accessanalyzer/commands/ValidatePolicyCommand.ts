@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ValidatePolicyCommandInput = ValidatePolicyRequest;
-export type ValidatePolicyCommandOutput = ValidatePolicyResponse & __MetadataBearer;
+export interface ValidatePolicyCommandInput extends ValidatePolicyRequest {}
+export interface ValidatePolicyCommandOutput extends ValidatePolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Requests the validation of a policy and returns a list of findings. The findings help

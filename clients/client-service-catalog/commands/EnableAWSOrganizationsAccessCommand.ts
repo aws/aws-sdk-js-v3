@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type EnableAWSOrganizationsAccessCommandInput = EnableAWSOrganizationsAccessInput;
-export type EnableAWSOrganizationsAccessCommandOutput = EnableAWSOrganizationsAccessOutput & __MetadataBearer;
+export interface EnableAWSOrganizationsAccessCommandInput extends EnableAWSOrganizationsAccessInput {}
+export interface EnableAWSOrganizationsAccessCommandOutput
+  extends EnableAWSOrganizationsAccessOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Enable portfolio sharing feature through AWS Organizations. This API will allow Service

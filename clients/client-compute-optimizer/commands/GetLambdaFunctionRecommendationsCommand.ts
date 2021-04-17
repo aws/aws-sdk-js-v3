@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetLambdaFunctionRecommendationsCommandInput = GetLambdaFunctionRecommendationsRequest;
-export type GetLambdaFunctionRecommendationsCommandOutput = GetLambdaFunctionRecommendationsResponse & __MetadataBearer;
+export interface GetLambdaFunctionRecommendationsCommandInput extends GetLambdaFunctionRecommendationsRequest {}
+export interface GetLambdaFunctionRecommendationsCommandOutput
+  extends GetLambdaFunctionRecommendationsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns AWS Lambda function recommendations.</p>

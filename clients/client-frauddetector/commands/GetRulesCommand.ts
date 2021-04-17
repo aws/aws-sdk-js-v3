@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetRulesCommandInput = GetRulesRequest;
-export type GetRulesCommandOutput = GetRulesResult & __MetadataBearer;
+export interface GetRulesCommandInput extends GetRulesRequest {}
+export interface GetRulesCommandOutput extends GetRulesResult, __MetadataBearer {}
 
 /**
  * <p>Get all rules for a detector (paginated) if <code>ruleId</code> and <code>ruleVersion</code> are not specified. Gets all rules for the detector and the <code>ruleId</code> if present (paginated). Gets a specific rule if both the <code>ruleId</code> and the <code>ruleVersion</code> are specified.</p>

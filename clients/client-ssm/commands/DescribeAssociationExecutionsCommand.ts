@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAssociationExecutionsCommandInput = DescribeAssociationExecutionsRequest;
-export type DescribeAssociationExecutionsCommandOutput = DescribeAssociationExecutionsResult & __MetadataBearer;
+export interface DescribeAssociationExecutionsCommandInput extends DescribeAssociationExecutionsRequest {}
+export interface DescribeAssociationExecutionsCommandOutput
+  extends DescribeAssociationExecutionsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Use this API action to view all executions for a specific association ID. </p>

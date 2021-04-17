@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeClustersCommandInput = DescribeClustersMessage;
-export type DescribeClustersCommandOutput = ClustersMessage & __MetadataBearer;
+export interface DescribeClustersCommandInput extends DescribeClustersMessage {}
+export interface DescribeClustersCommandOutput extends ClustersMessage, __MetadataBearer {}
 
 /**
  * <p>Returns properties of provisioned clusters including general cluster properties,

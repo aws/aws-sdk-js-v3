@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteServiceSpecificCredentialCommandInput = DeleteServiceSpecificCredentialRequest;
-export type DeleteServiceSpecificCredentialCommandOutput = __MetadataBearer;
+export interface DeleteServiceSpecificCredentialCommandInput extends DeleteServiceSpecificCredentialRequest {}
+export interface DeleteServiceSpecificCredentialCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified service-specific credential.</p>

@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteListenerCommandInput = DeleteListenerInput;
-export type DeleteListenerCommandOutput = DeleteListenerOutput & __MetadataBearer;
+export interface DeleteListenerCommandInput extends DeleteListenerInput {}
+export interface DeleteListenerCommandOutput extends DeleteListenerOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified listener.</p>

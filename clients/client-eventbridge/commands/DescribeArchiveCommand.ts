@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeArchiveCommandInput = DescribeArchiveRequest;
-export type DescribeArchiveCommandOutput = DescribeArchiveResponse & __MetadataBearer;
+export interface DescribeArchiveCommandInput extends DescribeArchiveRequest {}
+export interface DescribeArchiveCommandOutput extends DescribeArchiveResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves details about an archive.</p>

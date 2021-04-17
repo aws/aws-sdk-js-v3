@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteTemplateAliasCommandInput = DeleteTemplateAliasRequest;
-export type DeleteTemplateAliasCommandOutput = DeleteTemplateAliasResponse & __MetadataBearer;
+export interface DeleteTemplateAliasCommandInput extends DeleteTemplateAliasRequest {}
+export interface DeleteTemplateAliasCommandOutput extends DeleteTemplateAliasResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the item that the specified template alias points to. If you provide a specific

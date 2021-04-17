@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchGetQueryExecutionCommandInput = BatchGetQueryExecutionInput;
-export type BatchGetQueryExecutionCommandOutput = BatchGetQueryExecutionOutput & __MetadataBearer;
+export interface BatchGetQueryExecutionCommandInput extends BatchGetQueryExecutionInput {}
+export interface BatchGetQueryExecutionCommandOutput extends BatchGetQueryExecutionOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the details of a single query execution or a list of up to 50 query

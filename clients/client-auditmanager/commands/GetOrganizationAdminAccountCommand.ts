@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetOrganizationAdminAccountCommandInput = GetOrganizationAdminAccountRequest;
-export type GetOrganizationAdminAccountCommandOutput = GetOrganizationAdminAccountResponse & __MetadataBearer;
+export interface GetOrganizationAdminAccountCommandInput extends GetOrganizationAdminAccountRequest {}
+export interface GetOrganizationAdminAccountCommandOutput
+  extends GetOrganizationAdminAccountResponse,
+    __MetadataBearer {}
 
 /**
  * <p>

@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteSlotTypeVersionCommandInput = DeleteSlotTypeVersionRequest;
-export type DeleteSlotTypeVersionCommandOutput = __MetadataBearer;
+export interface DeleteSlotTypeVersionCommandInput extends DeleteSlotTypeVersionRequest {}
+export interface DeleteSlotTypeVersionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a specific version of a slot type. To delete all versions

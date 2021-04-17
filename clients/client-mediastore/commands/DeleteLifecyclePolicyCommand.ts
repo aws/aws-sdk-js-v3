@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteLifecyclePolicyCommandInput = DeleteLifecyclePolicyInput;
-export type DeleteLifecyclePolicyCommandOutput = DeleteLifecyclePolicyOutput & __MetadataBearer;
+export interface DeleteLifecyclePolicyCommandInput extends DeleteLifecyclePolicyInput {}
+export interface DeleteLifecyclePolicyCommandOutput extends DeleteLifecyclePolicyOutput, __MetadataBearer {}
 
 /**
  * <p>Removes an object lifecycle policy from a container. It takes up to 20 minutes for the change to take effect.</p>

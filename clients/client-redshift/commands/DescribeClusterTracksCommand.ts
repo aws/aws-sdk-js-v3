@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeClusterTracksCommandInput = DescribeClusterTracksMessage;
-export type DescribeClusterTracksCommandOutput = TrackListMessage & __MetadataBearer;
+export interface DescribeClusterTracksCommandInput extends DescribeClusterTracksMessage {}
+export interface DescribeClusterTracksCommandOutput extends TrackListMessage, __MetadataBearer {}
 
 /**
  * <p>Returns a list of all the available maintenance tracks.</p>

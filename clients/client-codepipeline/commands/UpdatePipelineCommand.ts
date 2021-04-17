@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdatePipelineCommandInput = UpdatePipelineInput;
-export type UpdatePipelineCommandOutput = UpdatePipelineOutput & __MetadataBearer;
+export interface UpdatePipelineCommandInput extends UpdatePipelineInput {}
+export interface UpdatePipelineCommandOutput extends UpdatePipelineOutput, __MetadataBearer {}
 
 /**
  * <p>Updates a specified pipeline with edits or changes to its structure. Use a JSON

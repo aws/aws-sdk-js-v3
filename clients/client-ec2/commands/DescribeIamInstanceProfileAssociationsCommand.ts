@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeIamInstanceProfileAssociationsCommandInput = DescribeIamInstanceProfileAssociationsRequest;
-export type DescribeIamInstanceProfileAssociationsCommandOutput = DescribeIamInstanceProfileAssociationsResult &
-  __MetadataBearer;
+export interface DescribeIamInstanceProfileAssociationsCommandInput
+  extends DescribeIamInstanceProfileAssociationsRequest {}
+export interface DescribeIamInstanceProfileAssociationsCommandOutput
+  extends DescribeIamInstanceProfileAssociationsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Describes your IAM instance profile associations.</p>

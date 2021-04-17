@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutFunctionCodeSigningConfigCommandInput = PutFunctionCodeSigningConfigRequest;
-export type PutFunctionCodeSigningConfigCommandOutput = PutFunctionCodeSigningConfigResponse & __MetadataBearer;
+export interface PutFunctionCodeSigningConfigCommandInput extends PutFunctionCodeSigningConfigRequest {}
+export interface PutFunctionCodeSigningConfigCommandOutput
+  extends PutFunctionCodeSigningConfigResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Update the code signing configuration for the function. Changes to the code signing configuration take effect the

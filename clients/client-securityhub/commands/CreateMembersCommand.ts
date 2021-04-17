@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateMembersCommandInput = CreateMembersRequest;
-export type CreateMembersCommandOutput = CreateMembersResponse & __MetadataBearer;
+export interface CreateMembersCommandInput extends CreateMembersRequest {}
+export interface CreateMembersCommandOutput extends CreateMembersResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a member association in Security Hub between the specified accounts and the account

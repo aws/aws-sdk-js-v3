@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SubmitTaskStateChangeCommandInput = SubmitTaskStateChangeRequest;
-export type SubmitTaskStateChangeCommandOutput = SubmitTaskStateChangeResponse & __MetadataBearer;
+export interface SubmitTaskStateChangeCommandInput extends SubmitTaskStateChangeRequest {}
+export interface SubmitTaskStateChangeCommandOutput extends SubmitTaskStateChangeResponse, __MetadataBearer {}
 
 /**
  * <note>

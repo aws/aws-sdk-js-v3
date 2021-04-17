@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetEBSVolumeRecommendationsCommandInput = GetEBSVolumeRecommendationsRequest;
-export type GetEBSVolumeRecommendationsCommandOutput = GetEBSVolumeRecommendationsResponse & __MetadataBearer;
+export interface GetEBSVolumeRecommendationsCommandInput extends GetEBSVolumeRecommendationsRequest {}
+export interface GetEBSVolumeRecommendationsCommandOutput
+  extends GetEBSVolumeRecommendationsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns Amazon Elastic Block Store (Amazon EBS) volume recommendations.</p>

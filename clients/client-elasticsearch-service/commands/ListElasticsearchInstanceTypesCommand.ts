@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListElasticsearchInstanceTypesCommandInput = ListElasticsearchInstanceTypesRequest;
-export type ListElasticsearchInstanceTypesCommandOutput = ListElasticsearchInstanceTypesResponse & __MetadataBearer;
+export interface ListElasticsearchInstanceTypesCommandInput extends ListElasticsearchInstanceTypesRequest {}
+export interface ListElasticsearchInstanceTypesCommandOutput
+  extends ListElasticsearchInstanceTypesResponse,
+    __MetadataBearer {}
 
 /**
  * <p>List all Elasticsearch instance types that are supported for given ElasticsearchVersion</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddAttributesToFindingsCommandInput = AddAttributesToFindingsRequest;
-export type AddAttributesToFindingsCommandOutput = AddAttributesToFindingsResponse & __MetadataBearer;
+export interface AddAttributesToFindingsCommandInput extends AddAttributesToFindingsRequest {}
+export interface AddAttributesToFindingsCommandOutput extends AddAttributesToFindingsResponse, __MetadataBearer {}
 
 /**
  * <p>Assigns attributes (key and value pairs) to the findings that are specified by the

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateVpnConnectionCommandInput = CreateVpnConnectionRequest;
-export type CreateVpnConnectionCommandOutput = CreateVpnConnectionResult & __MetadataBearer;
+export interface CreateVpnConnectionCommandInput extends CreateVpnConnectionRequest {}
+export interface CreateVpnConnectionCommandOutput extends CreateVpnConnectionResult, __MetadataBearer {}
 
 /**
  * <p>Creates a VPN connection between an existing virtual private gateway or transit gateway and a

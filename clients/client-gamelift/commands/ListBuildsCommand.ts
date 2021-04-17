@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListBuildsCommandInput = ListBuildsInput;
-export type ListBuildsCommandOutput = ListBuildsOutput & __MetadataBearer;
+export interface ListBuildsCommandInput extends ListBuildsInput {}
+export interface ListBuildsCommandOutput extends ListBuildsOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves build resources for all builds associated with the AWS account in use. You

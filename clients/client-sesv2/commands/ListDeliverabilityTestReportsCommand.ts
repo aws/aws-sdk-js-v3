@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDeliverabilityTestReportsCommandInput = ListDeliverabilityTestReportsRequest;
-export type ListDeliverabilityTestReportsCommandOutput = ListDeliverabilityTestReportsResponse & __MetadataBearer;
+export interface ListDeliverabilityTestReportsCommandInput extends ListDeliverabilityTestReportsRequest {}
+export interface ListDeliverabilityTestReportsCommandOutput
+  extends ListDeliverabilityTestReportsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Show a list of the predictive inbox placement tests that you've performed, regardless of their statuses. For

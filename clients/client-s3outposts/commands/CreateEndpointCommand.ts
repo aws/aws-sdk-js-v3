@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateEndpointCommandInput = CreateEndpointRequest;
-export type CreateEndpointCommandOutput = CreateEndpointResult & __MetadataBearer;
+export interface CreateEndpointCommandInput extends CreateEndpointRequest {}
+export interface CreateEndpointCommandOutput extends CreateEndpointResult, __MetadataBearer {}
 
 /**
  * <p>S3 on Outposts access points simplify managing data access at scale for shared datasets

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopAppReplicationCommandInput = StopAppReplicationRequest;
-export type StopAppReplicationCommandOutput = StopAppReplicationResponse & __MetadataBearer;
+export interface StopAppReplicationCommandInput extends StopAppReplicationRequest {}
+export interface StopAppReplicationCommandOutput extends StopAppReplicationResponse, __MetadataBearer {}
 
 /**
  * <p>Stops replicating the specified application by deleting the replication job for each server in

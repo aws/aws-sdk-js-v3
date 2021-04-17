@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateCustomRoutingAcceleratorCommandInput = CreateCustomRoutingAcceleratorRequest;
-export type CreateCustomRoutingAcceleratorCommandOutput = CreateCustomRoutingAcceleratorResponse & __MetadataBearer;
+export interface CreateCustomRoutingAcceleratorCommandInput extends CreateCustomRoutingAcceleratorRequest {}
+export interface CreateCustomRoutingAcceleratorCommandOutput
+  extends CreateCustomRoutingAcceleratorResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Create a custom routing accelerator. A custom routing accelerator directs traffic to one of possibly thousands

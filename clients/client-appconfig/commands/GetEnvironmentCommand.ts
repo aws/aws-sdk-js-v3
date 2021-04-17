@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetEnvironmentCommandInput = GetEnvironmentRequest;
-export type GetEnvironmentCommandOutput = Environment & __MetadataBearer;
+export interface GetEnvironmentCommandInput extends GetEnvironmentRequest {}
+export interface GetEnvironmentCommandOutput extends Environment, __MetadataBearer {}
 
 /**
  * <p>Retrieve information about an environment. An environment is a logical deployment group

@@ -18,8 +18,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBucketAccelerateConfigurationCommandInput = GetBucketAccelerateConfigurationRequest;
-export type GetBucketAccelerateConfigurationCommandOutput = GetBucketAccelerateConfigurationOutput & __MetadataBearer;
+export interface GetBucketAccelerateConfigurationCommandInput extends GetBucketAccelerateConfigurationRequest {}
+export interface GetBucketAccelerateConfigurationCommandOutput
+  extends GetBucketAccelerateConfigurationOutput,
+    __MetadataBearer {}
 
 /**
  * <p>This implementation of the GET action uses the <code>accelerate</code> subresource to

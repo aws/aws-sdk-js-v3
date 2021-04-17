@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAnomalyGroupTimeSeriesCommandInput = ListAnomalyGroupTimeSeriesRequest;
-export type ListAnomalyGroupTimeSeriesCommandOutput = ListAnomalyGroupTimeSeriesResponse & __MetadataBearer;
+export interface ListAnomalyGroupTimeSeriesCommandInput extends ListAnomalyGroupTimeSeriesRequest {}
+export interface ListAnomalyGroupTimeSeriesCommandOutput extends ListAnomalyGroupTimeSeriesResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of anomalous metrics for a measure in an anomaly group.</p>

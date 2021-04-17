@@ -22,8 +22,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AdminDisableProviderForUserCommandInput = AdminDisableProviderForUserRequest;
-export type AdminDisableProviderForUserCommandOutput = AdminDisableProviderForUserResponse & __MetadataBearer;
+export interface AdminDisableProviderForUserCommandInput extends AdminDisableProviderForUserRequest {}
+export interface AdminDisableProviderForUserCommandOutput
+  extends AdminDisableProviderForUserResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Disables the user from signing in with the specified external (SAML or social)

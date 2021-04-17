@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetFunctionConcurrencyCommandInput = GetFunctionConcurrencyRequest;
-export type GetFunctionConcurrencyCommandOutput = GetFunctionConcurrencyResponse & __MetadataBearer;
+export interface GetFunctionConcurrencyCommandInput extends GetFunctionConcurrencyRequest {}
+export interface GetFunctionConcurrencyCommandOutput extends GetFunctionConcurrencyResponse, __MetadataBearer {}
 
 /**
  * <p>Returns details about the reserved concurrency configuration for a function. To set a concurrency limit for a

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteWebhookCommandInput = DeleteWebhookInput;
-export type DeleteWebhookCommandOutput = DeleteWebhookOutput & __MetadataBearer;
+export interface DeleteWebhookCommandInput extends DeleteWebhookInput {}
+export interface DeleteWebhookCommandOutput extends DeleteWebhookOutput, __MetadataBearer {}
 
 /**
  * <p>For an existing AWS CodeBuild build project that has its source code stored in a GitHub or

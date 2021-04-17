@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AcceptInvitationCommandInput = AcceptInvitationRequest;
-export type AcceptInvitationCommandOutput = AcceptInvitationResponse & __MetadataBearer;
+export interface AcceptInvitationCommandInput extends AcceptInvitationRequest {}
+export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse, __MetadataBearer {}
 
 /**
  * <p>Accepts the invitation to be monitored by a GuardDuty administrator account.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateTableCommandInput = CreateTableRequest;
-export type CreateTableCommandOutput = CreateTableResponse & __MetadataBearer;
+export interface CreateTableCommandInput extends CreateTableRequest {}
+export interface CreateTableCommandOutput extends CreateTableResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new table definition in the Data Catalog.</p>

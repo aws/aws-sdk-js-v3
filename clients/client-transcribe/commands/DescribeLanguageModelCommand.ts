@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeLanguageModelCommandInput = DescribeLanguageModelRequest;
-export type DescribeLanguageModelCommandOutput = DescribeLanguageModelResponse & __MetadataBearer;
+export interface DescribeLanguageModelCommandInput extends DescribeLanguageModelRequest {}
+export interface DescribeLanguageModelCommandOutput extends DescribeLanguageModelResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about a single custom language model. Use this information to see

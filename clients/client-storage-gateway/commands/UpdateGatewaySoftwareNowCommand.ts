@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateGatewaySoftwareNowCommandInput = UpdateGatewaySoftwareNowInput;
-export type UpdateGatewaySoftwareNowCommandOutput = UpdateGatewaySoftwareNowOutput & __MetadataBearer;
+export interface UpdateGatewaySoftwareNowCommandInput extends UpdateGatewaySoftwareNowInput {}
+export interface UpdateGatewaySoftwareNowCommandOutput extends UpdateGatewaySoftwareNowOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the gateway virtual machine (VM) software. The request immediately triggers the

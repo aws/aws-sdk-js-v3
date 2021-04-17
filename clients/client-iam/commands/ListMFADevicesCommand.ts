@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListMFADevicesCommandInput = ListMFADevicesRequest;
-export type ListMFADevicesCommandOutput = ListMFADevicesResponse & __MetadataBearer;
+export interface ListMFADevicesCommandInput extends ListMFADevicesRequest {}
+export interface ListMFADevicesCommandOutput extends ListMFADevicesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the MFA devices for an IAM user. If the request includes a IAM user name,

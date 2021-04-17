@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchUpdateUserCommandInput = BatchUpdateUserRequest;
-export type BatchUpdateUserCommandOutput = BatchUpdateUserResponse & __MetadataBearer;
+export interface BatchUpdateUserCommandInput extends BatchUpdateUserRequest {}
+export interface BatchUpdateUserCommandOutput extends BatchUpdateUserResponse, __MetadataBearer {}
 
 /**
  * <p>

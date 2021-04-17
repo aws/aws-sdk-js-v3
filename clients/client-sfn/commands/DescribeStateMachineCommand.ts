@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeStateMachineCommandInput = DescribeStateMachineInput;
-export type DescribeStateMachineCommandOutput = DescribeStateMachineOutput & __MetadataBearer;
+export interface DescribeStateMachineCommandInput extends DescribeStateMachineInput {}
+export interface DescribeStateMachineCommandOutput extends DescribeStateMachineOutput, __MetadataBearer {}
 
 /**
  * <p>Describes a state machine.</p>

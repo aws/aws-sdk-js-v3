@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAlarmHistoryCommandInput = DescribeAlarmHistoryInput;
-export type DescribeAlarmHistoryCommandOutput = DescribeAlarmHistoryOutput & __MetadataBearer;
+export interface DescribeAlarmHistoryCommandInput extends DescribeAlarmHistoryInput {}
+export interface DescribeAlarmHistoryCommandOutput extends DescribeAlarmHistoryOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves the history for the specified alarm. You can filter the results by date range or item type.

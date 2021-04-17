@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateBackendJobCommandInput = UpdateBackendJobRequest;
-export type UpdateBackendJobCommandOutput = UpdateBackendJobResponse & __MetadataBearer;
+export interface UpdateBackendJobCommandInput extends UpdateBackendJobRequest {}
+export interface UpdateBackendJobCommandOutput extends UpdateBackendJobResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a specific job.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDBClusterParametersCommandInput = DescribeDBClusterParametersMessage;
-export type DescribeDBClusterParametersCommandOutput = DBClusterParameterGroupDetails & __MetadataBearer;
+export interface DescribeDBClusterParametersCommandInput extends DescribeDBClusterParametersMessage {}
+export interface DescribeDBClusterParametersCommandOutput extends DBClusterParameterGroupDetails, __MetadataBearer {}
 
 /**
  * <p>Returns the detailed parameter list for a particular DB cluster parameter group.</p>

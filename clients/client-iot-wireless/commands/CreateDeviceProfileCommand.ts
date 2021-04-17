@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDeviceProfileCommandInput = CreateDeviceProfileRequest;
-export type CreateDeviceProfileCommandOutput = CreateDeviceProfileResponse & __MetadataBearer;
+export interface CreateDeviceProfileCommandInput extends CreateDeviceProfileRequest {}
+export interface CreateDeviceProfileCommandOutput extends CreateDeviceProfileResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new device profile.</p>

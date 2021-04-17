@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAccessPointsCommandInput = DescribeAccessPointsRequest;
-export type DescribeAccessPointsCommandOutput = DescribeAccessPointsResponse & __MetadataBearer;
+export interface DescribeAccessPointsCommandInput extends DescribeAccessPointsRequest {}
+export interface DescribeAccessPointsCommandOutput extends DescribeAccessPointsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the description of a specific Amazon EFS access point if the <code>AccessPointId</code> is provided.

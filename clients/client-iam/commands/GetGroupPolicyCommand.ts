@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetGroupPolicyCommandInput = GetGroupPolicyRequest;
-export type GetGroupPolicyCommandOutput = GetGroupPolicyResponse & __MetadataBearer;
+export interface GetGroupPolicyCommandInput extends GetGroupPolicyRequest {}
+export interface GetGroupPolicyCommandOutput extends GetGroupPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the specified inline policy document that is embedded in the specified IAM

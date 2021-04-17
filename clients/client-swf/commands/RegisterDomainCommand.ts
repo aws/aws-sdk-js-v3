@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterDomainCommandInput = RegisterDomainInput;
-export type RegisterDomainCommandOutput = __MetadataBearer;
+export interface RegisterDomainCommandInput extends RegisterDomainInput {}
+export interface RegisterDomainCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Registers a new domain.</p>

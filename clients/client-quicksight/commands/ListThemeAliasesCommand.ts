@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListThemeAliasesCommandInput = ListThemeAliasesRequest;
-export type ListThemeAliasesCommandOutput = ListThemeAliasesResponse & __MetadataBearer;
+export interface ListThemeAliasesCommandInput extends ListThemeAliasesRequest {}
+export interface ListThemeAliasesCommandOutput extends ListThemeAliasesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all the aliases of a theme.</p>

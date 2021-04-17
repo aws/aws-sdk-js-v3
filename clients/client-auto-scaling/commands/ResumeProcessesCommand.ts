@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ResumeProcessesCommandInput = ScalingProcessQuery;
-export type ResumeProcessesCommandOutput = __MetadataBearer;
+export interface ResumeProcessesCommandInput extends ScalingProcessQuery {}
+export interface ResumeProcessesCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Resumes the specified suspended auto scaling processes, or all suspended process, for

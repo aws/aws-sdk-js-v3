@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteNodegroupCommandInput = DeleteNodegroupRequest;
-export type DeleteNodegroupCommandOutput = DeleteNodegroupResponse & __MetadataBearer;
+export interface DeleteNodegroupCommandInput extends DeleteNodegroupRequest {}
+export interface DeleteNodegroupCommandOutput extends DeleteNodegroupResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an Amazon EKS node group for a cluster.</p>

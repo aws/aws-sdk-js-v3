@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateHostedZoneCommandInput = CreateHostedZoneRequest;
-export type CreateHostedZoneCommandOutput = CreateHostedZoneResponse & __MetadataBearer;
+export interface CreateHostedZoneCommandInput extends CreateHostedZoneRequest {}
+export interface CreateHostedZoneCommandOutput extends CreateHostedZoneResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new public or private hosted zone. You create records in a public hosted zone to define how you want to route traffic

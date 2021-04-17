@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetUploadStatusCommandInput = GetUploadStatusRequest;
-export type GetUploadStatusCommandOutput = GetUploadStatusResponse & __MetadataBearer;
+export interface GetUploadStatusCommandInput extends GetUploadStatusRequest {}
+export interface GetUploadStatusCommandOutput extends GetUploadStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the status of the specified upload.</p>

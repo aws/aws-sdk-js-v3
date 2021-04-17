@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTriggersCommandInput = ListTriggersRequest;
-export type ListTriggersCommandOutput = ListTriggersResponse & __MetadataBearer;
+export interface ListTriggersCommandInput extends ListTriggersRequest {}
+export interface ListTriggersCommandOutput extends ListTriggersResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the names of all trigger resources in this AWS account, or the resources with the specified tag. This operation allows you to see which resources are available in your account, and their names.</p>

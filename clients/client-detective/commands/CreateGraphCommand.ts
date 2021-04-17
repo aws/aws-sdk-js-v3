@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateGraphCommandInput = CreateGraphRequest;
-export type CreateGraphCommandOutput = CreateGraphResponse & __MetadataBearer;
+export interface CreateGraphCommandInput extends CreateGraphRequest {}
+export interface CreateGraphCommandOutput extends CreateGraphResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new behavior graph for the calling account, and sets that account as the

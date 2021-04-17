@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeLocationFsxWindowsCommandInput = DescribeLocationFsxWindowsRequest;
-export type DescribeLocationFsxWindowsCommandOutput = DescribeLocationFsxWindowsResponse & __MetadataBearer;
+export interface DescribeLocationFsxWindowsCommandInput extends DescribeLocationFsxWindowsRequest {}
+export interface DescribeLocationFsxWindowsCommandOutput extends DescribeLocationFsxWindowsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns metadata, such as the path information about an Amazon FSx for Windows File Server

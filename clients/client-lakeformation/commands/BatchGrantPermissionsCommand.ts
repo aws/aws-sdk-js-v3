@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchGrantPermissionsCommandInput = BatchGrantPermissionsRequest;
-export type BatchGrantPermissionsCommandOutput = BatchGrantPermissionsResponse & __MetadataBearer;
+export interface BatchGrantPermissionsCommandInput extends BatchGrantPermissionsRequest {}
+export interface BatchGrantPermissionsCommandOutput extends BatchGrantPermissionsResponse, __MetadataBearer {}
 
 /**
  * <p>Batch operation to grant permissions to the principal.</p>

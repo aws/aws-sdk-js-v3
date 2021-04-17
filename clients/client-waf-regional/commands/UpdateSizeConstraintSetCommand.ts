@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateSizeConstraintSetCommandInput = UpdateSizeConstraintSetRequest;
-export type UpdateSizeConstraintSetCommandOutput = UpdateSizeConstraintSetResponse & __MetadataBearer;
+export interface UpdateSizeConstraintSetCommandInput extends UpdateSizeConstraintSetRequest {}
+export interface UpdateSizeConstraintSetCommandOutput extends UpdateSizeConstraintSetResponse, __MetadataBearer {}
 
 /**
  * <note>

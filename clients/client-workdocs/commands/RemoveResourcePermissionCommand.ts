@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RemoveResourcePermissionCommandInput = RemoveResourcePermissionRequest;
-export type RemoveResourcePermissionCommandOutput = __MetadataBearer;
+export interface RemoveResourcePermissionCommandInput extends RemoveResourcePermissionRequest {}
+export interface RemoveResourcePermissionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes the permission for the specified principal from the specified

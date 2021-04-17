@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateEnvironmentCommandInput = CreateEnvironmentMessage;
-export type CreateEnvironmentCommandOutput = EnvironmentDescription & __MetadataBearer;
+export interface CreateEnvironmentCommandInput extends CreateEnvironmentMessage {}
+export interface CreateEnvironmentCommandOutput extends EnvironmentDescription, __MetadataBearer {}
 
 /**
  * <p>Launches an AWS Elastic Beanstalk environment for the specified application using the specified

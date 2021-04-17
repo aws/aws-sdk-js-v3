@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateSkillFromUsersCommandInput = DisassociateSkillFromUsersRequest;
-export type DisassociateSkillFromUsersCommandOutput = DisassociateSkillFromUsersResponse & __MetadataBearer;
+export interface DisassociateSkillFromUsersCommandInput extends DisassociateSkillFromUsersRequest {}
+export interface DisassociateSkillFromUsersCommandOutput extends DisassociateSkillFromUsersResponse, __MetadataBearer {}
 
 /**
  * <p>Makes a private skill unavailable for enrolled users and prevents them from enabling it

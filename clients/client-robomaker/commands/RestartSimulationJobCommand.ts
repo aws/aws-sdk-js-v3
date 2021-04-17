@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RestartSimulationJobCommandInput = RestartSimulationJobRequest;
-export type RestartSimulationJobCommandOutput = RestartSimulationJobResponse & __MetadataBearer;
+export interface RestartSimulationJobCommandInput extends RestartSimulationJobRequest {}
+export interface RestartSimulationJobCommandOutput extends RestartSimulationJobResponse, __MetadataBearer {}
 
 /**
  * <p>Restarts a running simulation job.</p>

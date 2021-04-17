@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ComposeEnvironmentsCommandInput = ComposeEnvironmentsMessage;
-export type ComposeEnvironmentsCommandOutput = EnvironmentDescriptionsMessage & __MetadataBearer;
+export interface ComposeEnvironmentsCommandInput extends ComposeEnvironmentsMessage {}
+export interface ComposeEnvironmentsCommandOutput extends EnvironmentDescriptionsMessage, __MetadataBearer {}
 
 /**
  * <p>Create or update a group of environments that each run a separate component of a single

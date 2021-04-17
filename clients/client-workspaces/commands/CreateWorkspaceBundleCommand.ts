@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateWorkspaceBundleCommandInput = CreateWorkspaceBundleRequest;
-export type CreateWorkspaceBundleCommandOutput = CreateWorkspaceBundleResult & __MetadataBearer;
+export interface CreateWorkspaceBundleCommandInput extends CreateWorkspaceBundleRequest {}
+export interface CreateWorkspaceBundleCommandOutput extends CreateWorkspaceBundleResult, __MetadataBearer {}
 
 /**
  * <p>Creates the specified WorkSpace bundle. For more information about creating WorkSpace bundles, see

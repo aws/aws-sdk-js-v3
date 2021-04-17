@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteInventoryCommandInput = DeleteInventoryRequest;
-export type DeleteInventoryCommandOutput = DeleteInventoryResult & __MetadataBearer;
+export interface DeleteInventoryCommandInput extends DeleteInventoryRequest {}
+export interface DeleteInventoryCommandOutput extends DeleteInventoryResult, __MetadataBearer {}
 
 /**
  * <p>Delete a custom inventory type or the data associated with a custom Inventory type. Deleting

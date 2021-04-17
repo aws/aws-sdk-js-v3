@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAttributeGroupsCommandInput = ListAttributeGroupsRequest;
-export type ListAttributeGroupsCommandOutput = ListAttributeGroupsResponse & __MetadataBearer;
+export interface ListAttributeGroupsCommandInput extends ListAttributeGroupsRequest {}
+export interface ListAttributeGroupsCommandOutput extends ListAttributeGroupsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all attribute groups which you have access to. Results are paginated.</p>

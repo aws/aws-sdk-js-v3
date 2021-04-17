@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeletePartitionIndexCommandInput = DeletePartitionIndexRequest;
-export type DeletePartitionIndexCommandOutput = DeletePartitionIndexResponse & __MetadataBearer;
+export interface DeletePartitionIndexCommandInput extends DeletePartitionIndexRequest {}
+export interface DeletePartitionIndexCommandOutput extends DeletePartitionIndexResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a specified partition index from an existing table.</p>

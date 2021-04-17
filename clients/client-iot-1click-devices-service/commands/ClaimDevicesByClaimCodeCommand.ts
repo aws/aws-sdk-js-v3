@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ClaimDevicesByClaimCodeCommandInput = ClaimDevicesByClaimCodeRequest;
-export type ClaimDevicesByClaimCodeCommandOutput = ClaimDevicesByClaimCodeResponse & __MetadataBearer;
+export interface ClaimDevicesByClaimCodeCommandInput extends ClaimDevicesByClaimCodeRequest {}
+export interface ClaimDevicesByClaimCodeCommandOutput extends ClaimDevicesByClaimCodeResponse, __MetadataBearer {}
 
 /**
  * <p>Adds device(s) to your account (i.e., claim one or more devices) if and only if you

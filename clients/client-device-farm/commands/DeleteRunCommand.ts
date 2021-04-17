@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteRunCommandInput = DeleteRunRequest;
-export type DeleteRunCommandOutput = DeleteRunResult & __MetadataBearer;
+export interface DeleteRunCommandInput extends DeleteRunRequest {}
+export interface DeleteRunCommandOutput extends DeleteRunResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the run, given the run ARN.</p>

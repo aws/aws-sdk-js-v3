@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTopicsDetectionJobsCommandInput = ListTopicsDetectionJobsRequest;
-export type ListTopicsDetectionJobsCommandOutput = ListTopicsDetectionJobsResponse & __MetadataBearer;
+export interface ListTopicsDetectionJobsCommandInput extends ListTopicsDetectionJobsRequest {}
+export interface ListTopicsDetectionJobsCommandOutput extends ListTopicsDetectionJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of the topic detection jobs that you have submitted.</p>

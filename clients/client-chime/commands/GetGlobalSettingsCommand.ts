@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetGlobalSettingsCommandInput = {};
-export type GetGlobalSettingsCommandOutput = GetGlobalSettingsResponse & __MetadataBearer;
+export interface GetGlobalSettingsCommandInput {}
+export interface GetGlobalSettingsCommandOutput extends GetGlobalSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves global settings for the administrator's AWS account, such as Amazon Chime Business

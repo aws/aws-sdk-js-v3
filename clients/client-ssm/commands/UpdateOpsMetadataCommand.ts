@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateOpsMetadataCommandInput = UpdateOpsMetadataRequest;
-export type UpdateOpsMetadataCommandOutput = UpdateOpsMetadataResult & __MetadataBearer;
+export interface UpdateOpsMetadataCommandInput extends UpdateOpsMetadataRequest {}
+export interface UpdateOpsMetadataCommandOutput extends UpdateOpsMetadataResult, __MetadataBearer {}
 
 /**
  * <p>Systems Manager calls this API action when you edit OpsMetadata in Application Manager.</p>

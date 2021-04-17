@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListStackInstancesForProvisionedProductCommandInput = ListStackInstancesForProvisionedProductInput;
-export type ListStackInstancesForProvisionedProductCommandOutput = ListStackInstancesForProvisionedProductOutput &
-  __MetadataBearer;
+export interface ListStackInstancesForProvisionedProductCommandInput
+  extends ListStackInstancesForProvisionedProductInput {}
+export interface ListStackInstancesForProvisionedProductCommandOutput
+  extends ListStackInstancesForProvisionedProductOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Returns summary information about stack instances that are associated with the specified <code>CFN_STACKSET</code> type provisioned product. You can filter for stack instances that are associated with a specific AWS account name or region. </p>

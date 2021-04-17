@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListVirtualGatewaysCommandInput = ListVirtualGatewaysInput;
-export type ListVirtualGatewaysCommandOutput = ListVirtualGatewaysOutput & __MetadataBearer;
+export interface ListVirtualGatewaysCommandInput extends ListVirtualGatewaysInput {}
+export interface ListVirtualGatewaysCommandOutput extends ListVirtualGatewaysOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a list of existing virtual gateways in a service mesh.</p>

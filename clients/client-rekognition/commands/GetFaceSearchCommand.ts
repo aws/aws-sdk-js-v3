@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetFaceSearchCommandInput = GetFaceSearchRequest;
-export type GetFaceSearchCommandOutput = GetFaceSearchResponse & __MetadataBearer;
+export interface GetFaceSearchCommandInput extends GetFaceSearchRequest {}
+export interface GetFaceSearchCommandOutput extends GetFaceSearchResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the face search results for Amazon Rekognition Video face search started by

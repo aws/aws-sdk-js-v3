@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListModelsCommandInput = ListModelsInput;
-export type ListModelsCommandOutput = ListModelsOutput & __MetadataBearer;
+export interface ListModelsCommandInput extends ListModelsInput {}
+export interface ListModelsCommandOutput extends ListModelsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists models created with the <a>CreateModel</a> API.</p>

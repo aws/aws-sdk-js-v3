@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelKeyDeletionCommandInput = CancelKeyDeletionRequest;
-export type CancelKeyDeletionCommandOutput = CancelKeyDeletionResponse & __MetadataBearer;
+export interface CancelKeyDeletionCommandInput extends CancelKeyDeletionRequest {}
+export interface CancelKeyDeletionCommandOutput extends CancelKeyDeletionResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels the deletion of a customer master key (CMK). When this operation succeeds, the key

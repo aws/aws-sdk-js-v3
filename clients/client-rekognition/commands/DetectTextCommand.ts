@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DetectTextCommandInput = DetectTextRequest;
-export type DetectTextCommandOutput = DetectTextResponse & __MetadataBearer;
+export interface DetectTextCommandInput extends DetectTextRequest {}
+export interface DetectTextCommandOutput extends DetectTextResponse, __MetadataBearer {}
 
 /**
  * <p>Detects text in the input image and converts it into machine-readable text.</p>

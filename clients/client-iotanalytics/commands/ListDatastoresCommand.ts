@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDatastoresCommandInput = ListDatastoresRequest;
-export type ListDatastoresCommandOutput = ListDatastoresResponse & __MetadataBearer;
+export interface ListDatastoresCommandInput extends ListDatastoresRequest {}
+export interface ListDatastoresCommandOutput extends ListDatastoresResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of data stores.</p>

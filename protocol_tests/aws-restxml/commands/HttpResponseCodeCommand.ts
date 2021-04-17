@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type HttpResponseCodeCommandInput = {};
-export type HttpResponseCodeCommandOutput = HttpResponseCodeOutput & __MetadataBearer;
+export interface HttpResponseCodeCommandInput {}
+export interface HttpResponseCodeCommandOutput extends HttpResponseCodeOutput, __MetadataBearer {}
 
 export class HttpResponseCodeCommand extends $Command<
   HttpResponseCodeCommandInput,

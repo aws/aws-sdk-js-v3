@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SyncResourceCommandInput = SyncResourceRequest;
-export type SyncResourceCommandOutput = SyncResourceResponse & __MetadataBearer;
+export interface SyncResourceCommandInput extends SyncResourceRequest {}
+export interface SyncResourceCommandOutput extends SyncResourceResponse, __MetadataBearer {}
 
 /**
  * <p>Syncs the resource with what is currently recorded in App registry. Specifically, the resource’s App registry system tags are synced with its associated application. The resource is removed if it is not associated with the application. The caller must have permissions to read and update the resource.</p>

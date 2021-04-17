@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartICD10CMInferenceJobCommandInput = StartICD10CMInferenceJobRequest;
-export type StartICD10CMInferenceJobCommandOutput = StartICD10CMInferenceJobResponse & __MetadataBearer;
+export interface StartICD10CMInferenceJobCommandInput extends StartICD10CMInferenceJobRequest {}
+export interface StartICD10CMInferenceJobCommandOutput extends StartICD10CMInferenceJobResponse, __MetadataBearer {}
 
 /**
  * <p>Starts an asynchronous job to detect medical conditions and link them to the ICD-10-CM

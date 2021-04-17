@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AttachTypedLinkCommandInput = AttachTypedLinkRequest;
-export type AttachTypedLinkCommandOutput = AttachTypedLinkResponse & __MetadataBearer;
+export interface AttachTypedLinkCommandInput extends AttachTypedLinkRequest {}
+export interface AttachTypedLinkCommandOutput extends AttachTypedLinkResponse, __MetadataBearer {}
 
 /**
  * <p>Attaches a typed link to a specified source and target object. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>

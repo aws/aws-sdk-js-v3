@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateApiKeyCommandInput = CreateApiKeyRequest;
-export type CreateApiKeyCommandOutput = ApiKey & __MetadataBearer;
+export interface CreateApiKeyCommandInput extends CreateApiKeyRequest {}
+export interface CreateApiKeyCommandOutput extends ApiKey, __MetadataBearer {}
 
 /**
  * <p>Create an <a>ApiKey</a> resource. </p>

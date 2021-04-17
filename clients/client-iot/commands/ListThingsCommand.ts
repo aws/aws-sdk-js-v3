@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListThingsCommandInput = ListThingsRequest;
-export type ListThingsCommandOutput = ListThingsResponse & __MetadataBearer;
+export interface ListThingsCommandInput extends ListThingsRequest {}
+export interface ListThingsCommandOutput extends ListThingsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists your things. Use the <b>attributeName</b> and

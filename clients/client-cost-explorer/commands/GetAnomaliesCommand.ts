@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAnomaliesCommandInput = GetAnomaliesRequest;
-export type GetAnomaliesCommandOutput = GetAnomaliesResponse & __MetadataBearer;
+export interface GetAnomaliesCommandInput extends GetAnomaliesRequest {}
+export interface GetAnomaliesCommandOutput extends GetAnomaliesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves all of the cost anomalies detected on your account, during the time period

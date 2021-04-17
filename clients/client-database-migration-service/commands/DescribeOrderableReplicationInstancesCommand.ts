@@ -24,9 +24,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeOrderableReplicationInstancesCommandInput = DescribeOrderableReplicationInstancesMessage;
-export type DescribeOrderableReplicationInstancesCommandOutput = DescribeOrderableReplicationInstancesResponse &
-  __MetadataBearer;
+export interface DescribeOrderableReplicationInstancesCommandInput
+  extends DescribeOrderableReplicationInstancesMessage {}
+export interface DescribeOrderableReplicationInstancesCommandOutput
+  extends DescribeOrderableReplicationInstancesResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns information about the replication instance types that can be created in the

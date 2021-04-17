@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeInstallationMediaCommandInput = DescribeInstallationMediaMessage;
-export type DescribeInstallationMediaCommandOutput = InstallationMediaMessage & __MetadataBearer;
+export interface DescribeInstallationMediaCommandInput extends DescribeInstallationMediaMessage {}
+export interface DescribeInstallationMediaCommandOutput extends InstallationMediaMessage, __MetadataBearer {}
 
 /**
  * <p>Describes the available installation media for a DB engine that requires an

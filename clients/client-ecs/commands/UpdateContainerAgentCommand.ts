@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateContainerAgentCommandInput = UpdateContainerAgentRequest;
-export type UpdateContainerAgentCommandOutput = UpdateContainerAgentResponse & __MetadataBearer;
+export interface UpdateContainerAgentCommandInput extends UpdateContainerAgentRequest {}
+export interface UpdateContainerAgentCommandOutput extends UpdateContainerAgentResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the Amazon ECS container agent on a specified container instance. Updating the

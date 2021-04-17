@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeWorkspaceDirectoriesCommandInput = DescribeWorkspaceDirectoriesRequest;
-export type DescribeWorkspaceDirectoriesCommandOutput = DescribeWorkspaceDirectoriesResult & __MetadataBearer;
+export interface DescribeWorkspaceDirectoriesCommandInput extends DescribeWorkspaceDirectoriesRequest {}
+export interface DescribeWorkspaceDirectoriesCommandOutput
+  extends DescribeWorkspaceDirectoriesResult,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the available directories that are registered with

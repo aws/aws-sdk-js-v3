@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteReceiptRuleCommandInput = DeleteReceiptRuleRequest;
-export type DeleteReceiptRuleCommandOutput = DeleteReceiptRuleResponse & __MetadataBearer;
+export interface DeleteReceiptRuleCommandInput extends DeleteReceiptRuleRequest {}
+export interface DeleteReceiptRuleCommandOutput extends DeleteReceiptRuleResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified receipt rule.</p>

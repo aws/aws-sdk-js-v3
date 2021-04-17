@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeLoadBalancerAttributesCommandInput = DescribeLoadBalancerAttributesInput;
-export type DescribeLoadBalancerAttributesCommandOutput = DescribeLoadBalancerAttributesOutput & __MetadataBearer;
+export interface DescribeLoadBalancerAttributesCommandInput extends DescribeLoadBalancerAttributesInput {}
+export interface DescribeLoadBalancerAttributesCommandOutput
+  extends DescribeLoadBalancerAttributesOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the attributes for the specified Application Load Balancer, Network Load

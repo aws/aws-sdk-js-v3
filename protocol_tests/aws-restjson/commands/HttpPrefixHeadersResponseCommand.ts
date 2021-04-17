@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type HttpPrefixHeadersResponseCommandInput = {};
-export type HttpPrefixHeadersResponseCommandOutput = HttpPrefixHeadersResponseOutput & __MetadataBearer;
+export interface HttpPrefixHeadersResponseCommandInput {}
+export interface HttpPrefixHeadersResponseCommandOutput extends HttpPrefixHeadersResponseOutput, __MetadataBearer {}
 
 /**
  * Clients that perform this test extract all headers from the response.

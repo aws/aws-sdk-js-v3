@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateNotebookInstanceCommandInput = CreateNotebookInstanceInput;
-export type CreateNotebookInstanceCommandOutput = CreateNotebookInstanceOutput & __MetadataBearer;
+export interface CreateNotebookInstanceCommandInput extends CreateNotebookInstanceInput {}
+export interface CreateNotebookInstanceCommandOutput extends CreateNotebookInstanceOutput, __MetadataBearer {}
 
 /**
  * <p>Creates an Amazon SageMaker notebook instance. A notebook instance is a machine learning (ML)

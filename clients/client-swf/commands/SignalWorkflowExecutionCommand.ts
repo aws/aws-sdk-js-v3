@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SignalWorkflowExecutionCommandInput = SignalWorkflowExecutionInput;
-export type SignalWorkflowExecutionCommandOutput = __MetadataBearer;
+export interface SignalWorkflowExecutionCommandInput extends SignalWorkflowExecutionInput {}
+export interface SignalWorkflowExecutionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Records a <code>WorkflowExecutionSignaled</code> event in the workflow execution

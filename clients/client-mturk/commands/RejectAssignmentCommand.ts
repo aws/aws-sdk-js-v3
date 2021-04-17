@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RejectAssignmentCommandInput = RejectAssignmentRequest;
-export type RejectAssignmentCommandOutput = RejectAssignmentResponse & __MetadataBearer;
+export interface RejectAssignmentCommandInput extends RejectAssignmentRequest {}
+export interface RejectAssignmentCommandOutput extends RejectAssignmentResponse, __MetadataBearer {}
 
 /**
  * <p>

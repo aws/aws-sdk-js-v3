@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetMetricStreamCommandInput = GetMetricStreamInput;
-export type GetMetricStreamCommandOutput = GetMetricStreamOutput & __MetadataBearer;
+export interface GetMetricStreamCommandInput extends GetMetricStreamInput {}
+export interface GetMetricStreamCommandOutput extends GetMetricStreamOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about the metric stream that you specify.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutTraceSegmentsCommandInput = PutTraceSegmentsRequest;
-export type PutTraceSegmentsCommandOutput = PutTraceSegmentsResult & __MetadataBearer;
+export interface PutTraceSegmentsCommandInput extends PutTraceSegmentsRequest {}
+export interface PutTraceSegmentsCommandOutput extends PutTraceSegmentsResult, __MetadataBearer {}
 
 /**
  * <p>Uploads segment documents to AWS X-Ray. The <a href="https://docs.aws.amazon.com/xray/index.html">X-Ray SDK</a> generates segment documents and sends them to the X-Ray daemon, which uploads them in

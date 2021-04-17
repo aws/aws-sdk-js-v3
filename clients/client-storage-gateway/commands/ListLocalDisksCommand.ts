@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListLocalDisksCommandInput = ListLocalDisksInput;
-export type ListLocalDisksCommandOutput = ListLocalDisksOutput & __MetadataBearer;
+export interface ListLocalDisksCommandInput extends ListLocalDisksInput {}
+export interface ListLocalDisksCommandOutput extends ListLocalDisksOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a list of the gateway's local disks. To specify which gateway to describe,

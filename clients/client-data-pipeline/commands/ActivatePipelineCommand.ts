@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ActivatePipelineCommandInput = ActivatePipelineInput;
-export type ActivatePipelineCommandOutput = ActivatePipelineOutput & __MetadataBearer;
+export interface ActivatePipelineCommandInput extends ActivatePipelineInput {}
+export interface ActivatePipelineCommandOutput extends ActivatePipelineOutput, __MetadataBearer {}
 
 /**
  * <p>Validates the specified pipeline and starts processing pipeline tasks. If the pipeline does not pass validation,

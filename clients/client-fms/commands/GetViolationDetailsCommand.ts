@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetViolationDetailsCommandInput = GetViolationDetailsRequest;
-export type GetViolationDetailsCommandOutput = GetViolationDetailsResponse & __MetadataBearer;
+export interface GetViolationDetailsCommandInput extends GetViolationDetailsRequest {}
+export interface GetViolationDetailsCommandOutput extends GetViolationDetailsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves violations for a resource based on the specified AWS Firewall Manager policy and AWS account.</p>

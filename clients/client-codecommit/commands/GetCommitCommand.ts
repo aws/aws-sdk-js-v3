@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetCommitCommandInput = GetCommitInput;
-export type GetCommitCommandOutput = GetCommitOutput & __MetadataBearer;
+export interface GetCommitCommandInput extends GetCommitInput {}
+export interface GetCommitCommandOutput extends GetCommitOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about a commit, including commit message and committer information.</p>

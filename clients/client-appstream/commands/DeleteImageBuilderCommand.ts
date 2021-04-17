@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteImageBuilderCommandInput = DeleteImageBuilderRequest;
-export type DeleteImageBuilderCommandOutput = DeleteImageBuilderResult & __MetadataBearer;
+export interface DeleteImageBuilderCommandInput extends DeleteImageBuilderRequest {}
+export interface DeleteImageBuilderCommandOutput extends DeleteImageBuilderResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified image builder and releases the capacity.</p>

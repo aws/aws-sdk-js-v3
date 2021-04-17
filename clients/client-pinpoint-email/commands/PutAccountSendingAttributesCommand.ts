@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutAccountSendingAttributesCommandInput = PutAccountSendingAttributesRequest;
-export type PutAccountSendingAttributesCommandOutput = PutAccountSendingAttributesResponse & __MetadataBearer;
+export interface PutAccountSendingAttributesCommandInput extends PutAccountSendingAttributesRequest {}
+export interface PutAccountSendingAttributesCommandOutput
+  extends PutAccountSendingAttributesResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Enable or disable the ability of your account to send email.</p>

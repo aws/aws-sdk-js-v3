@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetNodeCommandInput = GetNodeInput;
-export type GetNodeCommandOutput = GetNodeOutput & __MetadataBearer;
+export interface GetNodeCommandInput extends GetNodeInput {}
+export interface GetNodeCommandOutput extends GetNodeOutput, __MetadataBearer {}
 
 /**
  * <p>Returns detailed information about a node.</p>

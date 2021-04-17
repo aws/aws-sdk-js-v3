@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListMeshesCommandInput = ListMeshesInput;
-export type ListMeshesCommandOutput = ListMeshesOutput & __MetadataBearer;
+export interface ListMeshesCommandInput extends ListMeshesInput {}
+export interface ListMeshesCommandOutput extends ListMeshesOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a list of existing service meshes.</p>

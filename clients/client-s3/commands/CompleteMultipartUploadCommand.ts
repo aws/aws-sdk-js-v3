@@ -19,8 +19,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CompleteMultipartUploadCommandInput = CompleteMultipartUploadRequest;
-export type CompleteMultipartUploadCommandOutput = CompleteMultipartUploadOutput & __MetadataBearer;
+export interface CompleteMultipartUploadCommandInput extends CompleteMultipartUploadRequest {}
+export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartUploadOutput, __MetadataBearer {}
 
 /**
  * <p>Completes a multipart upload by assembling previously uploaded parts.</p>

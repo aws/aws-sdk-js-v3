@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteEnvironmentCommandInput = DeleteEnvironmentRequest;
-export type DeleteEnvironmentCommandOutput = DeleteEnvironmentResult & __MetadataBearer;
+export interface DeleteEnvironmentCommandInput extends DeleteEnvironmentRequest {}
+export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentResult, __MetadataBearer {}
 
 /**
  * <p>Deletes an AWS Cloud9 development environment. If an Amazon EC2 instance is connected to the environment, also terminates the instance.</p>

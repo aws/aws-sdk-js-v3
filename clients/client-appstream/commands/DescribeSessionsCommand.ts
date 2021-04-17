@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeSessionsCommandInput = DescribeSessionsRequest;
-export type DescribeSessionsCommandOutput = DescribeSessionsResult & __MetadataBearer;
+export interface DescribeSessionsCommandInput extends DescribeSessionsRequest {}
+export interface DescribeSessionsCommandOutput extends DescribeSessionsResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list that describes the streaming sessions for a specified stack and fleet. If a UserId is provided for the stack and fleet,

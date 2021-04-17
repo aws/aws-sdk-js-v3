@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateUseCaseCommandInput = CreateUseCaseRequest;
-export type CreateUseCaseCommandOutput = CreateUseCaseResponse & __MetadataBearer;
+export interface CreateUseCaseCommandInput extends CreateUseCaseRequest {}
+export interface CreateUseCaseCommandOutput extends CreateUseCaseResponse, __MetadataBearer {}
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>

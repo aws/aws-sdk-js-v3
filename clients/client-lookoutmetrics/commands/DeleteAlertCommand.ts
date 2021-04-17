@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAlertCommandInput = DeleteAlertRequest;
-export type DeleteAlertCommandOutput = DeleteAlertResponse & __MetadataBearer;
+export interface DeleteAlertCommandInput extends DeleteAlertRequest {}
+export interface DeleteAlertCommandOutput extends DeleteAlertResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an alert.</p>

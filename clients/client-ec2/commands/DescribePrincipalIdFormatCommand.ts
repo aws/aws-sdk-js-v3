@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribePrincipalIdFormatCommandInput = DescribePrincipalIdFormatRequest;
-export type DescribePrincipalIdFormatCommandOutput = DescribePrincipalIdFormatResult & __MetadataBearer;
+export interface DescribePrincipalIdFormatCommandInput extends DescribePrincipalIdFormatRequest {}
+export interface DescribePrincipalIdFormatCommandOutput extends DescribePrincipalIdFormatResult, __MetadataBearer {}
 
 /**
  * <p>Describes the ID format settings for the root user and all IAM roles and IAM users

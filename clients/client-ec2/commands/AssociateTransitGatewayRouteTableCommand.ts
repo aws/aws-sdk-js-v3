@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateTransitGatewayRouteTableCommandInput = AssociateTransitGatewayRouteTableRequest;
-export type AssociateTransitGatewayRouteTableCommandOutput = AssociateTransitGatewayRouteTableResult & __MetadataBearer;
+export interface AssociateTransitGatewayRouteTableCommandInput extends AssociateTransitGatewayRouteTableRequest {}
+export interface AssociateTransitGatewayRouteTableCommandOutput
+  extends AssociateTransitGatewayRouteTableResult,
+    __MetadataBearer {}
 
 /**
  * <p>Associates the specified attachment with the specified transit gateway route table. You can

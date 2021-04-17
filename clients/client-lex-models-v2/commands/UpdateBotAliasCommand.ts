@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateBotAliasCommandInput = UpdateBotAliasRequest;
-export type UpdateBotAliasCommandOutput = UpdateBotAliasResponse & __MetadataBearer;
+export interface UpdateBotAliasCommandInput extends UpdateBotAliasRequest {}
+export interface UpdateBotAliasCommandOutput extends UpdateBotAliasResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the configuration of an existing bot alias.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeHapgCommandInput = DescribeHapgRequest;
-export type DescribeHapgCommandOutput = DescribeHapgResponse & __MetadataBearer;
+export interface DescribeHapgCommandInput extends DescribeHapgRequest {}
+export interface DescribeHapgCommandOutput extends DescribeHapgResponse, __MetadataBearer {}
 
 /**
  * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For

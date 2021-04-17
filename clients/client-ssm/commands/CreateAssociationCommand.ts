@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateAssociationCommandInput = CreateAssociationRequest;
-export type CreateAssociationCommandOutput = CreateAssociationResult & __MetadataBearer;
+export interface CreateAssociationCommandInput extends CreateAssociationRequest {}
+export interface CreateAssociationCommandOutput extends CreateAssociationResult, __MetadataBearer {}
 
 /**
  * <p>A State Manager association defines the state that you want to maintain on your instances.

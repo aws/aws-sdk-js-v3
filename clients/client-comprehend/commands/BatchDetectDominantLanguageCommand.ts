@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchDetectDominantLanguageCommandInput = BatchDetectDominantLanguageRequest;
-export type BatchDetectDominantLanguageCommandOutput = BatchDetectDominantLanguageResponse & __MetadataBearer;
+export interface BatchDetectDominantLanguageCommandInput extends BatchDetectDominantLanguageRequest {}
+export interface BatchDetectDominantLanguageCommandOutput
+  extends BatchDetectDominantLanguageResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Determines the dominant language of the input text for a batch of documents. For a list

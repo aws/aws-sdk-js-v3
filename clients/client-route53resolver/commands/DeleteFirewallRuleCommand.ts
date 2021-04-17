@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteFirewallRuleCommandInput = DeleteFirewallRuleRequest;
-export type DeleteFirewallRuleCommandOutput = DeleteFirewallRuleResponse & __MetadataBearer;
+export interface DeleteFirewallRuleCommandInput extends DeleteFirewallRuleRequest {}
+export interface DeleteFirewallRuleCommandOutput extends DeleteFirewallRuleResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified firewall rule.</p>

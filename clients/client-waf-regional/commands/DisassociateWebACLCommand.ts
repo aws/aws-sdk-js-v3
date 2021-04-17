@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateWebACLCommandInput = DisassociateWebACLRequest;
-export type DisassociateWebACLCommandOutput = DisassociateWebACLResponse & __MetadataBearer;
+export interface DisassociateWebACLCommandInput extends DisassociateWebACLRequest {}
+export interface DisassociateWebACLCommandOutput extends DisassociateWebACLResponse, __MetadataBearer {}
 
 /**
  * <note>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribePortfolioCommandInput = DescribePortfolioInput;
-export type DescribePortfolioCommandOutput = DescribePortfolioOutput & __MetadataBearer;
+export interface DescribePortfolioCommandInput extends DescribePortfolioInput {}
+export interface DescribePortfolioCommandOutput extends DescribePortfolioOutput, __MetadataBearer {}
 
 /**
  * <p>Gets information about the specified portfolio.</p>

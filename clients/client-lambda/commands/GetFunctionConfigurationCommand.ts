@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetFunctionConfigurationCommandInput = GetFunctionConfigurationRequest;
-export type GetFunctionConfigurationCommandOutput = FunctionConfiguration & __MetadataBearer;
+export interface GetFunctionConfigurationCommandInput extends GetFunctionConfigurationRequest {}
+export interface GetFunctionConfigurationCommandOutput extends FunctionConfiguration, __MetadataBearer {}
 
 /**
  * <p>Returns the version-specific settings of a Lambda function or version. The output includes only options that

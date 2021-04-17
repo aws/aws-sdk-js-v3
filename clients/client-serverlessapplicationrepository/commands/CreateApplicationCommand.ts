@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateApplicationCommandInput = CreateApplicationRequest;
-export type CreateApplicationCommandOutput = CreateApplicationResponse & __MetadataBearer;
+export interface CreateApplicationCommandInput extends CreateApplicationRequest {}
+export interface CreateApplicationCommandOutput extends CreateApplicationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an application, optionally including an AWS SAM file to create the first application version in the same call.</p>

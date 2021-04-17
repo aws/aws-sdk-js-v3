@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBucketNotificationConfigurationCommandInput = GetBucketNotificationConfigurationRequest;
-export type GetBucketNotificationConfigurationCommandOutput = NotificationConfiguration & __MetadataBearer;
+export interface GetBucketNotificationConfigurationCommandInput extends GetBucketNotificationConfigurationRequest {}
+export interface GetBucketNotificationConfigurationCommandOutput extends NotificationConfiguration, __MetadataBearer {}
 
 /**
  * <p>Returns the notification configuration of a bucket.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CountClosedWorkflowExecutionsCommandInput = CountClosedWorkflowExecutionsInput;
-export type CountClosedWorkflowExecutionsCommandOutput = WorkflowExecutionCount & __MetadataBearer;
+export interface CountClosedWorkflowExecutionsCommandInput extends CountClosedWorkflowExecutionsInput {}
+export interface CountClosedWorkflowExecutionsCommandOutput extends WorkflowExecutionCount, __MetadataBearer {}
 
 /**
  * <p>Returns the number of closed workflow executions within the given domain that meet the

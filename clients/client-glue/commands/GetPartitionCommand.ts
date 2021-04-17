@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetPartitionCommandInput = GetPartitionRequest;
-export type GetPartitionCommandOutput = GetPartitionResponse & __MetadataBearer;
+export interface GetPartitionCommandInput extends GetPartitionRequest {}
+export interface GetPartitionCommandOutput extends GetPartitionResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about a specified partition.</p>

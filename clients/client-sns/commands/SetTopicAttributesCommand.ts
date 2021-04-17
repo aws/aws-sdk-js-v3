@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetTopicAttributesCommandInput = SetTopicAttributesInput;
-export type SetTopicAttributesCommandOutput = __MetadataBearer;
+export interface SetTopicAttributesCommandInput extends SetTopicAttributesInput {}
+export interface SetTopicAttributesCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Allows a topic owner to set an attribute of the topic to a new value.</p>

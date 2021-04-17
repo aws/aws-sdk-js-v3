@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListConferenceProvidersCommandInput = ListConferenceProvidersRequest;
-export type ListConferenceProvidersCommandOutput = ListConferenceProvidersResponse & __MetadataBearer;
+export interface ListConferenceProvidersCommandInput extends ListConferenceProvidersRequest {}
+export interface ListConferenceProvidersCommandOutput extends ListConferenceProvidersResponse, __MetadataBearer {}
 
 /**
  * <p>Lists conference providers under a specific AWS account.</p>

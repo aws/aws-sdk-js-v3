@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateIamInstanceProfileCommandInput = AssociateIamInstanceProfileRequest;
-export type AssociateIamInstanceProfileCommandOutput = AssociateIamInstanceProfileResult & __MetadataBearer;
+export interface AssociateIamInstanceProfileCommandInput extends AssociateIamInstanceProfileRequest {}
+export interface AssociateIamInstanceProfileCommandOutput extends AssociateIamInstanceProfileResult, __MetadataBearer {}
 
 /**
  * <p>Associates an IAM instance profile with a running or stopped instance. You cannot

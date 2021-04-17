@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartSentimentDetectionJobCommandInput = StartSentimentDetectionJobRequest;
-export type StartSentimentDetectionJobCommandOutput = StartSentimentDetectionJobResponse & __MetadataBearer;
+export interface StartSentimentDetectionJobCommandInput extends StartSentimentDetectionJobRequest {}
+export interface StartSentimentDetectionJobCommandOutput extends StartSentimentDetectionJobResponse, __MetadataBearer {}
 
 /**
  * <p>Starts an asynchronous sentiment detection job for a collection of documents. use the

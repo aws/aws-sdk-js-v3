@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeInterconnectsCommandInput = DescribeInterconnectsRequest;
-export type DescribeInterconnectsCommandOutput = Interconnects & __MetadataBearer;
+export interface DescribeInterconnectsCommandInput extends DescribeInterconnectsRequest {}
+export interface DescribeInterconnectsCommandOutput extends Interconnects, __MetadataBearer {}
 
 /**
  * <p>Lists the interconnects owned by the AWS account or only the specified interconnect.</p>

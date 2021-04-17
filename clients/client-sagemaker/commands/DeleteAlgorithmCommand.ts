@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAlgorithmCommandInput = DeleteAlgorithmInput;
-export type DeleteAlgorithmCommandOutput = __MetadataBearer;
+export interface DeleteAlgorithmCommandInput extends DeleteAlgorithmInput {}
+export interface DeleteAlgorithmCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes the specified algorithm from your account.</p>

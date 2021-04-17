@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type InitializeServiceCommandInput = InitializeServiceRequest;
-export type InitializeServiceCommandOutput = InitializeServiceResponse & __MetadataBearer;
+export interface InitializeServiceCommandInput extends InitializeServiceRequest {}
+export interface InitializeServiceCommandOutput extends InitializeServiceResponse, __MetadataBearer {}
 
 /**
  * <p>Initialize Application Migration Service.</p>

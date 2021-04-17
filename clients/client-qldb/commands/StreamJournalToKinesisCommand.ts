@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StreamJournalToKinesisCommandInput = StreamJournalToKinesisRequest;
-export type StreamJournalToKinesisCommandOutput = StreamJournalToKinesisResponse & __MetadataBearer;
+export interface StreamJournalToKinesisCommandInput extends StreamJournalToKinesisRequest {}
+export interface StreamJournalToKinesisCommandOutput extends StreamJournalToKinesisResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a journal stream for a given Amazon QLDB ledger. The stream captures every

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeBackupJobCommandInput = DescribeBackupJobInput;
-export type DescribeBackupJobCommandOutput = DescribeBackupJobOutput & __MetadataBearer;
+export interface DescribeBackupJobCommandInput extends DescribeBackupJobInput {}
+export interface DescribeBackupJobCommandOutput extends DescribeBackupJobOutput, __MetadataBearer {}
 
 /**
  * <p>Returns backup job details for the specified <code>BackupJobId</code>.</p>

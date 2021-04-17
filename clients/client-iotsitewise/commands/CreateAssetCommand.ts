@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateAssetCommandInput = CreateAssetRequest;
-export type CreateAssetCommandOutput = CreateAssetResponse & __MetadataBearer;
+export interface CreateAssetCommandInput extends CreateAssetRequest {}
+export interface CreateAssetCommandOutput extends CreateAssetResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an asset from an existing asset model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-assets.html">Creating assets</a> in the

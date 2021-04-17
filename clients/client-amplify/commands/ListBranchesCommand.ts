@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListBranchesCommandInput = ListBranchesRequest;
-export type ListBranchesCommandOutput = ListBranchesResult & __MetadataBearer;
+export interface ListBranchesCommandInput extends ListBranchesRequest {}
+export interface ListBranchesCommandOutput extends ListBranchesResult, __MetadataBearer {}
 
 /**
  * <p> Lists the branches of an Amplify app. </p>

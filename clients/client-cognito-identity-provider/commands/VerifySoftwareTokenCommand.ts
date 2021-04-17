@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type VerifySoftwareTokenCommandInput = VerifySoftwareTokenRequest;
-export type VerifySoftwareTokenCommandOutput = VerifySoftwareTokenResponse & __MetadataBearer;
+export interface VerifySoftwareTokenCommandInput extends VerifySoftwareTokenRequest {}
+export interface VerifySoftwareTokenCommandOutput extends VerifySoftwareTokenResponse, __MetadataBearer {}
 
 /**
  * <p>Use this API to register a user's entered TOTP code and mark the user's software token

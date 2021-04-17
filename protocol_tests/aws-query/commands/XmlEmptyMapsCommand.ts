@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type XmlEmptyMapsCommandInput = {};
-export type XmlEmptyMapsCommandOutput = XmlMapsOutput & __MetadataBearer;
+export interface XmlEmptyMapsCommandInput {}
+export interface XmlEmptyMapsCommandOutput extends XmlMapsOutput, __MetadataBearer {}
 
 export class XmlEmptyMapsCommand extends $Command<
   XmlEmptyMapsCommandInput,

@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeReservedInstancesModificationsCommandInput = DescribeReservedInstancesModificationsRequest;
-export type DescribeReservedInstancesModificationsCommandOutput = DescribeReservedInstancesModificationsResult &
-  __MetadataBearer;
+export interface DescribeReservedInstancesModificationsCommandInput
+  extends DescribeReservedInstancesModificationsRequest {}
+export interface DescribeReservedInstancesModificationsCommandOutput
+  extends DescribeReservedInstancesModificationsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the modifications made to your Reserved Instances. If no parameter is specified, information about all your Reserved Instances modification requests is returned. If a modification ID is specified, only information about the specific modification is returned.</p>

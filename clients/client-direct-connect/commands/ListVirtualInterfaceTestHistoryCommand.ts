@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListVirtualInterfaceTestHistoryCommandInput = ListVirtualInterfaceTestHistoryRequest;
-export type ListVirtualInterfaceTestHistoryCommandOutput = ListVirtualInterfaceTestHistoryResponse & __MetadataBearer;
+export interface ListVirtualInterfaceTestHistoryCommandInput extends ListVirtualInterfaceTestHistoryRequest {}
+export interface ListVirtualInterfaceTestHistoryCommandOutput
+  extends ListVirtualInterfaceTestHistoryResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Lists the virtual interface failover test history.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateRealtimeEndpointCommandInput = CreateRealtimeEndpointInput;
-export type CreateRealtimeEndpointCommandOutput = CreateRealtimeEndpointOutput & __MetadataBearer;
+export interface CreateRealtimeEndpointCommandInput extends CreateRealtimeEndpointInput {}
+export interface CreateRealtimeEndpointCommandOutput extends CreateRealtimeEndpointOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a real-time endpoint for the <code>MLModel</code>. The endpoint contains the URI of the <code>MLModel</code>; that is, the location to send real-time prediction requests for the specified <code>MLModel</code>.</p>

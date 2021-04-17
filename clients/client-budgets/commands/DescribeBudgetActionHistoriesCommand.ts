@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeBudgetActionHistoriesCommandInput = DescribeBudgetActionHistoriesRequest;
-export type DescribeBudgetActionHistoriesCommandOutput = DescribeBudgetActionHistoriesResponse & __MetadataBearer;
+export interface DescribeBudgetActionHistoriesCommandInput extends DescribeBudgetActionHistoriesRequest {}
+export interface DescribeBudgetActionHistoriesCommandOutput
+  extends DescribeBudgetActionHistoriesResponse,
+    __MetadataBearer {}
 
 /**
  * <p>

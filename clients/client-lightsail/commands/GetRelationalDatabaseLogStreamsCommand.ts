@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetRelationalDatabaseLogStreamsCommandInput = GetRelationalDatabaseLogStreamsRequest;
-export type GetRelationalDatabaseLogStreamsCommandOutput = GetRelationalDatabaseLogStreamsResult & __MetadataBearer;
+export interface GetRelationalDatabaseLogStreamsCommandInput extends GetRelationalDatabaseLogStreamsRequest {}
+export interface GetRelationalDatabaseLogStreamsCommandOutput
+  extends GetRelationalDatabaseLogStreamsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Returns a list of available log streams for a specific database in Amazon Lightsail.</p>

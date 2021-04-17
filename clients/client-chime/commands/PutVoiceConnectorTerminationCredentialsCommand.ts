@@ -17,8 +17,9 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutVoiceConnectorTerminationCredentialsCommandInput = PutVoiceConnectorTerminationCredentialsRequest;
-export type PutVoiceConnectorTerminationCredentialsCommandOutput = __MetadataBearer;
+export interface PutVoiceConnectorTerminationCredentialsCommandInput
+  extends PutVoiceConnectorTerminationCredentialsRequest {}
+export interface PutVoiceConnectorTerminationCredentialsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Adds termination SIP credentials for the specified Amazon Chime Voice Connector.</p>

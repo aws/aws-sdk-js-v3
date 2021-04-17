@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSchemaByDefinitionCommandInput = GetSchemaByDefinitionInput;
-export type GetSchemaByDefinitionCommandOutput = GetSchemaByDefinitionResponse & __MetadataBearer;
+export interface GetSchemaByDefinitionCommandInput extends GetSchemaByDefinitionInput {}
+export interface GetSchemaByDefinitionCommandOutput extends GetSchemaByDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a schema by the <code>SchemaDefinition</code>. The schema definition is sent to the Schema Registry, canonicalized, and hashed. If the hash is matched within the scope of the <code>SchemaName</code> or ARN (or the default registry, if none is supplied), that schema’s metadata is returned. Otherwise, a 404 or NotFound error is returned. Schema versions in <code>Deleted</code> statuses will not be included in the results.</p>

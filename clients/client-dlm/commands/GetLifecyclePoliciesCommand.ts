@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetLifecyclePoliciesCommandInput = GetLifecyclePoliciesRequest;
-export type GetLifecyclePoliciesCommandOutput = GetLifecyclePoliciesResponse & __MetadataBearer;
+export interface GetLifecyclePoliciesCommandInput extends GetLifecyclePoliciesRequest {}
+export interface GetLifecyclePoliciesCommandOutput extends GetLifecyclePoliciesResponse, __MetadataBearer {}
 
 /**
  * <p>Gets summary information about all or the specified data lifecycle policies.</p>

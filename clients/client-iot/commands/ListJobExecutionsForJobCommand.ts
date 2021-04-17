@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListJobExecutionsForJobCommandInput = ListJobExecutionsForJobRequest;
-export type ListJobExecutionsForJobCommandOutput = ListJobExecutionsForJobResponse & __MetadataBearer;
+export interface ListJobExecutionsForJobCommandInput extends ListJobExecutionsForJobRequest {}
+export interface ListJobExecutionsForJobCommandOutput extends ListJobExecutionsForJobResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the job executions for a job.</p>

@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetClusterCredentialsCommandInput = GetClusterCredentialsMessage;
-export type GetClusterCredentialsCommandOutput = ClusterCredentials & __MetadataBearer;
+export interface GetClusterCredentialsCommandInput extends GetClusterCredentialsMessage {}
+export interface GetClusterCredentialsCommandOutput extends ClusterCredentials, __MetadataBearer {}
 
 /**
  * <p>Returns a database user name and temporary password with temporary authorization to

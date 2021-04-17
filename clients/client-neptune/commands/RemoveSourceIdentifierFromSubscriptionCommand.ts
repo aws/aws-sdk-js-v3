@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RemoveSourceIdentifierFromSubscriptionCommandInput = RemoveSourceIdentifierFromSubscriptionMessage;
-export type RemoveSourceIdentifierFromSubscriptionCommandOutput = RemoveSourceIdentifierFromSubscriptionResult &
-  __MetadataBearer;
+export interface RemoveSourceIdentifierFromSubscriptionCommandInput
+  extends RemoveSourceIdentifierFromSubscriptionMessage {}
+export interface RemoveSourceIdentifierFromSubscriptionCommandOutput
+  extends RemoveSourceIdentifierFromSubscriptionResult,
+    __MetadataBearer {}
 
 /**
  * <p>Removes a source identifier from an existing event notification subscription.</p>

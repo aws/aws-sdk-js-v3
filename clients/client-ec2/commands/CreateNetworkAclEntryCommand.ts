@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateNetworkAclEntryCommandInput = CreateNetworkAclEntryRequest;
-export type CreateNetworkAclEntryCommandOutput = __MetadataBearer;
+export interface CreateNetworkAclEntryCommandInput extends CreateNetworkAclEntryRequest {}
+export interface CreateNetworkAclEntryCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Creates an entry (a rule) in a network ACL with the specified rule number. Each network ACL has a set of numbered ingress rules

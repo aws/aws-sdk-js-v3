@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeParametersCommandInput = DescribeParametersRequest;
-export type DescribeParametersCommandOutput = DescribeParametersResult & __MetadataBearer;
+export interface DescribeParametersCommandInput extends DescribeParametersRequest {}
+export interface DescribeParametersCommandOutput extends DescribeParametersResult, __MetadataBearer {}
 
 /**
  * <p>Get information about a parameter.</p>

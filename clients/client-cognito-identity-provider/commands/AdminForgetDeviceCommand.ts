@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AdminForgetDeviceCommandInput = AdminForgetDeviceRequest;
-export type AdminForgetDeviceCommandOutput = __MetadataBearer;
+export interface AdminForgetDeviceCommandInput extends AdminForgetDeviceRequest {}
+export interface AdminForgetDeviceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Forgets the device, as an administrator.</p>

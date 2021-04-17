@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateTableCommandInput = UpdateTableInput;
-export type UpdateTableCommandOutput = UpdateTableOutput & __MetadataBearer;
+export interface UpdateTableCommandInput extends UpdateTableInput {}
+export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataBearer {}
 
 /**
  * <p>Modifies the provisioned throughput settings, global secondary indexes, or DynamoDB Streams settings for a given table.</p>

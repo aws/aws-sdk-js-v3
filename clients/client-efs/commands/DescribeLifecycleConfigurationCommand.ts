@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeLifecycleConfigurationCommandInput = DescribeLifecycleConfigurationRequest;
-export type DescribeLifecycleConfigurationCommandOutput = LifecycleConfigurationDescription & __MetadataBearer;
+export interface DescribeLifecycleConfigurationCommandInput extends DescribeLifecycleConfigurationRequest {}
+export interface DescribeLifecycleConfigurationCommandOutput
+  extends LifecycleConfigurationDescription,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the current <code>LifecycleConfiguration</code> object for the specified Amazon

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDetectorVersionCommandInput = DeleteDetectorVersionRequest;
-export type DeleteDetectorVersionCommandOutput = DeleteDetectorVersionResult & __MetadataBearer;
+export interface DeleteDetectorVersionCommandInput extends DeleteDetectorVersionRequest {}
+export interface DeleteDetectorVersionCommandOutput extends DeleteDetectorVersionResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the detector version. You cannot delete detector versions that are in <code>ACTIVE</code> status.</p>

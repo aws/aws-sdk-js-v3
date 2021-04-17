@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeLoadBalancersCommandInput = DescribeAccessPointsInput;
-export type DescribeLoadBalancersCommandOutput = DescribeAccessPointsOutput & __MetadataBearer;
+export interface DescribeLoadBalancersCommandInput extends DescribeAccessPointsInput {}
+export interface DescribeLoadBalancersCommandOutput extends DescribeAccessPointsOutput, __MetadataBearer {}
 
 /**
  * <p>Describes the specified the load balancers. If no load balancers are specified, the call describes all of your load balancers.</p>

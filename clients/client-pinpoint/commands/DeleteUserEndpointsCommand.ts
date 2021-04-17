@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteUserEndpointsCommandInput = DeleteUserEndpointsRequest;
-export type DeleteUserEndpointsCommandOutput = DeleteUserEndpointsResponse & __MetadataBearer;
+export interface DeleteUserEndpointsCommandInput extends DeleteUserEndpointsRequest {}
+export interface DeleteUserEndpointsCommandOutput extends DeleteUserEndpointsResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes all the endpoints that are associated with a specific user ID.</p>

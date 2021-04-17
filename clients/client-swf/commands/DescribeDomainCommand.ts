@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDomainCommandInput = DescribeDomainInput;
-export type DescribeDomainCommandOutput = DomainDetail & __MetadataBearer;
+export interface DescribeDomainCommandInput extends DescribeDomainInput {}
+export interface DescribeDomainCommandOutput extends DomainDetail, __MetadataBearer {}
 
 /**
  * <p>Returns information about the specified domain, including description and

@@ -19,8 +19,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type HeadObjectCommandInput = HeadObjectRequest;
-export type HeadObjectCommandOutput = HeadObjectOutput & __MetadataBearer;
+export interface HeadObjectCommandInput extends HeadObjectRequest {}
+export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBearer {}
 
 /**
  * <p>The HEAD action retrieves metadata from an object without returning the object

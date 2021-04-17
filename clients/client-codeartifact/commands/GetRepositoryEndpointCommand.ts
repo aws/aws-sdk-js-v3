@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetRepositoryEndpointCommandInput = GetRepositoryEndpointRequest;
-export type GetRepositoryEndpointCommandOutput = GetRepositoryEndpointResult & __MetadataBearer;
+export interface GetRepositoryEndpointCommandInput extends GetRepositoryEndpointRequest {}
+export interface GetRepositoryEndpointCommandOutput extends GetRepositoryEndpointResult, __MetadataBearer {}
 
 /**
  * <p>

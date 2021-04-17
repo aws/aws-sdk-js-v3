@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type FailoverGlobalClusterCommandInput = FailoverGlobalClusterMessage;
-export type FailoverGlobalClusterCommandOutput = FailoverGlobalClusterResult & __MetadataBearer;
+export interface FailoverGlobalClusterCommandInput extends FailoverGlobalClusterMessage {}
+export interface FailoverGlobalClusterCommandOutput extends FailoverGlobalClusterResult, __MetadataBearer {}
 
 /**
  * <p>Initiates the failover process for an Aurora global database (<a>GlobalCluster</a>).</p>

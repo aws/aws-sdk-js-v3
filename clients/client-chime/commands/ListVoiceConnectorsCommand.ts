@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListVoiceConnectorsCommandInput = ListVoiceConnectorsRequest;
-export type ListVoiceConnectorsCommandOutput = ListVoiceConnectorsResponse & __MetadataBearer;
+export interface ListVoiceConnectorsCommandInput extends ListVoiceConnectorsRequest {}
+export interface ListVoiceConnectorsCommandOutput extends ListVoiceConnectorsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the Amazon Chime Voice Connectors for the administrator's AWS account.</p>

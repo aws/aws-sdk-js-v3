@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopHumanLoopCommandInput = StopHumanLoopRequest;
-export type StopHumanLoopCommandOutput = StopHumanLoopResponse & __MetadataBearer;
+export interface StopHumanLoopCommandInput extends StopHumanLoopRequest {}
+export interface StopHumanLoopCommandOutput extends StopHumanLoopResponse, __MetadataBearer {}
 
 /**
  * <p>Stops the specified human loop.</p>

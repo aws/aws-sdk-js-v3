@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteNetworkProfileCommandInput = DeleteNetworkProfileRequest;
-export type DeleteNetworkProfileCommandOutput = DeleteNetworkProfileResponse & __MetadataBearer;
+export interface DeleteNetworkProfileCommandInput extends DeleteNetworkProfileRequest {}
+export interface DeleteNetworkProfileCommandOutput extends DeleteNetworkProfileResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a network profile by the network profile ARN.</p>

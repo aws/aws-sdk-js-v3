@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AdminSetUserSettingsCommandInput = AdminSetUserSettingsRequest;
-export type AdminSetUserSettingsCommandOutput = AdminSetUserSettingsResponse & __MetadataBearer;
+export interface AdminSetUserSettingsCommandInput extends AdminSetUserSettingsRequest {}
+export interface AdminSetUserSettingsCommandOutput extends AdminSetUserSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>

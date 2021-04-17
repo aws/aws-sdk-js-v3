@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAppValidationConfigurationCommandInput = DeleteAppValidationConfigurationRequest;
-export type DeleteAppValidationConfigurationCommandOutput = DeleteAppValidationConfigurationResponse & __MetadataBearer;
+export interface DeleteAppValidationConfigurationCommandInput extends DeleteAppValidationConfigurationRequest {}
+export interface DeleteAppValidationConfigurationCommandOutput
+  extends DeleteAppValidationConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes the validation configuration for the specified application.</p>

@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTargetGroupsCommandInput = DescribeTargetGroupsInput;
-export type DescribeTargetGroupsCommandOutput = DescribeTargetGroupsOutput & __MetadataBearer;
+export interface DescribeTargetGroupsCommandInput extends DescribeTargetGroupsInput {}
+export interface DescribeTargetGroupsCommandOutput extends DescribeTargetGroupsOutput, __MetadataBearer {}
 
 /**
  * <p>Describes the specified target groups or all of your target groups. By default, all target

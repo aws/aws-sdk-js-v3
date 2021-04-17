@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetImageRecipePolicyCommandInput = GetImageRecipePolicyRequest;
-export type GetImageRecipePolicyCommandOutput = GetImageRecipePolicyResponse & __MetadataBearer;
+export interface GetImageRecipePolicyCommandInput extends GetImageRecipePolicyRequest {}
+export interface GetImageRecipePolicyCommandOutput extends GetImageRecipePolicyResponse, __MetadataBearer {}
 
 /**
  * <p> Gets an image recipe policy.</p>

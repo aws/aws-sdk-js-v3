@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListSAMLProvidersCommandInput = ListSAMLProvidersRequest;
-export type ListSAMLProvidersCommandOutput = ListSAMLProvidersResponse & __MetadataBearer;
+export interface ListSAMLProvidersCommandInput extends ListSAMLProvidersRequest {}
+export interface ListSAMLProvidersCommandOutput extends ListSAMLProvidersResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the SAML provider resource objects defined in IAM in the account.

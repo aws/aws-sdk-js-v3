@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateAssessmentTargetCommandInput = CreateAssessmentTargetRequest;
-export type CreateAssessmentTargetCommandOutput = CreateAssessmentTargetResponse & __MetadataBearer;
+export interface CreateAssessmentTargetCommandInput extends CreateAssessmentTargetRequest {}
+export interface CreateAssessmentTargetCommandOutput extends CreateAssessmentTargetResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new assessment target using the ARN of the resource group that is generated

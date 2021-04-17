@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateScalingPlanCommandInput = UpdateScalingPlanRequest;
-export type UpdateScalingPlanCommandOutput = UpdateScalingPlanResponse & __MetadataBearer;
+export interface UpdateScalingPlanCommandInput extends UpdateScalingPlanRequest {}
+export interface UpdateScalingPlanCommandOutput extends UpdateScalingPlanResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the specified scaling plan.</p>

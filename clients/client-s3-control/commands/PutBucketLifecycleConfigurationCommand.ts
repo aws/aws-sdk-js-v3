@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutBucketLifecycleConfigurationCommandInput = PutBucketLifecycleConfigurationRequest;
-export type PutBucketLifecycleConfigurationCommandOutput = __MetadataBearer;
+export interface PutBucketLifecycleConfigurationCommandInput extends PutBucketLifecycleConfigurationRequest {}
+export interface PutBucketLifecycleConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
  * <note>

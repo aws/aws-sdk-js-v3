@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetPersonTrackingCommandInput = GetPersonTrackingRequest;
-export type GetPersonTrackingCommandOutput = GetPersonTrackingResponse & __MetadataBearer;
+export interface GetPersonTrackingCommandInput extends GetPersonTrackingRequest {}
+export interface GetPersonTrackingCommandOutput extends GetPersonTrackingResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the path tracking results of a Amazon Rekognition Video analysis started by <a>StartPersonTracking</a>.</p>

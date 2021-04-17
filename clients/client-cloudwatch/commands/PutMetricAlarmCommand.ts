@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutMetricAlarmCommandInput = PutMetricAlarmInput;
-export type PutMetricAlarmCommandOutput = __MetadataBearer;
+export interface PutMetricAlarmCommandInput extends PutMetricAlarmInput {}
+export interface PutMetricAlarmCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Creates or updates an alarm and associates it with the specified metric, metric math expression,

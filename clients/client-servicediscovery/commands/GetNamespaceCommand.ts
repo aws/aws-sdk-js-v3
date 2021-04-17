@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetNamespaceCommandInput = GetNamespaceRequest;
-export type GetNamespaceCommandOutput = GetNamespaceResponse & __MetadataBearer;
+export interface GetNamespaceCommandInput extends GetNamespaceRequest {}
+export interface GetNamespaceCommandOutput extends GetNamespaceResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about a namespace.</p>

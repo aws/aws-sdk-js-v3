@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListWorkspacesCommandInput = ListWorkspacesRequest;
-export type ListWorkspacesCommandOutput = ListWorkspacesResponse & __MetadataBearer;
+export interface ListWorkspacesCommandInput extends ListWorkspacesRequest {}
+export interface ListWorkspacesCommandOutput extends ListWorkspacesResponse, __MetadataBearer {}
 
 /**
  * Lists all AMP workspaces, including workspaces being created or deleted.

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetVoiceConnectorGroupCommandInput = GetVoiceConnectorGroupRequest;
-export type GetVoiceConnectorGroupCommandOutput = GetVoiceConnectorGroupResponse & __MetadataBearer;
+export interface GetVoiceConnectorGroupCommandInput extends GetVoiceConnectorGroupRequest {}
+export interface GetVoiceConnectorGroupCommandOutput extends GetVoiceConnectorGroupResponse, __MetadataBearer {}
 
 /**
  * <p>

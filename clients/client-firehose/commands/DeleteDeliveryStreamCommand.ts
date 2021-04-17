@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDeliveryStreamCommandInput = DeleteDeliveryStreamInput;
-export type DeleteDeliveryStreamCommandOutput = DeleteDeliveryStreamOutput & __MetadataBearer;
+export interface DeleteDeliveryStreamCommandInput extends DeleteDeliveryStreamInput {}
+export interface DeleteDeliveryStreamCommandOutput extends DeleteDeliveryStreamOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes a delivery stream and its data.</p>

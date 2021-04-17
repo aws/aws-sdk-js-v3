@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetUpgradeStatusCommandInput = GetUpgradeStatusRequest;
-export type GetUpgradeStatusCommandOutput = GetUpgradeStatusResponse & __MetadataBearer;
+export interface GetUpgradeStatusCommandInput extends GetUpgradeStatusRequest {}
+export interface GetUpgradeStatusCommandOutput extends GetUpgradeStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the latest status of the last upgrade or upgrade eligibility check that was performed on the domain.</p>

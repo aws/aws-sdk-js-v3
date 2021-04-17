@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateNotificationCommandInput = CreateNotificationRequest;
-export type CreateNotificationCommandOutput = CreateNotificationResponse & __MetadataBearer;
+export interface CreateNotificationCommandInput extends CreateNotificationRequest {}
+export interface CreateNotificationCommandOutput extends CreateNotificationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a notification. You must create the budget before you create the associated notification.</p>

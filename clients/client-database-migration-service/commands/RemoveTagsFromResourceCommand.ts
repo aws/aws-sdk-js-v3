@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RemoveTagsFromResourceCommandInput = RemoveTagsFromResourceMessage;
-export type RemoveTagsFromResourceCommandOutput = RemoveTagsFromResourceResponse & __MetadataBearer;
+export interface RemoveTagsFromResourceCommandInput extends RemoveTagsFromResourceMessage {}
+export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResourceResponse, __MetadataBearer {}
 
 /**
  * <p>Removes metadata tags from an AWS DMS resource, including replication instance,

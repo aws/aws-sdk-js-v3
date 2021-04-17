@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetVocabularyFilterCommandInput = GetVocabularyFilterRequest;
-export type GetVocabularyFilterCommandOutput = GetVocabularyFilterResponse & __MetadataBearer;
+export interface GetVocabularyFilterCommandInput extends GetVocabularyFilterRequest {}
+export interface GetVocabularyFilterCommandOutput extends GetVocabularyFilterResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about a vocabulary filter.</p>

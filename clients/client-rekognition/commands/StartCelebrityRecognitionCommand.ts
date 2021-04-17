@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartCelebrityRecognitionCommandInput = StartCelebrityRecognitionRequest;
-export type StartCelebrityRecognitionCommandOutput = StartCelebrityRecognitionResponse & __MetadataBearer;
+export interface StartCelebrityRecognitionCommandInput extends StartCelebrityRecognitionRequest {}
+export interface StartCelebrityRecognitionCommandOutput extends StartCelebrityRecognitionResponse, __MetadataBearer {}
 
 /**
  * <p>Starts asynchronous recognition of celebrities in a stored video.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeCollectionCommandInput = DescribeCollectionRequest;
-export type DescribeCollectionCommandOutput = DescribeCollectionResponse & __MetadataBearer;
+export interface DescribeCollectionCommandInput extends DescribeCollectionRequest {}
+export interface DescribeCollectionCommandOutput extends DescribeCollectionResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the specified collection. You can use <code>DescribeCollection</code> to get

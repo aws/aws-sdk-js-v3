@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateDocumentVersionCommandInput = UpdateDocumentVersionRequest;
-export type UpdateDocumentVersionCommandOutput = __MetadataBearer;
+export interface UpdateDocumentVersionCommandInput extends UpdateDocumentVersionRequest {}
+export interface UpdateDocumentVersionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Changes the status of the document version to ACTIVE. </p>

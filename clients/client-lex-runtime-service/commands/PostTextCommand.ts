@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PostTextCommandInput = PostTextRequest;
-export type PostTextCommandOutput = PostTextResponse & __MetadataBearer;
+export interface PostTextCommandInput extends PostTextRequest {}
+export interface PostTextCommandOutput extends PostTextResponse, __MetadataBearer {}
 
 /**
  * <p>Sends user input to Amazon Lex. Client applications can use this API to

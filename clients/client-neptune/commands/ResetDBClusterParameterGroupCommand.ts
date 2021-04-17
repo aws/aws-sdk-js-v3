@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ResetDBClusterParameterGroupCommandInput = ResetDBClusterParameterGroupMessage;
-export type ResetDBClusterParameterGroupCommandOutput = DBClusterParameterGroupNameMessage & __MetadataBearer;
+export interface ResetDBClusterParameterGroupCommandInput extends ResetDBClusterParameterGroupMessage {}
+export interface ResetDBClusterParameterGroupCommandOutput
+  extends DBClusterParameterGroupNameMessage,
+    __MetadataBearer {}
 
 /**
  * <p> Modifies the parameters of a DB cluster parameter group to the default value. To reset

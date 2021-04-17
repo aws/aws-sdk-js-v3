@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListReusableDelegationSetsCommandInput = ListReusableDelegationSetsRequest;
-export type ListReusableDelegationSetsCommandOutput = ListReusableDelegationSetsResponse & __MetadataBearer;
+export interface ListReusableDelegationSetsCommandInput extends ListReusableDelegationSetsRequest {}
+export interface ListReusableDelegationSetsCommandOutput extends ListReusableDelegationSetsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of the reusable delegation sets that are associated with the current AWS account.</p>

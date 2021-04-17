@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeWorkspacesCommandInput = DescribeWorkspacesRequest;
-export type DescribeWorkspacesCommandOutput = DescribeWorkspacesResult & __MetadataBearer;
+export interface DescribeWorkspacesCommandInput extends DescribeWorkspacesRequest {}
+export interface DescribeWorkspacesCommandOutput extends DescribeWorkspacesResult, __MetadataBearer {}
 
 /**
  * <p>Describes the specified WorkSpaces.</p>

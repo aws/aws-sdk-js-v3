@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateVirtualMFADeviceCommandInput = CreateVirtualMFADeviceRequest;
-export type CreateVirtualMFADeviceCommandOutput = CreateVirtualMFADeviceResponse & __MetadataBearer;
+export interface CreateVirtualMFADeviceCommandInput extends CreateVirtualMFADeviceRequest {}
+export interface CreateVirtualMFADeviceCommandOutput extends CreateVirtualMFADeviceResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new virtual MFA device for the AWS account. After creating the virtual

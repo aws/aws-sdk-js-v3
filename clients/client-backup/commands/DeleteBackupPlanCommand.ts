@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteBackupPlanCommandInput = DeleteBackupPlanInput;
-export type DeleteBackupPlanCommandOutput = DeleteBackupPlanOutput & __MetadataBearer;
+export interface DeleteBackupPlanCommandInput extends DeleteBackupPlanInput {}
+export interface DeleteBackupPlanCommandOutput extends DeleteBackupPlanOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes a backup plan. A backup plan can only be deleted after all associated selections

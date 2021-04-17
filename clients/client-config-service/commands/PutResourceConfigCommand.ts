@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutResourceConfigCommandInput = PutResourceConfigRequest;
-export type PutResourceConfigCommandOutput = __MetadataBearer;
+export interface PutResourceConfigCommandInput extends PutResourceConfigRequest {}
+export interface PutResourceConfigCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Records the configuration state for the resource provided in the request.

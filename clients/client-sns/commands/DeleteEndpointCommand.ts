@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteEndpointCommandInput = DeleteEndpointInput;
-export type DeleteEndpointCommandOutput = __MetadataBearer;
+export interface DeleteEndpointCommandInput extends DeleteEndpointInput {}
+export interface DeleteEndpointCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the endpoint for a device and mobile app from Amazon SNS. This action is

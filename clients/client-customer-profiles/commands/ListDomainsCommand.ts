@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDomainsCommandInput = ListDomainsRequest;
-export type ListDomainsCommandOutput = ListDomainsResponse & __MetadataBearer;
+export interface ListDomainsCommandInput extends ListDomainsRequest {}
+export interface ListDomainsCommandOutput extends ListDomainsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of all the domains for an AWS account that have been created.</p>

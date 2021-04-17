@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeConformancePackComplianceCommandInput = DescribeConformancePackComplianceRequest;
-export type DescribeConformancePackComplianceCommandOutput = DescribeConformancePackComplianceResponse &
-  __MetadataBearer;
+export interface DescribeConformancePackComplianceCommandInput extends DescribeConformancePackComplianceRequest {}
+export interface DescribeConformancePackComplianceCommandOutput
+  extends DescribeConformancePackComplianceResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns compliance details for each rule in that conformance pack.</p>

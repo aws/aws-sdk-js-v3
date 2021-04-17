@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type JoinDomainCommandInput = JoinDomainInput;
-export type JoinDomainCommandOutput = JoinDomainOutput & __MetadataBearer;
+export interface JoinDomainCommandInput extends JoinDomainInput {}
+export interface JoinDomainCommandOutput extends JoinDomainOutput, __MetadataBearer {}
 
 /**
  * <p>Adds a file gateway to an Active Directory domain. This operation is only supported for

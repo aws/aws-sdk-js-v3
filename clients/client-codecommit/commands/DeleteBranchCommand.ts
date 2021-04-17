@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteBranchCommandInput = DeleteBranchInput;
-export type DeleteBranchCommandOutput = DeleteBranchOutput & __MetadataBearer;
+export interface DeleteBranchCommandInput extends DeleteBranchInput {}
+export interface DeleteBranchCommandOutput extends DeleteBranchOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes a branch from a repository, unless that branch is the default branch for the repository. </p>

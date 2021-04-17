@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAccountAssignmentCreationStatusCommandInput = ListAccountAssignmentCreationStatusRequest;
-export type ListAccountAssignmentCreationStatusCommandOutput = ListAccountAssignmentCreationStatusResponse &
-  __MetadataBearer;
+export interface ListAccountAssignmentCreationStatusCommandInput extends ListAccountAssignmentCreationStatusRequest {}
+export interface ListAccountAssignmentCreationStatusCommandOutput
+  extends ListAccountAssignmentCreationStatusResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Lists the status of the AWS account assignment creation requests for a specified SSO

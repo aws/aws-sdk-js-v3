@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateReceiptFilterCommandInput = CreateReceiptFilterRequest;
-export type CreateReceiptFilterCommandOutput = CreateReceiptFilterResponse & __MetadataBearer;
+export interface CreateReceiptFilterCommandInput extends CreateReceiptFilterRequest {}
+export interface CreateReceiptFilterCommandOutput extends CreateReceiptFilterResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new IP address filter.</p>

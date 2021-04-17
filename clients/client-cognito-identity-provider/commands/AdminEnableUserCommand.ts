@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AdminEnableUserCommandInput = AdminEnableUserRequest;
-export type AdminEnableUserCommandOutput = AdminEnableUserResponse & __MetadataBearer;
+export interface AdminEnableUserCommandInput extends AdminEnableUserRequest {}
+export interface AdminEnableUserCommandOutput extends AdminEnableUserResponse, __MetadataBearer {}
 
 /**
  * <p>Enables the specified user as an administrator. Works on any user.</p>

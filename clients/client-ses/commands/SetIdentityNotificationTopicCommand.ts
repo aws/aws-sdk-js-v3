@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetIdentityNotificationTopicCommandInput = SetIdentityNotificationTopicRequest;
-export type SetIdentityNotificationTopicCommandOutput = SetIdentityNotificationTopicResponse & __MetadataBearer;
+export interface SetIdentityNotificationTopicCommandInput extends SetIdentityNotificationTopicRequest {}
+export interface SetIdentityNotificationTopicCommandOutput
+  extends SetIdentityNotificationTopicResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Sets an Amazon Simple Notification Service (Amazon SNS) topic to use when delivering notifications. When you use

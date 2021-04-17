@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTypeRegistrationCommandInput = DescribeTypeRegistrationInput;
-export type DescribeTypeRegistrationCommandOutput = DescribeTypeRegistrationOutput & __MetadataBearer;
+export interface DescribeTypeRegistrationCommandInput extends DescribeTypeRegistrationInput {}
+export interface DescribeTypeRegistrationCommandOutput extends DescribeTypeRegistrationOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about an extension's registration, including its current status and type and version identifiers.</p>

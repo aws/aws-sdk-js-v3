@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchGetCustomDataIdentifiersCommandInput = BatchGetCustomDataIdentifiersRequest;
-export type BatchGetCustomDataIdentifiersCommandOutput = BatchGetCustomDataIdentifiersResponse & __MetadataBearer;
+export interface BatchGetCustomDataIdentifiersCommandInput extends BatchGetCustomDataIdentifiersRequest {}
+export interface BatchGetCustomDataIdentifiersCommandOutput
+  extends BatchGetCustomDataIdentifiersResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves information about one or more custom data identifiers.</p>

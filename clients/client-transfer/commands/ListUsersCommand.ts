@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListUsersCommandInput = ListUsersRequest;
-export type ListUsersCommandOutput = ListUsersResponse & __MetadataBearer;
+export interface ListUsersCommandInput extends ListUsersRequest {}
+export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the users for a file transfer protocol-enabled server that you specify by passing

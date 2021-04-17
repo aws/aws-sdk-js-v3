@@ -19,8 +19,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateMultipartUploadCommandInput = CreateMultipartUploadRequest;
-export type CreateMultipartUploadCommandOutput = CreateMultipartUploadOutput & __MetadataBearer;
+export interface CreateMultipartUploadCommandInput extends CreateMultipartUploadRequest {}
+export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploadOutput, __MetadataBearer {}
 
 /**
  * <p>This action initiates a multipart upload and returns an upload ID. This upload ID is

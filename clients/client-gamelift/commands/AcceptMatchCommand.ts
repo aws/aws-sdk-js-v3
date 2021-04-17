@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AcceptMatchCommandInput = AcceptMatchInput;
-export type AcceptMatchCommandOutput = AcceptMatchOutput & __MetadataBearer;
+export interface AcceptMatchCommandInput extends AcceptMatchInput {}
+export interface AcceptMatchCommandOutput extends AcceptMatchOutput, __MetadataBearer {}
 
 /**
  * <p>Registers a player's acceptance or rejection of a proposed FlexMatch match. A

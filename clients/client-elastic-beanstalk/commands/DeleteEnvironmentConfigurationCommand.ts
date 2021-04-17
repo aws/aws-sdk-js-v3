@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteEnvironmentConfigurationCommandInput = DeleteEnvironmentConfigurationMessage;
-export type DeleteEnvironmentConfigurationCommandOutput = __MetadataBearer;
+export interface DeleteEnvironmentConfigurationCommandInput extends DeleteEnvironmentConfigurationMessage {}
+export interface DeleteEnvironmentConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the draft configuration associated with the running environment.</p>

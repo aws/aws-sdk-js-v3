@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartExportLabelsTaskRunCommandInput = StartExportLabelsTaskRunRequest;
-export type StartExportLabelsTaskRunCommandOutput = StartExportLabelsTaskRunResponse & __MetadataBearer;
+export interface StartExportLabelsTaskRunCommandInput extends StartExportLabelsTaskRunRequest {}
+export interface StartExportLabelsTaskRunCommandOutput extends StartExportLabelsTaskRunResponse, __MetadataBearer {}
 
 /**
  * <p>Begins an asynchronous task to export all labeled data for a particular transform. This

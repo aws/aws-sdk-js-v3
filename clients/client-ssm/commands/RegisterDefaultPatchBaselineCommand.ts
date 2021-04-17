@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterDefaultPatchBaselineCommandInput = RegisterDefaultPatchBaselineRequest;
-export type RegisterDefaultPatchBaselineCommandOutput = RegisterDefaultPatchBaselineResult & __MetadataBearer;
+export interface RegisterDefaultPatchBaselineCommandInput extends RegisterDefaultPatchBaselineRequest {}
+export interface RegisterDefaultPatchBaselineCommandOutput
+  extends RegisterDefaultPatchBaselineResult,
+    __MetadataBearer {}
 
 /**
  * <p>Defines the default patch baseline for the relevant operating system.</p>

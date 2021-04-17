@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTagsForDomainCommandInput = ListTagsForDomainRequest;
-export type ListTagsForDomainCommandOutput = ListTagsForDomainResponse & __MetadataBearer;
+export interface ListTagsForDomainCommandInput extends ListTagsForDomainRequest {}
+export interface ListTagsForDomainCommandOutput extends ListTagsForDomainResponse, __MetadataBearer {}
 
 /**
  * <p>This operation returns all of the tags that are associated with the specified domain.</p>

@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateHsmCommandInput = CreateHsmRequest;
-export type CreateHsmCommandOutput = CreateHsmResponse & __MetadataBearer;
+export interface CreateHsmCommandInput extends CreateHsmRequest {}
+export interface CreateHsmCommandOutput extends CreateHsmResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new hardware security module (HSM) in the specified AWS CloudHSM

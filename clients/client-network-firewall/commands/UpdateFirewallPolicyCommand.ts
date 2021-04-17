@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateFirewallPolicyCommandInput = UpdateFirewallPolicyRequest;
-export type UpdateFirewallPolicyCommandOutput = UpdateFirewallPolicyResponse & __MetadataBearer;
+export interface UpdateFirewallPolicyCommandInput extends UpdateFirewallPolicyRequest {}
+export interface UpdateFirewallPolicyCommandOutput extends UpdateFirewallPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the properties of the specified firewall policy.</p>

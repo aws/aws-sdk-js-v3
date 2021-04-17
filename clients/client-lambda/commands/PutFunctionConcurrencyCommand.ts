@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutFunctionConcurrencyCommandInput = PutFunctionConcurrencyRequest;
-export type PutFunctionConcurrencyCommandOutput = Concurrency & __MetadataBearer;
+export interface PutFunctionConcurrencyCommandInput extends PutFunctionConcurrencyRequest {}
+export interface PutFunctionConcurrencyCommandOutput extends Concurrency, __MetadataBearer {}
 
 /**
  * <p>Sets the maximum number of simultaneous executions for a function, and reserves capacity for that concurrency

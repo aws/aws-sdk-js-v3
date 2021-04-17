@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDiskSnapshotCommandInput = CreateDiskSnapshotRequest;
-export type CreateDiskSnapshotCommandOutput = CreateDiskSnapshotResult & __MetadataBearer;
+export interface CreateDiskSnapshotCommandInput extends CreateDiskSnapshotRequest {}
+export interface CreateDiskSnapshotCommandOutput extends CreateDiskSnapshotResult, __MetadataBearer {}
 
 /**
  * <p>Creates a snapshot of a block storage disk. You can use snapshots for backups, to make

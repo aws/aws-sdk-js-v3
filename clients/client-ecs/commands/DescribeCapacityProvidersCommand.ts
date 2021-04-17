@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeCapacityProvidersCommandInput = DescribeCapacityProvidersRequest;
-export type DescribeCapacityProvidersCommandOutput = DescribeCapacityProvidersResponse & __MetadataBearer;
+export interface DescribeCapacityProvidersCommandInput extends DescribeCapacityProvidersRequest {}
+export interface DescribeCapacityProvidersCommandOutput extends DescribeCapacityProvidersResponse, __MetadataBearer {}
 
 /**
  * <p>Describes one or more of your capacity providers.</p>

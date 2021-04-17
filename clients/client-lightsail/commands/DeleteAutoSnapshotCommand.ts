@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAutoSnapshotCommandInput = DeleteAutoSnapshotRequest;
-export type DeleteAutoSnapshotCommandOutput = DeleteAutoSnapshotResult & __MetadataBearer;
+export interface DeleteAutoSnapshotCommandInput extends DeleteAutoSnapshotRequest {}
+export interface DeleteAutoSnapshotCommandOutput extends DeleteAutoSnapshotResult, __MetadataBearer {}
 
 /**
  * <p>Deletes an automatic snapshot of an instance or disk. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Lightsail Dev Guide</a>.</p>

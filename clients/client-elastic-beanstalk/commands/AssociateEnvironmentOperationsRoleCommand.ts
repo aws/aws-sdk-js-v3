@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateEnvironmentOperationsRoleCommandInput = AssociateEnvironmentOperationsRoleMessage;
-export type AssociateEnvironmentOperationsRoleCommandOutput = __MetadataBearer;
+export interface AssociateEnvironmentOperationsRoleCommandInput extends AssociateEnvironmentOperationsRoleMessage {}
+export interface AssociateEnvironmentOperationsRoleCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Add or change the operations role used by an environment. After this call is made, Elastic Beanstalk

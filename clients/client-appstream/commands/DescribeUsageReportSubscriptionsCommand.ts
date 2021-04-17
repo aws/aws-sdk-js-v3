@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeUsageReportSubscriptionsCommandInput = DescribeUsageReportSubscriptionsRequest;
-export type DescribeUsageReportSubscriptionsCommandOutput = DescribeUsageReportSubscriptionsResult & __MetadataBearer;
+export interface DescribeUsageReportSubscriptionsCommandInput extends DescribeUsageReportSubscriptionsRequest {}
+export interface DescribeUsageReportSubscriptionsCommandOutput
+  extends DescribeUsageReportSubscriptionsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves a list that describes one or more usage report subscriptions.</p>

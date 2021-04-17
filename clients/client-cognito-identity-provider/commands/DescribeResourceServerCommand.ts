@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeResourceServerCommandInput = DescribeResourceServerRequest;
-export type DescribeResourceServerCommandOutput = DescribeResourceServerResponse & __MetadataBearer;
+export interface DescribeResourceServerCommandInput extends DescribeResourceServerRequest {}
+export interface DescribeResourceServerCommandOutput extends DescribeResourceServerResponse, __MetadataBearer {}
 
 /**
  * <p>Describes a resource server.</p>

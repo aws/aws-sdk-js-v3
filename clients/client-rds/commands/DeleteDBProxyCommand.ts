@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDBProxyCommandInput = DeleteDBProxyRequest;
-export type DeleteDBProxyCommandOutput = DeleteDBProxyResponse & __MetadataBearer;
+export interface DeleteDBProxyCommandInput extends DeleteDBProxyRequest {}
+export interface DeleteDBProxyCommandOutput extends DeleteDBProxyResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an existing DB proxy.</p>

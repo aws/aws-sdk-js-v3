@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CopyProductCommandInput = CopyProductInput;
-export type CopyProductCommandOutput = CopyProductOutput & __MetadataBearer;
+export interface CopyProductCommandInput extends CopyProductInput {}
+export interface CopyProductCommandOutput extends CopyProductOutput, __MetadataBearer {}
 
 /**
  * <p>Copies the specified source product to the specified target product or a new product.</p>

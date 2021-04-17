@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteStateMachineCommandInput = DeleteStateMachineInput;
-export type DeleteStateMachineCommandOutput = DeleteStateMachineOutput & __MetadataBearer;
+export interface DeleteStateMachineCommandInput extends DeleteStateMachineInput {}
+export interface DeleteStateMachineCommandOutput extends DeleteStateMachineOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes a state machine. This is an asynchronous operation: It sets the state machine's

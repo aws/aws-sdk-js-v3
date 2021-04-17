@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteApplicationSnapshotCommandInput = DeleteApplicationSnapshotRequest;
-export type DeleteApplicationSnapshotCommandOutput = DeleteApplicationSnapshotResponse & __MetadataBearer;
+export interface DeleteApplicationSnapshotCommandInput extends DeleteApplicationSnapshotRequest {}
+export interface DeleteApplicationSnapshotCommandOutput extends DeleteApplicationSnapshotResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a snapshot of application state.</p>

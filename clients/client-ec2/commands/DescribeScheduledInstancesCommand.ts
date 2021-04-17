@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeScheduledInstancesCommandInput = DescribeScheduledInstancesRequest;
-export type DescribeScheduledInstancesCommandOutput = DescribeScheduledInstancesResult & __MetadataBearer;
+export interface DescribeScheduledInstancesCommandInput extends DescribeScheduledInstancesRequest {}
+export interface DescribeScheduledInstancesCommandOutput extends DescribeScheduledInstancesResult, __MetadataBearer {}
 
 /**
  * <p>Describes the specified Scheduled Instances or all your Scheduled Instances.</p>

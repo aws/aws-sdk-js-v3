@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateEnvironmentCommandInput = CreateEnvironmentInput;
-export type CreateEnvironmentCommandOutput = CreateEnvironmentOutput & __MetadataBearer;
+export interface CreateEnvironmentCommandInput extends CreateEnvironmentInput {}
+export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput, __MetadataBearer {}
 
 /**
  * <p>JSON blob that describes the environment to create.</p>

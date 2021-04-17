@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateVirtualInterfaceCommandInput = AssociateVirtualInterfaceRequest;
-export type AssociateVirtualInterfaceCommandOutput = VirtualInterface & __MetadataBearer;
+export interface AssociateVirtualInterfaceCommandInput extends AssociateVirtualInterfaceRequest {}
+export interface AssociateVirtualInterfaceCommandOutput extends VirtualInterface, __MetadataBearer {}
 
 /**
  * <p>Associates a virtual interface with a specified link aggregation group (LAG) or

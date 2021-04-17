@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RemoveSchemaVersionMetadataCommandInput = RemoveSchemaVersionMetadataInput;
-export type RemoveSchemaVersionMetadataCommandOutput = RemoveSchemaVersionMetadataResponse & __MetadataBearer;
+export interface RemoveSchemaVersionMetadataCommandInput extends RemoveSchemaVersionMetadataInput {}
+export interface RemoveSchemaVersionMetadataCommandOutput
+  extends RemoveSchemaVersionMetadataResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Removes a key value pair from the schema version metadata for the specified schema version ID.</p>

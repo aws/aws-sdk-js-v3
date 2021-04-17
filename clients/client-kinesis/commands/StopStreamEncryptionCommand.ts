@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopStreamEncryptionCommandInput = StopStreamEncryptionInput;
-export type StopStreamEncryptionCommandOutput = __MetadataBearer;
+export interface StopStreamEncryptionCommandInput extends StopStreamEncryptionInput {}
+export interface StopStreamEncryptionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Disables server-side encryption for a specified stream. </p>

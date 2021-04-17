@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDomainNameCommandInput = CreateDomainNameRequest;
-export type CreateDomainNameCommandOutput = CreateDomainNameResponse & __MetadataBearer;
+export interface CreateDomainNameCommandInput extends CreateDomainNameRequest {}
+export interface CreateDomainNameCommandOutput extends CreateDomainNameResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a domain name.</p>

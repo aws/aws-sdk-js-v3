@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetMLTransformCommandInput = GetMLTransformRequest;
-export type GetMLTransformCommandOutput = GetMLTransformResponse & __MetadataBearer;
+export interface GetMLTransformCommandInput extends GetMLTransformRequest {}
+export interface GetMLTransformCommandOutput extends GetMLTransformResponse, __MetadataBearer {}
 
 /**
  * <p>Gets an AWS Glue machine learning transform artifact and all its corresponding metadata.

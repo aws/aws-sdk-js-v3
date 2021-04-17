@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetMemberDetectorsCommandInput = GetMemberDetectorsRequest;
-export type GetMemberDetectorsCommandOutput = GetMemberDetectorsResponse & __MetadataBearer;
+export interface GetMemberDetectorsCommandInput extends GetMemberDetectorsRequest {}
+export interface GetMemberDetectorsCommandOutput extends GetMemberDetectorsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes which data sources are enabled for the member account's detector.</p>

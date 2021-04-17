@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RemoveRoleFromDBInstanceCommandInput = RemoveRoleFromDBInstanceMessage;
-export type RemoveRoleFromDBInstanceCommandOutput = __MetadataBearer;
+export interface RemoveRoleFromDBInstanceCommandInput extends RemoveRoleFromDBInstanceMessage {}
+export interface RemoveRoleFromDBInstanceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Disassociates an AWS Identity and Access Management (IAM) role from a DB instance.</p>

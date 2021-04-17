@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListVirtualServicesCommandInput = ListVirtualServicesInput;
-export type ListVirtualServicesCommandOutput = ListVirtualServicesOutput & __MetadataBearer;
+export interface ListVirtualServicesCommandInput extends ListVirtualServicesInput {}
+export interface ListVirtualServicesCommandOutput extends ListVirtualServicesOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a list of existing virtual services in a service mesh.</p>

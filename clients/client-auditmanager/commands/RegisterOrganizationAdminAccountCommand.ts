@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterOrganizationAdminAccountCommandInput = RegisterOrganizationAdminAccountRequest;
-export type RegisterOrganizationAdminAccountCommandOutput = RegisterOrganizationAdminAccountResponse & __MetadataBearer;
+export interface RegisterOrganizationAdminAccountCommandInput extends RegisterOrganizationAdminAccountRequest {}
+export interface RegisterOrganizationAdminAccountCommandOutput
+  extends RegisterOrganizationAdminAccountResponse,
+    __MetadataBearer {}
 
 /**
  * <p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeEventSubscriptionsCommandInput = DescribeEventSubscriptionsMessage;
-export type DescribeEventSubscriptionsCommandOutput = EventSubscriptionsMessage & __MetadataBearer;
+export interface DescribeEventSubscriptionsCommandInput extends DescribeEventSubscriptionsMessage {}
+export interface DescribeEventSubscriptionsCommandOutput extends EventSubscriptionsMessage, __MetadataBearer {}
 
 /**
  * <p>Lists descriptions of all the Amazon Redshift event notification subscriptions for a

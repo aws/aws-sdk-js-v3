@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeSubscribersForNotificationCommandInput = DescribeSubscribersForNotificationRequest;
-export type DescribeSubscribersForNotificationCommandOutput = DescribeSubscribersForNotificationResponse &
-  __MetadataBearer;
+export interface DescribeSubscribersForNotificationCommandInput extends DescribeSubscribersForNotificationRequest {}
+export interface DescribeSubscribersForNotificationCommandOutput
+  extends DescribeSubscribersForNotificationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Lists the subscribers that are associated with a notification.</p>

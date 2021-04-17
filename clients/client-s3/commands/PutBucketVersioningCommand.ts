@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutBucketVersioningCommandInput = PutBucketVersioningRequest;
-export type PutBucketVersioningCommandOutput = __MetadataBearer;
+export interface PutBucketVersioningCommandInput extends PutBucketVersioningRequest {}
+export interface PutBucketVersioningCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Sets the versioning state of an existing bucket. To set the versioning state, you must

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetMethodCommandInput = GetMethodRequest;
-export type GetMethodCommandOutput = Method & __MetadataBearer;
+export interface GetMethodCommandInput extends GetMethodRequest {}
+export interface GetMethodCommandOutput extends Method, __MetadataBearer {}
 
 /**
  * <p>Describe an existing <a>Method</a> resource.</p>

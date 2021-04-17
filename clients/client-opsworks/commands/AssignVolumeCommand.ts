@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssignVolumeCommandInput = AssignVolumeRequest;
-export type AssignVolumeCommandOutput = __MetadataBearer;
+export interface AssignVolumeCommandInput extends AssignVolumeRequest {}
+export interface AssignVolumeCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Assigns one of the stack's registered Amazon EBS volumes to a specified instance. The volume must

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDeliveryStreamsCommandInput = ListDeliveryStreamsInput;
-export type ListDeliveryStreamsCommandOutput = ListDeliveryStreamsOutput & __MetadataBearer;
+export interface ListDeliveryStreamsCommandInput extends ListDeliveryStreamsInput {}
+export interface ListDeliveryStreamsCommandOutput extends ListDeliveryStreamsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists your delivery streams in alphabetical order of their names.</p>

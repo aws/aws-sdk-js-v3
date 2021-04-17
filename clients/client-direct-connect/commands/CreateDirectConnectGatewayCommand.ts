@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDirectConnectGatewayCommandInput = CreateDirectConnectGatewayRequest;
-export type CreateDirectConnectGatewayCommandOutput = CreateDirectConnectGatewayResult & __MetadataBearer;
+export interface CreateDirectConnectGatewayCommandInput extends CreateDirectConnectGatewayRequest {}
+export interface CreateDirectConnectGatewayCommandOutput extends CreateDirectConnectGatewayResult, __MetadataBearer {}
 
 /**
  * <p>Creates a Direct Connect gateway, which is an intermediate object that enables you to connect a set

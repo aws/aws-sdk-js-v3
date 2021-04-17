@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateAnalysisCommandInput = UpdateAnalysisRequest;
-export type UpdateAnalysisCommandOutput = UpdateAnalysisResponse & __MetadataBearer;
+export interface UpdateAnalysisCommandInput extends UpdateAnalysisRequest {}
+export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an analysis in Amazon QuickSight</p>

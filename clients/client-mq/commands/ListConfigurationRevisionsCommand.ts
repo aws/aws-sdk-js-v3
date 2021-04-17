@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListConfigurationRevisionsCommandInput = ListConfigurationRevisionsRequest;
-export type ListConfigurationRevisionsCommandOutput = ListConfigurationRevisionsResponse & __MetadataBearer;
+export interface ListConfigurationRevisionsCommandInput extends ListConfigurationRevisionsRequest {}
+export interface ListConfigurationRevisionsCommandOutput extends ListConfigurationRevisionsResponse, __MetadataBearer {}
 
 /**
  * Returns a list of all revisions for the specified configuration.

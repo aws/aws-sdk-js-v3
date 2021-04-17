@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DissociatePackageCommandInput = DissociatePackageRequest;
-export type DissociatePackageCommandOutput = DissociatePackageResponse & __MetadataBearer;
+export interface DissociatePackageCommandInput extends DissociatePackageRequest {}
+export interface DissociatePackageCommandOutput extends DissociatePackageResponse, __MetadataBearer {}
 
 /**
  * <p>Dissociates a package from the Amazon ES domain.</p>

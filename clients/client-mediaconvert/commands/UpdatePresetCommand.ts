@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdatePresetCommandInput = UpdatePresetRequest;
-export type UpdatePresetCommandOutput = UpdatePresetResponse & __MetadataBearer;
+export interface UpdatePresetCommandInput extends UpdatePresetRequest {}
+export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __MetadataBearer {}
 
 /**
  * Modify one of your existing presets.

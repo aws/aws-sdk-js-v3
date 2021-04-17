@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddAssociationCommandInput = AddAssociationRequest;
-export type AddAssociationCommandOutput = AddAssociationResponse & __MetadataBearer;
+export interface AddAssociationCommandInput extends AddAssociationRequest {}
+export interface AddAssociationCommandOutput extends AddAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an <i>association</i> between the source and the destination. A

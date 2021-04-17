@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisableKeyRotationCommandInput = DisableKeyRotationRequest;
-export type DisableKeyRotationCommandOutput = __MetadataBearer;
+export interface DisableKeyRotationCommandInput extends DisableKeyRotationRequest {}
+export interface DisableKeyRotationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Disables <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">automatic

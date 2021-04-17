@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetStreamingDistributionCommandInput = GetStreamingDistributionRequest;
-export type GetStreamingDistributionCommandOutput = GetStreamingDistributionResult & __MetadataBearer;
+export interface GetStreamingDistributionCommandInput extends GetStreamingDistributionRequest {}
+export interface GetStreamingDistributionCommandOutput extends GetStreamingDistributionResult, __MetadataBearer {}
 
 /**
  * <p>Gets information about a specified RTMP distribution, including the distribution configuration.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeStreamConsumerCommandInput = DescribeStreamConsumerInput;
-export type DescribeStreamConsumerCommandOutput = DescribeStreamConsumerOutput & __MetadataBearer;
+export interface DescribeStreamConsumerCommandInput extends DescribeStreamConsumerInput {}
+export interface DescribeStreamConsumerCommandOutput extends DescribeStreamConsumerOutput, __MetadataBearer {}
 
 /**
  * <p>To get the description of a registered consumer, provide the ARN of the consumer.

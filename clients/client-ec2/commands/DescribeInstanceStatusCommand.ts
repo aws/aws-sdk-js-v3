@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeInstanceStatusCommandInput = DescribeInstanceStatusRequest;
-export type DescribeInstanceStatusCommandOutput = DescribeInstanceStatusResult & __MetadataBearer;
+export interface DescribeInstanceStatusCommandInput extends DescribeInstanceStatusRequest {}
+export interface DescribeInstanceStatusCommandOutput extends DescribeInstanceStatusResult, __MetadataBearer {}
 
 /**
  * <p>Describes the status of the specified instances or all of your instances. By default,

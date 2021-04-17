@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteRouteResponseCommandInput = DeleteRouteResponseRequest;
-export type DeleteRouteResponseCommandOutput = __MetadataBearer;
+export interface DeleteRouteResponseCommandInput extends DeleteRouteResponseRequest {}
+export interface DeleteRouteResponseCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a RouteResponse.</p>

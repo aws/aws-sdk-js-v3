@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddTagsToResourceCommandInput = AddTagsToResourceRequest;
-export type AddTagsToResourceCommandOutput = AddTagsToResourceResponse & __MetadataBearer;
+export interface AddTagsToResourceCommandInput extends AddTagsToResourceRequest {}
+export interface AddTagsToResourceCommandOutput extends AddTagsToResourceResponse, __MetadataBearer {}
 
 /**
  * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For

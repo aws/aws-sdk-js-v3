@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAddressBookCommandInput = DeleteAddressBookRequest;
-export type DeleteAddressBookCommandOutput = DeleteAddressBookResponse & __MetadataBearer;
+export interface DeleteAddressBookCommandInput extends DeleteAddressBookRequest {}
+export interface DeleteAddressBookCommandOutput extends DeleteAddressBookResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an address book by the address book ARN.</p>

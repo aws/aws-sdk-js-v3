@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteMaintenanceWindowCommandInput = DeleteMaintenanceWindowRequest;
-export type DeleteMaintenanceWindowCommandOutput = DeleteMaintenanceWindowResult & __MetadataBearer;
+export interface DeleteMaintenanceWindowCommandInput extends DeleteMaintenanceWindowRequest {}
+export interface DeleteMaintenanceWindowCommandOutput extends DeleteMaintenanceWindowResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a maintenance window.</p>

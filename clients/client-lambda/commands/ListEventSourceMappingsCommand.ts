@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListEventSourceMappingsCommandInput = ListEventSourceMappingsRequest;
-export type ListEventSourceMappingsCommandOutput = ListEventSourceMappingsResponse & __MetadataBearer;
+export interface ListEventSourceMappingsCommandInput extends ListEventSourceMappingsRequest {}
+export interface ListEventSourceMappingsCommandOutput extends ListEventSourceMappingsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists event source mappings. Specify an <code>EventSourceArn</code> to only show event source mappings for a

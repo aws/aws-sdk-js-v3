@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeletePlaceIndexCommandInput = DeletePlaceIndexRequest;
-export type DeletePlaceIndexCommandOutput = DeletePlaceIndexResponse & __MetadataBearer;
+export interface DeletePlaceIndexCommandInput extends DeletePlaceIndexRequest {}
+export interface DeletePlaceIndexCommandOutput extends DeletePlaceIndexResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a Place index resource from your AWS account.</p>

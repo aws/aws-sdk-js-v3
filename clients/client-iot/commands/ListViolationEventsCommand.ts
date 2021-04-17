@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListViolationEventsCommandInput = ListViolationEventsRequest;
-export type ListViolationEventsCommandOutput = ListViolationEventsResponse & __MetadataBearer;
+export interface ListViolationEventsCommandInput extends ListViolationEventsRequest {}
+export interface ListViolationEventsCommandOutput extends ListViolationEventsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the Device Defender security profile violations discovered during the given time period.

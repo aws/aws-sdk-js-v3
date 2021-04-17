@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateContactFlowNameCommandInput = UpdateContactFlowNameRequest;
-export type UpdateContactFlowNameCommandOutput = __MetadataBearer;
+export interface UpdateContactFlowNameCommandInput extends UpdateContactFlowNameRequest {}
+export interface UpdateContactFlowNameCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>The name of the contact flow.</p>

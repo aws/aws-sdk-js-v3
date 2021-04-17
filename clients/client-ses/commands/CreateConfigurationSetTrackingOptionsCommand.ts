@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateConfigurationSetTrackingOptionsCommandInput = CreateConfigurationSetTrackingOptionsRequest;
-export type CreateConfigurationSetTrackingOptionsCommandOutput = CreateConfigurationSetTrackingOptionsResponse &
-  __MetadataBearer;
+export interface CreateConfigurationSetTrackingOptionsCommandInput
+  extends CreateConfigurationSetTrackingOptionsRequest {}
+export interface CreateConfigurationSetTrackingOptionsCommandOutput
+  extends CreateConfigurationSetTrackingOptionsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Creates an association between a configuration set and a custom domain for open and

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateTemplateCommandInput = UpdateTemplateRequest;
-export type UpdateTemplateCommandOutput = UpdateTemplateResponse & __MetadataBearer;
+export interface UpdateTemplateCommandInput extends UpdateTemplateRequest {}
+export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a template from an existing Amazon QuickSight analysis or another template.</p>

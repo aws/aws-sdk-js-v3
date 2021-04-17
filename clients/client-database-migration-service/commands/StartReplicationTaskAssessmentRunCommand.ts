@@ -24,9 +24,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartReplicationTaskAssessmentRunCommandInput = StartReplicationTaskAssessmentRunMessage;
-export type StartReplicationTaskAssessmentRunCommandOutput = StartReplicationTaskAssessmentRunResponse &
-  __MetadataBearer;
+export interface StartReplicationTaskAssessmentRunCommandInput extends StartReplicationTaskAssessmentRunMessage {}
+export interface StartReplicationTaskAssessmentRunCommandOutput
+  extends StartReplicationTaskAssessmentRunResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Starts a new premigration assessment run for one or more individual assessments

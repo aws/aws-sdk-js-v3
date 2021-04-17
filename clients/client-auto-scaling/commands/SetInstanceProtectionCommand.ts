@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetInstanceProtectionCommandInput = SetInstanceProtectionQuery;
-export type SetInstanceProtectionCommandOutput = SetInstanceProtectionAnswer & __MetadataBearer;
+export interface SetInstanceProtectionCommandInput extends SetInstanceProtectionQuery {}
+export interface SetInstanceProtectionCommandOutput extends SetInstanceProtectionAnswer, __MetadataBearer {}
 
 /**
  * <p>Updates the instance protection settings of the specified instances. This operation

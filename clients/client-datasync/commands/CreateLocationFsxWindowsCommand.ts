@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateLocationFsxWindowsCommandInput = CreateLocationFsxWindowsRequest;
-export type CreateLocationFsxWindowsCommandOutput = CreateLocationFsxWindowsResponse & __MetadataBearer;
+export interface CreateLocationFsxWindowsCommandInput extends CreateLocationFsxWindowsRequest {}
+export interface CreateLocationFsxWindowsCommandOutput extends CreateLocationFsxWindowsResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an endpoint for an Amazon FSx for Windows File Server file system.</p>

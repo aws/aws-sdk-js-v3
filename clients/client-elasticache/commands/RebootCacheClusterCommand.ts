@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RebootCacheClusterCommandInput = RebootCacheClusterMessage;
-export type RebootCacheClusterCommandOutput = RebootCacheClusterResult & __MetadataBearer;
+export interface RebootCacheClusterCommandInput extends RebootCacheClusterMessage {}
+export interface RebootCacheClusterCommandOutput extends RebootCacheClusterResult, __MetadataBearer {}
 
 /**
  * <p>Reboots some, or all, of the cache nodes

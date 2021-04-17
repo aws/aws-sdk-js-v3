@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ReportTaskRunnerHeartbeatCommandInput = ReportTaskRunnerHeartbeatInput;
-export type ReportTaskRunnerHeartbeatCommandOutput = ReportTaskRunnerHeartbeatOutput & __MetadataBearer;
+export interface ReportTaskRunnerHeartbeatCommandInput extends ReportTaskRunnerHeartbeatInput {}
+export interface ReportTaskRunnerHeartbeatCommandOutput extends ReportTaskRunnerHeartbeatOutput, __MetadataBearer {}
 
 /**
  * <p>Task runners call <code>ReportTaskRunnerHeartbeat</code> every 15 minutes to indicate that they are operational.

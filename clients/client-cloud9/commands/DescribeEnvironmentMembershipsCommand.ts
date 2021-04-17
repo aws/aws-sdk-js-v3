@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeEnvironmentMembershipsCommandInput = DescribeEnvironmentMembershipsRequest;
-export type DescribeEnvironmentMembershipsCommandOutput = DescribeEnvironmentMembershipsResult & __MetadataBearer;
+export interface DescribeEnvironmentMembershipsCommandInput extends DescribeEnvironmentMembershipsRequest {}
+export interface DescribeEnvironmentMembershipsCommandOutput
+  extends DescribeEnvironmentMembershipsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Gets information about environment members for an AWS Cloud9 development environment.</p>

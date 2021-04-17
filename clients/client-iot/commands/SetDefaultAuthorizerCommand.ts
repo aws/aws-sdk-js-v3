@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetDefaultAuthorizerCommandInput = SetDefaultAuthorizerRequest;
-export type SetDefaultAuthorizerCommandOutput = SetDefaultAuthorizerResponse & __MetadataBearer;
+export interface SetDefaultAuthorizerCommandInput extends SetDefaultAuthorizerRequest {}
+export interface SetDefaultAuthorizerCommandOutput extends SetDefaultAuthorizerResponse, __MetadataBearer {}
 
 /**
  * <p>Sets the default authorizer. This will be used if a websocket connection is made

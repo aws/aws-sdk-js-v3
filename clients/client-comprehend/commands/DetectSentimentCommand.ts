@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DetectSentimentCommandInput = DetectSentimentRequest;
-export type DetectSentimentCommandOutput = DetectSentimentResponse & __MetadataBearer;
+export interface DetectSentimentCommandInput extends DetectSentimentRequest {}
+export interface DetectSentimentCommandOutput extends DetectSentimentResponse, __MetadataBearer {}
 
 /**
  * <p>Inspects text and returns an inference of the prevailing sentiment

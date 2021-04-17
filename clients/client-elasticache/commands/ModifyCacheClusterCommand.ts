@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyCacheClusterCommandInput = ModifyCacheClusterMessage;
-export type ModifyCacheClusterCommandOutput = ModifyCacheClusterResult & __MetadataBearer;
+export interface ModifyCacheClusterCommandInput extends ModifyCacheClusterMessage {}
+export interface ModifyCacheClusterCommandOutput extends ModifyCacheClusterResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the settings for a cluster. You

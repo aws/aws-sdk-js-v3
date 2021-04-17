@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelDeploymentCommandInput = CancelDeploymentRequest;
-export type CancelDeploymentCommandOutput = CancelDeploymentResponse & __MetadataBearer;
+export interface CancelDeploymentCommandInput extends CancelDeploymentRequest {}
+export interface CancelDeploymentCommandOutput extends CancelDeploymentResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels a deployment. This operation cancels the deployment for devices that haven't yet

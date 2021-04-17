@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateRecipeJobCommandInput = UpdateRecipeJobRequest;
-export type UpdateRecipeJobCommandOutput = UpdateRecipeJobResponse & __MetadataBearer;
+export interface UpdateRecipeJobCommandInput extends UpdateRecipeJobRequest {}
+export interface UpdateRecipeJobCommandOutput extends UpdateRecipeJobResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies the definition of an existing DataBrew recipe job.</p>

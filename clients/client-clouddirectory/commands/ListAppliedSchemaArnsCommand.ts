@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAppliedSchemaArnsCommandInput = ListAppliedSchemaArnsRequest;
-export type ListAppliedSchemaArnsCommandOutput = ListAppliedSchemaArnsResponse & __MetadataBearer;
+export interface ListAppliedSchemaArnsCommandInput extends ListAppliedSchemaArnsRequest {}
+export interface ListAppliedSchemaArnsCommandOutput extends ListAppliedSchemaArnsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists schema major versions applied to a directory. If <code>SchemaArn</code> is provided, lists the minor version.</p>

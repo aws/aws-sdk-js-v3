@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateInstancesFromSnapshotCommandInput = CreateInstancesFromSnapshotRequest;
-export type CreateInstancesFromSnapshotCommandOutput = CreateInstancesFromSnapshotResult & __MetadataBearer;
+export interface CreateInstancesFromSnapshotCommandInput extends CreateInstancesFromSnapshotRequest {}
+export interface CreateInstancesFromSnapshotCommandOutput extends CreateInstancesFromSnapshotResult, __MetadataBearer {}
 
 /**
  * <p>Creates one or more new instances from a manual or automatic snapshot of an

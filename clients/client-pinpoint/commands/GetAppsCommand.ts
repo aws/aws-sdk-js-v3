@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAppsCommandInput = GetAppsRequest;
-export type GetAppsCommandOutput = GetAppsResponse & __MetadataBearer;
+export interface GetAppsCommandInput extends GetAppsRequest {}
+export interface GetAppsCommandOutput extends GetAppsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about all the applications that are associated with your Amazon Pinpoint account.</p>

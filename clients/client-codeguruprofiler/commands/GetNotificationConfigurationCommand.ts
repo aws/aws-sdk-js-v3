@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetNotificationConfigurationCommandInput = GetNotificationConfigurationRequest;
-export type GetNotificationConfigurationCommandOutput = GetNotificationConfigurationResponse & __MetadataBearer;
+export interface GetNotificationConfigurationCommandInput extends GetNotificationConfigurationRequest {}
+export interface GetNotificationConfigurationCommandOutput
+  extends GetNotificationConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Get the current configuration for anomaly notifications for a profiling group.</p>

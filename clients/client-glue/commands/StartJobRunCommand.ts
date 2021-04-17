@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartJobRunCommandInput = StartJobRunRequest;
-export type StartJobRunCommandOutput = StartJobRunResponse & __MetadataBearer;
+export interface StartJobRunCommandInput extends StartJobRunRequest {}
+export interface StartJobRunCommandOutput extends StartJobRunResponse, __MetadataBearer {}
 
 /**
  * <p>Starts a job run using a job definition.</p>

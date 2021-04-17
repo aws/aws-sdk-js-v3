@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DetectStackSetDriftCommandInput = DetectStackSetDriftInput;
-export type DetectStackSetDriftCommandOutput = DetectStackSetDriftOutput & __MetadataBearer;
+export interface DetectStackSetDriftCommandInput extends DetectStackSetDriftInput {}
+export interface DetectStackSetDriftCommandOutput extends DetectStackSetDriftOutput, __MetadataBearer {}
 
 /**
  * <p>Detect drift on a stack set. When CloudFormation performs drift detection on a stack

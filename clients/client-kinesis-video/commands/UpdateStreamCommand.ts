@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateStreamCommandInput = UpdateStreamInput;
-export type UpdateStreamCommandOutput = UpdateStreamOutput & __MetadataBearer;
+export interface UpdateStreamCommandInput extends UpdateStreamInput {}
+export interface UpdateStreamCommandOutput extends UpdateStreamOutput, __MetadataBearer {}
 
 /**
  * <p>Updates stream metadata, such as the device name and media type.</p>

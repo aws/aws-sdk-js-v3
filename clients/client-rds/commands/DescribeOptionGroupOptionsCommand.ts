@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeOptionGroupOptionsCommandInput = DescribeOptionGroupOptionsMessage;
-export type DescribeOptionGroupOptionsCommandOutput = OptionGroupOptionsMessage & __MetadataBearer;
+export interface DescribeOptionGroupOptionsCommandInput extends DescribeOptionGroupOptionsMessage {}
+export interface DescribeOptionGroupOptionsCommandOutput extends OptionGroupOptionsMessage, __MetadataBearer {}
 
 /**
  * <p>Describes all available options.</p>

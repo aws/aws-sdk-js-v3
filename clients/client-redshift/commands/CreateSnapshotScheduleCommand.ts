@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateSnapshotScheduleCommandInput = CreateSnapshotScheduleMessage;
-export type CreateSnapshotScheduleCommandOutput = SnapshotSchedule & __MetadataBearer;
+export interface CreateSnapshotScheduleCommandInput extends CreateSnapshotScheduleMessage {}
+export interface CreateSnapshotScheduleCommandOutput extends SnapshotSchedule, __MetadataBearer {}
 
 /**
  * <p>Create a snapshot schedule that can be associated to a cluster and which overrides the default system backup schedule. </p>

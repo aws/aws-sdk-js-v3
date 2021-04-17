@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAvailableSolutionStacksCommandInput = {};
-export type ListAvailableSolutionStacksCommandOutput = ListAvailableSolutionStacksResultMessage & __MetadataBearer;
+export interface ListAvailableSolutionStacksCommandInput {}
+export interface ListAvailableSolutionStacksCommandOutput
+  extends ListAvailableSolutionStacksResultMessage,
+    __MetadataBearer {}
 
 /**
  * <p>Returns a list of the available solution stack names, with the public version first and

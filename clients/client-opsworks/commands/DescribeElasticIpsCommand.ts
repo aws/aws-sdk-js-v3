@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeElasticIpsCommandInput = DescribeElasticIpsRequest;
-export type DescribeElasticIpsCommandOutput = DescribeElasticIpsResult & __MetadataBearer;
+export interface DescribeElasticIpsCommandInput extends DescribeElasticIpsRequest {}
+export interface DescribeElasticIpsCommandOutput extends DescribeElasticIpsResult, __MetadataBearer {}
 
 /**
  * <p>Describes <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP addresses</a>.</p>

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateGlobalReplicationGroupCommandInput = CreateGlobalReplicationGroupMessage;
-export type CreateGlobalReplicationGroupCommandOutput = CreateGlobalReplicationGroupResult & __MetadataBearer;
+export interface CreateGlobalReplicationGroupCommandInput extends CreateGlobalReplicationGroupMessage {}
+export interface CreateGlobalReplicationGroupCommandOutput
+  extends CreateGlobalReplicationGroupResult,
+    __MetadataBearer {}
 
 /**
  * <p>Global Datastore for Redis offers fully managed, fast,

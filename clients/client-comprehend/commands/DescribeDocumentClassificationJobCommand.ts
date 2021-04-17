@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDocumentClassificationJobCommandInput = DescribeDocumentClassificationJobRequest;
-export type DescribeDocumentClassificationJobCommandOutput = DescribeDocumentClassificationJobResponse &
-  __MetadataBearer;
+export interface DescribeDocumentClassificationJobCommandInput extends DescribeDocumentClassificationJobRequest {}
+export interface DescribeDocumentClassificationJobCommandOutput
+  extends DescribeDocumentClassificationJobResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets the properties associated with a document classification job. Use this operation to

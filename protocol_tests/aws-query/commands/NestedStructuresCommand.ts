@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type NestedStructuresCommandInput = NestedStructuresInput;
-export type NestedStructuresCommandOutput = __MetadataBearer;
+export interface NestedStructuresCommandInput extends NestedStructuresInput {}
+export interface NestedStructuresCommandOutput extends __MetadataBearer {}
 
 /**
  * This test serializes nested and recursive structure members.

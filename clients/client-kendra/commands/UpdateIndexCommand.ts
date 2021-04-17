@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateIndexCommandInput = UpdateIndexRequest;
-export type UpdateIndexCommandOutput = __MetadataBearer;
+export interface UpdateIndexCommandInput extends UpdateIndexRequest {}
+export interface UpdateIndexCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates an existing Amazon Kendra index.</p>

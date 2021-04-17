@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTagsForProjectCommandInput = ListTagsForProjectRequest;
-export type ListTagsForProjectCommandOutput = ListTagsForProjectResult & __MetadataBearer;
+export interface ListTagsForProjectCommandInput extends ListTagsForProjectRequest {}
+export interface ListTagsForProjectCommandOutput extends ListTagsForProjectResult, __MetadataBearer {}
 
 /**
  * <p>Gets the tags for a project.</p>

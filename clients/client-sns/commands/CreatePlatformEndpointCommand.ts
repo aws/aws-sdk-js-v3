@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreatePlatformEndpointCommandInput = CreatePlatformEndpointInput;
-export type CreatePlatformEndpointCommandOutput = CreateEndpointResponse & __MetadataBearer;
+export interface CreatePlatformEndpointCommandInput extends CreatePlatformEndpointInput {}
+export interface CreatePlatformEndpointCommandOutput extends CreateEndpointResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an endpoint for a device and mobile app on one of the supported push

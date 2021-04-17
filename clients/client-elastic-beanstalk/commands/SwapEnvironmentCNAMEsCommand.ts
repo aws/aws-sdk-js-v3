@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SwapEnvironmentCNAMEsCommandInput = SwapEnvironmentCNAMEsMessage;
-export type SwapEnvironmentCNAMEsCommandOutput = __MetadataBearer;
+export interface SwapEnvironmentCNAMEsCommandInput extends SwapEnvironmentCNAMEsMessage {}
+export interface SwapEnvironmentCNAMEsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Swaps the CNAMEs of two environments.</p>

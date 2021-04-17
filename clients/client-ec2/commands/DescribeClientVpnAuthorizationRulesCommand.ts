@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeClientVpnAuthorizationRulesCommandInput = DescribeClientVpnAuthorizationRulesRequest;
-export type DescribeClientVpnAuthorizationRulesCommandOutput = DescribeClientVpnAuthorizationRulesResult &
-  __MetadataBearer;
+export interface DescribeClientVpnAuthorizationRulesCommandInput extends DescribeClientVpnAuthorizationRulesRequest {}
+export interface DescribeClientVpnAuthorizationRulesCommandOutput
+  extends DescribeClientVpnAuthorizationRulesResult,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the authorization rules for a specified Client VPN endpoint.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UntagResourceCommandInput = UntagResourceInput;
-export type UntagResourceCommandOutput = UntagResourceOutput & __MetadataBearer;
+export interface UntagResourceCommandInput extends UntagResourceInput {}
+export interface UntagResourceCommandOutput extends UntagResourceOutput, __MetadataBearer {}
 
 /**
  * <p> Disassociates a resource from a list of tags. The resource is identified by the

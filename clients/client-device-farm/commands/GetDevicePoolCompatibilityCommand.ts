@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDevicePoolCompatibilityCommandInput = GetDevicePoolCompatibilityRequest;
-export type GetDevicePoolCompatibilityCommandOutput = GetDevicePoolCompatibilityResult & __MetadataBearer;
+export interface GetDevicePoolCompatibilityCommandInput extends GetDevicePoolCompatibilityRequest {}
+export interface GetDevicePoolCompatibilityCommandOutput extends GetDevicePoolCompatibilityResult, __MetadataBearer {}
 
 /**
  * <p>Gets information about compatibility with a device pool.</p>

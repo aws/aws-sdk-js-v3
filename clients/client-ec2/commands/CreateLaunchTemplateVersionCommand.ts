@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateLaunchTemplateVersionCommandInput = CreateLaunchTemplateVersionRequest;
-export type CreateLaunchTemplateVersionCommandOutput = CreateLaunchTemplateVersionResult & __MetadataBearer;
+export interface CreateLaunchTemplateVersionCommandInput extends CreateLaunchTemplateVersionRequest {}
+export interface CreateLaunchTemplateVersionCommandOutput extends CreateLaunchTemplateVersionResult, __MetadataBearer {}
 
 /**
  * <p>Creates a new version for a launch template. You can specify an existing version of

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PromoteReadReplicaCommandInput = PromoteReadReplicaMessage;
-export type PromoteReadReplicaCommandOutput = PromoteReadReplicaResult & __MetadataBearer;
+export interface PromoteReadReplicaCommandInput extends PromoteReadReplicaMessage {}
+export interface PromoteReadReplicaCommandOutput extends PromoteReadReplicaResult, __MetadataBearer {}
 
 /**
  * <p>Promotes a read replica DB instance to a standalone DB instance.</p>

@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetServiceLinkedRoleDeletionStatusCommandInput = GetServiceLinkedRoleDeletionStatusRequest;
-export type GetServiceLinkedRoleDeletionStatusCommandOutput = GetServiceLinkedRoleDeletionStatusResponse &
-  __MetadataBearer;
+export interface GetServiceLinkedRoleDeletionStatusCommandInput extends GetServiceLinkedRoleDeletionStatusRequest {}
+export interface GetServiceLinkedRoleDeletionStatusCommandOutput
+  extends GetServiceLinkedRoleDeletionStatusResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves the status of your service-linked role deletion. After you use <a>DeleteServiceLinkedRole</a> to submit a service-linked role for deletion,

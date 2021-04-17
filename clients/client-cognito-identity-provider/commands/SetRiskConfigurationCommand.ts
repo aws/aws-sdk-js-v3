@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetRiskConfigurationCommandInput = SetRiskConfigurationRequest;
-export type SetRiskConfigurationCommandOutput = SetRiskConfigurationResponse & __MetadataBearer;
+export interface SetRiskConfigurationCommandInput extends SetRiskConfigurationRequest {}
+export interface SetRiskConfigurationCommandOutput extends SetRiskConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Configures actions on detected risks. To delete the risk configuration for

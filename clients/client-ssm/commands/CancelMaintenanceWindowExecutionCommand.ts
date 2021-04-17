@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelMaintenanceWindowExecutionCommandInput = CancelMaintenanceWindowExecutionRequest;
-export type CancelMaintenanceWindowExecutionCommandOutput = CancelMaintenanceWindowExecutionResult & __MetadataBearer;
+export interface CancelMaintenanceWindowExecutionCommandInput extends CancelMaintenanceWindowExecutionRequest {}
+export interface CancelMaintenanceWindowExecutionCommandOutput
+  extends CancelMaintenanceWindowExecutionResult,
+    __MetadataBearer {}
 
 /**
  * <p>Stops a maintenance window execution that is already in progress and cancels any tasks in

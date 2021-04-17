@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAttributeGroupCommandInput = GetAttributeGroupRequest;
-export type GetAttributeGroupCommandOutput = GetAttributeGroupResponse & __MetadataBearer;
+export interface GetAttributeGroupCommandInput extends GetAttributeGroupRequest {}
+export interface GetAttributeGroupCommandOutput extends GetAttributeGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves an attribute group, either by its name or its ID. The attribute group can be specified either by its unique ID or by its name.</p>

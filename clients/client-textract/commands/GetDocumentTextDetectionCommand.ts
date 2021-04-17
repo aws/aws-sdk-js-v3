@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDocumentTextDetectionCommandInput = GetDocumentTextDetectionRequest;
-export type GetDocumentTextDetectionCommandOutput = GetDocumentTextDetectionResponse & __MetadataBearer;
+export interface GetDocumentTextDetectionCommandInput extends GetDocumentTextDetectionRequest {}
+export interface GetDocumentTextDetectionCommandOutput extends GetDocumentTextDetectionResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the results for an Amazon Textract asynchronous operation that detects text in a document.

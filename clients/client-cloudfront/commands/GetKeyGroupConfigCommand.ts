@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetKeyGroupConfigCommandInput = GetKeyGroupConfigRequest;
-export type GetKeyGroupConfigCommandOutput = GetKeyGroupConfigResult & __MetadataBearer;
+export interface GetKeyGroupConfigCommandInput extends GetKeyGroupConfigRequest {}
+export interface GetKeyGroupConfigCommandOutput extends GetKeyGroupConfigResult, __MetadataBearer {}
 
 /**
  * <p>Gets a key group configuration.</p>

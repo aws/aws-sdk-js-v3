@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateFeatureGroupCommandInput = CreateFeatureGroupRequest;
-export type CreateFeatureGroupCommandOutput = CreateFeatureGroupResponse & __MetadataBearer;
+export interface CreateFeatureGroupCommandInput extends CreateFeatureGroupRequest {}
+export interface CreateFeatureGroupCommandOutput extends CreateFeatureGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Create a new <code>FeatureGroup</code>. A <code>FeatureGroup</code> is a group of

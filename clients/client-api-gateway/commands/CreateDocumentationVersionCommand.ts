@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDocumentationVersionCommandInput = CreateDocumentationVersionRequest;
-export type CreateDocumentationVersionCommandOutput = DocumentationVersion & __MetadataBearer;
+export interface CreateDocumentationVersionCommandInput extends CreateDocumentationVersionRequest {}
+export interface CreateDocumentationVersionCommandOutput extends DocumentationVersion, __MetadataBearer {}
 
 export class CreateDocumentationVersionCommand extends $Command<
   CreateDocumentationVersionCommandInput,

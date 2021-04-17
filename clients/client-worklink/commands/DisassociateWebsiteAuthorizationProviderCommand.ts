@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateWebsiteAuthorizationProviderCommandInput = DisassociateWebsiteAuthorizationProviderRequest;
-export type DisassociateWebsiteAuthorizationProviderCommandOutput = DisassociateWebsiteAuthorizationProviderResponse &
-  __MetadataBearer;
+export interface DisassociateWebsiteAuthorizationProviderCommandInput
+  extends DisassociateWebsiteAuthorizationProviderRequest {}
+export interface DisassociateWebsiteAuthorizationProviderCommandOutput
+  extends DisassociateWebsiteAuthorizationProviderResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Disassociates a website authorization provider from a specified fleet. After the

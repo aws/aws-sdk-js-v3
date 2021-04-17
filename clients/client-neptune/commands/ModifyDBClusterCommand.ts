@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyDBClusterCommandInput = ModifyDBClusterMessage;
-export type ModifyDBClusterCommandOutput = ModifyDBClusterResult & __MetadataBearer;
+export interface ModifyDBClusterCommandInput extends ModifyDBClusterMessage {}
+export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __MetadataBearer {}
 
 /**
  * <p>Modify a setting for a DB cluster. You can change one or more database configuration

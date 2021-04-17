@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDBInstanceCommandInput = DeleteDBInstanceMessage;
-export type DeleteDBInstanceCommandOutput = DeleteDBInstanceResult & __MetadataBearer;
+export interface DeleteDBInstanceCommandInput extends DeleteDBInstanceMessage {}
+export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a previously provisioned instance.

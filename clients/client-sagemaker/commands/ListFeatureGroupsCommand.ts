@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListFeatureGroupsCommandInput = ListFeatureGroupsRequest;
-export type ListFeatureGroupsCommandOutput = ListFeatureGroupsResponse & __MetadataBearer;
+export interface ListFeatureGroupsCommandInput extends ListFeatureGroupsRequest {}
+export interface ListFeatureGroupsCommandOutput extends ListFeatureGroupsResponse, __MetadataBearer {}
 
 /**
  * <p>List <code>FeatureGroup</code>s based on given filter and order.</p>

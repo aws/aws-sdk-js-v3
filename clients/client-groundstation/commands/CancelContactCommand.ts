@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelContactCommandInput = CancelContactRequest;
-export type CancelContactCommandOutput = ContactIdResponse & __MetadataBearer;
+export interface CancelContactCommandInput extends CancelContactRequest {}
+export interface CancelContactCommandOutput extends ContactIdResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels a contact with a specified contact ID.</p>

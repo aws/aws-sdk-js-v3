@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeHarvestJobCommandInput = DescribeHarvestJobRequest;
-export type DescribeHarvestJobCommandOutput = DescribeHarvestJobResponse & __MetadataBearer;
+export interface DescribeHarvestJobCommandInput extends DescribeHarvestJobRequest {}
+export interface DescribeHarvestJobCommandOutput extends DescribeHarvestJobResponse, __MetadataBearer {}
 
 /**
  * Gets details about an existing HarvestJob.

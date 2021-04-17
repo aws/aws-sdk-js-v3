@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartOutboundVoiceContactCommandInput = StartOutboundVoiceContactRequest;
-export type StartOutboundVoiceContactCommandOutput = StartOutboundVoiceContactResponse & __MetadataBearer;
+export interface StartOutboundVoiceContactCommandInput extends StartOutboundVoiceContactRequest {}
+export interface StartOutboundVoiceContactCommandOutput extends StartOutboundVoiceContactResponse, __MetadataBearer {}
 
 /**
  * <p>Places an outbound call to a contact, and then initiates the contact flow. It performs the

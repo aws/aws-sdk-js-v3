@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeUserProfileCommandInput = DescribeUserProfileRequest;
-export type DescribeUserProfileCommandOutput = DescribeUserProfileResult & __MetadataBearer;
+export interface DescribeUserProfileCommandInput extends DescribeUserProfileRequest {}
+export interface DescribeUserProfileCommandOutput extends DescribeUserProfileResult, __MetadataBearer {}
 
 /**
  * <p>Describes a user in AWS CodeStar and the user attributes across all projects.</p>

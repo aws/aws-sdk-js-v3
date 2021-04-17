@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutSubscriptionFilterCommandInput = PutSubscriptionFilterRequest;
-export type PutSubscriptionFilterCommandOutput = __MetadataBearer;
+export interface PutSubscriptionFilterCommandInput extends PutSubscriptionFilterRequest {}
+export interface PutSubscriptionFilterCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Creates or updates a subscription filter and associates it with the specified log

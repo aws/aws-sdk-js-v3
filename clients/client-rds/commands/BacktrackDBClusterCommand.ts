@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BacktrackDBClusterCommandInput = BacktrackDBClusterMessage;
-export type BacktrackDBClusterCommandOutput = DBClusterBacktrack & __MetadataBearer;
+export interface BacktrackDBClusterCommandInput extends BacktrackDBClusterMessage {}
+export interface BacktrackDBClusterCommandOutput extends DBClusterBacktrack, __MetadataBearer {}
 
 /**
  * <p>Backtracks a DB cluster to a specific time, without creating a new DB cluster.</p>

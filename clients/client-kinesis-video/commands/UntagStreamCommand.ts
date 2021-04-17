@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UntagStreamCommandInput = UntagStreamInput;
-export type UntagStreamCommandOutput = UntagStreamOutput & __MetadataBearer;
+export interface UntagStreamCommandInput extends UntagStreamInput {}
+export interface UntagStreamCommandOutput extends UntagStreamOutput, __MetadataBearer {}
 
 /**
  * <p>Removes one or more tags from a stream. In the request, specify only a tag key or

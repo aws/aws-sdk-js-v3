@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SearchIndexCommandInput = SearchIndexRequest;
-export type SearchIndexCommandOutput = SearchIndexResponse & __MetadataBearer;
+export interface SearchIndexCommandInput extends SearchIndexRequest {}
+export interface SearchIndexCommandOutput extends SearchIndexResponse, __MetadataBearer {}
 
 /**
  * <p>The query search index.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateClassifierCommandInput = CreateClassifierRequest;
-export type CreateClassifierCommandOutput = CreateClassifierResponse & __MetadataBearer;
+export interface CreateClassifierCommandInput extends CreateClassifierRequest {}
+export interface CreateClassifierCommandOutput extends CreateClassifierResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a classifier in the user's account. This can be a <code>GrokClassifier</code>, an

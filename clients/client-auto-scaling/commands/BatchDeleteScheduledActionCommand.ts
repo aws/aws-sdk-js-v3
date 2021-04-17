@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchDeleteScheduledActionCommandInput = BatchDeleteScheduledActionType;
-export type BatchDeleteScheduledActionCommandOutput = BatchDeleteScheduledActionAnswer & __MetadataBearer;
+export interface BatchDeleteScheduledActionCommandInput extends BatchDeleteScheduledActionType {}
+export interface BatchDeleteScheduledActionCommandOutput extends BatchDeleteScheduledActionAnswer, __MetadataBearer {}
 
 /**
  * <p>Deletes one or more scheduled actions for the specified Auto Scaling group.</p>

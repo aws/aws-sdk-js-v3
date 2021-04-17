@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SubmitFeedbackCommandInput = SubmitFeedbackRequest;
-export type SubmitFeedbackCommandOutput = SubmitFeedbackResponse & __MetadataBearer;
+export interface SubmitFeedbackCommandInput extends SubmitFeedbackRequest {}
+export interface SubmitFeedbackCommandOutput extends SubmitFeedbackResponse, __MetadataBearer {}
 
 /**
  * <p>Sends feedback to CodeGuru Profiler about whether the anomaly detected by the analysis is

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListThreatIntelSetsCommandInput = ListThreatIntelSetsRequest;
-export type ListThreatIntelSetsCommandOutput = ListThreatIntelSetsResponse & __MetadataBearer;
+export interface ListThreatIntelSetsCommandInput extends ListThreatIntelSetsRequest {}
+export interface ListThreatIntelSetsCommandOutput extends ListThreatIntelSetsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the ThreatIntelSets of the GuardDuty service specified by the detector ID. If you

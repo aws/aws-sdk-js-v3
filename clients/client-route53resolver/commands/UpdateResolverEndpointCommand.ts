@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateResolverEndpointCommandInput = UpdateResolverEndpointRequest;
-export type UpdateResolverEndpointCommandOutput = UpdateResolverEndpointResponse & __MetadataBearer;
+export interface UpdateResolverEndpointCommandInput extends UpdateResolverEndpointRequest {}
+export interface UpdateResolverEndpointCommandOutput extends UpdateResolverEndpointResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the name of an inbound or an outbound Resolver endpoint.  </p>

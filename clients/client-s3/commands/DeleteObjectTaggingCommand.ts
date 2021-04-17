@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteObjectTaggingCommandInput = DeleteObjectTaggingRequest;
-export type DeleteObjectTaggingCommandOutput = DeleteObjectTaggingOutput & __MetadataBearer;
+export interface DeleteObjectTaggingCommandInput extends DeleteObjectTaggingRequest {}
+export interface DeleteObjectTaggingCommandOutput extends DeleteObjectTaggingOutput, __MetadataBearer {}
 
 /**
  * <p>Removes the entire tag set from the specified object. For more information about

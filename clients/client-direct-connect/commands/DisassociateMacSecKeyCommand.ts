@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateMacSecKeyCommandInput = DisassociateMacSecKeyRequest;
-export type DisassociateMacSecKeyCommandOutput = DisassociateMacSecKeyResponse & __MetadataBearer;
+export interface DisassociateMacSecKeyCommandInput extends DisassociateMacSecKeyRequest {}
+export interface DisassociateMacSecKeyCommandOutput extends DisassociateMacSecKeyResponse, __MetadataBearer {}
 
 /**
  * <p>Removes the association between a MAC Security (MACsec) security key and an AWS Direct Connect dedicated connection.</p>

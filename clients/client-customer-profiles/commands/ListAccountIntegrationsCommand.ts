@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAccountIntegrationsCommandInput = ListAccountIntegrationsRequest;
-export type ListAccountIntegrationsCommandOutput = ListAccountIntegrationsResponse & __MetadataBearer;
+export interface ListAccountIntegrationsCommandInput extends ListAccountIntegrationsRequest {}
+export interface ListAccountIntegrationsCommandOutput extends ListAccountIntegrationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all of the integrations associated to a specific URI in the AWS account.</p>

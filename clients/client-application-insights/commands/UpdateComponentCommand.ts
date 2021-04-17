@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateComponentCommandInput = UpdateComponentRequest;
-export type UpdateComponentCommandOutput = UpdateComponentResponse & __MetadataBearer;
+export interface UpdateComponentCommandInput extends UpdateComponentRequest {}
+export interface UpdateComponentCommandOutput extends UpdateComponentResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the custom component name and/or the list of resources that make up the

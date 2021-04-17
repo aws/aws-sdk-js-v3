@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteBucketCorsCommandInput = DeleteBucketCorsRequest;
-export type DeleteBucketCorsCommandOutput = __MetadataBearer;
+export interface DeleteBucketCorsCommandInput extends DeleteBucketCorsRequest {}
+export interface DeleteBucketCorsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the <code>cors</code> configuration information set for the bucket.</p>

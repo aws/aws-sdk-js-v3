@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDiscoverySummaryCommandInput = GetDiscoverySummaryRequest;
-export type GetDiscoverySummaryCommandOutput = GetDiscoverySummaryResponse & __MetadataBearer;
+export interface GetDiscoverySummaryCommandInput extends GetDiscoverySummaryRequest {}
+export interface GetDiscoverySummaryCommandOutput extends GetDiscoverySummaryResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a short summary of discovered assets.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterAVSDeviceCommandInput = RegisterAVSDeviceRequest;
-export type RegisterAVSDeviceCommandOutput = RegisterAVSDeviceResponse & __MetadataBearer;
+export interface RegisterAVSDeviceCommandInput extends RegisterAVSDeviceRequest {}
+export interface RegisterAVSDeviceCommandOutput extends RegisterAVSDeviceResponse, __MetadataBearer {}
 
 /**
  * <p>Registers an Alexa-enabled device built by an Original Equipment Manufacturer (OEM)

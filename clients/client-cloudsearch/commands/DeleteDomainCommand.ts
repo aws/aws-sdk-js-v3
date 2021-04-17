@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDomainCommandInput = DeleteDomainRequest;
-export type DeleteDomainCommandOutput = DeleteDomainResponse & __MetadataBearer;
+export interface DeleteDomainCommandInput extends DeleteDomainRequest {}
+export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __MetadataBearer {}
 
 /**
  * <p>Permanently deletes a search domain and all of its data. Once a domain has been deleted, it cannot be recovered. For more information,

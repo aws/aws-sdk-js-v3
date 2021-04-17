@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DetachStaticIpCommandInput = DetachStaticIpRequest;
-export type DetachStaticIpCommandOutput = DetachStaticIpResult & __MetadataBearer;
+export interface DetachStaticIpCommandInput extends DetachStaticIpRequest {}
+export interface DetachStaticIpCommandOutput extends DetachStaticIpResult, __MetadataBearer {}
 
 /**
  * <p>Detaches a static IP from the Amazon Lightsail instance to which it is attached.</p>

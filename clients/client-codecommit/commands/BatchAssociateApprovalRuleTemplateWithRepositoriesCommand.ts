@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput = BatchAssociateApprovalRuleTemplateWithRepositoriesInput;
-export type BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput = BatchAssociateApprovalRuleTemplateWithRepositoriesOutput &
-  __MetadataBearer;
+export interface BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput
+  extends BatchAssociateApprovalRuleTemplateWithRepositoriesInput {}
+export interface BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput
+  extends BatchAssociateApprovalRuleTemplateWithRepositoriesOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Creates an association between an approval rule template and one or more specified repositories. </p>

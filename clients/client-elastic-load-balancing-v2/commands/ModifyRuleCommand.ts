@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyRuleCommandInput = ModifyRuleInput;
-export type ModifyRuleCommandOutput = ModifyRuleOutput & __MetadataBearer;
+export interface ModifyRuleCommandInput extends ModifyRuleInput {}
+export interface ModifyRuleCommandOutput extends ModifyRuleOutput, __MetadataBearer {}
 
 /**
  * <p>Replaces the specified properties of the specified rule. Any properties that you do not

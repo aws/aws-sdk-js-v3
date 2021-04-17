@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteBucketMetricsConfigurationCommandInput = DeleteBucketMetricsConfigurationRequest;
-export type DeleteBucketMetricsConfigurationCommandOutput = __MetadataBearer;
+export interface DeleteBucketMetricsConfigurationCommandInput extends DeleteBucketMetricsConfigurationRequest {}
+export interface DeleteBucketMetricsConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a metrics configuration for the Amazon CloudWatch request metrics (specified by the

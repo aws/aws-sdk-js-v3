@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelBundleTaskCommandInput = CancelBundleTaskRequest;
-export type CancelBundleTaskCommandOutput = CancelBundleTaskResult & __MetadataBearer;
+export interface CancelBundleTaskCommandInput extends CancelBundleTaskRequest {}
+export interface CancelBundleTaskCommandOutput extends CancelBundleTaskResult, __MetadataBearer {}
 
 /**
  * <p>Cancels a bundling operation for an instance store-backed Windows instance.</p>

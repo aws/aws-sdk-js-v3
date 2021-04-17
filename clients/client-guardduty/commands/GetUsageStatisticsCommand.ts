@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetUsageStatisticsCommandInput = GetUsageStatisticsRequest;
-export type GetUsageStatisticsCommandOutput = GetUsageStatisticsResponse & __MetadataBearer;
+export interface GetUsageStatisticsCommandInput extends GetUsageStatisticsRequest {}
+export interface GetUsageStatisticsCommandOutput extends GetUsageStatisticsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists Amazon GuardDuty usage statistics over the last 30 days for the specified detector

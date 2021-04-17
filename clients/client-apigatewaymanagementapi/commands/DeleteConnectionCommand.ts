@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteConnectionCommandInput = DeleteConnectionRequest;
-export type DeleteConnectionCommandOutput = __MetadataBearer;
+export interface DeleteConnectionCommandInput extends DeleteConnectionRequest {}
+export interface DeleteConnectionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Delete the connection with the provided id.</p>

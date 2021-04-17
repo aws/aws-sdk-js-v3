@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartAvailabilityMonitorTestCommandInput = StartAvailabilityMonitorTestInput;
-export type StartAvailabilityMonitorTestCommandOutput = StartAvailabilityMonitorTestOutput & __MetadataBearer;
+export interface StartAvailabilityMonitorTestCommandInput extends StartAvailabilityMonitorTestInput {}
+export interface StartAvailabilityMonitorTestCommandOutput
+  extends StartAvailabilityMonitorTestOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Start a test that verifies that the specified gateway is configured for High

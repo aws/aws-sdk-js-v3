@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListApplicationsCommandInput = ListApplicationsInput;
-export type ListApplicationsCommandOutput = ListApplicationsOutput & __MetadataBearer;
+export interface ListApplicationsCommandInput extends ListApplicationsInput {}
+export interface ListApplicationsCommandOutput extends ListApplicationsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the applications registered with the IAM user or AWS account.</p>

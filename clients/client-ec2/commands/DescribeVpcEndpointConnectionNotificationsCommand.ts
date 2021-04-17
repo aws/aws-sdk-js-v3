@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeVpcEndpointConnectionNotificationsCommandInput = DescribeVpcEndpointConnectionNotificationsRequest;
-export type DescribeVpcEndpointConnectionNotificationsCommandOutput = DescribeVpcEndpointConnectionNotificationsResult &
-  __MetadataBearer;
+export interface DescribeVpcEndpointConnectionNotificationsCommandInput
+  extends DescribeVpcEndpointConnectionNotificationsRequest {}
+export interface DescribeVpcEndpointConnectionNotificationsCommandOutput
+  extends DescribeVpcEndpointConnectionNotificationsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the connection notifications for VPC endpoints and VPC endpoint

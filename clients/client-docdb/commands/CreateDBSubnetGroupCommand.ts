@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDBSubnetGroupCommandInput = CreateDBSubnetGroupMessage;
-export type CreateDBSubnetGroupCommandOutput = CreateDBSubnetGroupResult & __MetadataBearer;
+export interface CreateDBSubnetGroupCommandInput extends CreateDBSubnetGroupMessage {}
+export interface CreateDBSubnetGroupCommandOutput extends CreateDBSubnetGroupResult, __MetadataBearer {}
 
 /**
  * <p>Creates a new subnet group. subnet groups must contain at least one subnet in at

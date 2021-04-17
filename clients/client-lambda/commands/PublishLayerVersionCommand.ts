@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PublishLayerVersionCommandInput = PublishLayerVersionRequest;
-export type PublishLayerVersionCommandOutput = PublishLayerVersionResponse & __MetadataBearer;
+export interface PublishLayerVersionCommandInput extends PublishLayerVersionRequest {}
+export interface PublishLayerVersionCommandOutput extends PublishLayerVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda

@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TagMFADeviceCommandInput = TagMFADeviceRequest;
-export type TagMFADeviceCommandOutput = __MetadataBearer;
+export interface TagMFADeviceCommandInput extends TagMFADeviceRequest {}
+export interface TagMFADeviceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Adds one or more tags to an IAM virtual multi-factor authentication (MFA) device. If

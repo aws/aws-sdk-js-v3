@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeOrganizationCommandInput = DescribeOrganizationRequest;
-export type DescribeOrganizationCommandOutput = DescribeOrganizationResponse & __MetadataBearer;
+export interface DescribeOrganizationCommandInput extends DescribeOrganizationRequest {}
+export interface DescribeOrganizationCommandOutput extends DescribeOrganizationResponse, __MetadataBearer {}
 
 /**
  * <p>Provides more information regarding a given organization based on its

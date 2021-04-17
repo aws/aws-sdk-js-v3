@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateJobCommandInput = UpdateJobRequest;
-export type UpdateJobCommandOutput = UpdateJobResult & __MetadataBearer;
+export interface UpdateJobCommandInput extends UpdateJobRequest {}
+export interface UpdateJobCommandOutput extends UpdateJobResult, __MetadataBearer {}
 
 /**
  * <p>While a job's <code>JobState</code> value is <code>New</code>, you can update some of

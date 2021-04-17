@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDocumentClassificationJobsCommandInput = ListDocumentClassificationJobsRequest;
-export type ListDocumentClassificationJobsCommandOutput = ListDocumentClassificationJobsResponse & __MetadataBearer;
+export interface ListDocumentClassificationJobsCommandInput extends ListDocumentClassificationJobsRequest {}
+export interface ListDocumentClassificationJobsCommandOutput
+  extends ListDocumentClassificationJobsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets a list of the documentation classification jobs that you have submitted.</p>

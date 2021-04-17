@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CopyDBSnapshotCommandInput = CopyDBSnapshotMessage;
-export type CopyDBSnapshotCommandOutput = CopyDBSnapshotResult & __MetadataBearer;
+export interface CopyDBSnapshotCommandInput extends CopyDBSnapshotMessage {}
+export interface CopyDBSnapshotCommandOutput extends CopyDBSnapshotResult, __MetadataBearer {}
 
 /**
  * <p>Copies the specified DB snapshot. The source DB snapshot must be in the <code>available</code> state.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribePackagingGroupCommandInput = DescribePackagingGroupRequest;
-export type DescribePackagingGroupCommandOutput = DescribePackagingGroupResponse & __MetadataBearer;
+export interface DescribePackagingGroupCommandInput extends DescribePackagingGroupRequest {}
+export interface DescribePackagingGroupCommandOutput extends DescribePackagingGroupResponse, __MetadataBearer {}
 
 /**
  * Returns a description of a MediaPackage VOD PackagingGroup resource.

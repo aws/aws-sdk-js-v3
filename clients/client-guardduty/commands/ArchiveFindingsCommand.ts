@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ArchiveFindingsCommandInput = ArchiveFindingsRequest;
-export type ArchiveFindingsCommandOutput = ArchiveFindingsResponse & __MetadataBearer;
+export interface ArchiveFindingsCommandInput extends ArchiveFindingsRequest {}
+export interface ArchiveFindingsCommandOutput extends ArchiveFindingsResponse, __MetadataBearer {}
 
 /**
  * <p>Archives GuardDuty findings that are specified by the list of finding IDs.</p>

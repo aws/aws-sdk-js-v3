@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateAppInstanceUserCommandInput = UpdateAppInstanceUserRequest;
-export type UpdateAppInstanceUserCommandOutput = UpdateAppInstanceUserResponse & __MetadataBearer;
+export interface UpdateAppInstanceUserCommandInput extends UpdateAppInstanceUserRequest {}
+export interface UpdateAppInstanceUserCommandOutput extends UpdateAppInstanceUserResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the details of an <code>AppInstanceUser</code>. You can update names and metadata.</p>

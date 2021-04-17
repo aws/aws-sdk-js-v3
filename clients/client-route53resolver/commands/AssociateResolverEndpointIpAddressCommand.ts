@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateResolverEndpointIpAddressCommandInput = AssociateResolverEndpointIpAddressRequest;
-export type AssociateResolverEndpointIpAddressCommandOutput = AssociateResolverEndpointIpAddressResponse &
-  __MetadataBearer;
+export interface AssociateResolverEndpointIpAddressCommandInput extends AssociateResolverEndpointIpAddressRequest {}
+export interface AssociateResolverEndpointIpAddressCommandOutput
+  extends AssociateResolverEndpointIpAddressResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Adds IP addresses to an inbound or an outbound Resolver endpoint. If you want to add more than one IP address,

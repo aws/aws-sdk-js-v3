@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AttachVolumeCommandInput = AttachVolumeInput;
-export type AttachVolumeCommandOutput = AttachVolumeOutput & __MetadataBearer;
+export interface AttachVolumeCommandInput extends AttachVolumeInput {}
+export interface AttachVolumeCommandOutput extends AttachVolumeOutput, __MetadataBearer {}
 
 /**
  * <p>Connects a volume to an iSCSI connection and then attaches the volume to the specified

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeReservedNodesCommandInput = DescribeReservedNodesMessage;
-export type DescribeReservedNodesCommandOutput = ReservedNodesMessage & __MetadataBearer;
+export interface DescribeReservedNodesCommandInput extends DescribeReservedNodesMessage {}
+export interface DescribeReservedNodesCommandOutput extends ReservedNodesMessage, __MetadataBearer {}
 
 /**
  * <p>Returns the descriptions of the reserved nodes.</p>

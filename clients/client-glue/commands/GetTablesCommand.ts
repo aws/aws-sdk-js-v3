@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetTablesCommandInput = GetTablesRequest;
-export type GetTablesCommandOutput = GetTablesResponse & __MetadataBearer;
+export interface GetTablesCommandInput extends GetTablesRequest {}
+export interface GetTablesCommandOutput extends GetTablesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the definitions of some or all of the tables in a given

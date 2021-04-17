@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetEvidenceFoldersByAssessmentControlCommandInput = GetEvidenceFoldersByAssessmentControlRequest;
-export type GetEvidenceFoldersByAssessmentControlCommandOutput = GetEvidenceFoldersByAssessmentControlResponse &
-  __MetadataBearer;
+export interface GetEvidenceFoldersByAssessmentControlCommandInput
+  extends GetEvidenceFoldersByAssessmentControlRequest {}
+export interface GetEvidenceFoldersByAssessmentControlCommandOutput
+  extends GetEvidenceFoldersByAssessmentControlResponse,
+    __MetadataBearer {}
 
 /**
  * <p>

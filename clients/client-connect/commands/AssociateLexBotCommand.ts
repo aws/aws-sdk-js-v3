@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateLexBotCommandInput = AssociateLexBotRequest;
-export type AssociateLexBotCommandOutput = __MetadataBearer;
+export interface AssociateLexBotCommandInput extends AssociateLexBotRequest {}
+export interface AssociateLexBotCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListRuleGroupsCommandInput = ListRuleGroupsRequest;
-export type ListRuleGroupsCommandOutput = ListRuleGroupsResponse & __MetadataBearer;
+export interface ListRuleGroupsCommandInput extends ListRuleGroupsRequest {}
+export interface ListRuleGroupsCommandOutput extends ListRuleGroupsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves an array of <a>RuleGroupSummary</a> objects for the rule groups that you manage. </p>

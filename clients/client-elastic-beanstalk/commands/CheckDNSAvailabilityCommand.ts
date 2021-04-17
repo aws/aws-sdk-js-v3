@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CheckDNSAvailabilityCommandInput = CheckDNSAvailabilityMessage;
-export type CheckDNSAvailabilityCommandOutput = CheckDNSAvailabilityResultMessage & __MetadataBearer;
+export interface CheckDNSAvailabilityCommandInput extends CheckDNSAvailabilityMessage {}
+export interface CheckDNSAvailabilityCommandOutput extends CheckDNSAvailabilityResultMessage, __MetadataBearer {}
 
 /**
  * <p>Checks if the specified CNAME is available.</p>

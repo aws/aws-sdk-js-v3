@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteTargetGroupCommandInput = DeleteTargetGroupInput;
-export type DeleteTargetGroupCommandOutput = DeleteTargetGroupOutput & __MetadataBearer;
+export interface DeleteTargetGroupCommandInput extends DeleteTargetGroupInput {}
+export interface DeleteTargetGroupCommandOutput extends DeleteTargetGroupOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified target group.</p>

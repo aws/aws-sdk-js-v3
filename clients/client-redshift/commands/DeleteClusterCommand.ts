@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteClusterCommandInput = DeleteClusterMessage;
-export type DeleteClusterCommandOutput = DeleteClusterResult & __MetadataBearer;
+export interface DeleteClusterCommandInput extends DeleteClusterMessage {}
+export interface DeleteClusterCommandOutput extends DeleteClusterResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a previously provisioned cluster without its final snapshot being created. A successful response from the web

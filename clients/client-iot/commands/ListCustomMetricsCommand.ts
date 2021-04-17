@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListCustomMetricsCommandInput = ListCustomMetricsRequest;
-export type ListCustomMetricsCommandOutput = ListCustomMetricsResponse & __MetadataBearer;
+export interface ListCustomMetricsCommandInput extends ListCustomMetricsRequest {}
+export interface ListCustomMetricsCommandOutput extends ListCustomMetricsResponse, __MetadataBearer {}
 
 /**
  * <p>

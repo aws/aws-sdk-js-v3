@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetStatementResultCommandInput = GetStatementResultRequest;
-export type GetStatementResultCommandOutput = GetStatementResultResponse & __MetadataBearer;
+export interface GetStatementResultCommandInput extends GetStatementResultRequest {}
+export interface GetStatementResultCommandOutput extends GetStatementResultResponse, __MetadataBearer {}
 
 /**
  * <p>Fetches the temporarily cached result of an SQL statement.

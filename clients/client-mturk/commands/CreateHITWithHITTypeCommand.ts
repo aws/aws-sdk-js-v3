@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateHITWithHITTypeCommandInput = CreateHITWithHITTypeRequest;
-export type CreateHITWithHITTypeCommandOutput = CreateHITWithHITTypeResponse & __MetadataBearer;
+export interface CreateHITWithHITTypeCommandInput extends CreateHITWithHITTypeRequest {}
+export interface CreateHITWithHITTypeCommandOutput extends CreateHITWithHITTypeResponse, __MetadataBearer {}
 
 /**
  * <p>

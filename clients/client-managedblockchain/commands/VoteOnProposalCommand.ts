@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type VoteOnProposalCommandInput = VoteOnProposalInput;
-export type VoteOnProposalCommandOutput = VoteOnProposalOutput & __MetadataBearer;
+export interface VoteOnProposalCommandInput extends VoteOnProposalInput {}
+export interface VoteOnProposalCommandOutput extends VoteOnProposalOutput, __MetadataBearer {}
 
 /**
  * <p>Casts a vote for a specified <code>ProposalId</code> on behalf of a member. The member to vote as, specified by <code>VoterMemberId</code>, must be in the same AWS account as the principal that calls the action.</p>

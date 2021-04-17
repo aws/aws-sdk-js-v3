@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAccessPoliciesCommandInput = ListAccessPoliciesRequest;
-export type ListAccessPoliciesCommandOutput = ListAccessPoliciesResponse & __MetadataBearer;
+export interface ListAccessPoliciesCommandInput extends ListAccessPoliciesRequest {}
+export interface ListAccessPoliciesCommandOutput extends ListAccessPoliciesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a paginated list of access policies for an identity (an AWS SSO user, an AWS SSO

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteCachePolicyCommandInput = DeleteCachePolicyRequest;
-export type DeleteCachePolicyCommandOutput = __MetadataBearer;
+export interface DeleteCachePolicyCommandInput extends DeleteCachePolicyRequest {}
+export interface DeleteCachePolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a cache policy.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartFleetActionsCommandInput = StartFleetActionsInput;
-export type StartFleetActionsCommandOutput = StartFleetActionsOutput & __MetadataBearer;
+export interface StartFleetActionsCommandInput extends StartFleetActionsInput {}
+export interface StartFleetActionsCommandOutput extends StartFleetActionsOutput, __MetadataBearer {}
 
 /**
  * <p>Resumes certain types of activity on fleet instances that were suspended with <a>StopFleetActions</a>. For multi-location fleets, fleet actions are managed

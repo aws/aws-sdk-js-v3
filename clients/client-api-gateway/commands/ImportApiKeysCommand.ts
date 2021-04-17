@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ImportApiKeysCommandInput = ImportApiKeysRequest;
-export type ImportApiKeysCommandOutput = ApiKeyIds & __MetadataBearer;
+export interface ImportApiKeysCommandInput extends ImportApiKeysRequest {}
+export interface ImportApiKeysCommandOutput extends ApiKeyIds, __MetadataBearer {}
 
 /**
  * <p>Import API keys from an external source, such as a CSV-formatted file.</p>

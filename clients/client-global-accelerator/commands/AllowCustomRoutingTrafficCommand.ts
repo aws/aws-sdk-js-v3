@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AllowCustomRoutingTrafficCommandInput = AllowCustomRoutingTrafficRequest;
-export type AllowCustomRoutingTrafficCommandOutput = __MetadataBearer;
+export interface AllowCustomRoutingTrafficCommandInput extends AllowCustomRoutingTrafficRequest {}
+export interface AllowCustomRoutingTrafficCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Specify the Amazon EC2 instance (destination) IP addresses and ports for a VPC subnet endpoint that can receive traffic

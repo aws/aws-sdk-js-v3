@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeWorkspaceCommandInput = DescribeWorkspaceRequest;
-export type DescribeWorkspaceCommandOutput = DescribeWorkspaceResponse & __MetadataBearer;
+export interface DescribeWorkspaceCommandInput extends DescribeWorkspaceRequest {}
+export interface DescribeWorkspaceCommandOutput extends DescribeWorkspaceResponse, __MetadataBearer {}
 
 /**
  * Describes an existing AMP workspace.

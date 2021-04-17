@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeReportCreationCommandInput = DescribeReportCreationInput;
-export type DescribeReportCreationCommandOutput = DescribeReportCreationOutput & __MetadataBearer;
+export interface DescribeReportCreationCommandInput extends DescribeReportCreationInput {}
+export interface DescribeReportCreationCommandOutput extends DescribeReportCreationOutput, __MetadataBearer {}
 
 /**
  * <p>Describes the status of the <code>StartReportCreation</code> operation. </p>

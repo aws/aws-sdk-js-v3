@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateMonitoringScheduleCommandInput = CreateMonitoringScheduleRequest;
-export type CreateMonitoringScheduleCommandOutput = CreateMonitoringScheduleResponse & __MetadataBearer;
+export interface CreateMonitoringScheduleCommandInput extends CreateMonitoringScheduleRequest {}
+export interface CreateMonitoringScheduleCommandOutput extends CreateMonitoringScheduleResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a schedule that regularly starts Amazon SageMaker Processing Jobs to monitor the data

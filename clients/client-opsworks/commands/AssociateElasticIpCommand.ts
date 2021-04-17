@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateElasticIpCommandInput = AssociateElasticIpRequest;
-export type AssociateElasticIpCommandOutput = __MetadataBearer;
+export interface AssociateElasticIpCommandInput extends AssociateElasticIpRequest {}
+export interface AssociateElasticIpCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Associates one of the stack's registered Elastic IP addresses with a specified instance. The

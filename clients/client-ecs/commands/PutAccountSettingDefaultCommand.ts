@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutAccountSettingDefaultCommandInput = PutAccountSettingDefaultRequest;
-export type PutAccountSettingDefaultCommandOutput = PutAccountSettingDefaultResponse & __MetadataBearer;
+export interface PutAccountSettingDefaultCommandInput extends PutAccountSettingDefaultRequest {}
+export interface PutAccountSettingDefaultCommandOutput extends PutAccountSettingDefaultResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies an account setting for all IAM users on an account for whom no individual

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPlatformVersionsCommandInput = ListPlatformVersionsRequest;
-export type ListPlatformVersionsCommandOutput = ListPlatformVersionsResult & __MetadataBearer;
+export interface ListPlatformVersionsCommandInput extends ListPlatformVersionsRequest {}
+export interface ListPlatformVersionsCommandOutput extends ListPlatformVersionsResult, __MetadataBearer {}
 
 /**
  * <p>Lists the platform versions available for your account in an AWS Region. Provides

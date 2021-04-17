@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopInstanceCommandInput = StopInstanceRequest;
-export type StopInstanceCommandOutput = __MetadataBearer;
+export interface StopInstanceCommandInput extends StopInstanceRequest {}
+export interface StopInstanceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Stops a specified instance. When you stop a standard instance, the data disappears and must

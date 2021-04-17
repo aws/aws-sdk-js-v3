@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDevEndpointCommandInput = DeleteDevEndpointRequest;
-export type DeleteDevEndpointCommandOutput = DeleteDevEndpointResponse & __MetadataBearer;
+export interface DeleteDevEndpointCommandInput extends DeleteDevEndpointRequest {}
+export interface DeleteDevEndpointCommandOutput extends DeleteDevEndpointResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a specified development endpoint.</p>

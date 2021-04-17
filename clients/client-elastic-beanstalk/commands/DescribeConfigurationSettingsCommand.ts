@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeConfigurationSettingsCommandInput = DescribeConfigurationSettingsMessage;
-export type DescribeConfigurationSettingsCommandOutput = ConfigurationSettingsDescriptions & __MetadataBearer;
+export interface DescribeConfigurationSettingsCommandInput extends DescribeConfigurationSettingsMessage {}
+export interface DescribeConfigurationSettingsCommandOutput
+  extends ConfigurationSettingsDescriptions,
+    __MetadataBearer {}
 
 /**
  * <p>Returns a description of the settings for the specified configuration set, that is,

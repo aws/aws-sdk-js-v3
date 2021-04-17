@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteLogGroupCommandInput = DeleteLogGroupRequest;
-export type DeleteLogGroupCommandOutput = __MetadataBearer;
+export interface DeleteLogGroupCommandInput extends DeleteLogGroupRequest {}
+export interface DeleteLogGroupCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified log group and permanently deletes all the archived

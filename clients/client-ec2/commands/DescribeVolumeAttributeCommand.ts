@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeVolumeAttributeCommandInput = DescribeVolumeAttributeRequest;
-export type DescribeVolumeAttributeCommandOutput = DescribeVolumeAttributeResult & __MetadataBearer;
+export interface DescribeVolumeAttributeCommandInput extends DescribeVolumeAttributeRequest {}
+export interface DescribeVolumeAttributeCommandOutput extends DescribeVolumeAttributeResult, __MetadataBearer {}
 
 /**
  * <p>Describes the specified attribute of the specified volume. You can specify only one

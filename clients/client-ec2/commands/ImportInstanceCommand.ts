@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ImportInstanceCommandInput = ImportInstanceRequest;
-export type ImportInstanceCommandOutput = ImportInstanceResult & __MetadataBearer;
+export interface ImportInstanceCommandInput extends ImportInstanceRequest {}
+export interface ImportInstanceCommandOutput extends ImportInstanceResult, __MetadataBearer {}
 
 /**
  * <p>Creates an import instance task using metadata from the specified disk image.</p>

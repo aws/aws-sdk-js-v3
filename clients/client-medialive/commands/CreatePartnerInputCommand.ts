@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreatePartnerInputCommandInput = CreatePartnerInputRequest;
-export type CreatePartnerInputCommandOutput = CreatePartnerInputResponse & __MetadataBearer;
+export interface CreatePartnerInputCommandInput extends CreatePartnerInputRequest {}
+export interface CreatePartnerInputCommandOutput extends CreatePartnerInputResponse, __MetadataBearer {}
 
 /**
  * Create a partner input

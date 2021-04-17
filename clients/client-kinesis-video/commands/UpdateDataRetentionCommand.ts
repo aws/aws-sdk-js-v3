@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateDataRetentionCommandInput = UpdateDataRetentionInput;
-export type UpdateDataRetentionCommandOutput = UpdateDataRetentionOutput & __MetadataBearer;
+export interface UpdateDataRetentionCommandInput extends UpdateDataRetentionInput {}
+export interface UpdateDataRetentionCommandOutput extends UpdateDataRetentionOutput, __MetadataBearer {}
 
 /**
  * <p> Increases or decreases the stream's data retention period by the value that you

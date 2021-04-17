@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type NotifyMigrationTaskStateCommandInput = NotifyMigrationTaskStateRequest;
-export type NotifyMigrationTaskStateCommandOutput = NotifyMigrationTaskStateResult & __MetadataBearer;
+export interface NotifyMigrationTaskStateCommandInput extends NotifyMigrationTaskStateRequest {}
+export interface NotifyMigrationTaskStateCommandOutput extends NotifyMigrationTaskStateResult, __MetadataBearer {}
 
 /**
  * <p>Notifies Migration Hub of the current status, progress, or other detail regarding a

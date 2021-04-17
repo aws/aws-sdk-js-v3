@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPipelinesCommandInput = ListPipelinesInput;
-export type ListPipelinesCommandOutput = ListPipelinesOutput & __MetadataBearer;
+export interface ListPipelinesCommandInput extends ListPipelinesInput {}
+export interface ListPipelinesCommandOutput extends ListPipelinesOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the pipeline identifiers for all active pipelines that you have permission to access.</p>

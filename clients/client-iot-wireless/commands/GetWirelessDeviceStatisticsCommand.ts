@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetWirelessDeviceStatisticsCommandInput = GetWirelessDeviceStatisticsRequest;
-export type GetWirelessDeviceStatisticsCommandOutput = GetWirelessDeviceStatisticsResponse & __MetadataBearer;
+export interface GetWirelessDeviceStatisticsCommandInput extends GetWirelessDeviceStatisticsRequest {}
+export interface GetWirelessDeviceStatisticsCommandOutput
+  extends GetWirelessDeviceStatisticsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets operating information about a wireless device.</p>

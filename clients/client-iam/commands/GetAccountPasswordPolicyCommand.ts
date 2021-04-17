@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAccountPasswordPolicyCommandInput = {};
-export type GetAccountPasswordPolicyCommandOutput = GetAccountPasswordPolicyResponse & __MetadataBearer;
+export interface GetAccountPasswordPolicyCommandInput {}
+export interface GetAccountPasswordPolicyCommandOutput extends GetAccountPasswordPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the password policy for the AWS account. This tells you the complexity

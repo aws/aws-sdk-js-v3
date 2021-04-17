@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchReadCommandInput = BatchReadRequest;
-export type BatchReadCommandOutput = BatchReadResponse & __MetadataBearer;
+export interface BatchReadCommandInput extends BatchReadRequest {}
+export interface BatchReadCommandOutput extends BatchReadResponse, __MetadataBearer {}
 
 /**
  * <p>Performs all the read operations in a batch. </p>

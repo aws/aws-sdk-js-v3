@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateFileSystemCommandInput = DisassociateFileSystemInput;
-export type DisassociateFileSystemCommandOutput = DisassociateFileSystemOutput & __MetadataBearer;
+export interface DisassociateFileSystemCommandInput extends DisassociateFileSystemInput {}
+export interface DisassociateFileSystemCommandOutput extends DisassociateFileSystemOutput, __MetadataBearer {}
 
 /**
  * <p>Disassociates an Amazon FSx file system from the specified gateway. After the

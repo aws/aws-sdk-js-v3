@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAliasesCommandInput = ListAliasesRequest;
-export type ListAliasesCommandOutput = ListAliasesResponse & __MetadataBearer;
+export interface ListAliasesCommandInput extends ListAliasesRequest {}
+export interface ListAliasesCommandOutput extends ListAliasesResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a paginated call to list the aliases associated with a given

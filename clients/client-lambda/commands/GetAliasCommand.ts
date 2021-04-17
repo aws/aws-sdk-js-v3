@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAliasCommandInput = GetAliasRequest;
-export type GetAliasCommandOutput = AliasConfiguration & __MetadataBearer;
+export interface GetAliasCommandInput extends GetAliasRequest {}
+export interface GetAliasCommandOutput extends AliasConfiguration, __MetadataBearer {}
 
 /**
  * <p>Returns details about a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.</p>

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutProvisionedConcurrencyConfigCommandInput = PutProvisionedConcurrencyConfigRequest;
-export type PutProvisionedConcurrencyConfigCommandOutput = PutProvisionedConcurrencyConfigResponse & __MetadataBearer;
+export interface PutProvisionedConcurrencyConfigCommandInput extends PutProvisionedConcurrencyConfigRequest {}
+export interface PutProvisionedConcurrencyConfigCommandOutput
+  extends PutProvisionedConcurrencyConfigResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Adds a provisioned concurrency configuration to a function's alias or version.</p>

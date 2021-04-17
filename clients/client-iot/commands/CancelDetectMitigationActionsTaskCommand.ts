@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelDetectMitigationActionsTaskCommandInput = CancelDetectMitigationActionsTaskRequest;
-export type CancelDetectMitigationActionsTaskCommandOutput = CancelDetectMitigationActionsTaskResponse &
-  __MetadataBearer;
+export interface CancelDetectMitigationActionsTaskCommandInput extends CancelDetectMitigationActionsTaskRequest {}
+export interface CancelDetectMitigationActionsTaskCommandOutput
+  extends CancelDetectMitigationActionsTaskResponse,
+    __MetadataBearer {}
 
 /**
  * <p>

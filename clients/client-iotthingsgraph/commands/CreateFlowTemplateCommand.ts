@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateFlowTemplateCommandInput = CreateFlowTemplateRequest;
-export type CreateFlowTemplateCommandOutput = CreateFlowTemplateResponse & __MetadataBearer;
+export interface CreateFlowTemplateCommandInput extends CreateFlowTemplateRequest {}
+export interface CreateFlowTemplateCommandOutput extends CreateFlowTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a workflow template. Workflows can be created only in the user's namespace. (The public namespace contains only

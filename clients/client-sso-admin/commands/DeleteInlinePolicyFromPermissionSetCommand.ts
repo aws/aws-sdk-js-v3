@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteInlinePolicyFromPermissionSetCommandInput = DeleteInlinePolicyFromPermissionSetRequest;
-export type DeleteInlinePolicyFromPermissionSetCommandOutput = DeleteInlinePolicyFromPermissionSetResponse &
-  __MetadataBearer;
+export interface DeleteInlinePolicyFromPermissionSetCommandInput extends DeleteInlinePolicyFromPermissionSetRequest {}
+export interface DeleteInlinePolicyFromPermissionSetCommandOutput
+  extends DeleteInlinePolicyFromPermissionSetResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes the inline policy from a specified permission set.</p>

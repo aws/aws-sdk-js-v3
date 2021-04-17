@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateJobTemplateCommandInput = CreateJobTemplateRequest;
-export type CreateJobTemplateCommandOutput = CreateJobTemplateResponse & __MetadataBearer;
+export interface CreateJobTemplateCommandInput extends CreateJobTemplateRequest {}
+export interface CreateJobTemplateCommandOutput extends CreateJobTemplateResponse, __MetadataBearer {}
 
 /**
  * Create a new job template. For information about job templates see the User Guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html

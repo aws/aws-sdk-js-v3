@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeSlotTypeCommandInput = DescribeSlotTypeRequest;
-export type DescribeSlotTypeCommandOutput = DescribeSlotTypeResponse & __MetadataBearer;
+export interface DescribeSlotTypeCommandInput extends DescribeSlotTypeRequest {}
+export interface DescribeSlotTypeCommandOutput extends DescribeSlotTypeResponse, __MetadataBearer {}
 
 /**
  * <p>Gets metadata information about a slot type.</p>

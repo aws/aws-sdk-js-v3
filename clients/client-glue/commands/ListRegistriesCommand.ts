@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListRegistriesCommandInput = ListRegistriesInput;
-export type ListRegistriesCommandOutput = ListRegistriesResponse & __MetadataBearer;
+export interface ListRegistriesCommandInput extends ListRegistriesInput {}
+export interface ListRegistriesCommandOutput extends ListRegistriesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of registries that you have created, with minimal registry information. Registries in the <code>Deleting</code> status will not be included in the results. Empty results will be returned if there are no registries available.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeUsageLimitsCommandInput = DescribeUsageLimitsMessage;
-export type DescribeUsageLimitsCommandOutput = UsageLimitList & __MetadataBearer;
+export interface DescribeUsageLimitsCommandInput extends DescribeUsageLimitsMessage {}
+export interface DescribeUsageLimitsCommandOutput extends UsageLimitList, __MetadataBearer {}
 
 /**
  * <p>Shows usage limits on a cluster.

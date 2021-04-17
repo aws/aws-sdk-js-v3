@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SuspendGameServerGroupCommandInput = SuspendGameServerGroupInput;
-export type SuspendGameServerGroupCommandOutput = SuspendGameServerGroupOutput & __MetadataBearer;
+export interface SuspendGameServerGroupCommandInput extends SuspendGameServerGroupInput {}
+export interface SuspendGameServerGroupCommandOutput extends SuspendGameServerGroupOutput, __MetadataBearer {}
 
 /**
  * <p>

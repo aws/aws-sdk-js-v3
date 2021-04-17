@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTapesCommandInput = ListTapesInput;
-export type ListTapesCommandOutput = ListTapesOutput & __MetadataBearer;
+export interface ListTapesCommandInput extends ListTapesInput {}
+export interface ListTapesCommandOutput extends ListTapesOutput, __MetadataBearer {}
 
 /**
  * <p>Lists virtual tapes in your virtual tape library (VTL) and your virtual tape shelf

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdatePipelineCommandInput = UpdatePipelineRequest;
-export type UpdatePipelineCommandOutput = __MetadataBearer;
+export interface UpdatePipelineCommandInput extends UpdatePipelineRequest {}
+export interface UpdatePipelineCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates the settings of a pipeline. You must specify both a <code>channel</code> and a

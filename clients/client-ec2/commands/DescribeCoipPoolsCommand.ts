@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeCoipPoolsCommandInput = DescribeCoipPoolsRequest;
-export type DescribeCoipPoolsCommandOutput = DescribeCoipPoolsResult & __MetadataBearer;
+export interface DescribeCoipPoolsCommandInput extends DescribeCoipPoolsRequest {}
+export interface DescribeCoipPoolsCommandOutput extends DescribeCoipPoolsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the specified customer-owned address pools or all of your customer-owned address pools.</p>

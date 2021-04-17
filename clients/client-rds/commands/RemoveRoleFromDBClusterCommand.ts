@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RemoveRoleFromDBClusterCommandInput = RemoveRoleFromDBClusterMessage;
-export type RemoveRoleFromDBClusterCommandOutput = __MetadataBearer;
+export interface RemoveRoleFromDBClusterCommandInput extends RemoveRoleFromDBClusterMessage {}
+export interface RemoveRoleFromDBClusterCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Disassociates an AWS Identity and Access Management (IAM) role from an Amazon Aurora DB cluster.

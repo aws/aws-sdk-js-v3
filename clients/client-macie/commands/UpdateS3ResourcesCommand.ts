@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateS3ResourcesCommandInput = UpdateS3ResourcesRequest;
-export type UpdateS3ResourcesCommandOutput = UpdateS3ResourcesResult & __MetadataBearer;
+export interface UpdateS3ResourcesCommandInput extends UpdateS3ResourcesRequest {}
+export interface UpdateS3ResourcesCommandOutput extends UpdateS3ResourcesResult, __MetadataBearer {}
 
 /**
  * <p>Updates the classification types for the specified S3 resources. If memberAccountId

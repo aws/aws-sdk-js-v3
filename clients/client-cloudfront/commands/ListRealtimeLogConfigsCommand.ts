@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListRealtimeLogConfigsCommandInput = ListRealtimeLogConfigsRequest;
-export type ListRealtimeLogConfigsCommandOutput = ListRealtimeLogConfigsResult & __MetadataBearer;
+export interface ListRealtimeLogConfigsCommandInput extends ListRealtimeLogConfigsRequest {}
+export interface ListRealtimeLogConfigsCommandOutput extends ListRealtimeLogConfigsResult, __MetadataBearer {}
 
 /**
  * <p>Gets a list of real-time log configurations.</p>

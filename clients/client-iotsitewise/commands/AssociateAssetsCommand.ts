@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateAssetsCommandInput = AssociateAssetsRequest;
-export type AssociateAssetsCommandOutput = __MetadataBearer;
+export interface AssociateAssetsCommandInput extends AssociateAssetsRequest {}
+export interface AssociateAssetsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Associates a child asset with the given parent asset through a hierarchy defined in the

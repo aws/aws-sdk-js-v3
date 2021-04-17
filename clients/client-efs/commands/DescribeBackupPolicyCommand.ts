@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeBackupPolicyCommandInput = DescribeBackupPolicyRequest;
-export type DescribeBackupPolicyCommandOutput = BackupPolicyDescription & __MetadataBearer;
+export interface DescribeBackupPolicyCommandInput extends DescribeBackupPolicyRequest {}
+export interface DescribeBackupPolicyCommandOutput extends BackupPolicyDescription, __MetadataBearer {}
 
 /**
  * <p>Returns the backup policy for the specified EFS file system.</p>

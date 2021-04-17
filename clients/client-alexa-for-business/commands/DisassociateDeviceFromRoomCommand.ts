@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateDeviceFromRoomCommandInput = DisassociateDeviceFromRoomRequest;
-export type DisassociateDeviceFromRoomCommandOutput = DisassociateDeviceFromRoomResponse & __MetadataBearer;
+export interface DisassociateDeviceFromRoomCommandInput extends DisassociateDeviceFromRoomRequest {}
+export interface DisassociateDeviceFromRoomCommandOutput extends DisassociateDeviceFromRoomResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates a device from its current room. The device continues to be connected to

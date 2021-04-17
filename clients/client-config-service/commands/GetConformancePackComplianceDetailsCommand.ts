@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetConformancePackComplianceDetailsCommandInput = GetConformancePackComplianceDetailsRequest;
-export type GetConformancePackComplianceDetailsCommandOutput = GetConformancePackComplianceDetailsResponse &
-  __MetadataBearer;
+export interface GetConformancePackComplianceDetailsCommandInput extends GetConformancePackComplianceDetailsRequest {}
+export interface GetConformancePackComplianceDetailsCommandOutput
+  extends GetConformancePackComplianceDetailsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns compliance details of a conformance pack for all AWS resources that are monitered by conformance pack.</p>

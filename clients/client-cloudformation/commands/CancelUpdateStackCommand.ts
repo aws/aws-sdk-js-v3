@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelUpdateStackCommandInput = CancelUpdateStackInput;
-export type CancelUpdateStackCommandOutput = __MetadataBearer;
+export interface CancelUpdateStackCommandInput extends CancelUpdateStackInput {}
+export interface CancelUpdateStackCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Cancels an update on the specified stack. If the call completes successfully, the

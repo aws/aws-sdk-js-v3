@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SendBounceCommandInput = SendBounceRequest;
-export type SendBounceCommandOutput = SendBounceResponse & __MetadataBearer;
+export interface SendBounceCommandInput extends SendBounceRequest {}
+export interface SendBounceCommandOutput extends SendBounceResponse, __MetadataBearer {}
 
 /**
  * <p>Generates and sends a bounce message to the sender of an email you received through

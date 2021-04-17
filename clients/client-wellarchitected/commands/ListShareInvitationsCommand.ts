@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListShareInvitationsCommandInput = ListShareInvitationsInput;
-export type ListShareInvitationsCommandOutput = ListShareInvitationsOutput & __MetadataBearer;
+export interface ListShareInvitationsCommandInput extends ListShareInvitationsInput {}
+export interface ListShareInvitationsCommandOutput extends ListShareInvitationsOutput, __MetadataBearer {}
 
 /**
  * <p>List  the workload invitations.</p>

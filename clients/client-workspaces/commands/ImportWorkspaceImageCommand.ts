@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ImportWorkspaceImageCommandInput = ImportWorkspaceImageRequest;
-export type ImportWorkspaceImageCommandOutput = ImportWorkspaceImageResult & __MetadataBearer;
+export interface ImportWorkspaceImageCommandInput extends ImportWorkspaceImageRequest {}
+export interface ImportWorkspaceImageCommandOutput extends ImportWorkspaceImageResult, __MetadataBearer {}
 
 /**
  * <p>Imports the specified Windows 10 Bring Your Own License (BYOL) image into Amazon

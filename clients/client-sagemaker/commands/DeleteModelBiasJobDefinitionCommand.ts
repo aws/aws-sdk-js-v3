@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteModelBiasJobDefinitionCommandInput = DeleteModelBiasJobDefinitionRequest;
-export type DeleteModelBiasJobDefinitionCommandOutput = __MetadataBearer;
+export interface DeleteModelBiasJobDefinitionCommandInput extends DeleteModelBiasJobDefinitionRequest {}
+export interface DeleteModelBiasJobDefinitionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes an Amazon SageMaker model bias job definition.</p>

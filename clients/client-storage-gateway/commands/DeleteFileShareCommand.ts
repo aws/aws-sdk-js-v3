@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteFileShareCommandInput = DeleteFileShareInput;
-export type DeleteFileShareCommandOutput = DeleteFileShareOutput & __MetadataBearer;
+export interface DeleteFileShareCommandInput extends DeleteFileShareInput {}
+export interface DeleteFileShareCommandOutput extends DeleteFileShareOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes a file share from a file gateway. This operation is only supported for file

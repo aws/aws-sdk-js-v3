@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateConnectionCommandInput = CreateConnectionInput;
-export type CreateConnectionCommandOutput = CreateConnectionOutput & __MetadataBearer;
+export interface CreateConnectionCommandInput extends CreateConnectionInput {}
+export interface CreateConnectionCommandOutput extends CreateConnectionOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a connection that can then be given to other AWS services like CodePipeline so

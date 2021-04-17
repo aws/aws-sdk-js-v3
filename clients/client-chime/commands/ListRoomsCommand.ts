@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListRoomsCommandInput = ListRoomsRequest;
-export type ListRoomsCommandOutput = ListRoomsResponse & __MetadataBearer;
+export interface ListRoomsCommandInput extends ListRoomsRequest {}
+export interface ListRoomsCommandOutput extends ListRoomsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the room details for the specified Amazon Chime Enterprise account. Optionally, filter the results by a member ID (user ID or bot ID) to see a list of rooms that the member belongs to.</p>

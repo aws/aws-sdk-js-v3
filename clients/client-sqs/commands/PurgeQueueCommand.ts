@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PurgeQueueCommandInput = PurgeQueueRequest;
-export type PurgeQueueCommandOutput = __MetadataBearer;
+export interface PurgeQueueCommandInput extends PurgeQueueRequest {}
+export interface PurgeQueueCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the messages in a queue specified by the <code>QueueURL</code>

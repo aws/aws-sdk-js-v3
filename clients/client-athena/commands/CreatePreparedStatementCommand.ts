@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreatePreparedStatementCommandInput = CreatePreparedStatementInput;
-export type CreatePreparedStatementCommandOutput = CreatePreparedStatementOutput & __MetadataBearer;
+export interface CreatePreparedStatementCommandInput extends CreatePreparedStatementInput {}
+export interface CreatePreparedStatementCommandOutput extends CreatePreparedStatementOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a prepared statement for use with SQL queries in Athena.</p>

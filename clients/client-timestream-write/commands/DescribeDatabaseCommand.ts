@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDatabaseCommandInput = DescribeDatabaseRequest;
-export type DescribeDatabaseCommandOutput = DescribeDatabaseResponse & __MetadataBearer;
+export interface DescribeDatabaseCommandInput extends DescribeDatabaseRequest {}
+export interface DescribeDatabaseCommandOutput extends DescribeDatabaseResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about the database, including the database name, time that the database was created,

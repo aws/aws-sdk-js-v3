@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListResolverQueryLogConfigAssociationsCommandInput = ListResolverQueryLogConfigAssociationsRequest;
-export type ListResolverQueryLogConfigAssociationsCommandOutput = ListResolverQueryLogConfigAssociationsResponse &
-  __MetadataBearer;
+export interface ListResolverQueryLogConfigAssociationsCommandInput
+  extends ListResolverQueryLogConfigAssociationsRequest {}
+export interface ListResolverQueryLogConfigAssociationsCommandOutput
+  extends ListResolverQueryLogConfigAssociationsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Lists information about associations between Amazon VPCs and query logging configurations.</p>

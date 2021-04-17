@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type XmlEmptyStringsCommandInput = XmlEmptyStringsInputOutput;
-export type XmlEmptyStringsCommandOutput = XmlEmptyStringsInputOutput & __MetadataBearer;
+export interface XmlEmptyStringsCommandInput extends XmlEmptyStringsInputOutput {}
+export interface XmlEmptyStringsCommandOutput extends XmlEmptyStringsInputOutput, __MetadataBearer {}
 
 export class XmlEmptyStringsCommand extends $Command<
   XmlEmptyStringsCommandInput,

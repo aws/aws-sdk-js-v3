@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAccountCommandInput = DescribeAccountRequest;
-export type DescribeAccountCommandOutput = DescribeAccountResult & __MetadataBearer;
+export interface DescribeAccountCommandInput extends DescribeAccountRequest {}
+export interface DescribeAccountCommandOutput extends DescribeAccountResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list that describes the configuration of Bring Your Own License (BYOL) for

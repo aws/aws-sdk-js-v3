@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateResolverEndpointIpAddressCommandInput = DisassociateResolverEndpointIpAddressRequest;
-export type DisassociateResolverEndpointIpAddressCommandOutput = DisassociateResolverEndpointIpAddressResponse &
-  __MetadataBearer;
+export interface DisassociateResolverEndpointIpAddressCommandInput
+  extends DisassociateResolverEndpointIpAddressRequest {}
+export interface DisassociateResolverEndpointIpAddressCommandOutput
+  extends DisassociateResolverEndpointIpAddressResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Removes IP addresses from an inbound or an outbound Resolver endpoint. If you want to remove more than one IP address,

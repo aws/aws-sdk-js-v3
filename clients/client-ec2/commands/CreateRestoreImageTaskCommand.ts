@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateRestoreImageTaskCommandInput = CreateRestoreImageTaskRequest;
-export type CreateRestoreImageTaskCommandOutput = CreateRestoreImageTaskResult & __MetadataBearer;
+export interface CreateRestoreImageTaskCommandInput extends CreateRestoreImageTaskRequest {}
+export interface CreateRestoreImageTaskCommandOutput extends CreateRestoreImageTaskResult, __MetadataBearer {}
 
 /**
  * <p>Starts a task that restores an AMI from an S3 object that was previously created by using

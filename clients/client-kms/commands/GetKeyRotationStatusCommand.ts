@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetKeyRotationStatusCommandInput = GetKeyRotationStatusRequest;
-export type GetKeyRotationStatusCommandOutput = GetKeyRotationStatusResponse & __MetadataBearer;
+export interface GetKeyRotationStatusCommandInput extends GetKeyRotationStatusRequest {}
+export interface GetKeyRotationStatusCommandOutput extends GetKeyRotationStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a Boolean value that indicates whether <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">automatic rotation of the key material</a> is

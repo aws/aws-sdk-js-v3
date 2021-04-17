@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAppReplicationConfigurationCommandInput = DeleteAppReplicationConfigurationRequest;
-export type DeleteAppReplicationConfigurationCommandOutput = DeleteAppReplicationConfigurationResponse &
-  __MetadataBearer;
+export interface DeleteAppReplicationConfigurationCommandInput extends DeleteAppReplicationConfigurationRequest {}
+export interface DeleteAppReplicationConfigurationCommandOutput
+  extends DeleteAppReplicationConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes the replication configuration for the specified application.</p>

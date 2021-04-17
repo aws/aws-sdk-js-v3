@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetImageRecipeCommandInput = GetImageRecipeRequest;
-export type GetImageRecipeCommandOutput = GetImageRecipeResponse & __MetadataBearer;
+export interface GetImageRecipeCommandInput extends GetImageRecipeRequest {}
+export interface GetImageRecipeCommandOutput extends GetImageRecipeResponse, __MetadataBearer {}
 
 /**
  * <p> Gets an image recipe.</p>

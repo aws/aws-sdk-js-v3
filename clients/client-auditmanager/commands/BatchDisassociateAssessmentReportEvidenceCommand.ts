@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchDisassociateAssessmentReportEvidenceCommandInput = BatchDisassociateAssessmentReportEvidenceRequest;
-export type BatchDisassociateAssessmentReportEvidenceCommandOutput = BatchDisassociateAssessmentReportEvidenceResponse &
-  __MetadataBearer;
+export interface BatchDisassociateAssessmentReportEvidenceCommandInput
+  extends BatchDisassociateAssessmentReportEvidenceRequest {}
+export interface BatchDisassociateAssessmentReportEvidenceCommandOutput
+  extends BatchDisassociateAssessmentReportEvidenceResponse,
+    __MetadataBearer {}
 
 /**
  * <p>

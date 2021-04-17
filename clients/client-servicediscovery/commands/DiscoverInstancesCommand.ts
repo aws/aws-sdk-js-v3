@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DiscoverInstancesCommandInput = DiscoverInstancesRequest;
-export type DiscoverInstancesCommandOutput = DiscoverInstancesResponse & __MetadataBearer;
+export interface DiscoverInstancesCommandInput extends DiscoverInstancesRequest {}
+export interface DiscoverInstancesCommandOutput extends DiscoverInstancesResponse, __MetadataBearer {}
 
 /**
  * <p>Discovers registered instances for a specified namespace and service. You can use <code>DiscoverInstances</code>

@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAccountsForProvisionedPermissionSetCommandInput = ListAccountsForProvisionedPermissionSetRequest;
-export type ListAccountsForProvisionedPermissionSetCommandOutput = ListAccountsForProvisionedPermissionSetResponse &
-  __MetadataBearer;
+export interface ListAccountsForProvisionedPermissionSetCommandInput
+  extends ListAccountsForProvisionedPermissionSetRequest {}
+export interface ListAccountsForProvisionedPermissionSetCommandOutput
+  extends ListAccountsForProvisionedPermissionSetResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Lists all the AWS accounts where the specified permission set is provisioned.</p>

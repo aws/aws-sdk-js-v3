@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateTrailCommandInput = UpdateTrailRequest;
-export type UpdateTrailCommandOutput = UpdateTrailResponse & __MetadataBearer;
+export interface UpdateTrailCommandInput extends UpdateTrailRequest {}
+export interface UpdateTrailCommandOutput extends UpdateTrailResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the settings that specify delivery of log files. Changes to a trail do not require

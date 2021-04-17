@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelExportTaskCommandInput = CancelExportTaskMessage;
-export type CancelExportTaskCommandOutput = ExportTask & __MetadataBearer;
+export interface CancelExportTaskCommandInput extends CancelExportTaskMessage {}
+export interface CancelExportTaskCommandOutput extends ExportTask, __MetadataBearer {}
 
 /**
  * <p>Cancels an export task in progress that is exporting a snapshot to Amazon S3.

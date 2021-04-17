@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateBandwidthRateLimitScheduleCommandInput = UpdateBandwidthRateLimitScheduleInput;
-export type UpdateBandwidthRateLimitScheduleCommandOutput = UpdateBandwidthRateLimitScheduleOutput & __MetadataBearer;
+export interface UpdateBandwidthRateLimitScheduleCommandInput extends UpdateBandwidthRateLimitScheduleInput {}
+export interface UpdateBandwidthRateLimitScheduleCommandOutput
+  extends UpdateBandwidthRateLimitScheduleOutput,
+    __MetadataBearer {}
 
 /**
  * <p>

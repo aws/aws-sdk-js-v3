@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeLocationNfsCommandInput = DescribeLocationNfsRequest;
-export type DescribeLocationNfsCommandOutput = DescribeLocationNfsResponse & __MetadataBearer;
+export interface DescribeLocationNfsCommandInput extends DescribeLocationNfsRequest {}
+export interface DescribeLocationNfsCommandOutput extends DescribeLocationNfsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns metadata, such as the path information, about an NFS location.</p>

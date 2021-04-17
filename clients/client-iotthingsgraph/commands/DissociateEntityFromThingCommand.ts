@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DissociateEntityFromThingCommandInput = DissociateEntityFromThingRequest;
-export type DissociateEntityFromThingCommandOutput = DissociateEntityFromThingResponse & __MetadataBearer;
+export interface DissociateEntityFromThingCommandInput extends DissociateEntityFromThingRequest {}
+export interface DissociateEntityFromThingCommandOutput extends DissociateEntityFromThingResponse, __MetadataBearer {}
 
 /**
  * <p>Dissociates a device entity from a concrete thing. The action takes only the type of the entity that you need to dissociate because only

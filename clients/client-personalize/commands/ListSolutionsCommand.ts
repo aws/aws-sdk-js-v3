@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListSolutionsCommandInput = ListSolutionsRequest;
-export type ListSolutionsCommandOutput = ListSolutionsResponse & __MetadataBearer;
+export interface ListSolutionsCommandInput extends ListSolutionsRequest {}
+export interface ListSolutionsCommandOutput extends ListSolutionsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of solutions that use the given dataset group.

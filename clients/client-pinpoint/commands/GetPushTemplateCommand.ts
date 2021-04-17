@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetPushTemplateCommandInput = GetPushTemplateRequest;
-export type GetPushTemplateCommandOutput = GetPushTemplateResponse & __MetadataBearer;
+export interface GetPushTemplateCommandInput extends GetPushTemplateRequest {}
+export interface GetPushTemplateCommandOutput extends GetPushTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the content and settings of a message template for messages that are sent through a push notification channel.</p>

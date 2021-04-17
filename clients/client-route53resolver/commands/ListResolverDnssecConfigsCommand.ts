@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListResolverDnssecConfigsCommandInput = ListResolverDnssecConfigsRequest;
-export type ListResolverDnssecConfigsCommandOutput = ListResolverDnssecConfigsResponse & __MetadataBearer;
+export interface ListResolverDnssecConfigsCommandInput extends ListResolverDnssecConfigsRequest {}
+export interface ListResolverDnssecConfigsCommandOutput extends ListResolverDnssecConfigsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the configurations for DNSSEC validation that are associated with the current AWS account.</p>

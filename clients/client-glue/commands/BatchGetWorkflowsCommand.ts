@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchGetWorkflowsCommandInput = BatchGetWorkflowsRequest;
-export type BatchGetWorkflowsCommandOutput = BatchGetWorkflowsResponse & __MetadataBearer;
+export interface BatchGetWorkflowsCommandInput extends BatchGetWorkflowsRequest {}
+export interface BatchGetWorkflowsCommandOutput extends BatchGetWorkflowsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of resource metadata for a given list of workflow names. After calling the <code>ListWorkflows</code> operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.</p>

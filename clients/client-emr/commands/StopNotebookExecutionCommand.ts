@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopNotebookExecutionCommandInput = StopNotebookExecutionInput;
-export type StopNotebookExecutionCommandOutput = __MetadataBearer;
+export interface StopNotebookExecutionCommandInput extends StopNotebookExecutionInput {}
+export interface StopNotebookExecutionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Stops a notebook execution.</p>

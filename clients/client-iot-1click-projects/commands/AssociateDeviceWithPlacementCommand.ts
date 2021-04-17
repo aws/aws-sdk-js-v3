@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateDeviceWithPlacementCommandInput = AssociateDeviceWithPlacementRequest;
-export type AssociateDeviceWithPlacementCommandOutput = AssociateDeviceWithPlacementResponse & __MetadataBearer;
+export interface AssociateDeviceWithPlacementCommandInput extends AssociateDeviceWithPlacementRequest {}
+export interface AssociateDeviceWithPlacementCommandOutput
+  extends AssociateDeviceWithPlacementResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Associates a physical device with a placement.</p>

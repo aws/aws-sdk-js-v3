@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateRegexPatternSetCommandInput = CreateRegexPatternSetRequest;
-export type CreateRegexPatternSetCommandOutput = CreateRegexPatternSetResponse & __MetadataBearer;
+export interface CreateRegexPatternSetCommandInput extends CreateRegexPatternSetRequest {}
+export interface CreateRegexPatternSetCommandOutput extends CreateRegexPatternSetResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a <a>RegexPatternSet</a>, which you reference in a <a>RegexPatternSetReferenceStatement</a>, to have AWS WAF inspect a web request component for the specified patterns.</p>

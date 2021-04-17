@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeSeverityLevelsCommandInput = DescribeSeverityLevelsRequest;
-export type DescribeSeverityLevelsCommandOutput = DescribeSeverityLevelsResponse & __MetadataBearer;
+export interface DescribeSeverityLevelsCommandInput extends DescribeSeverityLevelsRequest {}
+export interface DescribeSeverityLevelsCommandOutput extends DescribeSeverityLevelsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the list of severity levels that you can assign to an AWS Support case. The severity

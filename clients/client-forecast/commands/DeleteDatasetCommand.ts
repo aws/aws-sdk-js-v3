@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDatasetCommandInput = DeleteDatasetRequest;
-export type DeleteDatasetCommandOutput = __MetadataBearer;
+export interface DeleteDatasetCommandInput extends DeleteDatasetRequest {}
+export interface DeleteDatasetCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes an Amazon Forecast dataset that was created using the <a>CreateDataset</a>

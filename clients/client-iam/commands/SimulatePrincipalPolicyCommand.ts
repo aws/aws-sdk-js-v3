@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SimulatePrincipalPolicyCommandInput = SimulatePrincipalPolicyRequest;
-export type SimulatePrincipalPolicyCommandOutput = SimulatePolicyResponse & __MetadataBearer;
+export interface SimulatePrincipalPolicyCommandInput extends SimulatePrincipalPolicyRequest {}
+export interface SimulatePrincipalPolicyCommandOutput extends SimulatePolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Simulate how a set of IAM policies attached to an IAM entity works with a list of

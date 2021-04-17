@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartTextDetectionCommandInput = StartTextDetectionRequest;
-export type StartTextDetectionCommandOutput = StartTextDetectionResponse & __MetadataBearer;
+export interface StartTextDetectionCommandInput extends StartTextDetectionRequest {}
+export interface StartTextDetectionCommandOutput extends StartTextDetectionResponse, __MetadataBearer {}
 
 /**
  * <p>Starts asynchronous detection of text in a stored video.</p>

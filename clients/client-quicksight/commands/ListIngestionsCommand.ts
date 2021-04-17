@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListIngestionsCommandInput = ListIngestionsRequest;
-export type ListIngestionsCommandOutput = ListIngestionsResponse & __MetadataBearer;
+export interface ListIngestionsCommandInput extends ListIngestionsRequest {}
+export interface ListIngestionsCommandOutput extends ListIngestionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the history of SPICE ingestions for a dataset.</p>

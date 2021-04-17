@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeCertificatesCommandInput = DescribeCertificatesMessage;
-export type DescribeCertificatesCommandOutput = DescribeCertificatesResponse & __MetadataBearer;
+export interface DescribeCertificatesCommandInput extends DescribeCertificatesMessage {}
+export interface DescribeCertificatesCommandOutput extends DescribeCertificatesResponse, __MetadataBearer {}
 
 /**
  * <p>Provides a description of the certificate.</p>

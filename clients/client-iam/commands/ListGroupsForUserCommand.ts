@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListGroupsForUserCommandInput = ListGroupsForUserRequest;
-export type ListGroupsForUserCommandOutput = ListGroupsForUserResponse & __MetadataBearer;
+export interface ListGroupsForUserCommandInput extends ListGroupsForUserRequest {}
+export interface ListGroupsForUserCommandOutput extends ListGroupsForUserResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the IAM groups that the specified IAM user belongs to.</p>

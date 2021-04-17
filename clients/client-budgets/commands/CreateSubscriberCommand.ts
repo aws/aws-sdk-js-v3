@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateSubscriberCommandInput = CreateSubscriberRequest;
-export type CreateSubscriberCommandOutput = CreateSubscriberResponse & __MetadataBearer;
+export interface CreateSubscriberCommandInput extends CreateSubscriberRequest {}
+export interface CreateSubscriberCommandOutput extends CreateSubscriberResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a subscriber. You must create the associated budget and notification before you create the subscriber.</p>

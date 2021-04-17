@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeInstanceEventNotificationAttributesCommandInput = DescribeInstanceEventNotificationAttributesRequest;
-export type DescribeInstanceEventNotificationAttributesCommandOutput = DescribeInstanceEventNotificationAttributesResult &
-  __MetadataBearer;
+export interface DescribeInstanceEventNotificationAttributesCommandInput
+  extends DescribeInstanceEventNotificationAttributesRequest {}
+export interface DescribeInstanceEventNotificationAttributesCommandOutput
+  extends DescribeInstanceEventNotificationAttributesResult,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the tag keys that are registered to appear in scheduled event notifications for

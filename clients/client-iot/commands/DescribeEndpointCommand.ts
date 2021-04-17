@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeEndpointCommandInput = DescribeEndpointRequest;
-export type DescribeEndpointCommandOutput = DescribeEndpointResponse & __MetadataBearer;
+export interface DescribeEndpointCommandInput extends DescribeEndpointRequest {}
+export interface DescribeEndpointCommandOutput extends DescribeEndpointResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a unique endpoint specific to the AWS account making the call.</p>

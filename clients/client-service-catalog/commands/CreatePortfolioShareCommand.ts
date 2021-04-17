@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreatePortfolioShareCommandInput = CreatePortfolioShareInput;
-export type CreatePortfolioShareCommandOutput = CreatePortfolioShareOutput & __MetadataBearer;
+export interface CreatePortfolioShareCommandInput extends CreatePortfolioShareInput {}
+export interface CreatePortfolioShareCommandOutput extends CreatePortfolioShareOutput, __MetadataBearer {}
 
 /**
  * <p>Shares the specified portfolio with the specified account or organization node.

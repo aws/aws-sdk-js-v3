@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAttachmentCommandInput = DescribeAttachmentRequest;
-export type DescribeAttachmentCommandOutput = DescribeAttachmentResponse & __MetadataBearer;
+export interface DescribeAttachmentCommandInput extends DescribeAttachmentRequest {}
+export interface DescribeAttachmentCommandOutput extends DescribeAttachmentResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the attachment that has the specified ID. Attachments can include screenshots,

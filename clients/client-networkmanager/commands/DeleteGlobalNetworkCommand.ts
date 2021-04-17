@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteGlobalNetworkCommandInput = DeleteGlobalNetworkRequest;
-export type DeleteGlobalNetworkCommandOutput = DeleteGlobalNetworkResponse & __MetadataBearer;
+export interface DeleteGlobalNetworkCommandInput extends DeleteGlobalNetworkRequest {}
+export interface DeleteGlobalNetworkCommandOutput extends DeleteGlobalNetworkResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an existing global network. You must first delete all global network objects

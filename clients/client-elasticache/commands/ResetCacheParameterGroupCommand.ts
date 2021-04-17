@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ResetCacheParameterGroupCommandInput = ResetCacheParameterGroupMessage;
-export type ResetCacheParameterGroupCommandOutput = CacheParameterGroupNameMessage & __MetadataBearer;
+export interface ResetCacheParameterGroupCommandInput extends ResetCacheParameterGroupMessage {}
+export interface ResetCacheParameterGroupCommandOutput extends CacheParameterGroupNameMessage, __MetadataBearer {}
 
 /**
  * <p>Modifies the parameters of a cache

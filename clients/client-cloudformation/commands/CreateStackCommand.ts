@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateStackCommandInput = CreateStackInput;
-export type CreateStackCommandOutput = CreateStackOutput & __MetadataBearer;
+export interface CreateStackCommandInput extends CreateStackInput {}
+export interface CreateStackCommandOutput extends CreateStackOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a stack as specified in the template. After the call completes successfully,

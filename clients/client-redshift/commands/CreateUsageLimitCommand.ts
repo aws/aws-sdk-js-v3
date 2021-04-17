@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateUsageLimitCommandInput = CreateUsageLimitMessage;
-export type CreateUsageLimitCommandOutput = UsageLimit & __MetadataBearer;
+export interface CreateUsageLimitCommandInput extends CreateUsageLimitMessage {}
+export interface CreateUsageLimitCommandOutput extends UsageLimit, __MetadataBearer {}
 
 /**
  * <p>Creates a usage limit for a specified Amazon Redshift feature on a cluster.

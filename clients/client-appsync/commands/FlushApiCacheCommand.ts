@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type FlushApiCacheCommandInput = FlushApiCacheRequest;
-export type FlushApiCacheCommandOutput = FlushApiCacheResponse & __MetadataBearer;
+export interface FlushApiCacheCommandInput extends FlushApiCacheRequest {}
+export interface FlushApiCacheCommandOutput extends FlushApiCacheResponse, __MetadataBearer {}
 
 /**
  * <p>Flushes an <code>ApiCache</code> object.</p>

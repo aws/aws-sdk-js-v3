@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateSpotDatafeedSubscriptionCommandInput = CreateSpotDatafeedSubscriptionRequest;
-export type CreateSpotDatafeedSubscriptionCommandOutput = CreateSpotDatafeedSubscriptionResult & __MetadataBearer;
+export interface CreateSpotDatafeedSubscriptionCommandInput extends CreateSpotDatafeedSubscriptionRequest {}
+export interface CreateSpotDatafeedSubscriptionCommandOutput
+  extends CreateSpotDatafeedSubscriptionResult,
+    __MetadataBearer {}
 
 /**
  * <p>Creates a data feed for Spot Instances, enabling you to view Spot Instance usage logs.

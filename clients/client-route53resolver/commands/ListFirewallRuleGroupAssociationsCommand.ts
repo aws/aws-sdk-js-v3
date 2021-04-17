@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListFirewallRuleGroupAssociationsCommandInput = ListFirewallRuleGroupAssociationsRequest;
-export type ListFirewallRuleGroupAssociationsCommandOutput = ListFirewallRuleGroupAssociationsResponse &
-  __MetadataBearer;
+export interface ListFirewallRuleGroupAssociationsCommandInput extends ListFirewallRuleGroupAssociationsRequest {}
+export interface ListFirewallRuleGroupAssociationsCommandOutput
+  extends ListFirewallRuleGroupAssociationsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves the firewall rule group associations that you have defined. Each association enables DNS filtering for a VPC with one rule group. </p>

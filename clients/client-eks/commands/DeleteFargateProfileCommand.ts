@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteFargateProfileCommandInput = DeleteFargateProfileRequest;
-export type DeleteFargateProfileCommandOutput = DeleteFargateProfileResponse & __MetadataBearer;
+export interface DeleteFargateProfileCommandInput extends DeleteFargateProfileRequest {}
+export interface DeleteFargateProfileCommandOutput extends DeleteFargateProfileResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an AWS Fargate profile.</p>

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListMedicalTranscriptionJobsCommandInput = ListMedicalTranscriptionJobsRequest;
-export type ListMedicalTranscriptionJobsCommandOutput = ListMedicalTranscriptionJobsResponse & __MetadataBearer;
+export interface ListMedicalTranscriptionJobsCommandInput extends ListMedicalTranscriptionJobsRequest {}
+export interface ListMedicalTranscriptionJobsCommandOutput
+  extends ListMedicalTranscriptionJobsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Lists medical transcription jobs with a specified status or substring that matches

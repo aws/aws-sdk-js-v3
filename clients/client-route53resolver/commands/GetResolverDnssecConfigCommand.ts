@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetResolverDnssecConfigCommandInput = GetResolverDnssecConfigRequest;
-export type GetResolverDnssecConfigCommandOutput = GetResolverDnssecConfigResponse & __MetadataBearer;
+export interface GetResolverDnssecConfigCommandInput extends GetResolverDnssecConfigRequest {}
+export interface GetResolverDnssecConfigCommandOutput extends GetResolverDnssecConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Gets DNSSEC validation information for a specified resource.</p>

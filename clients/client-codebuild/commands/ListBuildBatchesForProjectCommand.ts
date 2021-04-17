@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListBuildBatchesForProjectCommandInput = ListBuildBatchesForProjectInput;
-export type ListBuildBatchesForProjectCommandOutput = ListBuildBatchesForProjectOutput & __MetadataBearer;
+export interface ListBuildBatchesForProjectCommandInput extends ListBuildBatchesForProjectInput {}
+export interface ListBuildBatchesForProjectCommandOutput extends ListBuildBatchesForProjectOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves the identifiers of the build batches for a specific project.</p>

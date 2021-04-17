@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterElasticIpCommandInput = RegisterElasticIpRequest;
-export type RegisterElasticIpCommandOutput = RegisterElasticIpResult & __MetadataBearer;
+export interface RegisterElasticIpCommandInput extends RegisterElasticIpRequest {}
+export interface RegisterElasticIpCommandOutput extends RegisterElasticIpResult, __MetadataBearer {}
 
 /**
  * <p>Registers an Elastic IP address with a specified stack. An address can be registered with

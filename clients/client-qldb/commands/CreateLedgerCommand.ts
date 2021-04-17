@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateLedgerCommandInput = CreateLedgerRequest;
-export type CreateLedgerCommandOutput = CreateLedgerResponse & __MetadataBearer;
+export interface CreateLedgerCommandInput extends CreateLedgerRequest {}
+export interface CreateLedgerCommandOutput extends CreateLedgerResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new ledger in your AWS account.</p>

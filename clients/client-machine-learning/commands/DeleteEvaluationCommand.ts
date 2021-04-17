@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteEvaluationCommandInput = DeleteEvaluationInput;
-export type DeleteEvaluationCommandOutput = DeleteEvaluationOutput & __MetadataBearer;
+export interface DeleteEvaluationCommandInput extends DeleteEvaluationInput {}
+export interface DeleteEvaluationCommandOutput extends DeleteEvaluationOutput, __MetadataBearer {}
 
 /**
  * <p>Assigns the <code>DELETED</code> status to an <code>Evaluation</code>, rendering it unusable.</p>

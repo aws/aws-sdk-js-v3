@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateGraphqlApiCommandInput = CreateGraphqlApiRequest;
-export type CreateGraphqlApiCommandOutput = CreateGraphqlApiResponse & __MetadataBearer;
+export interface CreateGraphqlApiCommandInput extends CreateGraphqlApiRequest {}
+export interface CreateGraphqlApiCommandOutput extends CreateGraphqlApiResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a <code>GraphqlApi</code> object.</p>

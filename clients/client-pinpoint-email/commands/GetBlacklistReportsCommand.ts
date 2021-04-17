@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBlacklistReportsCommandInput = GetBlacklistReportsRequest;
-export type GetBlacklistReportsCommandOutput = GetBlacklistReportsResponse & __MetadataBearer;
+export interface GetBlacklistReportsCommandInput extends GetBlacklistReportsRequest {}
+export interface GetBlacklistReportsCommandOutput extends GetBlacklistReportsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieve a list of the blacklists that your dedicated IP addresses appear on.</p>

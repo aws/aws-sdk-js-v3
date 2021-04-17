@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetRoomCommandInput = GetRoomRequest;
-export type GetRoomCommandOutput = GetRoomResponse & __MetadataBearer;
+export interface GetRoomCommandInput extends GetRoomRequest {}
+export interface GetRoomCommandOutput extends GetRoomResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves room details, such as the room name, for a room in an Amazon Chime Enterprise account.</p>

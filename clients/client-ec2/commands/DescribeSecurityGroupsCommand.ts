@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeSecurityGroupsCommandInput = DescribeSecurityGroupsRequest;
-export type DescribeSecurityGroupsCommandOutput = DescribeSecurityGroupsResult & __MetadataBearer;
+export interface DescribeSecurityGroupsCommandInput extends DescribeSecurityGroupsRequest {}
+export interface DescribeSecurityGroupsCommandOutput extends DescribeSecurityGroupsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the specified security groups or all of your security groups.</p>

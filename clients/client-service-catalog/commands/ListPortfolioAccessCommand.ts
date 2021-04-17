@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPortfolioAccessCommandInput = ListPortfolioAccessInput;
-export type ListPortfolioAccessCommandOutput = ListPortfolioAccessOutput & __MetadataBearer;
+export interface ListPortfolioAccessCommandInput extends ListPortfolioAccessInput {}
+export interface ListPortfolioAccessCommandOutput extends ListPortfolioAccessOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the account IDs that have access to the specified portfolio.</p>

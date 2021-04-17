@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateLanguageModelCommandInput = CreateLanguageModelRequest;
-export type CreateLanguageModelCommandOutput = CreateLanguageModelResponse & __MetadataBearer;
+export interface CreateLanguageModelCommandInput extends CreateLanguageModelRequest {}
+export interface CreateLanguageModelCommandOutput extends CreateLanguageModelResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new custom language model. Use Amazon S3 prefixes to provide the location of your

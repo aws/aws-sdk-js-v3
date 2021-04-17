@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteObjectCommandInput = DeleteObjectRequest;
-export type DeleteObjectCommandOutput = DeleteObjectOutput & __MetadataBearer;
+export interface DeleteObjectCommandInput extends DeleteObjectRequest {}
+export interface DeleteObjectCommandOutput extends DeleteObjectOutput, __MetadataBearer {}
 
 /**
  * <p>Removes the null version (if there is one) of an object and inserts a delete marker,

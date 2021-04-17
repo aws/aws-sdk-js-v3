@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TestWirelessDeviceCommandInput = TestWirelessDeviceRequest;
-export type TestWirelessDeviceCommandOutput = TestWirelessDeviceResponse & __MetadataBearer;
+export interface TestWirelessDeviceCommandInput extends TestWirelessDeviceRequest {}
+export interface TestWirelessDeviceCommandOutput extends TestWirelessDeviceResponse, __MetadataBearer {}
 
 /**
  * <p>Simulates a provisioned device by sending an uplink data payload of <code>Hello</code>.</p>

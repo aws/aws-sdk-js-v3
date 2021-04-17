@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteApnsVoipChannelCommandInput = DeleteApnsVoipChannelRequest;
-export type DeleteApnsVoipChannelCommandOutput = DeleteApnsVoipChannelResponse & __MetadataBearer;
+export interface DeleteApnsVoipChannelCommandInput extends DeleteApnsVoipChannelRequest {}
+export interface DeleteApnsVoipChannelCommandOutput extends DeleteApnsVoipChannelResponse, __MetadataBearer {}
 
 /**
  * <p>Disables the APNs VoIP channel for an application and deletes any existing settings for the channel.</p>

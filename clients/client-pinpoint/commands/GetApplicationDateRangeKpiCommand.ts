@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetApplicationDateRangeKpiCommandInput = GetApplicationDateRangeKpiRequest;
-export type GetApplicationDateRangeKpiCommandOutput = GetApplicationDateRangeKpiResponse & __MetadataBearer;
+export interface GetApplicationDateRangeKpiCommandInput extends GetApplicationDateRangeKpiRequest {}
+export interface GetApplicationDateRangeKpiCommandOutput extends GetApplicationDateRangeKpiResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves (queries) pre-aggregated data for a standard metric that applies to an application.</p>

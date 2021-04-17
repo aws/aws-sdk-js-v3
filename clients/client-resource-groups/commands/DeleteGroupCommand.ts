@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteGroupCommandInput = DeleteGroupInput;
-export type DeleteGroupCommandOutput = DeleteGroupOutput & __MetadataBearer;
+export interface DeleteGroupCommandInput extends DeleteGroupInput {}
+export interface DeleteGroupCommandOutput extends DeleteGroupOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified resource group. Deleting a resource group does not delete any

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDBSnapshotAttributesCommandInput = DescribeDBSnapshotAttributesMessage;
-export type DescribeDBSnapshotAttributesCommandOutput = DescribeDBSnapshotAttributesResult & __MetadataBearer;
+export interface DescribeDBSnapshotAttributesCommandInput extends DescribeDBSnapshotAttributesMessage {}
+export interface DescribeDBSnapshotAttributesCommandOutput
+  extends DescribeDBSnapshotAttributesResult,
+    __MetadataBearer {}
 
 /**
  * <p>Returns a list of DB snapshot attribute names and values for a manual DB snapshot.</p>

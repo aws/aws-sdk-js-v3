@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListStreamProcessorsCommandInput = ListStreamProcessorsRequest;
-export type ListStreamProcessorsCommandOutput = ListStreamProcessorsResponse & __MetadataBearer;
+export interface ListStreamProcessorsCommandInput extends ListStreamProcessorsRequest {}
+export interface ListStreamProcessorsCommandOutput extends ListStreamProcessorsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of stream processors that you have created with <a>CreateStreamProcessor</a>. </p>

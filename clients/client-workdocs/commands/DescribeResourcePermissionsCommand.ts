@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeResourcePermissionsCommandInput = DescribeResourcePermissionsRequest;
-export type DescribeResourcePermissionsCommandOutput = DescribeResourcePermissionsResponse & __MetadataBearer;
+export interface DescribeResourcePermissionsCommandInput extends DescribeResourcePermissionsRequest {}
+export interface DescribeResourcePermissionsCommandOutput
+  extends DescribeResourcePermissionsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the permissions of a specified resource.</p>

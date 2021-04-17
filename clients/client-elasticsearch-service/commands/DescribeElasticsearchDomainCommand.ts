@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeElasticsearchDomainCommandInput = DescribeElasticsearchDomainRequest;
-export type DescribeElasticsearchDomainCommandOutput = DescribeElasticsearchDomainResponse & __MetadataBearer;
+export interface DescribeElasticsearchDomainCommandInput extends DescribeElasticsearchDomainRequest {}
+export interface DescribeElasticsearchDomainCommandOutput
+  extends DescribeElasticsearchDomainResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns domain configuration information about the specified Elasticsearch domain, including the domain ID, domain endpoint, and domain ARN.</p>

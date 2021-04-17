@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDomainStatisticsReportCommandInput = GetDomainStatisticsReportRequest;
-export type GetDomainStatisticsReportCommandOutput = GetDomainStatisticsReportResponse & __MetadataBearer;
+export interface GetDomainStatisticsReportCommandInput extends GetDomainStatisticsReportRequest {}
+export interface GetDomainStatisticsReportCommandOutput extends GetDomainStatisticsReportResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieve inbox placement and engagement rates for the domains that you use to send

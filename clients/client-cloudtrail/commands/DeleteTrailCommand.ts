@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteTrailCommandInput = DeleteTrailRequest;
-export type DeleteTrailCommandOutput = DeleteTrailResponse & __MetadataBearer;
+export interface DeleteTrailCommandInput extends DeleteTrailRequest {}
+export interface DeleteTrailCommandOutput extends DeleteTrailResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a trail. This operation must be called from the region in which the trail was

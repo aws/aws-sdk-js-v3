@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDocumentClassifiersCommandInput = ListDocumentClassifiersRequest;
-export type ListDocumentClassifiersCommandOutput = ListDocumentClassifiersResponse & __MetadataBearer;
+export interface ListDocumentClassifiersCommandInput extends ListDocumentClassifiersRequest {}
+export interface ListDocumentClassifiersCommandOutput extends ListDocumentClassifiersResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of the document classifiers that you have created.</p>

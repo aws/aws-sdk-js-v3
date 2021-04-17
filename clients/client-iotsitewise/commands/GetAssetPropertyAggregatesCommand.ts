@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAssetPropertyAggregatesCommandInput = GetAssetPropertyAggregatesRequest;
-export type GetAssetPropertyAggregatesCommandOutput = GetAssetPropertyAggregatesResponse & __MetadataBearer;
+export interface GetAssetPropertyAggregatesCommandInput extends GetAssetPropertyAggregatesRequest {}
+export interface GetAssetPropertyAggregatesCommandOutput extends GetAssetPropertyAggregatesResponse, __MetadataBearer {}
 
 /**
  * <p>Gets aggregated values for an asset property. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#aggregates">Querying

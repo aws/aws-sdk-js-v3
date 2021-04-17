@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeUserProfileCommandInput = DescribeUserProfileRequest;
-export type DescribeUserProfileCommandOutput = DescribeUserProfileResponse & __MetadataBearer;
+export interface DescribeUserProfileCommandInput extends DescribeUserProfileRequest {}
+export interface DescribeUserProfileCommandOutput extends DescribeUserProfileResponse, __MetadataBearer {}
 
 /**
  * <p>Describes a user profile. For more information, see <code>CreateUserProfile</code>.</p>

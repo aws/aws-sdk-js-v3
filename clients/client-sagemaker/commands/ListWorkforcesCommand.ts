@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListWorkforcesCommandInput = ListWorkforcesRequest;
-export type ListWorkforcesCommandOutput = ListWorkforcesResponse & __MetadataBearer;
+export interface ListWorkforcesCommandInput extends ListWorkforcesRequest {}
+export interface ListWorkforcesCommandOutput extends ListWorkforcesResponse, __MetadataBearer {}
 
 /**
  * <p>Use this operation to list all private and vendor workforces in an AWS Region. Note that you can only

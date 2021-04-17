@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateEvaluationCommandInput = CreateEvaluationInput;
-export type CreateEvaluationCommandOutput = CreateEvaluationOutput & __MetadataBearer;
+export interface CreateEvaluationCommandInput extends CreateEvaluationInput {}
+export interface CreateEvaluationCommandOutput extends CreateEvaluationOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a new <code>Evaluation</code> of an <code>MLModel</code>. An <code>MLModel</code> is evaluated on a set of observations associated to a <code>DataSource</code>. Like a <code>DataSource</code>

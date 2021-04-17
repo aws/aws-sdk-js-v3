@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdatePullRequestApprovalRuleContentCommandInput = UpdatePullRequestApprovalRuleContentInput;
-export type UpdatePullRequestApprovalRuleContentCommandOutput = UpdatePullRequestApprovalRuleContentOutput &
-  __MetadataBearer;
+export interface UpdatePullRequestApprovalRuleContentCommandInput extends UpdatePullRequestApprovalRuleContentInput {}
+export interface UpdatePullRequestApprovalRuleContentCommandOutput
+  extends UpdatePullRequestApprovalRuleContentOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Updates the structure of an approval rule created specifically for a pull request. For example, you can change the number of required approvers and

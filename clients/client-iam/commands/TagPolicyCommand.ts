@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TagPolicyCommandInput = TagPolicyRequest;
-export type TagPolicyCommandOutput = __MetadataBearer;
+export interface TagPolicyCommandInput extends TagPolicyRequest {}
+export interface TagPolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Adds one or more tags to an IAM customer managed policy. If a tag with the same key

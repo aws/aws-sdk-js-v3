@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeWorkspacesConnectionStatusCommandInput = DescribeWorkspacesConnectionStatusRequest;
-export type DescribeWorkspacesConnectionStatusCommandOutput = DescribeWorkspacesConnectionStatusResult &
-  __MetadataBearer;
+export interface DescribeWorkspacesConnectionStatusCommandInput extends DescribeWorkspacesConnectionStatusRequest {}
+export interface DescribeWorkspacesConnectionStatusCommandOutput
+  extends DescribeWorkspacesConnectionStatusResult,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the connection status of the specified WorkSpaces.</p>

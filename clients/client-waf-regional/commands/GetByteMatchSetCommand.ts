@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetByteMatchSetCommandInput = GetByteMatchSetRequest;
-export type GetByteMatchSetCommandOutput = GetByteMatchSetResponse & __MetadataBearer;
+export interface GetByteMatchSetCommandInput extends GetByteMatchSetRequest {}
+export interface GetByteMatchSetCommandOutput extends GetByteMatchSetResponse, __MetadataBearer {}
 
 /**
  * <note>

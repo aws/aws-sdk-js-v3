@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateEndpointGroupCommandInput = UpdateEndpointGroupRequest;
-export type UpdateEndpointGroupCommandOutput = UpdateEndpointGroupResponse & __MetadataBearer;
+export interface UpdateEndpointGroupCommandInput extends UpdateEndpointGroupRequest {}
+export interface UpdateEndpointGroupCommandOutput extends UpdateEndpointGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Update an endpoint group. A resource must be valid and active when you add it as an endpoint.</p>

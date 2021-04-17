@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetInsightRuleReportCommandInput = GetInsightRuleReportInput;
-export type GetInsightRuleReportCommandOutput = GetInsightRuleReportOutput & __MetadataBearer;
+export interface GetInsightRuleReportCommandInput extends GetInsightRuleReportInput {}
+export interface GetInsightRuleReportCommandOutput extends GetInsightRuleReportOutput, __MetadataBearer {}
 
 /**
  * <p>This operation returns the time series data collected by a Contributor Insights rule. The data includes the identity and number of

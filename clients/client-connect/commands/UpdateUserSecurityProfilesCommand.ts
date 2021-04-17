@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateUserSecurityProfilesCommandInput = UpdateUserSecurityProfilesRequest;
-export type UpdateUserSecurityProfilesCommandOutput = __MetadataBearer;
+export interface UpdateUserSecurityProfilesCommandInput extends UpdateUserSecurityProfilesRequest {}
+export interface UpdateUserSecurityProfilesCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Assigns the specified security profiles to the specified user.</p>

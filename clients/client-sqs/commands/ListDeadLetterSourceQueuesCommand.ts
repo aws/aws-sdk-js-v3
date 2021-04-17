@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDeadLetterSourceQueuesCommandInput = ListDeadLetterSourceQueuesRequest;
-export type ListDeadLetterSourceQueuesCommandOutput = ListDeadLetterSourceQueuesResult & __MetadataBearer;
+export interface ListDeadLetterSourceQueuesCommandInput extends ListDeadLetterSourceQueuesRequest {}
+export interface ListDeadLetterSourceQueuesCommandOutput extends ListDeadLetterSourceQueuesResult, __MetadataBearer {}
 
 /**
  * <p>Returns a list of your queues that have the <code>RedrivePolicy</code> queue attribute configured with a dead-letter queue.</p>

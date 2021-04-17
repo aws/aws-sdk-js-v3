@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetWebACLCommandInput = GetWebACLRequest;
-export type GetWebACLCommandOutput = GetWebACLResponse & __MetadataBearer;
+export interface GetWebACLCommandInput extends GetWebACLRequest {}
+export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBearer {}
 
 /**
  * <note>

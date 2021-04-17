@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GenerateDataSetCommandInput = GenerateDataSetRequest;
-export type GenerateDataSetCommandOutput = GenerateDataSetResult & __MetadataBearer;
+export interface GenerateDataSetCommandInput extends GenerateDataSetRequest {}
+export interface GenerateDataSetCommandOutput extends GenerateDataSetResult, __MetadataBearer {}
 
 /**
  * Given a data set type and data set publication date, asynchronously publishes the requested data set to the specified

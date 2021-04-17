@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListHealthChecksCommandInput = ListHealthChecksRequest;
-export type ListHealthChecksCommandOutput = ListHealthChecksResponse & __MetadataBearer;
+export interface ListHealthChecksCommandInput extends ListHealthChecksRequest {}
+export interface ListHealthChecksCommandOutput extends ListHealthChecksResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieve a list of the health checks that are associated with the current AWS account. </p>

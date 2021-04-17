@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AuthorizeIpRulesCommandInput = AuthorizeIpRulesRequest;
-export type AuthorizeIpRulesCommandOutput = AuthorizeIpRulesResult & __MetadataBearer;
+export interface AuthorizeIpRulesCommandInput extends AuthorizeIpRulesRequest {}
+export interface AuthorizeIpRulesCommandOutput extends AuthorizeIpRulesResult, __MetadataBearer {}
 
 /**
  * <p>Adds one or more rules to the specified IP access control group.</p>

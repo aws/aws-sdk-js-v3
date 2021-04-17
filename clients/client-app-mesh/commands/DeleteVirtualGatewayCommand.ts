@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteVirtualGatewayCommandInput = DeleteVirtualGatewayInput;
-export type DeleteVirtualGatewayCommandOutput = DeleteVirtualGatewayOutput & __MetadataBearer;
+export interface DeleteVirtualGatewayCommandInput extends DeleteVirtualGatewayInput {}
+export interface DeleteVirtualGatewayCommandOutput extends DeleteVirtualGatewayOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes an existing virtual gateway. You cannot delete a virtual gateway if any gateway

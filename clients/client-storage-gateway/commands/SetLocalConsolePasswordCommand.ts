@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetLocalConsolePasswordCommandInput = SetLocalConsolePasswordInput;
-export type SetLocalConsolePasswordCommandOutput = SetLocalConsolePasswordOutput & __MetadataBearer;
+export interface SetLocalConsolePasswordCommandInput extends SetLocalConsolePasswordInput {}
+export interface SetLocalConsolePasswordCommandOutput extends SetLocalConsolePasswordOutput, __MetadataBearer {}
 
 /**
  * <p>Sets the password for your VM local console. When you log in to the local console for

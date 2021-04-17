@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSubscriptionStateCommandInput = GetSubscriptionStateRequest;
-export type GetSubscriptionStateCommandOutput = GetSubscriptionStateResponse & __MetadataBearer;
+export interface GetSubscriptionStateCommandInput extends GetSubscriptionStateRequest {}
+export interface GetSubscriptionStateCommandOutput extends GetSubscriptionStateResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the <code>SubscriptionState</code>, either <code>Active</code> or <code>Inactive</code>.</p>

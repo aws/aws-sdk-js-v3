@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeliverConfigSnapshotCommandInput = DeliverConfigSnapshotRequest;
-export type DeliverConfigSnapshotCommandOutput = DeliverConfigSnapshotResponse & __MetadataBearer;
+export interface DeliverConfigSnapshotCommandInput extends DeliverConfigSnapshotRequest {}
+export interface DeliverConfigSnapshotCommandOutput extends DeliverConfigSnapshotResponse, __MetadataBearer {}
 
 /**
  * <p>Schedules delivery of a configuration snapshot to the Amazon S3

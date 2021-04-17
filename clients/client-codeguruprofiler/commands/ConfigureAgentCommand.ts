@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ConfigureAgentCommandInput = ConfigureAgentRequest;
-export type ConfigureAgentCommandOutput = ConfigureAgentResponse & __MetadataBearer;
+export interface ConfigureAgentCommandInput extends ConfigureAgentRequest {}
+export interface ConfigureAgentCommandOutput extends ConfigureAgentResponse, __MetadataBearer {}
 
 /**
  * <p>

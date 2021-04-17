@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartReplicationTaskAssessmentCommandInput = StartReplicationTaskAssessmentMessage;
-export type StartReplicationTaskAssessmentCommandOutput = StartReplicationTaskAssessmentResponse & __MetadataBearer;
+export interface StartReplicationTaskAssessmentCommandInput extends StartReplicationTaskAssessmentMessage {}
+export interface StartReplicationTaskAssessmentCommandOutput
+  extends StartReplicationTaskAssessmentResponse,
+    __MetadataBearer {}
 
 /**
  * <p> Starts the replication task assessment for unsupported data types in the source

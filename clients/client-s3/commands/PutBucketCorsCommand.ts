@@ -19,8 +19,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutBucketCorsCommandInput = PutBucketCorsRequest;
-export type PutBucketCorsCommandOutput = __MetadataBearer;
+export interface PutBucketCorsCommandInput extends PutBucketCorsRequest {}
+export interface PutBucketCorsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Sets the <code>cors</code> configuration for your bucket. If the configuration exists,

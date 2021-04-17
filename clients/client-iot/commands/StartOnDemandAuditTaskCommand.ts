@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartOnDemandAuditTaskCommandInput = StartOnDemandAuditTaskRequest;
-export type StartOnDemandAuditTaskCommandOutput = StartOnDemandAuditTaskResponse & __MetadataBearer;
+export interface StartOnDemandAuditTaskCommandInput extends StartOnDemandAuditTaskRequest {}
+export interface StartOnDemandAuditTaskCommandOutput extends StartOnDemandAuditTaskResponse, __MetadataBearer {}
 
 /**
  * <p>Starts an on-demand Device Defender audit.</p>

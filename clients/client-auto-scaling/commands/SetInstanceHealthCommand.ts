@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetInstanceHealthCommandInput = SetInstanceHealthQuery;
-export type SetInstanceHealthCommandOutput = __MetadataBearer;
+export interface SetInstanceHealthCommandInput extends SetInstanceHealthQuery {}
+export interface SetInstanceHealthCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Sets the health status of the specified instance.</p>

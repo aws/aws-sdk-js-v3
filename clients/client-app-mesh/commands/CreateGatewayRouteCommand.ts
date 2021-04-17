@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateGatewayRouteCommandInput = CreateGatewayRouteInput;
-export type CreateGatewayRouteCommandOutput = CreateGatewayRouteOutput & __MetadataBearer;
+export interface CreateGatewayRouteCommandInput extends CreateGatewayRouteInput {}
+export interface CreateGatewayRouteCommandOutput extends CreateGatewayRouteOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a gateway route.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartFaceDetectionCommandInput = StartFaceDetectionRequest;
-export type StartFaceDetectionCommandOutput = StartFaceDetectionResponse & __MetadataBearer;
+export interface StartFaceDetectionCommandInput extends StartFaceDetectionRequest {}
+export interface StartFaceDetectionCommandOutput extends StartFaceDetectionResponse, __MetadataBearer {}
 
 /**
  * <p>Starts asynchronous detection of faces in a stored video.</p>

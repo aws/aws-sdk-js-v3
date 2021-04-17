@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateMemberToGroupCommandInput = AssociateMemberToGroupRequest;
-export type AssociateMemberToGroupCommandOutput = AssociateMemberToGroupResponse & __MetadataBearer;
+export interface AssociateMemberToGroupCommandInput extends AssociateMemberToGroupRequest {}
+export interface AssociateMemberToGroupCommandOutput extends AssociateMemberToGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Adds a member (user or group) to the group's set.</p>

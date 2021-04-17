@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateServiceSpecificCredentialCommandInput = CreateServiceSpecificCredentialRequest;
-export type CreateServiceSpecificCredentialCommandOutput = CreateServiceSpecificCredentialResponse & __MetadataBearer;
+export interface CreateServiceSpecificCredentialCommandInput extends CreateServiceSpecificCredentialRequest {}
+export interface CreateServiceSpecificCredentialCommandOutput
+  extends CreateServiceSpecificCredentialResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Generates a set of credentials consisting of a user name and password that can be used

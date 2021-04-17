@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartImageScanCommandInput = StartImageScanRequest;
-export type StartImageScanCommandOutput = StartImageScanResponse & __MetadataBearer;
+export interface StartImageScanCommandInput extends StartImageScanRequest {}
+export interface StartImageScanCommandOutput extends StartImageScanResponse, __MetadataBearer {}
 
 /**
  * <p>Starts an image vulnerability scan. An image scan can only be started once per day on

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeBucketsCommandInput = DescribeBucketsRequest;
-export type DescribeBucketsCommandOutput = DescribeBucketsResponse & __MetadataBearer;
+export interface DescribeBucketsCommandInput extends DescribeBucketsRequest {}
+export interface DescribeBucketsCommandOutput extends DescribeBucketsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves (queries) statistical data and other information about one or more S3 buckets that Amazon Macie monitors and analyzes.</p>

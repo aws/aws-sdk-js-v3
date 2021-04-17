@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateSkillGroupWithRoomCommandInput = AssociateSkillGroupWithRoomRequest;
-export type AssociateSkillGroupWithRoomCommandOutput = AssociateSkillGroupWithRoomResponse & __MetadataBearer;
+export interface AssociateSkillGroupWithRoomCommandInput extends AssociateSkillGroupWithRoomRequest {}
+export interface AssociateSkillGroupWithRoomCommandOutput
+  extends AssociateSkillGroupWithRoomResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Associates a skill group with a given room. This enables all skills in the associated

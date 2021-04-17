@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDefaultRetentionPolicyCommandInput = GetDefaultRetentionPolicyRequest;
-export type GetDefaultRetentionPolicyCommandOutput = GetDefaultRetentionPolicyResponse & __MetadataBearer;
+export interface GetDefaultRetentionPolicyCommandInput extends GetDefaultRetentionPolicyRequest {}
+export interface GetDefaultRetentionPolicyCommandOutput extends GetDefaultRetentionPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the default retention policy details for the specified organization.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CheckoutBorrowLicenseCommandInput = CheckoutBorrowLicenseRequest;
-export type CheckoutBorrowLicenseCommandOutput = CheckoutBorrowLicenseResponse & __MetadataBearer;
+export interface CheckoutBorrowLicenseCommandInput extends CheckoutBorrowLicenseRequest {}
+export interface CheckoutBorrowLicenseCommandOutput extends CheckoutBorrowLicenseResponse, __MetadataBearer {}
 
 /**
  * <p>Checks out the specified license for offline use.</p>

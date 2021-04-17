@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type InvalidateProjectCacheCommandInput = InvalidateProjectCacheInput;
-export type InvalidateProjectCacheCommandOutput = InvalidateProjectCacheOutput & __MetadataBearer;
+export interface InvalidateProjectCacheCommandInput extends InvalidateProjectCacheInput {}
+export interface InvalidateProjectCacheCommandOutput extends InvalidateProjectCacheOutput, __MetadataBearer {}
 
 /**
  * <p>Resets the cache for a project.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GenerateDataKeyPairCommandInput = GenerateDataKeyPairRequest;
-export type GenerateDataKeyPairCommandOutput = GenerateDataKeyPairResponse & __MetadataBearer;
+export interface GenerateDataKeyPairCommandInput extends GenerateDataKeyPairRequest {}
+export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairResponse, __MetadataBearer {}
 
 /**
  * <p>Generates a unique asymmetric data key pair. The <code>GenerateDataKeyPair</code>

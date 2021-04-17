@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateBackendCommandInput = CreateBackendRequest;
-export type CreateBackendCommandOutput = CreateBackendResponse & __MetadataBearer;
+export interface CreateBackendCommandInput extends CreateBackendRequest {}
+export interface CreateBackendCommandOutput extends CreateBackendResponse, __MetadataBearer {}
 
 /**
  * <p>This operation creates a backend for an Amplify app. Backends are automatically created at the time of app creation.</p>

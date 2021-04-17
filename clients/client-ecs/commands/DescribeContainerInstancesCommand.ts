@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeContainerInstancesCommandInput = DescribeContainerInstancesRequest;
-export type DescribeContainerInstancesCommandOutput = DescribeContainerInstancesResponse & __MetadataBearer;
+export interface DescribeContainerInstancesCommandInput extends DescribeContainerInstancesRequest {}
+export interface DescribeContainerInstancesCommandOutput extends DescribeContainerInstancesResponse, __MetadataBearer {}
 
 /**
  * <p>Describes Amazon Elastic Container Service container instances. Returns metadata about registered and

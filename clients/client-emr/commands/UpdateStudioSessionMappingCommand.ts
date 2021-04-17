@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateStudioSessionMappingCommandInput = UpdateStudioSessionMappingInput;
-export type UpdateStudioSessionMappingCommandOutput = __MetadataBearer;
+export interface UpdateStudioSessionMappingCommandInput extends UpdateStudioSessionMappingInput {}
+export interface UpdateStudioSessionMappingCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates the session policy attached to the user or group for the specified Amazon EMR

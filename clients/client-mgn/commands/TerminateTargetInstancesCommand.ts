@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TerminateTargetInstancesCommandInput = TerminateTargetInstancesRequest;
-export type TerminateTargetInstancesCommandOutput = TerminateTargetInstancesResponse & __MetadataBearer;
+export interface TerminateTargetInstancesCommandInput extends TerminateTargetInstancesRequest {}
+export interface TerminateTargetInstancesCommandOutput extends TerminateTargetInstancesResponse, __MetadataBearer {}
 
 /**
  * <p>Starts a job that terminates specific launched EC2 Test and Cutover instances. This command will not work for any Source Server with a lifecycle.state of TESTING, CUTTING_OVER, or CUTOVER.</p>

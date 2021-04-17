@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CopyBackupToRegionCommandInput = CopyBackupToRegionRequest;
-export type CopyBackupToRegionCommandOutput = CopyBackupToRegionResponse & __MetadataBearer;
+export interface CopyBackupToRegionCommandInput extends CopyBackupToRegionRequest {}
+export interface CopyBackupToRegionCommandOutput extends CopyBackupToRegionResponse, __MetadataBearer {}
 
 /**
  * <p>Copy an AWS CloudHSM cluster backup to a different region.</p>

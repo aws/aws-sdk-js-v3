@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeEffectiveInstanceAssociationsCommandInput = DescribeEffectiveInstanceAssociationsRequest;
-export type DescribeEffectiveInstanceAssociationsCommandOutput = DescribeEffectiveInstanceAssociationsResult &
-  __MetadataBearer;
+export interface DescribeEffectiveInstanceAssociationsCommandInput
+  extends DescribeEffectiveInstanceAssociationsRequest {}
+export interface DescribeEffectiveInstanceAssociationsCommandOutput
+  extends DescribeEffectiveInstanceAssociationsResult,
+    __MetadataBearer {}
 
 /**
  * <p>All associations for the instance(s).</p>

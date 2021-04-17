@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SearchFlowExecutionsCommandInput = SearchFlowExecutionsRequest;
-export type SearchFlowExecutionsCommandOutput = SearchFlowExecutionsResponse & __MetadataBearer;
+export interface SearchFlowExecutionsCommandInput extends SearchFlowExecutionsRequest {}
+export interface SearchFlowExecutionsCommandOutput extends SearchFlowExecutionsResponse, __MetadataBearer {}
 
 /**
  * <p>Searches for AWS IoT Things Graph workflow execution instances.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateArtifactCommandInput = CreateArtifactRequest;
-export type CreateArtifactCommandOutput = CreateArtifactResponse & __MetadataBearer;
+export interface CreateArtifactCommandInput extends CreateArtifactRequest {}
+export interface CreateArtifactCommandOutput extends CreateArtifactResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an <i>artifact</i>. An artifact is a lineage tracking entity that

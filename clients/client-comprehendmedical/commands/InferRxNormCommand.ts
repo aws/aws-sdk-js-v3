@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type InferRxNormCommandInput = InferRxNormRequest;
-export type InferRxNormCommandOutput = InferRxNormResponse & __MetadataBearer;
+export interface InferRxNormCommandInput extends InferRxNormRequest {}
+export interface InferRxNormCommandOutput extends InferRxNormResponse, __MetadataBearer {}
 
 /**
  * <p>InferRxNorm detects medications as entities listed in a patient record and links to the

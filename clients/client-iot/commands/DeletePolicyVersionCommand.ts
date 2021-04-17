@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeletePolicyVersionCommandInput = DeletePolicyVersionRequest;
-export type DeletePolicyVersionCommandOutput = __MetadataBearer;
+export interface DeletePolicyVersionCommandInput extends DeletePolicyVersionRequest {}
+export interface DeletePolicyVersionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified version of the specified policy. You cannot delete the default

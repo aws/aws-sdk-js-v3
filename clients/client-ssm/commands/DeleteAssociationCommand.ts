@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAssociationCommandInput = DeleteAssociationRequest;
-export type DeleteAssociationCommandOutput = DeleteAssociationResult & __MetadataBearer;
+export interface DeleteAssociationCommandInput extends DeleteAssociationRequest {}
+export interface DeleteAssociationCommandOutput extends DeleteAssociationResult, __MetadataBearer {}
 
 /**
  * <p>Disassociates the specified Systems Manager document from the specified instance.</p>

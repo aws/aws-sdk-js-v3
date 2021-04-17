@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateResourceSharePermissionCommandInput = AssociateResourceSharePermissionRequest;
-export type AssociateResourceSharePermissionCommandOutput = AssociateResourceSharePermissionResponse & __MetadataBearer;
+export interface AssociateResourceSharePermissionCommandInput extends AssociateResourceSharePermissionRequest {}
+export interface AssociateResourceSharePermissionCommandOutput
+  extends AssociateResourceSharePermissionResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Associates a permission with a resource share.</p>

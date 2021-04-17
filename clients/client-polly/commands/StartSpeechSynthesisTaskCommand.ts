@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartSpeechSynthesisTaskCommandInput = StartSpeechSynthesisTaskInput;
-export type StartSpeechSynthesisTaskCommandOutput = StartSpeechSynthesisTaskOutput & __MetadataBearer;
+export interface StartSpeechSynthesisTaskCommandInput extends StartSpeechSynthesisTaskInput {}
+export interface StartSpeechSynthesisTaskCommandOutput extends StartSpeechSynthesisTaskOutput, __MetadataBearer {}
 
 /**
  * <p>Allows the creation of an asynchronous synthesis task, by starting a new

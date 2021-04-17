@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeEndpointAuthorizationCommandInput = DescribeEndpointAuthorizationMessage;
-export type DescribeEndpointAuthorizationCommandOutput = EndpointAuthorizationList & __MetadataBearer;
+export interface DescribeEndpointAuthorizationCommandInput extends DescribeEndpointAuthorizationMessage {}
+export interface DescribeEndpointAuthorizationCommandOutput extends EndpointAuthorizationList, __MetadataBearer {}
 
 /**
  * <p>Describes an endpoint authorization.</p>

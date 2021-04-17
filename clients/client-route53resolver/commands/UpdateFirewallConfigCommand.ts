@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateFirewallConfigCommandInput = UpdateFirewallConfigRequest;
-export type UpdateFirewallConfigCommandOutput = UpdateFirewallConfigResponse & __MetadataBearer;
+export interface UpdateFirewallConfigCommandInput extends UpdateFirewallConfigRequest {}
+export interface UpdateFirewallConfigCommandOutput extends UpdateFirewallConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the configuration of the firewall behavior provided by DNS Firewall for a single Amazon virtual private cloud (VPC). </p>

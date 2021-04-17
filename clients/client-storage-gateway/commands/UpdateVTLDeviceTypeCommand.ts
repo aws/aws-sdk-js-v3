@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateVTLDeviceTypeCommandInput = UpdateVTLDeviceTypeInput;
-export type UpdateVTLDeviceTypeCommandOutput = UpdateVTLDeviceTypeOutput & __MetadataBearer;
+export interface UpdateVTLDeviceTypeCommandInput extends UpdateVTLDeviceTypeInput {}
+export interface UpdateVTLDeviceTypeCommandOutput extends UpdateVTLDeviceTypeOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the type of medium changer in a tape gateway. When you activate a tape gateway,

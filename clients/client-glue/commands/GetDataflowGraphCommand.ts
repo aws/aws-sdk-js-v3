@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDataflowGraphCommandInput = GetDataflowGraphRequest;
-export type GetDataflowGraphCommandOutput = GetDataflowGraphResponse & __MetadataBearer;
+export interface GetDataflowGraphCommandInput extends GetDataflowGraphRequest {}
+export interface GetDataflowGraphCommandOutput extends GetDataflowGraphResponse, __MetadataBearer {}
 
 /**
  * <p>Transforms a Python script into a directed acyclic graph (DAG). </p>

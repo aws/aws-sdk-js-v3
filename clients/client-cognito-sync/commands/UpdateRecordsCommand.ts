@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateRecordsCommandInput = UpdateRecordsRequest;
-export type UpdateRecordsCommandOutput = UpdateRecordsResponse & __MetadataBearer;
+export interface UpdateRecordsCommandInput extends UpdateRecordsRequest {}
+export interface UpdateRecordsCommandOutput extends UpdateRecordsResponse, __MetadataBearer {}
 
 /**
  * <p>Posts updates to records and adds and deletes records for a dataset and user.</p>

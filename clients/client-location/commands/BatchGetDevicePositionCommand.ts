@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchGetDevicePositionCommandInput = BatchGetDevicePositionRequest;
-export type BatchGetDevicePositionCommandOutput = BatchGetDevicePositionResponse & __MetadataBearer;
+export interface BatchGetDevicePositionCommandInput extends BatchGetDevicePositionRequest {}
+export interface BatchGetDevicePositionCommandOutput extends BatchGetDevicePositionResponse, __MetadataBearer {}
 
 /**
  * <p>A batch request to retrieve all device positions.</p>

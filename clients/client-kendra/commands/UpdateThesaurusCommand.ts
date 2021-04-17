@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateThesaurusCommandInput = UpdateThesaurusRequest;
-export type UpdateThesaurusCommandOutput = __MetadataBearer;
+export interface UpdateThesaurusCommandInput extends UpdateThesaurusRequest {}
+export interface UpdateThesaurusCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates a thesaurus file associated with an index.</p>

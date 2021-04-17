@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateApplicationCommandInput = CreateApplicationMessage;
-export type CreateApplicationCommandOutput = ApplicationDescriptionMessage & __MetadataBearer;
+export interface CreateApplicationCommandInput extends CreateApplicationMessage {}
+export interface CreateApplicationCommandOutput extends ApplicationDescriptionMessage, __MetadataBearer {}
 
 /**
  * <p>Creates an application that has one configuration template named <code>default</code>

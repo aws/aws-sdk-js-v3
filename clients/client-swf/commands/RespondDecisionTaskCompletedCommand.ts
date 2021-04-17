@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RespondDecisionTaskCompletedCommandInput = RespondDecisionTaskCompletedInput;
-export type RespondDecisionTaskCompletedCommandOutput = __MetadataBearer;
+export interface RespondDecisionTaskCompletedCommandInput extends RespondDecisionTaskCompletedInput {}
+export interface RespondDecisionTaskCompletedCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Used by deciders to tell the service that the <a>DecisionTask</a> identified

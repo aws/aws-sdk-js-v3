@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteNetworkInterfaceCommandInput = DeleteNetworkInterfaceRequest;
-export type DeleteNetworkInterfaceCommandOutput = __MetadataBearer;
+export interface DeleteNetworkInterfaceCommandInput extends DeleteNetworkInterfaceRequest {}
+export interface DeleteNetworkInterfaceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified network interface. You must detach the network interface before you can delete it.</p>

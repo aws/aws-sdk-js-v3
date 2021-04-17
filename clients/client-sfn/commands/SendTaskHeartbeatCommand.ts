@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SendTaskHeartbeatCommandInput = SendTaskHeartbeatInput;
-export type SendTaskHeartbeatCommandOutput = SendTaskHeartbeatOutput & __MetadataBearer;
+export interface SendTaskHeartbeatCommandInput extends SendTaskHeartbeatInput {}
+export interface SendTaskHeartbeatCommandOutput extends SendTaskHeartbeatOutput, __MetadataBearer {}
 
 /**
  * <p>Used by activity workers and task states using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token">callback</a>

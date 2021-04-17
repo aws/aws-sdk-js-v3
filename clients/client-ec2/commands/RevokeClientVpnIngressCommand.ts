@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RevokeClientVpnIngressCommandInput = RevokeClientVpnIngressRequest;
-export type RevokeClientVpnIngressCommandOutput = RevokeClientVpnIngressResult & __MetadataBearer;
+export interface RevokeClientVpnIngressCommandInput extends RevokeClientVpnIngressRequest {}
+export interface RevokeClientVpnIngressCommandOutput extends RevokeClientVpnIngressResult, __MetadataBearer {}
 
 /**
  * <p>Removes an ingress authorization rule from a Client VPN endpoint. </p>

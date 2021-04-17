@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateSecurityGroupRuleDescriptionsEgressCommandInput = UpdateSecurityGroupRuleDescriptionsEgressRequest;
-export type UpdateSecurityGroupRuleDescriptionsEgressCommandOutput = UpdateSecurityGroupRuleDescriptionsEgressResult &
-  __MetadataBearer;
+export interface UpdateSecurityGroupRuleDescriptionsEgressCommandInput
+  extends UpdateSecurityGroupRuleDescriptionsEgressRequest {}
+export interface UpdateSecurityGroupRuleDescriptionsEgressCommandOutput
+  extends UpdateSecurityGroupRuleDescriptionsEgressResult,
+    __MetadataBearer {}
 
 /**
  * <p>[VPC only] Updates the description of an egress (outbound) security group rule. You

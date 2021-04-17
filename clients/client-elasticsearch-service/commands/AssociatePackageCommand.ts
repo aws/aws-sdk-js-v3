@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociatePackageCommandInput = AssociatePackageRequest;
-export type AssociatePackageCommandOutput = AssociatePackageResponse & __MetadataBearer;
+export interface AssociatePackageCommandInput extends AssociatePackageRequest {}
+export interface AssociatePackageCommandOutput extends AssociatePackageResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a package with an Amazon ES domain.</p>

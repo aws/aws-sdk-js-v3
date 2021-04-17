@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteThemeCommandInput = DeleteThemeRequest;
-export type DeleteThemeCommandOutput = DeleteThemeResponse & __MetadataBearer;
+export interface DeleteThemeCommandInput extends DeleteThemeRequest {}
+export interface DeleteThemeCommandOutput extends DeleteThemeResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a theme.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AttachSecurityProfileCommandInput = AttachSecurityProfileRequest;
-export type AttachSecurityProfileCommandOutput = AttachSecurityProfileResponse & __MetadataBearer;
+export interface AttachSecurityProfileCommandInput extends AttachSecurityProfileRequest {}
+export interface AttachSecurityProfileCommandOutput extends AttachSecurityProfileResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a Device Defender security profile with a thing group or this account. Each

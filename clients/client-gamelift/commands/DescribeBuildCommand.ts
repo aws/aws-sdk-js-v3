@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeBuildCommandInput = DescribeBuildInput;
-export type DescribeBuildCommandOutput = DescribeBuildOutput & __MetadataBearer;
+export interface DescribeBuildCommandInput extends DescribeBuildInput {}
+export interface DescribeBuildCommandOutput extends DescribeBuildOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves properties for a custom game build. To request a build resource, specify a

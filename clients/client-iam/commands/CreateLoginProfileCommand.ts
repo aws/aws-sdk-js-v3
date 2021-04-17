@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateLoginProfileCommandInput = CreateLoginProfileRequest;
-export type CreateLoginProfileCommandOutput = CreateLoginProfileResponse & __MetadataBearer;
+export interface CreateLoginProfileCommandInput extends CreateLoginProfileRequest {}
+export interface CreateLoginProfileCommandOutput extends CreateLoginProfileResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a password for the specified IAM user. A password allows an IAM user to

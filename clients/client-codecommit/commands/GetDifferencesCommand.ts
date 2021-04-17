@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDifferencesCommandInput = GetDifferencesInput;
-export type GetDifferencesCommandOutput = GetDifferencesOutput & __MetadataBearer;
+export interface GetDifferencesCommandInput extends GetDifferencesInput {}
+export interface GetDifferencesCommandOutput extends GetDifferencesOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about the differences in a valid commit specifier (such as a

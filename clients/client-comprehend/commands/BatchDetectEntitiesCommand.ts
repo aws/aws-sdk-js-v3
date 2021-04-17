@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchDetectEntitiesCommandInput = BatchDetectEntitiesRequest;
-export type BatchDetectEntitiesCommandOutput = BatchDetectEntitiesResponse & __MetadataBearer;
+export interface BatchDetectEntitiesCommandInput extends BatchDetectEntitiesRequest {}
+export interface BatchDetectEntitiesCommandOutput extends BatchDetectEntitiesResponse, __MetadataBearer {}
 
 /**
  * <p>Inspects the text of a batch of documents for named entities and returns information

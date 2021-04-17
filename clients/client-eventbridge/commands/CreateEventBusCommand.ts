@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateEventBusCommandInput = CreateEventBusRequest;
-export type CreateEventBusCommandOutput = CreateEventBusResponse & __MetadataBearer;
+export interface CreateEventBusCommandInput extends CreateEventBusRequest {}
+export interface CreateEventBusCommandOutput extends CreateEventBusResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new event bus within your account. This can be a custom event bus which you can

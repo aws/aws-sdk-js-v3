@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateEnclaveCertificateIamRoleCommandInput = DisassociateEnclaveCertificateIamRoleRequest;
-export type DisassociateEnclaveCertificateIamRoleCommandOutput = DisassociateEnclaveCertificateIamRoleResult &
-  __MetadataBearer;
+export interface DisassociateEnclaveCertificateIamRoleCommandInput
+  extends DisassociateEnclaveCertificateIamRoleRequest {}
+export interface DisassociateEnclaveCertificateIamRoleCommandOutput
+  extends DisassociateEnclaveCertificateIamRoleResult,
+    __MetadataBearer {}
 
 /**
  * <p>Disassociates an IAM role from an AWS Certificate Manager (ACM) certificate. Disassociating an IAM role

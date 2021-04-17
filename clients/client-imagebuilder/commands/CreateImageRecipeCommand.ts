@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateImageRecipeCommandInput = CreateImageRecipeRequest;
-export type CreateImageRecipeCommandOutput = CreateImageRecipeResponse & __MetadataBearer;
+export interface CreateImageRecipeCommandInput extends CreateImageRecipeRequest {}
+export interface CreateImageRecipeCommandOutput extends CreateImageRecipeResponse, __MetadataBearer {}
 
 /**
  * <p> Creates a new image recipe. Image recipes define how images are configured, tested, and

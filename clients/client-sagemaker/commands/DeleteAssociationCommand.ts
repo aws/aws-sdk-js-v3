@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAssociationCommandInput = DeleteAssociationRequest;
-export type DeleteAssociationCommandOutput = DeleteAssociationResponse & __MetadataBearer;
+export interface DeleteAssociationCommandInput extends DeleteAssociationRequest {}
+export interface DeleteAssociationCommandOutput extends DeleteAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an association.</p>

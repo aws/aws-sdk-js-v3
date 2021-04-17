@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDimensionValuesCommandInput = GetDimensionValuesRequest;
-export type GetDimensionValuesCommandOutput = GetDimensionValuesResponse & __MetadataBearer;
+export interface GetDimensionValuesCommandInput extends GetDimensionValuesRequest {}
+export interface GetDimensionValuesCommandOutput extends GetDimensionValuesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves all available filter values for a specified filter over a period of time. You can search the dimension values for an arbitrary string. </p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDatabaseCommandInput = CreateDatabaseRequest;
-export type CreateDatabaseCommandOutput = CreateDatabaseResponse & __MetadataBearer;
+export interface CreateDatabaseCommandInput extends CreateDatabaseRequest {}
+export interface CreateDatabaseCommandOutput extends CreateDatabaseResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new Timestream database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account.

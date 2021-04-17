@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateServiceCommandInput = CreateServiceRequest;
-export type CreateServiceCommandOutput = CreateServiceResponse & __MetadataBearer;
+export interface CreateServiceCommandInput extends CreateServiceRequest {}
+export interface CreateServiceCommandOutput extends CreateServiceResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a service, which defines the configuration for the following entities:</p>

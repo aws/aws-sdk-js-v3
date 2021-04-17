@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListGraphsCommandInput = ListGraphsRequest;
-export type ListGraphsCommandOutput = ListGraphsResponse & __MetadataBearer;
+export interface ListGraphsCommandInput extends ListGraphsRequest {}
+export interface ListGraphsCommandOutput extends ListGraphsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the list of behavior graphs that the calling account is an administrator account

@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetIdentityVerificationAttributesCommandInput = GetIdentityVerificationAttributesRequest;
-export type GetIdentityVerificationAttributesCommandOutput = GetIdentityVerificationAttributesResponse &
-  __MetadataBearer;
+export interface GetIdentityVerificationAttributesCommandInput extends GetIdentityVerificationAttributesRequest {}
+export interface GetIdentityVerificationAttributesCommandOutput
+  extends GetIdentityVerificationAttributesResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Given a list of identities (email addresses and/or domains), returns the verification

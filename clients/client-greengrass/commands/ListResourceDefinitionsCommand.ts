@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListResourceDefinitionsCommandInput = ListResourceDefinitionsRequest;
-export type ListResourceDefinitionsCommandOutput = ListResourceDefinitionsResponse & __MetadataBearer;
+export interface ListResourceDefinitionsCommandInput extends ListResourceDefinitionsRequest {}
+export interface ListResourceDefinitionsCommandOutput extends ListResourceDefinitionsResponse, __MetadataBearer {}
 
 /**
  * Retrieves a list of resource definitions.

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListServerCertificatesCommandInput = ListServerCertificatesRequest;
-export type ListServerCertificatesCommandOutput = ListServerCertificatesResponse & __MetadataBearer;
+export interface ListServerCertificatesCommandInput extends ListServerCertificatesRequest {}
+export interface ListServerCertificatesCommandOutput extends ListServerCertificatesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the server certificates stored in IAM that have the specified path prefix. If

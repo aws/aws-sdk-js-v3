@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ProvisionByoipCidrCommandInput = ProvisionByoipCidrRequest;
-export type ProvisionByoipCidrCommandOutput = ProvisionByoipCidrResponse & __MetadataBearer;
+export interface ProvisionByoipCidrCommandInput extends ProvisionByoipCidrRequest {}
+export interface ProvisionByoipCidrCommandOutput extends ProvisionByoipCidrResponse, __MetadataBearer {}
 
 /**
  * <p>Provisions an IP address range to use with your AWS resources through bring your own IP

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeEventsCommandInput = DescribeEventsRequest;
-export type DescribeEventsCommandOutput = DescribeEventsResponse & __MetadataBearer;
+export interface DescribeEventsCommandInput extends DescribeEventsRequest {}
+export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns events related to DAX clusters and parameter groups. You can obtain

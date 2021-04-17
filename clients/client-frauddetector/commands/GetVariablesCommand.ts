@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetVariablesCommandInput = GetVariablesRequest;
-export type GetVariablesCommandOutput = GetVariablesResult & __MetadataBearer;
+export interface GetVariablesCommandInput extends GetVariablesRequest {}
+export interface GetVariablesCommandOutput extends GetVariablesResult, __MetadataBearer {}
 
 /**
  * <p>Gets all of the variables or the specific variable. This is a

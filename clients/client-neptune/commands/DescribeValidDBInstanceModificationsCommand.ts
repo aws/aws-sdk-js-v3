@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeValidDBInstanceModificationsCommandInput = DescribeValidDBInstanceModificationsMessage;
-export type DescribeValidDBInstanceModificationsCommandOutput = DescribeValidDBInstanceModificationsResult &
-  __MetadataBearer;
+export interface DescribeValidDBInstanceModificationsCommandInput extends DescribeValidDBInstanceModificationsMessage {}
+export interface DescribeValidDBInstanceModificationsCommandOutput
+  extends DescribeValidDBInstanceModificationsResult,
+    __MetadataBearer {}
 
 /**
  * <p>You can call <a>DescribeValidDBInstanceModifications</a>

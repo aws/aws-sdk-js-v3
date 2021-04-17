@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ContainsPiiEntitiesCommandInput = ContainsPiiEntitiesRequest;
-export type ContainsPiiEntitiesCommandOutput = ContainsPiiEntitiesResponse & __MetadataBearer;
+export interface ContainsPiiEntitiesCommandInput extends ContainsPiiEntitiesRequest {}
+export interface ContainsPiiEntitiesCommandOutput extends ContainsPiiEntitiesResponse, __MetadataBearer {}
 
 /**
  * <p>Analyzes input text for the presence of personally identifiable information (PII) and

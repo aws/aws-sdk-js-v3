@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateFileSystemAssociationCommandInput = UpdateFileSystemAssociationInput;
-export type UpdateFileSystemAssociationCommandOutput = UpdateFileSystemAssociationOutput & __MetadataBearer;
+export interface UpdateFileSystemAssociationCommandInput extends UpdateFileSystemAssociationInput {}
+export interface UpdateFileSystemAssociationCommandOutput extends UpdateFileSystemAssociationOutput, __MetadataBearer {}
 
 /**
  * <p>Updates a file system association. This operation is only supported in the Amazon FSx

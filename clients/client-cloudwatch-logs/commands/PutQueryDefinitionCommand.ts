@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutQueryDefinitionCommandInput = PutQueryDefinitionRequest;
-export type PutQueryDefinitionCommandOutput = PutQueryDefinitionResponse & __MetadataBearer;
+export interface PutQueryDefinitionCommandInput extends PutQueryDefinitionRequest {}
+export interface PutQueryDefinitionCommandOutput extends PutQueryDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates or updates a query definition for CloudWatch Logs Insights. For

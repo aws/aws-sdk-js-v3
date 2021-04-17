@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDeploymentCommandInput = CreateDeploymentRequest;
-export type CreateDeploymentCommandOutput = CreateDeploymentResult & __MetadataBearer;
+export interface CreateDeploymentCommandInput extends CreateDeploymentRequest {}
+export interface CreateDeploymentCommandOutput extends CreateDeploymentResult, __MetadataBearer {}
 
 /**
  * <p> Creates a deployment for a manually deployed Amplify app. Manually deployed apps are

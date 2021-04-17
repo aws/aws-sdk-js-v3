@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterWorkflowTypeCommandInput = RegisterWorkflowTypeInput;
-export type RegisterWorkflowTypeCommandOutput = __MetadataBearer;
+export interface RegisterWorkflowTypeCommandInput extends RegisterWorkflowTypeInput {}
+export interface RegisterWorkflowTypeCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Registers a new <i>workflow type</i> and its configuration settings in

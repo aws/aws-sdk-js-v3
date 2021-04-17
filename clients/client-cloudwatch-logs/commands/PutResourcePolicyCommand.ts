@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutResourcePolicyCommandInput = PutResourcePolicyRequest;
-export type PutResourcePolicyCommandOutput = PutResourcePolicyResponse & __MetadataBearer;
+export interface PutResourcePolicyCommandInput extends PutResourcePolicyRequest {}
+export interface PutResourcePolicyCommandOutput extends PutResourcePolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Creates or updates a resource policy allowing other AWS services to put log events to

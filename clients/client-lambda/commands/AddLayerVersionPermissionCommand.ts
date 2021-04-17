@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddLayerVersionPermissionCommandInput = AddLayerVersionPermissionRequest;
-export type AddLayerVersionPermissionCommandOutput = AddLayerVersionPermissionResponse & __MetadataBearer;
+export interface AddLayerVersionPermissionCommandInput extends AddLayerVersionPermissionRequest {}
+export interface AddLayerVersionPermissionCommandOutput extends AddLayerVersionPermissionResponse, __MetadataBearer {}
 
 /**
  * <p>Adds permissions to the resource-based policy of a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda

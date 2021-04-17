@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UngroupResourcesCommandInput = UngroupResourcesInput;
-export type UngroupResourcesCommandOutput = UngroupResourcesOutput & __MetadataBearer;
+export interface UngroupResourcesCommandInput extends UngroupResourcesInput {}
+export interface UngroupResourcesCommandOutput extends UngroupResourcesOutput, __MetadataBearer {}
 
 /**
  * <p>Removes the specified resources from the specified group.</p>

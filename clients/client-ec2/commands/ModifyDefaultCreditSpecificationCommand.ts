@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyDefaultCreditSpecificationCommandInput = ModifyDefaultCreditSpecificationRequest;
-export type ModifyDefaultCreditSpecificationCommandOutput = ModifyDefaultCreditSpecificationResult & __MetadataBearer;
+export interface ModifyDefaultCreditSpecificationCommandInput extends ModifyDefaultCreditSpecificationRequest {}
+export interface ModifyDefaultCreditSpecificationCommandOutput
+  extends ModifyDefaultCreditSpecificationResult,
+    __MetadataBearer {}
 
 /**
  * <p>Modifies the default credit option for CPU usage of burstable performance instances.

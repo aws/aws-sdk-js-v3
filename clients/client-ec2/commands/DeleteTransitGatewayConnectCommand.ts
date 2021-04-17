@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteTransitGatewayConnectCommandInput = DeleteTransitGatewayConnectRequest;
-export type DeleteTransitGatewayConnectCommandOutput = DeleteTransitGatewayConnectResult & __MetadataBearer;
+export interface DeleteTransitGatewayConnectCommandInput extends DeleteTransitGatewayConnectRequest {}
+export interface DeleteTransitGatewayConnectCommandOutput extends DeleteTransitGatewayConnectResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified Connect attachment. You must first delete any Connect peers for

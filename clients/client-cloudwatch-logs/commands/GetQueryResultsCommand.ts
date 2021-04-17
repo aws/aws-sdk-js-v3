@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetQueryResultsCommandInput = GetQueryResultsRequest;
-export type GetQueryResultsCommandOutput = GetQueryResultsResponse & __MetadataBearer;
+export interface GetQueryResultsCommandInput extends GetQueryResultsRequest {}
+export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the results from the specified query.</p>

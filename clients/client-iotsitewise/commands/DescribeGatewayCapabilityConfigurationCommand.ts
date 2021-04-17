@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeGatewayCapabilityConfigurationCommandInput = DescribeGatewayCapabilityConfigurationRequest;
-export type DescribeGatewayCapabilityConfigurationCommandOutput = DescribeGatewayCapabilityConfigurationResponse &
-  __MetadataBearer;
+export interface DescribeGatewayCapabilityConfigurationCommandInput
+  extends DescribeGatewayCapabilityConfigurationRequest {}
+export interface DescribeGatewayCapabilityConfigurationCommandOutput
+  extends DescribeGatewayCapabilityConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves information about a gateway capability configuration.

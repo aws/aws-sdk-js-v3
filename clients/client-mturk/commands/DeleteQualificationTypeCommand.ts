@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteQualificationTypeCommandInput = DeleteQualificationTypeRequest;
-export type DeleteQualificationTypeCommandOutput = DeleteQualificationTypeResponse & __MetadataBearer;
+export interface DeleteQualificationTypeCommandInput extends DeleteQualificationTypeRequest {}
+export interface DeleteQualificationTypeCommandOutput extends DeleteQualificationTypeResponse, __MetadataBearer {}
 
 /**
  * <p>

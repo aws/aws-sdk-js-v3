@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteOrganizationConfigRuleCommandInput = DeleteOrganizationConfigRuleRequest;
-export type DeleteOrganizationConfigRuleCommandOutput = __MetadataBearer;
+export interface DeleteOrganizationConfigRuleCommandInput extends DeleteOrganizationConfigRuleRequest {}
+export interface DeleteOrganizationConfigRuleCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified organization config rule and all of its evaluation results from all member accounts in that organization. </p>

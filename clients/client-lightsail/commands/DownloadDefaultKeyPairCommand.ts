@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DownloadDefaultKeyPairCommandInput = DownloadDefaultKeyPairRequest;
-export type DownloadDefaultKeyPairCommandOutput = DownloadDefaultKeyPairResult & __MetadataBearer;
+export interface DownloadDefaultKeyPairCommandInput extends DownloadDefaultKeyPairRequest {}
+export interface DownloadDefaultKeyPairCommandOutput extends DownloadDefaultKeyPairResult, __MetadataBearer {}
 
 /**
  * <p>Downloads the default SSH key pair from the user's account.</p>

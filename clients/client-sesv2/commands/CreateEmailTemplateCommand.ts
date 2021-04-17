@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateEmailTemplateCommandInput = CreateEmailTemplateRequest;
-export type CreateEmailTemplateCommandOutput = CreateEmailTemplateResponse & __MetadataBearer;
+export interface CreateEmailTemplateCommandInput extends CreateEmailTemplateRequest {}
+export interface CreateEmailTemplateCommandOutput extends CreateEmailTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an email template. Email templates enable you to send personalized email to

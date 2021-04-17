@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchWriteCommandInput = BatchWriteRequest;
-export type BatchWriteCommandOutput = BatchWriteResponse & __MetadataBearer;
+export interface BatchWriteCommandInput extends BatchWriteRequest {}
+export interface BatchWriteCommandOutput extends BatchWriteResponse, __MetadataBearer {}
 
 /**
  * <p>Performs all the write operations in a batch. Either all the operations succeed or

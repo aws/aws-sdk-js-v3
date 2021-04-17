@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateConferenceProviderCommandInput = CreateConferenceProviderRequest;
-export type CreateConferenceProviderCommandOutput = CreateConferenceProviderResponse & __MetadataBearer;
+export interface CreateConferenceProviderCommandInput extends CreateConferenceProviderRequest {}
+export interface CreateConferenceProviderCommandOutput extends CreateConferenceProviderResponse, __MetadataBearer {}
 
 /**
  * <p>Adds a new conference provider under the user's AWS account.</p>

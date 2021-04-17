@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateFleetCapacityCommandInput = UpdateFleetCapacityInput;
-export type UpdateFleetCapacityCommandOutput = UpdateFleetCapacityOutput & __MetadataBearer;
+export interface UpdateFleetCapacityCommandInput extends UpdateFleetCapacityInput {}
+export interface UpdateFleetCapacityCommandOutput extends UpdateFleetCapacityOutput, __MetadataBearer {}
 
 /**
  * <p>Updates capacity settings for a fleet. For fleets with multiple locations, use this

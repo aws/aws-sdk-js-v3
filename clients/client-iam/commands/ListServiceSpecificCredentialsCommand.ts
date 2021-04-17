@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListServiceSpecificCredentialsCommandInput = ListServiceSpecificCredentialsRequest;
-export type ListServiceSpecificCredentialsCommandOutput = ListServiceSpecificCredentialsResponse & __MetadataBearer;
+export interface ListServiceSpecificCredentialsCommandInput extends ListServiceSpecificCredentialsRequest {}
+export interface ListServiceSpecificCredentialsCommandOutput
+  extends ListServiceSpecificCredentialsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns information about the service-specific credentials associated with the

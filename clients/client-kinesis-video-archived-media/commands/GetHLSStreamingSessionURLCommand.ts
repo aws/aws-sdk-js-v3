@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetHLSStreamingSessionURLCommandInput = GetHLSStreamingSessionURLInput;
-export type GetHLSStreamingSessionURLCommandOutput = GetHLSStreamingSessionURLOutput & __MetadataBearer;
+export interface GetHLSStreamingSessionURLCommandInput extends GetHLSStreamingSessionURLInput {}
+export interface GetHLSStreamingSessionURLCommandOutput extends GetHLSStreamingSessionURLOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves an HTTP Live Streaming (HLS) URL for the stream. You can then open the URL

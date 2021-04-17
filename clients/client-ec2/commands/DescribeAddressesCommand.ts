@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAddressesCommandInput = DescribeAddressesRequest;
-export type DescribeAddressesCommandOutput = DescribeAddressesResult & __MetadataBearer;
+export interface DescribeAddressesCommandInput extends DescribeAddressesRequest {}
+export interface DescribeAddressesCommandOutput extends DescribeAddressesResult, __MetadataBearer {}
 
 /**
  * <p>Describes the specified Elastic IP addresses or all of your Elastic IP addresses.</p>

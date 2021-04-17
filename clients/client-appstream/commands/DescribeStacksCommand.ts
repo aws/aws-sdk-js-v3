@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeStacksCommandInput = DescribeStacksRequest;
-export type DescribeStacksCommandOutput = DescribeStacksResult & __MetadataBearer;
+export interface DescribeStacksCommandInput extends DescribeStacksRequest {}
+export interface DescribeStacksCommandOutput extends DescribeStacksResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list that describes one or more specified stacks, if the stack names are provided. Otherwise, all stacks in the account are described.</p>

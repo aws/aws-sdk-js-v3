@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetThirdPartyJobDetailsCommandInput = GetThirdPartyJobDetailsInput;
-export type GetThirdPartyJobDetailsCommandOutput = GetThirdPartyJobDetailsOutput & __MetadataBearer;
+export interface GetThirdPartyJobDetailsCommandInput extends GetThirdPartyJobDetailsInput {}
+export interface GetThirdPartyJobDetailsCommandOutput extends GetThirdPartyJobDetailsOutput, __MetadataBearer {}
 
 /**
  * <p>Requests the details of a job for a third party action. Used for partner actions

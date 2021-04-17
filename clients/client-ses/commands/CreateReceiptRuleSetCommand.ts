@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateReceiptRuleSetCommandInput = CreateReceiptRuleSetRequest;
-export type CreateReceiptRuleSetCommandOutput = CreateReceiptRuleSetResponse & __MetadataBearer;
+export interface CreateReceiptRuleSetCommandInput extends CreateReceiptRuleSetRequest {}
+export interface CreateReceiptRuleSetCommandOutput extends CreateReceiptRuleSetResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an empty receipt rule set.</p>

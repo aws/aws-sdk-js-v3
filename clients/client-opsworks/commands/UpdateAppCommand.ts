@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateAppCommandInput = UpdateAppRequest;
-export type UpdateAppCommandOutput = __MetadataBearer;
+export interface UpdateAppCommandInput extends UpdateAppRequest {}
+export interface UpdateAppCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates a specified app.</p>

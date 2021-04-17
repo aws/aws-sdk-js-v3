@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeFleetEventsCommandInput = DescribeFleetEventsInput;
-export type DescribeFleetEventsCommandOutput = DescribeFleetEventsOutput & __MetadataBearer;
+export interface DescribeFleetEventsCommandInput extends DescribeFleetEventsInput {}
+export interface DescribeFleetEventsCommandOutput extends DescribeFleetEventsOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves entries from a fleet's event log. Fleet events are initiated by changes in

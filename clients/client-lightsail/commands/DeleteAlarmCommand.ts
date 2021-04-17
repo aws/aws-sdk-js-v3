@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAlarmCommandInput = DeleteAlarmRequest;
-export type DeleteAlarmCommandOutput = DeleteAlarmResult & __MetadataBearer;
+export interface DeleteAlarmCommandInput extends DeleteAlarmRequest {}
+export interface DeleteAlarmCommandOutput extends DeleteAlarmResult, __MetadataBearer {}
 
 /**
  * <p>Deletes an alarm.</p>

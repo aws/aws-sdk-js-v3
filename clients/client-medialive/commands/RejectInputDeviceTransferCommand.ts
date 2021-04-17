@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RejectInputDeviceTransferCommandInput = RejectInputDeviceTransferRequest;
-export type RejectInputDeviceTransferCommandOutput = RejectInputDeviceTransferResponse & __MetadataBearer;
+export interface RejectInputDeviceTransferCommandInput extends RejectInputDeviceTransferRequest {}
+export interface RejectInputDeviceTransferCommandOutput extends RejectInputDeviceTransferResponse, __MetadataBearer {}
 
 /**
  * Reject the transfer of the specified input device to your AWS account.

@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateAdditionalAssignmentsForHITCommandInput = CreateAdditionalAssignmentsForHITRequest;
-export type CreateAdditionalAssignmentsForHITCommandOutput = CreateAdditionalAssignmentsForHITResponse &
-  __MetadataBearer;
+export interface CreateAdditionalAssignmentsForHITCommandInput extends CreateAdditionalAssignmentsForHITRequest {}
+export interface CreateAdditionalAssignmentsForHITCommandOutput
+  extends CreateAdditionalAssignmentsForHITResponse,
+    __MetadataBearer {}
 
 /**
  * <p>

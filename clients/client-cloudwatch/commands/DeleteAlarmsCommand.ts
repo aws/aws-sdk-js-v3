@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAlarmsCommandInput = DeleteAlarmsInput;
-export type DeleteAlarmsCommandOutput = __MetadataBearer;
+export interface DeleteAlarmsCommandInput extends DeleteAlarmsInput {}
+export interface DeleteAlarmsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified alarms. You can delete up to 100 alarms in one operation. However, this total can include no more

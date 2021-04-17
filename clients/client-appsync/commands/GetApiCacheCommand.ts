@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetApiCacheCommandInput = GetApiCacheRequest;
-export type GetApiCacheCommandOutput = GetApiCacheResponse & __MetadataBearer;
+export interface GetApiCacheCommandInput extends GetApiCacheRequest {}
+export interface GetApiCacheCommandOutput extends GetApiCacheResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves an <code>ApiCache</code> object.</p>

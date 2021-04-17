@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribePermissionSetProvisioningStatusCommandInput = DescribePermissionSetProvisioningStatusRequest;
-export type DescribePermissionSetProvisioningStatusCommandOutput = DescribePermissionSetProvisioningStatusResponse &
-  __MetadataBearer;
+export interface DescribePermissionSetProvisioningStatusCommandInput
+  extends DescribePermissionSetProvisioningStatusRequest {}
+export interface DescribePermissionSetProvisioningStatusCommandOutput
+  extends DescribePermissionSetProvisioningStatusResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the status for the given permission set provisioning request.</p>

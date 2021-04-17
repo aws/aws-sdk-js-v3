@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SimulateCustomPolicyCommandInput = SimulateCustomPolicyRequest;
-export type SimulateCustomPolicyCommandOutput = SimulatePolicyResponse & __MetadataBearer;
+export interface SimulateCustomPolicyCommandInput extends SimulateCustomPolicyRequest {}
+export interface SimulateCustomPolicyCommandOutput extends SimulatePolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Simulate how a set of IAM policies and optionally a resource-based policy works with

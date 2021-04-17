@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTextTranslationJobsCommandInput = ListTextTranslationJobsRequest;
-export type ListTextTranslationJobsCommandOutput = ListTextTranslationJobsResponse & __MetadataBearer;
+export interface ListTextTranslationJobsCommandInput extends ListTextTranslationJobsRequest {}
+export interface ListTextTranslationJobsCommandOutput extends ListTextTranslationJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of the batch translation jobs that you have submitted.</p>

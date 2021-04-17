@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TagDeliveryStreamCommandInput = TagDeliveryStreamInput;
-export type TagDeliveryStreamCommandOutput = TagDeliveryStreamOutput & __MetadataBearer;
+export interface TagDeliveryStreamCommandInput extends TagDeliveryStreamInput {}
+export interface TagDeliveryStreamCommandOutput extends TagDeliveryStreamOutput, __MetadataBearer {}
 
 /**
  * <p>Adds or updates tags for the specified delivery stream. A tag is a key-value pair

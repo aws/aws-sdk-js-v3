@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateUnreferencedMergeCommitCommandInput = CreateUnreferencedMergeCommitInput;
-export type CreateUnreferencedMergeCommitCommandOutput = CreateUnreferencedMergeCommitOutput & __MetadataBearer;
+export interface CreateUnreferencedMergeCommitCommandInput extends CreateUnreferencedMergeCommitInput {}
+export interface CreateUnreferencedMergeCommitCommandOutput
+  extends CreateUnreferencedMergeCommitOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Creates an unreferenced commit that represents the result of merging two branches

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ResetFpgaImageAttributeCommandInput = ResetFpgaImageAttributeRequest;
-export type ResetFpgaImageAttributeCommandOutput = ResetFpgaImageAttributeResult & __MetadataBearer;
+export interface ResetFpgaImageAttributeCommandInput extends ResetFpgaImageAttributeRequest {}
+export interface ResetFpgaImageAttributeCommandOutput extends ResetFpgaImageAttributeResult, __MetadataBearer {}
 
 /**
  * <p>Resets the specified attribute of the specified Amazon FPGA Image (AFI) to its default value.

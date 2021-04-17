@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeLogStreamsCommandInput = DescribeLogStreamsRequest;
-export type DescribeLogStreamsCommandOutput = DescribeLogStreamsResponse & __MetadataBearer;
+export interface DescribeLogStreamsCommandInput extends DescribeLogStreamsRequest {}
+export interface DescribeLogStreamsCommandOutput extends DescribeLogStreamsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the log streams for the specified log group.

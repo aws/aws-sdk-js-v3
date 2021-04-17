@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteNotificationConfigurationCommandInput = DeleteNotificationConfigurationType;
-export type DeleteNotificationConfigurationCommandOutput = __MetadataBearer;
+export interface DeleteNotificationConfigurationCommandInput extends DeleteNotificationConfigurationType {}
+export interface DeleteNotificationConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified notification.</p>

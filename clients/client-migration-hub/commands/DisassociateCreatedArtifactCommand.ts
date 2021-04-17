@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateCreatedArtifactCommandInput = DisassociateCreatedArtifactRequest;
-export type DisassociateCreatedArtifactCommandOutput = DisassociateCreatedArtifactResult & __MetadataBearer;
+export interface DisassociateCreatedArtifactCommandInput extends DisassociateCreatedArtifactRequest {}
+export interface DisassociateCreatedArtifactCommandOutput extends DisassociateCreatedArtifactResult, __MetadataBearer {}
 
 /**
  * <p>Disassociates a created artifact of an AWS resource with a migration task performed by a

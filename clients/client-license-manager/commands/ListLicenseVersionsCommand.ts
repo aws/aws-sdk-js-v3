@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListLicenseVersionsCommandInput = ListLicenseVersionsRequest;
-export type ListLicenseVersionsCommandOutput = ListLicenseVersionsResponse & __MetadataBearer;
+export interface ListLicenseVersionsCommandInput extends ListLicenseVersionsRequest {}
+export interface ListLicenseVersionsCommandOutput extends ListLicenseVersionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all versions of the specified license.</p>

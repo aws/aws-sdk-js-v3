@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetGroupCommandInput = GetGroupRequest;
-export type GetGroupCommandOutput = GetGroupResponse & __MetadataBearer;
+export interface GetGroupCommandInput extends GetGroupRequest {}
+export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBearer {}
 
 /**
  * <p> Returns a list of IAM users that are in the specified IAM group. You can paginate

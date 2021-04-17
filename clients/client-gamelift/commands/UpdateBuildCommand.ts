@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateBuildCommandInput = UpdateBuildInput;
-export type UpdateBuildCommandOutput = UpdateBuildOutput & __MetadataBearer;
+export interface UpdateBuildCommandInput extends UpdateBuildInput {}
+export interface UpdateBuildCommandOutput extends UpdateBuildOutput, __MetadataBearer {}
 
 /**
  * <p>Updates metadata in a build resource, including the build name and version. To update

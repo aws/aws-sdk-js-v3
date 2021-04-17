@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetTransitGatewayRouteTableAssociationsCommandInput = GetTransitGatewayRouteTableAssociationsRequest;
-export type GetTransitGatewayRouteTableAssociationsCommandOutput = GetTransitGatewayRouteTableAssociationsResult &
-  __MetadataBearer;
+export interface GetTransitGatewayRouteTableAssociationsCommandInput
+  extends GetTransitGatewayRouteTableAssociationsRequest {}
+export interface GetTransitGatewayRouteTableAssociationsCommandOutput
+  extends GetTransitGatewayRouteTableAssociationsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Gets information about the associations for the specified transit gateway route table.</p>

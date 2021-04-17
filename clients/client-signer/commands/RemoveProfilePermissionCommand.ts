@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RemoveProfilePermissionCommandInput = RemoveProfilePermissionRequest;
-export type RemoveProfilePermissionCommandOutput = RemoveProfilePermissionResponse & __MetadataBearer;
+export interface RemoveProfilePermissionCommandInput extends RemoveProfilePermissionRequest {}
+export interface RemoveProfilePermissionCommandOutput extends RemoveProfilePermissionResponse, __MetadataBearer {}
 
 /**
  * <p>Removes cross-account permissions from a signing profile.</p>

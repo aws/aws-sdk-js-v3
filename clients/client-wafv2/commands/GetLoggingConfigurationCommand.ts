@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetLoggingConfigurationCommandInput = GetLoggingConfigurationRequest;
-export type GetLoggingConfigurationCommandOutput = GetLoggingConfigurationResponse & __MetadataBearer;
+export interface GetLoggingConfigurationCommandInput extends GetLoggingConfigurationRequest {}
+export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the <a>LoggingConfiguration</a> for the specified web ACL.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeByoipCidrsCommandInput = DescribeByoipCidrsRequest;
-export type DescribeByoipCidrsCommandOutput = DescribeByoipCidrsResult & __MetadataBearer;
+export interface DescribeByoipCidrsCommandInput extends DescribeByoipCidrsRequest {}
+export interface DescribeByoipCidrsCommandOutput extends DescribeByoipCidrsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the IP address ranges that were specified in calls to <a>ProvisionByoipCidr</a>.</p>

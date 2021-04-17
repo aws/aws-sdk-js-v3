@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeModelPackageCommandInput = DescribeModelPackageInput;
-export type DescribeModelPackageCommandOutput = DescribeModelPackageOutput & __MetadataBearer;
+export interface DescribeModelPackageCommandInput extends DescribeModelPackageInput {}
+export interface DescribeModelPackageCommandOutput extends DescribeModelPackageOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a description of the specified model package, which is used to create Amazon SageMaker

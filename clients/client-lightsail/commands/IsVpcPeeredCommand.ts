@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type IsVpcPeeredCommandInput = IsVpcPeeredRequest;
-export type IsVpcPeeredCommandOutput = IsVpcPeeredResult & __MetadataBearer;
+export interface IsVpcPeeredCommandInput extends IsVpcPeeredRequest {}
+export interface IsVpcPeeredCommandOutput extends IsVpcPeeredResult, __MetadataBearer {}
 
 /**
  * <p>Returns a Boolean value indicating whether your Lightsail VPC is peered.</p>

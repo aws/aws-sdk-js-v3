@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteVoiceTemplateCommandInput = DeleteVoiceTemplateRequest;
-export type DeleteVoiceTemplateCommandOutput = DeleteVoiceTemplateResponse & __MetadataBearer;
+export interface DeleteVoiceTemplateCommandInput extends DeleteVoiceTemplateRequest {}
+export interface DeleteVoiceTemplateCommandOutput extends DeleteVoiceTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a message template for messages that were sent through the voice channel.</p>

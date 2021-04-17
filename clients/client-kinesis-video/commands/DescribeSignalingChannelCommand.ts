@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeSignalingChannelCommandInput = DescribeSignalingChannelInput;
-export type DescribeSignalingChannelCommandOutput = DescribeSignalingChannelOutput & __MetadataBearer;
+export interface DescribeSignalingChannelCommandInput extends DescribeSignalingChannelInput {}
+export interface DescribeSignalingChannelCommandOutput extends DescribeSignalingChannelOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the most current information about the signaling channel. You must specify

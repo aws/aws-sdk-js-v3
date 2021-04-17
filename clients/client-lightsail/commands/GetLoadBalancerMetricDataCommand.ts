@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetLoadBalancerMetricDataCommandInput = GetLoadBalancerMetricDataRequest;
-export type GetLoadBalancerMetricDataCommandOutput = GetLoadBalancerMetricDataResult & __MetadataBearer;
+export interface GetLoadBalancerMetricDataCommandInput extends GetLoadBalancerMetricDataRequest {}
+export interface GetLoadBalancerMetricDataCommandOutput extends GetLoadBalancerMetricDataResult, __MetadataBearer {}
 
 /**
  * <p>Returns information about health metrics for your Lightsail load balancer.</p>

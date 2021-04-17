@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutRemediationExceptionsCommandInput = PutRemediationExceptionsRequest;
-export type PutRemediationExceptionsCommandOutput = PutRemediationExceptionsResponse & __MetadataBearer;
+export interface PutRemediationExceptionsCommandInput extends PutRemediationExceptionsRequest {}
+export interface PutRemediationExceptionsCommandOutput extends PutRemediationExceptionsResponse, __MetadataBearer {}
 
 /**
  * <p>A remediation exception is when a specific resource is no longer considered for auto-remediation.

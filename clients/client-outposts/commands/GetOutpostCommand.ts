@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetOutpostCommandInput = GetOutpostInput;
-export type GetOutpostCommandOutput = GetOutpostOutput & __MetadataBearer;
+export interface GetOutpostCommandInput extends GetOutpostInput {}
+export interface GetOutpostCommandOutput extends GetOutpostOutput, __MetadataBearer {}
 
 /**
  * <p>Gets information about the specified Outpost.</p>

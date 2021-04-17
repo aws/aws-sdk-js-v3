@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SynthesizeSpeechCommandInput = SynthesizeSpeechInput;
-export type SynthesizeSpeechCommandOutput = SynthesizeSpeechOutput & __MetadataBearer;
+export interface SynthesizeSpeechCommandInput extends SynthesizeSpeechInput {}
+export interface SynthesizeSpeechCommandOutput extends SynthesizeSpeechOutput, __MetadataBearer {}
 
 /**
  * <p>Synthesizes UTF-8 input, plain text or SSML, to a stream of bytes. SSML input must be

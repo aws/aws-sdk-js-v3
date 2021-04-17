@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateBackupCommandInput = CreateBackupRequest;
-export type CreateBackupCommandOutput = CreateBackupResponse & __MetadataBearer;
+export interface CreateBackupCommandInput extends CreateBackupRequest {}
+export interface CreateBackupCommandOutput extends CreateBackupResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a backup of an existing Amazon FSx file system.

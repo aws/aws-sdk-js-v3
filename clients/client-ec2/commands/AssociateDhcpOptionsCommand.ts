@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateDhcpOptionsCommandInput = AssociateDhcpOptionsRequest;
-export type AssociateDhcpOptionsCommandOutput = __MetadataBearer;
+export interface AssociateDhcpOptionsCommandInput extends AssociateDhcpOptionsRequest {}
+export interface AssociateDhcpOptionsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Associates a set of DHCP options (that you've previously created) with the specified VPC, or associates no DHCP options with the VPC.</p>

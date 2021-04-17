@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateIntentCommandInput = CreateIntentRequest;
-export type CreateIntentCommandOutput = CreateIntentResponse & __MetadataBearer;
+export interface CreateIntentCommandInput extends CreateIntentRequest {}
+export interface CreateIntentCommandOutput extends CreateIntentResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an intent.</p>

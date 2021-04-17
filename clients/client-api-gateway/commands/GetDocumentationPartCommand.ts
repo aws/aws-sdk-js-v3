@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDocumentationPartCommandInput = GetDocumentationPartRequest;
-export type GetDocumentationPartCommandOutput = DocumentationPart & __MetadataBearer;
+export interface GetDocumentationPartCommandInput extends GetDocumentationPartRequest {}
+export interface GetDocumentationPartCommandOutput extends DocumentationPart, __MetadataBearer {}
 
 export class GetDocumentationPartCommand extends $Command<
   GetDocumentationPartCommandInput,

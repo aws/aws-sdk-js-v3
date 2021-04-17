@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetContainerServicePowersCommandInput = GetContainerServicePowersRequest;
-export type GetContainerServicePowersCommandOutput = GetContainerServicePowersResult & __MetadataBearer;
+export interface GetContainerServicePowersCommandInput extends GetContainerServicePowersRequest {}
+export interface GetContainerServicePowersCommandOutput extends GetContainerServicePowersResult, __MetadataBearer {}
 
 /**
  * <p>Returns the list of powers that can be specified for your Amazon Lightsail container

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateFindingsCommandInput = UpdateFindingsRequest;
-export type UpdateFindingsCommandOutput = __MetadataBearer;
+export interface UpdateFindingsCommandInput extends UpdateFindingsRequest {}
+export interface UpdateFindingsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates the status for the specified findings.</p>

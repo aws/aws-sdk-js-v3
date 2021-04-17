@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDBParameterGroupCommandInput = CreateDBParameterGroupMessage;
-export type CreateDBParameterGroupCommandOutput = CreateDBParameterGroupResult & __MetadataBearer;
+export interface CreateDBParameterGroupCommandInput extends CreateDBParameterGroupMessage {}
+export interface CreateDBParameterGroupCommandOutput extends CreateDBParameterGroupResult, __MetadataBearer {}
 
 /**
  * <p>Creates a new DB parameter group.</p>

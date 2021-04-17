@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DetachManagedPolicyFromPermissionSetCommandInput = DetachManagedPolicyFromPermissionSetRequest;
-export type DetachManagedPolicyFromPermissionSetCommandOutput = DetachManagedPolicyFromPermissionSetResponse &
-  __MetadataBearer;
+export interface DetachManagedPolicyFromPermissionSetCommandInput extends DetachManagedPolicyFromPermissionSetRequest {}
+export interface DetachManagedPolicyFromPermissionSetCommandOutput
+  extends DetachManagedPolicyFromPermissionSetResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Detaches the attached IAM managed policy ARN from the specified permission set.</p>

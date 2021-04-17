@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeBackupVaultCommandInput = DescribeBackupVaultInput;
-export type DescribeBackupVaultCommandOutput = DescribeBackupVaultOutput & __MetadataBearer;
+export interface DescribeBackupVaultCommandInput extends DescribeBackupVaultInput {}
+export interface DescribeBackupVaultCommandOutput extends DescribeBackupVaultOutput, __MetadataBearer {}
 
 /**
  * <p>Returns metadata about a backup vault specified by its name.</p>

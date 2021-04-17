@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateCodeSigningConfigCommandInput = UpdateCodeSigningConfigRequest;
-export type UpdateCodeSigningConfigCommandOutput = UpdateCodeSigningConfigResponse & __MetadataBearer;
+export interface UpdateCodeSigningConfigCommandInput extends UpdateCodeSigningConfigRequest {}
+export interface UpdateCodeSigningConfigCommandOutput extends UpdateCodeSigningConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Update the code signing configuration. Changes to the code signing configuration take effect the next time a

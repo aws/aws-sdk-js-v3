@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteMedicalVocabularyCommandInput = DeleteMedicalVocabularyRequest;
-export type DeleteMedicalVocabularyCommandOutput = __MetadataBearer;
+export interface DeleteMedicalVocabularyCommandInput extends DeleteMedicalVocabularyRequest {}
+export interface DeleteMedicalVocabularyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a vocabulary from Amazon Transcribe Medical.</p>

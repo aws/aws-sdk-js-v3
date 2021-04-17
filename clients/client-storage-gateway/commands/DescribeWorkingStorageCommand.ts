@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeWorkingStorageCommandInput = DescribeWorkingStorageInput;
-export type DescribeWorkingStorageCommandOutput = DescribeWorkingStorageOutput & __MetadataBearer;
+export interface DescribeWorkingStorageCommandInput extends DescribeWorkingStorageInput {}
+export interface DescribeWorkingStorageCommandOutput extends DescribeWorkingStorageOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about the working storage of a gateway. This operation is only

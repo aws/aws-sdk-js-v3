@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ImportKeyMaterialCommandInput = ImportKeyMaterialRequest;
-export type ImportKeyMaterialCommandOutput = ImportKeyMaterialResponse & __MetadataBearer;
+export interface ImportKeyMaterialCommandInput extends ImportKeyMaterialRequest {}
+export interface ImportKeyMaterialCommandOutput extends ImportKeyMaterialResponse, __MetadataBearer {}
 
 /**
  * <p>Imports key material into an existing symmetric AWS KMS customer master key (CMK) that was

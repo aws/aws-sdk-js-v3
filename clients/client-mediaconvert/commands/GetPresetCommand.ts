@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetPresetCommandInput = GetPresetRequest;
-export type GetPresetCommandOutput = GetPresetResponse & __MetadataBearer;
+export interface GetPresetCommandInput extends GetPresetRequest {}
+export interface GetPresetCommandOutput extends GetPresetResponse, __MetadataBearer {}
 
 /**
  * Retrieve the JSON for a specific preset.

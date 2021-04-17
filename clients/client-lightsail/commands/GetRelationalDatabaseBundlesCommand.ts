@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetRelationalDatabaseBundlesCommandInput = GetRelationalDatabaseBundlesRequest;
-export type GetRelationalDatabaseBundlesCommandOutput = GetRelationalDatabaseBundlesResult & __MetadataBearer;
+export interface GetRelationalDatabaseBundlesCommandInput extends GetRelationalDatabaseBundlesRequest {}
+export interface GetRelationalDatabaseBundlesCommandOutput
+  extends GetRelationalDatabaseBundlesResult,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the list of bundles that are available in Amazon Lightsail. A bundle describes the

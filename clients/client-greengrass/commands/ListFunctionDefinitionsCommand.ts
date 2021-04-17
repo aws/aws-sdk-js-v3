@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListFunctionDefinitionsCommandInput = ListFunctionDefinitionsRequest;
-export type ListFunctionDefinitionsCommandOutput = ListFunctionDefinitionsResponse & __MetadataBearer;
+export interface ListFunctionDefinitionsCommandInput extends ListFunctionDefinitionsRequest {}
+export interface ListFunctionDefinitionsCommandOutput extends ListFunctionDefinitionsResponse, __MetadataBearer {}
 
 /**
  * Retrieves a list of Lambda function definitions.

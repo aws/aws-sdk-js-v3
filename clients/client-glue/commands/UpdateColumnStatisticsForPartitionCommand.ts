@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateColumnStatisticsForPartitionCommandInput = UpdateColumnStatisticsForPartitionRequest;
-export type UpdateColumnStatisticsForPartitionCommandOutput = UpdateColumnStatisticsForPartitionResponse &
-  __MetadataBearer;
+export interface UpdateColumnStatisticsForPartitionCommandInput extends UpdateColumnStatisticsForPartitionRequest {}
+export interface UpdateColumnStatisticsForPartitionCommandOutput
+  extends UpdateColumnStatisticsForPartitionResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Creates or updates partition statistics of columns.</p>

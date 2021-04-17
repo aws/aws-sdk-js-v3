@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelMLTaskRunCommandInput = CancelMLTaskRunRequest;
-export type CancelMLTaskRunCommandOutput = CancelMLTaskRunResponse & __MetadataBearer;
+export interface CancelMLTaskRunCommandInput extends CancelMLTaskRunRequest {}
+export interface CancelMLTaskRunCommandOutput extends CancelMLTaskRunResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels (stops) a task run. Machine learning task runs are asynchronous tasks that AWS

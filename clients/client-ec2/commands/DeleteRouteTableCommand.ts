@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteRouteTableCommandInput = DeleteRouteTableRequest;
-export type DeleteRouteTableCommandOutput = __MetadataBearer;
+export interface DeleteRouteTableCommandInput extends DeleteRouteTableRequest {}
+export interface DeleteRouteTableCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified route table. You must disassociate the route table from any subnets before you can delete it. You can't delete the main route table.</p>

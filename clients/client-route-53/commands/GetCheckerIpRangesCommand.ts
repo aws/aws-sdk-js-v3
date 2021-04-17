@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetCheckerIpRangesCommandInput = GetCheckerIpRangesRequest;
-export type GetCheckerIpRangesCommandOutput = GetCheckerIpRangesResponse & __MetadataBearer;
+export interface GetCheckerIpRangesCommandInput extends GetCheckerIpRangesRequest {}
+export interface GetCheckerIpRangesCommandOutput extends GetCheckerIpRangesResponse, __MetadataBearer {}
 
 /**
  * <p>Route 53 does not perform authorization for this API because it retrieves information that is already available to the public.</p>

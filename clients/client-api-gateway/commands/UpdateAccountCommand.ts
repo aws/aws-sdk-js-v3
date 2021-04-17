@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateAccountCommandInput = UpdateAccountRequest;
-export type UpdateAccountCommandOutput = Account & __MetadataBearer;
+export interface UpdateAccountCommandInput extends UpdateAccountRequest {}
+export interface UpdateAccountCommandOutput extends Account, __MetadataBearer {}
 
 /**
  * <p>Changes information about the current <a>Account</a> resource.</p>

@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBucketEncryptionCommandInput = GetBucketEncryptionRequest;
-export type GetBucketEncryptionCommandOutput = GetBucketEncryptionOutput & __MetadataBearer;
+export interface GetBucketEncryptionCommandInput extends GetBucketEncryptionRequest {}
+export interface GetBucketEncryptionCommandOutput extends GetBucketEncryptionOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the default encryption configuration for an Amazon S3 bucket. If the bucket does not

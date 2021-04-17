@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetScalingPlanResourceForecastDataCommandInput = GetScalingPlanResourceForecastDataRequest;
-export type GetScalingPlanResourceForecastDataCommandOutput = GetScalingPlanResourceForecastDataResponse &
-  __MetadataBearer;
+export interface GetScalingPlanResourceForecastDataCommandInput extends GetScalingPlanResourceForecastDataRequest {}
+export interface GetScalingPlanResourceForecastDataCommandOutput
+  extends GetScalingPlanResourceForecastDataResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves the forecast data for a scalable resource.</p>

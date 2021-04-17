@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutBucketRequestPaymentCommandInput = PutBucketRequestPaymentRequest;
-export type PutBucketRequestPaymentCommandOutput = __MetadataBearer;
+export interface PutBucketRequestPaymentCommandInput extends PutBucketRequestPaymentRequest {}
+export interface PutBucketRequestPaymentCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Sets the request payment configuration for a bucket. By default, the bucket owner pays

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeCrossAccountAccessRoleCommandInput = {};
-export type DescribeCrossAccountAccessRoleCommandOutput = DescribeCrossAccountAccessRoleResponse & __MetadataBearer;
+export interface DescribeCrossAccountAccessRoleCommandInput {}
+export interface DescribeCrossAccountAccessRoleCommandOutput
+  extends DescribeCrossAccountAccessRoleResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the IAM role that enables Amazon Inspector to access your AWS

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchDeleteDocumentCommandInput = BatchDeleteDocumentRequest;
-export type BatchDeleteDocumentCommandOutput = BatchDeleteDocumentResponse & __MetadataBearer;
+export interface BatchDeleteDocumentCommandInput extends BatchDeleteDocumentRequest {}
+export interface BatchDeleteDocumentCommandOutput extends BatchDeleteDocumentResponse, __MetadataBearer {}
 
 /**
  * <p>Removes one or more documents from an index. The documents must have
