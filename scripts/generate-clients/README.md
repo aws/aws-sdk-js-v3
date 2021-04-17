@@ -2,9 +2,8 @@
 
 ## Prerequisite
 
-This script requires Node.js >= 12
-
-It requires https://github.com/awslabs/smithy-typescript#steps-to-build
+* Node.js version >= 12.
+* [Build and publish Smithy-TypeScript locally](https://github.com/awslabs/smithy-typescript#steps-to-build).
 
 ## Options:
 
