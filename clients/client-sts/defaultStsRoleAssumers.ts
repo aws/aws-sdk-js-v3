@@ -38,16 +38,13 @@ export const getDefaultRoleAssumer = (
   stsOptions: Pick<STSClientConfig, "logger" | "region">,
   stsClientCtor: new (options: STSClientConfig) => STSClient
 ): RoleAssumer => {
-  let stsClient: STSClient;
   return async (sourceCreds, params) => {
-    if (!stsClient) {
-      const { logger, region } = stsOptions;
-      stsClient = new stsClientCtor({
-        logger,
-        credentials: sourceCreds,
-        region: decorateDefaultRegion(region),
-      });
-    }
+    const { logger, region } = stsOptions;
+    const stsClient = new stsClientCtor({
+      logger,
+      credentials: sourceCreds,
+      region: decorateDefaultRegion(region),
+    });
     const { Credentials } = await stsClient.send(new AssumeRoleCommand(params));
     if (!Credentials || !Credentials.AccessKeyId || !Credentials.SecretAccessKey) {
       throw new Error(`Invalid response from STS.assumeRole call with role ${params.RoleArn}`);
