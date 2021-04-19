@@ -55,7 +55,7 @@ export const defaultProvider = (
 ): CredentialProvider => {
   const options = { profile: process.env[ENV_PROFILE], ...init };
   if (!options.loadedConfig) options.loadedConfig = loadSharedConfigFiles(init);
-  const providers = [fromSSO(options), fromTokenFile(options), fromIni(options), fromProcess(options), remoteProvider(options)];
+  const providers = [fromSSO(options), fromIni(options), fromProcess(options), fromTokenFile(options), remoteProvider(options)];
   if (!options.profile) providers.unshift(fromEnv());
   const providerChain = chain(...providers);
 

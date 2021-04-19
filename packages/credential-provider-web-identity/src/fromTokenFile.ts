@@ -1,4 +1,3 @@
-import { getDefaultRoleAssumerWithWebIdentity } from "@aws-sdk/client-sts";
 import { ProviderError } from "@aws-sdk/property-provider";
 import { CredentialProvider, Credentials } from "@aws-sdk/types";
 import { readFileSync } from "fs";

@@ -102,7 +102,6 @@
       "**/karma*/**",
       "**/@types/mocha*",
       "**/@types/mocha*/**",
-      "**/@aws-sdk/client-sts/**",
       "**/@aws-sdk/client-sso/**"
     ]
   },

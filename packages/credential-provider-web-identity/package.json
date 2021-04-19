@@ -23,7 +23,6 @@
   "dependencies": {
     "@aws-sdk/property-provider": "3.13.1",
     "@aws-sdk/types": "3.13.1",
-    "@aws-sdk/client-sts": "3.13.1",
     "tslib": "^2.0.0"
   },
   "devDependencies": {
