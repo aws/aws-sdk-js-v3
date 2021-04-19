@@ -27,6 +27,24 @@ If invalid configuration is encountered (such as a profile in
 that does not exist), then the chained provider will be rejected with an error
 and will not invoke the next provider in the list.
 
+_IMPORTANT_: if you intend for your code to run using EKS roles at some point
+(for example in a production environment, but not when working locally) then
+you must explicitly specify a value for `roleAssumerWithWebIdentity`. There is a
+default function available in `@aws-sdk/client-sts` package. An example of using
+this:
+
+```js
+const { getDefaultRoleAssumerWithWebIdentity } = require("@aws-sdk/client-sts");
+const { defaultProvider } = require("@aws-sdk/credential-provider-node");
+const { S3Client, GetObjectCommand } = require("@aws-sdk/client-s3");
+
+const provider = defaultProvider({
+  roleAssumerWithWebIdentity: getDefaultRoleAssumerWithWebIdentity,
+});
+
+const client = new S3Client({ credentialDefaultProvider: provider });
+```
+
 ## Supported configuration
 
 You may customize how credentials are resolved by providing an options hash to
@@ -54,6 +72,8 @@ supported:
 - `webIdentityTokenFile` - File location of where the `OIDC` token is stored.
   If not specified, the provider will use the value in the `AWS_WEB_IDENTITY_TOKEN_FILE`
   environment variable.
+- `roleAssumerWithWebIdentity` - A function that assumes a role with web identity and
+  returns a promise fulfilled with credentials for the assumed role.
 - `timeout` - The connection timeout (in milliseconds) to apply to any remote
   requests. If not specified, a default value of `1000` (one second) is used.
 - `maxRetries` - The maximum number of times any HTTP connections should be

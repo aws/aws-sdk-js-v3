@@ -9,12 +9,6 @@ const ENV_TOKEN_FILE = "AWS_WEB_IDENTITY_TOKEN_FILE";
 const ENV_ROLE_ARN = "AWS_ROLE_ARN";
 const ENV_ROLE_SESSION_NAME = "AWS_ROLE_SESSION_NAME";
 
-jest.mock("@aws-sdk/client-sts", () => {
-  return {
-    getDefaultRoleAssumerWithWebIdentity: jest.fn().mockReturnValue(jest.fn()),
-  };
-});
-import { getDefaultRoleAssumerWithWebIdentity } from "@aws-sdk/client-sts";
 import { ProviderError } from "@aws-sdk/property-provider";
 
 jest.mock("fs");
@@ -71,18 +65,6 @@ describe(fromTokenFile.name, () => {
       expect(webTokenInit.roleAssumerWithWebIdentity).toBe(roleAssumerWithWebIdentity);
     });
 
-    it(`passes default roleAssumeWithWebIdentity function ${fromWebToken.name} if not specified`, async () => {
-      (getDefaultRoleAssumerWithWebIdentity() as any).mockImplementation(() => Promise.resolve("default credentials"));
-      const creds = await fromTokenFile({})();
-      expect(creds).toEqual(MOCK_CREDS);
-      expect(fromWebToken as jest.Mock).toBeCalledTimes(1);
-      const webTokenInit = (fromWebToken as jest.Mock).mock.calls[0][0];
-      expect(webTokenInit.webIdentityToken).toBe(mockTokenValue);
-      expect(webTokenInit.roleSessionName).toBe(mockRoleSessionName);
-      expect(webTokenInit.roleArn).toBe(mockRoleArn);
-      expect(webTokenInit.roleAssumerWithWebIdentity()).resolves.toBe("default credentials");
-    });
-
     it("prefers init parameters over environmental variables", async () => {
       const roleAssumerWithWebIdentity = jest.fn();
       const init = {
@@ -137,7 +119,7 @@ describe(fromTokenFile.name, () => {
 
     it("throws if web_identity_token_file is not specified", async () => {
       try {
-        delete process.env[ENV_TOKEN_FILE]
+        delete process.env[ENV_TOKEN_FILE];
         await fromTokenFile()();
         fail(`Expected error to be thrown`);
       } catch (error) {
@@ -148,7 +130,7 @@ describe(fromTokenFile.name, () => {
 
     it("throws if role_arn is not specified", async () => {
       try {
-        delete process.env[ENV_ROLE_ARN]
+        delete process.env[ENV_ROLE_ARN];
         await fromTokenFile()();
         fail(`Expected error to be thrown`);
       } catch (error) {

@@ -35,7 +35,6 @@ const resolveTokenFile = (init?: FromTokenFileInit): Promise<Credentials> => {
     ...init,
     webIdentityToken: readFileSync(webIdentityTokenFile, { encoding: "ascii" }),
     roleArn,
-    roleSessionName,
-    roleAssumerWithWebIdentity: init?.roleAssumerWithWebIdentity ?? getDefaultRoleAssumerWithWebIdentity()
+    roleSessionName
   })();
 };

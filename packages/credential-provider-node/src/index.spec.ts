@@ -135,9 +135,9 @@ describe("defaultProvider", () => {
     expect(await defaultProvider()()).toEqual(creds);
     expect((fromEnv() as any).mock.calls.length).toBe(1);
     expect((fromSSO() as any).mock.calls.length).toBe(1);
-    expect((fromTokenFile() as any).mock.calls.length).toBe(0);
     expect((fromIni() as any).mock.calls.length).toBe(0);
     expect((fromProcess() as any).mock.calls.length).toBe(0);
+    expect((fromTokenFile() as any).mock.calls.length).toBe(0);
     expect((fromContainerMetadata() as any).mock.calls.length).toBe(0);
     expect((fromInstanceMetadata() as any).mock.calls.length).toBe(0);
   });
@@ -150,14 +150,16 @@ describe("defaultProvider", () => {
 
     (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
     (fromSSO() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
+    (fromIni() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
+    (fromProcess() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
     (fromTokenFile() as any).mockImplementation(() => Promise.resolve(creds));
 
     expect(await defaultProvider()()).toEqual(creds);
     expect((fromEnv() as any).mock.calls.length).toBe(1);
     expect((fromSSO() as any).mock.calls.length).toBe(1);
+    expect((fromIni() as any).mock.calls.length).toBe(1);
+    expect((fromProcess() as any).mock.calls.length).toBe(1);
     expect((fromTokenFile() as any).mock.calls.length).toBe(1);
-    expect((fromIni() as any).mock.calls.length).toBe(0);
-    expect((fromProcess() as any).mock.calls.length).toBe(0);
     expect((fromContainerMetadata() as any).mock.calls.length).toBe(0);
     expect((fromInstanceMetadata() as any).mock.calls.length).toBe(0);
   });
@@ -176,8 +178,8 @@ describe("defaultProvider", () => {
     expect(await defaultProvider()()).toEqual(creds);
     expect((fromEnv() as any).mock.calls.length).toBe(1);
     expect((fromSSO() as any).mock.calls.length).toBe(1);
-    expect((fromTokenFile() as any).mock.calls.length).toBe(1);
     expect((fromIni() as any).mock.calls.length).toBe(1);
+    expect((fromTokenFile() as any).mock.calls.length).toBe(0);
     expect((fromProcess() as any).mock.calls.length).toBe(0);
     expect((fromContainerMetadata() as any).mock.calls.length).toBe(0);
     expect((fromInstanceMetadata() as any).mock.calls.length).toBe(0);
@@ -191,16 +193,15 @@ describe("defaultProvider", () => {
 
     (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
     (fromSSO() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
-    (fromTokenFile() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
     (fromIni() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
     (fromProcess() as any).mockImplementation(() => Promise.resolve(creds));
 
     expect(await defaultProvider()()).toEqual(creds);
     expect((fromEnv() as any).mock.calls.length).toBe(1);
     expect((fromSSO() as any).mock.calls.length).toBe(1);
-    expect((fromTokenFile() as any).mock.calls.length).toBe(1);
     expect((fromIni() as any).mock.calls.length).toBe(1);
     expect((fromProcess() as any).mock.calls.length).toBe(1);
+    expect((fromTokenFile() as any).mock.calls.length).toBe(0);
     expect((fromContainerMetadata() as any).mock.calls.length).toBe(0);
     expect((fromInstanceMetadata() as any).mock.calls.length).toBe(0);
   });
@@ -212,16 +213,16 @@ describe("defaultProvider", () => {
     };
     (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("Keep moving!")));
     (fromSSO() as any).mockImplementation(() => Promise.reject(new ProviderError("Nope!")));
-    (fromTokenFile() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
     (fromIni() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
+    (fromTokenFile() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
     (fromProcess() as any).mockImplementation(() => Promise.reject(new ProviderError("Nor here!")));
     (fromInstanceMetadata() as any).mockImplementation(() => Promise.resolve(creds));
 
     expect(await defaultProvider()()).toEqual(creds);
     expect((fromEnv() as any).mock.calls.length).toBe(1);
     expect((fromSSO() as any).mock.calls.length).toBe(1);
-    expect((fromTokenFile() as any).mock.calls.length).toBe(1);
     expect((fromIni() as any).mock.calls.length).toBe(1);
+    expect((fromTokenFile() as any).mock.calls.length).toBe(1);
     expect((fromProcess() as any).mock.calls.length).toBe(1);
     expect((fromContainerMetadata() as any).mock.calls.length).toBe(0);
     expect((fromInstanceMetadata() as any).mock.calls.length).toBe(1);
@@ -235,8 +236,8 @@ describe("defaultProvider", () => {
 
     (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("Keep moving!")));
     (fromSSO() as any).mockImplementation(() => Promise.reject(new ProviderError("Nope!")));
-    (fromTokenFile() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
     (fromIni() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
+    (fromTokenFile() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
     (fromProcess() as any).mockImplementation(() => Promise.reject(new ProviderError("Nor here!")));
     (fromInstanceMetadata() as any).mockImplementation(() => Promise.resolve(creds));
 
@@ -255,8 +256,8 @@ describe("defaultProvider", () => {
 
     (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("Keep moving!")));
     (fromSSO() as any).mockImplementation(() => Promise.reject(new ProviderError("Nope!")));
-    (fromTokenFile() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
     (fromIni() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
+    (fromTokenFile() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
     (fromProcess() as any).mockImplementation(() => Promise.reject(new ProviderError("Nor here!")));
     (fromInstanceMetadata() as any).mockImplementation(() => Promise.reject(new Error("PANIC")));
     (fromContainerMetadata() as any).mockImplementation(() => Promise.resolve(creds));
@@ -266,8 +267,8 @@ describe("defaultProvider", () => {
     expect(await defaultProvider()()).toEqual(creds);
     expect((fromEnv() as any).mock.calls.length).toBe(1);
     expect((fromSSO() as any).mock.calls.length).toBe(1);
-    expect((fromTokenFile() as any).mock.calls.length).toBe(1);
     expect((fromIni() as any).mock.calls.length).toBe(1);
+    expect((fromTokenFile() as any).mock.calls.length).toBe(1);
     expect((fromProcess() as any).mock.calls.length).toBe(1);
     expect((fromContainerMetadata() as any).mock.calls.length).toBe(1);
     expect((fromInstanceMetadata() as any).mock.calls.length).toBe(0);
@@ -281,8 +282,8 @@ describe("defaultProvider", () => {
 
     (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("Keep moving!")));
     (fromSSO() as any).mockImplementation(() => Promise.reject(new ProviderError("Nope!")));
-    (fromTokenFile() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
     (fromIni() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
+    (fromTokenFile() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
     (fromProcess() as any).mockImplementation(() => Promise.reject(new ProviderError("Nor here!")));
     (fromInstanceMetadata() as any).mockImplementation(() => Promise.resolve(creds));
 
@@ -320,7 +321,7 @@ describe("defaultProvider", () => {
   it("should pass configuration on to the Web Identity provider", async () => {
     const webIdentityConfig: FromTokenFileInit = {
       roleArn: "someRoleArn",
-      webIdentityTokenFile: "/home/user/.secrets/tokenFile"
+      webIdentityTokenFile: "/home/user/.secrets/tokenFile",
     };
 
     (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("Keep moving!")));
@@ -505,16 +506,16 @@ describe("defaultProvider", () => {
 
       (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
       (fromSSO() as any).mockImplementation(() => Promise.resolve(Promise.resolve(creds)));
-      (fromTokenFile() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
       (fromIni() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
+      (fromTokenFile() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
       (fromInstanceMetadata() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
       (fromContainerMetadata() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
 
       expect(await defaultProvider({ profile: "foo" })()).toEqual(creds);
       expect((fromEnv() as any).mock.calls.length).toBe(0);
       expect((fromSSO() as any).mock.calls.length).toBe(1);
-      expect((fromTokenFile() as any).mock.calls.length).toBe(0);
       expect((fromIni() as any).mock.calls.length).toBe(0);
+      expect((fromTokenFile() as any).mock.calls.length).toBe(0);
       expect((fromContainerMetadata() as any).mock.calls.length).toBe(0);
       expect((fromInstanceMetadata() as any).mock.calls.length).toBe(0);
     });
@@ -527,8 +528,8 @@ describe("defaultProvider", () => {
 
       (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
       (fromSSO() as any).mockImplementation(() => Promise.resolve(creds));
-      (fromTokenFile() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
       (fromIni() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
+      (fromTokenFile() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
       (fromProcess() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
       (fromInstanceMetadata() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
       (fromContainerMetadata() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
@@ -537,8 +538,8 @@ describe("defaultProvider", () => {
       expect(await defaultProvider()()).toEqual(creds);
       expect((fromEnv() as any).mock.calls.length).toBe(0);
       expect((fromSSO() as any).mock.calls.length).toBe(1);
-      expect((fromTokenFile() as any).mock.calls.length).toBe(0);
       expect((fromIni() as any).mock.calls.length).toBe(0);
+      expect((fromTokenFile() as any).mock.calls.length).toBe(0);
       expect((fromProcess() as any).mock.calls.length).toBe(0);
       expect((fromContainerMetadata() as any).mock.calls.length).toBe(0);
       expect((fromInstanceMetadata() as any).mock.calls.length).toBe(0);
@@ -552,7 +553,6 @@ describe("defaultProvider", () => {
 
       (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
       (fromSSO() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
-      (fromTokenFile() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
       (fromIni() as any).mockImplementation(() => Promise.resolve(Promise.resolve(creds)));
       (fromInstanceMetadata() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
       (fromContainerMetadata() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
@@ -560,8 +560,8 @@ describe("defaultProvider", () => {
       expect(await defaultProvider({ profile: "foo" })()).toEqual(creds);
       expect((fromEnv() as any).mock.calls.length).toBe(0);
       expect((fromSSO() as any).mock.calls.length).toBe(1);
-      expect((fromTokenFile() as any).mock.calls.length).toBe(1);
       expect((fromIni() as any).mock.calls.length).toBe(1);
+      expect((fromTokenFile() as any).mock.calls.length).toBe(0);
       expect((fromContainerMetadata() as any).mock.calls.length).toBe(0);
       expect((fromInstanceMetadata() as any).mock.calls.length).toBe(0);
     });
@@ -574,7 +574,6 @@ describe("defaultProvider", () => {
 
       (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
       (fromSSO() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
-      (fromTokenFile() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
       (fromIni() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
       (fromProcess() as any).mockImplementation(() => Promise.resolve(creds));
       (fromInstanceMetadata() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
@@ -584,9 +583,9 @@ describe("defaultProvider", () => {
       expect(await defaultProvider()()).toEqual(creds);
       expect((fromEnv() as any).mock.calls.length).toBe(0);
       expect((fromSSO() as any).mock.calls.length).toBe(1);
-      expect((fromTokenFile() as any).mock.calls.length).toBe(1);
       expect((fromIni() as any).mock.calls.length).toBe(1);
       expect((fromProcess() as any).mock.calls.length).toBe(1);
+      expect((fromTokenFile() as any).mock.calls.length).toBe(0);
       expect((fromContainerMetadata() as any).mock.calls.length).toBe(0);
       expect((fromInstanceMetadata() as any).mock.calls.length).toBe(0);
     });
