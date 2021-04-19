@@ -17,7 +17,7 @@
   "main": "./dist/cjs/index.js",
   "module": "./dist/es/index.js",
   "dependencies": {
-    "tslib": "^1.8.0"
+    "tslib": "^2.0.0"
   },
   "devDependencies": {
     "@types/jest": "^26.0.4",

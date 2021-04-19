@@ -17,7 +17,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "tslib": "^1.8.0"
+    "tslib": "^2.0.0"
   },
   "devDependencies": {
     "@aws-sdk/client-dynamodb": "3.13.0",

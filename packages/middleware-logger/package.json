@@ -19,7 +19,7 @@
   "types": "./dist/types/index.d.ts",
   "dependencies": {
     "@aws-sdk/types": "3.12.0",
-    "tslib": "^1.8.0"
+    "tslib": "^2.0.0"
   },
   "devDependencies": {
     "@aws-sdk/protocol-http": "3.12.0",

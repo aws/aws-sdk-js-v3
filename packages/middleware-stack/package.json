@@ -19,7 +19,7 @@
   "module": "./dist/es/index.js",
   "types": "./dist/types/index.d.ts",
   "dependencies": {
-    "tslib": "^1.8.0"
+    "tslib": "^2.0.0"
   },
   "devDependencies": {
     "@aws-sdk/types": "3.12.0",
