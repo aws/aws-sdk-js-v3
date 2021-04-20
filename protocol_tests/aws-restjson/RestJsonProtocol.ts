@@ -35,6 +35,11 @@ import {
   GreetingWithErrorsCommandOutput,
 } from "./commands/GreetingWithErrorsCommand";
 import {
+  HttpEnumPayloadCommand,
+  HttpEnumPayloadCommandInput,
+  HttpEnumPayloadCommandOutput,
+} from "./commands/HttpEnumPayloadCommand";
+import {
   HttpPayloadTraitsCommand,
   HttpPayloadTraitsCommandInput,
   HttpPayloadTraitsCommandOutput,
@@ -79,6 +84,11 @@ import {
   HttpResponseCodeCommandInput,
   HttpResponseCodeCommandOutput,
 } from "./commands/HttpResponseCodeCommand";
+import {
+  HttpStringPayloadCommand,
+  HttpStringPayloadCommandInput,
+  HttpStringPayloadCommandOutput,
+} from "./commands/HttpStringPayloadCommand";
 import {
   IgnoreQueryParamsInResponseCommand,
   IgnoreQueryParamsInResponseCommandInput,
@@ -425,6 +435,35 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     }
   }
 
+  public httpEnumPayload(
+    args: HttpEnumPayloadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<HttpEnumPayloadCommandOutput>;
+  public httpEnumPayload(
+    args: HttpEnumPayloadCommandInput,
+    cb: (err: any, data?: HttpEnumPayloadCommandOutput) => void
+  ): void;
+  public httpEnumPayload(
+    args: HttpEnumPayloadCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: HttpEnumPayloadCommandOutput) => void
+  ): void;
+  public httpEnumPayload(
+    args: HttpEnumPayloadCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: HttpEnumPayloadCommandOutput) => void),
+    cb?: (err: any, data?: HttpEnumPayloadCommandOutput) => void
+  ): Promise<HttpEnumPayloadCommandOutput> | void {
+    const command = new HttpEnumPayloadCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * This examples serializes a blob shape in the payload.
    *
@@ -708,6 +747,35 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     cb?: (err: any, data?: HttpResponseCodeCommandOutput) => void
   ): Promise<HttpResponseCodeCommandOutput> | void {
     const command = new HttpResponseCodeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public httpStringPayload(
+    args: HttpStringPayloadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<HttpStringPayloadCommandOutput>;
+  public httpStringPayload(
+    args: HttpStringPayloadCommandInput,
+    cb: (err: any, data?: HttpStringPayloadCommandOutput) => void
+  ): void;
+  public httpStringPayload(
+    args: HttpStringPayloadCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: HttpStringPayloadCommandOutput) => void
+  ): void;
+  public httpStringPayload(
+    args: HttpStringPayloadCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: HttpStringPayloadCommandOutput) => void),
+    cb?: (err: any, data?: HttpStringPayloadCommandOutput) => void
+  ): Promise<HttpStringPayloadCommandOutput> | void {
+    const command = new HttpStringPayloadCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

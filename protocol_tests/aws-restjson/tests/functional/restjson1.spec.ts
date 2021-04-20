@@ -6,6 +6,7 @@ import { EmptyInputAndEmptyOutputCommand } from "../../commands/EmptyInputAndEmp
 import { EndpointOperationCommand } from "../../commands/EndpointOperationCommand";
 import { EndpointWithHostLabelOperationCommand } from "../../commands/EndpointWithHostLabelOperationCommand";
 import { GreetingWithErrorsCommand } from "../../commands/GreetingWithErrorsCommand";
+import { HttpEnumPayloadCommand } from "../../commands/HttpEnumPayloadCommand";
 import { HttpPayloadTraitsCommand } from "../../commands/HttpPayloadTraitsCommand";
 import { HttpPayloadTraitsWithMediaTypeCommand } from "../../commands/HttpPayloadTraitsWithMediaTypeCommand";
 import { HttpPayloadWithStructureCommand } from "../../commands/HttpPayloadWithStructureCommand";
@@ -15,6 +16,7 @@ import { HttpRequestWithGreedyLabelInPathCommand } from "../../commands/HttpRequ
 import { HttpRequestWithLabelsAndTimestampFormatCommand } from "../../commands/HttpRequestWithLabelsAndTimestampFormatCommand";
 import { HttpRequestWithLabelsCommand } from "../../commands/HttpRequestWithLabelsCommand";
 import { HttpResponseCodeCommand } from "../../commands/HttpResponseCodeCommand";
+import { HttpStringPayloadCommand } from "../../commands/HttpStringPayloadCommand";
 import { IgnoreQueryParamsInResponseCommand } from "../../commands/IgnoreQueryParamsInResponseCommand";
 import { InlineDocumentAsPayloadCommand } from "../../commands/InlineDocumentAsPayloadCommand";
 import { InlineDocumentCommand } from "../../commands/InlineDocumentCommand";
@@ -215,12 +217,6 @@ it("RestJsonAllQueryStringTypes:Request", async () => {
     queryEnum: "Foo",
 
     queryEnumList: ["Foo", "Baz", "Bar"],
-
-    queryParamsMapOfStrings: {
-      QueryParamsStringKeyA: "Foo",
-
-      QueryParamsStringKeyB: "Bar",
-    } as any,
   } as any);
   try {
     await client.send(command);
@@ -270,6 +266,41 @@ it("RestJsonAllQueryStringTypes:Request", async () => {
     expect(queryString).toContain("EnumList=Foo");
     expect(queryString).toContain("EnumList=Baz");
     expect(queryString).toContain("EnumList=Bar");
+
+    expect(r.body).toBeFalsy();
+  }
+});
+
+/**
+ * Handles query string maps
+ */
+it("RestJsonQueryStringMap:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new AllQueryStringTypesCommand({
+    queryParamsMapOfStrings: {
+      QueryParamsStringKeyA: "Foo",
+
+      QueryParamsStringKeyB: "Bar",
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("GET");
+    expect(r.path).toBe("/AllQueryStringTypesInput");
+
+    const queryString = buildQueryString(r.query);
     expect(queryString).toContain("QueryParamsStringKeyA=Foo");
     expect(queryString).toContain("QueryParamsStringKeyB=Bar");
 
@@ -1051,6 +1082,63 @@ it("RestJsonInvalidGreetingError:Error:GreetingWithErrors", async () => {
   fail("Expected an exception to be thrown from response");
 });
 
+it("EnumPayloadRequest:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new HttpEnumPayloadCommand({
+    payload: "enumvalue",
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/EnumPayload");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `enumvalue`;
+    const unequalParts: any = compareEquivalentUnknownTypeBodies(client.config, bodyString, r.body);
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+it("EnumPayloadResponse:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, `enumvalue`),
+  });
+
+  const params: any = {};
+  const command = new HttpEnumPayloadCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      payload: "enumvalue",
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
 /**
  * Serializes a blob in the HTTP payload
  */
@@ -1452,16 +1540,11 @@ it("RestJsonHttpPrefixHeadersAreNotPresent:Request", async () => {
 it("RestJsonHttpPrefixHeadersArePresent:Response", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(
-      true,
-      200,
-      {
-        "x-foo": "Foo",
-        "x-foo-abc": "Abc value",
-        "x-foo-def": "Def value",
-      },
-      ``
-    ),
+    requestHandler: new ResponseDeserializationTestHandler(true, 200, {
+      "x-foo": "Foo",
+      "x-foo-abc": "Abc value",
+      "x-foo-def": "Def value",
+    }),
   });
 
   const params: any = {};
@@ -1498,15 +1581,10 @@ it("RestJsonHttpPrefixHeadersArePresent:Response", async () => {
 it("HttpPrefixHeadersResponse:Response", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(
-      true,
-      200,
-      {
-        "x-foo": "Foo",
-        hello: "Hello",
-      },
-      ``
-    ),
+    requestHandler: new ResponseDeserializationTestHandler(true, 200, {
+      "x-foo": "Foo",
+      hello: "Hello",
+    }),
   });
 
   const params: any = {};
@@ -1719,6 +1797,63 @@ it("RestJsonHttpResponseCodeWithNoPayload:Response", async () => {
   const paramsToValidate: any = [
     {
       Status: 201,
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+it("StringPayloadRequest:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new HttpStringPayloadCommand({
+    payload: "rawstring",
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/StringPayload");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `rawstring`;
+    const unequalParts: any = compareEquivalentUnknownTypeBodies(client.config, bodyString, r.body);
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+it("StringPayloadResponse:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, `rawstring`),
+  });
+
+  const params: any = {};
+  const command = new HttpStringPayloadCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      payload: "rawstring",
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -2165,16 +2300,11 @@ it("RestJsonInputAndOutputWithEnumHeaders:Request", async () => {
 it("RestJsonInputAndOutputWithStringHeaders:Response", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(
-      true,
-      200,
-      {
-        "x-stringlist": "a, b, c",
-        "x-stringset": "a, b, c",
-        "x-string": "Hello",
-      },
-      ``
-    ),
+    requestHandler: new ResponseDeserializationTestHandler(true, 200, {
+      "x-stringlist": "a, b, c",
+      "x-stringset": "a, b, c",
+      "x-string": "Hello",
+    }),
   });
 
   const params: any = {};
@@ -2209,20 +2339,15 @@ it("RestJsonInputAndOutputWithStringHeaders:Response", async () => {
 it("RestJsonInputAndOutputWithNumericHeaders:Response", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(
-      true,
-      200,
-      {
-        "x-float": "1.1",
-        "x-byte": "1",
-        "x-long": "123",
-        "x-integer": "123",
-        "x-integerlist": "1, 2, 3",
-        "x-double": "1.1",
-        "x-short": "123",
-      },
-      ``
-    ),
+    requestHandler: new ResponseDeserializationTestHandler(true, 200, {
+      "x-float": "1.1",
+      "x-byte": "1",
+      "x-long": "123",
+      "x-integer": "123",
+      "x-integerlist": "1, 2, 3",
+      "x-double": "1.1",
+      "x-short": "123",
+    }),
   });
 
   const params: any = {};
@@ -2265,16 +2390,11 @@ it("RestJsonInputAndOutputWithNumericHeaders:Response", async () => {
 it("RestJsonInputAndOutputWithBooleanHeaders:Response", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(
-      true,
-      200,
-      {
-        "x-booleanlist": "true, false, true",
-        "x-boolean1": "true",
-        "x-boolean2": "false",
-      },
-      ``
-    ),
+    requestHandler: new ResponseDeserializationTestHandler(true, 200, {
+      "x-booleanlist": "true, false, true",
+      "x-boolean1": "true",
+      "x-boolean2": "false",
+    }),
   });
 
   const params: any = {};
@@ -2309,14 +2429,9 @@ it("RestJsonInputAndOutputWithBooleanHeaders:Response", async () => {
 it("RestJsonInputAndOutputWithTimestampHeaders:Response", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(
-      true,
-      200,
-      {
-        "x-timestamplist": "Mon, 16 Dec 2019 23:48:18 GMT, Mon, 16 Dec 2019 23:48:18 GMT",
-      },
-      ``
-    ),
+    requestHandler: new ResponseDeserializationTestHandler(true, 200, {
+      "x-timestamplist": "Mon, 16 Dec 2019 23:48:18 GMT, Mon, 16 Dec 2019 23:48:18 GMT",
+    }),
   });
 
   const params: any = {};
@@ -2347,15 +2462,10 @@ it("RestJsonInputAndOutputWithTimestampHeaders:Response", async () => {
 it("RestJsonInputAndOutputWithEnumHeaders:Response", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(
-      true,
-      200,
-      {
-        "x-enumlist": "Foo, Bar, Baz",
-        "x-enum": "Foo",
-      },
-      ``
-    ),
+    requestHandler: new ResponseDeserializationTestHandler(true, 200, {
+      "x-enumlist": "Foo, Bar, Baz",
+      "x-enum": "Foo",
+    }),
   });
 
   const params: any = {};
@@ -4550,14 +4660,9 @@ it("MediaTypeHeaderInputBase64:Request", async () => {
 it("MediaTypeHeaderOutputBase64:Response", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(
-      true,
-      200,
-      {
-        "x-json": "dHJ1ZQ==",
-      },
-      ``
-    ),
+    requestHandler: new ResponseDeserializationTestHandler(true, 200, {
+      "x-json": "dHJ1ZQ==",
+    }),
   });
 
   const params: any = {};
@@ -5750,20 +5855,15 @@ it("RestJsonTimestampFormatHeaders:Request", async () => {
 it("RestJsonTimestampFormatHeaders:Response", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(
-      true,
-      200,
-      {
-        "x-targetepochseconds": "1576540098",
-        "x-memberdatetime": "2019-12-16T23:48:18Z",
-        "x-defaultformat": "Mon, 16 Dec 2019 23:48:18 GMT",
-        "x-memberepochseconds": "1576540098",
-        "x-targethttpdate": "Mon, 16 Dec 2019 23:48:18 GMT",
-        "x-memberhttpdate": "Mon, 16 Dec 2019 23:48:18 GMT",
-        "x-targetdatetime": "2019-12-16T23:48:18Z",
-      },
-      ``
-    ),
+    requestHandler: new ResponseDeserializationTestHandler(true, 200, {
+      "x-targetepochseconds": "1576540098",
+      "x-memberdatetime": "2019-12-16T23:48:18Z",
+      "x-defaultformat": "Mon, 16 Dec 2019 23:48:18 GMT",
+      "x-memberepochseconds": "1576540098",
+      "x-targethttpdate": "Mon, 16 Dec 2019 23:48:18 GMT",
+      "x-memberhttpdate": "Mon, 16 Dec 2019 23:48:18 GMT",
+      "x-targetdatetime": "2019-12-16T23:48:18Z",
+    }),
   });
 
   const params: any = {};
@@ -5818,6 +5918,23 @@ const compareEquivalentJsonBodies = (expectedBody: string, generatedBody: string
 const compareEquivalentOctetStreamBodies = (config: any, expectedBody: string, generatedBody: Uint8Array): Object => {
   const expectedParts = { Value: expectedBody };
   const generatedParts = { Value: config.utf8Encoder(generatedBody) };
+
+  return compareParts(expectedParts, generatedParts);
+};
+
+/**
+ * Returns a map of key names that were un-equal to value objects showing the
+ * discrepancies between the components.
+ */
+const compareEquivalentUnknownTypeBodies = (
+  config: any,
+  expectedBody: string,
+  generatedBody: string | Uint8Array
+): Object => {
+  const expectedParts = { Value: expectedBody };
+  const generatedParts = {
+    Value: generatedBody instanceof Uint8Array ? config.utf8Encoder(generatedBody) : generatedBody,
+  };
 
   return compareParts(expectedParts, generatedParts);
 };

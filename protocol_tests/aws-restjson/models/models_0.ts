@@ -126,6 +126,20 @@ export namespace HostLabelInput {
   });
 }
 
+export enum StringEnum {
+  V = "enumvalue",
+}
+
+export interface EnumPayloadInput {
+  payload?: StringEnum | string;
+}
+
+export namespace EnumPayloadInput {
+  export const filterSensitiveLog = (obj: EnumPayloadInput): any => ({
+    ...obj,
+  });
+}
+
 /**
  * This error has test cases that test some of the dark corners of Amazon service
  * framework history. It should only be implemented by clients.
@@ -287,6 +301,16 @@ export interface HttpResponseCodeOutput {
 
 export namespace HttpResponseCodeOutput {
   export const filterSensitiveLog = (obj: HttpResponseCodeOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface StringPayloadInput {
+  payload?: string;
+}
+
+export namespace StringPayloadInput {
+  export const filterSensitiveLog = (obj: StringPayloadInput): any => ({
     ...obj,
   });
 }

@@ -65,6 +65,11 @@ import {
   HttpPayloadTraitsWithMediaTypeCommandOutput,
 } from "./commands/HttpPayloadTraitsWithMediaTypeCommand";
 import {
+  HttpPayloadWithMemberXmlNameCommand,
+  HttpPayloadWithMemberXmlNameCommandInput,
+  HttpPayloadWithMemberXmlNameCommandOutput,
+} from "./commands/HttpPayloadWithMemberXmlNameCommand";
+import {
   HttpPayloadWithStructureCommand,
   HttpPayloadWithStructureCommandInput,
   HttpPayloadWithStructureCommandOutput,
@@ -647,6 +652,39 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
     cb?: (err: any, data?: HttpPayloadTraitsWithMediaTypeCommandOutput) => void
   ): Promise<HttpPayloadTraitsWithMediaTypeCommandOutput> | void {
     const command = new HttpPayloadTraitsWithMediaTypeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * The following example serializes a payload that uses an XML name
+   * on the member, changing the wrapper name.
+   */
+  public httpPayloadWithMemberXmlName(
+    args: HttpPayloadWithMemberXmlNameCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<HttpPayloadWithMemberXmlNameCommandOutput>;
+  public httpPayloadWithMemberXmlName(
+    args: HttpPayloadWithMemberXmlNameCommandInput,
+    cb: (err: any, data?: HttpPayloadWithMemberXmlNameCommandOutput) => void
+  ): void;
+  public httpPayloadWithMemberXmlName(
+    args: HttpPayloadWithMemberXmlNameCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: HttpPayloadWithMemberXmlNameCommandOutput) => void
+  ): void;
+  public httpPayloadWithMemberXmlName(
+    args: HttpPayloadWithMemberXmlNameCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: HttpPayloadWithMemberXmlNameCommandOutput) => void),
+    cb?: (err: any, data?: HttpPayloadWithMemberXmlNameCommandOutput) => void
+  ): Promise<HttpPayloadWithMemberXmlNameCommandOutput> | void {
+    const command = new HttpPayloadWithMemberXmlNameCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

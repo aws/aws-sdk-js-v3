@@ -20,6 +20,7 @@ import {
   EndpointWithHostLabelOperationCommandOutput,
 } from "../commands/EndpointWithHostLabelOperationCommand";
 import { GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput } from "../commands/GreetingWithErrorsCommand";
+import { HttpEnumPayloadCommandInput, HttpEnumPayloadCommandOutput } from "../commands/HttpEnumPayloadCommand";
 import { HttpPayloadTraitsCommandInput, HttpPayloadTraitsCommandOutput } from "../commands/HttpPayloadTraitsCommand";
 import {
   HttpPayloadTraitsWithMediaTypeCommandInput,
@@ -47,6 +48,7 @@ import {
   HttpRequestWithLabelsCommandOutput,
 } from "../commands/HttpRequestWithLabelsCommand";
 import { HttpResponseCodeCommandInput, HttpResponseCodeCommandOutput } from "../commands/HttpResponseCodeCommand";
+import { HttpStringPayloadCommandInput, HttpStringPayloadCommandOutput } from "../commands/HttpStringPayloadCommand";
 import {
   IgnoreQueryParamsInResponseCommandInput,
   IgnoreQueryParamsInResponseCommandOutput,
@@ -358,6 +360,30 @@ export const serializeAws_restJson1GreetingWithErrorsCommand = async (
     hostname,
     port,
     method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1HttpEnumPayloadCommand = async (
+  input: HttpEnumPayloadCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "text/plain",
+  };
+  let resolvedPath = "/EnumPayload";
+  let body: any;
+  if (input.payload !== undefined) {
+    body = input.payload;
+  }
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -722,6 +748,30 @@ export const serializeAws_restJson1HttpResponseCodeCommand = async (
     hostname,
     port,
     method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1HttpStringPayloadCommand = async (
+  input: HttpStringPayloadCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "text/plain",
+  };
+  let resolvedPath = "/StringPayload";
+  let body: any;
+  if (input.payload !== undefined) {
+    body = input.payload;
+  }
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -1782,6 +1832,51 @@ const deserializeAws_restJson1GreetingWithErrorsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1HttpEnumPayloadCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<HttpEnumPayloadCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1HttpEnumPayloadCommandError(output, context);
+  }
+  const contents: HttpEnumPayloadCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    payload: undefined,
+  };
+  const data: any = await collectBodyString(output.body, context);
+  contents.payload = data;
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1HttpEnumPayloadCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<HttpEnumPayloadCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1HttpPayloadTraitsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2184,6 +2279,51 @@ const deserializeAws_restJson1HttpResponseCodeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<HttpResponseCodeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1HttpStringPayloadCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<HttpStringPayloadCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1HttpStringPayloadCommandError(output, context);
+  }
+  const contents: HttpStringPayloadCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    payload: undefined,
+  };
+  const data: any = await collectBodyString(output.body, context);
+  contents.payload = data;
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1HttpStringPayloadCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<HttpStringPayloadCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
