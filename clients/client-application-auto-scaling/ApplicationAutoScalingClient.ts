@@ -203,7 +203,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type ApplicationAutoScalingClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type ApplicationAutoScalingClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -211,8 +211,12 @@ export type ApplicationAutoScalingClientConfig = Partial<__SmithyConfiguration<_
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of ApplicationAutoScalingClient class constructor that set the region, credentials and other options.
+ */
+export interface ApplicationAutoScalingClientConfig extends ApplicationAutoScalingClientConfigType {}
 
-export type ApplicationAutoScalingClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type ApplicationAutoScalingClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -220,6 +224,10 @@ export type ApplicationAutoScalingClientResolvedConfig = __SmithyResolvedConfigu
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of ApplicationAutoScalingClient class. This is resolved and normalized from the {@link ApplicationAutoScalingClientConfig | constructor configuration interface}.
+ */
+export interface ApplicationAutoScalingClientResolvedConfig extends ApplicationAutoScalingClientResolvedConfigType {}
 
 /**
  * <p>With Application Auto Scaling, you can configure automatic scaling for the following
@@ -297,6 +305,9 @@ export class ApplicationAutoScalingClient extends __Client<
   ServiceOutputTypes,
   ApplicationAutoScalingClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of ApplicationAutoScalingClient class. This is resolved and normalized from the {@link ApplicationAutoScalingClientConfig | constructor configuration interface}.
+   */
   readonly config: ApplicationAutoScalingClientResolvedConfig;
 
   constructor(configuration: ApplicationAutoScalingClientConfig) {

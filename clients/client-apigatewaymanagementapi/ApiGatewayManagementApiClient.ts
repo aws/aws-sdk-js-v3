@@ -155,7 +155,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type ApiGatewayManagementApiClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type ApiGatewayManagementApiClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -163,8 +163,12 @@ export type ApiGatewayManagementApiClientConfig = Partial<__SmithyConfiguration<
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of ApiGatewayManagementApiClient class constructor that set the region, credentials and other options.
+ */
+export interface ApiGatewayManagementApiClientConfig extends ApiGatewayManagementApiClientConfigType {}
 
-export type ApiGatewayManagementApiClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type ApiGatewayManagementApiClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -172,6 +176,10 @@ export type ApiGatewayManagementApiClientResolvedConfig = __SmithyResolvedConfig
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of ApiGatewayManagementApiClient class. This is resolved and normalized from the {@link ApiGatewayManagementApiClientConfig | constructor configuration interface}.
+ */
+export interface ApiGatewayManagementApiClientResolvedConfig extends ApiGatewayManagementApiClientResolvedConfigType {}
 
 /**
  * <p>The Amazon API Gateway Management API allows you to directly manage runtime aspects of your deployed APIs. To use it, you must explicitly set the SDK's endpoint to point to the endpoint of your deployed API. The endpoint will be of the form https://{api-id}.execute-api.{region}.amazonaws.com/{stage}, or will be the endpoint corresponding to your API's custom domain and base path, if applicable.</p>
@@ -182,6 +190,9 @@ export class ApiGatewayManagementApiClient extends __Client<
   ServiceOutputTypes,
   ApiGatewayManagementApiClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of ApiGatewayManagementApiClient class. This is resolved and normalized from the {@link ApiGatewayManagementApiClientConfig | constructor configuration interface}.
+   */
   readonly config: ApiGatewayManagementApiClientResolvedConfig;
 
   constructor(configuration: ApiGatewayManagementApiClientConfig) {

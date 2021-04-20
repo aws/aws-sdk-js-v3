@@ -260,7 +260,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type EFSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type EFSClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -268,8 +268,12 @@ export type EFSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of EFSClient class constructor that set the region, credentials and other options.
+ */
+export interface EFSClientConfig extends EFSClientConfigType {}
 
-export type EFSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type EFSClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -277,6 +281,10 @@ export type EFSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of EFSClient class. This is resolved and normalized from the {@link EFSClientConfig | constructor configuration interface}.
+ */
+export interface EFSClientResolvedConfig extends EFSClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon Elastic File System</fullname>
@@ -291,6 +299,9 @@ export class EFSClient extends __Client<
   ServiceOutputTypes,
   EFSClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of EFSClient class. This is resolved and normalized from the {@link EFSClientConfig | constructor configuration interface}.
+   */
   readonly config: EFSClientResolvedConfig;
 
   constructor(configuration: EFSClientConfig) {

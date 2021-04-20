@@ -218,7 +218,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type CodeGuruReviewerClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type CodeGuruReviewerClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -226,8 +226,12 @@ export type CodeGuruReviewerClientConfig = Partial<__SmithyConfiguration<__HttpH
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of CodeGuruReviewerClient class constructor that set the region, credentials and other options.
+ */
+export interface CodeGuruReviewerClientConfig extends CodeGuruReviewerClientConfigType {}
 
-export type CodeGuruReviewerClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type CodeGuruReviewerClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -235,6 +239,10 @@ export type CodeGuruReviewerClientResolvedConfig = __SmithyResolvedConfiguration
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of CodeGuruReviewerClient class. This is resolved and normalized from the {@link CodeGuruReviewerClientConfig | constructor configuration interface}.
+ */
+export interface CodeGuruReviewerClientResolvedConfig extends CodeGuruReviewerClientResolvedConfigType {}
 
 /**
  * <p>This section provides documentation for the Amazon CodeGuru Reviewer API operations. CodeGuru Reviewer is a service
@@ -260,6 +268,9 @@ export class CodeGuruReviewerClient extends __Client<
   ServiceOutputTypes,
   CodeGuruReviewerClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of CodeGuruReviewerClient class. This is resolved and normalized from the {@link CodeGuruReviewerClientConfig | constructor configuration interface}.
+   */
   readonly config: CodeGuruReviewerClientResolvedConfig;
 
   constructor(configuration: CodeGuruReviewerClientConfig) {

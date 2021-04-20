@@ -203,7 +203,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type LakeFormationClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type LakeFormationClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -211,8 +211,12 @@ export type LakeFormationClientConfig = Partial<__SmithyConfiguration<__HttpHand
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of LakeFormationClient class constructor that set the region, credentials and other options.
+ */
+export interface LakeFormationClientConfig extends LakeFormationClientConfigType {}
 
-export type LakeFormationClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type LakeFormationClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -220,6 +224,10 @@ export type LakeFormationClientResolvedConfig = __SmithyResolvedConfiguration<__
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of LakeFormationClient class. This is resolved and normalized from the {@link LakeFormationClientConfig | constructor configuration interface}.
+ */
+export interface LakeFormationClientResolvedConfig extends LakeFormationClientResolvedConfigType {}
 
 /**
  * <fullname>AWS Lake Formation</fullname>
@@ -231,6 +239,9 @@ export class LakeFormationClient extends __Client<
   ServiceOutputTypes,
   LakeFormationClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of LakeFormationClient class. This is resolved and normalized from the {@link LakeFormationClientConfig | constructor configuration interface}.
+   */
   readonly config: LakeFormationClientResolvedConfig;
 
   constructor(configuration: LakeFormationClientConfig) {

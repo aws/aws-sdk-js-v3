@@ -1214,7 +1214,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type IoTClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type IoTClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -1222,8 +1222,12 @@ export type IoTClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of IoTClient class constructor that set the region, credentials and other options.
+ */
+export interface IoTClientConfig extends IoTClientConfigType {}
 
-export type IoTClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type IoTClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -1231,6 +1235,10 @@ export type IoTClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of IoTClient class. This is resolved and normalized from the {@link IoTClientConfig | constructor configuration interface}.
+ */
+export interface IoTClientResolvedConfig extends IoTClientResolvedConfigType {}
 
 /**
  * <fullname>AWS IoT</fullname>
@@ -1256,6 +1264,9 @@ export class IoTClient extends __Client<
   ServiceOutputTypes,
   IoTClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of IoTClient class. This is resolved and normalized from the {@link IoTClientConfig | constructor configuration interface}.
+   */
   readonly config: IoTClientResolvedConfig;
 
   constructor(configuration: IoTClientConfig) {

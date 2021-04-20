@@ -434,7 +434,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type RoboMakerClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type RoboMakerClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -442,8 +442,12 @@ export type RoboMakerClientConfig = Partial<__SmithyConfiguration<__HttpHandlerO
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of RoboMakerClient class constructor that set the region, credentials and other options.
+ */
+export interface RoboMakerClientConfig extends RoboMakerClientConfigType {}
 
-export type RoboMakerClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type RoboMakerClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -451,6 +455,10 @@ export type RoboMakerClientResolvedConfig = __SmithyResolvedConfiguration<__Http
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of RoboMakerClient class. This is resolved and normalized from the {@link RoboMakerClientConfig | constructor configuration interface}.
+ */
+export interface RoboMakerClientResolvedConfig extends RoboMakerClientResolvedConfigType {}
 
 /**
  * <p>This section provides documentation for the AWS RoboMaker API operations.</p>
@@ -461,6 +469,9 @@ export class RoboMakerClient extends __Client<
   ServiceOutputTypes,
   RoboMakerClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of RoboMakerClient class. This is resolved and normalized from the {@link RoboMakerClientConfig | constructor configuration interface}.
+   */
   readonly config: RoboMakerClientResolvedConfig;
 
   constructor(configuration: RoboMakerClientConfig) {

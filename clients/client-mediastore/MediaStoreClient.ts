@@ -221,7 +221,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type MediaStoreClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type MediaStoreClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -229,8 +229,12 @@ export type MediaStoreClientConfig = Partial<__SmithyConfiguration<__HttpHandler
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of MediaStoreClient class constructor that set the region, credentials and other options.
+ */
+export interface MediaStoreClientConfig extends MediaStoreClientConfigType {}
 
-export type MediaStoreClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type MediaStoreClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -238,6 +242,10 @@ export type MediaStoreClientResolvedConfig = __SmithyResolvedConfiguration<__Htt
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of MediaStoreClient class. This is resolved and normalized from the {@link MediaStoreClientConfig | constructor configuration interface}.
+ */
+export interface MediaStoreClientResolvedConfig extends MediaStoreClientResolvedConfigType {}
 
 /**
  * <p>An AWS Elemental MediaStore container is a namespace that holds folders and objects.
@@ -249,6 +257,9 @@ export class MediaStoreClient extends __Client<
   ServiceOutputTypes,
   MediaStoreClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of MediaStoreClient class. This is resolved and normalized from the {@link MediaStoreClientConfig | constructor configuration interface}.
+   */
   readonly config: MediaStoreClientResolvedConfig;
 
   constructor(configuration: MediaStoreClientConfig) {

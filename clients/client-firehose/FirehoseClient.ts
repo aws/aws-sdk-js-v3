@@ -209,7 +209,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type FirehoseClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type FirehoseClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -217,8 +217,12 @@ export type FirehoseClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOp
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of FirehoseClient class constructor that set the region, credentials and other options.
+ */
+export interface FirehoseClientConfig extends FirehoseClientConfigType {}
 
-export type FirehoseClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type FirehoseClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -226,6 +230,10 @@ export type FirehoseClientResolvedConfig = __SmithyResolvedConfiguration<__HttpH
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of FirehoseClient class. This is resolved and normalized from the {@link FirehoseClientConfig | constructor configuration interface}.
+ */
+export interface FirehoseClientResolvedConfig extends FirehoseClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon Kinesis Data Firehose API Reference</fullname>
@@ -239,6 +247,9 @@ export class FirehoseClient extends __Client<
   ServiceOutputTypes,
   FirehoseClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of FirehoseClient class. This is resolved and normalized from the {@link FirehoseClientConfig | constructor configuration interface}.
+   */
   readonly config: FirehoseClientResolvedConfig;
 
   constructor(configuration: FirehoseClientConfig) {

@@ -152,7 +152,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type PersonalizeEventsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type PersonalizeEventsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -160,8 +160,12 @@ export type PersonalizeEventsClientConfig = Partial<__SmithyConfiguration<__Http
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of PersonalizeEventsClient class constructor that set the region, credentials and other options.
+ */
+export interface PersonalizeEventsClientConfig extends PersonalizeEventsClientConfigType {}
 
-export type PersonalizeEventsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type PersonalizeEventsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -169,6 +173,10 @@ export type PersonalizeEventsClientResolvedConfig = __SmithyResolvedConfiguratio
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of PersonalizeEventsClient class. This is resolved and normalized from the {@link PersonalizeEventsClientConfig | constructor configuration interface}.
+ */
+export interface PersonalizeEventsClientResolvedConfig extends PersonalizeEventsClientResolvedConfigType {}
 
 /**
  * <p>Amazon Personalize can consume real-time user event data, such as <i>stream</i> or <i>click</i> data, and use
@@ -181,6 +189,9 @@ export class PersonalizeEventsClient extends __Client<
   ServiceOutputTypes,
   PersonalizeEventsClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of PersonalizeEventsClient class. This is resolved and normalized from the {@link PersonalizeEventsClientConfig | constructor configuration interface}.
+   */
   readonly config: PersonalizeEventsClientResolvedConfig;
 
   constructor(configuration: PersonalizeEventsClientConfig) {

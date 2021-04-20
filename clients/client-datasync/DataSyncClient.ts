@@ -290,7 +290,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type DataSyncClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type DataSyncClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -298,8 +298,12 @@ export type DataSyncClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOp
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of DataSyncClient class constructor that set the region, credentials and other options.
+ */
+export interface DataSyncClientConfig extends DataSyncClientConfigType {}
 
-export type DataSyncClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type DataSyncClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -307,6 +311,10 @@ export type DataSyncClientResolvedConfig = __SmithyResolvedConfiguration<__HttpH
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of DataSyncClient class. This is resolved and normalized from the {@link DataSyncClientConfig | constructor configuration interface}.
+ */
+export interface DataSyncClientResolvedConfig extends DataSyncClientResolvedConfigType {}
 
 /**
  * <fullname>AWS DataSync</fullname>
@@ -323,6 +331,9 @@ export class DataSyncClient extends __Client<
   ServiceOutputTypes,
   DataSyncClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of DataSyncClient class. This is resolved and normalized from the {@link DataSyncClientConfig | constructor configuration interface}.
+   */
   readonly config: DataSyncClientResolvedConfig;
 
   constructor(configuration: DataSyncClientConfig) {

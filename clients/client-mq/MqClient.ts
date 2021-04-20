@@ -236,7 +236,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type MqClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type MqClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -244,8 +244,12 @@ export type MqClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of MqClient class constructor that set the region, credentials and other options.
+ */
+export interface MqClientConfig extends MqClientConfigType {}
 
-export type MqClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type MqClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -253,6 +257,10 @@ export type MqClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandler
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of MqClient class. This is resolved and normalized from the {@link MqClientConfig | constructor configuration interface}.
+ */
+export interface MqClientResolvedConfig extends MqClientResolvedConfigType {}
 
 /**
  * Amazon MQ is a managed message broker service for Apache ActiveMQ and RabbitMQ that makes it easy to set up and operate message brokers in the cloud. A message broker allows software applications and components to communicate using various programming languages, operating systems, and formal messaging protocols.
@@ -263,6 +271,9 @@ export class MqClient extends __Client<
   ServiceOutputTypes,
   MqClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of MqClient class. This is resolved and normalized from the {@link MqClientConfig | constructor configuration interface}.
+   */
   readonly config: MqClientResolvedConfig;
 
   constructor(configuration: MqClientConfig) {

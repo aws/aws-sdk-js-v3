@@ -152,7 +152,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type S3OutpostsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type S3OutpostsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -160,8 +160,12 @@ export type S3OutpostsClientConfig = Partial<__SmithyConfiguration<__HttpHandler
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of S3OutpostsClient class constructor that set the region, credentials and other options.
+ */
+export interface S3OutpostsClientConfig extends S3OutpostsClientConfigType {}
 
-export type S3OutpostsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type S3OutpostsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -169,6 +173,10 @@ export type S3OutpostsClientResolvedConfig = __SmithyResolvedConfiguration<__Htt
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of S3OutpostsClient class. This is resolved and normalized from the {@link S3OutpostsClientConfig | constructor configuration interface}.
+ */
+export interface S3OutpostsClientResolvedConfig extends S3OutpostsClientResolvedConfigType {}
 
 /**
  * <p>Amazon S3 on Outposts provides access to S3 on Outposts operations.</p>
@@ -179,6 +187,9 @@ export class S3OutpostsClient extends __Client<
   ServiceOutputTypes,
   S3OutpostsClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of S3OutpostsClient class. This is resolved and normalized from the {@link S3OutpostsClientConfig | constructor configuration interface}.
+   */
   readonly config: S3OutpostsClientResolvedConfig;
 
   constructor(configuration: S3OutpostsClientConfig) {

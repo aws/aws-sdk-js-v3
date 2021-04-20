@@ -296,7 +296,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type SNSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type SNSClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -304,8 +304,12 @@ export type SNSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of SNSClient class constructor that set the region, credentials and other options.
+ */
+export interface SNSClientConfig extends SNSClientConfigType {}
 
-export type SNSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type SNSClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -313,6 +317,10 @@ export type SNSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of SNSClient class. This is resolved and normalized from the {@link SNSClientConfig | constructor configuration interface}.
+ */
+export interface SNSClientResolvedConfig extends SNSClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon Simple Notification Service</fullname>
@@ -336,6 +344,9 @@ export class SNSClient extends __Client<
   ServiceOutputTypes,
   SNSClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of SNSClient class. This is resolved and normalized from the {@link SNSClientConfig | constructor configuration interface}.
+   */
   readonly config: SNSClientResolvedConfig;
 
   constructor(configuration: SNSClientConfig) {

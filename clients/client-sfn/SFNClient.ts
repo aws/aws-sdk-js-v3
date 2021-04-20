@@ -230,7 +230,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type SFNClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type SFNClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -238,8 +238,12 @@ export type SFNClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of SFNClient class constructor that set the region, credentials and other options.
+ */
+export interface SFNClientConfig extends SFNClientConfigType {}
 
-export type SFNClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type SFNClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -247,6 +251,10 @@ export type SFNClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of SFNClient class. This is resolved and normalized from the {@link SFNClientConfig | constructor configuration interface}.
+ */
+export interface SFNClientResolvedConfig extends SFNClientResolvedConfigType {}
 
 /**
  * <fullname>AWS Step Functions</fullname>
@@ -272,6 +280,9 @@ export class SFNClient extends __Client<
   ServiceOutputTypes,
   SFNClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of SFNClient class. This is resolved and normalized from the {@link SFNClientConfig | constructor configuration interface}.
+   */
   readonly config: SFNClientResolvedConfig;
 
   constructor(configuration: SFNClientConfig) {

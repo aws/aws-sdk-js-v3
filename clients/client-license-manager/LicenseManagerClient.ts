@@ -326,7 +326,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type LicenseManagerClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type LicenseManagerClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -334,8 +334,12 @@ export type LicenseManagerClientConfig = Partial<__SmithyConfiguration<__HttpHan
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of LicenseManagerClient class constructor that set the region, credentials and other options.
+ */
+export interface LicenseManagerClientConfig extends LicenseManagerClientConfigType {}
 
-export type LicenseManagerClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type LicenseManagerClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -343,6 +347,10 @@ export type LicenseManagerClientResolvedConfig = __SmithyResolvedConfiguration<_
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of LicenseManagerClient class. This is resolved and normalized from the {@link LicenseManagerClientConfig | constructor configuration interface}.
+ */
+export interface LicenseManagerClientResolvedConfig extends LicenseManagerClientResolvedConfigType {}
 
 /**
  * <fullname> AWS License Manager </fullname>
@@ -355,6 +363,9 @@ export class LicenseManagerClient extends __Client<
   ServiceOutputTypes,
   LicenseManagerClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of LicenseManagerClient class. This is resolved and normalized from the {@link LicenseManagerClientConfig | constructor configuration interface}.
+   */
   readonly config: LicenseManagerClientResolvedConfig;
 
   constructor(configuration: LicenseManagerClientConfig) {

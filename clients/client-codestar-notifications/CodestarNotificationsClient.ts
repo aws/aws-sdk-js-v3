@@ -206,7 +206,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type CodestarNotificationsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type CodestarNotificationsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -214,8 +214,12 @@ export type CodestarNotificationsClientConfig = Partial<__SmithyConfiguration<__
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of CodestarNotificationsClient class constructor that set the region, credentials and other options.
+ */
+export interface CodestarNotificationsClientConfig extends CodestarNotificationsClientConfigType {}
 
-export type CodestarNotificationsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type CodestarNotificationsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -223,6 +227,10 @@ export type CodestarNotificationsClientResolvedConfig = __SmithyResolvedConfigur
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of CodestarNotificationsClient class. This is resolved and normalized from the {@link CodestarNotificationsClientConfig | constructor configuration interface}.
+ */
+export interface CodestarNotificationsClientResolvedConfig extends CodestarNotificationsClientResolvedConfigType {}
 
 /**
  * <p>This AWS CodeStar Notifications API Reference provides descriptions and usage examples of the
@@ -316,6 +324,9 @@ export class CodestarNotificationsClient extends __Client<
   ServiceOutputTypes,
   CodestarNotificationsClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of CodestarNotificationsClient class. This is resolved and normalized from the {@link CodestarNotificationsClientConfig | constructor configuration interface}.
+   */
   readonly config: CodestarNotificationsClientResolvedConfig;
 
   constructor(configuration: CodestarNotificationsClientConfig) {

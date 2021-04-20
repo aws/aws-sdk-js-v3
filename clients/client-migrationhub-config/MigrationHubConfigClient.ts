@@ -164,7 +164,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type MigrationHubConfigClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type MigrationHubConfigClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -172,8 +172,12 @@ export type MigrationHubConfigClientConfig = Partial<__SmithyConfiguration<__Htt
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of MigrationHubConfigClient class constructor that set the region, credentials and other options.
+ */
+export interface MigrationHubConfigClientConfig extends MigrationHubConfigClientConfigType {}
 
-export type MigrationHubConfigClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type MigrationHubConfigClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -181,6 +185,10 @@ export type MigrationHubConfigClientResolvedConfig = __SmithyResolvedConfigurati
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of MigrationHubConfigClient class. This is resolved and normalized from the {@link MigrationHubConfigClientConfig | constructor configuration interface}.
+ */
+export interface MigrationHubConfigClientResolvedConfig extends MigrationHubConfigClientResolvedConfigType {}
 
 /**
  * <p>The AWS Migration Hub home region APIs are available specifically for working with your
@@ -216,6 +224,9 @@ export class MigrationHubConfigClient extends __Client<
   ServiceOutputTypes,
   MigrationHubConfigClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of MigrationHubConfigClient class. This is resolved and normalized from the {@link MigrationHubConfigClientConfig | constructor configuration interface}.
+   */
   readonly config: MigrationHubConfigClientResolvedConfig;
 
   constructor(configuration: MigrationHubConfigClientConfig) {

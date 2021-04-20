@@ -2540,7 +2540,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type EC2ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type EC2ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -2548,8 +2548,12 @@ export type EC2ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of EC2Client class constructor that set the region, credentials and other options.
+ */
+export interface EC2ClientConfig extends EC2ClientConfigType {}
 
-export type EC2ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type EC2ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -2557,6 +2561,10 @@ export type EC2ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of EC2Client class. This is resolved and normalized from the {@link EC2ClientConfig | constructor configuration interface}.
+ */
+export interface EC2ClientResolvedConfig extends EC2ClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon Elastic Compute Cloud</fullname>
@@ -2592,6 +2600,9 @@ export class EC2Client extends __Client<
   ServiceOutputTypes,
   EC2ClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of EC2Client class. This is resolved and normalized from the {@link EC2ClientConfig | constructor configuration interface}.
+   */
   readonly config: EC2ClientResolvedConfig;
 
   constructor(configuration: EC2ClientConfig) {

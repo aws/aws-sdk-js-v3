@@ -293,7 +293,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type ForecastClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type ForecastClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -301,8 +301,12 @@ export type ForecastClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOp
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of ForecastClient class constructor that set the region, credentials and other options.
+ */
+export interface ForecastClientConfig extends ForecastClientConfigType {}
 
-export type ForecastClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type ForecastClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -310,6 +314,10 @@ export type ForecastClientResolvedConfig = __SmithyResolvedConfiguration<__HttpH
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of ForecastClient class. This is resolved and normalized from the {@link ForecastClientConfig | constructor configuration interface}.
+ */
+export interface ForecastClientResolvedConfig extends ForecastClientResolvedConfigType {}
 
 /**
  * <p>Provides APIs for creating and managing Amazon Forecast resources.</p>
@@ -320,6 +328,9 @@ export class ForecastClient extends __Client<
   ServiceOutputTypes,
   ForecastClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of ForecastClient class. This is resolved and normalized from the {@link ForecastClientConfig | constructor configuration interface}.
+   */
   readonly config: ForecastClientResolvedConfig;
 
   constructor(configuration: ForecastClientConfig) {

@@ -209,7 +209,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type IoT1ClickProjectsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type IoT1ClickProjectsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -217,8 +217,12 @@ export type IoT1ClickProjectsClientConfig = Partial<__SmithyConfiguration<__Http
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of IoT1ClickProjectsClient class constructor that set the region, credentials and other options.
+ */
+export interface IoT1ClickProjectsClientConfig extends IoT1ClickProjectsClientConfigType {}
 
-export type IoT1ClickProjectsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type IoT1ClickProjectsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -226,6 +230,10 @@ export type IoT1ClickProjectsClientResolvedConfig = __SmithyResolvedConfiguratio
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of IoT1ClickProjectsClient class. This is resolved and normalized from the {@link IoT1ClickProjectsClientConfig | constructor configuration interface}.
+ */
+export interface IoT1ClickProjectsClientResolvedConfig extends IoT1ClickProjectsClientResolvedConfigType {}
 
 /**
  * <p>The AWS IoT 1-Click Projects API Reference</p>
@@ -236,6 +244,9 @@ export class IoT1ClickProjectsClient extends __Client<
   ServiceOutputTypes,
   IoT1ClickProjectsClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of IoT1ClickProjectsClient class. This is resolved and normalized from the {@link IoT1ClickProjectsClientConfig | constructor configuration interface}.
+   */
   readonly config: IoT1ClickProjectsClientResolvedConfig;
 
   constructor(configuration: IoT1ClickProjectsClientConfig) {

@@ -290,7 +290,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type EKSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type EKSClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -298,8 +298,12 @@ export type EKSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of EKSClient class constructor that set the region, credentials and other options.
+ */
+export interface EKSClientConfig extends EKSClientConfigType {}
 
-export type EKSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type EKSClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -307,6 +311,10 @@ export type EKSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of EKSClient class. This is resolved and normalized from the {@link EKSClientConfig | constructor configuration interface}.
+ */
+export interface EKSClientResolvedConfig extends EKSClientResolvedConfigType {}
 
 /**
  * <p>Amazon Elastic Kubernetes Service (Amazon EKS) is a managed service that makes it easy for you to run Kubernetes on
@@ -326,6 +334,9 @@ export class EKSClient extends __Client<
   ServiceOutputTypes,
   EKSClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of EKSClient class. This is resolved and normalized from the {@link EKSClientConfig | constructor configuration interface}.
+   */
   readonly config: EKSClientResolvedConfig;
 
   constructor(configuration: EKSClientConfig) {

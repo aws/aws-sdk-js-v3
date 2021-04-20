@@ -212,7 +212,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type Cloud9ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type Cloud9ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -220,8 +220,12 @@ export type Cloud9ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOpti
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of Cloud9Client class constructor that set the region, credentials and other options.
+ */
+export interface Cloud9ClientConfig extends Cloud9ClientConfigType {}
 
-export type Cloud9ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type Cloud9ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -229,6 +233,10 @@ export type Cloud9ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHan
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of Cloud9Client class. This is resolved and normalized from the {@link Cloud9ClientConfig | constructor configuration interface}.
+ */
+export interface Cloud9ClientResolvedConfig extends Cloud9ClientResolvedConfigType {}
 
 /**
  * <fullname>AWS Cloud9</fullname>
@@ -296,6 +304,9 @@ export class Cloud9Client extends __Client<
   ServiceOutputTypes,
   Cloud9ClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of Cloud9Client class. This is resolved and normalized from the {@link Cloud9ClientConfig | constructor configuration interface}.
+   */
   readonly config: Cloud9ClientResolvedConfig;
 
   constructor(configuration: Cloud9ClientConfig) {

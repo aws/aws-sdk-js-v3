@@ -218,7 +218,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type ACMClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type ACMClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -226,8 +226,12 @@ export type ACMClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of ACMClient class constructor that set the region, credentials and other options.
+ */
+export interface ACMClientConfig extends ACMClientConfigType {}
 
-export type ACMClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type ACMClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -235,6 +239,10 @@ export type ACMClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of ACMClient class. This is resolved and normalized from the {@link ACMClientConfig | constructor configuration interface}.
+ */
+export interface ACMClientResolvedConfig extends ACMClientResolvedConfigType {}
 
 /**
  * <fullname>AWS Certificate Manager</fullname>
@@ -247,6 +255,9 @@ export class ACMClient extends __Client<
   ServiceOutputTypes,
   ACMClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of ACMClient class. This is resolved and normalized from the {@link ACMClientConfig | constructor configuration interface}.
+   */
   readonly config: ACMClientResolvedConfig;
 
   constructor(configuration: ACMClientConfig) {

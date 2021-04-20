@@ -185,7 +185,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type PollyClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type PollyClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -193,8 +193,12 @@ export type PollyClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptio
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of PollyClient class constructor that set the region, credentials and other options.
+ */
+export interface PollyClientConfig extends PollyClientConfigType {}
 
-export type PollyClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type PollyClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -202,6 +206,10 @@ export type PollyClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHand
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of PollyClient class. This is resolved and normalized from the {@link PollyClientConfig | constructor configuration interface}.
+ */
+export interface PollyClientResolvedConfig extends PollyClientResolvedConfigType {}
 
 /**
  * <p>Amazon Polly is a web service that makes it easy to synthesize speech from
@@ -217,6 +225,9 @@ export class PollyClient extends __Client<
   ServiceOutputTypes,
   PollyClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of PollyClient class. This is resolved and normalized from the {@link PollyClientConfig | constructor configuration interface}.
+   */
   readonly config: PollyClientResolvedConfig;
 
   constructor(configuration: PollyClientConfig) {

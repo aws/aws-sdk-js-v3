@@ -218,7 +218,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type DataPipelineClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type DataPipelineClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -226,8 +226,12 @@ export type DataPipelineClientConfig = Partial<__SmithyConfiguration<__HttpHandl
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of DataPipelineClient class constructor that set the region, credentials and other options.
+ */
+export interface DataPipelineClientConfig extends DataPipelineClientConfigType {}
 
-export type DataPipelineClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type DataPipelineClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -235,6 +239,10 @@ export type DataPipelineClientResolvedConfig = __SmithyResolvedConfiguration<__H
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of DataPipelineClient class. This is resolved and normalized from the {@link DataPipelineClientConfig | constructor configuration interface}.
+ */
+export interface DataPipelineClientResolvedConfig extends DataPipelineClientResolvedConfigType {}
 
 /**
  * <p>AWS Data Pipeline configures and manages a data-driven workflow called a pipeline. AWS Data Pipeline
@@ -261,6 +269,9 @@ export class DataPipelineClient extends __Client<
   ServiceOutputTypes,
   DataPipelineClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of DataPipelineClient class. This is resolved and normalized from the {@link DataPipelineClientConfig | constructor configuration interface}.
+   */
   readonly config: DataPipelineClientResolvedConfig;
 
   constructor(configuration: DataPipelineClientConfig) {

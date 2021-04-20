@@ -236,7 +236,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type SecretsManagerClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type SecretsManagerClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -244,8 +244,12 @@ export type SecretsManagerClientConfig = Partial<__SmithyConfiguration<__HttpHan
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of SecretsManagerClient class constructor that set the region, credentials and other options.
+ */
+export interface SecretsManagerClientConfig extends SecretsManagerClientConfigType {}
 
-export type SecretsManagerClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type SecretsManagerClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -253,6 +257,10 @@ export type SecretsManagerClientResolvedConfig = __SmithyResolvedConfiguration<_
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of SecretsManagerClient class. This is resolved and normalized from the {@link SecretsManagerClientConfig | constructor configuration interface}.
+ */
+export interface SecretsManagerClientResolvedConfig extends SecretsManagerClientResolvedConfigType {}
 
 /**
  * <fullname>AWS Secrets Manager API Reference</fullname>
@@ -325,6 +333,9 @@ export class SecretsManagerClient extends __Client<
   ServiceOutputTypes,
   SecretsManagerClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of SecretsManagerClient class. This is resolved and normalized from the {@link SecretsManagerClientConfig | constructor configuration interface}.
+   */
   readonly config: SecretsManagerClientResolvedConfig;
 
   constructor(configuration: SecretsManagerClientConfig) {

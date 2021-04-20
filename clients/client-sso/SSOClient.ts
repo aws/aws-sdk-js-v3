@@ -149,21 +149,29 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type SSOClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type SSOClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
   RetryInputConfig &
   HostHeaderInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of SSOClient class constructor that set the region, credentials and other options.
+ */
+export interface SSOClientConfig extends SSOClientConfigType {}
 
-export type SSOClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type SSOClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of SSOClient class. This is resolved and normalized from the {@link SSOClientConfig | constructor configuration interface}.
+ */
+export interface SSOClientResolvedConfig extends SSOClientResolvedConfigType {}
 
 /**
  * <p>AWS Single Sign-On Portal is a web service that makes it easy for you to assign user
@@ -189,6 +197,9 @@ export class SSOClient extends __Client<
   ServiceOutputTypes,
   SSOClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of SSOClient class. This is resolved and normalized from the {@link SSOClientConfig | constructor configuration interface}.
+   */
   readonly config: SSOClientResolvedConfig;
 
   constructor(configuration: SSOClientConfig) {

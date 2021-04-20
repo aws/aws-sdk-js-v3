@@ -257,7 +257,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type ECRPUBLICClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type ECRPUBLICClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -265,8 +265,12 @@ export type ECRPUBLICClientConfig = Partial<__SmithyConfiguration<__HttpHandlerO
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of ECRPUBLICClient class constructor that set the region, credentials and other options.
+ */
+export interface ECRPUBLICClientConfig extends ECRPUBLICClientConfigType {}
 
-export type ECRPUBLICClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type ECRPUBLICClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -274,6 +278,10 @@ export type ECRPUBLICClientResolvedConfig = __SmithyResolvedConfiguration<__Http
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of ECRPUBLICClient class. This is resolved and normalized from the {@link ECRPUBLICClientConfig | constructor configuration interface}.
+ */
+export interface ECRPUBLICClientResolvedConfig extends ECRPUBLICClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon Elastic Container Registry Public</fullname>
@@ -290,6 +298,9 @@ export class ECRPUBLICClient extends __Client<
   ServiceOutputTypes,
   ECRPUBLICClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of ECRPUBLICClient class. This is resolved and normalized from the {@link ECRPUBLICClientConfig | constructor configuration interface}.
+   */
   readonly config: ECRPUBLICClientResolvedConfig;
 
   constructor(configuration: ECRPUBLICClientConfig) {

@@ -449,7 +449,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type DirectConnectClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type DirectConnectClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -457,8 +457,12 @@ export type DirectConnectClientConfig = Partial<__SmithyConfiguration<__HttpHand
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of DirectConnectClient class constructor that set the region, credentials and other options.
+ */
+export interface DirectConnectClientConfig extends DirectConnectClientConfigType {}
 
-export type DirectConnectClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type DirectConnectClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -466,6 +470,10 @@ export type DirectConnectClientResolvedConfig = __SmithyResolvedConfiguration<__
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of DirectConnectClient class. This is resolved and normalized from the {@link DirectConnectClientConfig | constructor configuration interface}.
+ */
+export interface DirectConnectClientResolvedConfig extends DirectConnectClientResolvedConfigType {}
 
 /**
  * <p>AWS Direct Connect links your internal network to an AWS Direct Connect location over a standard Ethernet fiber-optic cable.
@@ -481,6 +489,9 @@ export class DirectConnectClient extends __Client<
   ServiceOutputTypes,
   DirectConnectClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of DirectConnectClient class. This is resolved and normalized from the {@link DirectConnectClientConfig | constructor configuration interface}.
+   */
   readonly config: DirectConnectClientResolvedConfig;
 
   constructor(configuration: DirectConnectClientConfig) {

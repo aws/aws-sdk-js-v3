@@ -269,7 +269,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type ApplicationDiscoveryServiceClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type ApplicationDiscoveryServiceClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -277,8 +277,12 @@ export type ApplicationDiscoveryServiceClientConfig = Partial<__SmithyConfigurat
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of ApplicationDiscoveryServiceClient class constructor that set the region, credentials and other options.
+ */
+export interface ApplicationDiscoveryServiceClientConfig extends ApplicationDiscoveryServiceClientConfigType {}
 
-export type ApplicationDiscoveryServiceClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type ApplicationDiscoveryServiceClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -286,6 +290,11 @@ export type ApplicationDiscoveryServiceClientResolvedConfig = __SmithyResolvedCo
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of ApplicationDiscoveryServiceClient class. This is resolved and normalized from the {@link ApplicationDiscoveryServiceClientConfig | constructor configuration interface}.
+ */
+export interface ApplicationDiscoveryServiceClientResolvedConfig
+  extends ApplicationDiscoveryServiceClientResolvedConfigType {}
 
 /**
  * <fullname>AWS Application Discovery Service</fullname>
@@ -422,6 +431,9 @@ export class ApplicationDiscoveryServiceClient extends __Client<
   ServiceOutputTypes,
   ApplicationDiscoveryServiceClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of ApplicationDiscoveryServiceClient class. This is resolved and normalized from the {@link ApplicationDiscoveryServiceClientConfig | constructor configuration interface}.
+   */
   readonly config: ApplicationDiscoveryServiceClientResolvedConfig;
 
   constructor(configuration: ApplicationDiscoveryServiceClientConfig) {

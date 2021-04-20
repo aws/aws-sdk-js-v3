@@ -200,7 +200,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type IoT1ClickDevicesServiceClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type IoT1ClickDevicesServiceClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -208,8 +208,12 @@ export type IoT1ClickDevicesServiceClientConfig = Partial<__SmithyConfiguration<
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of IoT1ClickDevicesServiceClient class constructor that set the region, credentials and other options.
+ */
+export interface IoT1ClickDevicesServiceClientConfig extends IoT1ClickDevicesServiceClientConfigType {}
 
-export type IoT1ClickDevicesServiceClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type IoT1ClickDevicesServiceClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -217,6 +221,10 @@ export type IoT1ClickDevicesServiceClientResolvedConfig = __SmithyResolvedConfig
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of IoT1ClickDevicesServiceClient class. This is resolved and normalized from the {@link IoT1ClickDevicesServiceClientConfig | constructor configuration interface}.
+ */
+export interface IoT1ClickDevicesServiceClientResolvedConfig extends IoT1ClickDevicesServiceClientResolvedConfigType {}
 
 /**
  * <p>Describes all of the AWS IoT 1-Click device-related API operations for the service.
@@ -229,6 +237,9 @@ export class IoT1ClickDevicesServiceClient extends __Client<
   ServiceOutputTypes,
   IoT1ClickDevicesServiceClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of IoT1ClickDevicesServiceClient class. This is resolved and normalized from the {@link IoT1ClickDevicesServiceClientConfig | constructor configuration interface}.
+   */
   readonly config: IoT1ClickDevicesServiceClientResolvedConfig;
 
   constructor(configuration: IoT1ClickDevicesServiceClientConfig) {

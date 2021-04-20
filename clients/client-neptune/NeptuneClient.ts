@@ -485,7 +485,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type NeptuneClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type NeptuneClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -493,8 +493,12 @@ export type NeptuneClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOpt
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of NeptuneClient class constructor that set the region, credentials and other options.
+ */
+export interface NeptuneClientConfig extends NeptuneClientConfigType {}
 
-export type NeptuneClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type NeptuneClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -502,6 +506,10 @@ export type NeptuneClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHa
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of NeptuneClient class. This is resolved and normalized from the {@link NeptuneClientConfig | constructor configuration interface}.
+ */
+export interface NeptuneClientResolvedConfig extends NeptuneClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon Neptune</fullname>
@@ -529,6 +537,9 @@ export class NeptuneClient extends __Client<
   ServiceOutputTypes,
   NeptuneClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of NeptuneClient class. This is resolved and normalized from the {@link NeptuneClientConfig | constructor configuration interface}.
+   */
   readonly config: NeptuneClientResolvedConfig;
 
   constructor(configuration: NeptuneClientConfig) {

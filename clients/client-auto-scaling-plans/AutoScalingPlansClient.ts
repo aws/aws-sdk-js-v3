@@ -176,7 +176,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type AutoScalingPlansClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type AutoScalingPlansClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -184,8 +184,12 @@ export type AutoScalingPlansClientConfig = Partial<__SmithyConfiguration<__HttpH
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of AutoScalingPlansClient class constructor that set the region, credentials and other options.
+ */
+export interface AutoScalingPlansClientConfig extends AutoScalingPlansClientConfigType {}
 
-export type AutoScalingPlansClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type AutoScalingPlansClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -193,6 +197,10 @@ export type AutoScalingPlansClientResolvedConfig = __SmithyResolvedConfiguration
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of AutoScalingPlansClient class. This is resolved and normalized from the {@link AutoScalingPlansClientConfig | constructor configuration interface}.
+ */
+export interface AutoScalingPlansClientResolvedConfig extends AutoScalingPlansClientResolvedConfigType {}
 
 /**
  * <fullname>AWS Auto Scaling</fullname>
@@ -237,6 +245,9 @@ export class AutoScalingPlansClient extends __Client<
   ServiceOutputTypes,
   AutoScalingPlansClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of AutoScalingPlansClient class. This is resolved and normalized from the {@link AutoScalingPlansClientConfig | constructor configuration interface}.
+   */
   readonly config: AutoScalingPlansClientResolvedConfig;
 
   constructor(configuration: AutoScalingPlansClientConfig) {

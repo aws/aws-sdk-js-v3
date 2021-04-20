@@ -251,7 +251,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type IvsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type IvsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -259,8 +259,12 @@ export type IvsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of IvsClient class constructor that set the region, credentials and other options.
+ */
+export interface IvsClientConfig extends IvsClientConfigType {}
 
-export type IvsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type IvsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -268,6 +272,10 @@ export type IvsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of IvsClient class. This is resolved and normalized from the {@link IvsClientConfig | constructor configuration interface}.
+ */
+export interface IvsClientResolvedConfig extends IvsClientResolvedConfigType {}
 
 /**
  * <p>
@@ -637,6 +645,9 @@ export class IvsClient extends __Client<
   ServiceOutputTypes,
   IvsClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of IvsClient class. This is resolved and normalized from the {@link IvsClientConfig | constructor configuration interface}.
+   */
   readonly config: IvsClientResolvedConfig;
 
   constructor(configuration: IvsClientConfig) {

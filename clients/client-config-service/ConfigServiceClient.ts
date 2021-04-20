@@ -629,7 +629,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type ConfigServiceClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type ConfigServiceClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -637,8 +637,12 @@ export type ConfigServiceClientConfig = Partial<__SmithyConfiguration<__HttpHand
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of ConfigServiceClient class constructor that set the region, credentials and other options.
+ */
+export interface ConfigServiceClientConfig extends ConfigServiceClientConfigType {}
 
-export type ConfigServiceClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type ConfigServiceClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -646,6 +650,10 @@ export type ConfigServiceClientResolvedConfig = __SmithyResolvedConfiguration<__
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of ConfigServiceClient class. This is resolved and normalized from the {@link ConfigServiceClientConfig | constructor configuration interface}.
+ */
+export interface ConfigServiceClientResolvedConfig extends ConfigServiceClientResolvedConfigType {}
 
 /**
  * <fullname>AWS Config</fullname>
@@ -679,6 +687,9 @@ export class ConfigServiceClient extends __Client<
   ServiceOutputTypes,
   ConfigServiceClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of ConfigServiceClient class. This is resolved and normalized from the {@link ConfigServiceClientConfig | constructor configuration interface}.
+   */
   readonly config: ConfigServiceClientResolvedConfig;
 
   constructor(configuration: ConfigServiceClientConfig) {

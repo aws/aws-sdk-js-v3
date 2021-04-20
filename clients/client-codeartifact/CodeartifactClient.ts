@@ -317,7 +317,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type CodeartifactClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type CodeartifactClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -325,8 +325,12 @@ export type CodeartifactClientConfig = Partial<__SmithyConfiguration<__HttpHandl
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of CodeartifactClient class constructor that set the region, credentials and other options.
+ */
+export interface CodeartifactClientConfig extends CodeartifactClientConfigType {}
 
-export type CodeartifactClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type CodeartifactClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -334,6 +338,10 @@ export type CodeartifactClientResolvedConfig = __SmithyResolvedConfiguration<__H
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of CodeartifactClient class. This is resolved and normalized from the {@link CodeartifactClientConfig | constructor configuration interface}.
+ */
+export interface CodeartifactClientResolvedConfig extends CodeartifactClientResolvedConfigType {}
 
 /**
  * <p> AWS CodeArtifact is a fully managed artifact repository compatible with language-native
@@ -597,6 +605,9 @@ export class CodeartifactClient extends __Client<
   ServiceOutputTypes,
   CodeartifactClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of CodeartifactClient class. This is resolved and normalized from the {@link CodeartifactClientConfig | constructor configuration interface}.
+   */
   readonly config: CodeartifactClientResolvedConfig;
 
   constructor(configuration: CodeartifactClientConfig) {

@@ -338,7 +338,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type InspectorClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type InspectorClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -346,8 +346,12 @@ export type InspectorClientConfig = Partial<__SmithyConfiguration<__HttpHandlerO
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of InspectorClient class constructor that set the region, credentials and other options.
+ */
+export interface InspectorClientConfig extends InspectorClientConfigType {}
 
-export type InspectorClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type InspectorClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -355,6 +359,10 @@ export type InspectorClientResolvedConfig = __SmithyResolvedConfiguration<__Http
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of InspectorClient class. This is resolved and normalized from the {@link InspectorClientConfig | constructor configuration interface}.
+ */
+export interface InspectorClientResolvedConfig extends InspectorClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon Inspector</fullname>
@@ -368,6 +376,9 @@ export class InspectorClient extends __Client<
   ServiceOutputTypes,
   InspectorClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of InspectorClient class. This is resolved and normalized from the {@link InspectorClientConfig | constructor configuration interface}.
+   */
   readonly config: InspectorClientResolvedConfig;
 
   constructor(configuration: InspectorClientConfig) {

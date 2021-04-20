@@ -182,7 +182,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type ResourceGroupsTaggingAPIClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type ResourceGroupsTaggingAPIClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -190,8 +190,12 @@ export type ResourceGroupsTaggingAPIClientConfig = Partial<__SmithyConfiguration
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of ResourceGroupsTaggingAPIClient class constructor that set the region, credentials and other options.
+ */
+export interface ResourceGroupsTaggingAPIClientConfig extends ResourceGroupsTaggingAPIClientConfigType {}
 
-export type ResourceGroupsTaggingAPIClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type ResourceGroupsTaggingAPIClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -199,6 +203,11 @@ export type ResourceGroupsTaggingAPIClientResolvedConfig = __SmithyResolvedConfi
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of ResourceGroupsTaggingAPIClient class. This is resolved and normalized from the {@link ResourceGroupsTaggingAPIClientConfig | constructor configuration interface}.
+ */
+export interface ResourceGroupsTaggingAPIClientResolvedConfig
+  extends ResourceGroupsTaggingAPIClientResolvedConfigType {}
 
 /**
  * <fullname>Resource Groups Tagging API</fullname>
@@ -209,6 +218,9 @@ export class ResourceGroupsTaggingAPIClient extends __Client<
   ServiceOutputTypes,
   ResourceGroupsTaggingAPIClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of ResourceGroupsTaggingAPIClient class. This is resolved and normalized from the {@link ResourceGroupsTaggingAPIClientConfig | constructor configuration interface}.
+   */
   readonly config: ResourceGroupsTaggingAPIClientResolvedConfig;
 
   constructor(configuration: ResourceGroupsTaggingAPIClientConfig) {

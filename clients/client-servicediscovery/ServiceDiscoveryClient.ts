@@ -236,7 +236,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type ServiceDiscoveryClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type ServiceDiscoveryClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -244,8 +244,12 @@ export type ServiceDiscoveryClientConfig = Partial<__SmithyConfiguration<__HttpH
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of ServiceDiscoveryClient class constructor that set the region, credentials and other options.
+ */
+export interface ServiceDiscoveryClientConfig extends ServiceDiscoveryClientConfigType {}
 
-export type ServiceDiscoveryClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type ServiceDiscoveryClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -253,6 +257,10 @@ export type ServiceDiscoveryClientResolvedConfig = __SmithyResolvedConfiguration
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of ServiceDiscoveryClient class. This is resolved and normalized from the {@link ServiceDiscoveryClientConfig | constructor configuration interface}.
+ */
+export interface ServiceDiscoveryClientResolvedConfig extends ServiceDiscoveryClientResolvedConfigType {}
 
 /**
  * <p>AWS Cloud Map lets you configure public DNS, private DNS, or HTTP namespaces that your microservice applications
@@ -267,6 +275,9 @@ export class ServiceDiscoveryClient extends __Client<
   ServiceOutputTypes,
   ServiceDiscoveryClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of ServiceDiscoveryClient class. This is resolved and normalized from the {@link ServiceDiscoveryClientConfig | constructor configuration interface}.
+   */
   readonly config: ServiceDiscoveryClientResolvedConfig;
 
   constructor(configuration: ServiceDiscoveryClientConfig) {

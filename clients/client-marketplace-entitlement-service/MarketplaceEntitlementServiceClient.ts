@@ -150,7 +150,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type MarketplaceEntitlementServiceClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type MarketplaceEntitlementServiceClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -158,8 +158,12 @@ export type MarketplaceEntitlementServiceClientConfig = Partial<__SmithyConfigur
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of MarketplaceEntitlementServiceClient class constructor that set the region, credentials and other options.
+ */
+export interface MarketplaceEntitlementServiceClientConfig extends MarketplaceEntitlementServiceClientConfigType {}
 
-export type MarketplaceEntitlementServiceClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type MarketplaceEntitlementServiceClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -167,6 +171,11 @@ export type MarketplaceEntitlementServiceClientResolvedConfig = __SmithyResolved
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of MarketplaceEntitlementServiceClient class. This is resolved and normalized from the {@link MarketplaceEntitlementServiceClientConfig | constructor configuration interface}.
+ */
+export interface MarketplaceEntitlementServiceClientResolvedConfig
+  extends MarketplaceEntitlementServiceClientResolvedConfigType {}
 
 /**
  * <fullname>AWS Marketplace Entitlement Service</fullname>
@@ -193,6 +202,9 @@ export class MarketplaceEntitlementServiceClient extends __Client<
   ServiceOutputTypes,
   MarketplaceEntitlementServiceClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of MarketplaceEntitlementServiceClient class. This is resolved and normalized from the {@link MarketplaceEntitlementServiceClientConfig | constructor configuration interface}.
+   */
   readonly config: MarketplaceEntitlementServiceClientResolvedConfig;
 
   constructor(configuration: MarketplaceEntitlementServiceClientConfig) {

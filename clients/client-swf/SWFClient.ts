@@ -344,7 +344,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type SWFClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type SWFClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -352,8 +352,12 @@ export type SWFClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of SWFClient class constructor that set the region, credentials and other options.
+ */
+export interface SWFClientConfig extends SWFClientConfigType {}
 
-export type SWFClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type SWFClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -361,6 +365,10 @@ export type SWFClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of SWFClient class. This is resolved and normalized from the {@link SWFClientConfig | constructor configuration interface}.
+ */
+export interface SWFClientResolvedConfig extends SWFClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon Simple Workflow Service</fullname>
@@ -386,6 +394,9 @@ export class SWFClient extends __Client<
   ServiceOutputTypes,
   SWFClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of SWFClient class. This is resolved and normalized from the {@link SWFClientConfig | constructor configuration interface}.
+   */
   readonly config: SWFClientResolvedConfig;
 
   constructor(configuration: SWFClientConfig) {

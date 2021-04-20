@@ -173,7 +173,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type KinesisVideoArchivedMediaClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type KinesisVideoArchivedMediaClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -181,8 +181,12 @@ export type KinesisVideoArchivedMediaClientConfig = Partial<__SmithyConfiguratio
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of KinesisVideoArchivedMediaClient class constructor that set the region, credentials and other options.
+ */
+export interface KinesisVideoArchivedMediaClientConfig extends KinesisVideoArchivedMediaClientConfigType {}
 
-export type KinesisVideoArchivedMediaClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type KinesisVideoArchivedMediaClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -190,6 +194,11 @@ export type KinesisVideoArchivedMediaClientResolvedConfig = __SmithyResolvedConf
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of KinesisVideoArchivedMediaClient class. This is resolved and normalized from the {@link KinesisVideoArchivedMediaClientConfig | constructor configuration interface}.
+ */
+export interface KinesisVideoArchivedMediaClientResolvedConfig
+  extends KinesisVideoArchivedMediaClientResolvedConfigType {}
 
 /**
  * <p></p>
@@ -200,6 +209,9 @@ export class KinesisVideoArchivedMediaClient extends __Client<
   ServiceOutputTypes,
   KinesisVideoArchivedMediaClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of KinesisVideoArchivedMediaClient class. This is resolved and normalized from the {@link KinesisVideoArchivedMediaClientConfig | constructor configuration interface}.
+   */
   readonly config: KinesisVideoArchivedMediaClientResolvedConfig;
 
   constructor(configuration: KinesisVideoArchivedMediaClientConfig) {

@@ -311,7 +311,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type CloudWatchLogsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type CloudWatchLogsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -319,8 +319,12 @@ export type CloudWatchLogsClientConfig = Partial<__SmithyConfiguration<__HttpHan
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of CloudWatchLogsClient class constructor that set the region, credentials and other options.
+ */
+export interface CloudWatchLogsClientConfig extends CloudWatchLogsClientConfigType {}
 
-export type CloudWatchLogsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type CloudWatchLogsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -328,6 +332,10 @@ export type CloudWatchLogsClientResolvedConfig = __SmithyResolvedConfiguration<_
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of CloudWatchLogsClient class. This is resolved and normalized from the {@link CloudWatchLogsClientConfig | constructor configuration interface}.
+ */
+export interface CloudWatchLogsClientResolvedConfig extends CloudWatchLogsClientResolvedConfigType {}
 
 /**
  * <p>You can use Amazon CloudWatch Logs to monitor, store, and access your log files from
@@ -371,6 +379,9 @@ export class CloudWatchLogsClient extends __Client<
   ServiceOutputTypes,
   CloudWatchLogsClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of CloudWatchLogsClient class. This is resolved and normalized from the {@link CloudWatchLogsClientConfig | constructor configuration interface}.
+   */
   readonly config: CloudWatchLogsClientResolvedConfig;
 
   constructor(configuration: CloudWatchLogsClientConfig) {

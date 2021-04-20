@@ -392,7 +392,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type AuditManagerClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type AuditManagerClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -400,8 +400,12 @@ export type AuditManagerClientConfig = Partial<__SmithyConfiguration<__HttpHandl
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of AuditManagerClient class constructor that set the region, credentials and other options.
+ */
+export interface AuditManagerClientConfig extends AuditManagerClientConfigType {}
 
-export type AuditManagerClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type AuditManagerClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -409,6 +413,10 @@ export type AuditManagerClientResolvedConfig = __SmithyResolvedConfiguration<__H
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of AuditManagerClient class. This is resolved and normalized from the {@link AuditManagerClientConfig | constructor configuration interface}.
+ */
+export interface AuditManagerClientResolvedConfig extends AuditManagerClientResolvedConfigType {}
 
 /**
  * <p>Welcome to the AWS Audit Manager API reference. This guide is for developers who need detailed information about the AWS Audit Manager API operations, data types, and errors. </p>
@@ -449,6 +457,9 @@ export class AuditManagerClient extends __Client<
   ServiceOutputTypes,
   AuditManagerClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of AuditManagerClient class. This is resolved and normalized from the {@link AuditManagerClientConfig | constructor configuration interface}.
+   */
   readonly config: AuditManagerClientResolvedConfig;
 
   constructor(configuration: AuditManagerClientConfig) {

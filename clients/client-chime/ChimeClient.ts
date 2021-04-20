@@ -1007,7 +1007,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type ChimeClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type ChimeClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -1015,8 +1015,12 @@ export type ChimeClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptio
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of ChimeClient class constructor that set the region, credentials and other options.
+ */
+export interface ChimeClientConfig extends ChimeClientConfigType {}
 
-export type ChimeClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type ChimeClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -1024,6 +1028,10 @@ export type ChimeClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHand
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of ChimeClient class. This is resolved and normalized from the {@link ChimeClientConfig | constructor configuration interface}.
+ */
+export interface ChimeClientResolvedConfig extends ChimeClientResolvedConfigType {}
 
 /**
  * <p>The Amazon Chime API (application programming interface) is designed for developers to
@@ -1073,6 +1081,9 @@ export class ChimeClient extends __Client<
   ServiceOutputTypes,
   ChimeClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of ChimeClient class. This is resolved and normalized from the {@link ChimeClientConfig | constructor configuration interface}.
+   */
   readonly config: ChimeClientResolvedConfig;
 
   constructor(configuration: ChimeClientConfig) {

@@ -215,7 +215,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type ServerlessApplicationRepositoryClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type ServerlessApplicationRepositoryClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -223,8 +223,12 @@ export type ServerlessApplicationRepositoryClientConfig = Partial<__SmithyConfig
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of ServerlessApplicationRepositoryClient class constructor that set the region, credentials and other options.
+ */
+export interface ServerlessApplicationRepositoryClientConfig extends ServerlessApplicationRepositoryClientConfigType {}
 
-export type ServerlessApplicationRepositoryClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type ServerlessApplicationRepositoryClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -232,6 +236,11 @@ export type ServerlessApplicationRepositoryClientResolvedConfig = __SmithyResolv
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of ServerlessApplicationRepositoryClient class. This is resolved and normalized from the {@link ServerlessApplicationRepositoryClientConfig | constructor configuration interface}.
+ */
+export interface ServerlessApplicationRepositoryClientResolvedConfig
+  extends ServerlessApplicationRepositoryClientResolvedConfigType {}
 
 /**
  * <p>The AWS Serverless Application Repository makes it easy for developers and enterprises to quickly find
@@ -261,6 +270,9 @@ export class ServerlessApplicationRepositoryClient extends __Client<
   ServiceOutputTypes,
   ServerlessApplicationRepositoryClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of ServerlessApplicationRepositoryClient class. This is resolved and normalized from the {@link ServerlessApplicationRepositoryClientConfig | constructor configuration interface}.
+   */
   readonly config: ServerlessApplicationRepositoryClientResolvedConfig;
 
   constructor(configuration: ServerlessApplicationRepositoryClientConfig) {

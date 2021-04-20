@@ -479,7 +479,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type WAFClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type WAFClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -487,8 +487,12 @@ export type WAFClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of WAFClient class constructor that set the region, credentials and other options.
+ */
+export interface WAFClientConfig extends WAFClientConfigType {}
 
-export type WAFClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type WAFClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -496,6 +500,10 @@ export type WAFClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of WAFClient class. This is resolved and normalized from the {@link WAFClientConfig | constructor configuration interface}.
+ */
+export interface WAFClientResolvedConfig extends WAFClientResolvedConfigType {}
 
 /**
  * <note>
@@ -516,6 +524,9 @@ export class WAFClient extends __Client<
   ServiceOutputTypes,
   WAFClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of WAFClient class. This is resolved and normalized from the {@link WAFClientConfig | constructor configuration interface}.
+   */
   readonly config: WAFClientResolvedConfig;
 
   constructor(configuration: WAFClientConfig) {

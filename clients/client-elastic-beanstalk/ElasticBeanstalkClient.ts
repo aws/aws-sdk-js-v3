@@ -407,7 +407,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type ElasticBeanstalkClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type ElasticBeanstalkClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -415,8 +415,12 @@ export type ElasticBeanstalkClientConfig = Partial<__SmithyConfiguration<__HttpH
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of ElasticBeanstalkClient class constructor that set the region, credentials and other options.
+ */
+export interface ElasticBeanstalkClientConfig extends ElasticBeanstalkClientConfigType {}
 
-export type ElasticBeanstalkClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type ElasticBeanstalkClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -424,6 +428,10 @@ export type ElasticBeanstalkClientResolvedConfig = __SmithyResolvedConfiguration
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of ElasticBeanstalkClient class. This is resolved and normalized from the {@link ElasticBeanstalkClientConfig | constructor configuration interface}.
+ */
+export interface ElasticBeanstalkClientResolvedConfig extends ElasticBeanstalkClientResolvedConfigType {}
 
 /**
  * <fullname>AWS Elastic Beanstalk</fullname>
@@ -448,6 +456,9 @@ export class ElasticBeanstalkClient extends __Client<
   ServiceOutputTypes,
   ElasticBeanstalkClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of ElasticBeanstalkClient class. This is resolved and normalized from the {@link ElasticBeanstalkClientConfig | constructor configuration interface}.
+   */
   readonly config: ElasticBeanstalkClientResolvedConfig;
 
   constructor(configuration: ElasticBeanstalkClientConfig) {

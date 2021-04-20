@@ -476,7 +476,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type Route53ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type Route53ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -484,8 +484,12 @@ export type Route53ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOpt
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of Route53Client class constructor that set the region, credentials and other options.
+ */
+export interface Route53ClientConfig extends Route53ClientConfigType {}
 
-export type Route53ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type Route53ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -493,6 +497,10 @@ export type Route53ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHa
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of Route53Client class. This is resolved and normalized from the {@link Route53ClientConfig | constructor configuration interface}.
+ */
+export interface Route53ClientResolvedConfig extends Route53ClientResolvedConfigType {}
 
 /**
  * <p>Amazon Route 53 is a highly available and scalable Domain Name System (DNS) web service.</p>
@@ -503,6 +511,9 @@ export class Route53Client extends __Client<
   ServiceOutputTypes,
   Route53ClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of Route53Client class. This is resolved and normalized from the {@link Route53ClientConfig | constructor configuration interface}.
+   */
   readonly config: Route53ClientResolvedConfig;
 
   constructor(configuration: Route53ClientConfig) {

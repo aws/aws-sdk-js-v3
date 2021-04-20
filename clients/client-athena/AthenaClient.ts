@@ -278,7 +278,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type AthenaClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type AthenaClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -286,8 +286,12 @@ export type AthenaClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOpti
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of AthenaClient class constructor that set the region, credentials and other options.
+ */
+export interface AthenaClientConfig extends AthenaClientConfigType {}
 
-export type AthenaClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type AthenaClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -295,6 +299,10 @@ export type AthenaClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHan
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of AthenaClient class. This is resolved and normalized from the {@link AthenaClientConfig | constructor configuration interface}.
+ */
+export interface AthenaClientResolvedConfig extends AthenaClientResolvedConfigType {}
 
 /**
  * <p>Amazon Athena is an interactive query service that lets you use standard SQL to
@@ -317,6 +325,9 @@ export class AthenaClient extends __Client<
   ServiceOutputTypes,
   AthenaClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of AthenaClient class. This is resolved and normalized from the {@link AthenaClientConfig | constructor configuration interface}.
+   */
   readonly config: AthenaClientResolvedConfig;
 
   constructor(configuration: AthenaClientConfig) {

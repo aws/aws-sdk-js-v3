@@ -473,7 +473,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type Route53ResolverClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type Route53ResolverClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -481,8 +481,12 @@ export type Route53ResolverClientConfig = Partial<__SmithyConfiguration<__HttpHa
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of Route53ResolverClient class constructor that set the region, credentials and other options.
+ */
+export interface Route53ResolverClientConfig extends Route53ResolverClientConfigType {}
 
-export type Route53ResolverClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type Route53ResolverClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -490,6 +494,10 @@ export type Route53ResolverClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of Route53ResolverClient class. This is resolved and normalized from the {@link Route53ResolverClientConfig | constructor configuration interface}.
+ */
+export interface Route53ResolverClientResolvedConfig extends Route53ResolverClientResolvedConfigType {}
 
 /**
  * <p>When you create a VPC using Amazon VPC, you automatically get DNS resolution within the VPC from Route 53 Resolver.
@@ -529,6 +537,9 @@ export class Route53ResolverClient extends __Client<
   ServiceOutputTypes,
   Route53ResolverClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of Route53ResolverClient class. This is resolved and normalized from the {@link Route53ResolverClientConfig | constructor configuration interface}.
+   */
   readonly config: Route53ResolverClientResolvedConfig;
 
   constructor(configuration: Route53ResolverClientConfig) {

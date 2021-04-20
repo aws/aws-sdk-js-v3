@@ -221,7 +221,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type CognitoSyncClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type CognitoSyncClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -229,8 +229,12 @@ export type CognitoSyncClientConfig = Partial<__SmithyConfiguration<__HttpHandle
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of CognitoSyncClient class constructor that set the region, credentials and other options.
+ */
+export interface CognitoSyncClientConfig extends CognitoSyncClientConfigType {}
 
-export type CognitoSyncClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type CognitoSyncClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -238,6 +242,10 @@ export type CognitoSyncClientResolvedConfig = __SmithyResolvedConfiguration<__Ht
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of CognitoSyncClient class. This is resolved and normalized from the {@link CognitoSyncClientConfig | constructor configuration interface}.
+ */
+export interface CognitoSyncClientResolvedConfig extends CognitoSyncClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon Cognito Sync</fullname>
@@ -260,6 +268,9 @@ export class CognitoSyncClient extends __Client<
   ServiceOutputTypes,
   CognitoSyncClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of CognitoSyncClient class. This is resolved and normalized from the {@link CognitoSyncClientConfig | constructor configuration interface}.
+   */
   readonly config: CognitoSyncClientResolvedConfig;
 
   constructor(configuration: CognitoSyncClientConfig) {

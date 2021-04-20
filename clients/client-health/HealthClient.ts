@@ -221,7 +221,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type HealthClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type HealthClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -229,8 +229,12 @@ export type HealthClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOpti
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of HealthClient class constructor that set the region, credentials and other options.
+ */
+export interface HealthClientConfig extends HealthClientConfigType {}
 
-export type HealthClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type HealthClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -238,6 +242,10 @@ export type HealthClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHan
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of HealthClient class. This is resolved and normalized from the {@link HealthClientConfig | constructor configuration interface}.
+ */
+export interface HealthClientResolvedConfig extends HealthClientResolvedConfigType {}
 
 /**
  * <fullname>AWS Health</fullname>
@@ -285,6 +293,9 @@ export class HealthClient extends __Client<
   ServiceOutputTypes,
   HealthClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of HealthClient class. This is resolved and normalized from the {@link HealthClientConfig | constructor configuration interface}.
+   */
   readonly config: HealthClientResolvedConfig;
 
   constructor(configuration: HealthClientConfig) {

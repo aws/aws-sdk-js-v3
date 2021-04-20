@@ -806,7 +806,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type SSMClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type SSMClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -814,8 +814,12 @@ export type SSMClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of SSMClient class constructor that set the region, credentials and other options.
+ */
+export interface SSMClientConfig extends SSMClientConfigType {}
 
-export type SSMClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type SSMClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -823,6 +827,10 @@ export type SSMClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of SSMClient class. This is resolved and normalized from the {@link SSMClientConfig | constructor configuration interface}.
+ */
+export interface SSMClientResolvedConfig extends SSMClientResolvedConfigType {}
 
 /**
  * <fullname>AWS Systems Manager</fullname>
@@ -846,6 +854,9 @@ export class SSMClient extends __Client<
   ServiceOutputTypes,
   SSMClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of SSMClient class. This is resolved and normalized from the {@link SSMClientConfig | constructor configuration interface}.
+   */
   readonly config: SSMClientResolvedConfig;
 
   constructor(configuration: SSMClientConfig) {

@@ -161,7 +161,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type DynamoDBStreamsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type DynamoDBStreamsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -169,8 +169,12 @@ export type DynamoDBStreamsClientConfig = Partial<__SmithyConfiguration<__HttpHa
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of DynamoDBStreamsClient class constructor that set the region, credentials and other options.
+ */
+export interface DynamoDBStreamsClientConfig extends DynamoDBStreamsClientConfigType {}
 
-export type DynamoDBStreamsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type DynamoDBStreamsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -178,6 +182,10 @@ export type DynamoDBStreamsClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of DynamoDBStreamsClient class. This is resolved and normalized from the {@link DynamoDBStreamsClientConfig | constructor configuration interface}.
+ */
+export interface DynamoDBStreamsClientResolvedConfig extends DynamoDBStreamsClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon DynamoDB</fullname>
@@ -193,6 +201,9 @@ export class DynamoDBStreamsClient extends __Client<
   ServiceOutputTypes,
   DynamoDBStreamsClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of DynamoDBStreamsClient class. This is resolved and normalized from the {@link DynamoDBStreamsClientConfig | constructor configuration interface}.
+   */
   readonly config: DynamoDBStreamsClientResolvedConfig;
 
   constructor(configuration: DynamoDBStreamsClientConfig) {

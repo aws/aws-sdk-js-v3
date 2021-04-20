@@ -545,7 +545,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type AlexaForBusinessClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type AlexaForBusinessClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -553,8 +553,12 @@ export type AlexaForBusinessClientConfig = Partial<__SmithyConfiguration<__HttpH
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of AlexaForBusinessClient class constructor that set the region, credentials and other options.
+ */
+export interface AlexaForBusinessClientConfig extends AlexaForBusinessClientConfigType {}
 
-export type AlexaForBusinessClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type AlexaForBusinessClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -562,6 +566,10 @@ export type AlexaForBusinessClientResolvedConfig = __SmithyResolvedConfiguration
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of AlexaForBusinessClient class. This is resolved and normalized from the {@link AlexaForBusinessClientConfig | constructor configuration interface}.
+ */
+export interface AlexaForBusinessClientResolvedConfig extends AlexaForBusinessClientResolvedConfigType {}
 
 /**
  * <p>Alexa for Business helps you use Alexa in your organization. Alexa for Business provides you with the tools
@@ -579,6 +587,9 @@ export class AlexaForBusinessClient extends __Client<
   ServiceOutputTypes,
   AlexaForBusinessClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of AlexaForBusinessClient class. This is resolved and normalized from the {@link AlexaForBusinessClientConfig | constructor configuration interface}.
+   */
   readonly config: AlexaForBusinessClientResolvedConfig;
 
   constructor(configuration: AlexaForBusinessClientConfig) {

@@ -383,7 +383,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type CloudFormationClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type CloudFormationClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -391,8 +391,12 @@ export type CloudFormationClientConfig = Partial<__SmithyConfiguration<__HttpHan
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of CloudFormationClient class constructor that set the region, credentials and other options.
+ */
+export interface CloudFormationClientConfig extends CloudFormationClientConfigType {}
 
-export type CloudFormationClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type CloudFormationClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -400,6 +404,10 @@ export type CloudFormationClientResolvedConfig = __SmithyResolvedConfiguration<_
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of CloudFormationClient class. This is resolved and normalized from the {@link CloudFormationClientConfig | constructor configuration interface}.
+ */
+export interface CloudFormationClientResolvedConfig extends CloudFormationClientResolvedConfigType {}
 
 /**
  * <fullname>AWS CloudFormation</fullname>
@@ -424,6 +432,9 @@ export class CloudFormationClient extends __Client<
   ServiceOutputTypes,
   CloudFormationClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of CloudFormationClient class. This is resolved and normalized from the {@link CloudFormationClientConfig | constructor configuration interface}.
+   */
   readonly config: CloudFormationClientResolvedConfig;
 
   constructor(configuration: CloudFormationClientConfig) {

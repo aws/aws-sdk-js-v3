@@ -476,7 +476,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type DeviceFarmClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type DeviceFarmClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -484,8 +484,12 @@ export type DeviceFarmClientConfig = Partial<__SmithyConfiguration<__HttpHandler
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of DeviceFarmClient class constructor that set the region, credentials and other options.
+ */
+export interface DeviceFarmClientConfig extends DeviceFarmClientConfigType {}
 
-export type DeviceFarmClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type DeviceFarmClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -493,6 +497,10 @@ export type DeviceFarmClientResolvedConfig = __SmithyResolvedConfiguration<__Htt
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of DeviceFarmClient class. This is resolved and normalized from the {@link DeviceFarmClientConfig | constructor configuration interface}.
+ */
+export interface DeviceFarmClientResolvedConfig extends DeviceFarmClientResolvedConfigType {}
 
 /**
  * <p>Welcome to the AWS Device Farm API documentation, which contains APIs for:</p>
@@ -517,6 +525,9 @@ export class DeviceFarmClient extends __Client<
   ServiceOutputTypes,
   DeviceFarmClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of DeviceFarmClient class. This is resolved and normalized from the {@link DeviceFarmClientConfig | constructor configuration interface}.
+   */
   readonly config: DeviceFarmClientResolvedConfig;
 
   constructor(configuration: DeviceFarmClientConfig) {

@@ -296,7 +296,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type AppConfigClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type AppConfigClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -304,8 +304,12 @@ export type AppConfigClientConfig = Partial<__SmithyConfiguration<__HttpHandlerO
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of AppConfigClient class constructor that set the region, credentials and other options.
+ */
+export interface AppConfigClientConfig extends AppConfigClientConfigType {}
 
-export type AppConfigClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type AppConfigClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -313,6 +317,10 @@ export type AppConfigClientResolvedConfig = __SmithyResolvedConfiguration<__Http
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of AppConfigClient class. This is resolved and normalized from the {@link AppConfigClientConfig | constructor configuration interface}.
+ */
+export interface AppConfigClientResolvedConfig extends AppConfigClientResolvedConfigType {}
 
 /**
  * <fullname>AWS AppConfig</fullname>
@@ -371,6 +379,9 @@ export class AppConfigClient extends __Client<
   ServiceOutputTypes,
   AppConfigClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of AppConfigClient class. This is resolved and normalized from the {@link AppConfigClientConfig | constructor configuration interface}.
+   */
   readonly config: AppConfigClientResolvedConfig;
 
   constructor(configuration: AppConfigClientConfig) {

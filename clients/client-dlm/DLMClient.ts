@@ -188,7 +188,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type DLMClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type DLMClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -196,8 +196,12 @@ export type DLMClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of DLMClient class constructor that set the region, credentials and other options.
+ */
+export interface DLMClientConfig extends DLMClientConfigType {}
 
-export type DLMClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type DLMClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -205,6 +209,10 @@ export type DLMClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of DLMClient class. This is resolved and normalized from the {@link DLMClientConfig | constructor configuration interface}.
+ */
+export interface DLMClientResolvedConfig extends DLMClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon Data Lifecycle Manager</fullname>
@@ -221,6 +229,9 @@ export class DLMClient extends __Client<
   ServiceOutputTypes,
   DLMClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of DLMClient class. This is resolved and normalized from the {@link DLMClientConfig | constructor configuration interface}.
+   */
   readonly config: DLMClientResolvedConfig;
 
   constructor(configuration: DLMClientConfig) {

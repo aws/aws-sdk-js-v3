@@ -167,7 +167,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type EBSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type EBSClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -175,8 +175,12 @@ export type EBSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of EBSClient class constructor that set the region, credentials and other options.
+ */
+export interface EBSClientConfig extends EBSClientConfigType {}
 
-export type EBSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type EBSClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -184,6 +188,10 @@ export type EBSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of EBSClient class. This is resolved and normalized from the {@link EBSClientConfig | constructor configuration interface}.
+ */
+export interface EBSClientResolvedConfig extends EBSClientResolvedConfigType {}
 
 /**
  * <p>You can use the Amazon Elastic Block Store (Amazon EBS) direct APIs to create EBS snapshots, write data directly to
@@ -213,6 +221,9 @@ export class EBSClient extends __Client<
   ServiceOutputTypes,
   EBSClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of EBSClient class. This is resolved and normalized from the {@link EBSClientConfig | constructor configuration interface}.
+   */
   readonly config: EBSClientResolvedConfig;
 
   constructor(configuration: EBSClientConfig) {

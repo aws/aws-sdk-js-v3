@@ -230,7 +230,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type KinesisVideoClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type KinesisVideoClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -238,8 +238,12 @@ export type KinesisVideoClientConfig = Partial<__SmithyConfiguration<__HttpHandl
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of KinesisVideoClient class constructor that set the region, credentials and other options.
+ */
+export interface KinesisVideoClientConfig extends KinesisVideoClientConfigType {}
 
-export type KinesisVideoClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type KinesisVideoClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -247,6 +251,10 @@ export type KinesisVideoClientResolvedConfig = __SmithyResolvedConfiguration<__H
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of KinesisVideoClient class. This is resolved and normalized from the {@link KinesisVideoClientConfig | constructor configuration interface}.
+ */
+export interface KinesisVideoClientResolvedConfig extends KinesisVideoClientResolvedConfigType {}
 
 /**
  * <p></p>
@@ -257,6 +265,9 @@ export class KinesisVideoClient extends __Client<
   ServiceOutputTypes,
   KinesisVideoClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of KinesisVideoClient class. This is resolved and normalized from the {@link KinesisVideoClientConfig | constructor configuration interface}.
+   */
   readonly config: KinesisVideoClientResolvedConfig;
 
   constructor(configuration: KinesisVideoClientConfig) {

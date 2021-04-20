@@ -290,7 +290,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type CloudWatchClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type CloudWatchClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -298,8 +298,12 @@ export type CloudWatchClientConfig = Partial<__SmithyConfiguration<__HttpHandler
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of CloudWatchClient class constructor that set the region, credentials and other options.
+ */
+export interface CloudWatchClientConfig extends CloudWatchClientConfigType {}
 
-export type CloudWatchClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type CloudWatchClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -307,6 +311,10 @@ export type CloudWatchClientResolvedConfig = __SmithyResolvedConfiguration<__Htt
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of CloudWatchClient class. This is resolved and normalized from the {@link CloudWatchClientConfig | constructor configuration interface}.
+ */
+export interface CloudWatchClientResolvedConfig extends CloudWatchClientResolvedConfigType {}
 
 /**
  * <p>Amazon CloudWatch monitors your Amazon Web Services (AWS) resources and the
@@ -331,6 +339,9 @@ export class CloudWatchClient extends __Client<
   ServiceOutputTypes,
   CloudWatchClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of CloudWatchClient class. This is resolved and normalized from the {@link CloudWatchClientConfig | constructor configuration interface}.
+   */
   readonly config: CloudWatchClientResolvedConfig;
 
   constructor(configuration: CloudWatchClientConfig) {

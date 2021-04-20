@@ -174,7 +174,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type STSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type STSClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -182,8 +182,12 @@ export type STSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions
   HostHeaderInputConfig &
   StsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of STSClient class constructor that set the region, credentials and other options.
+ */
+export interface STSClientConfig extends STSClientConfigType {}
 
-export type STSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type STSClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -191,6 +195,10 @@ export type STSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
   HostHeaderResolvedConfig &
   StsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of STSClient class. This is resolved and normalized from the {@link STSClientConfig | constructor configuration interface}.
+ */
+export interface STSClientResolvedConfig extends STSClientResolvedConfigType {}
 
 /**
  * <fullname>AWS Security Token Service</fullname>
@@ -205,6 +213,9 @@ export class STSClient extends __Client<
   ServiceOutputTypes,
   STSClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of STSClient class. This is resolved and normalized from the {@link STSClientConfig | constructor configuration interface}.
+   */
   readonly config: STSClientResolvedConfig;
 
   constructor(configuration: STSClientConfig) {

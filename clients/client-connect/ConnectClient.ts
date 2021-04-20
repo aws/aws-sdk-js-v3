@@ -641,7 +641,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type ConnectClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type ConnectClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -649,8 +649,12 @@ export type ConnectClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOpt
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of ConnectClient class constructor that set the region, credentials and other options.
+ */
+export interface ConnectClientConfig extends ConnectClientConfigType {}
 
-export type ConnectClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type ConnectClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -658,6 +662,10 @@ export type ConnectClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHa
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of ConnectClient class. This is resolved and normalized from the {@link ConnectClientConfig | constructor configuration interface}.
+ */
+export interface ConnectClientResolvedConfig extends ConnectClientResolvedConfigType {}
 
 /**
  * <p>Amazon Connect is a cloud-based contact center solution that you use to set up and manage a customer
@@ -683,6 +691,9 @@ export class ConnectClient extends __Client<
   ServiceOutputTypes,
   ConnectClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of ConnectClient class. This is resolved and normalized from the {@link ConnectClientConfig | constructor configuration interface}.
+   */
   readonly config: ConnectClientResolvedConfig;
 
   constructor(configuration: ConnectClientConfig) {

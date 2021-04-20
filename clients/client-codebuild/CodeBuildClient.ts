@@ -323,7 +323,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type CodeBuildClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type CodeBuildClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -331,8 +331,12 @@ export type CodeBuildClientConfig = Partial<__SmithyConfiguration<__HttpHandlerO
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of CodeBuildClient class constructor that set the region, credentials and other options.
+ */
+export interface CodeBuildClientConfig extends CodeBuildClientConfigType {}
 
-export type CodeBuildClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type CodeBuildClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -340,6 +344,10 @@ export type CodeBuildClientResolvedConfig = __SmithyResolvedConfiguration<__Http
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of CodeBuildClient class. This is resolved and normalized from the {@link CodeBuildClientConfig | constructor configuration interface}.
+ */
+export interface CodeBuildClientResolvedConfig extends CodeBuildClientResolvedConfigType {}
 
 /**
  * <fullname>AWS CodeBuild</fullname>
@@ -360,6 +368,9 @@ export class CodeBuildClient extends __Client<
   ServiceOutputTypes,
   CodeBuildClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of CodeBuildClient class. This is resolved and normalized from the {@link CodeBuildClientConfig | constructor configuration interface}.
+   */
   readonly config: CodeBuildClientResolvedConfig;
 
   constructor(configuration: CodeBuildClientConfig) {

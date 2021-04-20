@@ -314,7 +314,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type PersonalizeClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type PersonalizeClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -322,8 +322,12 @@ export type PersonalizeClientConfig = Partial<__SmithyConfiguration<__HttpHandle
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of PersonalizeClient class constructor that set the region, credentials and other options.
+ */
+export interface PersonalizeClientConfig extends PersonalizeClientConfigType {}
 
-export type PersonalizeClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type PersonalizeClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -331,6 +335,10 @@ export type PersonalizeClientResolvedConfig = __SmithyResolvedConfiguration<__Ht
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of PersonalizeClient class. This is resolved and normalized from the {@link PersonalizeClientConfig | constructor configuration interface}.
+ */
+export interface PersonalizeClientResolvedConfig extends PersonalizeClientResolvedConfigType {}
 
 /**
  * <p>Amazon Personalize is a machine learning service that makes it easy to add individualized
@@ -342,6 +350,9 @@ export class PersonalizeClient extends __Client<
   ServiceOutputTypes,
   PersonalizeClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of PersonalizeClient class. This is resolved and normalized from the {@link PersonalizeClientConfig | constructor configuration interface}.
+   */
   readonly config: PersonalizeClientResolvedConfig;
 
   constructor(configuration: PersonalizeClientConfig) {

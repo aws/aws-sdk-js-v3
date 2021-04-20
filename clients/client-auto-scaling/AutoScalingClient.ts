@@ -452,7 +452,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type AutoScalingClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type AutoScalingClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -460,8 +460,12 @@ export type AutoScalingClientConfig = Partial<__SmithyConfiguration<__HttpHandle
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of AutoScalingClient class constructor that set the region, credentials and other options.
+ */
+export interface AutoScalingClientConfig extends AutoScalingClientConfigType {}
 
-export type AutoScalingClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type AutoScalingClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -469,6 +473,10 @@ export type AutoScalingClientResolvedConfig = __SmithyResolvedConfiguration<__Ht
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of AutoScalingClient class. This is resolved and normalized from the {@link AutoScalingClientConfig | constructor configuration interface}.
+ */
+export interface AutoScalingClientResolvedConfig extends AutoScalingClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon EC2 Auto Scaling</fullname>
@@ -485,6 +493,9 @@ export class AutoScalingClient extends __Client<
   ServiceOutputTypes,
   AutoScalingClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of AutoScalingClient class. This is resolved and normalized from the {@link AutoScalingClientConfig | constructor configuration interface}.
+   */
   readonly config: AutoScalingClientResolvedConfig;
 
   constructor(configuration: AutoScalingClientConfig) {

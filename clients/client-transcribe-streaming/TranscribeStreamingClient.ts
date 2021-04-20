@@ -185,7 +185,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   eventStreamSerdeProvider?: __EventStreamSerdeProvider;
 }
 
-export type TranscribeStreamingClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type TranscribeStreamingClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -196,8 +196,12 @@ export type TranscribeStreamingClientConfig = Partial<__SmithyConfiguration<__Ht
   WebSocketInputConfig &
   UserAgentInputConfig &
   EventStreamSerdeInputConfig;
+/**
+ * The configuration interface of TranscribeStreamingClient class constructor that set the region, credentials and other options.
+ */
+export interface TranscribeStreamingClientConfig extends TranscribeStreamingClientConfigType {}
 
-export type TranscribeStreamingClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type TranscribeStreamingClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -208,6 +212,10 @@ export type TranscribeStreamingClientResolvedConfig = __SmithyResolvedConfigurat
   WebSocketResolvedConfig &
   UserAgentResolvedConfig &
   EventStreamSerdeResolvedConfig;
+/**
+ * The resolved configuration interface of TranscribeStreamingClient class. This is resolved and normalized from the {@link TranscribeStreamingClientConfig | constructor configuration interface}.
+ */
+export interface TranscribeStreamingClientResolvedConfig extends TranscribeStreamingClientResolvedConfigType {}
 
 /**
  * <p>Operations and objects for transcribing streaming speech to text.</p>
@@ -218,6 +226,9 @@ export class TranscribeStreamingClient extends __Client<
   ServiceOutputTypes,
   TranscribeStreamingClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of TranscribeStreamingClient class. This is resolved and normalized from the {@link TranscribeStreamingClientConfig | constructor configuration interface}.
+   */
   readonly config: TranscribeStreamingClientResolvedConfig;
 
   constructor(configuration: TranscribeStreamingClientConfig) {

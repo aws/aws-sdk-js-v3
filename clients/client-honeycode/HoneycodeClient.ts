@@ -206,7 +206,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type HoneycodeClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type HoneycodeClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -214,8 +214,12 @@ export type HoneycodeClientConfig = Partial<__SmithyConfiguration<__HttpHandlerO
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of HoneycodeClient class constructor that set the region, credentials and other options.
+ */
+export interface HoneycodeClientConfig extends HoneycodeClientConfigType {}
 
-export type HoneycodeClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type HoneycodeClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -223,6 +227,10 @@ export type HoneycodeClientResolvedConfig = __SmithyResolvedConfiguration<__Http
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of HoneycodeClient class. This is resolved and normalized from the {@link HoneycodeClientConfig | constructor configuration interface}.
+ */
+export interface HoneycodeClientResolvedConfig extends HoneycodeClientResolvedConfigType {}
 
 /**
  * <p>
@@ -237,6 +245,9 @@ export class HoneycodeClient extends __Client<
   ServiceOutputTypes,
   HoneycodeClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of HoneycodeClient class. This is resolved and normalized from the {@link HoneycodeClientConfig | constructor configuration interface}.
+   */
   readonly config: HoneycodeClientResolvedConfig;
 
   constructor(configuration: HoneycodeClientConfig) {

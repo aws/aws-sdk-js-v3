@@ -596,7 +596,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type ServiceCatalogClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type ServiceCatalogClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -604,8 +604,12 @@ export type ServiceCatalogClientConfig = Partial<__SmithyConfiguration<__HttpHan
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of ServiceCatalogClient class constructor that set the region, credentials and other options.
+ */
+export interface ServiceCatalogClientConfig extends ServiceCatalogClientConfigType {}
 
-export type ServiceCatalogClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type ServiceCatalogClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -613,6 +617,10 @@ export type ServiceCatalogClientResolvedConfig = __SmithyResolvedConfiguration<_
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of ServiceCatalogClient class. This is resolved and normalized from the {@link ServiceCatalogClientConfig | constructor configuration interface}.
+ */
+export interface ServiceCatalogClientResolvedConfig extends ServiceCatalogClientResolvedConfigType {}
 
 /**
  * <fullname>AWS Service Catalog</fullname>
@@ -629,6 +637,9 @@ export class ServiceCatalogClient extends __Client<
   ServiceOutputTypes,
   ServiceCatalogClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of ServiceCatalogClient class. This is resolved and normalized from the {@link ServiceCatalogClientConfig | constructor configuration interface}.
+   */
   readonly config: ServiceCatalogClientResolvedConfig;
 
   constructor(configuration: ServiceCatalogClientConfig) {

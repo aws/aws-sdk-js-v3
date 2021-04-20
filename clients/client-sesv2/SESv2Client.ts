@@ -563,7 +563,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type SESv2ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type SESv2ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -571,8 +571,12 @@ export type SESv2ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptio
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of SESv2Client class constructor that set the region, credentials and other options.
+ */
+export interface SESv2ClientConfig extends SESv2ClientConfigType {}
 
-export type SESv2ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type SESv2ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -580,6 +584,10 @@ export type SESv2ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHand
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of SESv2Client class. This is resolved and normalized from the {@link SESv2ClientConfig | constructor configuration interface}.
+ */
+export interface SESv2ClientResolvedConfig extends SESv2ClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon SES API v2</fullname>
@@ -609,6 +617,9 @@ export class SESv2Client extends __Client<
   ServiceOutputTypes,
   SESv2ClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of SESv2Client class. This is resolved and normalized from the {@link SESv2ClientConfig | constructor configuration interface}.
+   */
   readonly config: SESv2ClientResolvedConfig;
 
   constructor(configuration: SESv2ClientConfig) {

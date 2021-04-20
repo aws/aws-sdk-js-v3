@@ -266,7 +266,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type CloudSearchClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type CloudSearchClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -274,8 +274,12 @@ export type CloudSearchClientConfig = Partial<__SmithyConfiguration<__HttpHandle
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of CloudSearchClient class constructor that set the region, credentials and other options.
+ */
+export interface CloudSearchClientConfig extends CloudSearchClientConfigType {}
 
-export type CloudSearchClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type CloudSearchClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -283,6 +287,10 @@ export type CloudSearchClientResolvedConfig = __SmithyResolvedConfiguration<__Ht
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of CloudSearchClient class. This is resolved and normalized from the {@link CloudSearchClientConfig | constructor configuration interface}.
+ */
+export interface CloudSearchClientResolvedConfig extends CloudSearchClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon CloudSearch Configuration Service</fullname>
@@ -299,6 +307,9 @@ export class CloudSearchClient extends __Client<
   ServiceOutputTypes,
   CloudSearchClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of CloudSearchClient class. This is resolved and normalized from the {@link CloudSearchClientConfig | constructor configuration interface}.
+   */
   readonly config: CloudSearchClientResolvedConfig;
 
   constructor(configuration: CloudSearchClientConfig) {

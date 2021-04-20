@@ -368,7 +368,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type RekognitionClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type RekognitionClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -376,8 +376,12 @@ export type RekognitionClientConfig = Partial<__SmithyConfiguration<__HttpHandle
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of RekognitionClient class constructor that set the region, credentials and other options.
+ */
+export interface RekognitionClientConfig extends RekognitionClientConfigType {}
 
-export type RekognitionClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type RekognitionClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -385,6 +389,10 @@ export type RekognitionClientResolvedConfig = __SmithyResolvedConfiguration<__Ht
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of RekognitionClient class. This is resolved and normalized from the {@link RekognitionClientConfig | constructor configuration interface}.
+ */
+export interface RekognitionClientResolvedConfig extends RekognitionClientResolvedConfigType {}
 
 /**
  * <p>This is the Amazon Rekognition API reference.</p>
@@ -395,6 +403,9 @@ export class RekognitionClient extends __Client<
   ServiceOutputTypes,
   RekognitionClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of RekognitionClient class. This is resolved and normalized from the {@link RekognitionClientConfig | constructor configuration interface}.
+   */
   readonly config: RekognitionClientResolvedConfig;
 
   constructor(configuration: RekognitionClientConfig) {

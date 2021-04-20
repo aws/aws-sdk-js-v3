@@ -173,7 +173,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type RDSDataClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type RDSDataClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -181,8 +181,12 @@ export type RDSDataClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOpt
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of RDSDataClient class constructor that set the region, credentials and other options.
+ */
+export interface RDSDataClientConfig extends RDSDataClientConfigType {}
 
-export type RDSDataClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type RDSDataClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -190,6 +194,10 @@ export type RDSDataClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHa
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of RDSDataClient class. This is resolved and normalized from the {@link RDSDataClientConfig | constructor configuration interface}.
+ */
+export interface RDSDataClientResolvedConfig extends RDSDataClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon RDS Data Service</fullname>
@@ -205,6 +213,9 @@ export class RDSDataClient extends __Client<
   ServiceOutputTypes,
   RDSDataClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of RDSDataClient class. This is resolved and normalized from the {@link RDSDataClientConfig | constructor configuration interface}.
+   */
   readonly config: RDSDataClientResolvedConfig;
 
   constructor(configuration: RDSDataClientConfig) {

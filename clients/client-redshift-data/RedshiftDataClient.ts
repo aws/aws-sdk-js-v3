@@ -176,7 +176,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type RedshiftDataClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type RedshiftDataClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -184,8 +184,12 @@ export type RedshiftDataClientConfig = Partial<__SmithyConfiguration<__HttpHandl
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of RedshiftDataClient class constructor that set the region, credentials and other options.
+ */
+export interface RedshiftDataClientConfig extends RedshiftDataClientConfigType {}
 
-export type RedshiftDataClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type RedshiftDataClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -193,6 +197,10 @@ export type RedshiftDataClientResolvedConfig = __SmithyResolvedConfiguration<__H
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of RedshiftDataClient class. This is resolved and normalized from the {@link RedshiftDataClientConfig | constructor configuration interface}.
+ */
+export interface RedshiftDataClientResolvedConfig extends RedshiftDataClientResolvedConfigType {}
 
 /**
  * <p>You can use the Amazon Redshift Data API to run queries on Amazon Redshift tables. You
@@ -207,6 +215,9 @@ export class RedshiftDataClient extends __Client<
   ServiceOutputTypes,
   RedshiftDataClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of RedshiftDataClient class. This is resolved and normalized from the {@link RedshiftDataClientConfig | constructor configuration interface}.
+   */
   readonly config: RedshiftDataClientResolvedConfig;
 
   constructor(configuration: RedshiftDataClientConfig) {

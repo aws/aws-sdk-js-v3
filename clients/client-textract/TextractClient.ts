@@ -179,7 +179,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type TextractClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type TextractClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -187,8 +187,12 @@ export type TextractClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOp
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of TextractClient class constructor that set the region, credentials and other options.
+ */
+export interface TextractClientConfig extends TextractClientConfigType {}
 
-export type TextractClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type TextractClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -196,6 +200,10 @@ export type TextractClientResolvedConfig = __SmithyResolvedConfiguration<__HttpH
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of TextractClient class. This is resolved and normalized from the {@link TextractClientConfig | constructor configuration interface}.
+ */
+export interface TextractClientResolvedConfig extends TextractClientResolvedConfigType {}
 
 /**
  * <p>Amazon Textract detects and analyzes text in documents and converts it
@@ -208,6 +216,9 @@ export class TextractClient extends __Client<
   ServiceOutputTypes,
   TextractClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of TextractClient class. This is resolved and normalized from the {@link TextractClientConfig | constructor configuration interface}.
+   */
   readonly config: TextractClientResolvedConfig;
 
   constructor(configuration: TextractClientConfig) {

@@ -257,7 +257,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type ACMPCAClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type ACMPCAClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -265,8 +265,12 @@ export type ACMPCAClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOpti
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of ACMPCAClient class constructor that set the region, credentials and other options.
+ */
+export interface ACMPCAClientConfig extends ACMPCAClientConfigType {}
 
-export type ACMPCAClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type ACMPCAClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -274,6 +278,10 @@ export type ACMPCAClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHan
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of ACMPCAClient class. This is resolved and normalized from the {@link ACMPCAClientConfig | constructor configuration interface}.
+ */
+export interface ACMPCAClientResolvedConfig extends ACMPCAClientResolvedConfigType {}
 
 /**
  * <p>This is the <i>ACM Private CA API Reference</i>. It provides descriptions,
@@ -296,6 +304,9 @@ export class ACMPCAClient extends __Client<
   ServiceOutputTypes,
   ACMPCAClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of ACMPCAClient class. This is resolved and normalized from the {@link ACMPCAClientConfig | constructor configuration interface}.
+   */
   readonly config: ACMPCAClientResolvedConfig;
 
   constructor(configuration: ACMPCAClientConfig) {

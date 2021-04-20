@@ -280,7 +280,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   eventStreamSerdeProvider?: __EventStreamSerdeProvider;
 }
 
-export type KinesisClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type KinesisClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -289,8 +289,12 @@ export type KinesisClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOpt
   AwsAuthInputConfig &
   UserAgentInputConfig &
   EventStreamSerdeInputConfig;
+/**
+ * The configuration interface of KinesisClient class constructor that set the region, credentials and other options.
+ */
+export interface KinesisClientConfig extends KinesisClientConfigType {}
 
-export type KinesisClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type KinesisClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -299,6 +303,10 @@ export type KinesisClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHa
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig &
   EventStreamSerdeResolvedConfig;
+/**
+ * The resolved configuration interface of KinesisClient class. This is resolved and normalized from the {@link KinesisClientConfig | constructor configuration interface}.
+ */
+export interface KinesisClientResolvedConfig extends KinesisClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon Kinesis Data Streams Service API Reference</fullname>
@@ -311,6 +319,9 @@ export class KinesisClient extends __Client<
   ServiceOutputTypes,
   KinesisClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of KinesisClient class. This is resolved and normalized from the {@link KinesisClientConfig | constructor configuration interface}.
+   */
   readonly config: KinesisClientResolvedConfig;
 
   constructor(configuration: KinesisClientConfig) {

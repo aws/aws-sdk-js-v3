@@ -221,7 +221,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type ManagedBlockchainClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type ManagedBlockchainClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -229,8 +229,12 @@ export type ManagedBlockchainClientConfig = Partial<__SmithyConfiguration<__Http
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of ManagedBlockchainClient class constructor that set the region, credentials and other options.
+ */
+export interface ManagedBlockchainClientConfig extends ManagedBlockchainClientConfigType {}
 
-export type ManagedBlockchainClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type ManagedBlockchainClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -238,6 +242,10 @@ export type ManagedBlockchainClientResolvedConfig = __SmithyResolvedConfiguratio
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of ManagedBlockchainClient class. This is resolved and normalized from the {@link ManagedBlockchainClientConfig | constructor configuration interface}.
+ */
+export interface ManagedBlockchainClientResolvedConfig extends ManagedBlockchainClientResolvedConfigType {}
 
 /**
  * <p></p>
@@ -251,6 +259,9 @@ export class ManagedBlockchainClient extends __Client<
   ServiceOutputTypes,
   ManagedBlockchainClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of ManagedBlockchainClient class. This is resolved and normalized from the {@link ManagedBlockchainClientConfig | constructor configuration interface}.
+   */
   readonly config: ManagedBlockchainClientResolvedConfig;
 
   constructor(configuration: ManagedBlockchainClientConfig) {

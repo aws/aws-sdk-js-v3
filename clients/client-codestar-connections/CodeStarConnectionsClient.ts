@@ -188,7 +188,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type CodeStarConnectionsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type CodeStarConnectionsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -196,8 +196,12 @@ export type CodeStarConnectionsClientConfig = Partial<__SmithyConfiguration<__Ht
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of CodeStarConnectionsClient class constructor that set the region, credentials and other options.
+ */
+export interface CodeStarConnectionsClientConfig extends CodeStarConnectionsClientConfigType {}
 
-export type CodeStarConnectionsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type CodeStarConnectionsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -205,6 +209,10 @@ export type CodeStarConnectionsClientResolvedConfig = __SmithyResolvedConfigurat
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of CodeStarConnectionsClient class. This is resolved and normalized from the {@link CodeStarConnectionsClientConfig | constructor configuration interface}.
+ */
+export interface CodeStarConnectionsClientResolvedConfig extends CodeStarConnectionsClientResolvedConfigType {}
 
 /**
  * <fullname>AWS CodeStar Connections</fullname>
@@ -294,6 +302,9 @@ export class CodeStarConnectionsClient extends __Client<
   ServiceOutputTypes,
   CodeStarConnectionsClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of CodeStarConnectionsClient class. This is resolved and normalized from the {@link CodeStarConnectionsClientConfig | constructor configuration interface}.
+   */
   readonly config: CodeStarConnectionsClientResolvedConfig;
 
   constructor(configuration: CodeStarConnectionsClientConfig) {

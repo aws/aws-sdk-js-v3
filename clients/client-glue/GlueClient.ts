@@ -761,7 +761,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type GlueClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type GlueClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -769,8 +769,12 @@ export type GlueClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOption
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of GlueClient class constructor that set the region, credentials and other options.
+ */
+export interface GlueClientConfig extends GlueClientConfigType {}
 
-export type GlueClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type GlueClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -778,6 +782,10 @@ export type GlueClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandl
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of GlueClient class. This is resolved and normalized from the {@link GlueClientConfig | constructor configuration interface}.
+ */
+export interface GlueClientResolvedConfig extends GlueClientResolvedConfigType {}
 
 /**
  * <fullname>AWS Glue</fullname>
@@ -789,6 +797,9 @@ export class GlueClient extends __Client<
   ServiceOutputTypes,
   GlueClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of GlueClient class. This is resolved and normalized from the {@link GlueClientConfig | constructor configuration interface}.
+   */
   readonly config: GlueClientResolvedConfig;
 
   constructor(configuration: GlueClientConfig) {

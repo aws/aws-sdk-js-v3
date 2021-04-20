@@ -269,7 +269,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type RAMClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type RAMClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -277,8 +277,12 @@ export type RAMClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of RAMClient class constructor that set the region, credentials and other options.
+ */
+export interface RAMClientConfig extends RAMClientConfigType {}
 
-export type RAMClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type RAMClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -286,6 +290,10 @@ export type RAMClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of RAMClient class. This is resolved and normalized from the {@link RAMClientConfig | constructor configuration interface}.
+ */
+export interface RAMClientResolvedConfig extends RAMClientResolvedConfigType {}
 
 /**
  * <p>Use AWS Resource Access Manager to share AWS resources between AWS accounts. To share a resource, you
@@ -301,6 +309,9 @@ export class RAMClient extends __Client<
   ServiceOutputTypes,
   RAMClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of RAMClient class. This is resolved and normalized from the {@link RAMClientConfig | constructor configuration interface}.
+   */
   readonly config: RAMClientResolvedConfig;
 
   constructor(configuration: RAMClientConfig) {

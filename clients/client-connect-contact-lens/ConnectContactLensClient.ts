@@ -159,7 +159,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type ConnectContactLensClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type ConnectContactLensClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -167,8 +167,12 @@ export type ConnectContactLensClientConfig = Partial<__SmithyConfiguration<__Htt
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of ConnectContactLensClient class constructor that set the region, credentials and other options.
+ */
+export interface ConnectContactLensClientConfig extends ConnectContactLensClientConfigType {}
 
-export type ConnectContactLensClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type ConnectContactLensClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -176,6 +180,10 @@ export type ConnectContactLensClientResolvedConfig = __SmithyResolvedConfigurati
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of ConnectContactLensClient class. This is resolved and normalized from the {@link ConnectContactLensClientConfig | constructor configuration interface}.
+ */
+export interface ConnectContactLensClientResolvedConfig extends ConnectContactLensClientResolvedConfigType {}
 
 /**
  * <p>Contact Lens for Amazon Connect enables you to analyze conversations between customer and agents,
@@ -192,6 +200,9 @@ export class ConnectContactLensClient extends __Client<
   ServiceOutputTypes,
   ConnectContactLensClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of ConnectContactLensClient class. This is resolved and normalized from the {@link ConnectContactLensClientConfig | constructor configuration interface}.
+   */
   readonly config: ConnectContactLensClientResolvedConfig;
 
   constructor(configuration: ConnectContactLensClientConfig) {

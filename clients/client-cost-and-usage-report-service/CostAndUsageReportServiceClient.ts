@@ -173,7 +173,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type CostAndUsageReportServiceClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type CostAndUsageReportServiceClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -181,8 +181,12 @@ export type CostAndUsageReportServiceClientConfig = Partial<__SmithyConfiguratio
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of CostAndUsageReportServiceClient class constructor that set the region, credentials and other options.
+ */
+export interface CostAndUsageReportServiceClientConfig extends CostAndUsageReportServiceClientConfigType {}
 
-export type CostAndUsageReportServiceClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type CostAndUsageReportServiceClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -190,6 +194,11 @@ export type CostAndUsageReportServiceClientResolvedConfig = __SmithyResolvedConf
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of CostAndUsageReportServiceClient class. This is resolved and normalized from the {@link CostAndUsageReportServiceClientConfig | constructor configuration interface}.
+ */
+export interface CostAndUsageReportServiceClientResolvedConfig
+  extends CostAndUsageReportServiceClientResolvedConfigType {}
 
 /**
  * <p>The AWS Cost and Usage Report API enables you to programmatically create, query, and delete
@@ -217,6 +226,9 @@ export class CostAndUsageReportServiceClient extends __Client<
   ServiceOutputTypes,
   CostAndUsageReportServiceClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of CostAndUsageReportServiceClient class. This is resolved and normalized from the {@link CostAndUsageReportServiceClientConfig | constructor configuration interface}.
+   */
   readonly config: CostAndUsageReportServiceClientResolvedConfig;
 
   constructor(configuration: CostAndUsageReportServiceClientConfig) {

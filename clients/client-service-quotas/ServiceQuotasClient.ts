@@ -248,7 +248,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type ServiceQuotasClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type ServiceQuotasClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -256,8 +256,12 @@ export type ServiceQuotasClientConfig = Partial<__SmithyConfiguration<__HttpHand
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of ServiceQuotasClient class constructor that set the region, credentials and other options.
+ */
+export interface ServiceQuotasClientConfig extends ServiceQuotasClientConfigType {}
 
-export type ServiceQuotasClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type ServiceQuotasClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -265,6 +269,10 @@ export type ServiceQuotasClientResolvedConfig = __SmithyResolvedConfiguration<__
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of ServiceQuotasClient class. This is resolved and normalized from the {@link ServiceQuotasClientConfig | constructor configuration interface}.
+ */
+export interface ServiceQuotasClientResolvedConfig extends ServiceQuotasClientResolvedConfigType {}
 
 /**
  * <p>With Service Quotas, you can view and manage your quotas easily as your AWS workloads
@@ -277,6 +285,9 @@ export class ServiceQuotasClient extends __Client<
   ServiceOutputTypes,
   ServiceQuotasClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of ServiceQuotasClient class. This is resolved and normalized from the {@link ServiceQuotasClientConfig | constructor configuration interface}.
+   */
   readonly config: ServiceQuotasClientResolvedConfig;
 
   constructor(configuration: ServiceQuotasClientConfig) {

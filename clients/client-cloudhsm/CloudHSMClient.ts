@@ -215,7 +215,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type CloudHSMClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type CloudHSMClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -223,8 +223,12 @@ export type CloudHSMClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOp
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of CloudHSMClient class constructor that set the region, credentials and other options.
+ */
+export interface CloudHSMClientConfig extends CloudHSMClientConfigType {}
 
-export type CloudHSMClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type CloudHSMClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -232,6 +236,10 @@ export type CloudHSMClientResolvedConfig = __SmithyResolvedConfiguration<__HttpH
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of CloudHSMClient class. This is resolved and normalized from the {@link CloudHSMClientConfig | constructor configuration interface}.
+ */
+export interface CloudHSMClientResolvedConfig extends CloudHSMClientResolvedConfigType {}
 
 /**
  * <fullname>AWS CloudHSM Service</fullname>
@@ -252,6 +260,9 @@ export class CloudHSMClient extends __Client<
   ServiceOutputTypes,
   CloudHSMClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of CloudHSMClient class. This is resolved and normalized from the {@link CloudHSMClientConfig | constructor configuration interface}.
+   */
   readonly config: CloudHSMClientResolvedConfig;
 
   constructor(configuration: CloudHSMClientConfig) {

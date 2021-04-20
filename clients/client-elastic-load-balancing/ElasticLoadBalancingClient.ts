@@ -308,7 +308,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type ElasticLoadBalancingClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type ElasticLoadBalancingClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -316,8 +316,12 @@ export type ElasticLoadBalancingClientConfig = Partial<__SmithyConfiguration<__H
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of ElasticLoadBalancingClient class constructor that set the region, credentials and other options.
+ */
+export interface ElasticLoadBalancingClientConfig extends ElasticLoadBalancingClientConfigType {}
 
-export type ElasticLoadBalancingClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type ElasticLoadBalancingClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -325,6 +329,10 @@ export type ElasticLoadBalancingClientResolvedConfig = __SmithyResolvedConfigura
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of ElasticLoadBalancingClient class. This is resolved and normalized from the {@link ElasticLoadBalancingClientConfig | constructor configuration interface}.
+ */
+export interface ElasticLoadBalancingClientResolvedConfig extends ElasticLoadBalancingClientResolvedConfigType {}
 
 /**
  * <fullname>Elastic Load Balancing</fullname>
@@ -355,6 +363,9 @@ export class ElasticLoadBalancingClient extends __Client<
   ServiceOutputTypes,
   ElasticLoadBalancingClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of ElasticLoadBalancingClient class. This is resolved and normalized from the {@link ElasticLoadBalancingClientConfig | constructor configuration interface}.
+   */
   readonly config: ElasticLoadBalancingClientResolvedConfig;
 
   constructor(configuration: ElasticLoadBalancingClientConfig) {

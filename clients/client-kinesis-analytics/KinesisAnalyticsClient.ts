@@ -245,7 +245,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type KinesisAnalyticsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type KinesisAnalyticsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -253,8 +253,12 @@ export type KinesisAnalyticsClientConfig = Partial<__SmithyConfiguration<__HttpH
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of KinesisAnalyticsClient class constructor that set the region, credentials and other options.
+ */
+export interface KinesisAnalyticsClientConfig extends KinesisAnalyticsClientConfigType {}
 
-export type KinesisAnalyticsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type KinesisAnalyticsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -262,6 +266,10 @@ export type KinesisAnalyticsClientResolvedConfig = __SmithyResolvedConfiguration
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of KinesisAnalyticsClient class. This is resolved and normalized from the {@link KinesisAnalyticsClientConfig | constructor configuration interface}.
+ */
+export interface KinesisAnalyticsClientResolvedConfig extends KinesisAnalyticsClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon Kinesis Analytics</fullname>
@@ -281,6 +289,9 @@ export class KinesisAnalyticsClient extends __Client<
   ServiceOutputTypes,
   KinesisAnalyticsClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of KinesisAnalyticsClient class. This is resolved and normalized from the {@link KinesisAnalyticsClientConfig | constructor configuration interface}.
+   */
   readonly config: KinesisAnalyticsClientResolvedConfig;
 
   constructor(configuration: KinesisAnalyticsClientConfig) {

@@ -407,7 +407,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type WorkSpacesClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type WorkSpacesClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -415,8 +415,12 @@ export type WorkSpacesClientConfig = Partial<__SmithyConfiguration<__HttpHandler
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of WorkSpacesClient class constructor that set the region, credentials and other options.
+ */
+export interface WorkSpacesClientConfig extends WorkSpacesClientConfigType {}
 
-export type WorkSpacesClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type WorkSpacesClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -424,6 +428,10 @@ export type WorkSpacesClientResolvedConfig = __SmithyResolvedConfiguration<__Htt
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of WorkSpacesClient class. This is resolved and normalized from the {@link WorkSpacesClientConfig | constructor configuration interface}.
+ */
+export interface WorkSpacesClientResolvedConfig extends WorkSpacesClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon WorkSpaces Service</fullname>
@@ -436,6 +444,9 @@ export class WorkSpacesClient extends __Client<
   ServiceOutputTypes,
   WorkSpacesClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of WorkSpacesClient class. This is resolved and normalized from the {@link WorkSpacesClientConfig | constructor configuration interface}.
+   */
   readonly config: WorkSpacesClientResolvedConfig;
 
   constructor(configuration: WorkSpacesClientConfig) {

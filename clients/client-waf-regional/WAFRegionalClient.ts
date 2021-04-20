@@ -497,7 +497,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type WAFRegionalClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type WAFRegionalClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -505,8 +505,12 @@ export type WAFRegionalClientConfig = Partial<__SmithyConfiguration<__HttpHandle
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of WAFRegionalClient class constructor that set the region, credentials and other options.
+ */
+export interface WAFRegionalClientConfig extends WAFRegionalClientConfigType {}
 
-export type WAFRegionalClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type WAFRegionalClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -514,6 +518,10 @@ export type WAFRegionalClientResolvedConfig = __SmithyResolvedConfiguration<__Ht
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of WAFRegionalClient class. This is resolved and normalized from the {@link WAFRegionalClientConfig | constructor configuration interface}.
+ */
+export interface WAFRegionalClientResolvedConfig extends WAFRegionalClientResolvedConfigType {}
 
 /**
  * <note>
@@ -534,6 +542,9 @@ export class WAFRegionalClient extends __Client<
   ServiceOutputTypes,
   WAFRegionalClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of WAFRegionalClient class. This is resolved and normalized from the {@link WAFRegionalClientConfig | constructor configuration interface}.
+   */
   readonly config: WAFRegionalClientResolvedConfig;
 
   constructor(configuration: WAFRegionalClientConfig) {

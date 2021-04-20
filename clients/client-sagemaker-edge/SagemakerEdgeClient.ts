@@ -154,7 +154,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type SagemakerEdgeClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type SagemakerEdgeClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -162,8 +162,12 @@ export type SagemakerEdgeClientConfig = Partial<__SmithyConfiguration<__HttpHand
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of SagemakerEdgeClient class constructor that set the region, credentials and other options.
+ */
+export interface SagemakerEdgeClientConfig extends SagemakerEdgeClientConfigType {}
 
-export type SagemakerEdgeClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type SagemakerEdgeClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -171,6 +175,10 @@ export type SagemakerEdgeClientResolvedConfig = __SmithyResolvedConfiguration<__
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of SagemakerEdgeClient class. This is resolved and normalized from the {@link SagemakerEdgeClientConfig | constructor configuration interface}.
+ */
+export interface SagemakerEdgeClientResolvedConfig extends SagemakerEdgeClientResolvedConfigType {}
 
 /**
  * <p>SageMaker Edge Manager dataplane service for communicating with active agents.</p>
@@ -181,6 +189,9 @@ export class SagemakerEdgeClient extends __Client<
   ServiceOutputTypes,
   SagemakerEdgeClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of SagemakerEdgeClient class. This is resolved and normalized from the {@link SagemakerEdgeClientConfig | constructor configuration interface}.
+   */
   readonly config: SagemakerEdgeClientResolvedConfig;
 
   constructor(configuration: SagemakerEdgeClientConfig) {

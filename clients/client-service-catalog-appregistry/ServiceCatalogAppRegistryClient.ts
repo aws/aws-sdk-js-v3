@@ -245,7 +245,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type ServiceCatalogAppRegistryClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type ServiceCatalogAppRegistryClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -253,8 +253,12 @@ export type ServiceCatalogAppRegistryClientConfig = Partial<__SmithyConfiguratio
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of ServiceCatalogAppRegistryClient class constructor that set the region, credentials and other options.
+ */
+export interface ServiceCatalogAppRegistryClientConfig extends ServiceCatalogAppRegistryClientConfigType {}
 
-export type ServiceCatalogAppRegistryClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type ServiceCatalogAppRegistryClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -262,6 +266,11 @@ export type ServiceCatalogAppRegistryClientResolvedConfig = __SmithyResolvedConf
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of ServiceCatalogAppRegistryClient class. This is resolved and normalized from the {@link ServiceCatalogAppRegistryClientConfig | constructor configuration interface}.
+ */
+export interface ServiceCatalogAppRegistryClientResolvedConfig
+  extends ServiceCatalogAppRegistryClientResolvedConfigType {}
 
 /**
  * <p> AWS Service Catalog AppRegistry enables organizations to understand the application context of their AWS resources. AppRegistry provides a repository of your applications, their resources, and the application metadata that you use within your enterprise.</p>
@@ -272,6 +281,9 @@ export class ServiceCatalogAppRegistryClient extends __Client<
   ServiceOutputTypes,
   ServiceCatalogAppRegistryClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of ServiceCatalogAppRegistryClient class. This is resolved and normalized from the {@link ServiceCatalogAppRegistryClientConfig | constructor configuration interface}.
+   */
   readonly config: ServiceCatalogAppRegistryClientResolvedConfig;
 
   constructor(configuration: ServiceCatalogAppRegistryClientConfig) {

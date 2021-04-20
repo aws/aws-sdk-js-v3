@@ -152,7 +152,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type SageMakerFeatureStoreRuntimeClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type SageMakerFeatureStoreRuntimeClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -160,8 +160,12 @@ export type SageMakerFeatureStoreRuntimeClientConfig = Partial<__SmithyConfigura
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of SageMakerFeatureStoreRuntimeClient class constructor that set the region, credentials and other options.
+ */
+export interface SageMakerFeatureStoreRuntimeClientConfig extends SageMakerFeatureStoreRuntimeClientConfigType {}
 
-export type SageMakerFeatureStoreRuntimeClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type SageMakerFeatureStoreRuntimeClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -169,6 +173,11 @@ export type SageMakerFeatureStoreRuntimeClientResolvedConfig = __SmithyResolvedC
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of SageMakerFeatureStoreRuntimeClient class. This is resolved and normalized from the {@link SageMakerFeatureStoreRuntimeClientConfig | constructor configuration interface}.
+ */
+export interface SageMakerFeatureStoreRuntimeClientResolvedConfig
+  extends SageMakerFeatureStoreRuntimeClientResolvedConfigType {}
 
 /**
  * <p>Contains all data plane API operations and data types for the Amazon SageMaker Feature
@@ -205,6 +214,9 @@ export class SageMakerFeatureStoreRuntimeClient extends __Client<
   ServiceOutputTypes,
   SageMakerFeatureStoreRuntimeClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of SageMakerFeatureStoreRuntimeClient class. This is resolved and normalized from the {@link SageMakerFeatureStoreRuntimeClientConfig | constructor configuration interface}.
+   */
   readonly config: SageMakerFeatureStoreRuntimeClientResolvedConfig;
 
   constructor(configuration: SageMakerFeatureStoreRuntimeClientConfig) {

@@ -368,7 +368,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type FraudDetectorClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type FraudDetectorClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -376,8 +376,12 @@ export type FraudDetectorClientConfig = Partial<__SmithyConfiguration<__HttpHand
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of FraudDetectorClient class constructor that set the region, credentials and other options.
+ */
+export interface FraudDetectorClientConfig extends FraudDetectorClientConfigType {}
 
-export type FraudDetectorClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type FraudDetectorClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -385,6 +389,10 @@ export type FraudDetectorClientResolvedConfig = __SmithyResolvedConfiguration<__
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of FraudDetectorClient class. This is resolved and normalized from the {@link FraudDetectorClientConfig | constructor configuration interface}.
+ */
+export interface FraudDetectorClientResolvedConfig extends FraudDetectorClientResolvedConfigType {}
 
 /**
  * <p>This is the Amazon Fraud Detector API Reference. This guide is for developers who need
@@ -397,6 +405,9 @@ export class FraudDetectorClient extends __Client<
   ServiceOutputTypes,
   FraudDetectorClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of FraudDetectorClient class. This is resolved and normalized from the {@link FraudDetectorClientConfig | constructor configuration interface}.
+   */
   readonly config: FraudDetectorClientResolvedConfig;
 
   constructor(configuration: FraudDetectorClientConfig) {

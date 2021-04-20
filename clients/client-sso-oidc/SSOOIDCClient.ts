@@ -149,21 +149,29 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type SSOOIDCClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type SSOOIDCClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
   RetryInputConfig &
   HostHeaderInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of SSOOIDCClient class constructor that set the region, credentials and other options.
+ */
+export interface SSOOIDCClientConfig extends SSOOIDCClientConfigType {}
 
-export type SSOOIDCClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type SSOOIDCClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of SSOOIDCClient class. This is resolved and normalized from the {@link SSOOIDCClientConfig | constructor configuration interface}.
+ */
+export interface SSOOIDCClientResolvedConfig extends SSOOIDCClientResolvedConfigType {}
 
 /**
  * <p>AWS Single Sign-On (SSO) OpenID Connect (OIDC) is a web service that enables a client
@@ -191,6 +199,9 @@ export class SSOOIDCClient extends __Client<
   ServiceOutputTypes,
   SSOOIDCClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of SSOOIDCClient class. This is resolved and normalized from the {@link SSOOIDCClientConfig | constructor configuration interface}.
+   */
   readonly config: SSOOIDCClientResolvedConfig;
 
   constructor(configuration: SSOOIDCClientConfig) {

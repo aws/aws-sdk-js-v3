@@ -329,7 +329,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type MTurkClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type MTurkClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -337,8 +337,12 @@ export type MTurkClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptio
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of MTurkClient class constructor that set the region, credentials and other options.
+ */
+export interface MTurkClientConfig extends MTurkClientConfigType {}
 
-export type MTurkClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type MTurkClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -346,6 +350,10 @@ export type MTurkClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHand
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of MTurkClient class. This is resolved and normalized from the {@link MTurkClientConfig | constructor configuration interface}.
+ */
+export interface MTurkClientResolvedConfig extends MTurkClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon Mechanical Turk API Reference</fullname>
@@ -356,6 +364,9 @@ export class MTurkClient extends __Client<
   ServiceOutputTypes,
   MTurkClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of MTurkClient class. This is resolved and normalized from the {@link MTurkClientConfig | constructor configuration interface}.
+   */
   readonly config: MTurkClientResolvedConfig;
 
   constructor(configuration: MTurkClientConfig) {

@@ -388,7 +388,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type S3ControlClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type S3ControlClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -397,8 +397,12 @@ export type S3ControlClientConfig = Partial<__SmithyConfiguration<__HttpHandlerO
   AwsAuthInputConfig &
   S3ControlInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of S3ControlClient class constructor that set the region, credentials and other options.
+ */
+export interface S3ControlClientConfig extends S3ControlClientConfigType {}
 
-export type S3ControlClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type S3ControlClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -407,6 +411,10 @@ export type S3ControlClientResolvedConfig = __SmithyResolvedConfiguration<__Http
   AwsAuthResolvedConfig &
   S3ControlResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of S3ControlClient class. This is resolved and normalized from the {@link S3ControlClientConfig | constructor configuration interface}.
+ */
+export interface S3ControlClientResolvedConfig extends S3ControlClientResolvedConfigType {}
 
 /**
  * <p>
@@ -420,6 +428,9 @@ export class S3ControlClient extends __Client<
   ServiceOutputTypes,
   S3ControlClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of S3ControlClient class. This is resolved and normalized from the {@link S3ControlClientConfig | constructor configuration interface}.
+   */
   readonly config: S3ControlClientResolvedConfig;
 
   constructor(configuration: S3ControlClientConfig) {

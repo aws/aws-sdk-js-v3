@@ -266,7 +266,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type MachineLearningClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type MachineLearningClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -274,8 +274,12 @@ export type MachineLearningClientConfig = Partial<__SmithyConfiguration<__HttpHa
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of MachineLearningClient class constructor that set the region, credentials and other options.
+ */
+export interface MachineLearningClientConfig extends MachineLearningClientConfigType {}
 
-export type MachineLearningClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type MachineLearningClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -283,6 +287,10 @@ export type MachineLearningClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of MachineLearningClient class. This is resolved and normalized from the {@link MachineLearningClientConfig | constructor configuration interface}.
+ */
+export interface MachineLearningClientResolvedConfig extends MachineLearningClientResolvedConfigType {}
 
 /**
  * Definition of the public APIs
@@ -294,6 +302,9 @@ export class MachineLearningClient extends __Client<
   ServiceOutputTypes,
   MachineLearningClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of MachineLearningClient class. This is resolved and normalized from the {@link MachineLearningClientConfig | constructor configuration interface}.
+   */
   readonly config: MachineLearningClientResolvedConfig;
 
   constructor(configuration: MachineLearningClientConfig) {

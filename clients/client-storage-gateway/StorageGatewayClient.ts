@@ -566,7 +566,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type StorageGatewayClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type StorageGatewayClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -574,8 +574,12 @@ export type StorageGatewayClientConfig = Partial<__SmithyConfiguration<__HttpHan
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of StorageGatewayClient class constructor that set the region, credentials and other options.
+ */
+export interface StorageGatewayClientConfig extends StorageGatewayClientConfigType {}
 
-export type StorageGatewayClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type StorageGatewayClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -583,6 +587,10 @@ export type StorageGatewayClientResolvedConfig = __SmithyResolvedConfiguration<_
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of StorageGatewayClient class. This is resolved and normalized from the {@link StorageGatewayClientConfig | constructor configuration interface}.
+ */
+export interface StorageGatewayClientResolvedConfig extends StorageGatewayClientResolvedConfigType {}
 
 /**
  * <fullname>AWS Storage Gateway Service</fullname>
@@ -664,6 +672,9 @@ export class StorageGatewayClient extends __Client<
   ServiceOutputTypes,
   StorageGatewayClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of StorageGatewayClient class. This is resolved and normalized from the {@link StorageGatewayClientConfig | constructor configuration interface}.
+   */
   readonly config: StorageGatewayClientResolvedConfig;
 
   constructor(configuration: StorageGatewayClientConfig) {

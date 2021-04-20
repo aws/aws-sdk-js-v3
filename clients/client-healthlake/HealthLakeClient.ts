@@ -188,7 +188,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type HealthLakeClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type HealthLakeClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -196,8 +196,12 @@ export type HealthLakeClientConfig = Partial<__SmithyConfiguration<__HttpHandler
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of HealthLakeClient class constructor that set the region, credentials and other options.
+ */
+export interface HealthLakeClientConfig extends HealthLakeClientConfigType {}
 
-export type HealthLakeClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type HealthLakeClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -205,6 +209,10 @@ export type HealthLakeClientResolvedConfig = __SmithyResolvedConfiguration<__Htt
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of HealthLakeClient class. This is resolved and normalized from the {@link HealthLakeClientConfig | constructor configuration interface}.
+ */
+export interface HealthLakeClientResolvedConfig extends HealthLakeClientResolvedConfigType {}
 
 /**
  * <p>Amazon HealthLake is a HIPAA eligibile service that allows customers to store,
@@ -216,6 +224,9 @@ export class HealthLakeClient extends __Client<
   ServiceOutputTypes,
   HealthLakeClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of HealthLakeClient class. This is resolved and normalized from the {@link HealthLakeClientConfig | constructor configuration interface}.
+   */
   readonly config: HealthLakeClientResolvedConfig;
 
   constructor(configuration: HealthLakeClientConfig) {

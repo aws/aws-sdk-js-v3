@@ -155,7 +155,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type PricingClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type PricingClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -163,8 +163,12 @@ export type PricingClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOpt
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of PricingClient class constructor that set the region, credentials and other options.
+ */
+export interface PricingClientConfig extends PricingClientConfigType {}
 
-export type PricingClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type PricingClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -172,6 +176,10 @@ export type PricingClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHa
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of PricingClient class. This is resolved and normalized from the {@link PricingClientConfig | constructor configuration interface}.
+ */
+export interface PricingClientResolvedConfig extends PricingClientResolvedConfigType {}
 
 /**
  * <p>AWS Price List Service API (AWS Price List Service) is a centralized and convenient way to
@@ -205,6 +213,9 @@ export class PricingClient extends __Client<
   ServiceOutputTypes,
   PricingClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of PricingClient class. This is resolved and normalized from the {@link PricingClientConfig | constructor configuration interface}.
+   */
   readonly config: PricingClientResolvedConfig;
 
   constructor(configuration: PricingClientConfig) {

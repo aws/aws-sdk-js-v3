@@ -314,7 +314,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type SMSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type SMSClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -322,8 +322,12 @@ export type SMSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of SMSClient class constructor that set the region, credentials and other options.
+ */
+export interface SMSClientConfig extends SMSClientConfigType {}
 
-export type SMSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type SMSClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -331,6 +335,10 @@ export type SMSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of SMSClient class. This is resolved and normalized from the {@link SMSClientConfig | constructor configuration interface}.
+ */
+export interface SMSClientResolvedConfig extends SMSClientResolvedConfigType {}
 
 /**
  * <fullname>AWS Server Migration Service</fullname>
@@ -357,6 +365,9 @@ export class SMSClient extends __Client<
   ServiceOutputTypes,
   SMSClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of SMSClient class. This is resolved and normalized from the {@link SMSClientConfig | constructor configuration interface}.
+   */
   readonly config: SMSClientResolvedConfig;
 
   constructor(configuration: SMSClientConfig) {

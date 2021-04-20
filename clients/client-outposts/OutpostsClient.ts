@@ -185,7 +185,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type OutpostsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type OutpostsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -193,8 +193,12 @@ export type OutpostsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOp
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of OutpostsClient class constructor that set the region, credentials and other options.
+ */
+export interface OutpostsClientConfig extends OutpostsClientConfigType {}
 
-export type OutpostsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type OutpostsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -202,6 +206,10 @@ export type OutpostsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpH
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of OutpostsClient class. This is resolved and normalized from the {@link OutpostsClientConfig | constructor configuration interface}.
+ */
+export interface OutpostsClientResolvedConfig extends OutpostsClientResolvedConfigType {}
 
 /**
  * <p>AWS Outposts is a fully managed service that extends AWS infrastructure, APIs, and tools
@@ -216,6 +224,9 @@ export class OutpostsClient extends __Client<
   ServiceOutputTypes,
   OutpostsClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of OutpostsClient class. This is resolved and normalized from the {@link OutpostsClientConfig | constructor configuration interface}.
+   */
   readonly config: OutpostsClientResolvedConfig;
 
   constructor(configuration: OutpostsClientConfig) {

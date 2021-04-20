@@ -383,7 +383,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type ECSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type ECSClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -391,8 +391,12 @@ export type ECSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of ECSClient class constructor that set the region, credentials and other options.
+ */
+export interface ECSClientConfig extends ECSClientConfigType {}
 
-export type ECSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type ECSClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -400,6 +404,10 @@ export type ECSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of ECSClient class. This is resolved and normalized from the {@link ECSClientConfig | constructor configuration interface}.
+ */
+export interface ECSClientResolvedConfig extends ECSClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon Elastic Container Service</fullname>
@@ -422,6 +430,9 @@ export class ECSClient extends __Client<
   ServiceOutputTypes,
   ECSClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of ECSClient class. This is resolved and normalized from the {@link ECSClientConfig | constructor configuration interface}.
+   */
   readonly config: ECSClientResolvedConfig;
 
   constructor(configuration: ECSClientConfig) {

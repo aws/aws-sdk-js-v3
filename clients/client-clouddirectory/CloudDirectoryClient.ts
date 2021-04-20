@@ -425,7 +425,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type CloudDirectoryClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type CloudDirectoryClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -433,8 +433,12 @@ export type CloudDirectoryClientConfig = Partial<__SmithyConfiguration<__HttpHan
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of CloudDirectoryClient class constructor that set the region, credentials and other options.
+ */
+export interface CloudDirectoryClientConfig extends CloudDirectoryClientConfigType {}
 
-export type CloudDirectoryClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type CloudDirectoryClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -442,6 +446,10 @@ export type CloudDirectoryClientResolvedConfig = __SmithyResolvedConfiguration<_
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of CloudDirectoryClient class. This is resolved and normalized from the {@link CloudDirectoryClientConfig | constructor configuration interface}.
+ */
+export interface CloudDirectoryClientResolvedConfig extends CloudDirectoryClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon Cloud Directory</fullname>
@@ -457,6 +465,9 @@ export class CloudDirectoryClient extends __Client<
   ServiceOutputTypes,
   CloudDirectoryClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of CloudDirectoryClient class. This is resolved and normalized from the {@link CloudDirectoryClientConfig | constructor configuration interface}.
+   */
   readonly config: CloudDirectoryClientResolvedConfig;
 
   constructor(configuration: CloudDirectoryClientConfig) {

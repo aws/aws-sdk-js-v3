@@ -287,7 +287,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type AppSyncClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type AppSyncClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -295,8 +295,12 @@ export type AppSyncClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOpt
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of AppSyncClient class constructor that set the region, credentials and other options.
+ */
+export interface AppSyncClientConfig extends AppSyncClientConfigType {}
 
-export type AppSyncClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type AppSyncClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -304,6 +308,10 @@ export type AppSyncClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHa
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of AppSyncClient class. This is resolved and normalized from the {@link AppSyncClientConfig | constructor configuration interface}.
+ */
+export interface AppSyncClientResolvedConfig extends AppSyncClientResolvedConfigType {}
 
 /**
  * <p>AWS AppSync provides API actions for creating and interacting with data sources using
@@ -315,6 +323,9 @@ export class AppSyncClient extends __Client<
   ServiceOutputTypes,
   AppSyncClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of AppSyncClient class. This is resolved and normalized from the {@link AppSyncClientConfig | constructor configuration interface}.
+   */
   readonly config: AppSyncClientResolvedConfig;
 
   constructor(configuration: AppSyncClientConfig) {

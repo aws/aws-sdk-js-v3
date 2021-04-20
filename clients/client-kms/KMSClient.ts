@@ -332,7 +332,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type KMSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type KMSClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -340,8 +340,12 @@ export type KMSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of KMSClient class constructor that set the region, credentials and other options.
+ */
+export interface KMSClientConfig extends KMSClientConfigType {}
 
-export type KMSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type KMSClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -349,6 +353,10 @@ export type KMSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of KMSClient class. This is resolved and normalized from the {@link KMSClientConfig | constructor configuration interface}.
+ */
+export interface KMSClientResolvedConfig extends KMSClientResolvedConfigType {}
 
 /**
  * <fullname>AWS Key Management Service</fullname>
@@ -447,6 +455,9 @@ export class KMSClient extends __Client<
   ServiceOutputTypes,
   KMSClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of KMSClient class. This is resolved and normalized from the {@link KMSClientConfig | constructor configuration interface}.
+   */
   readonly config: KMSClientResolvedConfig;
 
   constructor(configuration: KMSClientConfig) {

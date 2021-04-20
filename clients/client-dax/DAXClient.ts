@@ -236,7 +236,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type DAXClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type DAXClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -244,8 +244,12 @@ export type DAXClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of DAXClient class constructor that set the region, credentials and other options.
+ */
+export interface DAXClientConfig extends DAXClientConfigType {}
 
-export type DAXClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type DAXClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -253,6 +257,10 @@ export type DAXClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of DAXClient class. This is resolved and normalized from the {@link DAXClientConfig | constructor configuration interface}.
+ */
+export interface DAXClientResolvedConfig extends DAXClientResolvedConfigType {}
 
 /**
  * <p>DAX is a managed caching service engineered for Amazon DynamoDB. DAX
@@ -268,6 +276,9 @@ export class DAXClient extends __Client<
   ServiceOutputTypes,
   DAXClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of DAXClient class. This is resolved and normalized from the {@link DAXClientConfig | constructor configuration interface}.
+   */
   readonly config: DAXClientResolvedConfig;
 
   constructor(configuration: DAXClientConfig) {

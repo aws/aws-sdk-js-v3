@@ -203,7 +203,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type DetectiveClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type DetectiveClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -211,8 +211,12 @@ export type DetectiveClientConfig = Partial<__SmithyConfiguration<__HttpHandlerO
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of DetectiveClient class constructor that set the region, credentials and other options.
+ */
+export interface DetectiveClientConfig extends DetectiveClientConfigType {}
 
-export type DetectiveClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type DetectiveClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -220,6 +224,10 @@ export type DetectiveClientResolvedConfig = __SmithyResolvedConfiguration<__Http
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of DetectiveClient class. This is resolved and normalized from the {@link DetectiveClientConfig | constructor configuration interface}.
+ */
+export interface DetectiveClientResolvedConfig extends DetectiveClientResolvedConfigType {}
 
 /**
  * <p>Detective uses machine learning and purpose-built visualizations to help you analyze and
@@ -275,6 +283,9 @@ export class DetectiveClient extends __Client<
   ServiceOutputTypes,
   DetectiveClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of DetectiveClient class. This is resolved and normalized from the {@link DetectiveClientConfig | constructor configuration interface}.
+   */
   readonly config: DetectiveClientResolvedConfig;
 
   constructor(configuration: DetectiveClientConfig) {

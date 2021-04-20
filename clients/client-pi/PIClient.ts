@@ -154,7 +154,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type PIClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type PIClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -162,8 +162,12 @@ export type PIClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of PIClient class constructor that set the region, credentials and other options.
+ */
+export interface PIClientConfig extends PIClientConfigType {}
 
-export type PIClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type PIClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -171,6 +175,10 @@ export type PIClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandler
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of PIClient class. This is resolved and normalized from the {@link PIClientConfig | constructor configuration interface}.
+ */
+export interface PIClientResolvedConfig extends PIClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon RDS Performance Insights</fullname>
@@ -202,6 +210,9 @@ export class PIClient extends __Client<
   ServiceOutputTypes,
   PIClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of PIClient class. This is resolved and normalized from the {@link PIClientConfig | constructor configuration interface}.
+   */
   readonly config: PIClientResolvedConfig;
 
   constructor(configuration: PIClientConfig) {

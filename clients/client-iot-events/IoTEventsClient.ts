@@ -236,7 +236,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type IoTEventsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type IoTEventsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -244,8 +244,12 @@ export type IoTEventsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerO
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of IoTEventsClient class constructor that set the region, credentials and other options.
+ */
+export interface IoTEventsClientConfig extends IoTEventsClientConfigType {}
 
-export type IoTEventsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type IoTEventsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -253,6 +257,10 @@ export type IoTEventsClientResolvedConfig = __SmithyResolvedConfiguration<__Http
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of IoTEventsClient class. This is resolved and normalized from the {@link IoTEventsClientConfig | constructor configuration interface}.
+ */
+export interface IoTEventsClientResolvedConfig extends IoTEventsClientResolvedConfigType {}
 
 /**
  * <p>AWS IoT Events monitors your equipment or device fleets for failures or changes in operation, and
@@ -265,6 +273,9 @@ export class IoTEventsClient extends __Client<
   ServiceOutputTypes,
   IoTEventsClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of IoTEventsClient class. This is resolved and normalized from the {@link IoTEventsClientConfig | constructor configuration interface}.
+   */
   readonly config: IoTEventsClientResolvedConfig;
 
   constructor(configuration: IoTEventsClientConfig) {

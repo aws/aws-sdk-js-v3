@@ -392,7 +392,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type WorkMailClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type WorkMailClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -400,8 +400,12 @@ export type WorkMailClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOp
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of WorkMailClient class constructor that set the region, credentials and other options.
+ */
+export interface WorkMailClientConfig extends WorkMailClientConfigType {}
 
-export type WorkMailClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type WorkMailClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -409,6 +413,10 @@ export type WorkMailClientResolvedConfig = __SmithyResolvedConfiguration<__HttpH
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of WorkMailClient class. This is resolved and normalized from the {@link WorkMailClientConfig | constructor configuration interface}.
+ */
+export interface WorkMailClientResolvedConfig extends WorkMailClientResolvedConfigType {}
 
 /**
  * <p>Amazon WorkMail is a secure, managed business email and calendaring service with support for
@@ -454,6 +462,9 @@ export class WorkMailClient extends __Client<
   ServiceOutputTypes,
   WorkMailClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of WorkMailClient class. This is resolved and normalized from the {@link WorkMailClientConfig | constructor configuration interface}.
+   */
   readonly config: WorkMailClientResolvedConfig;
 
   constructor(configuration: WorkMailClientConfig) {

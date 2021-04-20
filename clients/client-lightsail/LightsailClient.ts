@@ -785,7 +785,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type LightsailClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type LightsailClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -793,8 +793,12 @@ export type LightsailClientConfig = Partial<__SmithyConfiguration<__HttpHandlerO
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of LightsailClient class constructor that set the region, credentials and other options.
+ */
+export interface LightsailClientConfig extends LightsailClientConfigType {}
 
-export type LightsailClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type LightsailClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -802,6 +806,10 @@ export type LightsailClientResolvedConfig = __SmithyResolvedConfiguration<__Http
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of LightsailClient class. This is resolved and normalized from the {@link LightsailClientConfig | constructor configuration interface}.
+ */
+export interface LightsailClientResolvedConfig extends LightsailClientResolvedConfigType {}
 
 /**
  * <p>Amazon Lightsail is the easiest way to get started with Amazon Web Services (AWS) for developers
@@ -826,6 +834,9 @@ export class LightsailClient extends __Client<
   ServiceOutputTypes,
   LightsailClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of LightsailClient class. This is resolved and normalized from the {@link LightsailClientConfig | constructor configuration interface}.
+   */
   readonly config: LightsailClientResolvedConfig;
 
   constructor(configuration: LightsailClientConfig) {

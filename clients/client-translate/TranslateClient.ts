@@ -203,7 +203,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type TranslateClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type TranslateClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -211,8 +211,12 @@ export type TranslateClientConfig = Partial<__SmithyConfiguration<__HttpHandlerO
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of TranslateClient class constructor that set the region, credentials and other options.
+ */
+export interface TranslateClientConfig extends TranslateClientConfigType {}
 
-export type TranslateClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type TranslateClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -220,6 +224,10 @@ export type TranslateClientResolvedConfig = __SmithyResolvedConfiguration<__Http
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of TranslateClient class. This is resolved and normalized from the {@link TranslateClientConfig | constructor configuration interface}.
+ */
+export interface TranslateClientResolvedConfig extends TranslateClientResolvedConfigType {}
 
 /**
  * <p>Provides translation between one source language and another of the same set of
@@ -231,6 +239,9 @@ export class TranslateClient extends __Client<
   ServiceOutputTypes,
   TranslateClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of TranslateClient class. This is resolved and normalized from the {@link TranslateClientConfig | constructor configuration interface}.
+   */
   readonly config: TranslateClientResolvedConfig;
 
   constructor(configuration: TranslateClientConfig) {

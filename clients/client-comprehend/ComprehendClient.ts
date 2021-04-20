@@ -473,7 +473,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type ComprehendClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type ComprehendClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -481,8 +481,12 @@ export type ComprehendClientConfig = Partial<__SmithyConfiguration<__HttpHandler
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of ComprehendClient class constructor that set the region, credentials and other options.
+ */
+export interface ComprehendClientConfig extends ComprehendClientConfigType {}
 
-export type ComprehendClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type ComprehendClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -490,6 +494,10 @@ export type ComprehendClientResolvedConfig = __SmithyResolvedConfiguration<__Htt
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of ComprehendClient class. This is resolved and normalized from the {@link ComprehendClientConfig | constructor configuration interface}.
+ */
+export interface ComprehendClientResolvedConfig extends ComprehendClientResolvedConfigType {}
 
 /**
  * <p>Amazon Comprehend is an AWS service for gaining insight into the content of documents.
@@ -503,6 +511,9 @@ export class ComprehendClient extends __Client<
   ServiceOutputTypes,
   ComprehendClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of ComprehendClient class. This is resolved and normalized from the {@link ComprehendClientConfig | constructor configuration interface}.
+   */
   readonly config: ComprehendClientResolvedConfig;
 
   constructor(configuration: ComprehendClientConfig) {

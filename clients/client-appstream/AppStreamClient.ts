@@ -347,7 +347,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type AppStreamClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type AppStreamClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -355,8 +355,12 @@ export type AppStreamClientConfig = Partial<__SmithyConfiguration<__HttpHandlerO
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of AppStreamClient class constructor that set the region, credentials and other options.
+ */
+export interface AppStreamClientConfig extends AppStreamClientConfigType {}
 
-export type AppStreamClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type AppStreamClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -364,6 +368,10 @@ export type AppStreamClientResolvedConfig = __SmithyResolvedConfiguration<__Http
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of AppStreamClient class. This is resolved and normalized from the {@link AppStreamClientConfig | constructor configuration interface}.
+ */
+export interface AppStreamClientResolvedConfig extends AppStreamClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon AppStream 2.0</fullname>
@@ -394,6 +402,9 @@ export class AppStreamClient extends __Client<
   ServiceOutputTypes,
   AppStreamClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of AppStreamClient class. This is resolved and normalized from the {@link AppStreamClientConfig | constructor configuration interface}.
+   */
   readonly config: AppStreamClientResolvedConfig;
 
   constructor(configuration: AppStreamClientConfig) {

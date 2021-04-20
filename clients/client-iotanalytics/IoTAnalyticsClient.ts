@@ -275,7 +275,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type IoTAnalyticsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type IoTAnalyticsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -283,8 +283,12 @@ export type IoTAnalyticsClientConfig = Partial<__SmithyConfiguration<__HttpHandl
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of IoTAnalyticsClient class constructor that set the region, credentials and other options.
+ */
+export interface IoTAnalyticsClientConfig extends IoTAnalyticsClientConfigType {}
 
-export type IoTAnalyticsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type IoTAnalyticsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -292,6 +296,10 @@ export type IoTAnalyticsClientResolvedConfig = __SmithyResolvedConfiguration<__H
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of IoTAnalyticsClient class. This is resolved and normalized from the {@link IoTAnalyticsClientConfig | constructor configuration interface}.
+ */
+export interface IoTAnalyticsClientResolvedConfig extends IoTAnalyticsClientResolvedConfigType {}
 
 /**
  * <p>AWS IoT Analytics allows you to collect large amounts of device data, process messages, and store them.
@@ -320,6 +328,9 @@ export class IoTAnalyticsClient extends __Client<
   ServiceOutputTypes,
   IoTAnalyticsClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of IoTAnalyticsClient class. This is resolved and normalized from the {@link IoTAnalyticsClientConfig | constructor configuration interface}.
+   */
   readonly config: IoTAnalyticsClientResolvedConfig;
 
   constructor(configuration: IoTAnalyticsClientConfig) {

@@ -194,7 +194,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type PinpointSMSVoiceClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type PinpointSMSVoiceClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -202,8 +202,12 @@ export type PinpointSMSVoiceClientConfig = Partial<__SmithyConfiguration<__HttpH
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of PinpointSMSVoiceClient class constructor that set the region, credentials and other options.
+ */
+export interface PinpointSMSVoiceClientConfig extends PinpointSMSVoiceClientConfigType {}
 
-export type PinpointSMSVoiceClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type PinpointSMSVoiceClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -211,6 +215,10 @@ export type PinpointSMSVoiceClientResolvedConfig = __SmithyResolvedConfiguration
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of PinpointSMSVoiceClient class. This is resolved and normalized from the {@link PinpointSMSVoiceClientConfig | constructor configuration interface}.
+ */
+export interface PinpointSMSVoiceClientResolvedConfig extends PinpointSMSVoiceClientResolvedConfigType {}
 
 /**
  * Pinpoint SMS and Voice Messaging public facing APIs
@@ -221,6 +229,9 @@ export class PinpointSMSVoiceClient extends __Client<
   ServiceOutputTypes,
   PinpointSMSVoiceClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of PinpointSMSVoiceClient class. This is resolved and normalized from the {@link PinpointSMSVoiceClientConfig | constructor configuration interface}.
+   */
   readonly config: PinpointSMSVoiceClientResolvedConfig;
 
   constructor(configuration: PinpointSMSVoiceClientConfig) {

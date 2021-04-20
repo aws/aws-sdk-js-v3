@@ -230,7 +230,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type FSxClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type FSxClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -238,8 +238,12 @@ export type FSxClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of FSxClient class constructor that set the region, credentials and other options.
+ */
+export interface FSxClientConfig extends FSxClientConfigType {}
 
-export type FSxClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type FSxClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -247,6 +251,10 @@ export type FSxClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of FSxClient class. This is resolved and normalized from the {@link FSxClientConfig | constructor configuration interface}.
+ */
+export interface FSxClientResolvedConfig extends FSxClientResolvedConfigType {}
 
 /**
  * <p>Amazon FSx is a fully managed service that makes it easy for storage and
@@ -258,6 +266,9 @@ export class FSxClient extends __Client<
   ServiceOutputTypes,
   FSxClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of FSxClient class. This is resolved and normalized from the {@link FSxClientConfig | constructor configuration interface}.
+   */
   readonly config: FSxClientResolvedConfig;
 
   constructor(configuration: FSxClientConfig) {

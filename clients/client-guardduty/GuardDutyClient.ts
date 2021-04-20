@@ -395,7 +395,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type GuardDutyClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type GuardDutyClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -403,8 +403,12 @@ export type GuardDutyClientConfig = Partial<__SmithyConfiguration<__HttpHandlerO
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of GuardDutyClient class constructor that set the region, credentials and other options.
+ */
+export interface GuardDutyClientConfig extends GuardDutyClientConfigType {}
 
-export type GuardDutyClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type GuardDutyClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -412,6 +416,10 @@ export type GuardDutyClientResolvedConfig = __SmithyResolvedConfiguration<__Http
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of GuardDutyClient class. This is resolved and normalized from the {@link GuardDutyClientConfig | constructor configuration interface}.
+ */
+export interface GuardDutyClientResolvedConfig extends GuardDutyClientResolvedConfigType {}
 
 /**
  * <p>Amazon GuardDuty is a continuous security monitoring service that analyzes and processes
@@ -438,6 +446,9 @@ export class GuardDutyClient extends __Client<
   ServiceOutputTypes,
   GuardDutyClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of GuardDutyClient class. This is resolved and normalized from the {@link GuardDutyClientConfig | constructor configuration interface}.
+   */
   readonly config: GuardDutyClientResolvedConfig;
 
   constructor(configuration: GuardDutyClientConfig) {

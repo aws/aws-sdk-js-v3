@@ -260,7 +260,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type ComprehendMedicalClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type ComprehendMedicalClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -268,8 +268,12 @@ export type ComprehendMedicalClientConfig = Partial<__SmithyConfiguration<__Http
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of ComprehendMedicalClient class constructor that set the region, credentials and other options.
+ */
+export interface ComprehendMedicalClientConfig extends ComprehendMedicalClientConfigType {}
 
-export type ComprehendMedicalClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type ComprehendMedicalClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -277,6 +281,10 @@ export type ComprehendMedicalClientResolvedConfig = __SmithyResolvedConfiguratio
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of ComprehendMedicalClient class. This is resolved and normalized from the {@link ComprehendMedicalClientConfig | constructor configuration interface}.
+ */
+export interface ComprehendMedicalClientResolvedConfig extends ComprehendMedicalClientResolvedConfigType {}
 
 /**
  * <p> Amazon Comprehend Medical extracts structured information from unstructured clinical text. Use these actions
@@ -288,6 +296,9 @@ export class ComprehendMedicalClient extends __Client<
   ServiceOutputTypes,
   ComprehendMedicalClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of ComprehendMedicalClient class. This is resolved and normalized from the {@link ComprehendMedicalClientConfig | constructor configuration interface}.
+   */
   readonly config: ComprehendMedicalClientResolvedConfig;
 
   constructor(configuration: ComprehendMedicalClientConfig) {

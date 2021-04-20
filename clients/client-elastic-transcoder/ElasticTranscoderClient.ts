@@ -206,7 +206,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type ElasticTranscoderClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type ElasticTranscoderClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -214,8 +214,12 @@ export type ElasticTranscoderClientConfig = Partial<__SmithyConfiguration<__Http
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of ElasticTranscoderClient class constructor that set the region, credentials and other options.
+ */
+export interface ElasticTranscoderClientConfig extends ElasticTranscoderClientConfigType {}
 
-export type ElasticTranscoderClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type ElasticTranscoderClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -223,6 +227,10 @@ export type ElasticTranscoderClientResolvedConfig = __SmithyResolvedConfiguratio
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of ElasticTranscoderClient class. This is resolved and normalized from the {@link ElasticTranscoderClientConfig | constructor configuration interface}.
+ */
+export interface ElasticTranscoderClientResolvedConfig extends ElasticTranscoderClientResolvedConfigType {}
 
 /**
  * <fullname>AWS Elastic Transcoder Service</fullname>
@@ -234,6 +242,9 @@ export class ElasticTranscoderClient extends __Client<
   ServiceOutputTypes,
   ElasticTranscoderClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of ElasticTranscoderClient class. This is resolved and normalized from the {@link ElasticTranscoderClientConfig | constructor configuration interface}.
+   */
   readonly config: ElasticTranscoderClientResolvedConfig;
 
   constructor(configuration: ElasticTranscoderClientConfig) {

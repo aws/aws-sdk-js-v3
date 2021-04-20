@@ -150,7 +150,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type QLDBSessionClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type QLDBSessionClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -158,8 +158,12 @@ export type QLDBSessionClientConfig = Partial<__SmithyConfiguration<__HttpHandle
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of QLDBSessionClient class constructor that set the region, credentials and other options.
+ */
+export interface QLDBSessionClientConfig extends QLDBSessionClientConfigType {}
 
-export type QLDBSessionClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type QLDBSessionClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -167,6 +171,10 @@ export type QLDBSessionClientResolvedConfig = __SmithyResolvedConfiguration<__Ht
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of QLDBSessionClient class. This is resolved and normalized from the {@link QLDBSessionClientConfig | constructor configuration interface}.
+ */
+export interface QLDBSessionClientResolvedConfig extends QLDBSessionClientResolvedConfigType {}
 
 /**
  * <p>The transactional data APIs for Amazon QLDB</p>
@@ -197,6 +205,9 @@ export class QLDBSessionClient extends __Client<
   ServiceOutputTypes,
   QLDBSessionClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of QLDBSessionClient class. This is resolved and normalized from the {@link QLDBSessionClientConfig | constructor configuration interface}.
+   */
   readonly config: QLDBSessionClientResolvedConfig;
 
   constructor(configuration: QLDBSessionClientConfig) {

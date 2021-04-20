@@ -275,7 +275,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type MediaTailorClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type MediaTailorClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -283,8 +283,12 @@ export type MediaTailorClientConfig = Partial<__SmithyConfiguration<__HttpHandle
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of MediaTailorClient class constructor that set the region, credentials and other options.
+ */
+export interface MediaTailorClientConfig extends MediaTailorClientConfigType {}
 
-export type MediaTailorClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type MediaTailorClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -292,6 +296,10 @@ export type MediaTailorClientResolvedConfig = __SmithyResolvedConfiguration<__Ht
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of MediaTailorClient class. This is resolved and normalized from the {@link MediaTailorClientConfig | constructor configuration interface}.
+ */
+export interface MediaTailorClientResolvedConfig extends MediaTailorClientResolvedConfigType {}
 
 /**
  * <p>Use the AWS Elemental MediaTailor SDKs and CLI to configure scalable ad insertion and linear channels. With MediaTailor, you can assemble existing content into a linear stream and serve targeted ads to viewers while maintaining broadcast quality in over-the-top (OTT) video applications. For information about using the service, including detailed information about the settings covered in this guide, see the <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/">AWS Elemental MediaTailor User Guide</a>.</p> <p>Through the SDKs and the CLI you manage AWS Elemental MediaTailor configurations and channels the same as you do through the console. For example, you specify ad insertion behavior and mapping information for the origin server and the ad decision server (ADS).</p>
@@ -302,6 +310,9 @@ export class MediaTailorClient extends __Client<
   ServiceOutputTypes,
   MediaTailorClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of MediaTailorClient class. This is resolved and normalized from the {@link MediaTailorClientConfig | constructor configuration interface}.
+   */
   readonly config: MediaTailorClientResolvedConfig;
 
   constructor(configuration: MediaTailorClientConfig) {

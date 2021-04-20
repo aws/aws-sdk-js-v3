@@ -218,7 +218,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type SupportClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type SupportClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -226,8 +226,12 @@ export type SupportClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOpt
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of SupportClient class constructor that set the region, credentials and other options.
+ */
+export interface SupportClientConfig extends SupportClientConfigType {}
 
-export type SupportClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type SupportClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -235,6 +239,10 @@ export type SupportClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHa
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of SupportClient class. This is resolved and normalized from the {@link SupportClientConfig | constructor configuration interface}.
+ */
+export interface SupportClientResolvedConfig extends SupportClientResolvedConfigType {}
 
 /**
  * <fullname>AWS Support</fullname>
@@ -321,6 +329,9 @@ export class SupportClient extends __Client<
   ServiceOutputTypes,
   SupportClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of SupportClient class. This is resolved and normalized from the {@link SupportClientConfig | constructor configuration interface}.
+   */
   readonly config: SupportClientResolvedConfig;
 
   constructor(configuration: SupportClientConfig) {

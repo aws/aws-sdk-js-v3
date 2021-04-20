@@ -404,7 +404,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type ApiGatewayV2ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type ApiGatewayV2ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -412,8 +412,12 @@ export type ApiGatewayV2ClientConfig = Partial<__SmithyConfiguration<__HttpHandl
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of ApiGatewayV2Client class constructor that set the region, credentials and other options.
+ */
+export interface ApiGatewayV2ClientConfig extends ApiGatewayV2ClientConfigType {}
 
-export type ApiGatewayV2ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type ApiGatewayV2ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -421,6 +425,10 @@ export type ApiGatewayV2ClientResolvedConfig = __SmithyResolvedConfiguration<__H
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of ApiGatewayV2Client class. This is resolved and normalized from the {@link ApiGatewayV2ClientConfig | constructor configuration interface}.
+ */
+export interface ApiGatewayV2ClientResolvedConfig extends ApiGatewayV2ClientResolvedConfigType {}
 
 /**
  * <p>Amazon API Gateway V2</p>
@@ -431,6 +439,9 @@ export class ApiGatewayV2Client extends __Client<
   ServiceOutputTypes,
   ApiGatewayV2ClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of ApiGatewayV2Client class. This is resolved and normalized from the {@link ApiGatewayV2ClientConfig | constructor configuration interface}.
+   */
   readonly config: ApiGatewayV2ClientResolvedConfig;
 
   constructor(configuration: ApiGatewayV2ClientConfig) {

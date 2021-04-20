@@ -392,7 +392,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type CodeDeployClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type CodeDeployClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -400,8 +400,12 @@ export type CodeDeployClientConfig = Partial<__SmithyConfiguration<__HttpHandler
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of CodeDeployClient class constructor that set the region, credentials and other options.
+ */
+export interface CodeDeployClientConfig extends CodeDeployClientConfigType {}
 
-export type CodeDeployClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type CodeDeployClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -409,6 +413,10 @@ export type CodeDeployClientResolvedConfig = __SmithyResolvedConfiguration<__Htt
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of CodeDeployClient class. This is resolved and normalized from the {@link CodeDeployClientConfig | constructor configuration interface}.
+ */
+export interface CodeDeployClientResolvedConfig extends CodeDeployClientResolvedConfigType {}
 
 /**
  * <fullname>AWS CodeDeploy</fullname>
@@ -518,6 +526,9 @@ export class CodeDeployClient extends __Client<
   ServiceOutputTypes,
   CodeDeployClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of CodeDeployClient class. This is resolved and normalized from the {@link CodeDeployClientConfig | constructor configuration interface}.
+   */
   readonly config: CodeDeployClientResolvedConfig;
 
   constructor(configuration: CodeDeployClientConfig) {

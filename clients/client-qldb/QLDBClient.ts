@@ -230,7 +230,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type QLDBClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type QLDBClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -238,8 +238,12 @@ export type QLDBClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOption
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of QLDBClient class constructor that set the region, credentials and other options.
+ */
+export interface QLDBClientConfig extends QLDBClientConfigType {}
 
-export type QLDBClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type QLDBClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -247,6 +251,10 @@ export type QLDBClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandl
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of QLDBClient class. This is resolved and normalized from the {@link QLDBClientConfig | constructor configuration interface}.
+ */
+export interface QLDBClientResolvedConfig extends QLDBClientResolvedConfigType {}
 
 /**
  * <p>The control plane for Amazon QLDB</p>
@@ -257,6 +265,9 @@ export class QLDBClient extends __Client<
   ServiceOutputTypes,
   QLDBClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of QLDBClient class. This is resolved and normalized from the {@link QLDBClientConfig | constructor configuration interface}.
+   */
   readonly config: QLDBClientResolvedConfig;
 
   constructor(configuration: QLDBClientConfig) {

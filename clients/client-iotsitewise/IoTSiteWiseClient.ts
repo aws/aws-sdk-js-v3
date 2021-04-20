@@ -371,7 +371,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type IoTSiteWiseClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type IoTSiteWiseClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -379,8 +379,12 @@ export type IoTSiteWiseClientConfig = Partial<__SmithyConfiguration<__HttpHandle
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of IoTSiteWiseClient class constructor that set the region, credentials and other options.
+ */
+export interface IoTSiteWiseClientConfig extends IoTSiteWiseClientConfigType {}
 
-export type IoTSiteWiseClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type IoTSiteWiseClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -388,6 +392,10 @@ export type IoTSiteWiseClientResolvedConfig = __SmithyResolvedConfiguration<__Ht
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of IoTSiteWiseClient class. This is resolved and normalized from the {@link IoTSiteWiseClientConfig | constructor configuration interface}.
+ */
+export interface IoTSiteWiseClientResolvedConfig extends IoTSiteWiseClientResolvedConfigType {}
 
 /**
  * <p>Welcome to the AWS IoT SiteWise API Reference. AWS IoT SiteWise is an AWS service that connects <a href="https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications">Industrial Internet of Things (IIoT)</a> devices to the power of the AWS Cloud. For more information, see the
@@ -399,6 +407,9 @@ export class IoTSiteWiseClient extends __Client<
   ServiceOutputTypes,
   IoTSiteWiseClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of IoTSiteWiseClient class. This is resolved and normalized from the {@link IoTSiteWiseClientConfig | constructor configuration interface}.
+   */
   readonly config: IoTSiteWiseClientResolvedConfig;
 
   constructor(configuration: IoTSiteWiseClientConfig) {

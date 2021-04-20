@@ -308,7 +308,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type ShieldClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type ShieldClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -316,8 +316,12 @@ export type ShieldClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOpti
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of ShieldClient class constructor that set the region, credentials and other options.
+ */
+export interface ShieldClientConfig extends ShieldClientConfigType {}
 
-export type ShieldClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type ShieldClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -325,6 +329,10 @@ export type ShieldClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHan
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of ShieldClient class. This is resolved and normalized from the {@link ShieldClientConfig | constructor configuration interface}.
+ */
+export interface ShieldClientResolvedConfig extends ShieldClientResolvedConfigType {}
 
 /**
  * <fullname>AWS Shield Advanced</fullname>
@@ -338,6 +346,9 @@ export class ShieldClient extends __Client<
   ServiceOutputTypes,
   ShieldClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of ShieldClient class. This is resolved and normalized from the {@link ShieldClientConfig | constructor configuration interface}.
+   */
   readonly config: ShieldClientResolvedConfig;
 
   constructor(configuration: ShieldClientConfig) {

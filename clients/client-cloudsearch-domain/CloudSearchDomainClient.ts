@@ -152,7 +152,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type CloudSearchDomainClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type CloudSearchDomainClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -160,8 +160,12 @@ export type CloudSearchDomainClientConfig = Partial<__SmithyConfiguration<__Http
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of CloudSearchDomainClient class constructor that set the region, credentials and other options.
+ */
+export interface CloudSearchDomainClientConfig extends CloudSearchDomainClientConfigType {}
 
-export type CloudSearchDomainClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type CloudSearchDomainClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -169,6 +173,10 @@ export type CloudSearchDomainClientResolvedConfig = __SmithyResolvedConfiguratio
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of CloudSearchDomainClient class. This is resolved and normalized from the {@link CloudSearchDomainClientConfig | constructor configuration interface}.
+ */
+export interface CloudSearchDomainClientResolvedConfig extends CloudSearchDomainClientResolvedConfigType {}
 
 /**
  * <p>You use the AmazonCloudSearch2013 API to upload documents to a search domain and search those documents. </p>
@@ -182,6 +190,9 @@ export class CloudSearchDomainClient extends __Client<
   ServiceOutputTypes,
   CloudSearchDomainClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of CloudSearchDomainClient class. This is resolved and normalized from the {@link CloudSearchDomainClientConfig | constructor configuration interface}.
+   */
   readonly config: CloudSearchDomainClientResolvedConfig;
 
   constructor(configuration: CloudSearchDomainClientConfig) {

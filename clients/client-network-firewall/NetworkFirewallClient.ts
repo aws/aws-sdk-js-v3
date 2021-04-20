@@ -284,7 +284,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type NetworkFirewallClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type NetworkFirewallClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -292,8 +292,12 @@ export type NetworkFirewallClientConfig = Partial<__SmithyConfiguration<__HttpHa
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of NetworkFirewallClient class constructor that set the region, credentials and other options.
+ */
+export interface NetworkFirewallClientConfig extends NetworkFirewallClientConfigType {}
 
-export type NetworkFirewallClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type NetworkFirewallClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -301,6 +305,10 @@ export type NetworkFirewallClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of NetworkFirewallClient class. This is resolved and normalized from the {@link NetworkFirewallClientConfig | constructor configuration interface}.
+ */
+export interface NetworkFirewallClientResolvedConfig extends NetworkFirewallClientResolvedConfigType {}
 
 /**
  * <p>This is the API Reference for AWS Network Firewall. This guide is for developers who need
@@ -387,6 +395,9 @@ export class NetworkFirewallClient extends __Client<
   ServiceOutputTypes,
   NetworkFirewallClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of NetworkFirewallClient class. This is resolved and normalized from the {@link NetworkFirewallClientConfig | constructor configuration interface}.
+   */
   readonly config: NetworkFirewallClientResolvedConfig;
 
   constructor(configuration: NetworkFirewallClientConfig) {

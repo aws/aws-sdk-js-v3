@@ -179,7 +179,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type ElasticInferenceClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type ElasticInferenceClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -187,8 +187,12 @@ export type ElasticInferenceClientConfig = Partial<__SmithyConfiguration<__HttpH
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of ElasticInferenceClient class constructor that set the region, credentials and other options.
+ */
+export interface ElasticInferenceClientConfig extends ElasticInferenceClientConfigType {}
 
-export type ElasticInferenceClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type ElasticInferenceClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -196,6 +200,10 @@ export type ElasticInferenceClientResolvedConfig = __SmithyResolvedConfiguration
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of ElasticInferenceClient class. This is resolved and normalized from the {@link ElasticInferenceClientConfig | constructor configuration interface}.
+ */
+export interface ElasticInferenceClientResolvedConfig extends ElasticInferenceClientResolvedConfigType {}
 
 /**
  * <p>
@@ -208,6 +216,9 @@ export class ElasticInferenceClient extends __Client<
   ServiceOutputTypes,
   ElasticInferenceClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of ElasticInferenceClient class. This is resolved and normalized from the {@link ElasticInferenceClientConfig | constructor configuration interface}.
+   */
   readonly config: ElasticInferenceClientResolvedConfig;
 
   constructor(configuration: ElasticInferenceClientConfig) {

@@ -410,7 +410,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type Macie2ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type Macie2ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -418,8 +418,12 @@ export type Macie2ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOpti
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of Macie2Client class constructor that set the region, credentials and other options.
+ */
+export interface Macie2ClientConfig extends Macie2ClientConfigType {}
 
-export type Macie2ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type Macie2ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -427,6 +431,10 @@ export type Macie2ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHan
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of Macie2Client class. This is resolved and normalized from the {@link Macie2ClientConfig | constructor configuration interface}.
+ */
+export interface Macie2ClientResolvedConfig extends Macie2ClientResolvedConfigType {}
 
 /**
  * <p>Amazon Macie is a fully managed data security and data privacy service that uses machine learning and pattern matching to discover and protect your sensitive data in AWS. Macie automates the discovery of sensitive data, such as PII and intellectual property, to provide you with insight into the data that your organization stores in AWS. Macie also provides an inventory of your Amazon S3 buckets, which it continually monitors for you. If Macie detects sensitive data or potential data access issues, it generates detailed findings for you to review and act upon as necessary.</p>
@@ -437,6 +445,9 @@ export class Macie2Client extends __Client<
   ServiceOutputTypes,
   Macie2ClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of Macie2Client class. This is resolved and normalized from the {@link Macie2ClientConfig | constructor configuration interface}.
+   */
   readonly config: Macie2ClientResolvedConfig;
 
   constructor(configuration: Macie2ClientConfig) {

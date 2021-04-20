@@ -251,7 +251,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type GroundStationClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type GroundStationClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -259,8 +259,12 @@ export type GroundStationClientConfig = Partial<__SmithyConfiguration<__HttpHand
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of GroundStationClient class constructor that set the region, credentials and other options.
+ */
+export interface GroundStationClientConfig extends GroundStationClientConfigType {}
 
-export type GroundStationClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type GroundStationClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -268,6 +272,10 @@ export type GroundStationClientResolvedConfig = __SmithyResolvedConfiguration<__
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of GroundStationClient class. This is resolved and normalized from the {@link GroundStationClientConfig | constructor configuration interface}.
+ */
+export interface GroundStationClientResolvedConfig extends GroundStationClientResolvedConfigType {}
 
 /**
  * <p>Welcome to the AWS Ground Station API Reference. AWS Ground Station is a fully managed service that
@@ -281,6 +289,9 @@ export class GroundStationClient extends __Client<
   ServiceOutputTypes,
   GroundStationClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of GroundStationClient class. This is resolved and normalized from the {@link GroundStationClientConfig | constructor configuration interface}.
+   */
   readonly config: GroundStationClientResolvedConfig;
 
   constructor(configuration: GroundStationClientConfig) {

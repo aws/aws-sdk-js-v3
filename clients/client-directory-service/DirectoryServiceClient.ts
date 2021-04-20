@@ -416,7 +416,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type DirectoryServiceClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type DirectoryServiceClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -424,8 +424,12 @@ export type DirectoryServiceClientConfig = Partial<__SmithyConfiguration<__HttpH
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of DirectoryServiceClient class constructor that set the region, credentials and other options.
+ */
+export interface DirectoryServiceClientConfig extends DirectoryServiceClientConfigType {}
 
-export type DirectoryServiceClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type DirectoryServiceClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -433,6 +437,10 @@ export type DirectoryServiceClientResolvedConfig = __SmithyResolvedConfiguration
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of DirectoryServiceClient class. This is resolved and normalized from the {@link DirectoryServiceClientConfig | constructor configuration interface}.
+ */
+export interface DirectoryServiceClientResolvedConfig extends DirectoryServiceClientResolvedConfigType {}
 
 /**
  * <fullname>AWS Directory Service</fullname>
@@ -448,6 +456,9 @@ export class DirectoryServiceClient extends __Client<
   ServiceOutputTypes,
   DirectoryServiceClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of DirectoryServiceClient class. This is resolved and normalized from the {@link DirectoryServiceClientConfig | constructor configuration interface}.
+   */
   readonly config: DirectoryServiceClientResolvedConfig;
 
   constructor(configuration: DirectoryServiceClientConfig) {

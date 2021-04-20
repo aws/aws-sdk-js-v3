@@ -170,7 +170,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type IoTJobsDataPlaneClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type IoTJobsDataPlaneClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -178,8 +178,12 @@ export type IoTJobsDataPlaneClientConfig = Partial<__SmithyConfiguration<__HttpH
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of IoTJobsDataPlaneClient class constructor that set the region, credentials and other options.
+ */
+export interface IoTJobsDataPlaneClientConfig extends IoTJobsDataPlaneClientConfigType {}
 
-export type IoTJobsDataPlaneClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type IoTJobsDataPlaneClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -187,6 +191,10 @@ export type IoTJobsDataPlaneClientResolvedConfig = __SmithyResolvedConfiguration
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of IoTJobsDataPlaneClient class. This is resolved and normalized from the {@link IoTJobsDataPlaneClientConfig | constructor configuration interface}.
+ */
+export interface IoTJobsDataPlaneClientResolvedConfig extends IoTJobsDataPlaneClientResolvedConfigType {}
 
 /**
  * <p>AWS IoT Jobs is a service that allows you to define a set of jobs — remote operations that are sent to
@@ -207,6 +215,9 @@ export class IoTJobsDataPlaneClient extends __Client<
   ServiceOutputTypes,
   IoTJobsDataPlaneClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of IoTJobsDataPlaneClient class. This is resolved and normalized from the {@link IoTJobsDataPlaneClientConfig | constructor configuration interface}.
+   */
   readonly config: IoTJobsDataPlaneClientResolvedConfig;
 
   constructor(configuration: IoTJobsDataPlaneClientConfig) {

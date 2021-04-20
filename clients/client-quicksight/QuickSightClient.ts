@@ -560,7 +560,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type QuickSightClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type QuickSightClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -568,8 +568,12 @@ export type QuickSightClientConfig = Partial<__SmithyConfiguration<__HttpHandler
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of QuickSightClient class constructor that set the region, credentials and other options.
+ */
+export interface QuickSightClientConfig extends QuickSightClientConfigType {}
 
-export type QuickSightClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type QuickSightClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -577,6 +581,10 @@ export type QuickSightClientResolvedConfig = __SmithyResolvedConfiguration<__Htt
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of QuickSightClient class. This is resolved and normalized from the {@link QuickSightClientConfig | constructor configuration interface}.
+ */
+export interface QuickSightClientResolvedConfig extends QuickSightClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon QuickSight API Reference</fullname>
@@ -591,6 +599,9 @@ export class QuickSightClient extends __Client<
   ServiceOutputTypes,
   QuickSightClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of QuickSightClient class. This is resolved and normalized from the {@link QuickSightClientConfig | constructor configuration interface}.
+   */
   readonly config: QuickSightClientResolvedConfig;
 
   constructor(configuration: QuickSightClientConfig) {

@@ -161,7 +161,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type MarketplaceMeteringClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type MarketplaceMeteringClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -169,8 +169,12 @@ export type MarketplaceMeteringClientConfig = Partial<__SmithyConfiguration<__Ht
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of MarketplaceMeteringClient class constructor that set the region, credentials and other options.
+ */
+export interface MarketplaceMeteringClientConfig extends MarketplaceMeteringClientConfigType {}
 
-export type MarketplaceMeteringClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type MarketplaceMeteringClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -178,6 +182,10 @@ export type MarketplaceMeteringClientResolvedConfig = __SmithyResolvedConfigurat
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of MarketplaceMeteringClient class. This is resolved and normalized from the {@link MarketplaceMeteringClientConfig | constructor configuration interface}.
+ */
+export interface MarketplaceMeteringClientResolvedConfig extends MarketplaceMeteringClientResolvedConfigType {}
 
 /**
  * <fullname>AWS Marketplace Metering Service</fullname>
@@ -244,6 +252,9 @@ export class MarketplaceMeteringClient extends __Client<
   ServiceOutputTypes,
   MarketplaceMeteringClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of MarketplaceMeteringClient class. This is resolved and normalized from the {@link MarketplaceMeteringClientConfig | constructor configuration interface}.
+   */
   readonly config: MarketplaceMeteringClientResolvedConfig;
 
   constructor(configuration: MarketplaceMeteringClientConfig) {

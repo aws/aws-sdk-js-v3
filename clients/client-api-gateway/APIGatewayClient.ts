@@ -618,7 +618,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type APIGatewayClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type APIGatewayClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -626,8 +626,12 @@ export type APIGatewayClientConfig = Partial<__SmithyConfiguration<__HttpHandler
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of APIGatewayClient class constructor that set the region, credentials and other options.
+ */
+export interface APIGatewayClientConfig extends APIGatewayClientConfigType {}
 
-export type APIGatewayClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type APIGatewayClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -635,6 +639,10 @@ export type APIGatewayClientResolvedConfig = __SmithyResolvedConfiguration<__Htt
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of APIGatewayClient class. This is resolved and normalized from the {@link APIGatewayClientConfig | constructor configuration interface}.
+ */
+export interface APIGatewayClientResolvedConfig extends APIGatewayClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon API Gateway</fullname>
@@ -646,6 +654,9 @@ export class APIGatewayClient extends __Client<
   ServiceOutputTypes,
   APIGatewayClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of APIGatewayClient class. This is resolved and normalized from the {@link APIGatewayClientConfig | constructor configuration interface}.
+   */
   readonly config: APIGatewayClientResolvedConfig;
 
   constructor(configuration: APIGatewayClientConfig) {

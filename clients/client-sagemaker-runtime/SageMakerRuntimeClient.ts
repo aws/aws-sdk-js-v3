@@ -150,7 +150,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type SageMakerRuntimeClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type SageMakerRuntimeClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -158,8 +158,12 @@ export type SageMakerRuntimeClientConfig = Partial<__SmithyConfiguration<__HttpH
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of SageMakerRuntimeClient class constructor that set the region, credentials and other options.
+ */
+export interface SageMakerRuntimeClientConfig extends SageMakerRuntimeClientConfigType {}
 
-export type SageMakerRuntimeClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type SageMakerRuntimeClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -167,6 +171,10 @@ export type SageMakerRuntimeClientResolvedConfig = __SmithyResolvedConfiguration
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of SageMakerRuntimeClient class. This is resolved and normalized from the {@link SageMakerRuntimeClientConfig | constructor configuration interface}.
+ */
+export interface SageMakerRuntimeClientResolvedConfig extends SageMakerRuntimeClientResolvedConfigType {}
 
 /**
  * <p> The Amazon SageMaker runtime API. </p>
@@ -177,6 +185,9 @@ export class SageMakerRuntimeClient extends __Client<
   ServiceOutputTypes,
   SageMakerRuntimeClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of SageMakerRuntimeClient class. This is resolved and normalized from the {@link SageMakerRuntimeClientConfig | constructor configuration interface}.
+   */
   readonly config: SageMakerRuntimeClientResolvedConfig;
 
   constructor(configuration: SageMakerRuntimeClientConfig) {

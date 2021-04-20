@@ -164,7 +164,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type LexRuntimeServiceClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type LexRuntimeServiceClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -172,8 +172,12 @@ export type LexRuntimeServiceClientConfig = Partial<__SmithyConfiguration<__Http
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of LexRuntimeServiceClient class constructor that set the region, credentials and other options.
+ */
+export interface LexRuntimeServiceClientConfig extends LexRuntimeServiceClientConfigType {}
 
-export type LexRuntimeServiceClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type LexRuntimeServiceClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -181,6 +185,10 @@ export type LexRuntimeServiceClientResolvedConfig = __SmithyResolvedConfiguratio
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of LexRuntimeServiceClient class. This is resolved and normalized from the {@link LexRuntimeServiceClientConfig | constructor configuration interface}.
+ */
+export interface LexRuntimeServiceClientResolvedConfig extends LexRuntimeServiceClientResolvedConfigType {}
 
 /**
  * <p>Amazon Lex provides both build and runtime endpoints. Each endpoint
@@ -202,6 +210,9 @@ export class LexRuntimeServiceClient extends __Client<
   ServiceOutputTypes,
   LexRuntimeServiceClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of LexRuntimeServiceClient class. This is resolved and normalized from the {@link LexRuntimeServiceClientConfig | constructor configuration interface}.
+   */
   readonly config: LexRuntimeServiceClientResolvedConfig;
 
   constructor(configuration: LexRuntimeServiceClientConfig) {

@@ -176,7 +176,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type MobileClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type MobileClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -184,8 +184,12 @@ export type MobileClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOpti
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of MobileClient class constructor that set the region, credentials and other options.
+ */
+export interface MobileClientConfig extends MobileClientConfigType {}
 
-export type MobileClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type MobileClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -193,6 +197,10 @@ export type MobileClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHan
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of MobileClient class. This is resolved and normalized from the {@link MobileClientConfig | constructor configuration interface}.
+ */
+export interface MobileClientResolvedConfig extends MobileClientResolvedConfigType {}
 
 /**
  * <p>
@@ -207,6 +215,9 @@ export class MobileClient extends __Client<
   ServiceOutputTypes,
   MobileClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of MobileClient class. This is resolved and normalized from the {@link MobileClientConfig | constructor configuration interface}.
+   */
   readonly config: MobileClientResolvedConfig;
 
   constructor(configuration: MobileClientConfig) {

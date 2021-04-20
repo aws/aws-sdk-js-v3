@@ -254,7 +254,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type ApplicationInsightsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type ApplicationInsightsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -262,8 +262,12 @@ export type ApplicationInsightsClientConfig = Partial<__SmithyConfiguration<__Ht
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of ApplicationInsightsClient class constructor that set the region, credentials and other options.
+ */
+export interface ApplicationInsightsClientConfig extends ApplicationInsightsClientConfigType {}
 
-export type ApplicationInsightsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type ApplicationInsightsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -271,6 +275,10 @@ export type ApplicationInsightsClientResolvedConfig = __SmithyResolvedConfigurat
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of ApplicationInsightsClient class. This is resolved and normalized from the {@link ApplicationInsightsClientConfig | constructor configuration interface}.
+ */
+export interface ApplicationInsightsClientResolvedConfig extends ApplicationInsightsClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon CloudWatch Application Insights</fullname>
@@ -293,6 +301,9 @@ export class ApplicationInsightsClient extends __Client<
   ServiceOutputTypes,
   ApplicationInsightsClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of ApplicationInsightsClient class. This is resolved and normalized from the {@link ApplicationInsightsClientConfig | constructor configuration interface}.
+   */
   readonly config: ApplicationInsightsClientResolvedConfig;
 
   constructor(configuration: ApplicationInsightsClientConfig) {

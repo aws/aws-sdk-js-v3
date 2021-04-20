@@ -224,7 +224,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type SignerClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type SignerClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -232,8 +232,12 @@ export type SignerClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOpti
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of SignerClient class constructor that set the region, credentials and other options.
+ */
+export interface SignerClientConfig extends SignerClientConfigType {}
 
-export type SignerClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type SignerClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -241,6 +245,10 @@ export type SignerClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHan
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of SignerClient class. This is resolved and normalized from the {@link SignerClientConfig | constructor configuration interface}.
+ */
+export interface SignerClientResolvedConfig extends SignerClientResolvedConfigType {}
 
 /**
  * <p>AWS Signer is a fully managed code signing service to help you ensure the trust and
@@ -267,6 +275,9 @@ export class SignerClient extends __Client<
   ServiceOutputTypes,
   SignerClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of SignerClient class. This is resolved and normalized from the {@link SignerClientConfig | constructor configuration interface}.
+   */
   readonly config: SignerClientResolvedConfig;
 
   constructor(configuration: SignerClientConfig) {

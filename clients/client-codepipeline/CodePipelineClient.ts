@@ -326,7 +326,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type CodePipelineClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type CodePipelineClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -334,8 +334,12 @@ export type CodePipelineClientConfig = Partial<__SmithyConfiguration<__HttpHandl
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of CodePipelineClient class constructor that set the region, credentials and other options.
+ */
+export interface CodePipelineClientConfig extends CodePipelineClientConfigType {}
 
-export type CodePipelineClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type CodePipelineClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -343,6 +347,10 @@ export type CodePipelineClientResolvedConfig = __SmithyResolvedConfiguration<__H
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of CodePipelineClient class. This is resolved and normalized from the {@link CodePipelineClientConfig | constructor configuration interface}.
+ */
+export interface CodePipelineClientResolvedConfig extends CodePipelineClientResolvedConfigType {}
 
 /**
  * <fullname>AWS CodePipeline</fullname>
@@ -547,6 +555,9 @@ export class CodePipelineClient extends __Client<
   ServiceOutputTypes,
   CodePipelineClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of CodePipelineClient class. This is resolved and normalized from the {@link CodePipelineClientConfig | constructor configuration interface}.
+   */
   readonly config: CodePipelineClientResolvedConfig;
 
   constructor(configuration: CodePipelineClientConfig) {
